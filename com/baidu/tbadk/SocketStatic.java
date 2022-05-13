@@ -8,7 +8,6 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.httpNet.ImgHttpClient;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,10 +15,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mi;
+import com.repackage.ki;
 import com.repackage.nb;
-import com.repackage.z35;
-import org.apache.http.conn.params.ConnRoutePNames;
+import com.repackage.q45;
 /* loaded from: classes2.dex */
 public class SocketStatic {
     public static /* synthetic */ Interceptable $ic = null;
@@ -94,16 +92,10 @@ public class SocketStatic {
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable3 = $ic;
-                            if ((interceptable3 == null || interceptable3.invokeV(1048576, this) == null) && mi.z()) {
-                                if (BdSocketLinkService.isClose()) {
-                                    z35.b(0, 0, 0, 1, 6);
-                                    BdSocketLinkService.setAvailable(true);
-                                    BdSocketLinkService.startService(false, "net succ");
-                                }
-                                synchronized (ImgHttpClient.class) {
-                                    ImgHttpClient.mHttpParams.removeParameter(ConnRoutePNames.DEFAULT_PROXY);
-                                    ImgHttpClient.proxyHost = null;
-                                }
+                            if ((interceptable3 == null || interceptable3.invokeV(1048576, this) == null) && ki.z() && BdSocketLinkService.isClose()) {
+                                q45.b(0, 0, 0, 1, 6);
+                                BdSocketLinkService.setAvailable(true);
+                                BdSocketLinkService.startService(false, "net succ");
                             }
                         }
                     });

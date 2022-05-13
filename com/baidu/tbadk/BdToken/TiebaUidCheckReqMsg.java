@@ -8,15 +8,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi4;
-import com.repackage.rc5;
+import com.repackage.aj4;
+import com.repackage.jd5;
 import tbclient.GetUserByTiebaUid.DataReq;
 import tbclient.GetUserByTiebaUid.GetUserByTiebaUidReqIdl;
 /* loaded from: classes2.dex */
 public class TiebaUidCheckReqMsg extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pi4.l mTiebaUidData;
+    public aj4.l mTiebaUidData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TiebaUidCheckReqMsg() {
@@ -47,7 +47,7 @@ public class TiebaUidCheckReqMsg extends NetMessage {
                 if (this.mTiebaUidData.b() != null) {
                     builder.tieba_uid = this.mTiebaUidData.b();
                 }
-                rc5.c(builder, true, true, true);
+                jd5.c(builder, true, true, true);
                 GetUserByTiebaUidReqIdl.Builder builder2 = new GetUserByTiebaUidReqIdl.Builder();
                 builder2.data = builder.build(true);
                 return builder2.build(true);
@@ -59,7 +59,7 @@ public class TiebaUidCheckReqMsg extends NetMessage {
         return invokeZ.objValue;
     }
 
-    public void setTiebaUid(pi4.l lVar) {
+    public void setTiebaUid(aj4.l lVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar) == null) {
             this.mTiebaUidData = lVar;

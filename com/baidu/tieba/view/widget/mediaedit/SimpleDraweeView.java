@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ac9;
+import com.repackage.va9;
 /* loaded from: classes4.dex */
 public class SimpleDraweeView extends com.facebook.drawee.view.SimpleDraweeView {
     public static /* synthetic */ Interceptable $ic;
@@ -41,7 +41,7 @@ public class SimpleDraweeView extends com.facebook.drawee.view.SimpleDraweeView 
             try {
                 super.onDraw(canvas);
             } catch (Exception e) {
-                ac9.g(e);
+                va9.g(e);
             }
         }
     }

@@ -1,22 +1,12 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.mainentrance.RequestSearchPersonHistoryReadMessage;
-import com.baidu.tieba.mainentrance.ResponseSearchPersonHistoryReadMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qe;
-import java.util.LinkedList;
-import java.util.List;
+import tbclient.HotForum.ForumInfo;
 /* loaded from: classes6.dex */
-public class mf7 implements CustomMessageTask.CustomRunnable<Object> {
+public class mf7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,42 +24,16 @@ public class mf7 implements CustomMessageTask.CustomRunnable<Object> {
         }
     }
 
-    public static final List<String> a(List<qe.b<String>> list) {
-        InterceptResult invokeL;
+    public void a(ForumInfo forumInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            LinkedList linkedList = new LinkedList();
-            if (list != null) {
-                for (qe.b<String> bVar : list) {
-                    String str = bVar.a;
-                    if (!TextUtils.isEmpty(str)) {
-                        linkedList.add(str);
-                    }
-                }
-            }
-            return linkedList;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, forumInfo) == null) || forumInfo == null) {
+            return;
         }
-        return (List) invokeL.objValue;
-    }
-
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage == null || !(customMessage instanceof RequestSearchPersonHistoryReadMessage)) {
-                return null;
-            }
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount == null) {
-                currentAccount = "";
-            }
-            br4.f();
-            List<String> a = a(ti.b(br4.h("tb.searchperson_history", currentAccount)));
-            ResponseSearchPersonHistoryReadMessage responseSearchPersonHistoryReadMessage = new ResponseSearchPersonHistoryReadMessage();
-            responseSearchPersonHistoryReadMessage.datas.addAll(a);
-            return responseSearchPersonHistoryReadMessage;
-        }
-        return (CustomResponsedMessage) invokeL.objValue;
+        String str = forumInfo.avatar;
+        forumInfo.forum_id.longValue();
+        String str2 = forumInfo.forum_name;
+        forumInfo.time_out.longValue();
+        forumInfo.member_count.longValue();
+        forumInfo.thread_count.longValue();
     }
 }

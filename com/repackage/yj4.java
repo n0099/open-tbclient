@@ -1,77 +1,92 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BdToken.activeConfig.ActiveCenterData;
+import com.baidu.tbadk.core.data.NewUserRedPackageData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import tbclient.ActiveConfig.DataRes;
+import tbclient.FloatStrategy;
+import tbclient.MissionInfo;
 /* loaded from: classes7.dex */
 public class yj4 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
+    public DataRes a;
+    public boolean b;
+    public String c;
+    public final ArrayList<yi4> d;
+    public final ArrayList<FloatStrategy> e;
+    public NewUserRedPackageData f;
+    public ActiveCenterData g;
 
-    public static void a(String str) {
+    public yj4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            StatisticItem addParam = new StatisticItem("c14570").addParam("obj_type", 2).addParam("obj_source", 1).addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            if (!StringUtils.isNull(str)) {
-                addParam.addParam("obj_locate", str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            addParam.eventStat();
         }
+        this.b = false;
+        this.c = "";
+        this.d = new ArrayList<>();
+        this.e = new ArrayList<>();
     }
 
-    public static void b(String str, String str2) {
+    public ArrayList<FloatStrategy> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            StatisticItem addParam = new StatisticItem("c14570").addParam("obj_type", 2).addParam("obj_source", 2).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam(TiebaStatic.Params.OBJ_PARAM3, str2);
-            if (!StringUtils.isNull(str)) {
-                addParam.addParam("obj_locate", str);
-            }
-            addParam.eventStat();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (ArrayList) invokeV.objValue;
     }
 
-    public static void c(int i, int i2) {
+    public ArrayList<yi4> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65538, null, i, i2) == null) {
-            StatisticItem addParam = new StatisticItem("c14570").addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_type", 1).addParam("obj_source", 3).addParam("obj_param1", i).addParam(TiebaStatic.Params.OBJ_PARAM2, i2);
-            if (!StringUtils.isNull(b)) {
-                addParam.addParam(TiebaStatic.Params.OBJ_PARAM3, b);
-            }
-            if (!StringUtils.isNull(a)) {
-                addParam.addParam("obj_locate", a);
-            }
-            addParam.eventStat();
-            b = null;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (ArrayList) invokeV.objValue;
     }
 
-    public static void d(String str) {
+    public void c(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            StatisticItem addParam = new StatisticItem("c14570").addParam("obj_type", 1).addParam("obj_source", 1).addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            if (!StringUtils.isNull(str)) {
-                addParam.addParam("obj_locate", str);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) == null) {
+            this.a = dataRes;
+            this.d.clear();
+            this.e.clear();
+            if (dataRes == null) {
+                return;
             }
-            a = str;
-            addParam.eventStat();
-        }
-    }
-
-    public static void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            StatisticItem addParam = new StatisticItem("c14570").addParam("obj_type", 1).addParam("obj_source", 2).addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            if (!StringUtils.isNull(a)) {
-                addParam.addParam("obj_locate", a);
+            this.b = dataRes.is_new_user.intValue() == 1;
+            this.c = dataRes.active_url;
+            this.e.addAll(dataRes.float_list);
+            for (MissionInfo missionInfo : this.a.mission_list) {
+                if (missionInfo != null) {
+                    yi4 yi4Var = new yi4(missionInfo);
+                    if (missionInfo.tasktype.intValue() == 5) {
+                        gu4.e().g(missionInfo);
+                    } else if (missionInfo.tasktype.intValue() == 9) {
+                        mj4.c().f(yi4Var);
+                    } else if (yi4Var.K()) {
+                        this.d.add(yi4Var);
+                    }
+                }
             }
-            a = null;
-            addParam.eventStat();
+            NewUserRedPackageData newUserRedPackageData = new NewUserRedPackageData();
+            this.f = newUserRedPackageData;
+            newUserRedPackageData.parseProto(dataRes);
+            if (dataRes.active_center != null) {
+                ActiveCenterData activeCenterData = new ActiveCenterData();
+                this.g = activeCenterData;
+                activeCenterData.parseProto(dataRes);
+            }
         }
     }
 }

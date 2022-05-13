@@ -22,22 +22,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ej4;
-import com.repackage.fo;
-import com.repackage.ig;
-import com.repackage.oi;
-/* loaded from: classes4.dex */
+import com.repackage.co;
+import com.repackage.gg;
+import com.repackage.mi;
+import com.repackage.pj4;
+/* loaded from: classes3.dex */
 public class NewUserRedPackageActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView mBgImage;
     public ImageView mCloseBtnImage;
     public NewUserRedPackageData mData;
-    public ej4 mGetMoneyModel;
+    public pj4 mGetMoneyModel;
     public View.OnClickListener mOnClickListener;
     public RoundRelativeLayout mRoundCornerLayout;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -104,17 +104,17 @@ public class NewUserRedPackageActivity extends BaseActivity {
     }
 
     private void setData() {
-        fo foVar;
+        co coVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || getIntent() == null) {
             return;
         }
         NewUserRedPackageData newUserRedPackageData = (NewUserRedPackageData) getIntent().getSerializableExtra("key_data");
         this.mData = newUserRedPackageData;
-        if (newUserRedPackageData == null || (foVar = (fo) ig.h().n(this.mData.topPicUrl, 10, new Object[0])) == null) {
+        if (newUserRedPackageData == null || (coVar = (co) gg.h().n(this.mData.topPicUrl, 10, new Object[0])) == null) {
             return;
         }
-        this.mBgImage.setImageBitmap(foVar.p());
+        this.mBgImage.setImageBitmap(coVar.p());
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -163,16 +163,16 @@ public class NewUserRedPackageActivity extends BaseActivity {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0047);
-            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091ae8);
+            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091b36);
             this.mRoundCornerLayout = roundRelativeLayout;
-            roundRelativeLayout.setAllCornerRound(oi.f(this, R.dimen.tbds31));
-            this.mBgImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e9c);
-            this.mCloseBtnImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e9f);
+            roundRelativeLayout.setAllCornerRound(mi.f(this, R.dimen.tbds31));
+            this.mBgImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ea6);
+            this.mCloseBtnImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ea9);
             this.mBgImage.setOnClickListener(this.mOnClickListener);
             this.mCloseBtnImage.setOnClickListener(this.mOnClickListener);
             setData();
             TiebaStatic.log(new StatisticItem("c13684").param("obj_type", 1));
-            this.mGetMoneyModel = new ej4();
+            this.mGetMoneyModel = new pj4();
         }
     }
 }

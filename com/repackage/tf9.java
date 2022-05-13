@@ -1,369 +1,278 @@
 package com.repackage;
 
+import android.animation.Animator;
+import android.app.Activity;
+import android.util.DisplayMetrics;
+import android.util.Pair;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.OvershootInterpolator;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.NumberUtils;
-import java.io.ObjectInput;
-import java.io.ObjectOutput;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.bytedance.sdk.openadsdk.ISplashClickEyeListener;
+import com.bytedance.sdk.openadsdk.TTSplashAd;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunSplashAd;
+import com.fun.ad.sdk.FunSplashAdInteractionListener;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.PxUtils;
+import com.fun.ad.sdk.internal.api.utils.ViewUtils;
 /* loaded from: classes7.dex */
-public final class tf9 extends zk9 {
+public class tf9 implements FunSplashAd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final List<b> b;
-    public final int c;
+    public final TTSplashAd a;
+    public final View b;
+    public final Pair<Integer, Integer> c;
+    public final int d;
+    public final int e;
+    public boolean f;
+    public int g;
+    public int h;
+    public FrameLayout i;
+    public FunSplashAdInteractionListener j;
 
     /* loaded from: classes7.dex */
-    public static final class a extends zk9 implements lf9 {
+    public class a implements ISplashClickEyeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final long a;
-        public final int b;
-        public final Ssp.Pid c;
+        public final /* synthetic */ tf9 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i, ObjectInput objectInput, Map<Long, Ssp.Pid> map, b bVar) {
-            super(i);
+        public a(tf9 tf9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), objectInput, map, bVar};
+                Object[] objArr = {tf9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            long readLong = objectInput.readLong();
-            this.a = readLong;
-            this.b = objectInput.readInt();
-            this.c = map.get(Long.valueOf(readLong));
+            this.a = tf9Var;
         }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(JSONObject jSONObject, Map<Long, Ssp.Pid> map, b bVar) {
-            super(0);
+        @Override // com.bytedance.sdk.openadsdk.ISplashClickEyeListener
+        public boolean isSupportSplashClickEye(boolean z) {
+            InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jSONObject, map, bVar};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+                this.a.f = z;
+                LogPrinter.d("isSupportSplashClickEye:" + z, new Object[0]);
+                return false;
             }
-            long adjustLong = NumberUtils.adjustLong(jSONObject.getLong("id"), 0L);
-            this.a = adjustLong;
-            this.b = NumberUtils.adjustInt(jSONObject.getInt("weight"), 0);
-            this.c = map.get(Long.valueOf(adjustLong));
+            return invokeZ.booleanValue;
         }
 
-        @Override // com.repackage.lf9
-        public boolean a() {
-            InterceptResult invokeV;
+        @Override // com.bytedance.sdk.openadsdk.ISplashClickEyeListener
+        public void onSplashClickEyeAnimationFinish() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return true;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                LogPrinter.d();
+                ViewUtils.removeFromParent(this.a.i);
+                this.a.i = null;
             }
-            return invokeV.booleanValue;
         }
 
-        @Override // com.repackage.lf9
-        public int b() {
-            InterceptResult invokeV;
+        @Override // com.bytedance.sdk.openadsdk.ISplashClickEyeListener
+        public void onSplashClickEyeAnimationStart() {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
-        }
-
-        public boolean equals(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-                if (this == obj) {
-                    return true;
-                }
-                if (obj == null || a.class != obj.getClass()) {
-                    return false;
-                }
-                a aVar = (a) obj;
-                return this.a == aVar.a && this.b == aVar.b && Objects.equals(this.c, aVar.c);
-            }
-            return invokeL.booleanValue;
-        }
-
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Objects.hash(Long.valueOf(this.a), Integer.valueOf(this.b), this.c) : invokeV.intValue;
-        }
-
-        @Override // com.repackage.zk9
-        public void srzableInternal(ObjectOutput objectOutput) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, objectOutput) == null) {
-                objectOutput.writeLong(this.a);
-                objectOutput.writeInt(this.b);
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                LogPrinter.d();
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public static final class b extends zk9 {
+    public class b implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final long a;
-        public final List<a> b;
+        public final /* synthetic */ ViewGroup a;
+        public final /* synthetic */ float b;
+        public final /* synthetic */ float c;
+        public final /* synthetic */ int[] d;
+        public final /* synthetic */ int e;
+        public final /* synthetic */ int f;
+        public final /* synthetic */ tf9 g;
 
-        /* loaded from: classes7.dex */
-        public class a implements Comparator<T> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            @Override // java.util.Comparator
-            public int compare(Object obj, Object obj2) {
-                InterceptResult invokeLL;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) ? -Integer.compare(((a) obj).b, ((a) obj2).b) : invokeLL.intValue;
-            }
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(int i, ObjectInput objectInput, Map<Long, Ssp.Pid> map) {
-            super(i);
+        public b(tf9 tf9Var, ViewGroup viewGroup, float f, float f2, int[] iArr, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), objectInput, map};
+                Object[] objArr = {tf9Var, viewGroup, Float.valueOf(f), Float.valueOf(f2), iArr, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = objectInput.readLong();
-            int readInt = objectInput.readInt();
-            HashSet hashSet = new HashSet();
-            for (int i4 = 0; i4 < readInt; i4++) {
-                hashSet.add(new a(objectInput.readInt(), objectInput, map, this));
-            }
-            ArrayList arrayList = new ArrayList(hashSet);
-            a(arrayList);
-            this.b = Collections.unmodifiableList(arrayList);
+            this.g = tf9Var;
+            this.a = viewGroup;
+            this.b = f;
+            this.c = f2;
+            this.d = iArr;
+            this.e = i;
+            this.f = i2;
         }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(JSONObject jSONObject, Map<Long, Ssp.Pid> map) {
-            super(0);
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationCancel(Animator animator) {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jSONObject, map};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
             }
-            this.a = NumberUtils.adjustLong(jSONObject.optLong("tmout", 5000L), 100L, 30000L);
-            HashSet hashSet = new HashSet();
-            JSONArray jSONArray = jSONObject.getJSONArray(TiebaStatic.Params.PID_MERGE);
-            for (int i3 = 0; i3 < jSONArray.length(); i3++) {
-                hashSet.add(new a(jSONArray.getJSONObject(i3), map, this));
-            }
-            ArrayList arrayList = new ArrayList(hashSet);
-            a(arrayList);
-            this.b = Collections.unmodifiableList(arrayList);
         }
 
-        public final <T extends a> List<T> a(List<T> list) {
-            InterceptResult invokeL;
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-                Collections.sort(list, new a(this));
-                return list;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
+                this.g.a(this.a, this.b, this.c, this.d, this.e, this.f);
             }
-            return (List) invokeL.objValue;
         }
 
-        public boolean equals(Object obj) {
-            InterceptResult invokeL;
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationRepeat(Animator animator) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-                if (this == obj) {
-                    return true;
-                }
-                if (obj == null || b.class != obj.getClass()) {
-                    return false;
-                }
-                b bVar = (b) obj;
-                return this.a == bVar.a && Objects.equals(this.b, bVar.b);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
             }
-            return invokeL.booleanValue;
         }
 
-        public int hashCode() {
-            InterceptResult invokeV;
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Objects.hash(Long.valueOf(this.a), this.b) : invokeV.intValue;
-        }
-
-        @Override // com.repackage.zk9
-        public void srzableInternal(ObjectOutput objectOutput) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, objectOutput) == null) {
-                objectOutput.writeLong(this.a);
-                objectOutput.writeInt(this.b.size());
-                for (a aVar : this.b) {
-                    aVar.srzable(objectOutput);
-                }
+            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tf9(int i, ObjectInput objectInput, Map<Long, Ssp.Pid> map) {
-        super(i);
+    public tf9(TTSplashAd tTSplashAd) {
+        Integer valueOf;
+        int round;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), objectInput, map};
+            Object[] objArr = {tTSplashAd};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = objectInput.readUTF();
-        int readInt = objectInput.readInt();
-        ArrayList arrayList = new ArrayList();
-        for (int i4 = 0; i4 < readInt; i4++) {
-            arrayList.add(new b(objectInput.readInt(), objectInput, map));
-        }
-        this.b = Collections.unmodifiableList(arrayList);
-        if (i >= 1) {
-            this.c = objectInput.readInt();
+        this.d = PxUtils.dp2px(16.0f);
+        this.e = PxUtils.dp2px(100.0f);
+        this.i = new FrameLayout(FunAdSdk.getAppContext());
+        tTSplashAd.setSplashClickEyeListener(new a(this));
+        this.a = tTSplashAd;
+        this.b = tTSplashAd.getSplashView();
+        int[] splashClickEyeSizeToDp = tTSplashAd.getSplashClickEyeSizeToDp();
+        if (splashClickEyeSizeToDp == null || splashClickEyeSizeToDp.length != 2) {
+            DisplayMetrics displayMetrics = FunAdSdk.getAppContext().getResources().getDisplayMetrics();
+            int round2 = Math.round(Math.min(displayMetrics.heightPixels, displayMetrics.widthPixels) * 0.3f);
+            valueOf = Integer.valueOf(round2);
+            round = Math.round((round2 * 16) / 9.0f);
         } else {
-            this.c = 0;
+            valueOf = Integer.valueOf(PxUtils.dp2px(splashClickEyeSizeToDp[0]));
+            round = PxUtils.dp2px(splashClickEyeSizeToDp[1]);
+        }
+        this.c = Pair.create(valueOf, Integer.valueOf(round));
+    }
+
+    public final void a(ViewGroup viewGroup, float f, float f2, int[] iArr, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, Float.valueOf(f), Float.valueOf(f2), iArr, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            ViewUtils.removeFromParent(this.b);
+            this.b.setScaleX(1.0f);
+            this.b.setScaleY(1.0f);
+            this.b.setX(0.0f);
+            this.b.setY(0.0f);
+            int[] iArr2 = new int[2];
+            viewGroup.getLocationOnScreen(iArr2);
+            float f3 = (f2 - iArr2[1]) + iArr[1];
+            this.i.addView(this.b, -1, -1);
+            viewGroup.addView(this.i, new FrameLayout.LayoutParams(i, i2));
+            this.i.setTranslationX((f - iArr2[0]) + iArr[0]);
+            this.i.setTranslationY(f3);
+            this.a.splashClickEyeAnimationFinish();
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tf9(JSONObject jSONObject, Map<Long, Ssp.Pid> map) {
-        super(1);
+    @Override // com.fun.ad.sdk.FunSplashAd
+    public void removeMiniWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject, map};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LogPrinter.d();
+            FrameLayout frameLayout = this.i;
+            if (frameLayout != null) {
+                ViewUtils.removeFromParent(frameLayout);
+                this.i = null;
             }
+            this.j = null;
         }
-        this.a = jSONObject.getString("sid");
-        JSONArray jSONArray = jSONObject.getJSONArray("pGroups");
-        ArrayList arrayList = new ArrayList();
-        for (int i3 = 0; i3 < jSONArray.length(); i3++) {
-            arrayList.add(new b(jSONArray.getJSONObject(i3), map));
-        }
-        this.b = Collections.unmodifiableList(arrayList);
-        this.c = jSONObject.optInt("ver", 0);
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    @Override // com.fun.ad.sdk.FunSplashAd
+    public boolean showMiniWindow(Activity activity, boolean z, FunSplashAdInteractionListener funSplashAdInteractionListener) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, Boolean.valueOf(z), funSplashAdInteractionListener})) == null) {
+            if (activity != null) {
+                if (!this.f) {
+                    LogPrinter.d("showMiniWindow failed without support", new Object[0]);
+                    return false;
+                } else if (this.i == null) {
+                    LogPrinter.d("showMiniWindow failed:Can't showMiniWindow again", new Object[0]);
+                    return false;
+                } else {
+                    this.j = funSplashAdInteractionListener;
+                    ViewGroup viewGroup = (ViewGroup) activity.getWindow().getDecorView();
+                    ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(16908290);
+                    int[] iArr = new int[2];
+                    this.b.getLocationOnScreen(iArr);
+                    int width = this.b.getWidth();
+                    int height = this.b.getHeight();
+                    int i = this.g;
+                    int i2 = this.h;
+                    if (i == 0 || i2 == 0) {
+                        LogPrinter.d("showMiniWindow failed without invalid origin view width and height", new Object[0]);
+                        return false;
+                    }
+                    int intValue = ((Integer) this.c.first).intValue();
+                    int intValue2 = ((Integer) this.c.second).intValue();
+                    float f = intValue / width;
+                    float f2 = intValue2 / height;
+                    float f3 = (i - this.d) - intValue;
+                    float f4 = (i2 - this.e) - intValue2;
+                    ViewUtils.removeFromParent(this.b);
+                    viewGroup.addView(this.b, new FrameLayout.LayoutParams(width, height));
+                    this.b.setPivotX(0.0f);
+                    this.b.setPivotY(0.0f);
+                    if (z) {
+                        this.b.animate().scaleX(f).scaleY(f2).x(f3).y(f4).setInterpolator(new OvershootInterpolator(0.0f)).setDuration(300L).setListener(new b(this, viewGroup2, f3, f4, iArr, intValue, intValue2));
+                        return true;
+                    }
+                    a(viewGroup2, f3, f4, iArr, intValue, intValue2);
+                    return true;
+                }
             }
-            if (obj == null || tf9.class != obj.getClass()) {
-                return false;
-            }
-            tf9 tf9Var = (tf9) obj;
-            return Objects.equals(this.a, tf9Var.a) && Objects.equals(this.b, tf9Var.b) && this.c == tf9Var.c;
+            throw new IllegalArgumentException();
         }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Objects.hash(this.a, this.b, Integer.valueOf(this.c)) : invokeV.intValue;
-    }
-
-    @Override // com.repackage.zk9
-    public void srzableInternal(ObjectOutput objectOutput) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objectOutput) == null) {
-            objectOutput.writeUTF(this.a);
-            objectOutput.writeInt(this.b.size());
-            for (b bVar : this.b) {
-                bVar.srzable(objectOutput);
-            }
-            objectOutput.writeInt(this.c);
-        }
+        return invokeCommon.booleanValue;
     }
 }

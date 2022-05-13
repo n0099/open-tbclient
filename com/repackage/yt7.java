@@ -25,8 +25,8 @@ public class yt7 {
     public transient /* synthetic */ FieldHolder $fh;
     public FoldCommentActivity a;
     public BdTypeListView b;
-    public kx7 c;
-    public mx7 d;
+    public hx7 c;
+    public jx7 d;
     public View.OnClickListener e;
     public View.OnClickListener f;
     public TbRichTextView.y g;
@@ -34,9 +34,9 @@ public class yt7 {
     public View.OnLongClickListener i;
     public SubPbReplyAdapter j;
     public zt7 k;
-    public List<ho> l;
+    public List<eo> l;
     public bs7 m;
-    public ArrayList<uo> n;
+    public ArrayList<ro> n;
 
     public yt7(FoldCommentActivity foldCommentActivity, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class yt7 {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SubPbReplyAdapter subPbReplyAdapter = new SubPbReplyAdapter(this.a, py7.b);
+            SubPbReplyAdapter subPbReplyAdapter = new SubPbReplyAdapter(this.a, my7.b);
             this.j = subPbReplyAdapter;
             subPbReplyAdapter.b0(false);
             this.l.add(this.j);
@@ -139,9 +139,9 @@ public class yt7 {
             this.n.clear();
             bs7 bs7Var2 = this.m;
             if (bs7Var2 != null && bs7Var2.F() != null && this.m.F().size() > 0) {
-                py7 py7Var = new py7();
-                py7Var.b(bs7Var.F().size());
-                this.n.add(py7Var);
+                my7 my7Var = new my7();
+                my7Var.b(bs7Var.F().size());
+                this.n.add(my7Var);
                 Iterator<PostData> it = this.m.F().iterator();
                 while (it.hasNext()) {
                     PostData next = it.next();
@@ -151,7 +151,7 @@ public class yt7 {
                 }
             }
             if (bs7Var.O() != null && bs7Var.O().getAuthor() != null && (zt7Var = this.k) != null) {
-                zt7Var.p(bs7Var.O().getAuthor().getUserId());
+                zt7Var.q(bs7Var.O().getAuthor().getUserId());
             }
             if (this.m != null) {
                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_PB_HAS_FOLD_ICON_SHOW);
@@ -166,17 +166,17 @@ public class yt7 {
         }
     }
 
-    public void i(kx7 kx7Var) {
+    public void i(hx7 hx7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, kx7Var) == null) {
-            this.c = kx7Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, hx7Var) == null) {
+            this.c = hx7Var;
         }
     }
 
-    public void j(mx7 mx7Var) {
+    public void j(jx7 jx7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, mx7Var) == null) {
-            this.d = mx7Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, jx7Var) == null) {
+            this.d = jx7Var;
         }
     }
 

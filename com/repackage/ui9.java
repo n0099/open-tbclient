@@ -9,8 +9,11 @@ import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
 import com.fun.ad.sdk.internal.api.ripper.RippedAd;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.kwad.sdk.core.response.model.AdInfo;
+import com.kwad.sdk.core.response.model.AdResultData;
+import com.kwad.sdk.core.response.model.AdTemplate;
 import java.lang.reflect.Field;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class ui9 extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
@@ -39,11 +42,10 @@ public class ui9 extends BaseAdRipper {
     @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
     public RippedAd getRippedAdInternal(Object obj) {
         InterceptResult invokeL;
+        List<AdTemplate> list;
+        AdInfo adInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj == null) {
-                return null;
-            }
             try {
                 Field declaredField = obj.getClass().getDeclaredField("a");
                 declaredField.setAccessible(true);
@@ -51,21 +53,18 @@ public class ui9 extends BaseAdRipper {
                 if (obj2 == null) {
                     return null;
                 }
-                Field declaredField2 = obj2.getClass().getDeclaredField("c");
-                declaredField2.setAccessible(true);
-                Object obj3 = declaredField2.get(obj2);
-                if (obj3 == null) {
-                    return null;
-                }
-                Field declaredField3 = obj3.getClass().getSuperclass().getDeclaredField("L");
-                declaredField3.setAccessible(true);
-                Object obj4 = declaredField3.get(obj3);
-                if (obj4 instanceof JSONObject) {
-                    return xh9.a((JSONObject) obj4);
+                AdResultData adResultData = new com.fun.module.ks.q(obj2).a;
+                if ((adResultData != null) && (list = adResultData.adTemplateList) != null && !list.isEmpty()) {
+                    AdTemplate adTemplate = list.get(0);
+                    List<AdInfo> list2 = adTemplate == null ? null : adTemplate.adInfoList;
+                    if (list2 == null || list2.isEmpty() || (adInfo = list2.get(0)) == null) {
+                        return null;
+                    }
+                    return vi9.a(adInfo);
                 }
                 return null;
-            } catch (Exception unused) {
-                LogPrinter.e();
+            } catch (Exception e) {
+                LogPrinter.e(e);
                 return null;
             }
         }

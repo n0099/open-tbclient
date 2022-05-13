@@ -89,7 +89,7 @@ public class av implements ar {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m190a(Context context) {
+    public static boolean m191a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? "com.xiaomi.xmsf".equals(context.getPackageName()) : invokeL.booleanValue;
@@ -114,7 +114,7 @@ public class av implements ar {
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b */
-    public String mo187b() {
+    public String mo188b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a(this.a, this.b) : (String) invokeV.objValue;

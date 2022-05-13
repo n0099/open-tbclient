@@ -1,53 +1,48 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.flow.CoverFlowView;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.aa6;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 /* loaded from: classes7.dex */
 public class w96 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Pattern a;
-    public TbPageContext<?> b;
-    public View c;
-    public CoverFlowView<as4> d;
-    public aa6 e;
-    public ds4<as4> f;
+    public TbPageContext a;
+    public BdUniqueId b;
+    public b c;
+    public HttpMessageListener d;
 
     /* loaded from: classes7.dex */
-    public class a extends bs4 {
+    public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ w96 a;
 
-        public a(w96 w96Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(w96 w96Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {w96Var};
+                Object[] objArr = {w96Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -56,98 +51,31 @@ public class w96 {
             this.a = w96Var;
         }
 
-        @Override // com.repackage.bs4, com.repackage.zr4
-        public cs4 a() {
-            InterceptResult invokeV;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                cs4 a = super.a();
-                if (a != null) {
-                    a.d(81);
-                    a.e(R.dimen.obfuscated_res_0x7f0701d5);
-                }
-                return a;
-            }
-            return (cs4) invokeV.objValue;
-        }
-
-        @Override // com.repackage.bs4, com.repackage.zr4
-        public es4 c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                es4 es4Var = new es4();
-                es4Var.a((int) (oi.k(this.a.b.getPageActivity()) / 2.5714285f));
-                return es4Var;
-            }
-            return (es4) invokeV.objValue;
-        }
-
-        @Override // com.repackage.bs4, com.repackage.zr4
-        public TbImageView d(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-                TbImageView tbImageView = new TbImageView(context);
-                tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                tbImageView.setGifIconSupport(false);
-                return tbImageView;
-            }
-            return (TbImageView) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements ds4<as4> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ w96 a;
-
-        public b(w96 w96Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {w96Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = w96Var;
-        }
-
-        @Override // com.repackage.ds4
-        public void a(int i, as4 as4Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeIL(1048576, this, i, as4Var) != null) || as4Var == null) {
-            }
-        }
-
-        @Override // com.repackage.ds4
-        public void b(int i, String str) {
-            aa6.a aVar;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) || (aVar = (aa6.a) this.a.d.n(i)) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null || httpResponsedMessage.getOrginalMessage() == null) {
                 return;
             }
-            Matcher matcher = this.a.a.matcher(aVar.b());
-            if (matcher.find()) {
-                this.a.b.sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.a.b.getPageActivity()).createNormalCfg(matcher.group(1), null, null)));
+            boolean z = httpResponsedMessage.getOrginalMessage().getTag() == this.a.b;
+            if (this.a.c != null) {
+                this.a.c.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), z);
             }
         }
     }
 
-    public w96(TbPageContext<?> tbPageContext) {
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(int i, String str, boolean z);
+    }
+
+    public w96(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -157,60 +85,40 @@ public class w96 {
                 return;
             }
         }
-        this.a = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
-        this.b = null;
-        this.d = null;
-        this.e = null;
-        this.f = new b(this);
-        this.b = tbPageContext;
-        d();
+        a aVar = new a(this, CmdConfigHttp.CMD_REMOVE_ALL_FORBIDDEN_FANS);
+        this.d = aVar;
+        this.a = tbPageContext;
+        this.b = bdUniqueId;
+        aVar.setTag(bdUniqueId);
+        this.a.registerListener(this.d);
+        c();
     }
 
-    public View c() {
-        InterceptResult invokeV;
+    public final void c() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (View) invokeV.objValue;
-    }
-
-    public final void d() {
-        TbPageContext<?> tbPageContext;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (tbPageContext = this.b) == null) {
-            return;
-        }
-        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0790, (ViewGroup) null);
-        this.c = inflate;
-        if (inflate == null) {
-            return;
-        }
-        this.d = (CoverFlowView) inflate.findViewById(R.id.obfuscated_res_0x7f091d56);
-        a aVar = new a(this);
-        this.d.setDisableParentEvent(false);
-        this.d.setCoverFlowFactory(aVar);
-        this.d.setCallback(this.f);
-    }
-
-    public void e(aa6 aa6Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aa6Var) == null) || aa6Var == null || aa6Var == this.e) {
-            return;
-        }
-        this.d.setData(aa6Var.a());
-        this.e = aa6Var;
-    }
-
-    public void f(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, bdUniqueId) != null) || bdUniqueId == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_REMOVE_ALL_FORBIDDEN_FANS, TbConfig.SERVER_ADDRESS + TbConfig.REMOVE_MULTI_FANS);
+            tbHttpMessageTask.setIsNeedLogin(true);
+            tbHttpMessageTask.setIsNeedTbs(true);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(true);
+            tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
     }
 
-    public void g() {
-        CoverFlowView<as4> coverFlowView;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (coverFlowView = this.d) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_REMOVE_ALL_FORBIDDEN_FANS);
+            httpMessage.setTag(this.b);
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
-        coverFlowView.v();
+    }
+
+    public void e(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.c = bVar;
+        }
     }
 }

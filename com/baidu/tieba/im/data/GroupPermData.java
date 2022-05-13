@@ -10,10 +10,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.uo;
+import com.repackage.ro;
 import java.io.Serializable;
 /* loaded from: classes3.dex */
-public class GroupPermData implements uo, Serializable {
+public class GroupPermData implements ro, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MANAGER = 1;
     public static final int NORMAL = 1;
@@ -124,7 +124,7 @@ public class GroupPermData implements uo, Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.isManager : invokeV.intValue;
     }
 
-    @Override // com.repackage.uo
+    @Override // com.repackage.ro
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

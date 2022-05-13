@@ -76,35 +76,35 @@ public class gk7 extends z8<MemberPrivilegeActivity> {
             }
         }
         this.a = memberPrivilegeActivity;
-        h();
+        i();
     }
 
-    public fk7 f() {
+    public fk7 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : (fk7) invokeV.objValue;
     }
 
-    public View g() {
+    public View h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (View) invokeV.objValue;
     }
 
-    public final void h() {
+    public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.setContentView(R.layout.obfuscated_res_0x7f0d0549);
-            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091ac8);
+            this.a.setContentView(R.layout.obfuscated_res_0x7f0d053d);
+            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091b16);
             this.b = findViewById;
-            NavigationBar navigationBar = (NavigationBar) findViewById.findViewById(R.id.obfuscated_res_0x7f091529);
+            NavigationBar navigationBar = (NavigationBar) findViewById.findViewById(R.id.obfuscated_res_0x7f091547);
             this.c = navigationBar;
-            navigationBar.setTitleText(R.string.obfuscated_res_0x7f0f0aa1);
+            navigationBar.setTitleText(R.string.obfuscated_res_0x7f0f0aa8);
             this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            NoNetworkView noNetworkView = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f0915a7);
+            NoNetworkView noNetworkView = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f0915bb);
             this.d = noNetworkView;
             noNetworkView.a(new a(this));
-            this.e = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f091276);
+            this.e = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f091285);
             fk7 fk7Var = new fk7(this.a);
             this.f = fk7Var;
             this.e.setAdapter((ListAdapter) fk7Var);

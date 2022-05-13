@@ -1,23 +1,26 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
+import android.os.Handler;
+import android.os.Looper;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.image.gif2.GifImageView;
 /* loaded from: classes7.dex */
-public class zt9 implements Runnable {
+public class zt9 implements po9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ GifImageView a;
+    public final /* synthetic */ View a;
+    public final /* synthetic */ ln9 b;
 
-    public zt9(GifImageView gifImageView) {
+    public zt9(ln9 ln9Var, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {gifImageView};
+            Object[] objArr = {ln9Var, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,17 +30,30 @@ public class zt9 implements Runnable {
                 return;
             }
         }
-        this.a = gifImageView;
+        this.b = ln9Var;
+        this.a = view2;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        Bitmap bitmap;
+    @Override // com.repackage.po9
+    public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bitmap = this.a.b) == null || bitmap.isRecycled()) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
             return;
         }
-        GifImageView gifImageView = this.a;
-        gifImageView.setImageBitmap(gifImageView.b);
+        new Handler(Looper.getMainLooper()).postDelayed(new vt9(this), this.b.c.getSpet());
+    }
+
+    @Override // com.repackage.po9
+    public void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+        }
+    }
+
+    @Override // com.repackage.po9
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
     }
 }

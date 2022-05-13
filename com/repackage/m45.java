@@ -1,19 +1,21 @@
 package com.repackage;
 
-import android.content.Context;
+import android.graphics.Bitmap;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.img.effect.ImageOperation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tachikoma.core.component.anim.AnimationProperty;
 /* loaded from: classes6.dex */
-public abstract class m45 {
+public class m45 extends j45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public n45 a;
-    public TbFragmentTabIndicator b;
+    public int a;
 
     public m45() {
         Interceptable interceptable = $ic;
@@ -28,30 +30,63 @@ public abstract class m45 {
                 return;
             }
         }
-        this.a = a();
+        this.a = 0;
     }
 
-    public abstract n45 a();
+    public static ImageOperation e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            ImageOperation imageOperation = new ImageOperation();
+            imageOperation.actionName = AnimationProperty.ROTATE;
+            imageOperation.actionParam = String.valueOf(i);
+            return imageOperation;
+        }
+        return (ImageOperation) invokeI.objValue;
+    }
 
-    public n45 b() {
+    @Override // com.repackage.j45
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (n45) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? AnimationProperty.ROTATE : (String) invokeV.objValue;
     }
 
-    public abstract TbFragmentTabIndicator c(Context context);
-
-    public abstract boolean d();
-
-    public void e() {
+    @Override // com.repackage.j45
+    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) {
+            if (bitmap == null) {
+                return null;
+            }
+            y35.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
+            int i = this.a;
+            if (i == 0 || i == 1) {
+                return BitmapHelper.rotateBitmap(bitmap, this.a);
+            }
+            return (i == 2 || i == 3) ? BitmapHelper.reversalBitmap(bitmap, this.a) : bitmap;
         }
+        return (Bitmap) invokeLZ.objValue;
     }
 
-    public void f() {
+    @Override // com.repackage.j45
+    public Bitmap c(String str) throws Exception {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            int max = Math.max(mi.k(TbadkCoreApplication.getInst().getApp()), mi.i(TbadkCoreApplication.getInst().getApp()));
+            return b(BitmapHelper.loadResizedBitmap(str, max, max), true);
         }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    @Override // com.repackage.j45
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || str == null) {
+            return;
+        }
+        this.a = Integer.parseInt(str);
     }
 }

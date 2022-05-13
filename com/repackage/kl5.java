@@ -1,24 +1,28 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.annotation.SuppressLint;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.PrintStream;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class kl5 extends fc1<na1> {
+public class kl5 extends qc1<xa1> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public JSONObject a;
 
     /* loaded from: classes6.dex */
-    public class a implements na1 {
+    public class a implements xa1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kl5 c;
 
         public a(kl5 kl5Var) {
             Interceptable interceptable = $ic;
@@ -32,26 +36,92 @@ public class kl5 extends fc1<na1> {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.c = kl5Var;
         }
 
-        @Override // com.repackage.na1
-        public boolean a(String str, gb1 gb1Var) {
-            InterceptResult invokeLL;
+        @Override // com.repackage.xa1
+        public String a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, gb1Var)) == null) {
-                if (ml5.a) {
-                    PrintStream printStream = System.out;
-                    printStream.println("IAdSdkSplash SplashHost openUrl: " + str);
-                }
-                if (TextUtils.isEmpty(str)) {
-                    return false;
-                }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016311, str + "&extInfo=" + wa1.a));
-                return true;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "1099a" : (String) invokeV.objValue;
+        }
+
+        @Override // com.repackage.xa1
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return 120;
             }
-            return invokeLL.booleanValue;
+            return invokeV.intValue;
+        }
+
+        @Override // com.repackage.xa1
+        @SuppressLint({"ResourceType"})
+        public int c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.drawable.obfuscated_res_0x7f080f78 : invokeV.intValue;
+        }
+
+        @Override // com.repackage.xa1
+        public JSONObject d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (this.c.a == null) {
+                    this.c.a = new JSONObject();
+                    try {
+                        this.c.a.put("query_response_thread", 1);
+                        this.c.a.put("query_unite_pid", "1640058553813");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                return this.c.a;
+            }
+            return (JSONObject) invokeV.objValue;
+        }
+
+        @Override // com.repackage.xa1
+        @NonNull
+        public String e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "1481698145541" : (String) invokeV.objValue;
+        }
+
+        @Override // com.repackage.xa1
+        public int f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (int) sl5.e() : invokeV.intValue;
+        }
+
+        @Override // com.repackage.xa1
+        public String from() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "1099a" : (String) invokeV.objValue;
+        }
+
+        @Override // com.repackage.xa1
+        @SuppressLint({"ResourceType"})
+        public int g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? R.drawable.obfuscated_res_0x7f080247 : invokeV.intValue;
+        }
+
+        @Override // com.repackage.xa1
+        @SuppressLint({"ResourceType"})
+        public int h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? R.drawable.obfuscated_res_0x7f080248 : invokeV.intValue;
         }
     }
 
@@ -70,11 +140,11 @@ public class kl5 extends fc1<na1> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fc1
-    /* renamed from: a */
-    public na1 createService() throws ServiceNotFoundException {
+    @Override // com.repackage.qc1
+    /* renamed from: c */
+    public xa1 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (na1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (xa1) invokeV.objValue;
     }
 }

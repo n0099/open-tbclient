@@ -108,7 +108,7 @@ public class a extends com.kwad.sdk.core.e.b {
     }
 
     public void a(Context context, final int i, int i2) {
-        com.kwad.sdk.core.download.a.a.a(new a.C0296a(context).a(this.g).a(this.l).a(false).a(i2).a(new a.b() { // from class: com.kwad.sdk.reward.a.2
+        com.kwad.sdk.core.download.a.a.a(new a.C0295a(context).a(this.g).a(this.l).a(false).a(i2).a(new a.b() { // from class: com.kwad.sdk.reward.a.2
             @Override // com.kwad.sdk.core.download.a.a.b
             public void a() {
                 a.this.a(i);

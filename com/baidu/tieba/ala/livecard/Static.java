@@ -24,13 +24,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.at5;
 import com.repackage.bt5;
 import com.repackage.ct5;
-import com.repackage.et5;
-import com.repackage.fe6;
-import com.repackage.ge6;
-import com.repackage.kj8;
-import com.repackage.lj8;
-import com.repackage.xs5;
-import com.repackage.zs5;
+import com.repackage.dt5;
+import com.repackage.ft5;
+import com.repackage.hi8;
+import com.repackage.ii8;
+import com.repackage.kd6;
+import com.repackage.ld6;
+import com.repackage.ys5;
 /* loaded from: classes3.dex */
 public class Static {
     public static /* synthetic */ Interceptable $ic;
@@ -68,11 +68,11 @@ public class Static {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                 AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
                 CustomMessage customMessage = (CustomMessage) customResponsedMessage.getOrginalMessage();
-                absDelegateAdapterList.add(new zs5(null, ThreadData.TYPE_ALA_LIVE_EMPTY, null));
-                absDelegateAdapterList.add(new ct5(null, ThreadData.TYPE_VIDEO_ALA_ONLIVE, null));
+                absDelegateAdapterList.add(new at5(null, ThreadData.TYPE_ALA_LIVE_EMPTY, null));
+                absDelegateAdapterList.add(new dt5(null, ThreadData.TYPE_VIDEO_ALA_ONLIVE, null));
                 absDelegateAdapterList.add(new FrsSplitAlaShareItemAdapter(null, ThreadData.TYPE_ALA_SHARE_THREAD, null));
-                absDelegateAdapterList.add(new xs5(null, kj8.c, null));
-                absDelegateAdapterList.add(new at5(null, lj8.b, null));
+                absDelegateAdapterList.add(new ys5(null, hi8.c, null));
+                absDelegateAdapterList.add(new bt5(null, ii8.b, null));
             }
         }
     }
@@ -108,10 +108,10 @@ public class Static {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003022 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                 AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-                absDelegateAdapterList.add(new zs5(null, ThreadData.TYPE_ALA_LIVE_EMPTY, null));
-                absDelegateAdapterList.add(new bt5(null, ThreadData.TYPE_VIDEO_ALA_ONLIVE, null));
+                absDelegateAdapterList.add(new at5(null, ThreadData.TYPE_ALA_LIVE_EMPTY, null));
+                absDelegateAdapterList.add(new ct5(null, ThreadData.TYPE_VIDEO_ALA_ONLIVE, null));
                 absDelegateAdapterList.add(new FrsAlaShareItemAdapter(null, ThreadData.TYPE_ALA_SHARE_THREAD, null));
-                absDelegateAdapterList.add(new bt5(null, lj8.b, null));
+                absDelegateAdapterList.add(new ct5(null, ii8.b, null));
             }
         }
     }
@@ -145,11 +145,11 @@ public class Static {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof fe6)) {
-                fe6 fe6Var = (fe6) customResponsedMessage.getData();
-                et5 et5Var = new et5();
-                et5Var.g(fe6Var.a);
-                fe6Var.a(49, et5Var);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof kd6)) {
+                kd6 kd6Var = (kd6) customResponsedMessage.getData();
+                ft5 ft5Var = new ft5();
+                ft5Var.g(kd6Var.a);
+                kd6Var.a(49, ft5Var);
             }
         }
     }
@@ -171,7 +171,7 @@ public class Static {
             MessageManager.getInstance().registerListener(new a(2003008));
             MessageManager.getInstance().registerListener(new b(2003022));
             MessageManager.getInstance().registerListener(new c(2003011));
-            ge6.a().c(49);
+            ld6.a().c(49);
         }
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FRS_STAGE_FEED_BACK, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_FRS_NEGATIVE_URL);

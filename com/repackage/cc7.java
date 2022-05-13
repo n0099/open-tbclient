@@ -1,81 +1,17 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.GetTagList.ResponseTagInfo;
 /* loaded from: classes5.dex */
 public class cc7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ac7 a;
-
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static cc7 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-476196868, "Lcom/repackage/cc7$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-476196868, "Lcom/repackage/cc7$b;");
-                    return;
-                }
-            }
-            a = new cc7(null);
-        }
-    }
-
-    public /* synthetic */ cc7(a aVar) {
-        this();
-    }
-
-    public static cc7 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (cc7) invokeV.objValue;
-    }
-
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            ac7 ac7Var = this.a;
-            if (ac7Var != null) {
-                ac7Var.cancel();
-                this.a = null;
-            }
-            ac7 ac7Var2 = new ac7(z);
-            this.a = ac7Var2;
-            ac7Var2.execute(new String[0]);
-        }
-    }
-
-    public void c() {
-        ac7 ac7Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (ac7Var = this.a) == null) {
-            return;
-        }
-        ac7Var.cancel();
-        this.a = null;
-    }
+    public int a;
+    public String b;
+    public boolean c;
 
     public cc7() {
         Interceptable interceptable = $ic;
@@ -89,5 +25,15 @@ public class cc7 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public void a(ResponseTagInfo responseTagInfo) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, responseTagInfo) == null) || responseTagInfo == null) {
+            return;
+        }
+        this.a = responseTagInfo.tag_id.intValue();
+        this.b = responseTagInfo.tag_name;
+        this.c = responseTagInfo.is_followed.intValue() == 1;
     }
 }

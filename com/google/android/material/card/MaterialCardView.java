@@ -75,7 +75,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
         }
         CHECKABLE_STATE_SET = new int[]{16842911};
         CHECKED_STATE_SET = new int[]{16842912};
-        DRAGGED_STATE_SET = new int[]{R.attr.obfuscated_res_0x7f0405c7};
+        DRAGGED_STATE_SET = new int[]{R.attr.obfuscated_res_0x7f0405ce};
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -548,7 +548,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MaterialCardView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040454);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040459);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -604,7 +604,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
         this.checked = false;
         this.dragged = false;
         this.isParentCardViewDoneInitializing = true;
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(getContext(), attributeSet, new int[]{16843237, R.attr.obfuscated_res_0x7f04011c, R.attr.obfuscated_res_0x7f040128, R.attr.obfuscated_res_0x7f04012a, R.attr.obfuscated_res_0x7f040542, R.attr.obfuscated_res_0x7f040589, R.attr.obfuscated_res_0x7f04058c, R.attr.obfuscated_res_0x7f0405c7, R.attr.obfuscated_res_0x7f0405ce, R.attr.obfuscated_res_0x7f0405cf}, i, obfuscated_res_0x7f100353, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(getContext(), attributeSet, new int[]{16843237, R.attr.obfuscated_res_0x7f040122, R.attr.obfuscated_res_0x7f04012b, R.attr.obfuscated_res_0x7f04012d, R.attr.obfuscated_res_0x7f040547, R.attr.obfuscated_res_0x7f04058f, R.attr.obfuscated_res_0x7f040592, R.attr.obfuscated_res_0x7f0405ce, R.attr.obfuscated_res_0x7f0405d5, R.attr.obfuscated_res_0x7f0405d6}, i, obfuscated_res_0x7f100353, new int[0]);
         MaterialCardViewHelper materialCardViewHelper = new MaterialCardViewHelper(this, attributeSet, i, obfuscated_res_0x7f100353);
         this.cardViewHelper = materialCardViewHelper;
         materialCardViewHelper.setCardBackgroundColor(super.getCardBackgroundColor());

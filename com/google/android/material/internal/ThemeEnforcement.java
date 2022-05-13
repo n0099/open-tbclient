@@ -43,8 +43,8 @@ public final class ThemeEnforcement {
                 return;
             }
         }
-        APPCOMPAT_CHECK_ATTRS = new int[]{R.attr.obfuscated_res_0x7f040168};
-        MATERIAL_CHECK_ATTRS = new int[]{R.attr.obfuscated_res_0x7f04016b};
+        APPCOMPAT_CHECK_ATTRS = new int[]{R.attr.obfuscated_res_0x7f04016b};
+        MATERIAL_CHECK_ATTRS = new int[]{R.attr.obfuscated_res_0x7f04016e};
     }
 
     public ThemeEnforcement() {
@@ -71,12 +71,12 @@ public final class ThemeEnforcement {
     public static void checkCompatibleTheme(@NonNull Context context, AttributeSet attributeSet, @AttrRes int i, @StyleRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLII(65539, null, context, attributeSet, i, i2) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16842804, R.attr.obfuscated_res_0x7f04021d, R.attr.obfuscated_res_0x7f040247}, i, i2);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16842804, R.attr.obfuscated_res_0x7f040251, R.attr.obfuscated_res_0x7f040252}, i, i2);
             boolean z = obtainStyledAttributes.getBoolean(1, false);
             obtainStyledAttributes.recycle();
             if (z) {
                 TypedValue typedValue = new TypedValue();
-                if (!context.getTheme().resolveAttribute(R.attr.obfuscated_res_0x7f040308, typedValue, true) || (typedValue.type == 18 && typedValue.data == 0)) {
+                if (!context.getTheme().resolveAttribute(R.attr.obfuscated_res_0x7f04030c, typedValue, true) || (typedValue.type == 18 && typedValue.data == 0)) {
                     checkMaterialTheme(context);
                 }
             }
@@ -95,7 +95,7 @@ public final class ThemeEnforcement {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, attributeSet, iArr, Integer.valueOf(i), Integer.valueOf(i2), iArr2}) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16842804, R.attr.obfuscated_res_0x7f04021d, R.attr.obfuscated_res_0x7f040247}, i, i2);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16842804, R.attr.obfuscated_res_0x7f040251, R.attr.obfuscated_res_0x7f040252}, i, i2);
             if (!obtainStyledAttributes.getBoolean(2, false)) {
                 obtainStyledAttributes.recycle();
                 return;

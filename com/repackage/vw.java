@@ -1,60 +1,71 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.JvmStatic;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
 public final class vw {
     public static /* synthetic */ Interceptable $ic;
+    public static final vw a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1964024476, "Lcom/repackage/vw;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964024476, "Lcom/repackage/vw;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1964024476, "Lcom/repackage/vw;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+        a = new vw();
+    }
+
+    public vw() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1964024476, "Lcom/repackage/vw;");
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 
-    @JvmStatic
-    @JvmOverloads
-    public static final fu a(Class<? extends nu<qr>> cls) {
+    public final long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? System.currentTimeMillis() : invokeV.longValue;
+    }
+
+    public final String b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cls)) == null) ? new fu(cls, qr.class) : (fu) invokeL.objValue;
-    }
-
-    @JvmStatic
-    @JvmOverloads
-    public static final gu b(Class<? extends vu<ur>> cls, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, cls, z)) == null) ? new gu(cls, ur.class, z) : (gu) invokeLZ.objValue;
-    }
-
-    @JvmStatic
-    public static final fu c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a(ww.class) : (fu) invokeV.objValue;
-    }
-
-    @JvmStatic
-    public static final gu d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? b(xw.class, true) : (gu) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            if (str.length() <= 128) {
+                return str;
+            }
+            String substring = str.substring(0, 128);
+            Intrinsics.checkExpressionValueIsNotNull(substring, "(this as java.lang.Strin…ing(startIndex, endIndex)");
+            return substring;
+        }
+        return (String) invokeL.objValue;
     }
 }

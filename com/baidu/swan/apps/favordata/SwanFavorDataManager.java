@@ -24,33 +24,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b03;
-import com.repackage.bc2;
-import com.repackage.cc2;
-import com.repackage.da2;
-import com.repackage.dc2;
-import com.repackage.dd3;
-import com.repackage.de3;
-import com.repackage.dx2;
-import com.repackage.ec2;
-import com.repackage.fc2;
-import com.repackage.h72;
-import com.repackage.i03;
-import com.repackage.j03;
-import com.repackage.jx1;
-import com.repackage.ka2;
-import com.repackage.ls1;
-import com.repackage.mv1;
-import com.repackage.ov1;
-import com.repackage.qj2;
-import com.repackage.tg1;
-import com.repackage.wl2;
-import com.repackage.xg1;
+import com.repackage.bk2;
+import com.repackage.eh1;
+import com.repackage.hm2;
+import com.repackage.ih1;
+import com.repackage.m03;
+import com.repackage.mc2;
+import com.repackage.nc2;
+import com.repackage.oa2;
+import com.repackage.oc2;
+import com.repackage.od3;
+import com.repackage.oe3;
+import com.repackage.ox2;
+import com.repackage.pc2;
+import com.repackage.qc2;
+import com.repackage.s72;
+import com.repackage.t03;
+import com.repackage.u03;
+import com.repackage.ux1;
+import com.repackage.va2;
+import com.repackage.ws1;
+import com.repackage.xv1;
+import com.repackage.zv1;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes2.dex */
-public class SwanFavorDataManager implements xg1 {
+public class SwanFavorDataManager implements ih1 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +86,7 @@ public class SwanFavorDataManager implements xg1 {
             ArrayList arrayList = new ArrayList();
             if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
                 do {
-                    SwanFavorItemData l = h72.l(cursor);
+                    SwanFavorItemData l = s72.l(cursor);
                     if (!TextUtils.isEmpty(l.getAppKey()) && !TextUtils.isEmpty(l.getAppName())) {
                         arrayList.add(l);
                     }
@@ -107,7 +107,7 @@ public class SwanFavorDataManager implements xg1 {
         public Loader<Cursor> onCreateLoader(int i, @Nullable Bundle bundle) {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bundle)) == null) ? new CursorLoader(qj2.c(), h72.e(), null, null, null, "sort_index") : (Loader) invokeIL.objValue;
+            return (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bundle)) == null) ? new CursorLoader(bk2.c(), s72.e(), null, null, null, "sort_index") : (Loader) invokeIL.objValue;
         }
 
         @Override // androidx.loader.app.LoaderManager.LoaderCallbacks
@@ -122,7 +122,7 @@ public class SwanFavorDataManager implements xg1 {
     }
 
     /* loaded from: classes2.dex */
-    public class a implements ov1 {
+    public class a implements zv1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SwanFavorDataManager a;
@@ -145,20 +145,20 @@ public class SwanFavorDataManager implements xg1 {
             this.a = swanFavorDataManager;
         }
 
-        @Override // com.repackage.ov1
+        @Override // com.repackage.zv1
         public void a(CommonSyncServerData commonSyncServerData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, commonSyncServerData) == null) {
-                jx1.k("SwanFavorDataManager", "fetchFavorDataFromServer onSuccess");
+                ux1.k("SwanFavorDataManager", "fetchFavorDataFromServer onSuccess");
                 this.a.f(commonSyncServerData);
             }
         }
 
-        @Override // com.repackage.ov1
+        @Override // com.repackage.zv1
         public void onFail() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                jx1.k("SwanFavorDataManager", "fetchFavorDataFromServer onFail");
+                ux1.k("SwanFavorDataManager", "fetchFavorDataFromServer onFail");
             }
         }
     }
@@ -167,14 +167,14 @@ public class SwanFavorDataManager implements xg1 {
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ov1 a;
+        public final /* synthetic */ zv1 a;
 
-        public b(SwanFavorDataManager swanFavorDataManager, ov1 ov1Var) {
+        public b(SwanFavorDataManager swanFavorDataManager, zv1 zv1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {swanFavorDataManager, ov1Var};
+                Object[] objArr = {swanFavorDataManager, zv1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -184,14 +184,14 @@ public class SwanFavorDataManager implements xg1 {
                     return;
                 }
             }
-            this.a = ov1Var;
+            this.a = zv1Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                mv1.b(this.a);
+                xv1.b(this.a);
             }
         }
     }
@@ -239,7 +239,7 @@ public class SwanFavorDataManager implements xg1 {
                 return;
             }
         }
-        a = tg1.a;
+        a = eh1.a;
     }
 
     public /* synthetic */ SwanFavorDataManager(a aVar) {
@@ -260,38 +260,38 @@ public class SwanFavorDataManager implements xg1 {
             }
             HashMap hashMap = new HashMap();
             hashMap.put("status", z ? "1" : "0");
-            wl2.U().u(new ka2("favorStatusChange", hashMap));
+            hm2.U().u(new va2("favorStatusChange", hashMap));
         }
     }
 
-    @Override // com.repackage.xg1
+    @Override // com.repackage.ih1
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            jx1.k("SwanFavorDataManager", "onLoginStatusChanged isLoggedIn=" + z);
+            ux1.k("SwanFavorDataManager", "onLoginStatusChanged isLoggedIn=" + z);
             d();
         }
     }
 
-    public void b(String str, cc2 cc2Var) {
+    public void b(String str, nc2 nc2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cc2Var) == null) {
-            qj2.t().a();
-            if (de3.T(R.string.obfuscated_res_0x7f0f123c) || !qj2.t().b()) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, nc2Var) == null) {
+            bk2.t().a();
+            if (oe3.T(R.string.obfuscated_res_0x7f0f125d) || !bk2.t().b()) {
                 return;
             }
             if (!SwanAppNetworkUtils.h()) {
-                if (cc2Var != null) {
-                    cc2Var.a();
+                if (nc2Var != null) {
+                    nc2Var.a();
                 }
-            } else if (TextUtils.equals(str, i03.J().r().N()) && i03.J().r().V().getType() != 0) {
-                b03.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f120f).G();
-                cc2Var.b(true);
+            } else if (TextUtils.equals(str, t03.J().r().N()) && t03.J().r().V().getType() != 0) {
+                m03.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f1230).G();
+                nc2Var.b(true);
             } else {
                 SwanFavorItemData swanFavorItemData = new SwanFavorItemData();
                 swanFavorItemData.setAppKey(str);
                 swanFavorItemData.setIsNewFavor(1);
-                if (h72.b(swanFavorItemData, 1, cc2Var)) {
+                if (s72.b(swanFavorItemData, 1, nc2Var)) {
                     m(str, true);
                 }
                 k(str, "add");
@@ -299,20 +299,20 @@ public class SwanFavorDataManager implements xg1 {
         }
     }
 
-    public void c(String str, dc2 dc2Var, da2.b bVar) {
+    public void c(String str, oc2 oc2Var, oa2.b bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, dc2Var, bVar) == null) || de3.T(R.string.obfuscated_res_0x7f0f123c)) {
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, oc2Var, bVar) == null) || oe3.T(R.string.obfuscated_res_0x7f0f125d)) {
             return;
         }
         if (!SwanAppNetworkUtils.h()) {
-            if (dc2Var != null) {
-                dc2Var.a();
+            if (oc2Var != null) {
+                oc2Var.a();
             }
-        } else if (TextUtils.equals(str, i03.J().r().N()) && i03.J().r().V().getType() != 0) {
-            b03.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f120f).G();
-            dc2Var.c(true);
+        } else if (TextUtils.equals(str, t03.J().r().N()) && t03.J().r().V().getType() != 0) {
+            m03.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f1230).G();
+            oc2Var.c(true);
         } else {
-            if (h72.g(str, dc2Var, bVar)) {
+            if (s72.g(str, oc2Var, bVar)) {
                 m(str, false);
             }
             k(str, "cancel");
@@ -326,10 +326,10 @@ public class SwanFavorDataManager implements xg1 {
         }
     }
 
-    public void e(ov1 ov1Var) {
+    public void e(zv1 zv1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ov1Var) == null) {
-            dd3.k(new b(this, ov1Var), "fetchFavorDataFromServer");
+        if (interceptable == null || interceptable.invokeL(1048580, this, zv1Var) == null) {
+            od3.k(new b(this, zv1Var), "fetchFavorDataFromServer");
         }
     }
 
@@ -345,7 +345,7 @@ public class SwanFavorDataManager implements xg1 {
                 SwanFavorItemData swanFavorItemData = new SwanFavorItemData();
                 String str = metaItemInfo.appKey;
                 swanFavorItemData.setAppKey(str);
-                swanFavorItemData.setAppType(ls1.b(str));
+                swanFavorItemData.setAppType(ws1.b(str));
                 swanFavorItemData.setIconUrl(metaItemInfo.icon);
                 swanFavorItemData.setAppName(metaItemInfo.appName);
                 swanFavorItemData.setAppFrameType(metaItemInfo.subCategory);
@@ -354,7 +354,7 @@ public class SwanFavorDataManager implements xg1 {
                 arrayList.add(swanFavorItemData);
             }
         }
-        h72.q(arrayList);
+        s72.q(arrayList);
     }
 
     public final Bundle g(String str, boolean z) {
@@ -372,17 +372,17 @@ public class SwanFavorDataManager implements xg1 {
     public List<SwanFavorItemData> i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? h72.j() : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? s72.j() : (List) invokeV.objValue;
     }
 
-    public void j(String str, cc2 cc2Var) {
+    public void j(String str, nc2 nc2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, cc2Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, nc2Var) == null) {
             if (SwanAppNetworkUtils.h()) {
-                h72.o(str, 1, cc2Var);
+                s72.o(str, 1, nc2Var);
                 n(str);
-            } else if (cc2Var != null) {
-                cc2Var.a();
+            } else if (nc2Var != null) {
+                nc2Var.a();
             }
         }
     }
@@ -390,7 +390,7 @@ public class SwanFavorDataManager implements xg1 {
     public final void k(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) {
-            mv1.d(bc2.b(str, str2));
+            xv1.d(mc2.b(str, str2));
         }
     }
 
@@ -398,15 +398,15 @@ public class SwanFavorDataManager implements xg1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048586, this, str, z) == null) {
             if (ProcessUtils.isMainProcess()) {
-                dx2.a(g(str, z), fc2.class);
+                ox2.a(g(str, z), qc2.class);
                 return;
             }
-            j03 a0 = j03.a0();
+            u03 a0 = u03.a0();
             if (a0 == null) {
                 return;
             }
             if (TextUtils.equals(a0.getAppId(), "sc9Tq1iKawTnj5GhG6i77vzeIt4Crt5u")) {
-                dx2.c(g(str, z), ec2.class, null);
+                ox2.c(g(str, z), pc2.class, null);
             } else if (TextUtils.equals(a0.getAppId(), str)) {
                 l(z);
             }
@@ -416,7 +416,7 @@ public class SwanFavorDataManager implements xg1 {
     public final void n(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            mv1.e(bc2.c(str, 1));
+            xv1.e(mc2.c(str, 1));
         }
     }
 
@@ -433,7 +433,7 @@ public class SwanFavorDataManager implements xg1 {
                 return;
             }
         }
-        SwanAppDbControl.f(qj2.c());
-        qj2.h0().c(this);
+        SwanAppDbControl.f(bk2.c());
+        bk2.h0().c(this);
     }
 }

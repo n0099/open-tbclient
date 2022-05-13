@@ -22,7 +22,7 @@ public abstract class qr0 extends sr0 {
     @JvmField
     public ViewGroup b;
     @JvmField
-    public r41 c;
+    public c51 c;
     @JvmField
     public boolean d;
 
@@ -108,20 +108,20 @@ public abstract class qr0 extends sr0 {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.m();
             this.b = null;
-            r41 r41Var = this.c;
-            if (r41Var != null) {
-                r41Var.k();
+            c51 c51Var = this.c;
+            if (c51Var != null) {
+                c51Var.k();
             }
         }
     }
 
     public void w() {
-        r41 r41Var;
+        c51 c51Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (r41Var = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (c51Var = this.c) == null) {
             return;
         }
-        r41Var.c();
+        c51Var.c();
     }
 
     public View x() {
@@ -139,7 +139,7 @@ public abstract class qr0 extends sr0 {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             Context context = getContext();
             Intrinsics.checkNotNullExpressionValue(context, "context");
-            String string = context.getResources().getString(R.string.obfuscated_res_0x7f0f0b48);
+            String string = context.getResources().getString(R.string.obfuscated_res_0x7f0f0b5c);
             Intrinsics.checkNotNullExpressionValue(string, "context.resources.getStr…eo_switch_fullscreen_tip)");
             return string;
         }
@@ -154,22 +154,22 @@ public abstract class qr0 extends sr0 {
             }
             Context context = getContext();
             Intrinsics.checkNotNullExpressionValue(context, "context");
-            int color = context.getResources().getColor(R.color.obfuscated_res_0x7f06084a);
-            n41 n41Var = (n41) BubbleManager.u(n41.class);
-            n41Var.j(x(), this.b);
-            n41Var.q(y());
-            n41Var.r(-1, -1);
-            n41Var.l(color, color);
-            n41Var.m(1, 12.0f);
-            n41Var.p(-2.0f);
-            n41Var.n(BubblePosition.DOWN);
-            n41Var.k(5000);
-            n41Var.i(true);
-            n41Var.o(new a(this));
-            r41 h = n41Var.h();
+            int color = context.getResources().getColor(R.color.obfuscated_res_0x7f060853);
+            y41 y41Var = (y41) BubbleManager.u(y41.class);
+            y41Var.j(x(), this.b);
+            y41Var.q(y());
+            y41Var.r(-1, -1);
+            y41Var.l(color, color);
+            y41Var.m(1, 12.0f);
+            y41Var.p(-2.0f);
+            y41Var.n(BubblePosition.DOWN);
+            y41Var.k(5000);
+            y41Var.i(true);
+            y41Var.o(new a(this));
+            c51 h = y41Var.h();
             this.c = h;
             if (h != null) {
-                h.p();
+                h.q();
             }
             this.d = false;
             s().U(5000);

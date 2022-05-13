@@ -1,57 +1,73 @@
 package com.repackage;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.logsystem.logsys.LogFile;
+import com.baidu.searchbox.logsystem.logsys.eventscene.EventObject;
+import com.baidu.searchbox.logsystem.logsys.eventscene.handler.ProcessEventSceneHandler;
+import com.baidu.searchbox.logsystem.logsys.eventscene.snapshot.ProcessSnapshotType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class bu4 extends ImageSpan {
+public class bu4 extends ProcessEventSceneHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bu4(Drawable drawable, int i) {
-        super(drawable, i);
+    public bu4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {drawable, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Drawable) objArr2[0], ((Integer) objArr2[1]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0;
-        this.b = 2;
     }
 
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+    @Override // com.baidu.searchbox.logsystem.logsys.eventscene.handler.BaseEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.EventSceneHandler
+    @Nullable
+    public Set<LogFile> getCustomizedSnapshots(@NonNull Context context, @NonNull File file, @NonNull EventObject eventObject) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-            super.draw(canvas, charSequence, i, i2, f + this.a, i3, i4, i5, paint);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, file, eventObject)) == null) {
+            return null;
         }
+        return (Set) invokeLLL.objValue;
     }
 
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.searchbox.logsystem.logsys.eventscene.handler.ProcessEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.BaseEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.EventSceneHandler
+    public Set<ProcessSnapshotType> requireGeneralSnapshots(@NonNull Context context, @NonNull EventObject eventObject) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) ? super.getSize(paint, charSequence, i, i2, fontMetricsInt) + this.a + this.b : invokeCommon.intValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, eventObject)) == null) {
+            if (eventObject.mEventLog.contains("OutOfMemoryError")) {
+                HashSet hashSet = new HashSet(1);
+                hashSet.add(ProcessSnapshotType.PROCESS_MEMORY_STATUS);
+                return hashSet;
+            }
+            return null;
+        }
+        return (Set) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.logsystem.logsys.eventscene.handler.BaseEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.EventSceneHandler
+    public boolean saveFragmentSnapshot(@NonNull Context context, @NonNull EventObject eventObject, @NonNull File file) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, eventObject, file)) == null) {
+            return false;
+        }
+        return invokeLLL.booleanValue;
     }
 }

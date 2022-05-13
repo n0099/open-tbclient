@@ -1,7 +1,9 @@
 package com.repackage;
 /* loaded from: classes6.dex */
 public interface px8 {
-    void a();
+    void c(int i, int i2);
 
-    void b();
+    void f();
+
+    void setDragMode(int i, int i2);
 }

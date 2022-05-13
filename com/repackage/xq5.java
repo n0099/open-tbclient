@@ -1,8 +1,6 @@
 package com.repackage;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.AlaInfoData;
-import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,11 +12,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class xq5 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId d;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public UserData a;
-    public AlaInfoData b;
-    public boolean c;
+    public int a;
 
     static {
         InterceptResult invokeClinit;
@@ -33,7 +29,7 @@ public class xq5 extends BaseCardInfo {
                 return;
             }
         }
-        d = BdUniqueId.gen();
+        b = BdUniqueId.gen();
     }
 
     public xq5() {
@@ -50,10 +46,10 @@ public class xq5 extends BaseCardInfo {
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.uo
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.ro
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
     }
 }

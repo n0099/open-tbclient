@@ -353,7 +353,7 @@ public class RangeSlider extends BaseSlider<RangeSlider, OnChangeListener, OnSli
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RangeSlider(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f0405a5);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0405ab);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -399,7 +399,7 @@ public class RangeSlider extends BaseSlider<RangeSlider, OnChangeListener, OnSli
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0406b3});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0406bb});
         if (obtainStyledAttributes.hasValue(0)) {
             setValues(convertToFloat(obtainStyledAttributes.getResources().obtainTypedArray(obtainStyledAttributes.getResourceId(0, 0))));
         }

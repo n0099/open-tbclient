@@ -1,108 +1,68 @@
 package com.repackage;
 
-import android.content.SharedPreferences;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.fun.ad.sdk.FunAdSdk;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.TTNativeAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes7.dex */
-public class wf9 {
+public class wf9 implements TTNativeAd.AdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final Object a;
-    public static final SharedPreferences b;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public final /* synthetic */ TTNativeAd c;
+    public final /* synthetic */ vf9 d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755203161, "Lcom/repackage/wf9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755203161, "Lcom/repackage/wf9;");
+    public wf9(vf9 vf9Var, TTNativeAd tTNativeAd) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vf9Var, tTNativeAd};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new Object();
-        b = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk", 0);
+        this.d = vf9Var;
+        this.c = tTNativeAd;
     }
 
-    public static int a() {
-        InterceptResult invokeV;
+    @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
+    public void onAdClicked(View view2, TTNativeAd tTNativeAd) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? b.getInt("key_rpt_fai_c", 0) : invokeV.intValue;
-    }
-
-    public static int b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return b.getInt("key_sid_c_pre_" + str, 0);
-        }
-        return invokeL.intValue;
-    }
-
-    public static void c(double d) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Double.valueOf(d)}) == null) {
-            b.edit().putLong("key_price_total", Double.doubleToRawLongBits(d)).apply();
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, tTNativeAd) == null) {
+            LogPrinter.d();
+            this.d.onAdClicked(this.b, new String[0]);
+            this.b = true;
         }
     }
 
-    public static void d(int i, int i2, int i3) {
+    @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
+    public void onAdCreativeClick(View view2, TTNativeAd tTNativeAd) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2, i3) == null) {
-            synchronized (a) {
-                int g = g();
-                int h = h();
-                int f = f();
-                b.edit().putInt("key_rpt_req_c", ((g - i) - i2) - i3).putInt("key_rpt_fai_c", a() - i).putInt("key_rpt_suc_c", h - i2).putInt("key_rpt_mis_c", f - i3).apply();
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, tTNativeAd) == null) {
+            LogPrinter.d();
+            this.d.onAdClicked(this.b, new String[0]);
+            this.b = true;
         }
     }
 
-    public static void e(String str, int i) {
+    @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
+    public void onAdShow(TTNativeAd tTNativeAd) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65541, null, str, i) == null) {
-            b.edit().putInt(str, i).apply();
-        }
-    }
-
-    public static int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? b.getInt("key_rpt_mis_c", 0) : invokeV.intValue;
-    }
-
-    public static int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? b.getInt("key_rpt_req_c", 0) : invokeV.intValue;
-    }
-
-    public static int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? b.getInt("key_rpt_suc_c", 0) : invokeV.intValue;
-    }
-
-    public static double i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? Double.longBitsToDouble(b.getLong("key_price_total", 0L)) : invokeV.doubleValue;
-    }
-
-    public static void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
-            synchronized (a) {
-                e("key_rpt_req_c", g() + 1);
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tTNativeAd) == null) {
+            LogPrinter.d();
+            this.d.onAdShow(this.c, this.a, new String[0]);
+            this.a = true;
         }
     }
 }

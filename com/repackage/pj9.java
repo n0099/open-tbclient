@@ -1,33 +1,27 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.view.View;
+import android.text.TextUtils;
+import android.widget.Button;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.CustomInflater;
-import com.fun.ad.sdk.ExpressInflater;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
-import com.repackage.oj9;
+import com.kwad.sdk.api.KsAppDownloadListener;
 /* loaded from: classes6.dex */
-public class pj9 implements FunNativeAd2Bridger<zi9, View> {
+public class pj9 implements KsAppDownloadListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public oj9.b b;
-    public final /* synthetic */ oj9 c;
+    public Button a;
+    public String b;
 
-    public pj9(oj9 oj9Var, String str, zi9 zi9Var) {
+    public pj9(String str, Button button) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {oj9Var, str, zi9Var};
+            Object[] objArr = {str, button};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,37 +31,63 @@ public class pj9 implements FunNativeAd2Bridger<zi9, View> {
                 return;
             }
         }
-        this.c = oj9Var;
-        this.b = new oj9.b(oj9Var, str, zi9Var);
+        this.b = str;
+        this.a = button;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public View createExpressView(zi9 zi9Var) {
-        InterceptResult invokeL;
+    @Override // com.kwad.sdk.api.KsAppDownloadListener
+    public void onDownloadFailed() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, zi9Var)) == null) ? zi9Var.d() : (View) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showCustom(Activity activity, CustomInflater customInflater, String str, zi9 zi9Var, BaseNativeAd2<zi9, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, zi9Var, baseNativeAd2, funAdInteractionListener}) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (TextUtils.isEmpty(this.b)) {
+                this.a.setText(R.string.obfuscated_res_0x7f0f0768);
+            } else {
+                this.a.setText(this.b);
+            }
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, zi9 zi9Var, BaseNativeAd2<zi9, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+    @Override // com.kwad.sdk.api.KsAppDownloadListener
+    public void onDownloadFinished() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, zi9Var, baseNativeAd2, funAdInteractionListener}) == null) {
-            this.c.onShowStart(this.a);
-            oj9.b bVar = this.b;
-            bVar.a = funAdInteractionListener;
-            zi9Var.c(bVar);
-            this.a = true;
-            expressInflater.inflate();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.setText(R.string.obfuscated_res_0x7f0f076b);
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsAppDownloadListener
+    public void onDownloadStarted() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsAppDownloadListener
+    public void onIdle() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (TextUtils.isEmpty(this.b)) {
+                this.a.setText(R.string.obfuscated_res_0x7f0f0768);
+            } else {
+                this.a.setText(this.b);
+            }
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsAppDownloadListener
+    public void onInstalled() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a.setText(R.string.obfuscated_res_0x7f0f076c);
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsAppDownloadListener
+    public void onProgressUpdate(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            Button button = this.a;
+            button.setText(button.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0769, String.format("%s/100", Integer.valueOf(i))));
         }
     }
 }

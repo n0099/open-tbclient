@@ -18,13 +18,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ae3;
-import com.repackage.de3;
-import com.repackage.gl2;
-import com.repackage.i03;
-import com.repackage.id3;
-import com.repackage.kv2;
-import com.repackage.tg1;
+import com.repackage.eh1;
+import com.repackage.le3;
+import com.repackage.oe3;
+import com.repackage.rl2;
+import com.repackage.t03;
+import com.repackage.td3;
+import com.repackage.vv2;
 @Autowired
 /* loaded from: classes2.dex */
 public class SwanAppLauncherActivity extends Activity {
@@ -36,7 +36,7 @@ public class SwanAppLauncherActivity extends Activity {
     public Object mPermissionDialog;
 
     /* loaded from: classes2.dex */
-    public class a implements kv2.b {
+    public class a implements vv2.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SwanAppLauncherActivity a;
@@ -106,7 +106,7 @@ public class SwanAppLauncherActivity extends Activity {
                 return;
             }
         }
-        DEBUG = tg1.a;
+        DEBUG = eh1.a;
     }
 
     public SwanAppLauncherActivity() {
@@ -128,23 +128,23 @@ public class SwanAppLauncherActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             SwanLauncher.j().m(getIntent().getExtras());
-            i03.L().post(new b(this));
+            t03.L().post(new b(this));
         }
     }
 
     @Deprecated
-    public static void startSwanApp(Context context, gl2 gl2Var, String str) {
+    public static void startSwanApp(Context context, rl2 rl2Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, gl2Var, str) == null) {
-            SwanLauncher.j().n(gl2Var, null);
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, rl2Var, str) == null) {
+            SwanLauncher.j().n(rl2Var, null);
         }
     }
 
     @Inject(force = false)
-    public kv2 getPermissionDialogIOC() {
+    public vv2 getPermissionDialogIOC() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? kv2.a : (kv2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? vv2.a : (vv2) invokeV.objValue;
     }
 
     @Override // android.app.Activity
@@ -152,14 +152,14 @@ public class SwanAppLauncherActivity extends Activity {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            int c0 = de3.c0(this);
+            int c0 = oe3.c0(this);
             super.onCreate(bundle);
-            de3.g(this, c0);
-            ae3.b(this);
+            oe3.g(this, c0);
+            le3.b(this);
             if (DEBUG) {
                 Log.d(TAG, "onCreate");
             }
-            if (id3.a(this)) {
+            if (td3.a(this)) {
                 LogUtil.logActivity(this, "onCreate");
                 return;
             }

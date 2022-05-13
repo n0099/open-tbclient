@@ -80,14 +80,14 @@ public class bc {
 
     @SuppressLint({"NewApi"})
     /* renamed from: a  reason: collision with other method in class */
-    public Uri m646a() {
+    public Uri m647a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Build.VERSION.SDK_INT >= 17 ? Settings.Global.getUriFor("device_provisioned") : Settings.Secure.getUriFor("device_provisioned") : (Uri) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m647a() {
+    public boolean m648a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.xiaomi.push.ab.f84a.contains("xmsf") || com.xiaomi.push.ab.f84a.contains(RomUtils.MANUFACTURER_XIAOMI) || com.xiaomi.push.ab.f84a.contains("miui") : invokeV.booleanValue;

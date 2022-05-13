@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
-import com.repackage.ay;
-import com.repackage.zx;
+import com.repackage.ix;
+import com.repackage.jx;
 /* loaded from: classes.dex */
-public abstract class BdRunnable implements Runnable, ay {
+public abstract class BdRunnable implements Runnable, jx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ay a;
+    public jx a;
     public STATUS b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -100,16 +100,16 @@ public abstract class BdRunnable implements Runnable, ay {
         this.b = STATUS.INITED;
     }
 
-    @Override // com.repackage.ay
+    @Override // com.repackage.jx
     public void a(Error error) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, error) == null) {
             this.b = STATUS.FAIL;
-            ay ayVar = this.a;
-            if (ayVar != null) {
-                ayVar.a(error);
+            jx jxVar = this.a;
+            if (jxVar != null) {
+                jxVar.a(error);
             }
-            zx.f().d();
+            ix.f().d();
         }
     }
 
@@ -125,40 +125,40 @@ public abstract class BdRunnable implements Runnable, ay {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.ay
+    @Override // com.repackage.jx
     public void onComplete() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.b = STATUS.COMPLETE;
-            ay ayVar = this.a;
-            if (ayVar != null) {
-                ayVar.onComplete();
+            jx jxVar = this.a;
+            if (jxVar != null) {
+                jxVar.onComplete();
             }
-            zx.f().d();
+            ix.f().d();
         }
     }
 
-    @Override // com.repackage.ay
+    @Override // com.repackage.jx
     public void onException(Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, exc) == null) {
             this.b = STATUS.FAIL;
-            ay ayVar = this.a;
-            if (ayVar != null) {
-                ayVar.onException(exc);
+            jx jxVar = this.a;
+            if (jxVar != null) {
+                jxVar.onException(exc);
             }
-            zx.f().d();
+            ix.f().d();
         }
     }
 
-    @Override // com.repackage.ay
+    @Override // com.repackage.jx
     public void onStart() {
-        ay ayVar;
+        jx jxVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (ayVar = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (jxVar = this.a) == null) {
             return;
         }
-        ayVar.onStart();
+        jxVar.onStart();
     }
 
     @Override // java.lang.Runnable

@@ -1,13 +1,17 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface ec8 {
-    String getImageUrl();
+public class ec8 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    String getShareLink();
+    public abstract void a();
 
-    AdvertAppInfo getThreadData();
+    public abstract void b();
 
-    String getTitle();
+    public abstract void c();
+
+    public abstract void d();
 }

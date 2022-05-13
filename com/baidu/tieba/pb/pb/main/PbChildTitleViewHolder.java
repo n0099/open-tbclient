@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.as7;
-import com.repackage.vr4;
+import com.repackage.gs4;
 /* loaded from: classes3.dex */
 public class PbChildTitleViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
@@ -42,11 +42,11 @@ public class PbChildTitleViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.a = view2;
-        this.b = view2.findViewById(R.id.obfuscated_res_0x7f091691);
-        this.c = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f091ac4);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921cc);
+        this.b = view2.findViewById(R.id.obfuscated_res_0x7f0916b8);
+        this.c = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f091b12);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092223);
         this.d = textView;
-        vr4.d(textView).A(R.string.F_X02);
+        gs4.d(textView).A(R.string.F_X02);
     }
 
     public void c(as7 as7Var) {

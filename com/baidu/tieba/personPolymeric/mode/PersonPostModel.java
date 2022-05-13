@@ -40,8 +40,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
 import com.repackage.g58;
 import com.repackage.h58;
-import com.repackage.oi;
-import com.repackage.uo;
+import com.repackage.mi;
+import com.repackage.ro;
 import com.repackage.ya;
 import com.squareup.wire.Wire;
 import java.io.Serializable;
@@ -79,8 +79,8 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public ResponsedMessage<?> mResponsedMessage;
     public HttpMessageListener pageHttpListener;
     public ya pageSocketListener;
-    public final ArrayList<uo> postList;
-    public final ArrayList<uo> threadList;
+    public final ArrayList<ro> postList;
+    public final ArrayList<ro> threadList;
     public int view_card_num;
 
     /* loaded from: classes3.dex */
@@ -359,7 +359,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     /* loaded from: classes3.dex */
-    public static class PostInfoList extends OrmObject implements Serializable, PreLoadImageProvider, uo {
+    public static class PostInfoList extends OrmObject implements Serializable, PreLoadImageProvider, ro {
         public static /* synthetic */ Interceptable $ic;
         public static final BdUniqueId POST_INFO;
         public transient /* synthetic */ FieldHolder $fh;
@@ -467,7 +467,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             return (ArrayList) invokeV.objValue;
         }
 
-        @Override // com.repackage.uo
+        @Override // com.repackage.ro
         public BdUniqueId getType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -534,7 +534,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             if (z) {
                 OriginalThreadInfo originalThreadInfo = new OriginalThreadInfo();
                 this.originalThreadInfo = originalThreadInfo;
-                originalThreadInfo.m(postInfoList.origin_thread_info);
+                originalThreadInfo.n(postInfoList.origin_thread_info);
             }
             List<Voice> list3 = postInfoList.voice_info;
             if (list3 != null) {
@@ -928,16 +928,16 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         return invokeII.intValue;
     }
 
-    public static ArrayList<uo> mergeDynamicThreadByTime(ArrayList<uo> arrayList) {
+    public static ArrayList<ro> mergeDynamicThreadByTime(ArrayList<ro> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, arrayList)) == null) {
             String yearBytime = StringHelper.getYearBytime(System.currentTimeMillis());
-            Iterator<uo> it = arrayList.iterator();
+            Iterator<ro> it = arrayList.iterator();
             String str = "";
             String str2 = "";
             while (it.hasNext()) {
-                uo next = it.next();
+                ro next = it.next();
                 if (next instanceof CardPersonDynamicThreadData) {
                     CardPersonDynamicThreadData cardPersonDynamicThreadData = (CardPersonDynamicThreadData) next;
                     cardPersonDynamicThreadData.D = true;
@@ -1065,8 +1065,8 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             userPostPageRequestMessage.setNeedContent(true);
             userPostPageRequestMessage.setReset(false);
             userPostPageRequestMessage.setFrom(this.mFrom);
-            int k = oi.k(TbadkCoreApplication.getInst().getApp());
-            int i = oi.i(TbadkCoreApplication.getInst().getApp());
+            int k = mi.k(TbadkCoreApplication.getInst().getApp());
+            int i = mi.i(TbadkCoreApplication.getInst().getApp());
             float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
             int i2 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
             userPostPageRequestMessage.set_scr_w(k);
@@ -1212,8 +1212,8 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             userPostPageRequestMessage.setNeedContent(true);
             userPostPageRequestMessage.setReset(z);
             userPostPageRequestMessage.setFrom(this.mFrom);
-            int k = oi.k(TbadkCoreApplication.getInst().getApp());
-            int i2 = oi.i(TbadkCoreApplication.getInst().getApp());
+            int k = mi.k(TbadkCoreApplication.getInst().getApp());
+            int i2 = mi.i(TbadkCoreApplication.getInst().getApp());
             float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
             int i3 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
             userPostPageRequestMessage.set_scr_w(k);

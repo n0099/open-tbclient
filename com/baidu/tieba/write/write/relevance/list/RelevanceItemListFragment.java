@@ -64,7 +64,7 @@ public class RelevanceItemListFragment extends BaseFragment {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof EvaluateRelevanceItemSearchMessage)) {
-                this.a.B0(((EvaluateRelevanceItemSearchMessage) customResponsedMessage).content);
+                this.a.C0(((EvaluateRelevanceItemSearchMessage) customResponsedMessage).content);
             }
         }
     }
@@ -85,7 +85,7 @@ public class RelevanceItemListFragment extends BaseFragment {
         this.e = new a(this, 2921529);
     }
 
-    public void B0(String str) {
+    public void C0(String str) {
         RelevanceItemListController relevanceItemListController;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (relevanceItemListController = this.b) == null) {
@@ -96,27 +96,27 @@ public class RelevanceItemListFragment extends BaseFragment {
         showLoadingView(this.a);
     }
 
-    public boolean C0(long j) {
+    public boolean D0(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? ListUtils.getPosition(this.d, Long.valueOf(j)) >= 0 : invokeJ.booleanValue;
     }
 
-    public final void D0() {
+    public final void E0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             registerListener(this.e);
         }
     }
 
-    public void E0() {
+    public void F0() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && isLoadingViewAttached()) {
             hideLoadingView(this.a);
         }
     }
 
-    public void F0(String str) {
+    public void G0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             hideLoadingView(this.a);
@@ -124,7 +124,7 @@ public class RelevanceItemListFragment extends BaseFragment {
         }
     }
 
-    public void G0() {
+    public void H0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             hideLoadingView(this.a);
@@ -132,7 +132,7 @@ public class RelevanceItemListFragment extends BaseFragment {
         }
     }
 
-    public void H0(String str) {
+    public void I0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             this.c = str;
@@ -151,7 +151,7 @@ public class RelevanceItemListFragment extends BaseFragment {
             this.b = new RelevanceItemListController(this, this.a, this.c, getUniqueId());
             String obj = (((RelevanceItemSearchActivity) getActivity()).getSearchView() == null || ((RelevanceItemSearchActivity) getActivity()).getSearchView().h() == null) ? "" : ((RelevanceItemSearchActivity) getActivity()).getSearchView().h().getText().toString();
             if (!TextUtils.isEmpty(obj)) {
-                B0(obj);
+                C0(obj);
                 return;
             }
             showLoadingView(this.a);
@@ -173,10 +173,10 @@ public class RelevanceItemListFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, layoutInflater, viewGroup, bundle)) == null) {
             if (this.a == null) {
-                this.a = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02ef, (ViewGroup) null);
+                this.a = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02e6, (ViewGroup) null);
             }
             initData();
-            D0();
+            E0();
             return this.a;
         }
         return (View) invokeLLL.objValue;

@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
-import com.repackage.rc5;
+import com.repackage.jd5;
+import com.repackage.mi;
 import tbclient.GetBigday.DataReq;
 import tbclient.GetBigday.GetBigdayReqIdl;
 /* loaded from: classes3.dex */
@@ -45,10 +45,10 @@ public class GetBigdayInfoReqMessage extends NetMessage {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    rc5.a(builder, true);
+                    jd5.a(builder, true);
                 }
-                builder.scr_h = Integer.valueOf(oi.i(TbadkCoreApplication.getInst().getContext()));
-                builder.scr_w = Integer.valueOf(oi.k(TbadkCoreApplication.getInst().getContext()));
+                builder.scr_h = Integer.valueOf(mi.i(TbadkCoreApplication.getInst().getContext()));
+                builder.scr_w = Integer.valueOf(mi.k(TbadkCoreApplication.getInst().getContext()));
                 GetBigdayReqIdl.Builder builder2 = new GetBigdayReqIdl.Builder();
                 builder2.data = builder.build(false);
                 return builder2.build(false);

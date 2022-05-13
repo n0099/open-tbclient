@@ -1,665 +1,336 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.text.TextUtils;
-import android.util.Base64InputStream;
-import android.util.Base64OutputStream;
-import android.util.Log;
-import android.util.SparseArray;
-import android.util.SparseIntArray;
+import android.graphics.Paint;
+import android.os.Build;
+import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.searchbox.logsystem.basic.upload.Constant;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class mf4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final k a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public kf4 b;
-    public lf4 c;
-    public List<sf4> d;
-    public long e;
-    public long f;
-    public long g;
-    public int h;
-    public SparseArray<ArrayList> i;
-    public HashMap<String, Long> j;
-    public wf4 k;
-    public nf4 l;
 
-    public mf4(Context context) {
+    /* loaded from: classes6.dex */
+    public static class a implements k {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b extends a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c extends b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class d extends c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.mf4.k
+        public int a(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) ? nf4.a(view2) : invokeL.intValue;
+        }
+
+        @Override // com.repackage.mf4.k
+        public void c(View view2, int i, Paint paint) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i, paint) == null) {
+                nf4.b(view2, i, paint);
+            }
+        }
+
+        @Override // com.repackage.mf4.k
+        public void d(View view2, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, view2, z) == null) {
+                nf4.c(view2, z);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class e extends d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public e() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.mf4.k
+        public boolean b(View view2, int i) {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, view2, i)) == null) ? of4.a(view2, i) : invokeLI.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class f extends e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public f() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.mf4.k
+        public boolean e(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) ? pf4.a(view2) : invokeL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class g extends f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public g() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class h extends g {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public h() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class i extends h {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public i() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class j extends i {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public j() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface k {
+        int a(View view2);
+
+        boolean b(View view2, int i);
+
+        void c(View view2, int i, Paint paint);
+
+        void d(View view2, boolean z);
+
+        boolean e(View view2);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755501226, "Lcom/repackage/mf4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755501226, "Lcom/repackage/mf4;");
+                return;
+            }
+        }
+        if (Build.VERSION.SDK_INT >= 21) {
+            a = new j();
+        } else {
+            a = new i();
+        }
+    }
+
+    public mf4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = context;
-        this.b = new kf4(context);
-        this.c = new lf4(context);
-        this.k = of4.g().m();
-        this.d = new ArrayList(20);
-        dg4 f = dg4.f();
-        this.e = f.getLong("ubc_last_upload_all_time", 0L);
-        this.f = f.getLong("ubc_last_upload_non_real", 0L);
-        this.g = f.getLong("ubc_reset_real_time_count_time", 0L);
-        this.h = f.getInt("ubc_real_time_count", 0);
-        nf4 g = nf4.g();
-        this.l = g;
-        g.k(this, context);
     }
 
-    public final boolean A(sf4 sf4Var) {
+    public static boolean a(View view2, int i2) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, view2, i2)) == null) ? a.b(view2, i2) : invokeLI.booleanValue;
+    }
+
+    public static int b(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sf4Var)) == null) {
-            if (g(this.a) && c()) {
-                j();
-                eg4 eg4Var = new eg4();
-                eg4Var.g = true;
-                JSONObject jSONObject = sf4Var.e;
-                try {
-                    if (jSONObject != null && jSONObject.has("bizId")) {
-                        bg4.a(jSONObject);
-                        eg4Var.a(jSONObject);
-                        long j = sf4Var.f;
-                        eg4Var.g(j, j);
-                        JSONObject jSONObject2 = jSONObject.getJSONObject("content");
-                        JSONObject jSONObject3 = jSONObject.getJSONObject(DI.APP_INFO_NAME);
-                        if (jSONObject2 != null && jSONObject3 != null) {
-                            jSONObject2.put(DI.APP_INFO_NAME, jSONObject3);
-                            jSONObject.remove(DI.APP_INFO_NAME);
-                        }
-                    } else {
-                        JSONObject e = new bg4(sf4Var.a()).e();
-                        e.put("bizId", sf4Var.a);
-                        e.put("timestamp", Long.toString(sf4Var.f));
-                        if (sf4Var.e != null) {
-                            e.put("content", sf4Var.e);
-                        } else {
-                            e.put("content", sf4Var.d);
-                        }
-                        e.put("eventType", "0");
-                        if (!TextUtils.isEmpty(sf4Var.h)) {
-                            e.put("abtest", sf4Var.h);
-                            eg4Var.f = "1";
-                        }
-                        if (!TextUtils.isEmpty(sf4Var.i)) {
-                            e.put("c", sf4Var.i);
-                        }
-                        if (sf4Var.j) {
-                            e.put("of", "1");
-                        }
-                        e.put(Constant.ID_TYPE, this.l.j(sf4Var.a));
-                        eg4Var.a(e);
-                        eg4Var.g(sf4Var.f, sf4Var.f);
-                    }
-                } catch (JSONException unused) {
-                }
-                if (this.i == null) {
-                    f();
-                }
-                if (this.i.size() > 0) {
-                    this.b.m(this.i.valueAt(0), eg4Var);
-                }
-                q(eg4Var);
-                i();
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) ? a.a(view2) : invokeL.intValue;
     }
 
-    public final void B() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && g(this.a) && c()) {
-            eg4 eg4Var = new eg4();
-            eg4Var.g = true;
-            if (this.i == null) {
-                f();
-            }
-            if (this.i.size() > 0) {
-                if (of4.g().s()) {
-                    this.b.l(eg4Var);
-                } else {
-                    this.b.m(this.i.valueAt(0), eg4Var);
-                }
-            }
-            q(eg4Var);
-            i();
-        }
-    }
-
-    public void a(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
-            j();
-            this.b.d(str, i);
-            if (Math.abs(System.currentTimeMillis() - this.f) >= nf4.g().h()) {
-                z();
-            }
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            n(true);
-            n(false);
-        }
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (of4.g().s()) {
-                return true;
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            if (Math.abs(currentTimeMillis - this.g) > 86400000) {
-                this.h = 0;
-                this.g = currentTimeMillis;
-                dg4.f().putLong("ubc_reset_real_time_count_time", this.g);
-                dg4.f().putInt("ubc_real_time_count", this.h);
-            }
-            int i = this.h;
-            if (i >= 1000) {
-                if (i == 1000) {
-                    this.h = i + 1;
-                    of4.h("23", "realLimit");
-                }
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void d(String str, int i, long j, JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Integer.valueOf(i), Long.valueOf(j), jSONArray}) == null) {
-            j();
-            this.b.j(str, i, j, jSONArray);
-            if (this.l.b(str)) {
-                B();
-            }
-            if (Math.abs(System.currentTimeMillis() - this.f) >= nf4.g().h()) {
-                z();
-            }
-        }
-    }
-
-    public kf4 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : (kf4) invokeV.objValue;
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.i == null) {
-            SparseArray<ArrayList> sparseArray = new SparseArray<>();
-            this.i = sparseArray;
-            this.b.v(sparseArray);
-            this.j = new HashMap<>();
-            int i = 0;
-            for (int i2 = 0; i2 < this.i.size(); i2++) {
-                int keyAt = this.i.keyAt(i2);
-                if (keyAt != 0 && i == 0) {
-                    i = keyAt;
-                }
-                HashMap<String, Long> hashMap = this.j;
-                hashMap.put("ubc_last_upload_time_level_" + keyAt, 0L);
-            }
-            this.l.p(i);
-        }
-    }
-
-    @SuppressLint({"MissingPermission"})
-    public final boolean g(Context context) {
+    public static boolean c(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) {
-            ConnectivityManager connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity");
-            if (connectivityManager == null) {
-                return false;
-            }
-            NetworkInfo networkInfo = null;
-            try {
-                networkInfo = connectivityManager.getActiveNetworkInfo();
-            } catch (Exception unused) {
-            }
-            return networkInfo != null && networkInfo.isAvailable();
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2)) == null) ? a.e(view2) : invokeL.booleanValue;
     }
 
-    public void h() {
-        File[] listFiles;
+    public static void d(View view2, int i2, Paint paint) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && g(this.a)) {
-            File file = new File(this.a.getFilesDir() + File.separator + "statistics_data");
-            if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
-                if (listFiles.length > 50) {
-                    JSONObject jSONObject = new JSONObject();
-                    try {
-                        jSONObject.put("type", "del_file");
-                        jSONObject.put("del_file_size", listFiles.length);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                    of4.h("23", jSONObject.toString());
-                    for (File file2 : listFiles) {
-                        file2.delete();
-                    }
-                    this.b.h();
-                }
-                for (int i = 0; i < listFiles.length; i++) {
-                    tf4 u = this.b.u(listFiles[i].getName());
-                    if (u != null && TextUtils.equals("0", u.a())) {
-                        cg4.a("processFailedData file, no need to send");
-                    } else if (u != null && TextUtils.equals("1", u.a())) {
-                        cg4.a("processFailedData file, send");
-                        this.b.G(listFiles[i].getName(), "0");
-                        v(listFiles[i].getName());
-                    } else {
-                        cg4.a("processFailedData file, data in db, delete file");
-                        listFiles[i].delete();
-                    }
-                }
-            }
+        if (interceptable == null || interceptable.invokeLIL(65541, null, view2, i2, paint) == null) {
+            a.c(view2, i2, paint);
         }
     }
 
-    public final void i() {
+    public static void e(View view2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.h++;
-            dg4.f().putInt("ubc_real_time_count", this.h);
-        }
-    }
-
-    public final void j() {
-        List<sf4> list;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (list = this.d) == null || list.size() == 0) {
-            return;
-        }
-        this.b.z(this.d);
-        this.d.clear();
-    }
-
-    public void k(sf4 sf4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, sf4Var) == null) {
-            boolean z = TextUtils.equals(sf4Var.a, sf4Var.b) && this.l.b(sf4Var.a) && (sf4Var.g & 64) == 0;
-            if (z && !A(sf4Var)) {
-                this.b.y(sf4Var);
-            } else if (Math.abs(System.currentTimeMillis() - this.f) >= nf4.g().h()) {
-                if (!z) {
-                    this.d.add(sf4Var);
-                }
-                z();
-            } else if ((1 & sf4Var.g) != 0) {
-                if (z) {
-                    return;
-                }
-                this.b.y(sf4Var);
-            } else {
-                if (!z) {
-                    this.d.add(sf4Var);
-                }
-                if (this.d.size() >= 20) {
-                    j();
-                }
-            }
-        }
-    }
-
-    public void l(sf4 sf4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, sf4Var) == null) {
-            this.c.d(sf4Var, this.l.b(sf4Var.a));
-        }
-    }
-
-    public final void m(String str, String str2) {
-        OutputStream fileOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048590, this, str, str2) == null) {
-            String str3 = this.a.getFilesDir() + File.separator + "statistics_data";
-            File file = new File(str3);
-            if (!file.exists()) {
-                file.mkdir();
-            }
-            File file2 = new File(str3, str2);
-            if (file2.exists()) {
-                return;
-            }
-            OutputStream outputStream = null;
-            try {
-                try {
-                    fileOutputStream = new FileOutputStream(file2);
-                } catch (Exception e) {
-                    e = e;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                outputStream = new Base64OutputStream(fileOutputStream, 0);
-                outputStream.write(str.getBytes());
-                outputStream.flush();
-                cg4.a("save to file suc");
-            } catch (Exception e2) {
-                e = e2;
-                outputStream = fileOutputStream;
-                e.printStackTrace();
-                mg4.d(outputStream);
-            } catch (Throwable th2) {
-                th = th2;
-                outputStream = fileOutputStream;
-                mg4.d(outputStream);
-                throw th;
-            }
-            mg4.d(outputStream);
-        }
-    }
-
-    public final void n(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            eg4 eg4Var = new eg4();
-            eg4Var.g = z;
-            if (this.c.c(eg4Var, z)) {
-                JSONArray jSONArray = eg4Var.a;
-                this.c.b(z);
-                xf4.f().s(jSONArray);
-            }
-        }
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.b.C();
-        }
-    }
-
-    public void p(uf4 uf4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, uf4Var) == null) {
-            this.b.B(uf4Var);
-        }
-    }
-
-    public final void q(eg4 eg4Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048594, this, eg4Var) == null) || eg4Var.d()) {
-            return;
-        }
-        JSONArray jSONArray = eg4Var.a;
-        String d = og4.d(jSONArray.toString().getBytes(), true);
-        m(jSONArray.toString(), d);
-        this.b.A(d, eg4Var.g);
-        if (!this.b.g(eg4Var.b, eg4Var.c, eg4Var.g, d)) {
-            eg4Var.c();
-            File file = new File(this.a.getFilesDir() + File.separator + "statistics_data", d);
-            if (file.exists() && file.delete()) {
-                Log.d("CeresBehaviorModel", "db fail deleteUploadFile file suc");
-            }
-            this.b.i(d);
-            return;
-        }
-        xf4.f().r(jSONArray, d);
-        eg4Var.c();
-    }
-
-    public void r(ag4 ag4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, ag4Var) == null) {
-            this.l.q(ag4Var.a());
-            this.l.n(ag4Var.d() * 86400000);
-            this.l.o(ag4Var.c());
-            dg4.f().putString("ubc_version_md5", ag4Var.b());
-            this.b.D(ag4Var.a());
-            ag4Var.a().clear();
-            if (this.i == null) {
-                this.i = new SparseArray<>();
-            }
-            this.i.clear();
-            if (this.j == null) {
-                this.j = new HashMap<>();
-            }
-            this.j.clear();
-            this.b.v(this.i);
-            int i = 0;
-            for (int i2 = 0; i2 < this.i.size(); i2++) {
-                int keyAt = this.i.keyAt(i2);
-                if (keyAt != 0 && i == 0) {
-                    i = keyAt;
-                }
-                HashMap<String, Long> hashMap = this.j;
-                hashMap.put("ubc_last_upload_time_level_" + keyAt, 0L);
-            }
-            this.l.p(i);
-        }
-    }
-
-    public void s(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048596, this, str, i, str2) == null) {
-            this.b.E(str, i, str2);
-        }
-    }
-
-    public void t() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && g(this.a) && Math.abs(System.currentTimeMillis() - this.e) >= 3600000) {
-            this.b.f();
-            eg4 eg4Var = new eg4();
-            if (this.b.l(eg4Var) == 0) {
-                return;
-            }
-            eg4 eg4Var2 = new eg4();
-            eg4Var2.g(eg4Var.d, eg4Var.e);
-            eg4Var2.f = eg4Var.f;
-            eg4Var2.g = true;
-            eg4 eg4Var3 = new eg4();
-            eg4Var3.g(eg4Var.d, eg4Var.e);
-            eg4Var3.f = eg4Var.f;
-            eg4Var3.g = false;
-            SparseIntArray sparseIntArray = eg4Var.b;
-            int size = sparseIntArray.size();
-            for (int i = 0; i < size; i++) {
-                if (this.l.b(String.valueOf(sparseIntArray.valueAt(i)))) {
-                    eg4Var2.f(sparseIntArray.keyAt(i), sparseIntArray.valueAt(i));
-                } else {
-                    eg4Var3.f(sparseIntArray.keyAt(i), sparseIntArray.valueAt(i));
-                }
-            }
-            ArrayList<String> arrayList = eg4Var.c;
-            int size2 = arrayList.size();
-            for (int i2 = 0; i2 < size2; i2++) {
-                String str = arrayList.get(i2);
-                if (this.l.b(str)) {
-                    eg4Var2.e(str);
-                } else {
-                    eg4Var3.e(str);
-                }
-            }
-            JSONArray jSONArray = eg4Var.a;
-            int length = jSONArray.length();
-            for (int i3 = 0; i3 < length; i3++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i3);
-                if (optJSONObject.has("bizId")) {
-                    String str2 = null;
-                    try {
-                        str2 = optJSONObject.getString("bizId");
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                    if (!TextUtils.isEmpty(str2)) {
-                        if (this.l.b(str2)) {
-                            eg4Var2.a(optJSONObject);
-                        } else {
-                            eg4Var3.a(optJSONObject);
-                        }
-                    }
-                }
-            }
-            if (eg4Var2.a.length() > 0) {
-                q(eg4Var2);
-            }
-            if (eg4Var3.a.length() > 0) {
-                q(eg4Var3);
-            }
-            this.e = System.currentTimeMillis();
-            dg4.f().putLong("ubc_last_upload_all_time", this.e);
-            this.f = this.e;
-            dg4.f().putLong("ubc_last_upload_non_real", this.f);
-        }
-    }
-
-    public final void u(JSONArray jSONArray, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048598, this, jSONArray, str) == null) {
-            xf4.f().t(str, this.k.a(jSONArray));
-        }
-    }
-
-    public void v(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(1048599, this, str) != null) {
-            return;
-        }
-        File file = new File(this.a.getFilesDir() + File.separator + "statistics_data", str);
-        InputStream inputStream = null;
-        try {
-            InputStream fileInputStream = new FileInputStream(file);
-            try {
-                if (fileInputStream.available() > 0) {
-                    inputStream = new Base64InputStream(fileInputStream, 0);
-                    xf4.f().r(new JSONArray(qg4.c(inputStream)), str);
-                    fileInputStream = inputStream;
-                }
-                mg4.d(fileInputStream);
-            } catch (Exception unused) {
-                inputStream = fileInputStream;
-                mg4.d(inputStream);
-            } catch (Throwable th) {
-                th = th;
-                inputStream = fileInputStream;
-                mg4.d(inputStream);
-                throw th;
-            }
-        } catch (Exception unused2) {
-        } catch (Throwable th2) {
-            th = th2;
-        }
-    }
-
-    public void w(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048600, this, jSONArray) == null) || this.k.a(jSONArray)) {
-            return;
-        }
-        of4.h("23", "sendFail");
-    }
-
-    public void x(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
-            cg4.a("upload file fail");
-            this.b.F(str);
-        }
-    }
-
-    public void y(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
-            File file = new File(this.a.getFilesDir() + File.separator + "statistics_data", str);
-            cg4.a("delete file");
-            if (file.exists() && file.delete()) {
-                Log.d("CeresBehaviorModel", "deleteUploadFile file suc");
-                cg4.a("delete file suc");
-            }
-            this.b.i(str);
-        }
-    }
-
-    public final void z() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048603, this) == null) && g(this.a)) {
-            this.f = System.currentTimeMillis();
-            dg4.f().putLong("ubc_last_upload_non_real", this.f);
-            b();
-            j();
-            this.b.f();
-            HashSet hashSet = new HashSet();
-            if (this.i == null) {
-                f();
-            }
-            eg4 eg4Var = new eg4();
-            eg4Var.g = false;
-            int i = 0;
-            for (int i2 = 0; i2 < this.i.size(); i2++) {
-                int keyAt = this.i.keyAt(i2);
-                if (keyAt != 0) {
-                    HashMap<String, Long> hashMap = this.j;
-                    long longValue = hashMap.get("ubc_last_upload_time_level_" + keyAt).longValue();
-                    if (longValue == 0 || (longValue + (keyAt * 60000)) - System.currentTimeMillis() < this.l.h()) {
-                        i |= this.b.m(this.i.valueAt(i2), eg4Var);
-                        HashMap<String, Long> hashMap2 = this.j;
-                        hashMap2.put("ubc_last_upload_time_level_" + keyAt, Long.valueOf(System.currentTimeMillis()));
-                        hashSet.add(Integer.valueOf(keyAt));
-                    }
-                }
-            }
-            if (i == 0) {
-                return;
-            }
-            for (int i3 = 0; i3 < this.i.size(); i3++) {
-                int keyAt2 = this.i.keyAt(i3);
-                if (keyAt2 != 0 && !hashSet.contains(Integer.valueOf(keyAt2))) {
-                    if (eg4Var.b(51200)) {
-                        break;
-                    }
-                    this.b.m(this.i.valueAt(i3), eg4Var);
-                }
-            }
-            q(eg4Var);
+        if (interceptable == null || interceptable.invokeLZ(65542, null, view2, z) == null) {
+            a.d(view2, z);
         }
     }
 }

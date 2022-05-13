@@ -18,8 +18,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.tg1;
-import com.repackage.vy2;
+import com.repackage.eh1;
+import com.repackage.gz2;
 /* loaded from: classes2.dex */
 public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -47,7 +47,7 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
     public boolean t;
     public float u;
     public boolean v;
-    public vy2<T> w;
+    public gz2<T> w;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
@@ -337,7 +337,7 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
                 return;
             }
         }
-        x = tg1.a;
+        x = eh1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -541,10 +541,10 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.e : (LoadingLayout) invokeV.objValue;
     }
 
-    public vy2<T> getRefreshableFactory() {
+    public gz2<T> getRefreshableFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.w : (vy2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.w : (gz2) invokeV.objValue;
     }
 
     public T getRefreshableView() {

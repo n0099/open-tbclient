@@ -1,158 +1,119 @@
 package com.repackage;
 
-import android.view.View;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.view.NovelInfoCardView;
-import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class j75 {
+public abstract class j75 {
     public static /* synthetic */ Interceptable $ic;
-    public static j75 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final int b;
-    public boolean c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
-    public boolean g;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755635735, "Lcom/repackage/j75;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755635735, "Lcom/repackage/j75;");
-        }
-    }
+    public List<h75> eventDelegates;
+    public boolean isDispatchMvcEventing;
+    public BdUniqueId uniqueId;
 
     public j75() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = true;
-        this.d = true;
-        this.e = true;
-        this.f = true;
-        this.g = true;
-        this.a = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds144);
-        this.b = oi.i(TbadkCoreApplication.getInst());
+        this.isDispatchMvcEventing = false;
     }
 
-    public static j75 a() {
-        InterceptResult invokeV;
+    public void addEventDelegate(h75 h75Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (h == null) {
-                synchronized (j75.class) {
-                    if (h == null) {
-                        h = new j75();
-                    }
-                }
+        if (interceptable == null || interceptable.invokeL(1048576, this, h75Var) == null) {
+            if (this.eventDelegates == null) {
+                this.eventDelegates = new ArrayList();
             }
-            return h;
+            if (this.eventDelegates.contains(h75Var)) {
+                return;
+            }
+            if (this.isDispatchMvcEventing && TbadkCoreApplication.getInst().isDebugMode()) {
+                throw new RuntimeException("can not add event delegate on dispatch mvcevent");
+            }
+            this.eventDelegates.add(h75Var);
         }
-        return (j75) invokeV.objValue;
     }
 
-    public boolean b(View view2) {
+    public boolean dispatchMvcEvent(i75 i75Var) {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            if (view2 == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i75Var)) == null) {
+            if (i75Var == null) {
                 return false;
             }
-            int[] iArr = new int[2];
-            view2.getLocationOnScreen(iArr);
-            int i = iArr[1];
-            return i > 0 && i < this.b - this.a;
+            if (i75Var.e() == null) {
+                i75Var.i(this.uniqueId);
+            }
+            if (this.eventDelegates != null) {
+                try {
+                    this.isDispatchMvcEventing = true;
+                    onBeforeDispatchMvcEvent(i75Var);
+                    int size = this.eventDelegates.size();
+                    z = false;
+                    for (int i = 0; i < size; i++) {
+                        try {
+                            h75 h75Var = this.eventDelegates.get(i);
+                            if (h75Var != null && ((!h75Var.isEventMustSelf() || (h75Var.isEventMustSelf() && i75Var.e() == h75Var.getUniqueId())) && (z = h75Var.onEventDispatch(i75Var)) && i75Var.f())) {
+                                return true;
+                            }
+                        } catch (Throwable th) {
+                            th = th;
+                            try {
+                                BdLog.e(th);
+                                if (TbadkCoreApplication.getInst().isDebugMode()) {
+                                    throw new RuntimeException(th);
+                                }
+                                this.isDispatchMvcEventing = false;
+                                return z;
+                            } finally {
+                                this.isDispatchMvcEventing = false;
+                            }
+                        }
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    z = false;
+                }
+                this.isDispatchMvcEventing = false;
+                return z;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
 
-    public void c(String str, String str2, qz4 qz4Var, View view2, NovelInfoCardView novelInfoCardView) {
+    public void onBeforeDispatchMvcEvent(i75 i75Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, qz4Var, view2, novelInfoCardView) == null) || qz4Var == null || view2 == null || novelInfoCardView == null || novelInfoCardView.getVisibility() != 0) {
-            return;
-        }
-        String valueOf = String.valueOf(qz4Var.h());
-        if (b(view2) && view2.getVisibility() == 0) {
-            if (this.c) {
-                this.c = false;
-                m75.b(CommonStatisticKey.KEY_PB_NOVEL_INFO_READ_MORE_BUTTON_SHOW, valueOf, str, str2);
-            }
-        } else {
-            this.c = true;
-        }
-        if (b(novelInfoCardView)) {
-            if (this.d) {
-                this.d = false;
-                m75.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_SHOW, 4, valueOf, str, str2);
-            }
-        } else {
-            this.d = true;
-        }
-        if (b(novelInfoCardView.getNovelCoverPage())) {
-            if (this.e) {
-                this.e = false;
-                m75.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_SHOW, 3, valueOf, str, str2);
-            }
-        } else {
-            this.e = true;
-        }
-        if (qz4Var.i()) {
-            if (b(novelInfoCardView.getNovelStateButton())) {
-                if (this.g) {
-                    this.g = false;
-                    m75.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_SHOW, 2, valueOf, str, str2);
-                    return;
-                }
-                return;
-            }
-            this.g = true;
-        } else if (b(novelInfoCardView.getNovelStateButton())) {
-            if (this.f) {
-                this.f = false;
-                m75.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_SHOW, 1, valueOf, str, str2);
-            }
-        } else {
-            this.f = true;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, i75Var) == null) {
         }
     }
 
-    public void d() {
+    public void removeEventDelegate(h75 h75Var) {
+        List<h75> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            h = null;
-            this.c = true;
-            this.d = true;
-            this.e = true;
-            this.f = true;
-            this.g = true;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, h75Var) == null) && (list = this.eventDelegates) != null && list.contains(h75Var)) {
+            if (this.isDispatchMvcEventing && TbadkCoreApplication.getInst().isDebugMode()) {
+                throw new RuntimeException("can not add event delegate on dispatch mvcevent");
+            }
+            this.eventDelegates.remove(h75Var);
         }
     }
 }

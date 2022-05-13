@@ -1,40 +1,36 @@
 package com.repackage;
 
-import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tieba.frs.itemtab.holder.FrsItemAcceleratorHolder;
-import com.baidu.tieba.frs.itemtab.view.FrsItemAcceleratorView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.frs.lego.LegoItemHolder;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class wl6 extends ho<km6, FrsItemAcceleratorHolder> {
+public class wl6 extends pc6<ICardInfo, LegoItemHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId i;
+    public ICardInfo t;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wl6(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    public wl6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext, bdUniqueId, bdUniqueId2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -43,41 +39,49 @@ public class wl6 extends ho<km6, FrsItemAcceleratorHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: Z */
-    public FrsItemAcceleratorHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new FrsItemAcceleratorHolder(new FrsItemAcceleratorView(viewGroup.getContext()), this.i) : (FrsItemAcceleratorHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, km6 km6Var, FrsItemAcceleratorHolder frsItemAcceleratorHolder) {
+    @Override // com.repackage.eo
+    /* renamed from: l0 */
+    public View E(int i, View view2, ViewGroup viewGroup, ICardInfo iCardInfo) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, km6Var, frsItemAcceleratorHolder})) == null) {
-            frsItemAcceleratorHolder.c(km6Var);
-            frsItemAcceleratorHolder.f();
-            if (TbSingleton.getInstance().isItemTabVisible) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new tu4(17)));
-                if (km6Var.a() == TbSingleton.getInstance().acceleratorItemId) {
-                    frsItemAcceleratorHolder.d();
-                    return null;
-                }
-                frsItemAcceleratorHolder.e();
-                return null;
-            }
-            return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, iCardInfo})) == null) {
+            this.t = iCardInfo;
+            return super.E(i, view2, viewGroup, iCardInfo);
         }
         return (View) invokeCommon.objValue;
     }
 
-    public void b0(BdUniqueId bdUniqueId) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.eo
+    /* renamed from: m0 */
+    public LegoItemHolder M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
-            this.i = bdUniqueId;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
+            yd7 a = dd7.h().a(this.k, this.t, 1);
+            if (a == null) {
+                return null;
+            }
+            a.b(this.e);
+            return new LegoItemHolder(a);
         }
+        return (LegoItemHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.pc6, com.repackage.eo
+    /* renamed from: n0 */
+    public View S(int i, View view2, ViewGroup viewGroup, ICardInfo iCardInfo, LegoItemHolder legoItemHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, iCardInfo, legoItemHolder})) == null) {
+            super.S(i, view2, viewGroup, iCardInfo, legoItemHolder);
+            View b = legoItemHolder.b();
+            if (b != null && iCardInfo != null) {
+                ((yd7) b).update(iCardInfo);
+            }
+            return b;
+        }
+        return (View) invokeCommon.objValue;
     }
 }

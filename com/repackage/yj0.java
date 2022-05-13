@@ -102,7 +102,7 @@ public class yj0 {
         NotificationCompat.Builder builder;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Context b2 = hi0.b();
+            Context b2 = ki0.b();
             if (Build.VERSION.SDK_INT >= 26) {
                 d();
                 builder = new NotificationCompat.Builder(b2, "com.baidu.nadcore.notification.channel");
@@ -143,7 +143,7 @@ public class yj0 {
             if (TextUtils.isEmpty(str) || rj0Var == null) {
                 return null;
             }
-            Context b2 = hi0.b();
+            Context b2 = ki0.b();
             Intent intent = new Intent(str);
             intent.setComponent(new ComponentName(b2.getPackageName(), NotificationReceiver.class.getName()));
             intent.putExtra(NotificationReceiver.INTENT_PARAMS_KEY_PACKAGE_NAME, rj0Var.d);
@@ -162,12 +162,12 @@ public class yj0 {
         if (interceptable == null || interceptable.invokeLLLL(1048581, this, str, str2, str3, str4) == null) {
             ClogBuilder clogBuilder = new ClogBuilder();
             if (!TextUtils.isEmpty(str)) {
-                clogBuilder.t(str);
+                clogBuilder.x(str);
             }
             if (!TextUtils.equals(str, ClogBuilder.LogType.DOWNLOAD_INSTALL.type) && !TextUtils.equals(str, ClogBuilder.LogType.OPEN_APP.type)) {
-                clogBuilder.q(ClogBuilder.Page.AD_NOTIFICATION);
+                clogBuilder.s(ClogBuilder.Page.AD_NOTIFICATION);
             } else {
-                clogBuilder.q(ClogBuilder.Page.RETARGET);
+                clogBuilder.s(ClogBuilder.Page.RETARGET);
             }
             if (!TextUtils.isEmpty(str2)) {
                 clogBuilder.h(str2);
@@ -178,7 +178,7 @@ public class yj0 {
             if (!TextUtils.isEmpty(str4)) {
                 clogBuilder.i(str4);
             }
-            ez0.b(clogBuilder);
+            ez0.c(clogBuilder);
         }
     }
 
@@ -189,13 +189,13 @@ public class yj0 {
         }
         try {
             b();
-            Context b2 = hi0.b();
+            Context b2 = ki0.b();
             String str2 = rj0Var.p.h;
             String str3 = "";
             if (TextUtils.equals(str, "notify_type_pause")) {
-                str3 = b2.getResources().getString(R.string.obfuscated_res_0x7f0f0b7e);
+                str3 = b2.getResources().getString(R.string.obfuscated_res_0x7f0f0b92);
             } else if (TextUtils.equals(str, "notify_type_stop")) {
-                str3 = b2.getResources().getString(R.string.obfuscated_res_0x7f0f0b82);
+                str3 = b2.getResources().getString(R.string.obfuscated_res_0x7f0f0b96);
             }
             NotificationCompat.Builder c = c();
             c.setTicker(str2 + str3);
@@ -216,9 +216,9 @@ public class yj0 {
         }
         try {
             b();
-            Context b2 = hi0.b();
+            Context b2 = ki0.b();
             String str = rj0Var.p.h;
-            String string = b2.getResources().getString(R.string.obfuscated_res_0x7f0f0b83);
+            String string = b2.getResources().getString(R.string.obfuscated_res_0x7f0f0b97);
             NotificationCompat.Builder c = c();
             c.setTicker(string);
             c.setContentTitle(str);
@@ -241,9 +241,9 @@ public class yj0 {
         try {
             notificationManager.cancel(1743353008);
             this.a.cancel(-1276312226);
-            Context b2 = hi0.b();
+            Context b2 = ki0.b();
             String str = rj0Var.p.h;
-            String string = b2.getResources().getString(R.string.obfuscated_res_0x7f0f0b84);
+            String string = b2.getResources().getString(R.string.obfuscated_res_0x7f0f0b98);
             int i = (int) (rj0Var.i * 100.0f);
             if (this.b == null) {
                 NotificationCompat.Builder c = c();
@@ -280,6 +280,6 @@ public class yj0 {
                 return;
             }
         }
-        this.a = (NotificationManager) hi0.b().getSystemService(ActionJsonData.TAG_NOTIFICATION);
+        this.a = (NotificationManager) ki0.b().getSystemService(ActionJsonData.TAG_NOTIFICATION);
     }
 }

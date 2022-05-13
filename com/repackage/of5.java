@@ -1,47 +1,48 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.tbadk.util.TiePlusHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import tbclient.TiebaPlusInfo;
 /* loaded from: classes6.dex */
-public class of5<T> implements fg5 {
+public class of5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<T> a;
 
-    public of5(List<T> list) {
+    public static boolean a(Context context, aj8 aj8Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, aj8Var)) == null) {
+            if (context == null || aj8Var == null || !aj8Var.b()) {
+                return false;
             }
+            TiePlusHelper tiePlusHelper = new TiePlusHelper(context);
+            TiebaPlusInfo a = aj8Var.a();
+            if (a == null) {
+                return false;
+            }
+            tiePlusHelper.F(a.app_id);
+            tiePlusHelper.G(a.title);
+            tiePlusHelper.L(true);
+            tiePlusHelper.K(a.download_url);
+            tiePlusHelper.N(a.app_package);
+            tiePlusHelper.O(a.app_power);
+            tiePlusHelper.P(a.app_privacy);
+            fg5 fg5Var = new fg5(context, tiePlusHelper, true);
+            tiePlusHelper.J(fg5Var);
+            ItemData itemData = new ItemData();
+            itemData.parseProto(a);
+            tiePlusHelper.M(itemData);
+            fg5Var.f(a.app_company);
+            fg5Var.g(a.app_icon);
+            fg5Var.h(a.title);
+            fg5Var.i(a.app_version);
+            fg5Var.show();
+            return true;
         }
-        this.a = list;
-    }
-
-    @Override // com.repackage.fg5
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.size() : invokeV.intValue;
-    }
-
-    @Override // com.repackage.fg5
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? (i < 0 || i >= this.a.size()) ? "" : this.a.get(i) : invokeI.objValue;
+        return invokeLL.booleanValue;
     }
 }

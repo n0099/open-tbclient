@@ -130,7 +130,7 @@ public class PassBiometricUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, iArr)) == null) {
             if (iArr != null && iArr.length == 2) {
-                int i2 = ((iArr[0] * 480) / 750) / 2;
+                int i2 = ((iArr[0] * 480) / k) / 2;
                 int i3 = ((iArr[1] * f) / 1335) / 2;
                 Point point = new Point();
                 point.set(iArr[0] / 2, (iArr[1] * i) / 1335);
@@ -238,7 +238,7 @@ public class PassBiometricUtil {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, iArr, iArr2)) == null) {
             if (iArr2 != null && iArr2.length == 2) {
                 Rect a2 = a(iArr);
-                if (a2.right - a2.left < (iArr2[0] * 192) / 750) {
+                if (a2.right - a2.left < (iArr2[0] * 192) / k) {
                     return true;
                 }
             }
@@ -253,7 +253,7 @@ public class PassBiometricUtil {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, iArr, iArr2)) == null) {
             if (iArr2 != null && iArr2.length == 2) {
                 Rect a2 = a(iArr);
-                if (a2.right - a2.left > (iArr2[0] * 480) / 750) {
+                if (a2.right - a2.left > (iArr2[0] * 480) / k) {
                     return true;
                 }
             }

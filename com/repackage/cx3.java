@@ -1,16 +1,18 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cx3 implements tx3 {
+public final class cx3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public c82 a;
 
     public cx3() {
         Interceptable interceptable = $ic;
@@ -26,48 +28,48 @@ public class cx3 implements tx3 {
         }
     }
 
-    @Override // com.repackage.tx3
-    public boolean a(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z, @NonNull od2 od2Var) {
-        InterceptResult invokeCommon;
+    public boolean a(MotionEvent motionEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, Boolean.valueOf(z), od2Var})) == null) {
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            c82 c82Var = this.a;
+            if (c82Var == null) {
+                return false;
+            }
+            boolean f = dx3.f(c82Var.p());
+            boolean f2 = dx3.f(this.a.x());
+            JSEvent jSEvent = null;
+            if (f || f2) {
+                jSEvent = dx3.j(motionEvent);
+            }
+            boolean dispatchEvent = f ? this.a.dispatchEvent(jSEvent) : false;
+            if (f2 && this.a.w0()) {
+                this.a.x().dispatchEvent(jSEvent);
+            }
+            dx3.g(true);
+            return dispatchEvent;
         }
-        return invokeCommon.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.tx3
-    public void b(String str, String str2, String str3, String str4, String str5) {
+    public void b(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, str4, str5) == null) {
-        }
-    }
-
-    @Override // com.repackage.tx3
-    public void c(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-        }
-    }
-
-    @Override // com.repackage.tx3
-    public void d(@NonNull String str, @NonNull String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-        }
-    }
-
-    @Override // com.repackage.tx3
-    public void e(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            dx3.m(i, i2);
         }
     }
 
-    @Override // com.repackage.tx3
-    public void f(@NonNull String str) {
+    public void c(c82 c82Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c82Var) == null) {
+            this.a = c82Var;
+        }
+    }
+
+    public void d(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            dx3.l(i, i2);
         }
     }
 }

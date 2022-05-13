@@ -1,7 +1,27 @@
 package com.repackage;
 
-import com.repackage.fh5;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface ih5<T extends fh5> {
-    T a();
+public class ih5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            iu4.k().x("key_youngster_use_time_dialog_show_time", 0L);
+        }
+    }
+
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            long m = iu4.k().m("key_youngster_use_time_dialog_show_time", 0L);
+            return m > System.currentTimeMillis() || System.currentTimeMillis() - m <= 600000;
+        }
+        return invokeV.booleanValue;
+    }
 }

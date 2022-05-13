@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.v8.V8;
 import com.kwad.v8.V8Array;
 import com.kwad.v8.V8Object;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKV8 extends V8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

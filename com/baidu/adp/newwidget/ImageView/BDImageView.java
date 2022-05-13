@@ -23,22 +23,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fo;
-import com.repackage.oi;
+import com.repackage.co;
+import com.repackage.mi;
+import com.repackage.mk;
 import com.repackage.pk;
-import com.repackage.sk;
+import com.repackage.qk;
 import com.repackage.tk;
-import com.repackage.wk;
 import java.util.Arrays;
 /* loaded from: classes.dex */
-public abstract class BDImageView extends ImageView implements ViewTreeObserver.OnPreDrawListener, wk {
+public abstract class BDImageView extends ImageView implements ViewTreeObserver.OnPreDrawListener, tk {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public ImageView.ScaleType b;
     public ImageView.ScaleType c;
     public DrawerArgs d;
-    public pk e;
+    public mk e;
     public boolean f;
     public boolean g;
     public boolean h;
@@ -46,7 +46,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
     public int j;
     public int k;
     public int l;
-    public sk m;
+    public pk m;
     public boolean n;
     public Drawable o;
     public Drawable p;
@@ -78,7 +78,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
         this.h = true;
         this.k = Integer.MAX_VALUE;
         this.l = Integer.MAX_VALUE;
-        this.m = new sk();
+        this.m = new pk();
         i(null);
     }
 
@@ -117,9 +117,9 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
                 this.m.c = false;
                 this.q = this.p;
             } else {
-                sk skVar = this.m;
-                skVar.a = null;
-                skVar.b = getDefaultBdImage();
+                pk pkVar = this.m;
+                pkVar.a = null;
+                pkVar.b = getDefaultBdImage();
                 this.m.c = true;
                 if (this.m.d()) {
                     scaleType = this.b;
@@ -208,9 +208,9 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
         }
     }
 
-    public abstract fo getBdImage();
+    public abstract co getBdImage();
 
-    public abstract fo getDefaultBdImage();
+    public abstract co getDefaultBdImage();
 
     public boolean getDrawBorder() {
         InterceptResult invokeV;
@@ -259,11 +259,11 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, attributeSet) == null) {
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04007b, R.attr.obfuscated_res_0x7f0400dc, R.attr.obfuscated_res_0x7f0400df, R.attr.obfuscated_res_0x7f0400e0, R.attr.obfuscated_res_0x7f040206, R.attr.obfuscated_res_0x7f0402a0, R.attr.obfuscated_res_0x7f0402a5, R.attr.obfuscated_res_0x7f0402b7, R.attr.obfuscated_res_0x7f04030a, R.attr.obfuscated_res_0x7f04045b, R.attr.obfuscated_res_0x7f040462, R.attr.obfuscated_res_0x7f04051c, R.attr.obfuscated_res_0x7f04051d, R.attr.obfuscated_res_0x7f04051e, R.attr.obfuscated_res_0x7f04051f, R.attr.obfuscated_res_0x7f040520, R.attr.obfuscated_res_0x7f040592});
-                this.d.a = j(obtainStyledAttributes.getDimensionPixelSize(11, oi.d(getContext(), 4.0f)));
+                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04007b, R.attr.obfuscated_res_0x7f0400df, R.attr.obfuscated_res_0x7f0400e2, R.attr.obfuscated_res_0x7f0400e3, R.attr.obfuscated_res_0x7f040209, R.attr.obfuscated_res_0x7f0402a3, R.attr.obfuscated_res_0x7f0402a9, R.attr.obfuscated_res_0x7f0402ba, R.attr.obfuscated_res_0x7f04030e, R.attr.obfuscated_res_0x7f040460, R.attr.obfuscated_res_0x7f040467, R.attr.obfuscated_res_0x7f040521, R.attr.obfuscated_res_0x7f040522, R.attr.obfuscated_res_0x7f040523, R.attr.obfuscated_res_0x7f040524, R.attr.obfuscated_res_0x7f040525, R.attr.obfuscated_res_0x7f040598});
+                this.d.a = j(obtainStyledAttributes.getDimensionPixelSize(11, mi.d(getContext(), 4.0f)));
                 this.d.b = obtainStyledAttributes.getBoolean(8, false);
                 this.d.c = obtainStyledAttributes.getBoolean(7, false);
-                this.d.d = obtainStyledAttributes.getDimensionPixelSize(3, oi.d(getContext(), 1.0f));
+                this.d.d = obtainStyledAttributes.getDimensionPixelSize(3, mi.d(getContext(), 1.0f));
                 this.d.e = obtainStyledAttributes.getColor(1, 201326592);
                 this.d.g = obtainStyledAttributes.getBoolean(2, false);
                 this.d.i = obtainStyledAttributes.getBoolean(16, true);
@@ -274,11 +274,11 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
                 this.n = obtainStyledAttributes.getBoolean(0, false);
                 obtainStyledAttributes.recycle();
             } else {
-                this.d.a = j(oi.d(getContext(), 4.0f));
-                this.d.d = oi.d(getContext(), 1.0f);
+                this.d.a = j(mi.d(getContext(), 4.0f));
+                this.d.d = mi.d(getContext(), 1.0f);
                 this.d.e = 201326592;
             }
-            pk a = tk.b().a(this.a);
+            mk a = qk.b().a(this.a);
             this.e = a;
             a.p(this.d);
         }
@@ -461,7 +461,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
             return;
         }
         this.a = i;
-        pk a = tk.b().a(this.a);
+        mk a = qk.b().a(this.a);
         this.e = a;
         a.p(this.d);
         this.h = true;
@@ -677,7 +677,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
         this.h = true;
         this.k = Integer.MAX_VALUE;
         this.l = Integer.MAX_VALUE;
-        this.m = new sk();
+        this.m = new pk();
         i(attributeSet);
     }
 }

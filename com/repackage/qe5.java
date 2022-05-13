@@ -1,7 +1,30 @@
 package com.repackage;
 
-import android.view.View;
-/* loaded from: classes7.dex */
+import android.content.Context;
+import android.graphics.Canvas;
+import android.util.AttributeSet;
+import android.view.MotionEvent;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+/* loaded from: classes6.dex */
 public interface qe5 {
-    void a(View view2, int i, int i2, int i3, int i4);
+    void a();
+
+    void b(Canvas canvas);
+
+    void c(ListView listView, Context context, AttributeSet attributeSet);
+
+    void onDraw(Canvas canvas);
+
+    boolean onInterceptTouchEvent(MotionEvent motionEvent);
+
+    void onMeasure(int i, int i2);
+
+    void onSizeChanged(int i, int i2, int i3, int i4);
+
+    boolean onTouchEvent(MotionEvent motionEvent);
+
+    void requestLayout();
+
+    void setAdapter(ListAdapter listAdapter);
 }

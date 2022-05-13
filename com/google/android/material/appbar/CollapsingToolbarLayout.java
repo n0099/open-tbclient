@@ -295,10 +295,10 @@ public class CollapsingToolbarLayout extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, view2)) == null) {
-            ViewOffsetHelper viewOffsetHelper = (ViewOffsetHelper) view2.getTag(R.id.obfuscated_res_0x7f0923b1);
+            ViewOffsetHelper viewOffsetHelper = (ViewOffsetHelper) view2.getTag(R.id.obfuscated_res_0x7f092402);
             if (viewOffsetHelper == null) {
                 ViewOffsetHelper viewOffsetHelper2 = new ViewOffsetHelper(view2);
-                view2.setTag(R.id.obfuscated_res_0x7f0923b1, viewOffsetHelper2);
+                view2.setTag(R.id.obfuscated_res_0x7f092402, viewOffsetHelper2);
                 return viewOffsetHelper2;
             }
             return viewOffsetHelper;
@@ -1025,7 +1025,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
         CollapsingTextHelper collapsingTextHelper = new CollapsingTextHelper(this);
         this.collapsingTextHelper = collapsingTextHelper;
         collapsingTextHelper.setTextSizeInterpolator(AnimationUtils.DECELERATE_INTERPOLATOR);
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.obfuscated_res_0x7f040154, R.attr.obfuscated_res_0x7f040155, R.attr.obfuscated_res_0x7f04017f, R.attr.obfuscated_res_0x7f04025e, R.attr.obfuscated_res_0x7f04025f, R.attr.obfuscated_res_0x7f040260, R.attr.obfuscated_res_0x7f040261, R.attr.obfuscated_res_0x7f040262, R.attr.obfuscated_res_0x7f040263, R.attr.obfuscated_res_0x7f040264, R.attr.obfuscated_res_0x7f040460, R.attr.obfuscated_res_0x7f04055f, R.attr.obfuscated_res_0x7f040561, R.attr.obfuscated_res_0x7f0405cd, R.attr.obfuscated_res_0x7f04067f, R.attr.obfuscated_res_0x7f040681, R.attr.obfuscated_res_0x7f040690}, i, obfuscated_res_0x7f100326, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.obfuscated_res_0x7f040157, R.attr.obfuscated_res_0x7f040158, R.attr.obfuscated_res_0x7f040182, R.attr.obfuscated_res_0x7f040261, R.attr.obfuscated_res_0x7f040262, R.attr.obfuscated_res_0x7f040263, R.attr.obfuscated_res_0x7f040264, R.attr.obfuscated_res_0x7f040265, R.attr.obfuscated_res_0x7f040266, R.attr.obfuscated_res_0x7f040267, R.attr.obfuscated_res_0x7f040465, R.attr.obfuscated_res_0x7f040564, R.attr.obfuscated_res_0x7f040566, R.attr.obfuscated_res_0x7f0405d4, R.attr.obfuscated_res_0x7f040687, R.attr.obfuscated_res_0x7f040689, R.attr.obfuscated_res_0x7f040698}, i, obfuscated_res_0x7f100326, new int[0]);
         this.collapsingTextHelper.setExpandedTextGravity(obtainStyledAttributes.getInt(3, BadgeDrawable.BOTTOM_START));
         this.collapsingTextHelper.setCollapsedTextGravity(obtainStyledAttributes.getInt(0, 8388627));
         int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(4, 0);
@@ -1153,7 +1153,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
             }
             this.collapseMode = 0;
             this.parallaxMult = 0.5f;
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403c5, R.attr.obfuscated_res_0x7f0403c6});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403c9, R.attr.obfuscated_res_0x7f0403ca});
             this.collapseMode = obtainStyledAttributes.getInt(0, 0);
             setParallaxMultiplier(obtainStyledAttributes.getFloat(1, 0.5f));
             obtainStyledAttributes.recycle();

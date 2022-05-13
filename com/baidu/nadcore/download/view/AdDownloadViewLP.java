@@ -26,8 +26,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c11;
 import com.repackage.hk0;
+import com.repackage.m11;
 import com.repackage.rj0;
 /* loaded from: classes2.dex */
 public class AdDownloadViewLP extends View implements hk0<AdDownloadViewLP> {
@@ -204,12 +204,26 @@ public class AdDownloadViewLP extends View implements hk0<AdDownloadViewLP> {
         this.m = 100;
         this.n = State.PREPARE;
         this.o = -1.0f;
-        h();
+        i();
     }
 
-    public final void b(Canvas canvas, RectF rectF) {
+    @Override // com.repackage.hk0
+    public void b(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, canvas, rectF) == null) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && (viewGroup instanceof RelativeLayout)) {
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
+            layoutParams.width = (int) (m11.c.e(getContext()) * m11.c.h(R.dimen.obfuscated_res_0x7f0704ca));
+            layoutParams.height = (int) (m11.c.c(getContext()) * m11.c.h(R.dimen.obfuscated_res_0x7f0704c8));
+            layoutParams.addRule(13, -1);
+            viewGroup.addView(this, layoutParams);
+            viewGroup.setVisibility(0);
+            viewGroup.bringToFront();
+        }
+    }
+
+    public final void d(Canvas canvas, RectF rectF) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, rectF) == null) {
             this.a.setColor(this.b);
             this.a.setStyle(Paint.Style.FILL);
             float f = this.o;
@@ -220,23 +234,28 @@ public class AdDownloadViewLP extends View implements hk0<AdDownloadViewLP> {
         }
     }
 
-    @Override // com.repackage.hk0
-    public void c(@NonNull ViewGroup viewGroup) {
+    @Override // android.view.View
+    public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) && (viewGroup instanceof RelativeLayout)) {
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
-            layoutParams.width = (int) (c11.c.e(getContext()) * c11.c.h(R.dimen.obfuscated_res_0x7f0704ca));
-            layoutParams.height = (int) (c11.c.c(getContext()) * c11.c.h(R.dimen.obfuscated_res_0x7f0704c8));
-            layoutParams.addRule(13, -1);
-            viewGroup.addView(this, layoutParams);
-            viewGroup.setVisibility(0);
-            viewGroup.bringToFront();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
+            super.draw(canvas);
+            if (getWidth() == 0 || getHeight() == 0 || TextUtils.isEmpty(this.l)) {
+                return;
+            }
+            if (this.c != -1) {
+                j();
+            }
+            if (!this.h) {
+                h(canvas);
+            } else {
+                g(canvas);
+            }
         }
     }
 
-    public final void d(Canvas canvas, RectF rectF) {
+    public final void e(Canvas canvas, RectF rectF) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, canvas, rectF) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, canvas, rectF) == null) {
             int i = b.a[this.n.ordinal()];
             float f = 0.0f;
             if (i != 1) {
@@ -268,26 +287,7 @@ public class AdDownloadViewLP extends View implements hk0<AdDownloadViewLP> {
         }
     }
 
-    @Override // android.view.View
-    public void draw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
-            super.draw(canvas);
-            if (getWidth() == 0 || getHeight() == 0 || TextUtils.isEmpty(this.l)) {
-                return;
-            }
-            if (this.c != -1) {
-                i();
-            }
-            if (!this.h) {
-                g(canvas);
-            } else {
-                f(canvas);
-            }
-        }
-    }
-
-    public final void e(Canvas canvas) {
+    public final void f(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
             this.i.setTextSize(this.k);
@@ -298,19 +298,28 @@ public class AdDownloadViewLP extends View implements hk0<AdDownloadViewLP> {
         }
     }
 
-    public final void f(Canvas canvas) {
+    public final void g(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
             RectF rectF = new RectF(0.0f, 0.0f, getWidth(), getHeight());
-            b(canvas, rectF);
             d(canvas, rectF);
-            e(canvas);
+            e(canvas, rectF);
+            f(canvas);
         }
     }
 
-    public final void g(Canvas canvas) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.hk0
+    @NonNull
+    public AdDownloadViewLP getRealView() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this : (AdDownloadViewLP) invokeV.objValue;
+    }
+
+    public final void h(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, canvas) == null) {
             float f = 0;
             RectF rectF = new RectF(f, f, getWidth() + 0, getHeight() + 0);
             this.a.setColor(this.b);
@@ -328,27 +337,18 @@ public class AdDownloadViewLP extends View implements hk0<AdDownloadViewLP> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.hk0
-    @NonNull
-    public AdDownloadViewLP getRealView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this : (AdDownloadViewLP) invokeV.objValue;
-    }
-
-    public final void h() {
+    public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            n(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704fc));
-            l(getContext().getResources().getColor(R.color.obfuscated_res_0x7f06080d));
-            m(-1);
+            o(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704fc));
+            m(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060816));
+            n(-1);
+            l(true);
             k(true);
-            j(true);
         }
     }
 
-    public final void i() {
+    public final void j() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.d == null) {
             ValueAnimator ofObject = ValueAnimator.ofObject(new ArgbEvaluator(), Integer.valueOf(this.b), Integer.valueOf(this.c));
@@ -359,7 +359,7 @@ public class AdDownloadViewLP extends View implements hk0<AdDownloadViewLP> {
         }
     }
 
-    public AdDownloadViewLP j(boolean z) {
+    public AdDownloadViewLP k(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048587, this, z)) == null) {
@@ -369,7 +369,7 @@ public class AdDownloadViewLP extends View implements hk0<AdDownloadViewLP> {
         return (AdDownloadViewLP) invokeZ.objValue;
     }
 
-    public AdDownloadViewLP k(boolean z) {
+    public AdDownloadViewLP l(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
@@ -379,7 +379,7 @@ public class AdDownloadViewLP extends View implements hk0<AdDownloadViewLP> {
         return (AdDownloadViewLP) invokeZ.objValue;
     }
 
-    public AdDownloadViewLP l(int i) {
+    public AdDownloadViewLP m(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
@@ -389,7 +389,7 @@ public class AdDownloadViewLP extends View implements hk0<AdDownloadViewLP> {
         return (AdDownloadViewLP) invokeI.objValue;
     }
 
-    public AdDownloadViewLP m(int i) {
+    public AdDownloadViewLP n(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
@@ -399,7 +399,7 @@ public class AdDownloadViewLP extends View implements hk0<AdDownloadViewLP> {
         return (AdDownloadViewLP) invokeI.objValue;
     }
 
-    public AdDownloadViewLP n(float f) {
+    public AdDownloadViewLP o(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048591, this, f)) == null) {
@@ -478,7 +478,7 @@ public class AdDownloadViewLP extends View implements hk0<AdDownloadViewLP> {
         this.m = 100;
         this.n = State.PREPARE;
         this.o = -1.0f;
-        h();
+        i();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -509,6 +509,6 @@ public class AdDownloadViewLP extends View implements hk0<AdDownloadViewLP> {
         this.m = 100;
         this.n = State.PREPARE;
         this.o = -1.0f;
-        h();
+        i();
     }
 }

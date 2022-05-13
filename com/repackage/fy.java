@@ -1,76 +1,64 @@
 package com.repackage;
 
-import android.app.ActivityManager;
 import android.content.Context;
-import android.os.Process;
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.WebViewFactory;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class fy {
+public class fy extends sz {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean y;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1964039790, "Lcom/repackage/fy;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fy(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1964039790, "Lcom/repackage/fy;");
-        }
+        this.y = false;
     }
 
-    public static ActivityManager.RunningAppProcessInfo a(Context context) {
-        InterceptResult invokeL;
+    @Override // com.repackage.sz
+    public r78 p() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            int myPid = Process.myPid();
-            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
-            if (runningAppProcesses == null || runningAppProcesses.isEmpty()) {
-                return null;
-            }
-            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                if (runningAppProcessInfo != null && runningAppProcessInfo.pid == myPid) {
-                    return runningAppProcessInfo;
-                }
-            }
-            return null;
-        }
-        return (ActivityManager.RunningAppProcessInfo) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new s78(this.b, this.i, this.y) : (r78) invokeV.objValue;
     }
 
-    public static String b(Context context) {
-        InterceptResult invokeL;
-        ActivityManager.RunningAppProcessInfo a2;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fy(Context context, boolean z) {
+        super(context);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (TextUtils.isEmpty(a) && (a2 = a(context)) != null) {
-                a = a2.processName;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return a;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            String b = b(context);
-            return b != null && b.equals(WebViewFactory.CHROMIUM_HOST_APP);
-        }
-        return invokeL.booleanValue;
+        this.y = false;
+        this.y = z;
     }
 }

@@ -1,7 +1,6 @@
 package com.xiaomi.push;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -65,7 +64,7 @@ public final class hh {
         d = new hh("Bluetooth", 3, 4);
         e = new hh(Headers.LOCATION, 4, 5);
         f = new hh("Account", 5, 6);
-        g = new hh(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 6, 7);
+        g = new hh("WIFI", 6, 7);
         h = new hh("Cellular", 7, 8);
         i = new hh("TopApp", 8, 9);
         j = new hh("BroadcastAction", 9, 10);

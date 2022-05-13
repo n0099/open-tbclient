@@ -27,12 +27,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kk8;
-import com.repackage.ml4;
+import com.repackage.hj8;
 import com.repackage.mm7;
 import com.repackage.sm7;
 import com.repackage.um7;
 import com.repackage.wm7;
+import com.repackage.xl4;
 /* loaded from: classes3.dex */
 public class Static {
     public static /* synthetic */ Interceptable $ic;
@@ -143,7 +143,7 @@ public class Static {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<ml4> run(CustomMessage<BaseActivity> customMessage) {
+        public CustomResponsedMessage<xl4> run(CustomMessage<BaseActivity> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
@@ -173,7 +173,7 @@ public class Static {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<ml4> run(CustomMessage<BaseFragmentActivity> customMessage) {
+        public CustomResponsedMessage<xl4> run(CustomMessage<BaseFragmentActivity> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
@@ -330,7 +330,7 @@ public class Static {
         MessageManager.getInstance().registerListener(new e(2001011));
         MessageManager.getInstance().registerListener(new f(2005016));
         MessageManager.getInstance().registerListener(new g(2001120));
-        kk8.e(CmdConfigHttp.CMD_ALA_LIVE_ROOM_CLOSED, TbConfig.URL_ALA_LIVE_ROOM_CLOSED, AlaMGetLiveStatusHttpResponseMessage.class, false, true, true, true);
+        hj8.e(CmdConfigHttp.CMD_ALA_LIVE_ROOM_CLOSED, TbConfig.URL_ALA_LIVE_ROOM_CLOSED, AlaMGetLiveStatusHttpResponseMessage.class, false, true, true, true);
     }
 
     public Static() {

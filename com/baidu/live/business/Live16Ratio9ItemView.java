@@ -25,9 +25,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.repackage.ca0;
-import com.repackage.fc0;
-import com.repackage.y90;
+import com.repackage.ba0;
+import com.repackage.fa0;
+import com.repackage.ic0;
 /* loaded from: classes2.dex */
 public class Live16Ratio9ItemView extends LiveBaseItemView {
     public static /* synthetic */ Interceptable $ic;
@@ -106,22 +106,22 @@ public class Live16Ratio9ItemView extends LiveBaseItemView {
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             this.n = context;
             setNeedRatio(false);
-            int c = (int) (((y90.c(context) - (y90.a(context, 12.0f) * 2)) - y90.a(context, 7.0f)) / 2.0d);
-            View inflate = RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0506, this);
-            this.d = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f091298);
-            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091299);
+            int c = (int) (((ba0.c(context) - (ba0.a(context, 12.0f) * 2)) - ba0.a(context, 7.0f)) / 2.0d);
+            View inflate = RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d04fa, this);
+            this.d = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f0912a7);
+            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0912a8);
             this.k = frameLayout;
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) frameLayout.getLayoutParams();
             layoutParams.width = c;
             layoutParams.height = (int) ((c * 9) / 16.0d);
             this.k.setLayoutParams(layoutParams);
-            this.e = (LiveStatusAnimView) inflate.findViewById(R.id.obfuscated_res_0x7f09129a);
-            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09129e);
-            this.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09129c);
-            this.h = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f091295);
-            this.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091297);
-            this.j = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f09129d);
-            float a = y90.a(getContext(), 10.0f);
+            this.e = (LiveStatusAnimView) inflate.findViewById(R.id.obfuscated_res_0x7f0912a9);
+            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0912ad);
+            this.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0912ab);
+            this.h = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f0912a4);
+            this.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0912a6);
+            this.j = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f0912ac);
+            float a = ba0.a(getContext(), 10.0f);
             this.m = new float[]{a, a, a, a, a, a, a, a};
         }
     }
@@ -130,28 +130,28 @@ public class Live16Ratio9ItemView extends LiveBaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setColor(fc0.e().a(getContext(), this.c, "color_white2"));
+            gradientDrawable.setColor(ic0.e().a(getContext(), this.c, "color_white2"));
             gradientDrawable.setCornerRadii(this.m);
             setBackgroundDrawable(gradientDrawable);
             SimpleDraweeView simpleDraweeView = this.d;
             if (simpleDraweeView != null) {
-                simpleDraweeView.getHierarchy().setPlaceholderImage(fc0.e().j(this.c), ScalingUtils.ScaleType.FIT_XY);
+                simpleDraweeView.getHierarchy().setPlaceholderImage(ic0.e().j(this.c), ScalingUtils.ScaleType.FIT_XY);
             }
             SimpleDraweeView simpleDraweeView2 = this.h;
             if (simpleDraweeView2 != null) {
-                simpleDraweeView2.getHierarchy().setPlaceholderImage(fc0.e().j(this.c), ScalingUtils.ScaleType.FIT_XY);
+                simpleDraweeView2.getHierarchy().setPlaceholderImage(ic0.e().j(this.c), ScalingUtils.ScaleType.FIT_XY);
             }
             TextView textView = this.g;
             if (textView != null) {
-                textView.setTextColor(fc0.e().a(getContext(), this.c, "color_1F1F1F"));
+                textView.setTextColor(ic0.e().a(getContext(), this.c, "color_1F1F1F"));
             }
             TextView textView2 = this.f;
             if (textView2 != null) {
-                textView2.setTextColor(fc0.e().a(getContext(), this.c, "color_858585"));
+                textView2.setTextColor(ic0.e().a(getContext(), this.c, "color_858585"));
             }
             TextView textView3 = this.i;
             if (textView3 != null) {
-                textView3.setTextColor(fc0.e().a(getContext(), this.c, "color_858585"));
+                textView3.setTextColor(ic0.e().a(getContext(), this.c, "color_858585"));
             }
         }
     }
@@ -194,7 +194,7 @@ public class Live16Ratio9ItemView extends LiveBaseItemView {
                 if (liveRoomEntity.liveStatus == 0) {
                     this.i.setVisibility(8);
                 } else {
-                    this.i.setText(ca0.a(this.n, liveRoomEntity.audienceCount));
+                    this.i.setText(fa0.a(this.n, liveRoomEntity.audienceCount));
                     this.i.setVisibility(0);
                 }
                 RightLableInfo rightLableInfo = liveRoomEntity.rightLabel;

@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.g81;
+import com.repackage.r81;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class DuVipGuideView extends RelativeLayout {
@@ -86,10 +86,10 @@ public class DuVipGuideView extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d088d, (ViewGroup) this, true);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fd0);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0921a4);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0921a3);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0882, (ViewGroup) this, true);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fdd);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0921fc);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0921fb);
         }
     }
 
@@ -98,7 +98,7 @@ public class DuVipGuideView extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        g81.b().a(this.a, jSONObject.optString("icon_url"));
+        r81.b().a(this.a, jSONObject.optString("icon_url"));
         this.b.setText(jSONObject.optString("display_msg"));
         String optString = jSONObject.optString("redirect_display_msg");
         if (TextUtils.isEmpty(optString)) {

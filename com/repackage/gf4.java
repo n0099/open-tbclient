@@ -1,80 +1,221 @@
 package com.repackage;
 
-import com.baidu.android.ddmlib.tools.perflib.vmtrace.MethodInfo;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class gf4 implements Comparable<gf4> {
+public class gf4<E> implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
+    public static final Object e;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
-    public long c;
-    public String d;
-    public long e;
-    public MethodInfo f;
+    public boolean a;
+    public int[] b;
+    public Object[] c;
+    public int d;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755679972, "Lcom/repackage/gf4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755679972, "Lcom/repackage/gf4;");
+                return;
+            }
+        }
+        e = new Object();
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public gf4() {
+        this(10);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                this(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            int i = this.d;
+            Object[] objArr = this.c;
+            for (int i2 = 0; i2 < i; i2++) {
+                objArr[i2] = null;
+            }
+            this.d = 0;
+            this.a = false;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(gf4 gf4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gf4Var)) == null) ? (int) (this.e - gf4Var.e()) : invokeL.intValue;
-    }
-
-    public long b() {
+    /* renamed from: b */
+    public gf4<E> clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j = this.c - this.b;
-            if (j < 0) {
-                return 0L;
-            }
-            return j;
+        if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
+            return (gf4) invokeV.objValue;
         }
-        return invokeV.longValue;
+        gf4<E> gf4Var = null;
+        try {
+            gf4<E> gf4Var2 = (gf4) super.clone();
+            try {
+                gf4Var2.b = (int[]) this.b.clone();
+                gf4Var2.c = (Object[]) this.c.clone();
+                return gf4Var2;
+            } catch (CloneNotSupportedException unused) {
+                gf4Var = gf4Var2;
+                return gf4Var;
+            }
+        } catch (CloneNotSupportedException unused2) {
+        }
     }
 
-    public MethodInfo c() {
-        InterceptResult invokeV;
+    public final void c() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : (MethodInfo) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            int i = this.d;
+            int[] iArr = this.b;
+            Object[] objArr = this.c;
+            int i2 = 0;
+            for (int i3 = 0; i3 < i; i3++) {
+                Object obj = objArr[i3];
+                if (obj != e) {
+                    if (i3 != i2) {
+                        iArr[i2] = iArr[i3];
+                        objArr[i2] = obj;
+                        objArr[i3] = null;
+                    }
+                    i2++;
+                }
+            }
+            this.a = false;
+            this.d = i2;
+        }
     }
 
-    public int d() {
-        InterceptResult invokeV;
+    public int d(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : invokeV.intValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            if (this.a) {
+                c();
+            }
+            return this.b[i];
+        }
+        return invokeI.intValue;
     }
 
-    public long e() {
-        InterceptResult invokeV;
+    public void delete(int i) {
+        int a;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : invokeV.longValue;
+        if (!(interceptable == null || interceptable.invokeI(1048581, this, i) == null) || (a = bf4.a(this.b, this.d, i)) < 0) {
+            return;
+        }
+        Object[] objArr = this.c;
+        Object obj = objArr[a];
+        Object obj2 = e;
+        if (obj != obj2) {
+            objArr[a] = obj2;
+            this.a = true;
+        }
     }
 
-    public String f() {
+    public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.a) {
+                c();
+            }
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public E f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            if (this.a) {
+                c();
+            }
+            return (E) this.c[i];
+        }
+        return (E) invokeI.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (e() <= 0) {
+                return StringUtil.EMPTY_ARRAY;
+            }
+            StringBuilder sb = new StringBuilder(this.d * 28);
+            sb.append('{');
+            for (int i = 0; i < this.d; i++) {
+                if (i > 0) {
+                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                }
+                sb.append(d(i));
+                sb.append('=');
+                E f = f(i);
+                if (f != this) {
+                    sb.append(f);
+                } else {
+                    sb.append("(this Map)");
+                }
+            }
+            sb.append('}');
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public gf4(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = false;
+        if (i == 0) {
+            this.b = bf4.a;
+            this.c = bf4.b;
+        } else {
+            int d = bf4.d(i);
+            this.b = new int[d];
+            this.c = new Object[d];
+        }
+        this.d = 0;
     }
 }

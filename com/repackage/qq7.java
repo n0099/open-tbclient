@@ -103,9 +103,9 @@ public class qq7 implements pq7, View.OnClickListener {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 view2.setTag(Boolean.valueOf(!((Boolean) view2.getTag()).booleanValue()));
                 if (((Boolean) view2.getTag()).booleanValue()) {
-                    this.a.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809a2, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
+                    this.a.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809b7, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
                 } else {
-                    this.a.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809a1, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL));
+                    this.a.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809b6, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL));
                 }
             }
         }
@@ -140,7 +140,7 @@ public class qq7 implements pq7, View.OnClickListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, oneKeyLoginResult) == null) {
                 this.a.a.closeLoadingDialog();
-                this.a.a.showToast(String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f0cc2), Integer.valueOf(oneKeyLoginResult.getResultCode()), oneKeyLoginResult.getResultMsg()));
+                this.a.a.showToast(String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f0cdd), Integer.valueOf(oneKeyLoginResult.getResultCode()), oneKeyLoginResult.getResultMsg()));
                 this.a.a.passLoginFail();
             }
         }
@@ -202,7 +202,7 @@ public class qq7 implements pq7, View.OnClickListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webAuthResult) == null) {
                 this.b.a.closeLoadingDialog();
-                this.b.a.showToast(String.format(this.b.a.getString(R.string.obfuscated_res_0x7f0f1395), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
+                this.b.a.showToast(String.format(this.b.a.getString(R.string.obfuscated_res_0x7f0f13b9), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
                 this.b.a.passLoginFail();
             }
         }
@@ -288,30 +288,30 @@ public class qq7 implements pq7, View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, loginDialogActivity, viewGroup) == null) {
             this.a = loginDialogActivity;
-            View inflate = LayoutInflater.from(loginDialogActivity).inflate(R.layout.obfuscated_res_0x7f0d0645, viewGroup, true);
-            this.b = inflate.findViewById(R.id.obfuscated_res_0x7f09079a);
-            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f0907b3);
-            this.g = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0907be);
-            this.d = inflate.findViewById(R.id.obfuscated_res_0x7f090673);
-            this.e = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090674);
-            this.k = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0907bf);
-            this.l = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0907bd);
-            this.m = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922a4);
-            this.n = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09132b);
-            this.o = inflate.findViewById(R.id.obfuscated_res_0x7f091982);
-            this.p = inflate.findViewById(R.id.obfuscated_res_0x7f09243a);
-            this.q = inflate.findViewById(R.id.obfuscated_res_0x7f09243d);
-            this.r = inflate.findViewById(R.id.obfuscated_res_0x7f0924aa);
-            this.s = inflate.findViewById(R.id.obfuscated_res_0x7f091444);
-            this.f = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09060f);
-            this.h = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09060a);
-            this.t = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ff2);
-            this.u = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091608);
-            this.v = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ff3);
-            this.w = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09016f);
-            this.x = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ff4);
-            this.y = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0918eb);
-            this.z = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ff5);
+            View inflate = LayoutInflater.from(loginDialogActivity).inflate(R.layout.obfuscated_res_0x7f0d0639, viewGroup, true);
+            this.b = inflate.findViewById(R.id.obfuscated_res_0x7f090797);
+            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f0907b0);
+            this.g = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0907bb);
+            this.d = inflate.findViewById(R.id.obfuscated_res_0x7f09066b);
+            this.e = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09066c);
+            this.k = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0907bc);
+            this.l = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0907ba);
+            this.m = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922fa);
+            this.n = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09133a);
+            this.o = inflate.findViewById(R.id.obfuscated_res_0x7f0919da);
+            this.p = inflate.findViewById(R.id.obfuscated_res_0x7f09248a);
+            this.q = inflate.findViewById(R.id.obfuscated_res_0x7f09248d);
+            this.r = inflate.findViewById(R.id.obfuscated_res_0x7f0924ff);
+            this.s = inflate.findViewById(R.id.obfuscated_res_0x7f09145b);
+            this.f = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090608);
+            this.h = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090604);
+            this.t = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092050);
+            this.u = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09161f);
+            this.v = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092051);
+            this.w = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090165);
+            this.x = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092052);
+            this.y = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091943);
+            this.z = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092053);
             this.b.setOnClickListener(this);
             this.d.setOnClickListener(this);
             this.e.setOnClickListener(this);
@@ -326,7 +326,7 @@ public class qq7 implements pq7, View.OnClickListener {
             this.w.setOnClickListener(this);
             this.y.setOnClickListener(this);
             this.j = (Vibrator) loginDialogActivity.getSystemService("vibrator");
-            this.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809a1, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL));
+            this.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809b6, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL));
             this.h.setTag(Boolean.FALSE);
             this.h.setOnClickListener(new a(this));
             g();
@@ -337,7 +337,7 @@ public class qq7 implements pq7, View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LoginDialogActivity loginDialogActivity = this.a;
-            new TbWebViewActivityConfig(loginDialogActivity, loginDialogActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0cb9), "https://passport.baidu.com/static/passpc-account/html/protocal.html", false).start();
+            new TbWebViewActivityConfig(loginDialogActivity, loginDialogActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0cd4), "https://passport.baidu.com/static/passpc-account/html/protocal.html", false).start();
         }
     }
 
@@ -387,12 +387,12 @@ public class qq7 implements pq7, View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             if (i == 1) {
-                this.u.setText(R.string.obfuscated_res_0x7f0f0cba);
+                this.u.setText(R.string.obfuscated_res_0x7f0f0cd5);
             } else if (i == 2) {
-                this.u.setText(R.string.obfuscated_res_0x7f0f0cbb);
+                this.u.setText(R.string.obfuscated_res_0x7f0f0cd6);
             } else if (i != 3) {
             } else {
-                this.u.setText(R.string.obfuscated_res_0x7f0f0cbc);
+                this.u.setText(R.string.obfuscated_res_0x7f0f0cd7);
             }
         }
     }
@@ -413,14 +413,14 @@ public class qq7 implements pq7, View.OnClickListener {
             int i = this.A;
             if (i == 1) {
                 LoginDialogActivity loginDialogActivity = this.a;
-                new TbWebViewActivityConfig(loginDialogActivity, loginDialogActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0cba), "https://ms.zzx9.cn/html/oauth/protocol2.html", false).start();
+                new TbWebViewActivityConfig(loginDialogActivity, loginDialogActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0cd5), "https://ms.zzx9.cn/html/oauth/protocol2.html", false).start();
             } else if (i == 2) {
                 LoginDialogActivity loginDialogActivity2 = this.a;
-                new TbWebViewActivityConfig(loginDialogActivity2, loginDialogActivity2.getResources().getString(R.string.obfuscated_res_0x7f0f0cbb), "https://e.189.cn/sdk/agreement/detail.do?hidetop=true", false).start();
+                new TbWebViewActivityConfig(loginDialogActivity2, loginDialogActivity2.getResources().getString(R.string.obfuscated_res_0x7f0f0cd6), "https://e.189.cn/sdk/agreement/detail.do?hidetop=true", false).start();
             } else if (i != 3) {
             } else {
                 LoginDialogActivity loginDialogActivity3 = this.a;
-                new TbWebViewActivityConfig(loginDialogActivity3, loginDialogActivity3.getResources().getString(R.string.obfuscated_res_0x7f0f0cbc), "https://wap.cmpassport.com/resources/html/contract.html", false).start();
+                new TbWebViewActivityConfig(loginDialogActivity3, loginDialogActivity3.getResources().getString(R.string.obfuscated_res_0x7f0f0cd7), "https://wap.cmpassport.com/resources/html/contract.html", false).start();
             }
         }
     }
@@ -441,7 +441,7 @@ public class qq7 implements pq7, View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             LoginDialogActivity loginDialogActivity = this.a;
-            new TbWebViewActivityConfig(loginDialogActivity, loginDialogActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0cbd), "http://privacy.baidu.com/mdetail?id=288", false).start();
+            new TbWebViewActivityConfig(loginDialogActivity, loginDialogActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0cd8), "http://privacy.baidu.com/mdetail?id=288", false).start();
         }
     }
 
@@ -464,35 +464,35 @@ public class qq7 implements pq7, View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, view2) == null) {
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f09079a || id == R.id.obfuscated_res_0x7f090673 || id == R.id.obfuscated_res_0x7f090674) {
+            if (id == R.id.obfuscated_res_0x7f090797 || id == R.id.obfuscated_res_0x7f09066b || id == R.id.obfuscated_res_0x7f09066c) {
                 e();
-            } else if (id == R.id.obfuscated_res_0x7f09132b) {
+            } else if (id == R.id.obfuscated_res_0x7f09133a) {
                 if (f()) {
                     i();
                 }
-            } else if (id == R.id.obfuscated_res_0x7f091982) {
+            } else if (id == R.id.obfuscated_res_0x7f0919da) {
                 if (f()) {
                     n();
                 }
-            } else if (id == R.id.obfuscated_res_0x7f09243a) {
+            } else if (id == R.id.obfuscated_res_0x7f09248a) {
                 if (f()) {
-                    p();
+                    q();
                 }
-            } else if (id == R.id.obfuscated_res_0x7f09243d) {
+            } else if (id == R.id.obfuscated_res_0x7f09248d) {
                 if (f()) {
                     r();
                 }
-            } else if (id == R.id.obfuscated_res_0x7f0924aa) {
+            } else if (id == R.id.obfuscated_res_0x7f0924ff) {
                 if (f()) {
                     s();
                 }
-            } else if (id == R.id.obfuscated_res_0x7f091444) {
+            } else if (id == R.id.obfuscated_res_0x7f09145b) {
                 l();
-            } else if (id == R.id.obfuscated_res_0x7f091608) {
+            } else if (id == R.id.obfuscated_res_0x7f09161f) {
                 k();
-            } else if (id == R.id.obfuscated_res_0x7f09016f) {
+            } else if (id == R.id.obfuscated_res_0x7f090165) {
                 d();
-            } else if (id == R.id.obfuscated_res_0x7f0918eb) {
+            } else if (id == R.id.obfuscated_res_0x7f091943) {
                 m();
             }
         }
@@ -503,57 +503,57 @@ public class qq7 implements pq7, View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
             SkinManager.setBackgroundResource(this.c, R.drawable.nav_bg_corner_shape, i);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f0808fa, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            vr4 d = vr4.d(this.k);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f080908, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            gs4 d = gs4.d(this.k);
             d.v(R.color.CAM_X0105);
             d.z(R.dimen.T_X05);
             d.A(R.string.F_X02);
-            vr4 d2 = vr4.d(this.l);
+            gs4 d2 = gs4.d(this.l);
             d2.v(R.color.CAM_X0108);
             d2.z(R.dimen.T_X08);
             d2.A(R.string.F_X01);
-            vr4 d3 = vr4.d(this.m);
+            gs4 d3 = gs4.d(this.m);
             d3.v(R.color.CAM_X0105);
             d3.z(R.dimen.T_X03);
             d3.A(R.string.F_X02);
-            vr4 d4 = vr4.d(this.n);
+            gs4 d4 = gs4.d(this.n);
             d4.v(R.color.CAM_X0101);
             d4.z(R.dimen.T_X05);
             d4.A(R.string.F_X01);
             d4.n(R.string.J_X01);
             d4.f(R.color.CAM_X0302);
-            vr4 d5 = vr4.d(this.t);
+            gs4 d5 = gs4.d(this.t);
             d5.v(R.color.CAM_X0108);
             d5.z(R.dimen.T_X08);
             d5.A(R.string.F_X01);
-            vr4 d6 = vr4.d(this.v);
+            gs4 d6 = gs4.d(this.v);
             d6.v(R.color.CAM_X0108);
             d6.z(R.dimen.T_X08);
             d6.A(R.string.F_X01);
-            vr4 d7 = vr4.d(this.x);
+            gs4 d7 = gs4.d(this.x);
             d7.v(R.color.CAM_X0108);
             d7.z(R.dimen.T_X08);
             d7.A(R.string.F_X01);
-            vr4 d8 = vr4.d(this.z);
+            gs4 d8 = gs4.d(this.z);
             d8.v(R.color.CAM_X0108);
             d8.z(R.dimen.T_X08);
             d8.A(R.string.F_X01);
-            vr4 d9 = vr4.d(this.u);
+            gs4 d9 = gs4.d(this.u);
             d9.v(R.color.CAM_X0108);
             d9.z(R.dimen.T_X08);
             d9.A(R.string.F_X02);
-            vr4 d10 = vr4.d(this.w);
+            gs4 d10 = gs4.d(this.w);
             d10.v(R.color.CAM_X0108);
             d10.z(R.dimen.T_X08);
             d10.A(R.string.F_X02);
-            vr4 d11 = vr4.d(this.y);
+            gs4 d11 = gs4.d(this.y);
             d11.v(R.color.CAM_X0108);
             d11.z(R.dimen.T_X08);
             d11.A(R.string.F_X02);
         }
     }
 
-    public final void p() {
+    public final void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             o(SocialType.WEIXIN);

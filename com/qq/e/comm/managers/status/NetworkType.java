@@ -2,7 +2,6 @@ package com.qq.e.comm.managers.status;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.RomUtils;
-import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,7 +38,7 @@ public final class NetworkType {
             }
         }
         UNKNOWN = new NetworkType(RomUtils.UNKNOWN, 0, 0, 1, "unknown");
-        WIFI = new NetworkType(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 1, 1, 2, "wifi");
+        WIFI = new NetworkType("WIFI", 1, 1, 2, "wifi");
         NET_2G = new NetworkType("NET_2G", 2, 2, 4, "2g");
         NET_3G = new NetworkType("NET_3G", 3, 3, 8, "3g");
         NetworkType networkType = new NetworkType("NET_4G", 4, 4, 16, "4g");

@@ -8,10 +8,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.y6a;
+import com.repackage.s5a;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
 /* loaded from: classes9.dex */
-public interface IYYPayResultView extends y6a {
+public interface IYYPayResultView extends s5a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes9.dex */

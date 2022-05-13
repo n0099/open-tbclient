@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Date;
 /* loaded from: classes7.dex */
-public class vm7 extends a75<um7, v65> {
+public class vm7 extends q75<um7, l75> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View g;
@@ -51,18 +51,18 @@ public class vm7 extends a75<um7, v65> {
             }
         }
         this.g = view2;
-        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092013);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906e0);
+        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092071);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906db);
         this.i = textView;
         textView.setSingleLine();
         this.i.setEllipsize(TextUtils.TruncateAt.END);
-        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fe7);
-        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0912ba);
-        this.l = view2.findViewById(R.id.obfuscated_res_0x7f09124b);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092045);
+        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0912ca);
+        this.l = view2.findViewById(R.id.obfuscated_res_0x7f091258);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.e75
+    @Override // com.repackage.u75
     /* renamed from: m */
     public void i(um7 um7Var) {
         Interceptable interceptable = $ic;
@@ -75,7 +75,7 @@ public class vm7 extends a75<um7, v65> {
                 if (um7Var.k() == 49) {
                     if (StringUtils.isNull(um7Var.c())) {
                         if (StringUtils.isNull(um7Var.m())) {
-                            this.h.setText(g(R.string.obfuscated_res_0x7f0f0da5));
+                            this.h.setText(g(R.string.obfuscated_res_0x7f0f0dbf));
                         } else {
                             this.h.setText(um7Var.m());
                         }
@@ -84,7 +84,7 @@ public class vm7 extends a75<um7, v65> {
                     }
                 } else if (um7Var.i() != null) {
                     if (um7Var.s()) {
-                        this.h.setText(String.format("%s%s", g(R.string.obfuscated_res_0x7f0f0da7), um7Var.i()));
+                        this.h.setText(String.format("%s%s", g(R.string.obfuscated_res_0x7f0f0dc1), um7Var.i()));
                     } else {
                         this.h.setText(um7Var.i());
                     }
@@ -92,9 +92,9 @@ public class vm7 extends a75<um7, v65> {
             }
             if (this.i != null) {
                 if (um7Var.k() == 49 && !TextUtils.isEmpty(um7Var.m())) {
-                    this.i.setText(String.format(g(R.string.obfuscated_res_0x7f0f0da8), um7Var.m()));
+                    this.i.setText(String.format(g(R.string.obfuscated_res_0x7f0f0dc2), um7Var.m()));
                 } else if (um7Var.k() == 49) {
-                    this.i.setText(String.format(g(R.string.obfuscated_res_0x7f0f0da8), g(R.string.obfuscated_res_0x7f0f0da5)));
+                    this.i.setText(String.format(g(R.string.obfuscated_res_0x7f0f0dc2), g(R.string.obfuscated_res_0x7f0f0dbf)));
                 } else if (um7Var.d() != null) {
                     this.i.setText(um7Var.d());
                 }
@@ -114,7 +114,7 @@ public class vm7 extends a75<um7, v65> {
         }
     }
 
-    @Override // com.repackage.zj8
+    @Override // com.repackage.wi8
     @SuppressLint({"ResourceAsColor"})
     public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         InterceptResult invokeLI;

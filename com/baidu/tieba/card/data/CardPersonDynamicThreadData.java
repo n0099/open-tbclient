@@ -27,9 +27,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lp4;
-import com.repackage.mg;
-import com.repackage.pn4;
+import com.repackage.kg;
+import com.repackage.wp4;
+import com.repackage.zn4;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -48,7 +48,7 @@ import tbclient.User;
 import tbclient.VideoInfo;
 import tbclient.Voice;
 /* loaded from: classes3.dex */
-public class CardPersonDynamicThreadData extends pn4 {
+public class CardPersonDynamicThreadData extends zn4 {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId I;
     public transient /* synthetic */ FieldHolder $fh;
@@ -687,24 +687,24 @@ public class CardPersonDynamicThreadData extends pn4 {
         }
     }
 
-    @Override // com.repackage.pn4
-    public lp4 getNegFeedBackData() {
+    @Override // com.repackage.zn4
+    public wp4 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return null;
         }
-        return (lp4) invokeV.objValue;
+        return (wp4) invokeV.objValue;
     }
 
-    @Override // com.repackage.pn4
+    @Override // com.repackage.zn4
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.p : (ThreadData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.uo
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.ro
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -792,10 +792,10 @@ public class CardPersonDynamicThreadData extends pn4 {
                 multipleForum.parseProtobuf(postInfoList.multiple_forum_list.get(i5));
                 this.B[i5] = multipleForum;
             }
-        } else if (!TextUtils.isEmpty(this.h) && mg.g(this.a, -1L) != -1) {
+        } else if (!TextUtils.isEmpty(this.h) && kg.g(this.a, -1L) != -1) {
             this.B = new MultipleForum[1];
             MultipleForum multipleForum2 = new MultipleForum();
-            multipleForum2.forum_id = mg.g(this.a, 0L);
+            multipleForum2.forum_id = kg.g(this.a, 0L);
             multipleForum2.forum_name = this.h;
             this.B[0] = multipleForum2;
         }
@@ -826,7 +826,7 @@ public class CardPersonDynamicThreadData extends pn4 {
         }
         if (postInfoList.is_share_thread.intValue() == 1) {
             OriginalThreadInfo originalThreadInfo = new OriginalThreadInfo();
-            originalThreadInfo.n(postInfoList.origin_thread_info, this.p);
+            originalThreadInfo.o(postInfoList.origin_thread_info, this.p);
             ThreadData threadData = this.p;
             threadData.originalThreadData = originalThreadInfo;
             threadData.isShareThread = true;

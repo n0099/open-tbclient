@@ -1,66 +1,154 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.UnsupportedEncodingException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
 /* loaded from: classes5.dex */
-public class e69 {
+public final class e69 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public static boolean b;
+    public static StringBuffer c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        StringBuilder sb;
-        StringBuilder sb2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, str3)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            String str4 = str2 + "=";
-            int indexOf = str.indexOf("?");
-            String str5 = null;
-            if (indexOf < 0) {
-                int indexOf2 = str.indexOf("#");
-                if (indexOf2 < 0) {
-                    sb2 = new StringBuilder(str);
-                } else {
-                    str5 = str.substring(indexOf2);
-                    sb2 = new StringBuilder(str.substring(0, indexOf2));
+    /* loaded from: classes5.dex */
+    public static class a extends g69 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+
+        public a(String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2, str3};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                sb2.append("?");
-                sb2.append(str4);
-                sb2.append(str3);
-                if (str5 != null) {
-                    sb2.append(str5);
-                }
-                return sb2.toString();
             }
-            if (str.indexOf("&" + str4, indexOf) < 0) {
-                if (str.indexOf("?" + str4, indexOf) < 0) {
-                    int indexOf3 = str.indexOf("#");
-                    if (indexOf3 < 0) {
-                        sb = new StringBuilder(str);
-                    } else {
-                        str5 = str.substring(indexOf3);
-                        str = str.substring(0, indexOf3);
-                        sb = new StringBuilder(str);
-                    }
-                    if (!str.endsWith("&") && !str.endsWith("?")) {
-                        sb.append("&");
-                    }
-                    sb.append(str4);
-                    sb.append(str3);
-                    if (str5 != null) {
-                        sb.append(str5);
-                    }
-                    return sb.toString();
-                }
-                return str;
-            }
-            return str;
+            this.a = str;
+            this.b = str2;
+            this.c = str3;
         }
-        return (String) invokeLLL.objValue;
+
+        @Override // com.repackage.g69
+        public final void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                StringBuffer stringBuffer = new StringBuffer();
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss:SSS");
+                simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT+08"));
+                stringBuffer.append(simpleDateFormat.format(new Date()));
+                stringBuffer.append("\t");
+                stringBuffer.append(this.a);
+                stringBuffer.append("\t");
+                stringBuffer.append(this.b);
+                stringBuffer.append("\t");
+                stringBuffer.append(this.c);
+                j69.d(stringBuffer.toString(), com.baidu.ubs.analytics.d.a.c, e69.c.toString());
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755785527, "Lcom/repackage/e69;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755785527, "Lcom/repackage/e69;");
+                return;
+            }
+        }
+        c = new StringBuffer();
+        if (d59.h() != null) {
+            a = !com.baidu.ubs.analytics.d.a.a();
+            b = true;
+            c.append("ABsdkLog-");
+            c.append(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+            c.append("_");
+            try {
+                c.append(c(z59.g(d59.h().getContext()).getBytes("UTF-8")));
+            } catch (UnsupportedEncodingException e) {
+                m69.d(e);
+            } catch (Exception e2) {
+                m69.d(e2);
+            }
+            c.append(".log");
+        }
+    }
+
+    public static void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            if (a) {
+                Log.w("BaiDuUbs", str);
+            }
+            d("w", "BaiDuUbs", str);
+        }
+    }
+
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            if (a) {
+                Log.e("BaiDuUbs", str);
+            }
+            d("e", "BaiDuUbs", str);
+        }
+    }
+
+    public static String c(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            StringBuilder sb = new StringBuilder("");
+            if (bArr == null || bArr.length <= 0) {
+                return null;
+            }
+            for (byte b2 : bArr) {
+                String hexString = Integer.toHexString(b2 & 255);
+                if (hexString.length() < 2) {
+                    sb.append(0);
+                }
+                sb.append(hexString);
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void d(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3) == null) && b) {
+            f69.a(new a(str, str2, str3));
+        }
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? c.toString() : (String) invokeV.objValue;
     }
 }

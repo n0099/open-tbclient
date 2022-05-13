@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes7.dex */
-public class rh2 extends de2<ui2> {
+public class rh2 extends oe2<qh2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,23 +27,22 @@ public class rh2 extends de2<ui2> {
         }
     }
 
-    @Override // com.repackage.de2
+    @Override // com.repackage.oe2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getCurrentPosition" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "hideConfirmBar" : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.de2
+    @Override // com.repackage.oe2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull ui2 ui2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull qh2 qh2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ui2Var) == null) {
-            command.ret = ui2Var.getCurrentPosition();
-            String str = command.what;
-            d(ui2Var, str, "Position: " + command.ret, false);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, qh2Var) == null) {
+            d(qh2Var, command.what, null, false);
+            qh2Var.x0();
         }
     }
 }

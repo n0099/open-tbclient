@@ -1,14 +1,13 @@
 package com.repackage;
 
 import android.graphics.Canvas;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class au1 extends pt1 {
+public abstract class au1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,21 +25,7 @@ public class au1 extends pt1 {
         }
     }
 
-    @Override // com.repackage.pt1
-    public void a(qt1 qt1Var, Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, qt1Var, canvas) == null) {
-            int alpha = qt1Var.b.getAlpha();
-            qt1Var.c(qt1Var.b);
-            canvas.drawPath(qt1Var.f, qt1Var.b);
-            qt1Var.b.setAlpha(alpha);
-        }
-    }
+    public abstract void a(bu1 bu1Var, Canvas canvas);
 
-    @Override // com.repackage.pt1
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-        }
-    }
+    public abstract void b(JSONArray jSONArray);
 }

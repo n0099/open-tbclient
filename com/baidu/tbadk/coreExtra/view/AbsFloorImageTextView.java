@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.dt7;
-import com.repackage.fd5;
-import com.repackage.oi;
+import com.repackage.mi;
+import com.repackage.xd5;
 /* loaded from: classes3.dex */
 public abstract class AbsFloorImageTextView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -154,12 +154,12 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
                 return;
             }
         }
-        d = oi.f(TbadkApplication.getInst(), R.dimen.tbds34);
-        e = oi.f(TbadkApplication.getInst(), R.dimen.tbds28);
-        f = oi.f(TbadkApplication.getInst(), R.dimen.tbds44);
-        g = oi.f(TbadkApplication.getInst(), R.dimen.tbds44);
-        h = (oi.k(TbadkApplication.getInst()) - f) - g;
-        i = oi.f(TbadkApplication.getInst(), R.dimen.tbds42);
+        d = mi.f(TbadkApplication.getInst(), R.dimen.tbds34);
+        e = mi.f(TbadkApplication.getInst(), R.dimen.tbds28);
+        f = mi.f(TbadkApplication.getInst(), R.dimen.tbds44);
+        g = mi.f(TbadkApplication.getInst(), R.dimen.tbds44);
+        h = (mi.k(TbadkApplication.getInst()) - f) - g;
+        i = mi.f(TbadkApplication.getInst(), R.dimen.tbds42);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -228,7 +228,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
     public Pair<Integer, Integer> d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? fd5.i(str, i, h) : (Pair) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? xd5.i(str, i, h) : (Pair) invokeL.objValue;
     }
 
     public abstract void e(boolean z);

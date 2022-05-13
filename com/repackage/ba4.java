@@ -1,24 +1,22 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import okhttp3.Response;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ba4 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ba4 {
 
-    public static da4 a(String str, int i) throws Exception {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
-            Response executeSync = l74.g().getRequest().requestFrom(6).requestSubFrom(i).url(str).build().executeSync();
-            if (executeSync == null) {
-                return null;
-            }
-            return new z94(executeSync);
-        }
-        return (da4) invokeLI.objValue;
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(String str, String str2, JSONObject jSONObject);
+
+        void b(String str, int i);
+
+        void onFail(Exception exc);
+
+        void onStart();
     }
+
+    void a(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, a aVar);
+
+    void j(String str, Map<String, String> map, Map<String, String> map2, a aVar);
 }

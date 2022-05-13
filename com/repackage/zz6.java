@@ -1,102 +1,82 @@
 package com.repackage;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.Nullable;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.AdapterViewHolder;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.data.BaijiahaoData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.homepage.personalize.data.RealTimeHttpResponse;
-import com.baidu.tieba.homepage.personalize.data.RealTimeRequest;
-import com.baidu.tieba.homepage.personalize.data.RealTimeSocketResponse;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.homepage.tabfeed.view.HomeLocalCompleteInfoLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class zz6 {
+public class zz6 extends eo<p07, AdapterViewHolder<HomeLocalCompleteInfoLayout>> implements sz6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
+    public TbPageContext i;
+    public View.OnClickListener j;
 
-    public zz6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zz6(TbPageContext tbPageContext, @Nullable View.OnClickListener onClickListener) {
+        super(tbPageContext.getPageActivity(), p07.a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, onClickListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
+        this.i = tbPageContext;
+        this.j = onClickListener;
     }
 
-    public void a(BdUniqueId bdUniqueId) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.eo
+    /* renamed from: Z */
+    public AdapterViewHolder<HomeLocalCompleteInfoLayout> M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bdUniqueId) == null) {
-            this.a = bdUniqueId;
-            b();
-            c();
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new AdapterViewHolder<>(new HomeLocalCompleteInfoLayout(viewGroup.getContext())) : (AdapterViewHolder) invokeL.objValue;
     }
 
-    public final void b() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.eo
+    /* renamed from: a0 */
+    public View S(int i, View view2, ViewGroup viewGroup, p07 p07Var, AdapterViewHolder<HomeLocalCompleteInfoLayout> adapterViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_REPORT_HOME_PIC_CLICK, kk8.a(TbConfig.HOME_REALTIME_ADDRESS, 309277));
-            tbHttpMessageTask.setIsNeedAddCommenParam(true);
-            tbHttpMessageTask.setResponsedClass(RealTimeHttpResponse.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, p07Var, adapterViewHolder})) == null) {
+            if (p07Var == null || adapterViewHolder == null) {
+                return null;
+            }
+            HomeLocalCompleteInfoLayout c = adapterViewHolder.c();
+            c.onChangeSkinType(this.i, TbadkCoreApplication.getInst().getSkinType());
+            c.setCloseClickListener(this.j);
+            rz6.m();
+            return adapterViewHolder.b();
         }
+        return (View) invokeCommon.objValue;
     }
 
-    public final void c() {
+    @Override // com.repackage.sz6
+    public void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            l95 l95Var = new l95(309277);
-            l95Var.setResponsedClass(RealTimeSocketResponse.class);
-            l95Var.g(true);
-            MessageManager.getInstance().registerTask(l95Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
         }
-    }
-
-    public final void d(NetMessage netMessage) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, netMessage) == null) || netMessage == null) {
-            return;
-        }
-        if (netMessage.getTag() == null) {
-            netMessage.setTag(this.a);
-        }
-        MessageManager.getInstance().sendMessage(netMessage);
-    }
-
-    public void e(long j, String str, String str2, int i, String str3, int i2, String str4, BaijiahaoData baijiahaoData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), str, str2, Integer.valueOf(i), str3, Integer.valueOf(i2), str4, baijiahaoData}) == null) || StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3)) {
-            return;
-        }
-        RealTimeRequest realTimeRequest = new RealTimeRequest();
-        realTimeRequest.setTid(j);
-        realTimeRequest.setWeight(str);
-        realTimeRequest.setSource(str2);
-        realTimeRequest.setLocation(i);
-        realTimeRequest.setAbtest_tag(str3);
-        realTimeRequest.setType(i2);
-        realTimeRequest.setPage(str4);
-        if (baijiahaoData != null && i2 != mg.e("2", 0)) {
-            realTimeRequest.setOriUgcNid(baijiahaoData.oriUgcNid);
-            realTimeRequest.setOriUgcTid(baijiahaoData.oriUgcTid);
-            realTimeRequest.setOriUgcType(Integer.toString(baijiahaoData.oriUgcType));
-            realTimeRequest.setOriUgcVid(baijiahaoData.oriUgcVid);
-        }
-        d(realTimeRequest);
     }
 }

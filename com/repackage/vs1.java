@@ -1,77 +1,112 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Pair;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class vs1 extends ts1 {
+public class vs1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vs1(g13 g13Var) {
-        super(g13Var, "/swanAPI/camera/remove");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {g13Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((g13) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755220707, "Lcom/repackage/vs1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755220707, "Lcom/repackage/vs1;");
                 return;
             }
         }
+        a = eh1.a;
+        b = new String[]{"swan", "swanAPI", "utils"};
     }
 
-    @Override // com.repackage.g23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j03 j03Var) {
-        InterceptResult invokeLLLL;
+    @NonNull
+    public static Pair<Boolean, ts1> a(uo1 uo1Var, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j03Var)) == null) {
-            if (!(context instanceof Activity)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, uo1Var, str)) == null) {
+            us1 us1Var = new us1();
+            boolean b2 = b(str, uo1Var.a().i());
+            if (b2) {
+                us1Var.b = 402;
             }
-            iw1 iw1Var = (iw1) ww1.a(m(unitedSchemeEntity));
-            if (iw1Var != null) {
-                aw1 B = iw1Var.B();
-                if (!B.a()) {
-                    jx1.c("CameraRemoveAction", "remove camera fail: " + B.b);
+            return new Pair<>(Boolean.valueOf(b2), us1Var);
+        }
+        return (Pair) invokeLL.objValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static boolean b(String str, CallbackHandler callbackHandler) {
+        InterceptResult invokeLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, callbackHandler)) == null) {
+            if (!(callbackHandler instanceof cn1)) {
+                if (a) {
+                    Log.d("SwanApiSafe", "intercept: false, handler is null or not WebSafeHolder");
                 }
-                k(unitedSchemeEntity, callbackHandler, true);
+                return false;
+            } else if (TextUtils.isEmpty(str)) {
+                if (a) {
+                    throw new RuntimeException("whitelistName is empty");
+                }
+                return false;
+            } else {
+                String e0 = ((cn1) callbackHandler).e0();
+                if ("ai_apps_widget".equals(e0)) {
+                    z = c(str);
+                } else if ("ai_apps_ad_landing".equals(e0)) {
+                    z = !l13.a(str);
+                } else {
+                    if (!"swan_app_alliance_login_widget".equals(e0) && !"swan_app_alliance_choose_address_widget".equals(e0) && a) {
+                        Log.d("SwanApiSafe", "intercept: false, source frame is not aiapps widget frame");
+                    }
+                    return false;
+                }
+                if (a) {
+                    Log.d("SwanApiSafe", "intercept: result=" + z + ", path=" + str);
+                }
+                return z;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean c(@NonNull String str) {
+        InterceptResult invokeL;
+        String[] strArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            int indexOf = str.indexOf("/");
+            if (indexOf < 0) {
                 return true;
             }
-            k(unitedSchemeEntity, callbackHandler, false);
-            return false;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public zv1 m(UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity)) == null) {
-            String l = l(unitedSchemeEntity);
-            if (tg1.a) {
-                Log.d("CameraRemoveAction", "parseData:" + l);
+            if (str.startsWith("swan")) {
+                String substring = str.substring(indexOf + 1);
+                for (String str2 : b) {
+                    if (l13.g(str2 + "/" + substring)) {
+                        return false;
+                    }
+                }
+                return true;
             }
-            return new dt1(l);
+            return !l13.g(str);
         }
-        return (zv1) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

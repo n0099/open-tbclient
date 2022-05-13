@@ -3,8 +3,7 @@ package com.repackage;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,17 +11,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
-import tbclient.RecommendForumInfo;
+import tbclient.PbPage.RecommendBook;
 /* loaded from: classes6.dex */
-public class eq4 extends no4 {
+public class eq4 extends PostData {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId O0;
     public transient /* synthetic */ FieldHolder $fh;
-    public String d;
-    public int e;
-    public String f;
-    public ArrayList<dq4> g;
+    public String F0;
+    public String G0;
+    public String H0;
+    public String I0;
+    public String J0;
+    public String K0;
+    public List<String> L0;
+    public String M0;
+    public String N0;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +41,7 @@ public class eq4 extends no4 {
                 return;
             }
         }
-        BdUniqueId.gen();
+        O0 = BdUniqueId.gen();
     }
 
     public eq4() {
@@ -50,61 +54,37 @@ public class eq4 extends no4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        g(9);
-        this.g = new ArrayList<>();
     }
 
-    @Override // com.repackage.no4, com.repackage.pn4
-    public lp4 getNegFeedBackData() {
+    public boolean M0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new lp4() : (lp4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !StringUtils.isNull(this.I0) : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.no4, com.repackage.pn4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
+    public void N0(RecommendBook recommendBook) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recommendBook) == null) || recommendBook == null) {
+            return;
         }
-        return (ThreadData) invokeV.objValue;
+        this.F0 = recommendBook.recommend_text;
+        this.G0 = recommendBook.suggest_text;
+        this.H0 = recommendBook.suggest_url;
+        this.I0 = recommendBook.book_id;
+        recommendBook.book_type.intValue();
+        this.J0 = recommendBook.book_cover;
+        this.K0 = recommendBook.book_title;
+        this.L0 = recommendBook.book_tips;
+        this.M0 = recommendBook.botton_text;
+        this.N0 = recommendBook.subscript_icon;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.uo
+    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.repackage.ro
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? no4.b : (BdUniqueId) invokeV.objValue;
-    }
-
-    public ArrayList<dq4> i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.g : (ArrayList) invokeV.objValue;
-    }
-
-    public void k(List<RecommendForumInfo> list) {
-        Long l;
-        Integer num;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, list) == null) || list == null || list.size() <= 0) {
-            return;
-        }
-        ArrayList arrayList = new ArrayList();
-        int size = list.size();
-        for (int i = 0; i < size; i++) {
-            RecommendForumInfo recommendForumInfo = list.get(i);
-            dq4 dq4Var = new dq4();
-            if (recommendForumInfo != null && (l = recommendForumInfo.forum_id) != null && l.longValue() != 0 && !StringUtils.isNull(recommendForumInfo.forum_name) && (num = recommendForumInfo.is_like) != null && num.intValue() != 1) {
-                dq4Var.v(recommendForumInfo);
-                arrayList.add(dq4Var);
-            }
-        }
-        this.g.clear();
-        this.g.addAll(ListUtils.trimToSize(arrayList, 15));
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? O0 : (BdUniqueId) invokeV.objValue;
     }
 }

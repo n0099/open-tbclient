@@ -115,7 +115,7 @@ public class sg7 implements IBrowserView {
             Activity b;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
-                if (TextUtils.isEmpty(str) || (b = x8.f().b()) == null) {
+                if (TextUtils.isEmpty(str) || (b = x8.g().b()) == null) {
                     return false;
                 }
                 UrlManager.getInstance().dealOneLink((TbPageContext) f9.a(b), new String[]{str}, true);

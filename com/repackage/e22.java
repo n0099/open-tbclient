@@ -1,51 +1,18 @@
 package com.repackage;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class e22 {
+public class e22 extends v12<JSONObject, us1> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b22 a;
-
-    /* loaded from: classes5.dex */
-    public class a implements b82 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b82 a;
-
-        public a(e22 e22Var, b82 b82Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e22Var, b82Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = b82Var;
-        }
-
-        @Override // com.repackage.b82
-        public void a(r72 r72Var) {
-            b82 b82Var;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, r72Var) == null) || (b82Var = this.a) == null) {
-                return;
-            }
-            b82Var.a(r72Var);
-        }
-    }
 
     public e22() {
         Interceptable interceptable = $ic;
@@ -57,41 +24,40 @@ public class e22 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new b22(qx1.d().getPath(), qx1.b);
     }
 
-    public r72 a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.z12
+    @NonNull
+    /* renamed from: c */
+    public us1 a(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            b22 b22Var = this.a;
-            if (b22Var != null) {
-                return b22Var.d();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            if (b()) {
+                if (v12.a) {
+                    ux1.b("Api-HandleException", "has triggered fmp before remove skeleton");
+                }
+                return new us1(0);
+            } else if (jSONObject == null) {
+                return new us1(202);
+            } else {
+                JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                if (optJSONObject == null) {
+                    return new us1(202, "data is required");
+                }
+                String optString = optJSONObject.optString("path");
+                if (TextUtils.isEmpty(optString)) {
+                    return new us1(202, "path is required");
+                }
+                t12 t12Var = new t12();
+                t12Var.g(optString);
+                t12Var.e();
+                return new us1(0);
             }
-            return null;
         }
-        return (r72) invokeV.objValue;
-    }
-
-    public void b() {
-        b22 b22Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (b22Var = this.a) == null) {
-            return;
-        }
-        b22Var.e();
-        this.a = null;
-    }
-
-    public void c(b82 b82Var) {
-        b22 b22Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b82Var) == null) || (b22Var = this.a) == null) {
-            return;
-        }
-        b22Var.f(new a(this, b82Var));
+        return (us1) invokeL.objValue;
     }
 }

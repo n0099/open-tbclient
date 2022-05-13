@@ -37,7 +37,7 @@ import com.google.android.material.shape.MarkerEdgeTreatment;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.OffsetEdgeTreatment;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawableHelper.TextDrawableDelegate {
     public static /* synthetic */ Interceptable $ic = null;
     @StyleRes
@@ -45,7 +45,7 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
     /* renamed from: DEFAULT_STYLE */
     public static final int obfuscated_res_0x7f100392 = 2131755922;
     @AttrRes
-    public static final int DEFAULT_THEME_ATTR = 2130970261;
+    public static final int DEFAULT_THEME_ATTR = 2130970269;
     public transient /* synthetic */ FieldHolder $fh;
     public int arrowSize;
     @NonNull
@@ -238,8 +238,8 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
             setShapeAppearanceModel(getShapeAppearanceModel().toBuilder().setBottomEdge(createMarkerEdge()).build());
             setText(obtainStyledAttributes.getText(5));
             setTextAppearance(MaterialResources.getTextAppearance(this.context, obtainStyledAttributes, 0));
-            setFillColor(ColorStateList.valueOf(obtainStyledAttributes.getColor(6, MaterialColors.layer(ColorUtils.setAlphaComponent(MaterialColors.getColor(this.context, 16842801, TooltipDrawable.class.getCanonicalName()), 229), ColorUtils.setAlphaComponent(MaterialColors.getColor(this.context, (int) R.attr.obfuscated_res_0x7f040162, TooltipDrawable.class.getCanonicalName()), 153)))));
-            setStrokeColor(ColorStateList.valueOf(MaterialColors.getColor(this.context, (int) R.attr.obfuscated_res_0x7f04016e, TooltipDrawable.class.getCanonicalName())));
+            setFillColor(ColorStateList.valueOf(obtainStyledAttributes.getColor(6, MaterialColors.layer(ColorUtils.setAlphaComponent(MaterialColors.getColor(this.context, 16842801, TooltipDrawable.class.getCanonicalName()), 229), ColorUtils.setAlphaComponent(MaterialColors.getColor(this.context, (int) R.attr.obfuscated_res_0x7f040165, TooltipDrawable.class.getCanonicalName()), 153)))));
+            setStrokeColor(ColorStateList.valueOf(MaterialColors.getColor(this.context, (int) R.attr.obfuscated_res_0x7f040171, TooltipDrawable.class.getCanonicalName())));
             this.padding = obtainStyledAttributes.getDimensionPixelSize(1, 0);
             this.minWidth = obtainStyledAttributes.getDimensionPixelSize(3, 0);
             this.minHeight = obtainStyledAttributes.getDimensionPixelSize(4, 0);

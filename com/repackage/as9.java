@@ -1,23 +1,25 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.AsyncTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.PBError;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class as9 implements is9 {
+public class as9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ es9 a;
+    public wr9 a;
+    public Set b;
 
-    public as9(es9 es9Var) {
+    public as9(wr9 wr9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {es9Var};
+            Object[] objArr = {wr9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,56 +29,15 @@ public class as9 implements is9 {
                 return;
             }
         }
-        this.a = es9Var;
+        this.b = new HashSet();
+        this.a = wr9Var;
     }
 
-    @Override // com.repackage.is9
-    public void a(boolean z) {
-        is9 is9Var;
+    public void a(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (is9Var = this.a.b) == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) || this.b.contains(str)) {
             return;
         }
-        is9Var.a(z);
-    }
-
-    @Override // com.win.opensdk.PBListener
-    public void onClicked() {
-        is9 is9Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (is9Var = this.a.b) == null) {
-            return;
-        }
-        is9Var.onClicked();
-    }
-
-    @Override // com.repackage.is9
-    public void onDisplayed() {
-        is9 is9Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (is9Var = this.a.b) == null) {
-            return;
-        }
-        is9Var.onDisplayed();
-    }
-
-    @Override // com.win.opensdk.PBListener
-    public void onFail(PBError pBError) {
-        is9 is9Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, pBError) == null) || (is9Var = this.a.b) == null) {
-            return;
-        }
-        is9Var.onFail(pBError);
-    }
-
-    @Override // com.win.opensdk.PBListener
-    public void onLoaded() {
-        is9 is9Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (is9Var = this.a.b) == null) {
-            return;
-        }
-        is9Var.onLoaded();
+        new lr9(this, str, z).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
     }
 }

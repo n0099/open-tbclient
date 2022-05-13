@@ -54,7 +54,7 @@ public class t78 extends u78 {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             int i = this.p;
             if (i == this.e || i == this.n) {
-                y0();
+                x0();
             }
         }
     }
@@ -100,19 +100,19 @@ public class t78 extends u78 {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, view2) == null) || view2 == null) {
             return;
         }
-        if (view2.getId() == R.id.obfuscated_res_0x7f09232a) {
+        if (view2.getId() == R.id.obfuscated_res_0x7f092380) {
             W();
-        } else if (!mi.z()) {
-            oi.M(this.O, R.string.obfuscated_res_0x7f0f0c4e);
+        } else if (!ki.z()) {
+            mi.M(this.O, R.string.obfuscated_res_0x7f0f0c65);
         } else if (this.T) {
             VideoItemData videoItemData = this.M0;
             if (videoItemData != null) {
-                x0(videoItemData.forum_id, videoItemData.thread_id);
+                w0(videoItemData.forum_id, videoItemData.thread_id);
             }
         } else {
             VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = this.N0;
             if (videoSerializeVideoThreadInfo != null) {
-                x0(videoSerializeVideoThreadInfo.forumId, videoSerializeVideoThreadInfo.threadId);
+                w0(videoSerializeVideoThreadInfo.forumId, videoSerializeVideoThreadInfo.threadId);
             }
         }
     }
@@ -148,7 +148,7 @@ public class t78 extends u78 {
         }
     }
 
-    public final void x0(String str, String str2) {
+    public final void w0(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) {
             PbActivityConfig pbActivityConfig = new PbActivityConfig(this.O);
@@ -157,7 +157,7 @@ public class t78 extends u78 {
             pbActivityConfig.setThreadData(this.O0);
             pbActivityConfig.setVideoOriginArea(ThreadCardUtils.computeViewArea(this.Q));
             pbActivityConfig.setNeedPreLoad(true);
-            ld6.update(this.O0);
+            qc6.update(this.O0);
             MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig));
             View.OnClickListener onClickListener = this.z0;
             if (onClickListener != null) {
@@ -166,10 +166,10 @@ public class t78 extends u78 {
         }
     }
 
-    public void y0() {
+    public void x0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            o0(this.f);
+            n0(this.f);
         }
     }
 }

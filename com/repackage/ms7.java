@@ -18,7 +18,7 @@ public class ms7 {
     public String c;
     public PostData d;
     public int e;
-    public af5 f;
+    public tf5 f;
 
     public ms7() {
         Interceptable interceptable = $ic;
@@ -34,10 +34,10 @@ public class ms7 {
         }
     }
 
-    public af5 a() {
+    public tf5 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : (af5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : (tf5) invokeV.objValue;
     }
 
     public String b() {
@@ -70,10 +70,10 @@ public class ms7 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : invokeV.intValue;
     }
 
-    public void g(af5 af5Var) {
+    public void g(tf5 tf5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, af5Var) == null) {
-            this.f = af5Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, tf5Var) == null) {
+            this.f = tf5Var;
         }
     }
 

@@ -1,29 +1,34 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class d85 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755813520, "Lcom/repackage/d85;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755813520, "Lcom/repackage/d85;");
-                return;
-            }
+    public static void a(String str, int i, String str2, String str3, String str4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Integer.valueOf(i), str2, str3, str4}) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("obj_locate", i);
+            statisticItem.param("obj_source", str2);
+            statisticItem.param("tid", str3);
+            statisticItem.param("fid", str4);
+            TiebaStatic.log(statisticItem);
         }
-        a = ni.getUrlEncode("http://tieba.baidu.com/mo/q/tbeanget?_client_return_page=close");
+    }
+
+    public static void b(String str, String str2, String str3, String str4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65537, null, str, str2, str3, str4) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("obj_source", str2);
+            statisticItem.param("tid", str3);
+            statisticItem.param("fid", str4);
+            TiebaStatic.log(statisticItem);
+        }
     }
 }

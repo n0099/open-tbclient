@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.v86;
+import com.repackage.e86;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -18,7 +18,7 @@ import org.json.JSONObject;
 public class SearchEmotionResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public v86 mData;
+    public e86 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SearchEmotionResponseMessage(int i) {
@@ -74,7 +74,7 @@ public class SearchEmotionResponseMessage extends JsonHttpResponsedMessage {
             int statusCode = getStatusCode();
             int error = getError();
             if (statusCode == 200 && error == 0 && jSONObject != null) {
-                this.mData = new v86();
+                this.mData = new e86();
                 JSONObject optJSONObject = jSONObject.optJSONObject("page");
                 if (optJSONObject != null) {
                     this.mData.f(optJSONObject.optInt("current_pn"));
@@ -85,9 +85,9 @@ public class SearchEmotionResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public v86 getData() {
+    public e86 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (v86) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (e86) invokeV.objValue;
     }
 }

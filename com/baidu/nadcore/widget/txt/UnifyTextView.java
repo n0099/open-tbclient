@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c11;
+import com.repackage.m11;
 import java.util.regex.Pattern;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
@@ -88,8 +88,8 @@ public class UnifyTextView extends TextView {
                 int i6 = round - textSize;
                 fm.ascent = i6;
                 fm.top = (i6 - this.c) - this.f;
-                String a = c11.a.a();
-                int a2 = c11.b.a();
+                String a = m11.a.a();
+                int a2 = m11.b.a();
                 int i7 = 0;
                 try {
                     if (text.length() == i2 && (subSequence = text.subSequence(i, i2)) != null && (StringsKt__StringsKt.contains$default(subSequence, 'y', false, 2, (Object) null) || StringsKt__StringsKt.contains$default(subSequence, 'g', false, 2, (Object) null))) {
@@ -246,7 +246,7 @@ public class UnifyTextView extends TextView {
         Intrinsics.checkNotNullParameter(context, "context");
         this.a = "UnifyTextView";
         this.c = a(context, R.dimen.obfuscated_res_0x7f07051d);
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0405b4, R.attr.obfuscated_res_0x7f0405b5});
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0405ba, R.attr.obfuscated_res_0x7f0405bb});
         this.f = obtainStyledAttributes.getDimensionPixelSize(1, this.c);
         this.g = obtainStyledAttributes.getDimensionPixelSize(0, this.c);
         obtainStyledAttributes.recycle();

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bl7 extends u05 {
+public class bl7 extends i15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,14 +32,14 @@ public class bl7 extends u05 {
                 return;
             }
         }
-        this.b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0a9c);
-        this.k = new PrivilegeDeskView(context);
-        this.m = true;
-        this.g = false;
-        this.h = true;
-        this.d = R.drawable.obfuscated_res_0x7f08097c;
-        this.e = R.drawable.obfuscated_res_0x7f08097e;
-        this.l = 6;
-        this.n = new int[]{1};
+        this.b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0aa3);
+        this.m = new PrivilegeDeskView(context);
+        this.o = true;
+        this.i = false;
+        this.j = true;
+        this.d = R.drawable.obfuscated_res_0x7f080990;
+        this.e = R.drawable.obfuscated_res_0x7f080992;
+        this.n = 6;
+        this.p = new int[]{1};
     }
 }

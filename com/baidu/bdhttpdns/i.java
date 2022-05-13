@@ -9,10 +9,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rq;
-import com.repackage.vq;
-import com.repackage.xq;
-import com.repackage.yq;
+import com.repackage.aq;
+import com.repackage.eq;
+import com.repackage.gq;
+import com.repackage.hq;
 import com.yy.gslbsdk.db.ResultTB;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -111,11 +111,11 @@ public final class i {
                 if (this.f.b == null || this.f.l >= 3) {
                     str2 = this.f.a;
                     this.e = false;
-                    xq.a("Using BGPServerIp(%s)", this.f.a);
+                    gq.a("Using BGPServerIp(%s)", this.f.a);
                 } else {
                     str2 = this.f.b;
                     this.e = true;
-                    xq.a("Using IDCServerIP(%s)", this.f.b);
+                    gq.a("Using IDCServerIP(%s)", this.f.b);
                 }
                 String format = dVar.equals(d.b) ? String.format("%s/v4/resolve?account_id=%s&tag=%s&sign=%s&t=%d&sdk_ver=%s&os_type=%s&alt_server_ip=true", str2, this.f.i, str, g, Long.valueOf(currentTimeMillis), "1.3", "android") : String.format("%s/v4/resolve?account_id=%s&dn=%s&sign=%s&t=%d&sdk_ver=%s&os_type=%s&alt_server_ip=true", str2, this.f.i, str, g, Long.valueOf(currentTimeMillis), "1.3", "android");
                 return this.f.c ? String.format("https://%s", format) : String.format("http://%s", format);
@@ -132,7 +132,7 @@ public final class i {
                     return;
                 }
                 this.c.a(-1, this.b, null, this.a);
-                xq.a("Httpdns request failed for  %s(%s), get url error", this.b.toString(), this.a);
+                gq.a("Httpdns request failed for  %s(%s), get url error", this.b.toString(), this.a);
             }
         }
 
@@ -225,7 +225,7 @@ public final class i {
                         e.printStackTrace();
                         ?? r14 = Boolean.FALSE;
                         this.f.l(Boolean.valueOf(this.e));
-                        xq.a("Httpdns request failed for %s(%s), caught network IOException", this.b.toString(), this.a);
+                        gq.a("Httpdns request failed for %s(%s), caught network IOException", this.b.toString(), this.a);
                         a aVar2 = this.c;
                         d dVar2 = this.b;
                         str2 = this.a;
@@ -240,7 +240,7 @@ public final class i {
                         e.printStackTrace();
                         ?? r142 = Boolean.FALSE;
                         this.f.l(Boolean.valueOf(this.e));
-                        xq.a("Httpdns request failed for %s(%s), caught ArrayIndexOutOfBoundsException", this.b.toString(), this.a);
+                        gq.a("Httpdns request failed for %s(%s), caught ArrayIndexOutOfBoundsException", this.b.toString(), this.a);
                         a aVar3 = this.c;
                         d dVar3 = this.b;
                         str2 = this.a;
@@ -282,7 +282,7 @@ public final class i {
                     if (f == null) {
                         Boolean bool4 = Boolean.FALSE;
                         this.f.l(Boolean.valueOf(this.e));
-                        xq.a("Httpdns request failed for %s(%s), get empty response data", this.b.toString(), this.a);
+                        gq.a("Httpdns request failed for %s(%s), get empty response data", this.b.toString(), this.a);
                         this.c.a(-1, this.b, null, this.a);
                         if (httpsURLConnection != null) {
                             httpsURLConnection.disconnect();
@@ -325,7 +325,7 @@ public final class i {
                 } else {
                     Boolean bool5 = Boolean.FALSE;
                     this.f.l(Boolean.valueOf(this.e));
-                    xq.a("Httpdns request failed for %s(%s), get null response stream", this.b.toString(), this.a);
+                    gq.a("Httpdns request failed for %s(%s), get null response stream", this.b.toString(), this.a);
                     aVar = this.c;
                     dVar = this.b;
                     str4 = this.a;
@@ -350,7 +350,7 @@ public final class i {
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 b();
                 if (this.d) {
-                    xq.a("Retry for %s(%s).", this.b.toString(), this.a);
+                    gq.a("Retry for %s(%s).", this.b.toString(), this.a);
                     b();
                 }
                 synchronized (this.f.f) {
@@ -392,7 +392,7 @@ public final class i {
             }
         }
 
-        public /* synthetic */ c(i iVar, vq vqVar) {
+        public /* synthetic */ c(i iVar, eq eqVar) {
             this(iVar);
         }
 
@@ -578,7 +578,7 @@ public final class i {
     public String A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !o ? this.j : rq.l(this.j) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !o ? this.j : aq.l(this.j) : (String) invokeV.objValue;
     }
 
     public boolean C() {
@@ -641,7 +641,7 @@ public final class i {
     public final String g(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j)) == null) ? rq.j(String.format("%s-%s-%d", str, A(), Long.valueOf(j))) : (String) invokeLJ.objValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j)) == null) ? aq.j(String.format("%s-%s-%d", str, A(), Long.valueOf(j))) : (String) invokeLJ.objValue;
     }
 
     public final String h(byte[] bArr, int i) {
@@ -684,7 +684,7 @@ public final class i {
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 if (optJSONObject == null) {
-                    xq.a("Httpdns request failed, hostsOrTag(%s), response has empty data", str2);
+                    gq.a("Httpdns request failed, hostsOrTag(%s), response has empty data", str2);
                     return null;
                 }
                 Iterator<String> keys = optJSONObject.keys();
@@ -694,33 +694,33 @@ public final class i {
                     JSONObject optJSONObject2 = optJSONObject.optJSONObject(next).optJSONObject("ipv4");
                     JSONArray optJSONArray2 = optJSONObject2.optJSONArray("ip");
                     if (optJSONArray2 == null || optJSONArray2.length() == 0) {
-                        xq.a("Httpdns request failed, host(%s), response has no ip field", next);
+                        gq.a("Httpdns request failed, host(%s), response has no ip field", next);
                     } else {
                         ArrayList arrayList = new ArrayList();
                         for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                             String optString = optJSONArray2.optString(i2);
                             if (optString == null || optString.isEmpty()) {
-                                xq.a("Httpdns request warning, host(%s), response get ip error", next);
-                            } else if (rq.e(optString)) {
+                                gq.a("Httpdns request warning, host(%s), response get ip error", next);
+                            } else if (aq.e(optString)) {
                                 arrayList.add(optString);
                             } else {
-                                xq.a("Httpdns request warning, host(%s), response get invalid ip(%s)", next, optString);
+                                gq.a("Httpdns request warning, host(%s), response get invalid ip(%s)", next, optString);
                             }
                         }
                         if (arrayList.isEmpty()) {
-                            xq.a("Httpdns request failed, host(%s), response has no valid ip", next);
+                            gq.a("Httpdns request failed, host(%s), response has no valid ip", next);
                         } else {
                             try {
                                 long j = optJSONObject2.getLong(ResultTB.TTL);
                                 if (j < 0) {
-                                    xq.a("Httpdns request failed, host(%s), response has invalid ttl(%s)", next, Long.valueOf(j));
+                                    gq.a("Httpdns request failed, host(%s), response has invalid ttl(%s)", next, Long.valueOf(j));
                                 } else {
                                     hashMap.put(next, new e(this, arrayList, j));
                                     i++;
                                 }
                             } catch (JSONException e2) {
                                 e2.printStackTrace();
-                                xq.a("Httpdns request failed, host(%s), response has no ttl", next);
+                                gq.a("Httpdns request failed, host(%s), response has no ttl", next);
                                 return null;
                             }
                         }
@@ -733,7 +733,7 @@ public final class i {
                 return hashMap;
             } catch (JSONException e3) {
                 e3.printStackTrace();
-                xq.a("Httpdns request failed, hostsOrTag(%s), response parse data json error", str2);
+                gq.a("Httpdns request failed, hostsOrTag(%s), response parse data json error", str2);
                 return null;
             }
         }
@@ -751,19 +751,19 @@ public final class i {
                 JSONObject jSONObject = new JSONObject(str);
                 String optString = jSONObject.optString("msg");
                 if (optString == null || optString.isEmpty()) {
-                    xq.a("Httpdns request failed for %s(%s), response lack of msg", dVar.toString(), str2);
+                    gq.a("Httpdns request failed for %s(%s), response lack of msg", dVar.toString(), str2);
                     return hashMap;
                 } else if (!"SignatureExpired".equals(optString)) {
                     if ("ok".equals(optString)) {
                         hashMap.put("isMsgOK", Boolean.TRUE);
                         return hashMap;
                     }
-                    xq.a("Httpdns request failed for %s(%s), response msg(%s) is not ok", dVar.toString(), str2, optString);
+                    gq.a("Httpdns request failed for %s(%s), response msg(%s) is not ok", dVar.toString(), str2, optString);
                     return hashMap;
                 } else {
                     int optInt = jSONObject.optInt("timestamp");
                     if (optInt == 0) {
-                        xq.a("Httpdns request failed for %s(%s), response get invalid timestamp", dVar.toString(), str2);
+                        gq.a("Httpdns request failed for %s(%s), response get invalid timestamp", dVar.toString(), str2);
                     } else {
                         this.d = optInt - (System.currentTimeMillis() / 1000);
                         hashMap.put("isSignExpired", Boolean.TRUE);
@@ -772,7 +772,7 @@ public final class i {
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();
-                xq.a("Httpdns request failed for %s(%s), response parse json error", dVar.toString(), str2);
+                gq.a("Httpdns request failed for %s(%s), response parse json error", dVar.toString(), str2);
                 return hashMap;
             }
         }
@@ -786,7 +786,7 @@ public final class i {
                 if (bool.booleanValue()) {
                     int i = this.l + 1;
                     this.l = i;
-                    xq.a("requestIDCFailNum: %s", Integer.valueOf(i));
+                    gq.a("requestIDCFailNum: %s", Integer.valueOf(i));
                 }
             }
         }
@@ -816,7 +816,7 @@ public final class i {
                 while (it.hasNext()) {
                     String str2 = (String) it.next();
                     if (this.e.contains(str2)) {
-                        xq.a("Httpdns request request for host(%s) is in processing，will exclude it.", str2);
+                        gq.a("Httpdns request request for host(%s) is in processing，will exclude it.", str2);
                         it.remove();
                     } else {
                         this.e.add(str2);
@@ -831,10 +831,10 @@ public final class i {
             }
             if (str != null && !str.isEmpty()) {
                 try {
-                    yq.a().b().execute(new b(this, str, dVar, aVar));
+                    hq.a().b().execute(new b(this, str, dVar, aVar));
                 } catch (RejectedExecutionException e2) {
                     e2.printStackTrace();
-                    xq.a("Httpdns request failed, host(%s), async tasks has exceed the maximum thread limit.", str);
+                    gq.a("Httpdns request failed, host(%s), async tasks has exceed the maximum thread limit.", str);
                 }
             }
         }
@@ -860,7 +860,7 @@ public final class i {
                 i2++;
                 if (str != null && !str.isEmpty()) {
                     String substring = str.substring(0, str.length() - 1);
-                    xq.a("Hosts for httpdns request is (%s) ", substring);
+                    gq.a("Hosts for httpdns request is (%s) ", substring);
                     n(substring, d.a, aVar);
                 }
             }
@@ -905,7 +905,7 @@ public final class i {
     public void y(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            String k = rq.k(str);
+            String k = aq.k(str);
             this.j = k;
             if (k == null) {
                 this.j = str;

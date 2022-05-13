@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebChromeClient;
-import com.repackage.ao;
+import com.repackage.xn;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -352,7 +352,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                     this.h.s();
                     return;
                 }
-                this.h.g = (int) (ao.a(f2, f, false) + this.d);
+                this.h.g = (int) (xn.a(f2, f, false) + this.d);
                 this.h.invalidate();
                 this.h.r.sendEmptyMessageAtTime(-101, this.f);
             }
@@ -375,7 +375,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                     this.h.s();
                     return;
                 }
-                this.h.g = (int) (ao.a(f2, f, false) + this.d);
+                this.h.g = (int) (xn.a(f2, f, false) + this.d);
                 this.h.invalidate();
                 this.h.r.sendEmptyMessageAtTime(-105, this.f);
             }
@@ -397,7 +397,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                     this.h.s();
                     return;
                 }
-                this.h.g = (int) (ao.a(f2, f, false) + this.d);
+                this.h.g = (int) (xn.a(f2, f, false) + this.d);
                 this.h.invalidate();
                 this.h.r.sendEmptyMessageAtTime(-100, this.f);
             }
@@ -420,7 +420,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                     this.h.s();
                     return;
                 }
-                this.h.g = (int) (ao.a(f2, f, false) + this.d);
+                this.h.g = (int) (xn.a(f2, f, false) + this.d);
                 this.h.invalidate();
                 this.h.r.sendEmptyMessageAtTime(-104, this.f);
             }
@@ -866,7 +866,7 @@ public class VerticalTranslateLayout extends FrameLayout {
         String[] split;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400e5, R.attr.obfuscated_res_0x7f0400e7, R.attr.obfuscated_res_0x7f040611, R.attr.obfuscated_res_0x7f040697, R.attr.obfuscated_res_0x7f040698, R.attr.obfuscated_res_0x7f0406a2, R.attr.obfuscated_res_0x7f0406a3});
+            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400e8, R.attr.obfuscated_res_0x7f0400ea, R.attr.obfuscated_res_0x7f040619, R.attr.obfuscated_res_0x7f04069f, R.attr.obfuscated_res_0x7f0406a0, R.attr.obfuscated_res_0x7f0406aa, R.attr.obfuscated_res_0x7f0406ab});
             this.c = obtainStyledAttributes.getDimension(4, -1.0f);
             this.e = obtainStyledAttributes.getDimension(1, -1.0f);
             this.d = obtainStyledAttributes.getDimension(3, -1.0f);

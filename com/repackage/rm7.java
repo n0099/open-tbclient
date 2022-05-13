@@ -175,8 +175,8 @@ public class rm7 {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (currentAccount = TbadkCoreApplication.getCurrentAccount()) == null) {
                 return;
             }
-            br4.f();
-            qe<String> g = br4.g("tb.my_bookmarks");
+            mr4.f();
+            qe<String> g = mr4.g("tb.my_bookmarks");
             if (g != null) {
                 g.e(currentAccount, str, 604800000L);
             }
@@ -193,8 +193,8 @@ public class rm7 {
                 boolean booleanValue = (boolArr.length < 2 || boolArr[1] == null) ? true : boolArr[1].booleanValue();
                 rm7 rm7Var = new rm7();
                 if (this.e.booleanValue() && booleanValue) {
-                    br4.f();
-                    qe<String> g = br4.g("tb.my_bookmarks");
+                    mr4.f();
+                    qe<String> g = mr4.g("tb.my_bookmarks");
                     if (g != null) {
                         publishProgress(g.get(TbadkCoreApplication.getCurrentAccount()));
                     }
@@ -260,7 +260,7 @@ public class rm7 {
                 }
                 tm7 tm7Var = this.d;
                 if (tm7Var != null) {
-                    kt4.a("collection", 0L, 0, "collection_thread_list_result", tm7Var.a(), this.d.b(), new Object[0]);
+                    xt4.a("collection", 0L, 0, "collection_thread_list_result", tm7Var.a(), this.d.b(), new Object[0]);
                 }
                 this.f.e = rm7Var.m();
                 ArrayList<MarkData> n = rm7Var.n();

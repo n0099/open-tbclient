@@ -35,17 +35,17 @@ public final class R$layout {
     public static final int abc_search_view = 2131558425;
     public static final int abc_select_dialog_material = 2131558426;
     public static final int abc_tooltip = 2131558427;
-    public static final int custom_dialog = 2131558930;
-    public static final int notification_action = 2131559968;
-    public static final int notification_action_tombstone = 2131559969;
-    public static final int notification_template_custom_big = 2131559976;
-    public static final int notification_template_icon_group = 2131559977;
-    public static final int notification_template_part_chronometer = 2131559981;
-    public static final int notification_template_part_time = 2131559982;
-    public static final int select_dialog_item_material = 2131560276;
-    public static final int select_dialog_multichoice_material = 2131560277;
-    public static final int select_dialog_singlechoice_material = 2131560278;
-    public static final int support_simple_spinner_dropdown_item = 2131560367;
+    public static final int custom_dialog = 2131558923;
+    public static final int notification_action = 2131559956;
+    public static final int notification_action_tombstone = 2131559957;
+    public static final int notification_template_custom_big = 2131559964;
+    public static final int notification_template_icon_group = 2131559965;
+    public static final int notification_template_part_chronometer = 2131559969;
+    public static final int notification_template_part_time = 2131559970;
+    public static final int select_dialog_item_material = 2131560263;
+    public static final int select_dialog_multichoice_material = 2131560264;
+    public static final int select_dialog_singlechoice_material = 2131560265;
+    public static final int support_simple_spinner_dropdown_item = 2131560360;
     public transient /* synthetic */ FieldHolder $fh;
 
     public R$layout() {

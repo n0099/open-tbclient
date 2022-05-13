@@ -1,121 +1,155 @@
 package com.repackage;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class mx4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<ShareDialogConfig.From, Integer> f;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public String a;
+    public String b;
     public String c;
-    public int d;
-    public List<Integer> e;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755483928, "Lcom/repackage/mx4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755483928, "Lcom/repackage/mx4;");
-                return;
-            }
-        }
-        HashMap hashMap = new HashMap();
-        f = hashMap;
-        hashMap.put(ShareDialogConfig.From.Recommend, 1);
-        f.put(ShareDialogConfig.From.Concern, 2);
-        f.put(ShareDialogConfig.From.PB, 3);
-        f.put(ShareDialogConfig.From.FRS, 4);
-        f.put(ShareDialogConfig.From.PersonPolymeric, 5);
-        f.put(ShareDialogConfig.From.VideoMiddlePageHorizontal, 6);
-        f.put(ShareDialogConfig.From.VideoMiddlePageVertical, 7);
-        f.put(ShareDialogConfig.From.HomeVideoTab, 8);
-        f.put(ShareDialogConfig.From.HomeGameTab, 9);
-    }
+    public EmotionGroupType d;
+    public int e;
+    public int f;
+    public String g;
+    public co h;
+    public nx4 i;
 
     public mx4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public int a() {
+    public nx4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.i : (nx4) invokeV.objValue;
     }
 
-    public String b() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : invokeV.intValue;
     }
 
-    public boolean c() {
+    public co c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? System.currentTimeMillis() / 1000 >= ((long) this.a) && System.currentTimeMillis() / 1000 <= ((long) this.b) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.h : (co) invokeV.objValue;
     }
 
-    public boolean d(ShareDialogConfig.From from) {
-        InterceptResult invokeL;
-        Integer num;
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, from)) == null) ? (this.e == null || (num = f.get(from)) == null || !this.e.contains(num)) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    public void e(JSONObject jSONObject) {
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.g : (String) invokeV.objValue;
+    }
+
+    public EmotionGroupType getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : (EmotionGroupType) invokeV.objValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.e : invokeV.intValue;
+    }
+
+    public void i(nx4 nx4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, nx4Var) == null) {
+            this.i = nx4Var;
         }
-        this.a = jSONObject.optInt("begin_time");
-        this.b = jSONObject.optInt("end_time");
-        this.c = jSONObject.optString("text");
-        this.d = jSONObject.optInt("icon_exp");
-        f(jSONObject.optString("page_list"));
     }
 
-    public final void f(String str) {
-        String[] split;
+    public void j(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || ni.isEmpty(str) || (split = str.split(",")) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.f = i;
         }
-        for (String str2 : split) {
-            int e = mg.e(str2, -1);
-            if (e != -1) {
-                if (this.e == null) {
-                    this.e = new ArrayList();
-                }
-                this.e.add(Integer.valueOf(e));
-            }
+    }
+
+    public void k(co coVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, coVar) == null) {
+            this.h = coVar;
+        }
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public void m(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public void n(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void o(EmotionGroupType emotionGroupType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, emotionGroupType) == null) {
+            this.d = emotionGroupType;
+        }
+    }
+
+    public void p(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            this.g = str;
+        }
+    }
+
+    public void q(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.e = i;
         }
     }
 }

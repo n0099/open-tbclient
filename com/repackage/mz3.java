@@ -3,6 +3,7 @@ package com.repackage;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
@@ -10,7 +11,7 @@ public class mz3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @V8JavascriptField
-    public Object data;
+    public Object header;
 
     public mz3(Object obj) {
         Interceptable interceptable = $ic;
@@ -27,6 +28,15 @@ public class mz3 {
                 return;
             }
         }
-        this.data = obj;
+        this.header = obj;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "TaskHeaderData{header=" + this.header + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

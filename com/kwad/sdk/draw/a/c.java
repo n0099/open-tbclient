@@ -95,7 +95,7 @@ public class c extends com.kwad.sdk.draw.kwai.a implements View.OnClickListener 
     };
 
     private void a(boolean z, int i) {
-        com.kwad.sdk.core.download.a.a.a(new a.C0296a(this.b.getContext()).a(this.g).a(this.i).a(i).a(z).a(new a.b() { // from class: com.kwad.sdk.draw.a.c.3
+        com.kwad.sdk.core.download.a.a.a(new a.C0295a(this.b.getContext()).a(this.g).a(this.i).a(i).a(z).a(new a.b() { // from class: com.kwad.sdk.draw.a.c.3
             @Override // com.kwad.sdk.core.download.a.a.b
             public void a() {
                 com.kwad.sdk.core.report.a.a(c.this.g, 1, ((com.kwad.sdk.draw.kwai.a) c.this).a.b.getTouchCoords());
@@ -189,12 +189,12 @@ public class c extends com.kwad.sdk.draw.kwai.a implements View.OnClickListener 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.b = (ViewGroup) a(R.id.obfuscated_res_0x7f09101d);
-        this.c = (TextView) a(R.id.obfuscated_res_0x7f091021);
-        this.d = (TextView) a(R.id.obfuscated_res_0x7f09101f);
-        this.n = (KsLogoView) a(R.id.obfuscated_res_0x7f091020);
-        this.e = (TextView) a(R.id.obfuscated_res_0x7f09101e);
-        DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) a(R.id.obfuscated_res_0x7f09101c);
+        this.b = (ViewGroup) a(R.id.obfuscated_res_0x7f09102c);
+        this.c = (TextView) a(R.id.obfuscated_res_0x7f091030);
+        this.d = (TextView) a(R.id.obfuscated_res_0x7f09102e);
+        this.n = (KsLogoView) a(R.id.obfuscated_res_0x7f09102f);
+        this.e = (TextView) a(R.id.obfuscated_res_0x7f09102d);
+        DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) a(R.id.obfuscated_res_0x7f09102b);
         this.f = drawDownloadProgressBar;
         drawDownloadProgressBar.setTextSize(16);
     }

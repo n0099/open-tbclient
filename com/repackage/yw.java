@@ -1,8 +1,8 @@
 package com.repackage;
 
-import android.app.Activity;
 import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
+import android.content.ContextWrapper;
+import android.content.SharedPreferences;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,29 +10,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class yw {
+public class yw extends ContextWrapper {
     public static /* synthetic */ Interceptable $ic;
+    public static yw b;
     public transient /* synthetic */ FieldHolder $fh;
-    public CharSequence a;
-    public int b;
-    public CharSequence c;
-    public int d;
-    public int e;
-    public a f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public String k;
-    public String l;
-    public wu m;
+    public ex a;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a();
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public yw() {
+        super(null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,173 +26,62 @@ public class yw {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = 2;
-        this.b = 14;
-        this.d = 14;
     }
 
-    public static void f() {
+    public static synchronized yw a() {
+        InterceptResult invokeV;
+        yw ywVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            ax.e();
-            cx.f();
-        }
-    }
-
-    public static int m(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? av.a() : invokeL.intValue;
-    }
-
-    public yw a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this : (yw) invokeI.objValue;
-    }
-
-    public yw b(wu wuVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wuVar)) == null) {
-            this.m = wuVar;
-            return this;
-        }
-        return (yw) invokeL.objValue;
-    }
-
-    public yw c(a aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) {
-            this.f = aVar;
-            return this;
-        }
-        return (yw) invokeL.objValue;
-    }
-
-    public yw d(CharSequence charSequence) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, charSequence)) == null) {
-            this.a = charSequence;
-            return this;
-        }
-        return (yw) invokeL.objValue;
-    }
-
-    public yw e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.g = str;
-            return this;
-        }
-        return (yw) invokeL.objValue;
-    }
-
-    public void g(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, context) == null) && l()) {
-            f();
-            ax.g(context, this.a, this.e, this.g, this.l, this.h, this.m);
-        }
-    }
-
-    public yw h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            if (i >= 1 && i <= 10) {
-                this.e = i;
-            } else {
-                this.e = 2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (yw.class) {
+                if (b == null) {
+                    b = new yw();
+                }
+                ywVar = b;
             }
-            return this;
+            return ywVar;
         }
-        return (yw) invokeI.objValue;
+        return (yw) invokeV.objValue;
     }
 
-    public yw i(CharSequence charSequence) {
-        InterceptResult invokeL;
+    @Override // android.content.ContextWrapper
+    public void attachBaseContext(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, charSequence)) == null) {
-            this.c = charSequence;
-            return this;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            super.attachBaseContext(context);
         }
-        return (yw) invokeL.objValue;
     }
 
-    public yw j(String str) {
-        InterceptResult invokeL;
+    @Override // android.content.ContextWrapper, android.content.Context
+    public SharedPreferences getSharedPreferences(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            this.h = str;
-            return this;
-        }
-        return (yw) invokeL.objValue;
-    }
-
-    public void k(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, context) == null) && l() && context != null) {
-            f();
-            if (context instanceof Activity) {
-                cx.g((Activity) context, this.a, this.b, this.c, this.d, this.e, this.g, this.l, this.h, this.i, this.j, this.k, this.f, this.m);
-            } else {
-                ax.f(context, this.a, this.b, this.l, this.c, this.d, this.e, this.g, this.h, this.i, this.j, this.k, this.f, this.m);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i)) == null) {
+            if (ox.c(this)) {
+                return ax.a(str, this);
             }
+            return super.getSharedPreferences(str, i);
         }
+        return (SharedPreferences) invokeLI.objValue;
     }
 
-    public final boolean l() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.content.ContextWrapper, android.content.Context
+    public ex getResources() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.a != null : invokeV.booleanValue;
-    }
-
-    public yw n(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            this.i = str;
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.a == null) {
+                this.a = new ex(super.getResources(), getAssets(), super.getResources().getDisplayMetrics(), super.getResources().getConfiguration());
+            }
+            return this.a;
         }
-        return (yw) invokeL.objValue;
-    }
-
-    public yw o(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            this.j = str;
-            return this;
-        }
-        return (yw) invokeL.objValue;
-    }
-
-    public yw p(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            this.k = str;
-            return this;
-        }
-        return (yw) invokeL.objValue;
-    }
-
-    public yw q(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            this.l = str;
-            return this;
-        }
-        return (yw) invokeL.objValue;
+        return (ex) invokeV.objValue;
     }
 }

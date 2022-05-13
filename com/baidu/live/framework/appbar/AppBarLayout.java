@@ -35,8 +35,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.va0;
-import com.repackage.xa0;
+import com.repackage.ab0;
+import com.repackage.ya0;
 import java.lang.ref.WeakReference;
 import java.util.List;
 @CoordinatorLayout.c(Behavior.class)
@@ -260,7 +260,7 @@ public class AppBarLayout extends LinearLayout {
                     return;
                 }
             }
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400cd});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400cf});
             if (obtainStyledAttributes.hasValue(0)) {
                 O(obtainStyledAttributes.getDimensionPixelSize(0, 0));
             }
@@ -661,10 +661,10 @@ public class AppBarLayout extends LinearLayout {
             }
             int[] iArr = this.l;
             int[] onCreateDrawableState = super.onCreateDrawableState(i + iArr.length);
-            iArr[0] = this.i ? R.attr.obfuscated_res_0x7f0405c8 : -2130970056;
-            iArr[1] = (this.i && this.j) ? R.attr.obfuscated_res_0x7f0405c9 : -2130970057;
-            iArr[2] = this.i ? R.attr.obfuscated_res_0x7f0405c6 : -2130970054;
-            iArr[3] = (this.i && this.j) ? R.attr.obfuscated_res_0x7f0405c5 : -2130970053;
+            iArr[0] = this.i ? R.attr.obfuscated_res_0x7f0405cf : -2130970063;
+            iArr[1] = (this.i && this.j) ? R.attr.obfuscated_res_0x7f0405d0 : -2130970064;
+            iArr[2] = this.i ? R.attr.obfuscated_res_0x7f0405cd : -2130970061;
+            iArr[3] = (this.i && this.j) ? R.attr.obfuscated_res_0x7f0405cc : -2130970060;
             return LinearLayout.mergeDrawableStates(onCreateDrawableState, iArr);
         }
         return (int[]) invokeI.objValue;
@@ -734,7 +734,7 @@ public class AppBarLayout extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeF(1048612, this, f) == null) || Build.VERSION.SDK_INT < 21) {
             return;
         }
-        xa0.b(this, f);
+        ab0.b(this, f);
     }
 
     /* loaded from: classes2.dex */
@@ -872,7 +872,7 @@ public class AppBarLayout extends LinearLayout {
                 if (valueAnimator2 == null) {
                     ValueAnimator valueAnimator3 = new ValueAnimator();
                     this.m = valueAnimator3;
-                    valueAnimator3.setInterpolator(va0.a);
+                    valueAnimator3.setInterpolator(ya0.a);
                     this.m.addUpdateListener(new a(this, coordinatorLayout, t));
                 } else {
                     valueAnimator2.cancel();
@@ -1506,15 +1506,15 @@ public class AppBarLayout extends LinearLayout {
         this.e = 0;
         setOrientation(1);
         if (Build.VERSION.SDK_INT >= 21) {
-            xa0.a(this);
-            xa0.c(this, attributeSet, 0, R.style.obfuscated_res_0x7f100323);
+            ab0.a(this);
+            ab0.c(this, attributeSet, 0, R.style.obfuscated_res_0x7f100323);
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16842964, 16843919, 16844096, R.attr.obfuscated_res_0x7f040212, R.attr.obfuscated_res_0x7f04025d, R.attr.obfuscated_res_0x7f0403dd, R.attr.obfuscated_res_0x7f0403de, R.attr.obfuscated_res_0x7f0405cc}, 0, R.style.obfuscated_res_0x7f100323);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16842964, 16843919, 16844096, R.attr.obfuscated_res_0x7f040215, R.attr.obfuscated_res_0x7f040260, R.attr.obfuscated_res_0x7f0403e1, R.attr.obfuscated_res_0x7f0403e2, R.attr.obfuscated_res_0x7f0405d3}, 0, R.style.obfuscated_res_0x7f100323);
         if (obtainStyledAttributes.hasValue(4)) {
             l(obtainStyledAttributes.getBoolean(4, false), false, false);
         }
         if (Build.VERSION.SDK_INT >= 21 && obtainStyledAttributes.hasValue(3)) {
-            xa0.b(this, obtainStyledAttributes.getDimensionPixelSize(3, 0));
+            ab0.b(this, obtainStyledAttributes.getDimensionPixelSize(3, 0));
         }
         if (Build.VERSION.SDK_INT >= 26) {
             if (obtainStyledAttributes.hasValue(2)) {
@@ -1565,7 +1565,7 @@ public class AppBarLayout extends LinearLayout {
                 }
             }
             this.a = 1;
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403d0, R.attr.obfuscated_res_0x7f0403d1});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403d4, R.attr.obfuscated_res_0x7f0403d5});
             this.a = obtainStyledAttributes.getInt(0, 0);
             if (obtainStyledAttributes.hasValue(1)) {
                 this.b = AnimationUtils.loadInterpolator(context, obtainStyledAttributes.getResourceId(1, 0));

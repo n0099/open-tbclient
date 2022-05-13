@@ -1,63 +1,123 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.Align;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tbadk.template.message.TemplateHttpResponseMessage;
-import com.baidu.tbadk.template.message.TemplateNetMessage;
-import com.baidu.tbadk.template.message.TemplateSocketResponsedMessage;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tbadk.core.view.FollowUserButton;
+import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oa5;
-import com.repackage.pa5;
-import java.util.ArrayList;
-import java.util.List;
+import com.repackage.cy;
+import com.repackage.kz;
+import com.repackage.vz;
 /* loaded from: classes7.dex */
-public class va5<Q extends oa5, P extends pa5> {
+public class va5 extends ja5<br4, ThreadCardViewHolder<br4>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<n95> a;
-    public final b9<?> b;
-    public final qa5<Q, P> c;
-    public final Q d;
-    public final P e;
-    public final sa5 f;
-    public BdUniqueId g;
-    public boolean h;
-    public wa i;
-    public TbHttpMessageTask j;
-    public SocketMessageTask k;
+    public FollowUserButton.a o;
+    public NEGFeedBackView.b p;
+    public ux5<br4> q;
 
     /* loaded from: classes7.dex */
-    public class a extends wa {
+    public class a extends ux5<br4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ va5 a;
+        public final /* synthetic */ va5 b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(va5 va5Var, int i, int i2) {
-            super(i, i2);
+        public a(va5 va5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {va5Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                Object[] objArr = {va5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = va5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.ux5
+        /* renamed from: d */
+        public void a(View view2, br4 br4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, br4Var) == null) {
+                this.b.b0(view2, br4Var);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements cy.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(va5 va5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {va5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.cy.b
+        public void a(zn4 zn4Var, View view2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, zn4Var, view2) == null) || zn4Var == null) {
+                return;
+            }
+            if (view2.getId() == R.id.obfuscated_res_0x7f0922f3) {
+                zn4Var.objType = 3;
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0922d3) {
+                zn4Var.objType = 4;
+            } else {
+                zn4Var.objType = 1;
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements bp {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ va5 a;
+
+        public c(va5 va5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {va5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -66,244 +126,89 @@ public class va5<Q extends oa5, P extends pa5> {
             this.a = va5Var;
         }
 
-        @Override // com.repackage.wa
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
+        @Override // com.repackage.bp
+        public void b(View view2, ro roVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                eb5.b("TemplateModel-->onMessage");
-                this.a.n(responsedMessage);
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, roVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (roVar instanceof br4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
+                br4 br4Var = (br4) roVar;
+                br4Var.objType = 1;
+                if (this.a.q != null) {
+                    this.a.q.a(threadCardViewHolder.b(), br4Var);
+                }
+                ThreadCardUtils.jumpToPB((zn4) br4Var, view2.getContext(), this.a.h0(), false, dy.a((xo) viewGroup, view2, i));
+                threadCardViewHolder.c().o(new vz.a(1));
             }
         }
     }
 
-    public va5(b9<?> b9Var, qa5<Q, P> qa5Var, sa5 sa5Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public va5(TbPageContext<?> tbPageContext) {
+        super(tbPageContext, ThreadData.TYPE_USER_NORMAL);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {b9Var, qa5Var, sa5Var};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.h = false;
-        this.b = b9Var;
-        this.g = b9Var.getUniqueId();
-        this.c = qa5Var;
-        this.d = qa5Var.b();
-        this.e = this.c.d();
-        this.f = sa5Var;
-        o(d(), h(), e());
-        q(h());
-        p(d(), h());
+        this.q = new a(this);
     }
 
-    public void b(n95 n95Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, n95Var) == null) || n95Var == null || this.a.contains(n95Var)) {
-            return;
-        }
-        this.a.add(n95Var);
-    }
-
-    public final boolean c(ResponsedMessage<?> responsedMessage) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.eo
+    /* renamed from: t0 */
+    public ThreadCardViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, responsedMessage)) == null) ? (responsedMessage == null || responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() != this.g) ? false : true : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            kz.b bVar = new kz.b(this.k.getPageActivity());
+            cy cyVar = new cy(this.k.getPageActivity());
+            cyVar.t(this.e);
+            cyVar.s(new b(this));
+            cyVar.v(this.k);
+            bVar.o(cyVar);
+            kz k = bVar.k(BaseCardInfo.SupportType.TOP, viewGroup, this.l);
+            k.r(h0());
+            ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
+            threadCardViewHolder.k(this.e);
+            V(new c(this));
+            return threadCardViewHolder;
+        }
+        return (ThreadCardViewHolder) invokeL.objValue;
     }
 
-    public int d() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.eo
+    /* renamed from: u0 */
+    public View S(int i, View view2, ViewGroup viewGroup, br4 br4Var, ThreadCardViewHolder<br4> threadCardViewHolder) {
+        InterceptResult invokeCommon;
+        ThreadData threadData;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c.e() : invokeV.intValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c.c() : (String) invokeV.objValue;
-    }
-
-    public Q f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : (Q) invokeV.objValue;
-    }
-
-    public P g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : (P) invokeV.objValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.c.a() : invokeV.intValue;
-    }
-
-    public boolean i(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
-            eb5.b(" ----requestMessage---- ");
-            if (this.h) {
-                return false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, br4Var, threadCardViewHolder})) == null) {
+            if (br4Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null || (threadData = br4Var.s) == null) {
+                return null;
             }
-            this.h = true;
-            l(f(), true);
-            r();
-            return true;
+            boolean z = true;
+            threadData.statFloor = C(i) + 1;
+            threadCardViewHolder.c().q(i);
+            threadCardViewHolder.s(m0(1), Align.ALIGN_RIGHT_TOP, this.p);
+            threadCardViewHolder.m((m0(4) && br4Var.showFollowBtn()) ? false : false, this.o);
+            threadCardViewHolder.v(m0(8), Align.ALIGN_RIGHT_TOP);
+            threadCardViewHolder.g(br4Var);
+            threadCardViewHolder.c().onChangeSkinType(this.k, TbadkCoreApplication.getInst().getSkinType());
+            threadCardViewHolder.c().p(this.q);
+            return threadCardViewHolder.b();
         }
-        return invokeZ.booleanValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            eb5.b(" ----loadMoreNetRequest---- ");
-            if (this.h) {
-                return false;
-            }
-            this.h = true;
-            l(f(), false);
-            r();
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.i);
-        }
-    }
-
-    public void l(Q q, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048586, this, q, z) == null) {
-            for (n95 n95Var : this.a) {
-                n95Var.b(q, z);
-            }
-        }
-    }
-
-    public void m(Q q, P p) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, q, p) == null) {
-            for (n95 n95Var : this.a) {
-                n95Var.a(q, p);
-            }
-        }
-    }
-
-    public final void n(ResponsedMessage<?> responsedMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, responsedMessage) == null) {
-            this.h = false;
-            if (c(responsedMessage) && responsedMessage != null && responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof TemplateNetMessage)) {
-                int error = responsedMessage.getError();
-                String errorString = responsedMessage.getErrorString();
-                if (responsedMessage.getError() == 0 && !responsedMessage.hasError()) {
-                    if (responsedMessage instanceof TemplateSocketResponsedMessage) {
-                        TemplateSocketResponsedMessage templateSocketResponsedMessage = (TemplateSocketResponsedMessage) responsedMessage;
-                        m(f(), g());
-                        sa5 sa5Var = this.f;
-                        if (sa5Var != null) {
-                            sa5Var.onSuccess(templateSocketResponsedMessage.getIResp());
-                            return;
-                        }
-                        return;
-                    } else if (responsedMessage instanceof TemplateHttpResponseMessage) {
-                        TemplateHttpResponseMessage templateHttpResponseMessage = (TemplateHttpResponseMessage) responsedMessage;
-                        m(f(), g());
-                        sa5 sa5Var2 = this.f;
-                        if (sa5Var2 != null) {
-                            sa5Var2.onSuccess(templateHttpResponseMessage.getIResp());
-                            return;
-                        }
-                        return;
-                    } else {
-                        return;
-                    }
-                }
-                if (TextUtils.isEmpty(errorString)) {
-                    errorString = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0473);
-                }
-                sa5 sa5Var3 = this.f;
-                if (sa5Var3 != null) {
-                    sa5Var3.onError(error, errorString);
-                }
-            }
-        }
-    }
-
-    public final void o(int i, int i2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048589, this, i, i2, str) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(i, kk8.a(str, i2));
-            tbHttpMessageTask.setIsNeedLogin(true);
-            tbHttpMessageTask.setIsNeedTbs(true);
-            tbHttpMessageTask.setIsNeedAddCommenParam(true);
-            tbHttpMessageTask.setIsUseCurrentBDUSS(true);
-            tbHttpMessageTask.setResponsedClass(TemplateHttpResponseMessage.class);
-            MessageManager.getInstance().unRegisterTask(i);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            this.j = tbHttpMessageTask;
-        }
-    }
-
-    public final void p(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048590, this, i, i2) == null) {
-            if (this.i == null) {
-                this.i = new a(this, i, i2);
-            }
-            this.i.setTag(this.g);
-            this.i.getSocketMessageListener().isSelfListener();
-            this.i.getHttpMessageListener().isSelfListener();
-            MessageManager.getInstance().registerListener(this.i);
-        }
-    }
-
-    public final void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            SocketMessageTask socketMessageTask = new SocketMessageTask(i);
-            socketMessageTask.g(true);
-            socketMessageTask.h(false);
-            socketMessageTask.setNeedEncrypt(false);
-            socketMessageTask.setResponsedClass(TemplateSocketResponsedMessage.class);
-            MessageManager.getInstance().unRegisterTask(i);
-            MessageManager.getInstance().registerTask(socketMessageTask);
-            this.k = socketMessageTask;
-        }
-    }
-
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            TemplateNetMessage templateNetMessage = new TemplateNetMessage(this.c, this.d, this.e);
-            templateNetMessage.setTag(this.g);
-            MessageManager.getInstance().sendMessage(templateNetMessage, this.k, this.j);
-        }
-    }
-
-    public void s(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, bdUniqueId) == null) {
-            this.g = bdUniqueId;
-            o(d(), h(), e());
-            q(h());
-            p(d(), h());
-        }
+        return (View) invokeCommon.objValue;
     }
 }

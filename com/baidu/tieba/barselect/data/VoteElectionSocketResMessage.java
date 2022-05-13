@@ -7,9 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wv5;
 import com.repackage.xv5;
 import com.repackage.yv5;
+import com.repackage.zv5;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import tbclient.ElectionInfo.Basic;
@@ -21,7 +21,7 @@ import tbclient.Myrecord;
 public class VoteElectionSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yv5 mVoteData;
+    public zv5 mVoteData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VoteElectionSocketResMessage() {
@@ -41,10 +41,10 @@ public class VoteElectionSocketResMessage extends SocketResponsedMessage {
         }
     }
 
-    public yv5 getVoteData() {
+    public zv5 getVoteData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mVoteData : (yv5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mVoteData : (zv5) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -58,22 +58,22 @@ public class VoteElectionSocketResMessage extends SocketResponsedMessage {
                 setErrorString(electionInfoResIdl.error.usermsg);
                 if (getError() == 0 && electionInfoResIdl.data != null) {
                     if (this.mVoteData == null) {
-                        this.mVoteData = new yv5();
+                        this.mVoteData = new zv5();
                     }
                     if (electionInfoResIdl.data.election_list != null) {
-                        ArrayList<wv5> arrayList = new ArrayList<>();
+                        ArrayList<xv5> arrayList = new ArrayList<>();
                         for (ElectionList electionList : electionInfoResIdl.data.election_list) {
-                            arrayList.add(wv5.o(electionList));
+                            arrayList.add(xv5.o(electionList));
                         }
                         this.mVoteData.h(arrayList);
                     }
                     Basic basic = electionInfoResIdl.data.basic;
                     if (basic != null) {
-                        this.mVoteData.m(xv5.i(basic));
+                        this.mVoteData.m(yv5.i(basic));
                     }
                     Myrecord myrecord = electionInfoResIdl.data.my_record;
                     if (myrecord != null) {
-                        this.mVoteData.n(wv5.p(myrecord));
+                        this.mVoteData.n(xv5.p(myrecord));
                     }
                     Integer num = electionInfoResIdl.data.has_more;
                     if (num != null) {

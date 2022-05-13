@@ -1,25 +1,26 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tieba.R;
+import android.app.Application;
+import android.net.Uri;
+import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
+import com.baidu.searchbox.unitedscheme.SchemeRouter;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sz1;
+import com.repackage.rl2;
+import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class et3 implements yo3 {
+public final class et3 extends zs3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public et3() {
+        super("navigateToSwanGame");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -27,82 +28,58 @@ public class et3 implements yo3 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.repackage.yo3
-    public void a(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
-            sz1 V = wl2.U().V();
-            Context appContext = AppRuntime.getAppContext();
-            if (V == null) {
-                if (appContext != null) {
-                    b03.f(appContext, R.string.obfuscated_res_0x7f0f019c).G();
-                    return;
-                }
                 return;
             }
-            jq2 d = jq2.d(str, str);
-            d.h(jSONObject.toString());
-            sz1.b i = V.i("adLanding");
-            i.n(sz1.g, sz1.i);
-            i.k("adLanding", d).b();
         }
     }
 
-    @Override // com.repackage.yo3
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ht3.b() : invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.yo3
-    public boolean c(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) ? ht3.c(view2) : invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.yo3
-    public boolean d(View view2, sn3 sn3Var) {
+    @Override // com.repackage.zs3
+    public us1 a(JSONObject paramsJson, yd2 callback) {
         InterceptResult invokeLL;
+        rl2.a V;
+        String I;
+        rl2.a V2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view2, sn3Var)) == null) ? ht3.a(view2, new pq2(sn3Var.c(), sn3Var.d(), sn3Var.e(), sn3Var.b())) : invokeLL.booleanValue;
-    }
-
-    @Override // com.repackage.yo3
-    @SuppressLint({"SourceLockedOrientationActivity"})
-    public void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && b()) {
-            SwanAppActivity activity = wl2.U().getActivity();
-            if (activity != null) {
-                activity.setRequestedOrientation(1);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, paramsJson, callback)) == null) {
+            Intrinsics.checkNotNullParameter(paramsJson, "paramsJson");
+            Intrinsics.checkNotNullParameter(callback, "callback");
+            Application c = bk2.c();
+            if (c == null) {
+                callback.onFail(202, "params may be error");
+                return null;
             }
-            wl2.U().W().g(true);
+            String optString = paramsJson.optString("appKey");
+            boolean z = false;
+            if (optString == null || optString.length() == 0) {
+                callback.onFail(202, "params may be error");
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            u03 a0 = u03.a0();
+            String str = "";
+            jSONObject.put("pre_source", (a0 == null || (V2 = a0.V()) == null || (r8 = V2.T()) == null) ? "" : "");
+            u03 a02 = u03.a0();
+            if (a02 != null && (V = a02.V()) != null && (I = V.I()) != null) {
+                str = I;
+            }
+            jSONObject.put("pre_appid", str);
+            paramsJson.put(UBCCloudControlProcessor.UBC_KEY, jSONObject);
+            String d1 = sl2.d1(optString, 1, paramsJson);
+            Uri parse = (d1 == null || d1.length() == 0) ? true : true ? null : Uri.parse(d1);
+            if (parse == null) {
+                callback.onFail(202, "params may be error");
+                return null;
+            }
+            if (SchemeRouter.invokeScheme(c, parse, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE)) {
+                callback.a(null);
+            } else {
+                callback.onFail(202, "params may be error");
+            }
+            return null;
         }
-    }
-
-    @Override // com.repackage.yo3
-    public boolean f(View view2, sn3 sn3Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, view2, sn3Var)) == null) {
-            ai1 W = wl2.U().W();
-            return W != null && W.a(view2, new pq2(sn3Var.c(), sn3Var.d(), sn3Var.e(), sn3Var.b()));
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.repackage.yo3
-    public boolean removeView(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, view2)) == null) ? ht3.d(view2) : invokeL.booleanValue;
+        return (us1) invokeLL.objValue;
     }
 }

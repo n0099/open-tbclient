@@ -4,6 +4,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -13,10 +14,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.es6;
-import com.repackage.oi;
-import com.repackage.ub5;
-import com.repackage.vt4;
+import com.repackage.er6;
+import com.repackage.iu4;
+import com.repackage.lc5;
+import com.repackage.mi;
 /* loaded from: classes2.dex */
 public class InitBearTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -41,9 +42,9 @@ public class InitBearTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             if (UbsABTestHelper.newSplashStrategy()) {
-                return ub5.w();
+                return lc5.w();
             }
-            return vt4.k().l("splash_origin_ad_strategy_key", 1) != 0;
+            return iu4.k().l("splash_origin_ad_strategy_key", 1) != 0;
         }
         return invokeV.booleanValue;
     }
@@ -76,11 +77,11 @@ public class InitBearTask extends LaunchTask {
     public void initBearSdk() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && PermissionUtil.isAgreePrivacyPolicy()) {
-            boolean q = ub5.q(vt4.k().l("splash_ad_strategy_key", 0));
+            boolean q = lc5.q(iu4.k().l("splash_ad_strategy_key", 0));
             SpeedStatsManager.getInstance().setIsNeedBear(q);
             SpeedStatsManager.getInstance().setIsNeedPlg(isNeedPlgSplash());
             if (q) {
-                es6.j().n(new es6.l(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitBearTask.1
+                er6.j().n(new er6.l(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitBearTask.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ InitBearTask this$0;
@@ -103,11 +104,11 @@ public class InitBearTask extends LaunchTask {
                         this.this$0 = this;
                     }
 
-                    @Override // com.repackage.es6.l
+                    @Override // com.repackage.er6.l
                     public void initComplete() {
                         Interceptable interceptable2 = $ic;
                         if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
-                            if (oi.B()) {
+                            if (mi.B()) {
                                 Thread thread = new Thread(new Runnable(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitBearTask.1.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
@@ -135,6 +136,7 @@ public class InitBearTask extends LaunchTask {
                                     public void run() {
                                         Interceptable interceptable3 = $ic;
                                         if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_PRELOAD_BEAR_START_STAMP_KEY);
                                             MessageManager.getInstance().runTask(new CustomMessage<>(2016571), (Class) null);
                                         }
                                     }
@@ -143,6 +145,7 @@ public class InitBearTask extends LaunchTask {
                                 thread.start();
                                 return;
                             }
+                            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_PRELOAD_BEAR_START_STAMP_KEY);
                             MessageManager.getInstance().runTask(new CustomMessage<>(2016571), (Class) null);
                         }
                     }

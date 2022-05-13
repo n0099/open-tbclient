@@ -11,7 +11,7 @@ public class d extends a {
 
     @Override // com.kwad.sdk.reward.presenter.b.a, com.kwad.sdk.reward.g, com.kwad.sdk.mvp.Presenter
     public void a() {
-        m().findViewById(R.id.obfuscated_res_0x7f091170).setVisibility(8);
+        m().findViewById(R.id.obfuscated_res_0x7f09117f).setVisibility(8);
         super.a();
         if (this.c) {
             this.b.a(((g) this).a);
@@ -49,7 +49,7 @@ public class d extends a {
 
     @Override // com.kwad.sdk.reward.presenter.b.a
     public int i() {
-        return R.id.obfuscated_res_0x7f0910a3;
+        return R.id.obfuscated_res_0x7f0910b2;
     }
 
     @Override // com.kwad.sdk.reward.presenter.b.a

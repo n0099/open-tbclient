@@ -46,7 +46,7 @@ public class RoundCornerFrameLayout extends FrameLayout {
         }
     }
 
-    public final boolean a() {
+    public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -70,10 +70,10 @@ public class RoundCornerFrameLayout extends FrameLayout {
         return invokeV.booleanValue;
     }
 
-    public final void b(Context context, AttributeSet attributeSet, int i) {
+    public final void d(Context context, AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet, i) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040551});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040556});
             int dimension = (int) obtainStyledAttributes.getDimension(0, 0.0f);
             if (dimension > 0) {
                 setCornerRadius(dimension);
@@ -82,22 +82,22 @@ public class RoundCornerFrameLayout extends FrameLayout {
         }
     }
 
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Path path = new Path();
-            this.a = path;
-            path.setFillType(Path.FillType.EVEN_ODD);
-        }
-    }
-
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             canvas.save();
             super.dispatchDraw(canvas);
             canvas.restore();
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            Path path = new Path();
+            this.a = path;
+            path.setFillType(Path.FillType.EVEN_ODD);
         }
     }
 
@@ -106,7 +106,7 @@ public class RoundCornerFrameLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
             if (this.f) {
-                a();
+                c();
                 canvas.clipPath(this.a);
             }
             super.onDraw(canvas);
@@ -164,7 +164,7 @@ public class RoundCornerFrameLayout extends FrameLayout {
             }
         }
         this.f = false;
-        b(context, attributeSet, i);
-        d();
+        d(context, attributeSet, i);
+        e();
     }
 }

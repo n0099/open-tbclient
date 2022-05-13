@@ -19,11 +19,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ki;
 import com.repackage.mi;
-import com.repackage.oi;
-import com.repackage.uo;
-import com.repackage.vo5;
-import com.repackage.vp5;
+import com.repackage.ro;
+import com.repackage.wo5;
+import com.repackage.wp5;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AlaLiveYYSubTabModel extends BdBaseModel {
@@ -33,7 +33,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
     public boolean b;
     public boolean c;
     public BdUniqueId d;
-    public vp5 e;
+    public wp5 e;
     public long f;
     public int g;
     public String h;
@@ -80,16 +80,16 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
                         this.a.k.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.c);
                     }
                 } else {
-                    vo5 vo5Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
+                    wo5 wo5Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
                     if (this.a.c) {
-                        this.a.e.a(vo5Var);
+                        this.a.e.a(wo5Var);
                     } else {
-                        AlaLiveTabFragment.I0(this.a.g);
+                        AlaLiveTabFragment.J0(this.a.g);
                         if (this.a.e != null) {
                             this.a.e.b();
                         }
                         AlaLiveYYSubTabModel alaLiveYYSubTabModel = this.a;
-                        alaLiveYYSubTabModel.e = new vp5(vo5Var, alaLiveYYSubTabModel.h, this.a.i);
+                        alaLiveYYSubTabModel.e = new wp5(wo5Var, alaLiveYYSubTabModel.h, this.a.i);
                     }
                     AlaLiveYYSubTabModel alaLiveYYSubTabModel2 = this.a;
                     alaLiveYYSubTabModel2.b = alaLiveYYSubTabModel2.e.f();
@@ -104,7 +104,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(boolean z, List<uo> list);
+        void a(boolean z, List<ro> list);
 
         void b(int i, String str, boolean z);
     }
@@ -138,19 +138,19 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
             HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_TAB_LIVE_INFO);
             httpMessage.addParam("tab_id", this.g);
             String str = "N";
-            if (mi.z()) {
-                if (mi.H()) {
+            if (ki.z()) {
+                if (ki.H()) {
                     str = "1_0";
-                } else if (mi.v()) {
+                } else if (ki.v()) {
                     str = "0_13";
-                } else if (mi.u()) {
+                } else if (ki.u()) {
                     str = "0_3";
-                } else if (mi.t()) {
+                } else if (ki.t()) {
                     str = "0_2";
                 }
             }
             httpMessage.addParam("network", str);
-            httpMessage.addParam("ua_str", oi.k(this.a.getPageActivity()) + "_" + oi.i(this.a.getPageActivity()) + "_android_" + TbConfig.getVersion());
+            httpMessage.addParam("ua_str", mi.k(this.a.getPageActivity()) + "_" + mi.i(this.a.getPageActivity()) + "_android_" + TbConfig.getVersion());
             httpMessage.addParam("session_id", this.f);
             httpMessage.addParam("refresh_type", i);
             httpMessage.addParam("big_refresh_count", i2);
@@ -173,8 +173,8 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            vp5 vp5Var = this.e;
-            return (vp5Var == null || ListUtils.isEmpty(vp5Var.d())) ? false : true;
+            wp5 wp5Var = this.e;
+            return (wp5Var == null || ListUtils.isEmpty(wp5Var.d())) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -214,7 +214,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
                 this.f = currentTimeMillis;
             }
             this.c = true;
-            J(1, AlaLiveTabFragment.J0(this.g) - 1);
+            J(1, AlaLiveTabFragment.K0(this.g) - 1);
         }
     }
 
@@ -230,7 +230,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.f = System.currentTimeMillis();
             this.c = false;
-            J(0, AlaLiveTabFragment.J0(this.g));
+            J(0, AlaLiveTabFragment.K0(this.g));
         }
     }
 }

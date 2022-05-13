@@ -1,88 +1,88 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.BDPTask;
-import com.baidu.bdtask.ctrl.model.TaskStatus;
-import com.baidu.bdtask.model.guide.TaskGuideData;
-import com.baidu.bdtask.model.info.TaskInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes6.dex */
-public final class kr {
+public final class kr extends rr {
     public static /* synthetic */ Interceptable $ic;
-    public static final kr a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final long d;
+    public final String e;
+    public final String f;
+    public final String g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964035202, "Lcom/repackage/kr;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1964035202, "Lcom/repackage/kr;");
-                return;
-            }
-        }
-        a = new kr();
-    }
-
-    public kr() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kr(long j, String str, String str2, String str3, Integer num, String str4) {
+        super(str, num, str4);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), str, str2, str3, num, str4};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (Integer) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public final void a(int i, TaskInfo taskInfo, TaskStatus taskStatus) {
-        hw f;
-        zv d;
-        zv d2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048576, this, i, taskInfo, taskStatus) == null) {
-            yv v = BDPTask.m.v();
-            if (v != null && (d2 = v.d()) != null) {
-                d2.b(taskInfo.getSingleKey(), us.c.a());
-            }
-            yv v2 = BDPTask.m.v();
-            if (v2 != null && (d = v2.d()) != null) {
-                d.a(taskInfo.getSingleKey());
-            }
-            String str = TaskGuideData.Companion.c(i) ? "y_task_diyicon" : "y_task_icon";
-            String c = iw.a.c(taskStatus);
-            yv v3 = BDPTask.m.v();
-            if (v3 == null || (f = v3.f()) == null) {
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            f.a(str, "icon_clk", iw.a.a(taskInfo.getId(), taskInfo.getActTaskId(), c));
         }
+        this.d = j;
+        this.e = str;
+        this.f = str2;
+        this.g = str3;
     }
 
-    public final void b(int i, TaskInfo taskInfo, TaskStatus taskStatus) {
-        hw f;
+    @Override // com.repackage.fs
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, taskInfo, taskStatus) == null) {
-            String str = TaskGuideData.Companion.c(i) ? "y_task_diyicon" : "y_task_icon";
-            String c = iw.a.c(taskStatus);
-            yv v = BDPTask.m.v();
-            if (v == null || (f = v.f()) == null) {
-                return;
-            }
-            f.a(str, "close_clk", iw.a.a(taskInfo.getId(), taskInfo.getActTaskId(), c));
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TaskExecVisitAction" : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.rr
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (String) invokeV.objValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 8;
         }
+        return invokeV.intValue;
+    }
+
+    public final long h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : invokeV.longValue;
+    }
+
+    public final String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : (String) invokeV.objValue;
+    }
+
+    public final String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.g : (String) invokeV.objValue;
+    }
+
+    public /* synthetic */ kr(long j, String str, String str2, String str3, Integer num, String str4, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this((i & 1) != 0 ? 0L : j, str, (i & 4) != 0 ? "" : str2, (i & 8) != 0 ? "" : str3, (i & 16) != 0 ? null : num, (i & 32) != 0 ? null : str4);
     }
 }

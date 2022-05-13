@@ -17,7 +17,7 @@ public class uk5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65536, null) == null) {
             synchronized (uk5.class) {
-                pi.b(a);
+                ni.b(a);
             }
         }
     }

@@ -33,14 +33,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.es6;
-import com.repackage.ni;
-import com.repackage.ni4;
-import com.repackage.oi;
-import com.repackage.oi4;
-import com.repackage.qd5;
-import com.repackage.sh5;
+import com.repackage.er6;
+import com.repackage.je5;
+import com.repackage.li;
+import com.repackage.li5;
+import com.repackage.mi;
 import com.repackage.x8;
+import com.repackage.yi4;
+import com.repackage.zi4;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -51,7 +51,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     public VideoMiddleFragment mFragment;
     public boolean mIsFromSchema;
     public boolean mLastKeyBoardVisible;
-    public sh5 mNEGFeedBackManager;
+    public li5 mNEGFeedBackManager;
     public String mNid;
     public Rect mRect;
     public String mTid;
@@ -105,7 +105,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
                 arrayList.addAll(VideoPlayActivityConfig.bigDataList);
             }
             if (ListUtils.isEmpty(this.mVideoDataList)) {
-                oi.M(this, R.string.obfuscated_res_0x7f0f0c14);
+                mi.M(this, R.string.obfuscated_res_0x7f0f0c2a);
                 finish();
                 return;
             }
@@ -113,15 +113,15 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             if (list != null && list.size() > 0 && this.mVideoDataList.get(0) != null) {
                 this.mTid = this.mVideoDataList.get(0).thread_id;
             }
-            if (getIntent() != null && !ni.isEmpty(VideoPlayActivityConfig.VIDEO_VIEW_RECT)) {
+            if (getIntent() != null && !li.isEmpty(VideoPlayActivityConfig.VIDEO_VIEW_RECT)) {
                 this.mRect = (Rect) getIntent().getParcelableExtra(VideoPlayActivityConfig.VIDEO_VIEW_RECT);
             }
             VideoMiddleFragment videoMiddleFragment = new VideoMiddleFragment();
             this.mFragment = videoMiddleFragment;
-            videoMiddleFragment.Y0(getUniqueId());
+            videoMiddleFragment.Z0(getUniqueId());
             this.mFragment.setArguments(getIntent().getExtras());
             FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-            beginTransaction.add(R.id.obfuscated_res_0x7f09237b, this.mFragment);
+            beginTransaction.add(R.id.obfuscated_res_0x7f0923cc, this.mFragment);
             beginTransaction.commitAllowingStateLoss();
             getSupportFragmentManager().executePendingTransactions();
         }
@@ -172,7 +172,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, intent) == null) || qd5.c(i, i2, intent)) {
+        if (!(interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, intent) == null) || je5.c(i, i2, intent)) {
             return;
         }
         super.onActivityResult(i, i2, intent);
@@ -196,7 +196,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
-            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !x8.f().h("MainTabActivity")) {
+            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !x8.g().i("MainTabActivity")) {
                 this.mIsFromSchema = true;
             }
             if (this.mIsFromSchema) {
@@ -205,8 +205,8 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             super.onCreate(bundle);
             BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(VideoPlayActivityConfig.KEY_FPS_VIDEO_HOME_PAGE);
             BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(VideoPlayActivityConfig.KEY_FPS_VIDEO_FRS_PAGE);
-            setContentView(R.layout.obfuscated_res_0x7f0d0883);
-            this.mNEGFeedBackManager = new sh5(getPageContext(), "client_videomiddle");
+            setContentView(R.layout.obfuscated_res_0x7f0d0879);
+            this.mNEGFeedBackManager = new li5(getPageContext(), "client_videomiddle");
             initData();
             initFragment();
             addNoAdjustSoftInputHeightListener();
@@ -223,15 +223,15 @@ public class VideoPlayActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onDestroy();
             DanmuProgressManager.b.a().b();
-            sh5 sh5Var = this.mNEGFeedBackManager;
-            if (sh5Var != null) {
-                sh5Var.h();
+            li5 li5Var = this.mNEGFeedBackManager;
+            if (li5Var != null) {
+                li5Var.h();
             }
             if (UbsABTestHelper.isVideoAdDrawABTestA()) {
-                es6.j().d("6061002332-203360688");
+                er6.j().d("6061002332-203360688");
             }
             if (UbsABTestHelper.isVideoAdDrawABTestB()) {
-                es6.j().c("6061002410-390177882");
+                er6.j().c("6061002410-390177882");
             }
         }
     }
@@ -283,7 +283,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
                 videoMiddleFragment.setPrimary(false);
                 this.mFragment.setUserVisibleHint(false);
             }
-            oi4.y().G();
+            zi4.y().G();
         }
     }
 
@@ -296,7 +296,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             if (videoMiddleFragment != null) {
                 videoMiddleFragment.setPrimary(true);
                 this.mFragment.setUserVisibleHint(true);
-                oi4.y().R(ni4.a0, this.mFragment.X());
+                zi4.y().R(yi4.a0, this.mFragment.X());
             }
         }
     }

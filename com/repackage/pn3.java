@@ -1,17 +1,17 @@
 package com.repackage;
 
-import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
+import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
 @Service
 /* loaded from: classes6.dex */
-public class pn3 implements xj1 {
+public class pn3 implements sm1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,13 +29,60 @@ public class pn3 implements xj1 {
         }
     }
 
-    @Override // com.repackage.xj1
-    public String a(Context context) {
-        InterceptResult invokeL;
+    @Override // com.repackage.sm1
+    public rd4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            return context.getPackageName() + ".swan.fileprovider";
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? on3.b().a() : (rd4) invokeV.objValue;
+    }
+
+    @Override // com.repackage.sm1
+    public void b(y62 y62Var, w62 w62Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, y62Var, w62Var) == null) || w62Var == null) {
+            return;
         }
-        return (String) invokeL.objValue;
+        if (y62Var != null && !TextUtils.isEmpty(y62Var.a)) {
+            String str = y62Var.a;
+            char c = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != 1195918653) {
+                if (hashCode == 1825003424 && str.equals("by_click")) {
+                    c = 0;
+                }
+            } else if (str.equals("by_silent")) {
+                c = 1;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    w62Var.onFail();
+                    return;
+                } else {
+                    on3.b().b(true, w62Var);
+                    return;
+                }
+            } else if (y62Var.b) {
+                on3.b().b(false, w62Var);
+                return;
+            } else {
+                on3.b().b(true, w62Var);
+                return;
+            }
+        }
+        w62Var.onFail();
+    }
+
+    @Override // com.repackage.sm1
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? d() || ja2.d.w() || (ja2.d.k(ZeusWebViewPreloadClass.ZEUS_FILE_DIR) && o72.U().s0()) : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.sm1
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? !on3.b().c() : invokeV.booleanValue;
     }
 }

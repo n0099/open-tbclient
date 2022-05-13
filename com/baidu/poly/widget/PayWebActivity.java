@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.y81;
+import com.repackage.j91;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 /* loaded from: classes2.dex */
@@ -103,7 +103,7 @@ public class PayWebActivity extends Activity {
                 return true;
             }
             if (str.startsWith(URL_CLOSE_WINDOW)) {
-                y81.g(119102, "3", "BAIDU-SUPER-WECHAT-WISE", "-105", "调起微信H5支付失败");
+                j91.g(119102, "3", "BAIDU-SUPER-WECHAT-WISE", "-105", "调起微信H5支付失败");
                 setResult(0);
                 finish();
                 return true;
@@ -134,10 +134,10 @@ public class PayWebActivity extends Activity {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fe3);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ff0);
             this.ivBack = imageView;
             imageView.setOnClickListener(new a(this));
-            WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f092422);
+            WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f092472);
             this.webView = webView;
             webView.setVerticalScrollBarEnabled(false);
             this.webView.setHorizontalScrollBarEnabled(false);
@@ -154,7 +154,7 @@ public class PayWebActivity extends Activity {
     public void onBackPressed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            y81.g(119103, "4", "BAIDU-SUPER-WECHAT-WISE", "-106", "取消微信H5支付");
+            j91.g(119103, "4", "BAIDU-SUPER-WECHAT-WISE", "-106", "取消微信H5支付");
             setResult(0);
             finish();
             super.onBackPressed();

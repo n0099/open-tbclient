@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hq8;
+import com.repackage.ep8;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetCard.GetCardResIdl;
@@ -15,7 +15,7 @@ import tbclient.GetCard.GetCardResIdl;
 public class PersonalCardDetailSocketReponse extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hq8 cardData;
+    public ep8 cardData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonalCardDetailSocketReponse() {
@@ -35,10 +35,10 @@ public class PersonalCardDetailSocketReponse extends SocketResponsedMessage {
         }
     }
 
-    public hq8 getCardData() {
+    public ep8 getCardData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.cardData : (hq8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.cardData : (ep8) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -64,10 +64,10 @@ public class PersonalCardDetailSocketReponse extends SocketResponsedMessage {
         if (getOrginalMessage() != null && getOrginalMessage().getExtra() != null) {
             personalCardDetailRequest = (PersonalCardDetailRequest) getOrginalMessage().getExtra();
         }
-        hq8 hq8Var = new hq8();
-        this.cardData = hq8Var;
+        ep8 ep8Var = new ep8();
+        this.cardData = ep8Var;
         if (personalCardDetailRequest != null) {
-            hq8Var.m(personalCardDetailRequest.getCardId());
+            ep8Var.m(personalCardDetailRequest.getCardId());
         }
         this.cardData.v(getCardResIdl.data.title);
         this.cardData.p(getCardResIdl.data.description);

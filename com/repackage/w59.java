@@ -1,76 +1,91 @@
 package com.repackage;
 
-import android.util.Base64InputStream;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
 /* loaded from: classes7.dex */
-public class w59 extends Base64InputStream {
-    public static /* synthetic */ Interceptable $ic;
+public final class w59 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = true;
+    public static long b = 30000;
+    public static long c;
+    public static long d;
+    public static boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w59(InputStream inputStream, int i) {
-        super(inputStream, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((InputStream) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755250250, "Lcom/repackage/w59;")) == null) {
+            return;
         }
-        this.a = false;
-        this.b = false;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755250250, "Lcom/repackage/w59;");
+        }
     }
 
-    @Override // android.util.Base64InputStream, java.io.FilterInputStream, java.io.InputStream
-    public int read() throws IOException {
+    public static long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int read = super.read();
-            if (!this.a && read == 117) {
-                this.a = true;
-                return 31;
-            } else if (this.b || read != 123) {
-                return read;
-            } else {
-                this.b = true;
-                return 139;
-            }
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? b : invokeV.longValue;
     }
 
-    @Override // android.util.Base64InputStream, java.io.FilterInputStream, java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) throws IOException {
-        InterceptResult invokeLII;
+    public static void b(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i, i2)) == null) {
-            int read = super.read(bArr, i, i2);
-            if (!this.a && read >= 2) {
-                bArr[i] = 31;
-                bArr[i + 1] = -117;
-                this.a = true;
-            }
-            return read;
+        if (interceptable == null || interceptable.invokeJ(65538, null, j) == null) {
+            b = j;
         }
-        return invokeLII.intValue;
+    }
+
+    public static long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? c : invokeV.longValue;
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a : invokeV.booleanValue;
+    }
+
+    public static long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? d : invokeV.longValue;
+    }
+
+    public static void f(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65542, null, j) == null) {
+            c = j;
+        }
+    }
+
+    public static void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
+            e = z;
+        }
+    }
+
+    public static void h(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65544, null, j) == null) {
+            d = j;
+        }
+    }
+
+    public static boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? e : invokeV.booleanValue;
     }
 }

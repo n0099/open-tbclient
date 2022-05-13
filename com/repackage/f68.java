@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class f68 extends tw5<c58> {
+public class f68 extends uw5<c58> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View i;
@@ -42,19 +42,19 @@ public class f68 extends tw5<c58> {
         }
         View k = k();
         this.i = k;
-        this.j = (TbImageView) k.findViewById(R.id.obfuscated_res_0x7f09056b);
-        this.k = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f090569);
-        this.l = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f09056a);
+        this.j = (TbImageView) k.findViewById(R.id.obfuscated_res_0x7f090568);
+        this.k = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f090566);
+        this.l = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f090567);
     }
 
-    @Override // com.repackage.tw5
+    @Override // com.repackage.uw5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01b2 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01ad : invokeV.intValue;
     }
 
-    @Override // com.repackage.tw5
+    @Override // com.repackage.uw5
     public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || this.a == i) {
@@ -77,7 +77,7 @@ public class f68 extends tw5<c58> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.tw5
+    @Override // com.repackage.uw5
     /* renamed from: s */
     public void l(c58 c58Var) {
         Interceptable interceptable = $ic;

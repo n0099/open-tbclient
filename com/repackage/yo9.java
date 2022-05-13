@@ -1,23 +1,24 @@
 package com.repackage;
 
-import android.view.ViewTreeObserver;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.win.opensdk.PBError;
+import com.win.opensdk.core.Info;
 /* loaded from: classes7.dex */
-public class yo9 implements ViewTreeObserver.OnScrollChangedListener {
+public class yo9 implements zs9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ up9 a;
-    public final /* synthetic */ xp9 b;
+    public final /* synthetic */ jp9 a;
 
-    public yo9(xp9 xp9Var, up9 up9Var) {
+    public yo9(jp9 jp9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {xp9Var, up9Var};
+            Object[] objArr = {jp9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,27 +28,29 @@ public class yo9 implements ViewTreeObserver.OnScrollChangedListener {
                 return;
             }
         }
-        this.b = xp9Var;
-        this.a = up9Var;
+        this.a = jp9Var;
     }
 
-    @Override // android.view.ViewTreeObserver.OnScrollChangedListener
-    public void onScrollChanged() {
+    @Override // com.repackage.zs9
+    public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                if (this.b.b || !this.b.b(this.b.a)) {
-                    return;
-                }
-                this.b.e.removeMessages(1101);
-                this.b.a.getViewTreeObserver().removeOnScrollChangedListener(this);
-                if (this.a != null) {
-                    this.a.a();
-                }
-                this.b.b = true;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        }
+    }
+
+    @Override // com.repackage.zs9
+    public void a(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            this.a.b((Info) obj);
+        }
+    }
+
+    @Override // com.repackage.zs9
+    public void onFail(PBError pBError) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) {
+            this.a.h.onFail(pBError);
         }
     }
 }

@@ -1,6 +1,8 @@
 package com.repackage;
 
 import android.graphics.Canvas;
+import android.graphics.Path;
+import android.graphics.RectF;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,10 +10,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class su1 extends pt1 {
+public class su1 extends au1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public RectF a;
 
     public su1() {
         Interceptable interceptable = $ic;
@@ -23,28 +25,35 @@ public class su1 extends pt1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = -1;
     }
 
-    @Override // com.repackage.pt1
-    public void a(qt1 qt1Var, Canvas canvas) {
-        int i;
+    @Override // com.repackage.au1
+    public void a(bu1 bu1Var, Canvas canvas) {
+        RectF rectF;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, qt1Var, canvas) == null) || (i = this.a) < 0) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bu1Var, canvas) == null) || (rectF = this.a) == null) {
             return;
         }
-        qt1Var.c.setStrokeWidth(i);
+        bu1Var.f.addRect(rectF, Path.Direction.CW);
     }
 
-    @Override // com.repackage.pt1
+    @Override // com.repackage.au1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 0) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() == 4) {
+                    int g = le3.g((float) jSONArray.optDouble(0));
+                    int g2 = le3.g((float) jSONArray.optDouble(1));
+                    this.a = new RectF(g, g2, g + le3.g((float) jSONArray.optDouble(2)), g2 + le3.g((float) jSONArray.optDouble(3)));
+                }
+            } catch (Exception e) {
+                if (eh1.a) {
+                    e.printStackTrace();
+                }
+            }
         }
-        this.a = ae3.g((float) jSONArray.optDouble(0));
     }
 }

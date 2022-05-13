@@ -18,12 +18,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gz;
-import com.repackage.oi;
-import com.repackage.r07;
-import com.repackage.vr4;
+import com.repackage.gs4;
+import com.repackage.mi;
+import com.repackage.py;
+import com.repackage.rz6;
 /* loaded from: classes3.dex */
-public class HomeLocalCompleteInfoLayout extends LinearLayout implements gz {
+public class HomeLocalCompleteInfoLayout extends LinearLayout implements py {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
@@ -60,7 +60,7 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements gz {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.getContext() == null) {
                 return;
             }
-            r07.g();
+            rz6.g();
             PersonChangeActivityConfig personChangeActivityConfig = new PersonChangeActivityConfig(this.a.getContext());
             personChangeActivityConfig.setIsCompleteLocalInfo(true);
             personChangeActivityConfig.start();
@@ -92,25 +92,25 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements gz {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, -2);
-            marginLayoutParams.setMargins(0, oi.f(getContext(), R.dimen.M_H_X003), 0, 0);
+            marginLayoutParams.setMargins(0, mi.f(getContext(), R.dimen.M_H_X003), 0, 0);
             setLayoutParams(marginLayoutParams);
             setOrientation(0);
             setGravity(16);
-            int f = oi.f(getContext(), R.dimen.M_W_X005);
+            int f = mi.f(getContext(), R.dimen.M_W_X005);
             setPadding(f, 0, f, 0);
             TextView textView = new TextView(getContext());
             this.a = textView;
-            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0845));
+            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f084d));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
             layoutParams.weight = 1.0f;
             addView(this.a, layoutParams);
             EMTextView eMTextView = new EMTextView(getContext());
             this.b = eMTextView;
-            eMTextView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0846));
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, oi.f(getContext(), R.dimen.tbds75));
-            int f2 = oi.f(getContext(), R.dimen.M_W_X004);
-            layoutParams2.setMargins(f2, oi.f(getContext(), R.dimen.M_H_X005), f2, oi.f(getContext(), R.dimen.tbds38));
-            int f3 = oi.f(getContext(), R.dimen.M_W_X007);
+            eMTextView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f084e));
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, mi.f(getContext(), R.dimen.tbds75));
+            int f2 = mi.f(getContext(), R.dimen.M_W_X004);
+            layoutParams2.setMargins(f2, mi.f(getContext(), R.dimen.M_H_X005), f2, mi.f(getContext(), R.dimen.tbds38));
+            int f3 = mi.f(getContext(), R.dimen.M_W_X007);
             this.b.setGravity(16);
             this.b.setPadding(f3, 0, f3, 0);
             addView(this.b, layoutParams2);
@@ -121,20 +121,20 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements gz {
         }
     }
 
-    @Override // com.repackage.gz
+    @Override // com.repackage.py
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
             TextView textView = this.a;
             if (textView != null) {
-                vr4 d = vr4.d(textView);
+                gs4 d = gs4.d(textView);
                 d.v(R.color.CAM_X0105);
                 d.z(R.dimen.T_X06);
                 d.A(R.string.F_X01);
             }
             EMTextView eMTextView = this.b;
             if (eMTextView != null) {
-                vr4 d2 = vr4.d(eMTextView);
+                gs4 d2 = gs4.d(eMTextView);
                 d2.v(R.color.CAM_X0302);
                 d2.z(R.dimen.T_X08);
                 d2.A(R.string.F_X01);
@@ -146,7 +146,7 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements gz {
             if (imageView != null) {
                 WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
             }
-            vr4 d3 = vr4.d(this);
+            gs4 d3 = gs4.d(this);
             d3.n(R.string.J_X06);
             d3.f(R.color.CAM_X0205);
         }

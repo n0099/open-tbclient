@@ -15,14 +15,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class p38 extends ho<a58, CardViewHolder<c68>> {
+public class p38 extends eo<a58, CardViewHolder<c68>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> i;
-    public dg<PersonCommonForumItemView> j;
+    public bg<PersonCommonForumItemView> j;
 
     /* loaded from: classes6.dex */
-    public class a implements eg<PersonCommonForumItemView> {
+    public class a implements cg<PersonCommonForumItemView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ p38 a;
@@ -47,7 +47,7 @@ public class p38 extends ho<a58, CardViewHolder<c68>> {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.eg
+        @Override // com.repackage.cg
         public /* bridge */ /* synthetic */ PersonCommonForumItemView a(PersonCommonForumItemView personCommonForumItemView) {
             PersonCommonForumItemView personCommonForumItemView2 = personCommonForumItemView;
             e(personCommonForumItemView2);
@@ -56,7 +56,7 @@ public class p38 extends ho<a58, CardViewHolder<c68>> {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.eg
+        @Override // com.repackage.cg
         public /* bridge */ /* synthetic */ PersonCommonForumItemView c(PersonCommonForumItemView personCommonForumItemView) {
             PersonCommonForumItemView personCommonForumItemView2 = personCommonForumItemView;
             h(personCommonForumItemView2);
@@ -70,7 +70,7 @@ public class p38 extends ho<a58, CardViewHolder<c68>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.eg
+        @Override // com.repackage.cg
         /* renamed from: f */
         public void b(PersonCommonForumItemView personCommonForumItemView) {
             Interceptable interceptable = $ic;
@@ -81,7 +81,7 @@ public class p38 extends ho<a58, CardViewHolder<c68>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.eg
+        @Override // com.repackage.cg
         /* renamed from: g */
         public PersonCommonForumItemView d() {
             InterceptResult invokeV;
@@ -115,12 +115,12 @@ public class p38 extends ho<a58, CardViewHolder<c68>> {
                 return;
             }
         }
-        this.j = new dg<>(new a(this), 12, 0);
+        this.j = new bg<>(new a(this), 12, 0);
         this.i = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
+    @Override // com.repackage.eo
     /* renamed from: a0 */
     public CardViewHolder<c68> M(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -134,7 +134,7 @@ public class p38 extends ho<a58, CardViewHolder<c68>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
+    @Override // com.repackage.eo
     /* renamed from: b0 */
     public View S(int i, View view2, ViewGroup viewGroup, a58 a58Var, CardViewHolder<c68> cardViewHolder) {
         InterceptResult invokeCommon;

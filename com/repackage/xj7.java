@@ -114,27 +114,27 @@ public class xj7 {
         this.q = null;
         this.r = "";
         this.a = cardBoxMemberPayActivity;
-        cardBoxMemberPayActivity.setContentView(R.layout.obfuscated_res_0x7f0d0180);
-        this.m = this.a.findViewById(R.id.obfuscated_res_0x7f0904d6);
-        LinearLayout linearLayout = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0904d5);
+        cardBoxMemberPayActivity.setContentView(R.layout.obfuscated_res_0x7f0d017c);
+        this.m = this.a.findViewById(R.id.obfuscated_res_0x7f0904d3);
+        LinearLayout linearLayout = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0904d2);
         this.n = linearLayout;
         linearLayout.setOnClickListener(cardBoxMemberPayActivity);
-        View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f0908c7);
+        View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f0908bf);
         this.o = findViewById;
         findViewById.setOnClickListener(cardBoxMemberPayActivity);
-        this.b = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09202b);
-        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09202c);
-        this.d = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090d2d);
-        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09229d);
-        this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090787);
-        this.g = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09061b);
-        this.h = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09035e);
-        this.i = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090153);
-        this.j = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0907cc);
-        TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091603);
+        this.b = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092088);
+        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092089);
+        this.d = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090d1a);
+        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0922f3);
+        this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090784);
+        this.g = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090614);
+        this.h = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090357);
+        this.i = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090149);
+        this.j = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0907c9);
+        TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09161b);
         this.k = textView;
         textView.setOnClickListener(cardBoxMemberPayActivity);
-        TextView textView2 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0904d4);
+        TextView textView2 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0904d1);
         this.l = textView2;
         textView2.setOnClickListener(cardBoxMemberPayActivity);
         this.h.getPaint().setFlags(16);
@@ -286,10 +286,10 @@ public class xj7 {
             return;
         }
         TextView textView = this.i;
-        textView.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f15e0) + (this.q.j / 100));
-        if (!ni.isEmpty(this.q.d)) {
+        textView.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f160d) + (this.q.j / 100));
+        if (!li.isEmpty(this.q.d)) {
             TextView textView2 = this.h;
-            textView2.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0ce3) + this.q.d);
+            textView2.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0cfd) + this.q.d);
         }
         this.j.setText(this.q.f);
     }
@@ -307,7 +307,7 @@ public class xj7 {
             ck7.e eVar = ck7Var.a.c;
             if (eVar != null) {
                 if (eVar.a > 0) {
-                    this.k.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f88));
+                    this.k.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0fa0));
                 }
                 this.b.K(ck7Var.a.c.b, 21, false);
             }

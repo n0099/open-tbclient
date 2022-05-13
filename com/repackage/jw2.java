@@ -1,83 +1,119 @@
 package com.repackage;
 
-import android.os.Bundle;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class jw2 {
+public class jw2 extends hw2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bundle a;
-    public int b;
-    public String c;
-    public Bundle d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755574324, "Lcom/repackage/jw2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements kh1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fw2 a;
+        public final /* synthetic */ g22 b;
+
+        public a(jw2 jw2Var, fw2 fw2Var, g22 g22Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jw2Var, fw2Var, g22Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755574324, "Lcom/repackage/jw2;");
-                return;
+            this.a = fw2Var;
+            this.b = g22Var;
+        }
+
+        @Override // com.repackage.kh1
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                mw2.b("obtain address failure, errCode = " + i);
+                this.b.a(this.a);
             }
         }
-        e = tg1.a;
+
+        @Override // com.repackage.kh1
+        public void b(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+                mw2.b("obtain address success");
+                fw2 fw2Var = this.a;
+                fw2Var.d = true;
+                if (jSONObject != null) {
+                    fw2Var.e = jSONObject.toString();
+                }
+                this.b.a(this.a);
+            }
+        }
     }
 
     public jw2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-        this.a = new Bundle();
-        this.c = "";
-        this.d = new Bundle();
-    }
-
-    public abstract void b(@NonNull Bundle bundle);
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            d(this.d);
         }
     }
 
-    public void d(@Nullable Bundle bundle) {
+    @Override // com.repackage.iw2
+    public us1 b(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            if (e) {
-                Log.d("MDelegate-Delegation", "messenger delegation finish");
-            }
-            if (rw2.a(this.c)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            return null;
+        }
+        return (us1) invokeL.objValue;
+    }
+
+    @Override // com.repackage.iw2
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "mapp_choose_address" : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.iw2
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "SwanPluginAddressFunPage" : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.hw2
+    public void p(SwanAppActivity swanAppActivity, String str, ew2 ew2Var, g63 g63Var, g22<fw2> g22Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048579, this, swanAppActivity, str, ew2Var, g63Var, g22Var) == null) {
+            fw2 fw2Var = new fw2(ew2Var.f);
+            fw2Var.a = ew2Var.e;
+            if (g63Var != null && g63Var.j.a() != 10003) {
+                mw2.b("obtain address detail");
+                bk2.j0().a(swanAppActivity, str, str, new a(this, fw2Var, g22Var));
                 return;
             }
-            if (e) {
-                Log.d("MDelegate-Delegation", "messenger delegation finish with send result to client: " + this.b + " observer: " + this.c);
-            }
-            kw2.c(this.b, this.c, bundle);
+            mw2.b("user denied");
+            g22Var.a(fw2Var);
         }
     }
 }

@@ -1,38 +1,33 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.stats.SpeedStatsManager;
-import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
+import com.baidu.card.ThreadCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.homepage.concern.message.ConcernNetModel;
-import com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Personalized.DataRes;
+import com.repackage.kz;
+import com.repackage.vz;
 /* loaded from: classes6.dex */
-public class ov6 {
+public class ov6 extends mv6<br4, ThreadCardViewHolder<ThreadData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TbPageContext<BaseFragmentActivity> a;
-    public final BdUniqueId b;
-    public RecPersonalizePageModel c;
-    public ConcernNetModel d;
-    public d e;
-    public RecPersonalizePageModel.c f;
-    public ConcernNetModel.d g;
-    public ConcernNetModel.c h;
+    public ux5<ThreadData> m;
 
     /* loaded from: classes6.dex */
-    public class a implements RecPersonalizePageModel.c {
+    public class a extends ux5<ThreadData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ov6 a;
+        public final /* synthetic */ ov6 b;
 
         public a(ov6 ov6Var) {
             Interceptable interceptable = $ic;
@@ -49,34 +44,22 @@ public class ov6 {
                     return;
                 }
             }
-            this.a = ov6Var;
+            this.b = ov6Var;
         }
 
-        @Override // com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel.c
-        public void a(DataRes dataRes, boolean z, boolean z2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.ux5
+        /* renamed from: d */
+        public void a(View view2, ThreadData threadData) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{dataRes, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-                if (this.a.e != null) {
-                    g07.a("mOnResultListenerSuccess");
-                    this.a.e.b(dataRes, z, z2);
-                }
-                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.MAINACTIVITY_GET_NET_CACHE_KEY);
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
+                this.b.Z(view2, threadData);
             }
-        }
-
-        @Override // com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel.c
-        public void onLoadError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) || this.a.e == null) {
-                return;
-            }
-            g07.a("mOnResultListenerError");
-            this.a.e.c("", str, i, false, 1);
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements ConcernNetModel.d {
+    public class b implements bp {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ov6 a;
@@ -99,169 +82,85 @@ public class ov6 {
             this.a = ov6Var;
         }
 
-        @Override // com.baidu.tieba.homepage.concern.message.ConcernNetModel.d
-        public void a(tbclient.Userlike.DataRes dataRes, boolean z) {
+        @Override // com.repackage.bp
+        public void b(View view2, ro roVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLZ(1048576, this, dataRes, z) == null) || this.a.e == null) {
-                return;
-            }
-            this.a.e.d(dataRes, z);
-        }
-
-        @Override // com.baidu.tieba.homepage.concern.message.ConcernNetModel.d
-        public void onLoadError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) || this.a.e == null) {
-                return;
-            }
-            this.a.e.c("", str, i, false, 0);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements ConcernNetModel.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ov6 a;
-
-        public c(ov6 ov6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ov6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, roVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (roVar instanceof br4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
+                ThreadData threadData = ((br4) roVar).s;
+                threadData.objType = 1;
+                if (this.a.m != null) {
+                    this.a.m.a(threadCardViewHolder.b(), threadData);
                 }
+                ThreadCardUtils.jumpToPB((zn4) threadData, view2.getContext(), 0, false);
+                threadCardViewHolder.c().o(new vz.a(1));
             }
-            this.a = ov6Var;
-        }
-
-        @Override // com.baidu.tieba.homepage.concern.message.ConcernNetModel.c
-        public void a(boolean z) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.a.e == null) {
-                return;
-            }
-            this.a.e.a(z);
         }
     }
 
-    /* loaded from: classes6.dex */
-    public interface d {
-        void a(boolean z);
-
-        void b(DataRes dataRes, boolean z, boolean z2);
-
-        void c(String str, String str2, int i, boolean z, int i2);
-
-        void d(tbclient.Userlike.DataRes dataRes, boolean z);
-
-        void e(boolean z, o07 o07Var, boolean z2, String str, String str2, boolean z3);
-    }
-
-    public ov6(TbPageContext<BaseFragmentActivity> tbPageContext, BdUniqueId bdUniqueId) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ov6(TbPageContext<?> tbPageContext) {
+        super(tbPageContext, ThreadData.TYPE_CONTENT_MULTI_PIC_NORMMAL);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = RecPersonalizePageModel.g();
-        this.f = new a(this);
-        this.g = new b(this);
-        this.h = new c(this);
-        this.a = tbPageContext;
-        this.b = bdUniqueId;
-        ConcernNetModel concernNetModel = new ConcernNetModel(tbPageContext, bdUniqueId);
-        this.d = concernNetModel;
-        concernNetModel.G(this.g);
-        this.d.F(this.h);
+        this.m = new a(this);
     }
 
-    public void b(boolean z) {
-        ConcernNetModel concernNetModel;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.eo
+    /* renamed from: f0 */
+    public ThreadCardViewHolder M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (concernNetModel = this.d) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            kz.b bVar = new kz.b(this.j.getPageActivity(), false);
+            uy uyVar = new uy(this.j.getPageActivity());
+            uyVar.s("hot_topic");
+            uyVar.t(this.i);
+            bVar.n(uyVar);
+            kz k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.k);
+            k.r(2);
+            ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
+            threadCardViewHolder.k(this.e);
+            V(new b(this));
+            return threadCardViewHolder;
         }
-        concernNetModel.B(z);
+        return (ThreadCardViewHolder) invokeL.objValue;
     }
 
-    public TbPageContext<BaseFragmentActivity> c() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.mv6, com.repackage.eo
+    /* renamed from: g0 */
+    public View S(int i, View view2, ViewGroup viewGroup, br4 br4Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
+        InterceptResult invokeCommon;
+        ThreadData threadData;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (TbPageContext) invokeV.objValue;
-    }
-
-    public je7 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, br4Var, threadCardViewHolder})) == null) {
+            if (br4Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null || (threadData = br4Var.s) == null) {
+                return null;
+            }
+            threadData.statFloor = C(i) + 1;
+            threadCardViewHolder.c().q(i);
+            threadCardViewHolder.g(br4Var.s);
+            threadCardViewHolder.c().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
+            threadCardViewHolder.c().p(this.m);
+            d0(threadCardViewHolder.b(), br4Var.s, i, i);
+            return threadCardViewHolder.b();
         }
-        return (je7) invokeV.objValue;
-    }
-
-    public RecPersonalizePageModel.c e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : (RecPersonalizePageModel.c) invokeV.objValue;
-    }
-
-    public d f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : (d) invokeV.objValue;
-    }
-
-    public BdUniqueId g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (BdUniqueId) invokeV.objValue;
-    }
-
-    public void h(String str, vb5 vb5Var) {
-        ConcernNetModel concernNetModel;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, vb5Var) == null) || (concernNetModel = this.d) == null) {
-            return;
-        }
-        concernNetModel.C(str, vb5Var);
-    }
-
-    public void i(int i, int i2, vb5 vb5Var, int i3, int i4) {
-        RecPersonalizePageModel recPersonalizePageModel;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), vb5Var, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) || (recPersonalizePageModel = this.c) == null) {
-            return;
-        }
-        recPersonalizePageModel.i(i, i2, vb5Var, i3, i4);
-    }
-
-    public void j(je7 je7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, je7Var) == null) {
-        }
-    }
-
-    public void k(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, dVar) == null) {
-            this.e = dVar;
-        }
+        return (View) invokeCommon.objValue;
     }
 }

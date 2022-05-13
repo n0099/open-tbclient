@@ -1,103 +1,884 @@
 package com.repackage;
 
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ubs.analytics.SampleResult;
-/* loaded from: classes7.dex */
-public final class q79 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.player.AudioPlayData;
+import com.baidu.ugc.utils.FileUtils;
+import com.google.android.material.badge.BadgeDrawable;
+import com.repackage.sa9;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+/* loaded from: classes6.dex */
+public class q79 extends p79 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int h;
+    public int i;
+    public int j;
+    public k79 k;
+    public long l;
+    public boolean m;
+    public boolean n;
+    public l79 o;
+    public boolean p;
+    public boolean q;
+    public m79 r;
 
-    public static SampleResult a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (str != null && !str.equals("")) {
-                char c = 65535;
-                int hashCode = str.hashCode();
-                if (hashCode != 79) {
-                    switch (hashCode) {
-                        case 2126:
-                            if (str.equals("C1")) {
-                                c = 5;
-                                break;
-                            }
-                            break;
-                        case 2127:
-                            if (str.equals("C2")) {
-                                c = 6;
-                                break;
-                            }
-                            break;
-                        case 2128:
-                            if (str.equals("C3")) {
-                                c = 7;
-                                break;
-                            }
-                            break;
-                        default:
-                            switch (hashCode) {
-                                case 2653:
-                                    if (str.equals("T1")) {
-                                        c = 0;
-                                        break;
-                                    }
-                                    break;
-                                case 2654:
-                                    if (str.equals("T2")) {
-                                        c = 1;
-                                        break;
-                                    }
-                                    break;
-                                case 2655:
-                                    if (str.equals("T3")) {
-                                        c = 2;
-                                        break;
-                                    }
-                                    break;
-                                case 2656:
-                                    if (str.equals("T4")) {
-                                        c = 3;
-                                        break;
-                                    }
-                                    break;
-                                case 2657:
-                                    if (str.equals("T5")) {
-                                        c = 4;
-                                        break;
-                                    }
-                                    break;
-                            }
-                    }
-                } else if (str.equals("O")) {
-                    c = '\b';
-                }
-                switch (c) {
-                    case 0:
-                        return SampleResult.T1;
-                    case 1:
-                        return SampleResult.T2;
-                    case 2:
-                        return SampleResult.T3;
-                    case 3:
-                        return SampleResult.T4;
-                    case 4:
-                        return SampleResult.T5;
-                    case 5:
-                        return SampleResult.C1;
-                    case 6:
-                        return SampleResult.C2;
-                    case 7:
-                        return SampleResult.C3;
-                    case '\b':
-                        return SampleResult.OTHERE;
-                    default:
-                        return SampleResult.OTHERE;
+    /* loaded from: classes6.dex */
+    public class a implements sa9.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ StringBuilder a;
+        public final /* synthetic */ q79 b;
+
+        public a(q79 q79Var, StringBuilder sb) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q79Var, sb};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return SampleResult.OTHERE;
+            this.b = q79Var;
+            this.a = sb;
         }
-        return (SampleResult) invokeL.objValue;
+
+        @Override // com.repackage.sa9.a
+        public void onCompletion() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                synchronized (this.b) {
+                    this.b.notifyAll();
+                }
+            }
+        }
+
+        @Override // com.repackage.sa9.a
+        public boolean onError(int i, int i2, Object obj) {
+            InterceptResult invokeIIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj)) == null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(",createMuteAudio ffmpegerror:");
+                sb.append(i);
+                sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
+                sb.append(i2);
+                sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
+                sb.append(obj != null ? obj.toString() : "");
+                String sb2 = sb.toString();
+                this.a.append(sb2);
+                va9.j("FFmpegChain", sb2);
+                synchronized (this.b) {
+                    this.b.notifyAll();
+                }
+                return false;
+            }
+            return invokeIIL.booleanValue;
+        }
+
+        @Override // com.repackage.sa9.a
+        public boolean onInfo(int i, int i2, Object obj) {
+            InterceptResult invokeIIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj)) == null) {
+                if (i != 1001 || i2 < 0) {
+                    return false;
+                }
+                va9.j("FFmpegChain", " createMuteAudio 进度i1 = " + i2);
+                q79 q79Var = this.b;
+                q79Var.i((int) (((float) q79Var.i) + (((((float) i2) * 1.0f) / 100.0f) * 10.0f)));
+                return false;
+            }
+            return invokeIIL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements sa9.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ StringBuilder a;
+        public final /* synthetic */ q79 b;
+
+        public b(q79 q79Var, StringBuilder sb) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q79Var, sb};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = q79Var;
+            this.a = sb;
+        }
+
+        @Override // com.repackage.sa9.a
+        public void onCompletion() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                synchronized (this.b) {
+                    this.b.notifyAll();
+                }
+            }
+        }
+
+        @Override // com.repackage.sa9.a
+        public boolean onError(int i, int i2, Object obj) {
+            InterceptResult invokeIIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj)) == null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(",concatAudio ffmpegerror:");
+                sb.append(i);
+                sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
+                sb.append(i2);
+                sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
+                sb.append(obj != null ? obj.toString() : "");
+                String sb2 = sb.toString();
+                this.a.append(sb2);
+                va9.j("FFmpegChain", sb2);
+                synchronized (this.b) {
+                    this.b.notifyAll();
+                }
+                return false;
+            }
+            return invokeIIL.booleanValue;
+        }
+
+        @Override // com.repackage.sa9.a
+        public boolean onInfo(int i, int i2, Object obj) {
+            InterceptResult invokeIIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj)) == null) {
+                va9.j("FFmpegChain", " concatMuteAudio 进度i1 = " + i2);
+                return false;
+            }
+            return invokeIIL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements sa9.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ StringBuilder a;
+        public final /* synthetic */ k79 b;
+        public final /* synthetic */ q79 c;
+
+        public c(q79 q79Var, StringBuilder sb, k79 k79Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q79Var, sb, k79Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = q79Var;
+            this.a = sb;
+            this.b = k79Var;
+        }
+
+        @Override // com.repackage.sa9.a
+        public void onCompletion() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                synchronized (this.c) {
+                    this.c.notifyAll();
+                }
+            }
+        }
+
+        @Override // com.repackage.sa9.a
+        public boolean onError(int i, int i2, Object obj) {
+            InterceptResult invokeIIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj)) == null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(",dealAudioPlayData ffmpegerror:");
+                sb.append(i);
+                sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
+                sb.append(i2);
+                sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
+                sb.append(obj != null ? obj.toString() : "");
+                String sb2 = sb.toString();
+                this.a.append(sb2);
+                k79 k79Var = this.b;
+                if (k79Var != null && k79Var.a() != null) {
+                    this.a.append(",audioformat:");
+                    this.a.append(this.b.a().f());
+                    this.a.append(",audiopath:");
+                    this.a.append(this.b.a().h());
+                }
+                va9.j("FFmpegChain", sb2);
+                synchronized (this.c) {
+                    this.c.notifyAll();
+                }
+                return false;
+            }
+            return invokeIIL.booleanValue;
+        }
+
+        @Override // com.repackage.sa9.a
+        public boolean onInfo(int i, int i2, Object obj) {
+            InterceptResult invokeIIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj)) == null) {
+                if (i != 1001 || i2 < 0) {
+                    return false;
+                }
+                va9.j("FFmpegChain", " dealAudioPlayData 进度i1 = " + i2);
+                q79 q79Var = this.c;
+                q79Var.i(q79Var.i + ((int) ((((((float) (this.c.j + (-1))) + ((((float) i2) * 1.0f) / 100.0f)) * 1.0f) / ((float) this.c.h)) * 60.0f)));
+                return false;
+            }
+            return invokeIIL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements sa9.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ StringBuilder a;
+        public final /* synthetic */ q79 b;
+
+        public d(q79 q79Var, StringBuilder sb) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q79Var, sb};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = q79Var;
+            this.a = sb;
+        }
+
+        @Override // com.repackage.sa9.a
+        public void onCompletion() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                synchronized (this.b) {
+                    this.b.notifyAll();
+                }
+            }
+        }
+
+        @Override // com.repackage.sa9.a
+        public boolean onError(int i, int i2, Object obj) {
+            InterceptResult invokeIIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj)) == null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("concatAudio ffmpegerror:");
+                sb.append(i);
+                sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
+                sb.append(i2);
+                sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
+                sb.append(obj != null ? obj.toString() : "");
+                String sb2 = sb.toString();
+                this.a.append(sb2);
+                va9.j("FFmpegChain", sb2);
+                synchronized (this.b) {
+                    this.b.notifyAll();
+                }
+                return false;
+            }
+            return invokeIIL.booleanValue;
+        }
+
+        @Override // com.repackage.sa9.a
+        public boolean onInfo(int i, int i2, Object obj) {
+            InterceptResult invokeIIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj)) == null) {
+                if (i != 1001 || i2 < 0) {
+                    return false;
+                }
+                va9.j("FFmpegChain", " concatAudio 进度i1 = " + i2);
+                q79 q79Var = this.b;
+                q79Var.i((int) (((float) q79Var.i) + (((((float) i2) * 1.0f) / 100.0f) * 10.0f)));
+                return false;
+            }
+            return invokeIIL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class e implements sa9.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ StringBuilder a;
+        public final /* synthetic */ q79 b;
+
+        public e(q79 q79Var, StringBuilder sb) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q79Var, sb};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = q79Var;
+            this.a = sb;
+        }
+
+        @Override // com.repackage.sa9.a
+        public void onCompletion() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                synchronized (this.b) {
+                    this.b.notifyAll();
+                }
+            }
+        }
+
+        @Override // com.repackage.sa9.a
+        public boolean onError(int i, int i2, Object obj) {
+            InterceptResult invokeIIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj)) == null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("mixAudio ffmpegerror:");
+                sb.append(i);
+                sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
+                sb.append(i2);
+                sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
+                sb.append(obj != null ? obj.toString() : "");
+                String sb2 = sb.toString();
+                this.a.append(sb2);
+                va9.j("FFmpegChain", sb2);
+                synchronized (this.b) {
+                    this.b.notifyAll();
+                }
+                return false;
+            }
+            return invokeIIL.booleanValue;
+        }
+
+        @Override // com.repackage.sa9.a
+        public boolean onInfo(int i, int i2, Object obj) {
+            InterceptResult invokeIIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj)) == null) {
+                if (i != 1001 || i2 < 0) {
+                    return false;
+                }
+                va9.j("FFmpegChain", " mixAudio 进度i1 = " + i2);
+                q79 q79Var = this.b;
+                q79Var.i((int) (((float) q79Var.i) + (((((float) i2) * 1.0f) / 100.0f) * 20.0f)));
+                return false;
+            }
+            return invokeIIL.booleanValue;
+        }
+    }
+
+    public q79() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public final void A() {
+        String str;
+        String a2;
+        l79 l79Var;
+        k79 k79Var;
+        l79 l79Var2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            k79 k79Var2 = this.k;
+            boolean z = k79Var2 != null && k79Var2.c();
+            if (!z && ((l79Var2 = this.o) == null || !FileUtils.isExists(l79Var2.h()))) {
+                g("nosource to create mute audio");
+                return;
+            }
+            if (z && (l79Var = this.o) != null && (k79Var = this.k) != null && !l79Var.equals(k79Var.a())) {
+                z = false;
+            }
+            StringBuilder sb = new StringBuilder();
+            str = "";
+            if (!z) {
+                try {
+                } catch (Throwable th) {
+                    sb.append(th.getMessage());
+                }
+                if (this.o == null) {
+                    return;
+                }
+                str = a(this.o.h(), "_mute.aac");
+                k99.l(this.o.h(), str, -1, -1, 0.0f, -1, 0.0f, -1.0f, false, new a(this, sb));
+                try {
+                    synchronized (this) {
+                        wait();
+                    }
+                } catch (InterruptedException e2) {
+                    sb.append(e2.getMessage());
+                }
+                if (FileUtils.isExists(a2) && TextUtils.isEmpty(sb.toString())) {
+                    va9.j("FFmpegChain", "createconcatMuteAudio 生成成功");
+                    this.k = new k79(new AudioPlayData(a2, 0, -1, 1.0f));
+                    return;
+                }
+                g(sb.toString());
+            }
+            k79 k79Var3 = this.k;
+            str = k79Var3 != null ? k79Var3.a().h() : "";
+            i(this.i + 10);
+            if (FileUtils.isExists(str) && TextUtils.isEmpty(sb.toString())) {
+                va9.j("FFmpegChain", "createMuteAudio 生成成功");
+                k79 k79Var4 = new k79(new AudioPlayData(str, 0, -1, 1.0f));
+                this.k = k79Var4;
+                if (k79Var4.a() == null || this.k.a().e() <= 0) {
+                    return;
+                }
+                long e3 = this.k.a().e();
+                long j = this.l;
+                if (e3 >= j) {
+                    return;
+                }
+                int e4 = (int) ((j / this.k.a().e()) + 1);
+                ArrayList arrayList = new ArrayList();
+                for (int i = 0; i < e4; i++) {
+                    arrayList.add(str);
+                }
+                a2 = a(str, "_concat.aac");
+                k99.b(arrayList, a2, this.g, new b(this, sb), false, true);
+                try {
+                } catch (InterruptedException e5) {
+                    sb.append(e5.getMessage());
+                }
+                synchronized (this) {
+                    wait();
+                    if (FileUtils.isExists(a2)) {
+                        va9.j("FFmpegChain", "createconcatMuteAudio 生成成功");
+                        this.k = new k79(new AudioPlayData(a2, 0, -1, 1.0f));
+                        return;
+                    }
+                }
+            }
+            g(sb.toString());
+        }
+    }
+
+    public final void B(m79 m79Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m79Var) == null) {
+            if (m79Var == null || ab9.e(m79Var.c())) {
+                g("concatAudio tempDataForOutPut data error");
+                return;
+            }
+            List<o79> c2 = m79Var.c();
+            StringBuilder sb = new StringBuilder();
+            for (o79 o79Var : c2) {
+                if (!ab9.e(o79Var.a())) {
+                    ArrayList arrayList = new ArrayList();
+                    for (k79 k79Var : o79Var.a()) {
+                        if (k79Var.b() != null) {
+                            arrayList.add(k79Var.b().audioPath);
+                        }
+                    }
+                    if (!ab9.e(arrayList)) {
+                        String str = this.g;
+                        if (TextUtils.isEmpty(str)) {
+                            str = FileUtils.getParentDir((String) arrayList.get(0));
+                        }
+                        String str2 = str + System.currentTimeMillis() + "_trackconcat.aac";
+                        k99.b(arrayList, str2, this.g, new d(this, sb), false, true);
+                        try {
+                            synchronized (this) {
+                                wait();
+                            }
+                        } catch (InterruptedException e2) {
+                            sb.append(e2.getMessage());
+                        }
+                        if (FileUtils.isExists(str2) && TextUtils.isEmpty(sb.toString())) {
+                            va9.j("FFmpegChain", "concatAudio 生成成功");
+                            k79 k79Var2 = new k79(new AudioPlayData(str2, 0, -1, 1.0f));
+                            o79Var.a().clear();
+                            o79Var.a().add(k79Var2);
+                        } else {
+                            g(sb.toString());
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public final void C(m79 m79Var) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, m79Var) == null) {
+            if (m79Var == null || ab9.b(m79Var.c()) < 2) {
+                str = "mixAudio tempDataForOutPut data error";
+            } else {
+                List<o79> c2 = m79Var.c();
+                StringBuilder sb = new StringBuilder();
+                ArrayList arrayList = new ArrayList();
+                for (o79 o79Var : c2) {
+                    if (o79Var != null && !ab9.e(o79Var.a())) {
+                        k79 k79Var = o79Var.a().get(0);
+                        if (k79Var.b() != null) {
+                            arrayList.add(k79Var.b().audioPath);
+                        }
+                    }
+                }
+                if (arrayList.size() >= 2) {
+                    String str2 = this.g;
+                    if (TextUtils.isEmpty(str2)) {
+                        str2 = FileUtils.getParentDir((String) arrayList.get(0));
+                    }
+                    String str3 = str2 + System.currentTimeMillis() + "_mix.aac";
+                    k99.k(arrayList, str3, -1, new e(this, sb));
+                    try {
+                        synchronized (this) {
+                            wait();
+                        }
+                    } catch (InterruptedException e2) {
+                        sb.append(e2.getMessage());
+                    }
+                    if (!FileUtils.isExists(str3) || !TextUtils.isEmpty(sb.toString())) {
+                        g(sb.toString());
+                        return;
+                    }
+                    va9.j("FFmpegChain", "mixAudio 生成成功");
+                    k79 k79Var2 = new k79(new AudioPlayData(str3, 0, -1, 1.0f));
+                    ArrayList arrayList2 = new ArrayList();
+                    arrayList2.add(k79Var2);
+                    ArrayList arrayList3 = new ArrayList();
+                    arrayList3.add(new o79(arrayList2));
+                    this.r = new m79(arrayList3);
+                    return;
+                }
+                str = "mixAudio inputList data error";
+            }
+            g(str);
+        }
+    }
+
+    @Override // com.repackage.p79
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f = true;
+            synchronized (this) {
+                notifyAll();
+            }
+            o();
+        }
+    }
+
+    @Override // com.repackage.p79
+    public void d(m79 m79Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, m79Var) == null) {
+            if (m79Var == null || ab9.e(m79Var.c())) {
+                g("input data error: null or length=0");
+                return;
+            }
+            this.m = false;
+            this.n = false;
+            this.p = false;
+            this.q = false;
+            if (!j(m79Var)) {
+                l(m79Var);
+                return;
+            }
+            String a2 = m79Var.a();
+            this.g = a2;
+            if (!TextUtils.isEmpty(a2) && !FileUtils.isExists(this.g)) {
+                new File(this.g).mkdir();
+            }
+            this.e = false;
+            this.f = false;
+            this.k = m79Var.b();
+            x(m79Var);
+            y(m79Var);
+            this.i = 0;
+            if (this.m && !this.f && !this.e) {
+                A();
+            }
+            if (this.n && !this.f && !this.e) {
+                this.i = 10;
+                i(10);
+                z(m79Var);
+            }
+            if (this.p && !this.f && !this.e) {
+                this.i = 70;
+                i(70);
+                B(this.r);
+            }
+            if (this.q && !this.f && !this.e) {
+                this.i = 80;
+                i(80);
+                C(this.r);
+            }
+            if (this.e || this.f) {
+                return;
+            }
+            l(this.r);
+        }
+    }
+
+    @Override // com.repackage.p79
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
+    public final void q(k79 k79Var, int i) {
+        int i2;
+        k79 k79Var2;
+        StringBuilder sb;
+        String str;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(1048582, this, k79Var, i) == null) || this.e || this.f) {
+            return;
+        }
+        AudioPlayData b2 = k79Var.b();
+        if (b2 == null) {
+            sb = new StringBuilder();
+            str = "dealAudioPlayData audioPlayData = null,trackIndx:";
+        } else if (this.o != null) {
+            if (!k79Var.c() && (k79Var2 = this.k) != null && k79Var2.b() != null) {
+                b2.audioPath = this.k.b().audioPath;
+                k79Var.d(this.k.a());
+            }
+            StringBuilder sb2 = new StringBuilder();
+            String str2 = b2.audioPath;
+            String a2 = a(str2, System.currentTimeMillis() + "_ffmpeg.aac");
+            try {
+                boolean z = k79Var.a() != null && "audio/mp4a-latm".equals(k79Var.a().f());
+                String str3 = b2.audioPath;
+                int g = this.o.g();
+                int d2 = this.o.d();
+                float f = b2.volume;
+                int c2 = this.o.c();
+                float f2 = (b2.start * 1.0f) / 1000.0f;
+                float f3 = ((b2.end - b2.start) * 1.0f) / 1000.0f;
+                i2 = 0;
+                try {
+                    k99.l(str3, a2, g, d2, f, c2, f2, f3, !z, new c(this, sb2, k79Var));
+                    try {
+                        synchronized (this) {
+                            wait();
+                        }
+                    } catch (InterruptedException e2) {
+                        sb2.append(e2.getMessage());
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    sb2.append(th.getMessage());
+                    if (FileUtils.isExists(a2)) {
+                    }
+                    g(sb2.toString());
+                    return;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                i2 = 0;
+            }
+            if (FileUtils.isExists(a2) || !TextUtils.isEmpty(sb2.toString())) {
+                g(sb2.toString());
+                return;
+            }
+            va9.j("FFmpegChain", "dealAudioPlayData 生成成功");
+            r(this.r, new k79(new AudioPlayData(a2, i2, -1, 1.0f)), i);
+            return;
+        } else {
+            sb = new StringBuilder();
+            str = "dealAudioPlayData mTargetInfo = null ,trackIndx:";
+        }
+        sb.append(str);
+        sb.append(i);
+        g(sb.toString());
+    }
+
+    public final void r(m79 m79Var, k79 k79Var, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLI(1048583, this, m79Var, k79Var, i) == null) || m79Var == null || m79Var.c() == null || m79Var.c().get(i) == null) {
+            return;
+        }
+        m79Var.c().get(i).a().add(k79Var);
+    }
+
+    public final void s(o79 o79Var, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, o79Var, i) == null) || o79Var == null || ab9.e(o79Var.a()) || this.f || this.e) {
+            return;
+        }
+        for (int i2 = 0; !this.e && !this.f && i2 < o79Var.a().size(); i2++) {
+            k79 k79Var = o79Var.a().get(i2);
+            this.j++;
+            if (v(k79Var)) {
+                q(k79Var, i);
+            } else {
+                r(this.r, k79Var, i);
+                i(this.i + ((int) (((this.j * 1.0f) / this.h) * 60.0f)));
+            }
+        }
+    }
+
+    public final boolean t(k79 k79Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, k79Var)) == null) {
+            if (k79Var == null || k79Var.b() == null || !FileUtils.isExists(k79Var.b().audioPath)) {
+                return false;
+            }
+            if (k79Var.b().start <= 0 && k79Var.b().end <= 0 && k79Var.b().volume == 1.0f) {
+                return (k79Var.a() == null || "audio/mp4a-latm".equals(k79Var.a().f())) ? false : true;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean v(k79 k79Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, k79Var)) == null) {
+            if (k79Var == null) {
+                return false;
+            }
+            return t(k79Var) || k79Var.a() == null || k79Var.a().k(this.o) != 0;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void x(m79 m79Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, m79Var) == null) {
+            List<o79> c2 = m79Var.c();
+            HashMap hashMap = new HashMap();
+            if (c2.size() > 1) {
+                this.q = true;
+            }
+            int i = 0;
+            for (int i2 = 0; i2 < c2.size(); i2++) {
+                if (!ab9.e(c2.get(i2).a())) {
+                    this.h += ab9.b(c2.get(i2).a());
+                    List<k79> a2 = c2.get(i2).a();
+                    if (!ab9.e(a2)) {
+                        if (a2.size() > 1) {
+                            this.p = true;
+                        }
+                        for (k79 k79Var : a2) {
+                            if (k79Var != null && k79Var.b() != null && !k79Var.c()) {
+                                long j = k79Var.b().end - k79Var.b().start;
+                                if (j > this.l) {
+                                    this.l = j;
+                                }
+                                this.m = true;
+                                this.n = true;
+                            }
+                            if (t(k79Var)) {
+                                this.n = true;
+                            }
+                            if (k79Var != null && k79Var.a() != null) {
+                                Integer num = (Integer) hashMap.get(k79Var.a());
+                                if (num == null) {
+                                    num = 0;
+                                }
+                                hashMap.put(k79Var.a(), Integer.valueOf(num.intValue() + 1));
+                            }
+                        }
+                    }
+                }
+            }
+            if (hashMap.size() > 1) {
+                this.n = true;
+            }
+            for (l79 l79Var : hashMap.keySet()) {
+                if (((Integer) hashMap.get(l79Var)).intValue() > i && "audio/mp4a-latm".equals(l79Var.f())) {
+                    this.o = l79Var;
+                    i = ((Integer) hashMap.get(l79Var)).intValue();
+                }
+            }
+            if (this.o == null) {
+                this.o = l79.b();
+            }
+        }
+    }
+
+    public final void y(m79 m79Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, m79Var) == null) {
+            if (this.n) {
+                if (m79Var == null || ab9.e(m79Var.c())) {
+                    return;
+                }
+                ArrayList arrayList = new ArrayList();
+                for (int i = 0; i < m79Var.c().size(); i++) {
+                    arrayList.add(new o79(new ArrayList()));
+                }
+                m79Var = new m79(arrayList);
+            }
+            this.r = m79Var;
+        }
+    }
+
+    public final void z(m79 m79Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, m79Var) == null) {
+            List<o79> c2 = m79Var.c();
+            int size = c2.size();
+            for (int i = 0; i < size; i++) {
+                s(c2.get(i), i);
+            }
+        }
     }
 }

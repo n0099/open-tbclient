@@ -1,149 +1,100 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.PbGoodsData;
+import com.baidu.tbadk.core.data.PbLinkData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public abstract class ae5<T> extends be5 {
+public class ae5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int b;
-    public List<T> c;
-    public Context d;
-    public LayoutInflater e;
-    public jm4<T> f;
+    public boolean a;
+    public List<zx5> b;
 
     /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
+    public class a implements Comparator<zx5> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public T a;
-        public int b;
-        public final /* synthetic */ ae5 c;
 
-        public a(ae5 ae5Var, T t, int i) {
+        public a(ae5 ae5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ae5Var, t, Integer.valueOf(i)};
+                Object[] objArr = {ae5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.c = ae5Var;
-            this.a = t;
-            this.b = i;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            jm4<T> jm4Var;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(zx5 zx5Var, zx5 zx5Var2) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (jm4Var = this.c.f) == null) {
-                return;
-            }
-            T t = this.a;
-            int i = this.b;
-            jm4Var.a(view2, t, i, i);
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, zx5Var, zx5Var2)) == null) ? zx5Var.sort() - zx5Var2.sort() : invokeLL.intValue;
         }
     }
 
-    public ae5(Context context, List<T> list, int i) {
+    public ae5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, list, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.d = context;
-        this.c = list == null ? new ArrayList() : new ArrayList(list);
-        this.b = i;
-        this.e = LayoutInflater.from(this.d);
-    }
-
-    @Override // com.repackage.be5
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c.size() : invokeV.intValue;
-    }
-
-    @Override // com.repackage.be5
-    public View b(int i, ViewGroup viewGroup) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, viewGroup)) == null) {
-            View inflate = this.e.inflate(this.b, viewGroup, false);
-            ce5 ce5Var = new ce5(inflate);
-            T t = this.c.get(i);
-            f(ce5Var, t, i);
-            ce5Var.c(new a(this, t, i));
-            return inflate;
-        }
-        return (View) invokeIL.objValue;
-    }
-
-    public abstract void f(ce5 ce5Var, T t, int i);
-
-    public void g(List<T> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            if (list == null) {
-                list = new ArrayList<>();
-            }
-            this.c = list;
-            c();
-        }
-    }
-
-    public void h(jm4<T> jm4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jm4Var) == null) {
-            this.f = jm4Var;
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ae5(Context context, int i) {
-        this(context, null, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (List) objArr2[1], ((Integer) objArr2[2]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = new LinkedList();
+    }
+
+    public List<zx5> a(List<PbLinkData> list, List<PbGoodsData> list2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, list, list2)) == null) {
+            if (!ListUtils.isEmpty(list)) {
+                for (int i = 0; i < list.size(); i++) {
+                    PbLinkData pbLinkData = list.get(i);
+                    if (pbLinkData.urlType == 2 && !this.a) {
+                        this.a = true;
+                    }
+                    this.b.add(pbLinkData);
+                }
+            }
+            if (!ListUtils.isEmpty(list2)) {
+                this.a = true;
+                for (int i2 = 0; i2 < list2.size(); i2++) {
+                    this.b.add(list2.get(i2));
+                }
+            }
+            Collections.sort(this.b, new a(this));
+            return this.b;
+        }
+        return (List) invokeLL.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.booleanValue;
     }
 }

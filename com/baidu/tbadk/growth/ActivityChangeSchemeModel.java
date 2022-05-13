@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.e35;
-import com.repackage.qt4;
+import com.repackage.du4;
+import com.repackage.v35;
 import com.repackage.x8;
 import java.lang.reflect.InvocationTargetException;
 /* loaded from: classes3.dex */
@@ -79,17 +79,17 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
                 }
                 if ("NewUserRedPackageActivity".equals(simpleName)) {
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{scheme});
-                    e35.c(scheme);
+                    v35.c(scheme);
                 } else if (!"MainTabActivity".equalsIgnoreCase(simpleName)) {
                     this.a.A();
                 } else {
-                    int a = qt4.a();
+                    int a = du4.a();
                     if (a != 2) {
                         this.a.B(a);
                         return;
                     }
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{scheme});
-                    e35.c(scheme);
+                    v35.c(scheme);
                 }
             }
         }
@@ -131,8 +131,8 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                Object invoke = x8.f().b().getClass().getMethod("getCurrentPageKey", new Class[0]).invoke(x8.f().b(), new Object[0]);
-                e35.b(invoke != null ? (String) invoke : null);
+                Object invoke = x8.g().b().getClass().getMethod("getCurrentPageKey", new Class[0]).invoke(x8.g().b(), new Object[0]);
+                v35.b(invoke != null ? (String) invoke : null);
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             } catch (NoSuchMethodException e2) {
@@ -147,21 +147,14 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             if (i == 1) {
-                e35.b("a025");
+                v35.b("a025");
             } else if (i == 22) {
-                e35.b("a088");
+                v35.b("a088");
             } else if (i == 3) {
-                e35.b("a079");
+                v35.b("a079");
             } else if (i == 8) {
-                e35.b("a011");
+                v35.b("a011");
             }
-        }
-    }
-
-    public void D() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            sendMessage(new HttpMessage(CmdConfigHttp.CMD_SPLASH_CHANGE_SCHEME));
         }
     }
 
@@ -169,7 +162,7 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -179,9 +172,16 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
+    }
+
+    public void request() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            sendMessage(new HttpMessage(CmdConfigHttp.CMD_SPLASH_CHANGE_SCHEME));
+        }
     }
 }

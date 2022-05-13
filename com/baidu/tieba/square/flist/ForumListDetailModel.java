@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.br4;
+import com.repackage.mr4;
 import com.repackage.qe;
 /* loaded from: classes4.dex */
 public class ForumListDetailModel extends BdBaseModel<ForumListActivity> {
@@ -141,8 +141,8 @@ public class ForumListDetailModel extends BdBaseModel<ForumListActivity> {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
                 try {
                     if (this.b.e) {
-                        br4.f();
-                        qe<String> g = br4.g("tb.my_posts");
+                        mr4.f();
+                        qe<String> g = mr4.g("tb.my_posts");
                         if (g != null) {
                             str = g.get(TbadkCoreApplication.getCurrentAccount() + "_" + this.b.b.menu_name + ForumListModel.KEY);
                         } else {
@@ -176,7 +176,7 @@ public class ForumListDetailModel extends BdBaseModel<ForumListActivity> {
                 if (forumListModel != null && forumListModel.isOk()) {
                     this.b.c.a(true, forumListModel.getErrorCode(), forumListModel, forumListModel.getErrorString(), this.b.f);
                 } else {
-                    this.b.c.a(false, 0, forumListModel, this.b.a.getString(R.string.obfuscated_res_0x7f0f0c17), this.b.f);
+                    this.b.c.a(false, 0, forumListModel, this.b.a.getString(R.string.obfuscated_res_0x7f0f0c2d), this.b.f);
                 }
             }
         }

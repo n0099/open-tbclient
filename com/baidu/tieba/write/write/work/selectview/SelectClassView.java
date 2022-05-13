@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vr4;
+import com.repackage.gs4;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 import org.aspectj.runtime.reflect.SignatureImpl;
@@ -110,27 +110,27 @@ public class SelectClassView extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0897, (ViewGroup) this, true);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f092470);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d088c, (ViewGroup) this, true);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0924c0);
             Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.work_publish_class_sign)");
             setMClassTitleSign((ImageView) findViewById);
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f09121f);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f09122c);
             Intrinsics.checkNotNullExpressionValue(findViewById2, "findViewById(R.id.left_title)");
             setMLeftTitle((TextView) findViewById2);
-            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f0905dd);
+            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f0905d6);
             Intrinsics.checkNotNullExpressionValue(findViewById3, "findViewById(R.id.center_content_tips)");
             setMCenterContentTips((TextView) findViewById3);
-            View findViewById4 = findViewById(R.id.obfuscated_res_0x7f0905db);
+            View findViewById4 = findViewById(R.id.obfuscated_res_0x7f0905d4);
             Intrinsics.checkNotNullExpressionValue(findViewById4, "findViewById(R.id.center_content)");
             setMCenterContent((TextView) findViewById4);
-            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091a95);
+            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091ae3);
             Intrinsics.checkNotNullExpressionValue(findViewById5, "findViewById(R.id.right_arrow)");
             setMRightArrow((ImageView) findViewById5);
-            View findViewById6 = findViewById(R.id.obfuscated_res_0x7f0903d4);
+            View findViewById6 = findViewById(R.id.obfuscated_res_0x7f0903cf);
             Intrinsics.checkNotNullExpressionValue(findViewById6, "findViewById(R.id.bottom_line)");
             setMBottomLine(findViewById6);
             d();
-            setOnClickListener(new View.OnClickListener() { // from class: com.repackage.z29
+            setOnClickListener(new View.OnClickListener() { // from class: com.repackage.u19
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -150,10 +150,10 @@ public class SelectClassView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             SkinManager.setViewTextColor(getMLeftTitle(), (int) R.color.CAM_X0105);
-            WebPManager.setPureDrawable(getMRightArrow(), R.drawable.obfuscated_res_0x7f08079f, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setPureDrawable(getMRightArrow(), R.drawable.obfuscated_res_0x7f080789, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
             SkinManager.setBackgroundColor(getMBottomLine(), R.color.CAM_X0210);
             getMCenterContentTips().setTextColor(SkinManager.getColor(R.color.CAM_X0109));
-            vr4 d = vr4.d(getMCenterContent());
+            gs4 d = gs4.d(getMCenterContent());
             d.A(R.string.F_X01);
             d.z(R.dimen.T_X07);
             d.v(R.color.CAM_X0105);

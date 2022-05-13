@@ -1,125 +1,132 @@
 package com.repackage;
 
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
-import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tbadk.util.ChatStatusManager;
-import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.s57;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
 /* loaded from: classes7.dex */
 public class w57 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
+    public static volatile SQLiteDatabase b;
+    public static HashMap<String, SQLiteDatabase> c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a implements s57.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755250312, "Lcom/repackage/w57;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755250312, "Lcom/repackage/w57;");
+                return;
             }
         }
-
-        @Override // com.repackage.s57.c
-        public boolean a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                return !TextUtils.isEmpty(str) && ChatStatusManager.getInst().getIsOpen(0) && str.equals(ChatStatusManager.getInst().getCurId(0));
-            }
-            return invokeL.booleanValue;
-        }
+        c = new HashMap<>();
     }
 
-    /* loaded from: classes7.dex */
-    public static class b implements s57.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.repackage.s57.a
-        public boolean a(ChatMessage chatMessage, ImMessageCenterPojo imMessageCenterPojo) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, chatMessage, imMessageCenterPojo)) == null) {
-                if (chatMessage == null || chatMessage.getMsgType() != 22) {
-                    return false;
-                }
-                if (a97.p(chatMessage)) {
-                    return true;
-                }
-                long a = w57.a(chatMessage);
-                if (a > imMessageCenterPojo.getRead_msgId()) {
-                    imMessageCenterPojo.setRead_msgId(a);
-                }
-                return true;
-            }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    public static long a(ChatMessage chatMessage) {
-        InterceptResult invokeL;
-        JSONObject optJSONObject;
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, chatMessage)) == null) {
-            if (chatMessage != null) {
-                if (chatMessage.getMsgType() == 22) {
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            try {
+                try {
+                    if (!TextUtils.isEmpty(str)) {
+                        x57.d().f();
+                        Iterator<String> it = b().iterator();
+                        while (it.hasNext()) {
+                            String next = it.next();
+                            if (next != null) {
+                                if (next.equals("tb_message_center")) {
+                                    ContentValues contentValues = new ContentValues();
+                                    contentValues.put("is_hidden", (Integer) 1);
+                                    x57.d().update("tb_message_center", contentValues, null, null);
+                                } else if (!next.equals("tb_new_friends")) {
+                                    x57.d().delete(next, null, null);
+                                }
+                            }
+                        }
+                    }
+                } catch (Exception e) {
+                    TiebaStatic.printDBExceptionLog(e, "ImDatabaseManager.deleteImDb", new Object[0]);
+                    e.printStackTrace();
+                }
+            } finally {
+                x57.d().b();
+            }
+        }
+    }
+
+    public static LinkedList<String> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            SQLiteDatabase c2 = c();
+            LinkedList<String> linkedList = new LinkedList<>();
+            Cursor cursor = null;
+            try {
+                if (c2 != null) {
                     try {
-                        String content = chatMessage.getContent();
-                        if (TextUtils.isEmpty(content)) {
-                            return -1L;
+                        cursor = c2.rawQuery("select * from sqlite_master where type='table'", null);
+                        if (cursor != null) {
+                            cursor.moveToFirst();
+                            while (cursor.moveToNext()) {
+                                linkedList.add(cursor.getString(cursor.getColumnIndex("name")));
+                            }
                         }
-                        JSONObject jSONObject = new JSONObject(content);
-                        String optString = jSONObject.optString(TbEnum.SystemMessage.KEY_EVENT_ID);
-                        if (TextUtils.isEmpty(optString) || !optString.equals("22001") || (optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM)) == null || optJSONObject.optLong(TbEnum.SystemMessage.KEY_GROUP_ID) != v77.i.longValue()) {
-                            return -1L;
-                        }
-                    } catch (Exception unused) {
-                        return -1L;
+                    } catch (Exception e) {
+                        TiebaStatic.printDBExceptionLog(e, "ImDatabaseManager.getAllTables", new Object[0]);
+                        e.printStackTrace();
                     }
                 }
-                return z87.a(optJSONObject.optLong("readMsgId"));
+                return linkedList;
+            } finally {
+                ni.a(cursor);
             }
-            return -1L;
         }
-        return invokeL.longValue;
+        return (LinkedList) invokeV.objValue;
     }
 
-    public static void b(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, s57.b bVar) {
+    public static synchronized SQLiteDatabase c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, groupMsgData, imMessageCenterPojo, bVar) == null) {
-            s57.d(groupMsgData, imMessageCenterPojo, bVar, new a(), ChatStatusManager.getInst().getIsOpen(5), new b());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            synchronized (w57.class) {
+                try {
+                } catch (Exception e) {
+                    TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.getImDataBase", new Object[0]);
+                }
+                if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                    return null;
+                }
+                String str = TbadkCoreApplication.getCurrentAccount() + ".db";
+                if (c.containsKey(str)) {
+                    return c.get(str);
+                }
+                if (b != null && str.equals(a) && b.isOpen()) {
+                    return b;
+                }
+                if (b != null) {
+                    ni.b(b);
+                }
+                v57 v57Var = new v57(TbadkCoreApplication.getInst().getApp(), str);
+                a = str;
+                b = v57Var.getWritableDatabase();
+                return b;
+            }
         }
+        return (SQLiteDatabase) invokeV.objValue;
     }
 }

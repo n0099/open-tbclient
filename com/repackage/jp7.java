@@ -19,8 +19,8 @@ public class jp7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdTypeRecyclerView a;
-    public final List<ho> b;
-    public List<uo> c;
+    public final List<eo> b;
+    public List<ro> c;
     public ip7 d;
     public gp7 e;
     public hp7 f;
@@ -53,14 +53,14 @@ public class jp7 {
     }
 
     public void b(boolean z) {
-        List<uo> list;
+        List<ro> list;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (list = this.c) == null || list.size() <= 0) {
             return;
         }
-        for (uo uoVar : this.c) {
-            if (uoVar != null && (uoVar instanceof qp7)) {
-                qp7 qp7Var = (qp7) uoVar;
+        for (ro roVar : this.c) {
+            if (roVar != null && (roVar instanceof qp7)) {
+                qp7 qp7Var = (qp7) roVar;
                 qp7Var.u(z);
                 h(qp7Var);
             }
@@ -68,7 +68,7 @@ public class jp7 {
         this.a.getAdapter().notifyDataSetChanged();
     }
 
-    public List<uo> c() {
+    public List<ro> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (List) invokeV.objValue;
@@ -92,10 +92,10 @@ public class jp7 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<uo> list = this.c;
+            List<ro> list = this.c;
             if (list != null && list.size() > 0) {
-                for (uo uoVar : this.c) {
-                    if (uoVar != null && (uoVar instanceof qp7) && ((qp7) uoVar).k()) {
+                for (ro roVar : this.c) {
+                    if (roVar != null && (roVar instanceof qp7) && ((qp7) roVar).k()) {
                         return true;
                     }
                 }
@@ -109,12 +109,12 @@ public class jp7 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            List<uo> list = this.c;
+            List<ro> list = this.c;
             if (list == null || list.size() <= 0) {
                 return false;
             }
-            for (uo uoVar : this.c) {
-                if (uoVar != null && (uoVar instanceof qp7) && !((qp7) uoVar).k()) {
+            for (ro roVar : this.c) {
+                if (roVar != null && (roVar instanceof qp7) && !((qp7) roVar).k()) {
                     return false;
                 }
             }
@@ -164,7 +164,7 @@ public class jp7 {
         if (!(interceptable == null || interceptable.invokeL(1048585, this, list) == null) || this.a == null) {
             return;
         }
-        List<uo> b = new up7().b(list);
+        List<ro> b = new up7().b(list);
         if (ListUtils.isEmpty(this.c)) {
             this.c = b;
         } else {

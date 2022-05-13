@@ -1,53 +1,40 @@
 package com.repackage;
 
-import android.animation.ValueAnimator;
 import android.graphics.Bitmap;
-import android.text.TextUtils;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.PorterDuff;
+import android.graphics.RectF;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.BitmapDescriptor;
-import com.baidu.mapapi.map.BitmapDescriptorFactory;
-import com.baidu.mapapi.map.MapViewLayoutParams;
-import com.baidu.mapapi.map.Marker;
-import com.baidu.mapapi.map.MarkerOptions;
-import com.baidu.mapapi.model.LatLng;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.widget.ImageView;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dn2;
+import com.repackage.on2;
 /* loaded from: classes7.dex */
 public class r54 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Boolean h;
     public transient /* synthetic */ FieldHolder $fh;
-    public dn2 a;
-    public Marker b;
-    public Marker c;
-    public View d;
-    public ViewGroup e;
-    public Marker f;
-    public ValueAnimator g;
 
     /* loaded from: classes7.dex */
-    public class a implements ValueAnimator.AnimatorUpdateListener {
+    public static class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public final /* synthetic */ s54 b;
-        public final /* synthetic */ b c;
-        public final /* synthetic */ r54 d;
+        public final /* synthetic */ d64 a;
+        public final /* synthetic */ on2 b;
 
-        public a(r54 r54Var, s54 s54Var, b bVar) {
+        public a(d64 d64Var, on2 on2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {r54Var, s54Var, bVar};
+                Object[] objArr = {d64Var, on2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -57,159 +44,73 @@ public class r54 {
                     return;
                 }
             }
-            this.d = r54Var;
-            this.b = s54Var;
-            this.c = bVar;
-            this.a = false;
+            this.a = d64Var;
+            this.b = on2Var;
         }
 
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                float animatedFraction = valueAnimator.getAnimatedFraction();
-                this.d.a(this.b, (LatLng) valueAnimator.getAnimatedValue());
-                if (this.a || animatedFraction <= 0.99d) {
-                    return;
-                }
-                this.a = true;
-                b bVar = this.c;
-                if (bVar != null) {
-                    bVar.onAnimationEnd();
-                }
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                y54.a(this.a, this.b);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void onAnimationEnd();
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755399360, "Lcom/repackage/r54;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755399360, "Lcom/repackage/r54;");
-                return;
-            }
-        }
-        h = Boolean.TRUE;
-    }
-
-    public r54() {
+    public static View a(d64 d64Var, on2 on2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, d64Var, on2Var)) == null) {
+            ux1.i("map", "creatCallout start");
+            Paint paint = new Paint();
+            paint.setAntiAlias(true);
+            paint.setStyle(Paint.Style.FILL_AND_STROKE);
+            paint.setColor(on2Var.i.b);
+            paint.setTextSize(on2Var.i.c);
+            on2.b bVar = on2Var.i;
+            float f = bVar.e;
+            float f2 = bVar.f;
+            Paint paint2 = new Paint();
+            paint2.setAntiAlias(true);
+            paint2.setStyle(Paint.Style.FILL_AND_STROKE);
+            paint2.setColor(on2Var.i.h);
+            String str = on2Var.i.a;
+            int g = le3.g(6.0f);
+            float f3 = f * 2.0f;
+            float measureText = paint.measureText(str) + f3;
+            float f4 = paint.getFontMetrics().bottom - paint.getFontMetrics().top;
+            float f5 = g + f4 + f3;
+            if (f5 > 0.0f && measureText > 0.0f) {
+                Bitmap createBitmap = Bitmap.createBitmap((int) measureText, (int) f5, Bitmap.Config.ARGB_8888);
+                createBitmap.eraseColor(Color.argb(0, 0, 0, 0));
+                Canvas canvas = new Canvas(createBitmap);
+                canvas.drawColor(0, PorterDuff.Mode.CLEAR);
+                RectF rectF = new RectF();
+                rectF.left = 0.0f;
+                rectF.top = 0.0f;
+                float f6 = f4 + f3;
+                rectF.bottom = f6;
+                rectF.right = measureText;
+                canvas.drawRoundRect(rectF, f2, f2, paint2);
+                Path path = new Path();
+                float f7 = measureText / 2.0f;
+                float f8 = g / 2;
+                path.moveTo(f7 - f8, f6);
+                path.lineTo(f7, f5);
+                path.lineTo(f7 + f8, f6);
+                path.close();
+                canvas.drawPath(path, paint2);
+                canvas.drawText(str, f, (-paint.getFontMetrics().top) + f, paint);
+                ImageView imageView = new ImageView(AppRuntime.getAppContext());
+                imageView.setLayoutParams(new ViewGroup.LayoutParams(createBitmap.getWidth(), createBitmap.getHeight()));
+                imageView.setImageBitmap(createBitmap);
+                imageView.setOnClickListener(new a(d64Var, on2Var));
+                ux1.i("map", "creatCallout end");
+                return imageView;
             }
+            ux1.o("map", "callout height or wodth is 0");
+            return new ImageView(AppRuntime.getAppContext());
         }
-    }
-
-    public void a(s54 s54Var, LatLng latLng) {
-        Marker marker;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, s54Var, latLng) == null) || (marker = this.b) == null) {
-            return;
-        }
-        marker.setPosition(latLng);
-        cn2 cn2Var = this.a.b;
-        cn2Var.a = latLng.latitude;
-        cn2Var.b = latLng.longitude;
-        Marker marker2 = this.f;
-        if (marker2 != null) {
-            marker2.setPosition(latLng);
-        }
-        if (h.booleanValue()) {
-            Marker marker3 = this.c;
-            if (marker3 != null) {
-                marker3.setPosition(latLng);
-            }
-            ViewGroup viewGroup = this.e;
-            if (viewGroup != null) {
-                s54Var.l.removeView(viewGroup);
-                MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
-                builder.layoutMode(MapViewLayoutParams.ELayoutMode.mapMode);
-                builder.position(latLng);
-                s54Var.l.addView(this.e, builder.build());
-                this.e.setAlpha(0.0f);
-            }
-        }
-    }
-
-    public void b(s54 s54Var) {
-        dn2 dn2Var;
-        dn2.b bVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, s54Var) == null) || (dn2Var = this.a) == null || (bVar = dn2Var.i) == null || !bVar.isValid()) {
-            return;
-        }
-        dn2 dn2Var2 = this.a;
-        if (dn2Var2.k == null || this.d != null || TextUtils.equals(dn2Var2.i.g, "ALWAYS")) {
-            return;
-        }
-        s54Var.l.removeView(this.e);
-        this.e.removeView(this.d);
-        View a2 = g54.a(s54Var, this.a);
-        this.d = a2;
-        this.e.addView(a2, 0);
-        this.e.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
-        MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
-        builder.layoutMode(MapViewLayoutParams.ELayoutMode.mapMode);
-        builder.position(this.b.getPosition());
-        Bitmap bitmap = this.b.getIcon().getBitmap();
-        builder.yOffset((int) ((bitmap.getHeight() * (1.0d - this.a.k.b)) + 0.0d));
-        s54Var.l.addView(this.e, builder.build());
-        this.e.setAlpha(0.0f);
-        Marker marker = this.f;
-        if (marker != null) {
-            marker.remove();
-        }
-        BitmapDescriptor fromView = BitmapDescriptorFactory.fromView(this.e);
-        if (fromView == null) {
-            return;
-        }
-        Bitmap bitmap2 = fromView.getBitmap();
-        if (bitmap2.getHeight() <= 0 || bitmap2.getWidth() <= 0) {
-            return;
-        }
-        float width = ((float) (((bitmap2.getWidth() - bitmap.getWidth()) / 2.0f) + (this.a.k.a * bitmap.getWidth()))) / bitmap2.getWidth();
-        float height = ((float) (((float) ((bitmap2.getHeight() - 0.0d) - bitmap.getHeight())) + (this.a.k.b * bitmap.getHeight()))) / fromView.getBitmap().getHeight();
-        MarkerOptions markerOptions = new MarkerOptions();
-        cn2 cn2Var = this.a.b;
-        this.f = (Marker) s54Var.l.getMap().addOverlay(markerOptions.position(new LatLng(cn2Var.a, cn2Var.b)).icon(fromView).zIndex(66).anchor(width, height));
-    }
-
-    public void c(s54 s54Var, LatLng latLng, ym2 ym2Var, b bVar) {
-        Marker marker;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, s54Var, latLng, ym2Var, bVar) == null) {
-            ValueAnimator valueAnimator = this.g;
-            if ((valueAnimator == null || !valueAnimator.isRunning()) && (marker = this.b) != null) {
-                float f = 360.0f - ((float) ym2Var.B);
-                if (f >= 0.0f && f <= 360.0f) {
-                    marker.setRotate(f);
-                }
-                int i = ym2Var.C;
-                if (i < 0) {
-                    i = -i;
-                }
-                ValueAnimator ofObject = ValueAnimator.ofObject(new f54(), this.b.getPosition(), new LatLng(latLng.latitude, latLng.longitude));
-                this.g = ofObject;
-                ofObject.setDuration(i);
-                this.g.addUpdateListener(new a(this, s54Var, bVar));
-                this.g.start();
-            }
-        }
+        return (View) invokeLL.objValue;
     }
 }

@@ -1,15 +1,7 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import org.json.JSONObject;
+import android.content.Context;
 /* loaded from: classes7.dex */
 public interface yk2 {
-    boolean a(String str, String str2);
-
-    String b();
-
-    @NonNull
-    JSONObject c(@NonNull String str, @NonNull JSONObject jSONObject);
-
-    boolean enable();
+    void a(Context context, xs1 xs1Var);
 }

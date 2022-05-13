@@ -1,17 +1,16 @@
 package com.repackage;
 
-import android.graphics.drawable.BitmapDrawable;
-import android.text.TextUtils;
-import android.util.Pair;
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Point;
+import android.graphics.Rect;
+import android.graphics.drawable.ColorDrawable;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-import com.baidu.adp.BdUniqueId;
+import android.view.ViewTreeObserver;
+import android.widget.PopupWindow;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.tabHost.FragmentTabHost;
-import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,15 +18,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class wt4 {
+public class wt4 extends PopupWindow {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public FragmentTabHost b;
-    public final hg<fo> c;
+    public vt4 a;
+    public int b;
+    public int c;
+    public int d;
+    public View e;
+    public View f;
+    public Activity g;
 
     /* loaded from: classes7.dex */
-    public class a extends hg<fo> {
+    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ wt4 a;
@@ -50,100 +53,111 @@ public class wt4 {
             this.a = wt4Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.hg
-        public void onLoaded(fo foVar, String str, int i) {
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, foVar, str, i) == null) {
-                super.onLoaded((a) foVar, str, i);
-                if (this.a.b == null || foVar == null || !foVar.w()) {
-                    this.a.f();
-                    return;
-                }
-                FragmentTabWidget fragmentTabWidget = this.a.b.getFragmentTabWidget();
-                CustomViewPager fragmentViewPager = this.a.b.getFragmentViewPager();
-                ViewGroup tabWrapper = this.a.b.getTabWrapper();
-                if (fragmentTabWidget == null || fragmentViewPager == null) {
-                    return;
-                }
-                this.a.b.setNeedShowThemeStyle(false);
-                fragmentTabWidget.setBackGroundDrawableResId(R.color.black_alpha0);
-                SkinManager.setBackgroundColor(tabWrapper, R.color.black_alpha0);
-                SkinManager.setBackgroundColor(fragmentTabWidget, R.color.black_alpha0);
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) fragmentViewPager.getLayoutParams();
-                layoutParams.bottomMargin = oi.f(this.a.b.getContext(), R.dimen.tbds100);
-                fragmentViewPager.setLayoutParams(layoutParams);
-                fragmentTabWidget.setBackgroundDrawable(new BitmapDrawable(foVar.p()));
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.e == null) {
+                return;
             }
+            this.a.e();
         }
     }
 
-    public wt4(FragmentTabHost fragmentTabHost, int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wt4(Activity activity) {
+        super(activity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fragmentTabHost, Integer.valueOf(i)};
+            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        this.c = new a(this);
-        this.b = fragmentTabHost;
-        this.a = i;
+        this.g = activity;
+        View inflate = ((LayoutInflater) activity.getSystemService("layout_inflater")).inflate(R.layout.obfuscated_res_0x7f0d0403, (ViewGroup) null, false);
+        this.e = inflate;
+        setContentView(inflate);
+        setSoftInputMode(21);
+        setInputMethodMode(1);
+        this.f = activity.findViewById(16908290);
+        setWidth(0);
+        setHeight(-1);
+        this.e.getViewTreeObserver().addOnGlobalLayoutListener(new a(this));
     }
 
-    public final BdUniqueId c() {
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = null;
+            dismiss();
+        }
+    }
+
+    public final int d() {
         InterceptResult invokeV;
-        b9<?> a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            FragmentTabHost fragmentTabHost = this.b;
-            if (fragmentTabHost == null || fragmentTabHost.getContext() == null || (a2 = f9.a(this.b.getContext())) == null) {
-                return null;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.g.getResources().getConfiguration().orientation : invokeV.intValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            Point point = new Point();
+            this.g.getWindowManager().getDefaultDisplay().getSize(point);
+            Rect rect = new Rect();
+            this.e.getWindowVisibleDisplayFrame(rect);
+            int d = d();
+            int i = point.y - rect.bottom;
+            if (i == 0) {
+                f(0, d);
+            } else if (d == 1) {
+                this.d = i;
+                f(i, d);
+            } else {
+                this.c = i;
+                f(i, d);
             }
-            return a2.getUniqueId();
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public final void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            ig.h().m(str, 10, this.c, c());
         }
     }
 
-    public void e(Pair<String, String> pair) {
+    public final void f(int i, int i2) {
+        int i3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pair) == null) || pair == null) {
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            if (i <= 0) {
+                this.b = i;
+                i3 = 0;
+            } else {
+                i3 = i - this.b;
+            }
+            vt4 vt4Var = this.a;
+            if (vt4Var != null) {
+                vt4Var.onKeyboardHeightChanged(i3, i2);
+            }
+        }
+    }
+
+    public void g(vt4 vt4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, vt4Var) == null) {
+            this.a = vt4Var;
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || isShowing() || this.f.getWindowToken() == null) {
             return;
         }
-        String str = (String) pair.first;
-        String str2 = (String) pair.second;
-        if ((TbadkCoreApplication.getInst().getSkinType() == 1) && !TextUtils.isEmpty(str2)) {
-            d(str2);
-        } else if (!TextUtils.isEmpty(str)) {
-            d(str);
-        } else {
-            f();
-        }
-    }
-
-    public final void f() {
-        FragmentTabHost fragmentTabHost;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (fragmentTabHost = this.b) == null || fragmentTabHost.getFragmentTabWidget() == null) {
-            return;
-        }
-        this.b.getFragmentTabWidget().setBackGroundDrawableResId(this.a);
-        SkinManager.setBackgroundColor(this.b.getFragmentTabWidget(), this.a);
-        SkinManager.setBackgroundColor(this.b.getTabWrapper(), this.a);
+        setBackgroundDrawable(new ColorDrawable(0));
+        showAtLocation(this.f, 0, 0, 0);
     }
 }

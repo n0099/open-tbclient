@@ -1,20 +1,10 @@
 package com.repackage;
 
-import android.view.View;
-import org.json.JSONObject;
+import com.baidu.swan.game.ad.downloader.exception.DownloadException;
+import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
 /* loaded from: classes7.dex */
 public interface yo3 {
-    void a(String str, JSONObject jSONObject);
+    void a(DownloadException downloadException);
 
-    boolean b();
-
-    boolean c(View view2);
-
-    boolean d(View view2, sn3 sn3Var);
-
-    void e();
-
-    boolean f(View view2, sn3 sn3Var);
-
-    boolean removeView(View view2);
+    void b(DownloadInfo downloadInfo);
 }

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.mi;
 import java.io.Serializable;
 /* loaded from: classes3.dex */
 public class LocalViewSize {
@@ -112,7 +112,7 @@ public class LocalViewSize {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int k = oi.k(this.mContext);
+            int k = mi.k(this.mContext);
             if (k >= 1080) {
                 return 1080;
             }
@@ -135,8 +135,8 @@ public class LocalViewSize {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ImageSize imageSize = new ImageSize();
-            imageSize.height = oi.i(this.mContext);
-            imageSize.width = oi.k(this.mContext);
+            imageSize.height = mi.i(this.mContext);
+            imageSize.width = mi.k(this.mContext);
             return imageSize;
         }
         return (ImageSize) invokeV.objValue;
@@ -173,7 +173,7 @@ public class LocalViewSize {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int k = oi.k(this.mContext);
+            int k = mi.k(this.mContext);
             int i = 240;
             if (k < 240) {
                 i = k / 3;

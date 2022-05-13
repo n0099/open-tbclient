@@ -1,108 +1,83 @@
 package com.repackage;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.AdapterViewHolder;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.homepage.tabfeed.view.NearbyForumFriendCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import com.squareup.wire.Wire;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONObject;
-import tbclient.Error;
-import tbclient.ExcFrsPage.DataRes;
-import tbclient.ExcFrsPage.ExcFrsPageResIdl;
-import tbclient.ExcFrsPage.ExcellentTagInfo;
 /* loaded from: classes6.dex */
-public class o07 implements j65, p65 {
+public class o07 extends eo<ym7, AdapterViewHolder<NearbyForumFriendCardView>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Object> a;
-    public List<Object> b;
+    public TbPageContext i;
+    public AdapterViewHolder<NearbyForumFriendCardView> j;
 
-    public o07() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public o07(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), ym7.d);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.i = tbPageContext;
     }
 
-    @Override // com.repackage.k65
-    public String getCacheKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.j65
-    public boolean initByByteArray(byte[] bArr) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.eo
+    /* renamed from: Z */
+    public AdapterViewHolder<NearbyForumFriendCardView> M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
-            try {
-                initByProtobuf((ExcFrsPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ExcFrsPageResIdl.class));
-                return true;
-            } catch (IOException e) {
-                e.printStackTrace();
-                return false;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            AdapterViewHolder<NearbyForumFriendCardView> adapterViewHolder = new AdapterViewHolder<>(new NearbyForumFriendCardView(this.i.getPageActivity()));
+            this.j = adapterViewHolder;
+            return adapterViewHolder;
         }
-        return invokeL.booleanValue;
+        return (AdapterViewHolder) invokeL.objValue;
     }
 
-    @Override // com.repackage.p65
-    public void initByJson(JSONObject jSONObject) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.eo
+    /* renamed from: a0 */
+    public View S(int i, View view2, ViewGroup viewGroup, ym7 ym7Var, AdapterViewHolder<NearbyForumFriendCardView> adapterViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ym7Var, adapterViewHolder})) == null) {
+            NearbyForumFriendCardView c = adapterViewHolder.c();
+            c.a(ym7Var);
+            c.onChangeSkinType(this.i, TbadkCoreApplication.getInst().getSkinType());
+            return adapterViewHolder.b();
         }
+        return (View) invokeCommon.objValue;
     }
 
-    @Override // com.repackage.p65
-    public void initByProtobuf(Message message) {
-        ExcFrsPageResIdl excFrsPageResIdl;
-        Error error;
-        DataRes dataRes;
+    public void b0(boolean z) {
+        AdapterViewHolder<NearbyForumFriendCardView> adapterViewHolder;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, message) == null) || !(message instanceof ExcFrsPageResIdl) || (excFrsPageResIdl = (ExcFrsPageResIdl) message) == null || (error = excFrsPageResIdl.error) == null || error.errorno.intValue() != 0 || (dataRes = excFrsPageResIdl.data) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || (adapterViewHolder = this.j) == null) {
             return;
         }
-        if (dataRes.thread_list != null) {
-            ArrayList arrayList = new ArrayList();
-            this.a = arrayList;
-            arrayList.addAll(excFrsPageResIdl.data.thread_list);
-        }
-        excFrsPageResIdl.data.has_more.intValue();
-        excFrsPageResIdl.data.pn.intValue();
-        if (excFrsPageResIdl.data.tag_list != null) {
-            this.b = new ArrayList();
-            for (ExcellentTagInfo excellentTagInfo : excFrsPageResIdl.data.tag_list) {
-                if (excellentTagInfo != null) {
-                    this.b.add(excellentTagInfo);
-                }
-            }
-        }
-    }
-
-    @Override // com.repackage.j65
-    public byte[] toCacheByteArray() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
-        }
-        return (byte[]) invokeV.objValue;
+        adapterViewHolder.c().setNeedCompleteProfile(z);
     }
 }

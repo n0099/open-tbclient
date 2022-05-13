@@ -62,7 +62,7 @@ public class SearchEditView extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
                 if (this.a.e != null) {
-                    this.a.e.onTextChanged(editable.toString().trim());
+                    this.a.e.A(editable.toString().trim());
                 }
                 if (editable.toString().trim().length() == 0) {
                     this.a.d.setVisibility(4);
@@ -121,7 +121,7 @@ public class SearchEditView extends RelativeLayout {
                     if (TextUtils.isEmpty(trim) || this.a.e == null) {
                         return true;
                     }
-                    this.a.e.onClickSearch(trim);
+                    this.a.e.B0(trim);
                     return true;
                 }
                 return false;
@@ -165,9 +165,9 @@ public class SearchEditView extends RelativeLayout {
 
     /* loaded from: classes3.dex */
     public interface d {
-        void onClickSearch(String str);
+        void A(String str);
 
-        void onTextChanged(String str);
+        void B0(String str);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -194,11 +194,11 @@ public class SearchEditView extends RelativeLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d026b, (ViewGroup) this, true);
-            this.a = (EditText) findViewById(R.id.obfuscated_res_0x7f090868);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ff1);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fc6);
-            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090fc7);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0263, (ViewGroup) this, true);
+            this.a = (EditText) findViewById(R.id.obfuscated_res_0x7f090860);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ffe);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fd3);
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090fd4);
             SkinManager.setImageResource(this.b, R.drawable.icon_emotion_search);
             SkinManager.setImageResource(this.c, R.drawable.del_search_btn);
             SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0105);
@@ -220,22 +220,16 @@ public class SearchEditView extends RelativeLayout {
         }
     }
 
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.requestFocus() : invokeV.booleanValue;
-    }
-
     public void setCallback(d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
             this.e = dVar;
         }
     }
 
     public void setSelection(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || i > this.a.getText().length()) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || i > this.a.getText().length()) {
             return;
         }
         this.a.setSelection(i);
@@ -243,7 +237,7 @@ public class SearchEditView extends RelativeLayout {
 
     public void setText(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || str == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || str == null) {
             return;
         }
         this.a.setText(str);

@@ -1,49 +1,77 @@
 package com.repackage;
 
-import android.os.Looper;
-import android.os.MessageQueue;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.center.clearcache.DiskManagerSharedPrefsUtils;
-import com.baidu.searchbox.launch.stats.SpeedStatsManager;
-import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.switchs.MainTabDataSwitch;
-import com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import java.io.IOException;
-import java.lang.ref.WeakReference;
-import tbclient.Personalized.DataRes;
+import com.repackage.kz;
+import com.repackage.vz;
 /* loaded from: classes5.dex */
-public class b07 {
+public class b07 extends eo<br4, ThreadCardViewHolder<ThreadData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile DataRes a;
-    public volatile DataRes b;
-    public volatile int c;
-    public volatile String d;
-    public volatile boolean e;
-    public volatile boolean f;
-    public volatile boolean g;
-    public volatile boolean h;
-    public volatile boolean i;
-    public volatile WeakReference<RecPersonalizePageModel.c> j;
+    public BdUniqueId i;
+    public String j;
+    public TbPageContext<?> k;
+    public boolean l;
+    public xo m;
+    public ux5<ThreadData> n;
 
     /* loaded from: classes5.dex */
-    public class a implements RecPersonalizePageModel.c {
+    public class a extends ux5<ThreadData> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b07 b;
+
+        public a(b07 b07Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b07Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = b07Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.ux5
+        /* renamed from: d */
+        public void a(View view2, ThreadData threadData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
+                nx5.b().d(true);
+                rz6.j(view2, threadData, this.b.j);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements bp {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b07 a;
 
-        public a(b07 b07Var) {
+        public b(b07 b07Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -61,269 +89,96 @@ public class b07 {
             this.a = b07Var;
         }
 
-        @Override // com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel.c
-        public void a(DataRes dataRes, boolean z, boolean z2) {
+        @Override // com.repackage.bp
+        public void b(View view2, ro roVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{dataRes, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-                synchronized (this.a) {
-                    if (this.a.j == null || this.a.g) {
-                        this.a.b = dataRes;
-                        this.a.e = z;
-                        this.a.f = z2;
-                    } else {
-                        this.a.i = false;
-                        RecPersonalizePageModel.c cVar = (RecPersonalizePageModel.c) this.a.j.get();
-                        if (cVar != null) {
-                            cVar.a(dataRes, z, z2);
-                        }
-                    }
-                    SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.MAINACTIVITY_GET_NET_CACHE_KEY);
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, roVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (roVar instanceof br4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
+                ThreadData threadData = ((br4) roVar).s;
+                threadData.objType = 1;
+                if (this.a.n != null) {
+                    this.a.n.a(threadCardViewHolder.b(), threadData);
                 }
-            }
-        }
-
-        @Override // com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel.c
-        public void onLoadError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                synchronized (this.a) {
-                    if (this.a.j == null || this.a.g) {
-                        this.a.c = i;
-                        this.a.d = str;
-                    } else {
-                        this.a.i = false;
-                        RecPersonalizePageModel.c cVar = (RecPersonalizePageModel.c) this.a.j.get();
-                        if (cVar != null) {
-                            cVar.onLoadError(i, str);
-                        }
-                    }
-                }
+                ThreadCardUtils.jumpToPB((zn4) threadData, view2.getContext(), 0, false);
+                threadCardViewHolder.c().o(new vz.a(1));
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements MessageQueue.IdleHandler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Runnable a;
-        public final /* synthetic */ b07 b;
-
-        public b(b07 b07Var, Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b07Var, runnable};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = b07Var;
-            this.a = runnable;
-        }
-
-        @Override // android.os.MessageQueue.IdleHandler
-        public boolean queueIdle() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                try {
-                } catch (Exception e) {
-                    BdLog.e(e);
-                }
-                if (this.b.i) {
-                    this.a.run();
-                    return false;
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755880728, "Lcom/repackage/b07;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755880728, "Lcom/repackage/b07;");
-        }
-    }
-
-    public b07() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b07(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2, str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = 0;
-        this.g = false;
-        this.h = false;
-        this.i = false;
+        this.l = true;
+        this.n = new a(this);
+        this.k = tbPageContext;
+        this.i = bdUniqueId2;
+        this.j = str;
     }
 
-    public synchronized DataRes j() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.eo
+    /* renamed from: b0 */
+    public ThreadCardViewHolder M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                if (this.h) {
-                    n();
-                }
-                this.h = true;
-                DataRes dataRes = this.a;
-                if (!MainTabDataSwitch.isCacheOpen() || this.b == null) {
-                    return this.a;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            kz.b bVar = new kz.b(this.k.getPageActivity(), false);
+            uy uyVar = new uy(this.k.getPageActivity());
+            uyVar.s("index");
+            uyVar.t(this.l);
+            bVar.n(uyVar);
+            kz k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.m);
+            k.r(2);
+            ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
+            threadCardViewHolder.k(this.i);
+            V(new b(this));
+            return threadCardViewHolder;
+        }
+        return (ThreadCardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.eo
+    /* renamed from: c0 */
+    public View S(int i, View view2, ViewGroup viewGroup, br4 br4Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
+        InterceptResult invokeCommon;
+        ThreadData threadData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, br4Var, threadCardViewHolder})) == null) {
+            if (br4Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null || (threadData = br4Var.s) == null) {
                 return null;
             }
+            threadData.statFloor = C(i) + 1;
+            threadCardViewHolder.c().q(i);
+            threadCardViewHolder.g(br4Var.s);
+            threadCardViewHolder.c().onChangeSkinType(this.k, TbadkCoreApplication.getInst().getSkinType());
+            threadCardViewHolder.c().p(this.n);
+            rz6.p(br4Var, this.j);
+            return threadCardViewHolder.b();
         }
-        return (DataRes) invokeV.objValue;
+        return (View) invokeCommon.objValue;
     }
 
-    public synchronized boolean k() {
-        InterceptResult invokeV;
+    public void d0(xo xoVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                this.g = false;
-                if (this.i) {
-                    if (this.j != null && (this.c != 0 || this.b != null)) {
-                        if (this.c == 0) {
-                            this.i = false;
-                            RecPersonalizePageModel.c cVar = this.j.get();
-                            if (cVar != null) {
-                                cVar.a(this.b, this.e, this.f);
-                            }
-                        } else {
-                            this.i = false;
-                            RecPersonalizePageModel.c cVar2 = this.j.get();
-                            if (cVar2 != null) {
-                                cVar2.onLoadError(this.c, this.d);
-                            }
-                        }
-                    }
-                    return true;
-                }
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public RecPersonalizePageModel.c l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.j == null) {
-                return null;
-            }
-            return this.j.get();
-        }
-        return (RecPersonalizePageModel.c) invokeV.objValue;
-    }
-
-    public synchronized boolean m() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this) {
-                long m = vt4.k().m("recommend_frs_cache_time", DiskManagerSharedPrefsUtils.DISK_CHECK_DURATION_DEFAULT) * 1000;
-                vt4 k = vt4.k();
-                long m2 = k.m("recommend_frs_refresh_time" + TbadkCoreApplication.getCurrentAccount(), 0L);
-                if (m2 != 0) {
-                    z = Math.abs(System.currentTimeMillis() - m2) > m;
-                }
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void n() {
-        qe<byte[]> e;
-        byte[] bArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (TbadkCoreApplication.getCurrentAccount() == null) {
-                dn4.t().A();
-            }
-            if (!m() || MainTabDataSwitch.isCacheOpen()) {
-                if ((st4.q().u() && st4.q().o() >= st4.q().p()) || (e = br4.e("tb.rec_frs_update", TbadkCoreApplication.getCurrentAccount())) == null || (bArr = e.get("0")) == null || bArr.length == 0) {
-                    return;
-                }
-                try {
-                    DataRes dataRes = (DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class);
-                    if (dataRes == null || dataRes.thread_list == null || dataRes.thread_list.size() <= 0) {
-                        return;
-                    }
-                    this.a = dataRes;
-                } catch (IOException e2) {
-                    BdLog.e(e2);
-                }
-            }
-        }
-    }
-
-    public synchronized void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            synchronized (this) {
-                RecPersonalizePageModel.g().q(new a(this));
-                if (PermissionUtil.isAgreePrivacyPolicy()) {
-                    n();
-                    if (this.a != null && (!MainTabDataSwitch.isCacheOpen() || !m())) {
-                        SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.MAINACTIVITY_GET_CACHE_KEY);
-                    }
-                    vb5 vb5Var = new vb5();
-                    vb5Var.b = "";
-                    vb5Var.a = 0;
-                    RecPersonalizePageModel.g().n(1, 0, vb5Var, 1, 0);
-                    this.i = true;
-                }
-            }
-        }
-    }
-
-    public synchronized void p(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, runnable) == null) {
-            synchronized (this) {
-                boolean m = m();
-                if (MainTabDataSwitch.isCacheOpen() && m) {
-                    this.g = true;
-                    Looper.myQueue().addIdleHandler(new b(this, runnable));
-                }
-            }
-        }
-    }
-
-    public synchronized void q(RecPersonalizePageModel.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, cVar) == null) {
-            synchronized (this) {
-                this.j = new WeakReference<>(cVar);
-            }
+        if (interceptable == null || interceptable.invokeL(1048580, this, xoVar) == null) {
+            this.m = xoVar;
         }
     }
 }

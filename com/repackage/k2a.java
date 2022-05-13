@@ -7,41 +7,84 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class k2a<E> extends i2a<E> {
+public final class k2a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile long h;
+    public final long a;
+    public final T b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k2a(int i) {
-        super(i);
+    public k2a(long j, T t) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {Long.valueOf(j), t};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = t;
+        this.a = j;
     }
 
-    public final long l() {
+    public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.h : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.longValue;
     }
 
-    public final void m(long j) {
+    public T b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.h = j;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (T) invokeV.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj != null && (obj instanceof k2a)) {
+                k2a k2aVar = (k2a) obj;
+                if (this.a == k2aVar.a) {
+                    T t = this.b;
+                    T t2 = k2aVar.b;
+                    if (t == t2) {
+                        return true;
+                    }
+                    if (t != null && t.equals(t2)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return false;
         }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            long j = this.a;
+            int i = (((int) (j ^ (j >>> 32))) + 31) * 31;
+            T t = this.b;
+            return i + (t == null ? 0 : t.hashCode());
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? String.format("Timestamped(timestampMillis = %d, value = %s)", Long.valueOf(this.a), this.b.toString()) : (String) invokeV.objValue;
     }
 }

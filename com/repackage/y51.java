@@ -1,75 +1,273 @@
 package com.repackage;
 
-import android.app.Application;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IHostAppRuntime;
-import com.baidu.nps.interfa.IHostAppRuntime_HostAppRuntimeManager_Provider;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.download.consts.AdDownloadCode;
+import com.baidu.nadcore.download.view.IDownloadViewCreator;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.nadcore.widget.view.NadExpressNaBaseView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class y51 {
+public class y51 extends u51 {
     public static /* synthetic */ Interceptable $ic;
-    public static y51 b;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject
-    public sb1<IHostAppRuntime> a;
+    public final TextView f;
+    public final RelativeLayout g;
+    public final hk0<?> h;
+    public ck0 i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755190916, "Lcom/repackage/y51;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ y51 a;
+
+        public a(y51 y51Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y51Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755190916, "Lcom/repackage/y51;");
+            this.a = y51Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.i == null) {
                 return;
             }
+            this.a.i.l();
         }
-        b = new y51();
     }
 
-    public y51() {
+    /* loaded from: classes7.dex */
+    public class b implements ik0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AdBaseModel a;
+        public final /* synthetic */ y51 b;
+
+        public b(y51 y51Var, AdBaseModel adBaseModel) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y51Var, adBaseModel};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = y51Var;
+            this.a = adBaseModel;
+        }
+
+        @Override // com.repackage.ik0
+        public void a(rj0 rj0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, rj0Var) == null) {
+                y51 y51Var = this.b;
+                if (y51Var.e == null || !y51Var.n(rj0Var, this.a)) {
+                    return;
+                }
+                this.b.e.e(this.a);
+            }
+        }
+
+        @Override // com.repackage.ik0
+        public void b(rj0 rj0Var, AdDownloadCode adDownloadCode) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rj0Var, adDownloadCode) == null) {
+                y51 y51Var = this.b;
+                if (y51Var.e == null || !y51Var.n(rj0Var, this.a)) {
+                    return;
+                }
+                this.b.e.c(this.a);
+            }
+        }
+
+        @Override // com.repackage.ik0
+        public void c(rj0 rj0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rj0Var) == null) {
+                y51 y51Var = this.b;
+                if (y51Var.e == null || !y51Var.n(rj0Var, this.a)) {
+                    return;
+                }
+                this.b.e.a(this.a);
+            }
+        }
+
+        @Override // com.repackage.ik0
+        public void d(rj0 rj0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, rj0Var) == null) {
+                y51 y51Var = this.b;
+                if (y51Var.e == null || !y51Var.n(rj0Var, this.a)) {
+                    return;
+                }
+                this.b.e.c(this.a);
+            }
+        }
+
+        @Override // com.repackage.ik0
+        public void e(rj0 rj0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, rj0Var) == null) {
+                y51 y51Var = this.b;
+                if (y51Var.e == null || !y51Var.n(rj0Var, this.a)) {
+                    return;
+                }
+                this.b.e.a(this.a);
+            }
+        }
+
+        @Override // com.repackage.ik0
+        public void f(rj0 rj0Var, float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLF(1048581, this, rj0Var, f) == null) {
+                y51 y51Var = this.b;
+                if (y51Var.e == null || !y51Var.n(rj0Var, this.a)) {
+                    return;
+                }
+                this.b.e.g(this.a, f);
+            }
+        }
+
+        @Override // com.repackage.ik0
+        public void g(rj0 rj0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, rj0Var) == null) {
+                y51 y51Var = this.b;
+                if (y51Var.e == null || !y51Var.n(rj0Var, this.a)) {
+                    return;
+                }
+                this.b.e.b(this.a);
+            }
+        }
+
+        @Override // com.repackage.ik0
+        public void h(rj0 rj0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, rj0Var) == null) {
+                y51 y51Var = this.b;
+                if (y51Var.e == null || !y51Var.n(rj0Var, this.a)) {
+                    return;
+                }
+                this.b.e.f(this.a);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public y51(int i, View view2) {
+        super(i, view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), view2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), (View) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        c();
+        this.f = (TextView) a(R.id.obfuscated_res_0x7f090982);
+        this.g = (RelativeLayout) a(R.id.obfuscated_res_0x7f0914d4);
+        view2.setBackgroundColor(0);
+        this.h = uk0.a(this.g, IDownloadViewCreator.ViewType.FEED_DOWNLOAD_VIEW);
+        this.g.setOnClickListener(new a(this));
+        m();
     }
 
-    public static y51 b() {
-        InterceptResult invokeV;
+    @Override // com.repackage.u51
+    public void e() {
+        ck0 ck0Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (y51) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (ck0Var = this.i) == null) {
+            return;
+        }
+        ck0Var.j();
+        this.i = null;
     }
 
-    public Application a() {
-        InterceptResult invokeV;
+    public final void m() {
+        TextView textView;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.get().getApplication() : (Application) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (textView = this.f) == null) {
+            return;
+        }
+        textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060251));
     }
 
-    public void c() {
+    public final boolean n(rj0 rj0Var, AdBaseModel adBaseModel) {
+        InterceptResult invokeLL;
+        tn0 tn0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            qb1 b2 = qb1.b();
-            this.a = b2;
-            b2.a(new IHostAppRuntime_HostAppRuntimeManager_Provider());
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, rj0Var, adBaseModel)) == null) ? (rj0Var == null || adBaseModel == null || (tn0Var = adBaseModel.l) == null || !TextUtils.equals(rj0Var.g, tn0Var.c) || !TextUtils.equals(rj0Var.d(), tn0Var.d)) ? false : true : invokeLL.booleanValue;
+    }
+
+    public final void o(AdBaseModel adBaseModel) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, adBaseModel) == null) || this.f == null) {
+            return;
+        }
+        this.f.setTextColor(getResources().getColor(adBaseModel.b ? R.color.obfuscated_res_0x7f060281 : R.color.obfuscated_res_0x7f060251));
+    }
+
+    @Override // com.repackage.u51
+    public void update(AdBaseModel adBaseModel, NadExpressNaBaseView nadExpressNaBaseView) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, adBaseModel, nadExpressNaBaseView) == null) {
+            super.update(adBaseModel, nadExpressNaBaseView);
+            if (u51.c(adBaseModel) && adBaseModel.h != null) {
+                m();
+                String str = adBaseModel.h.b.a;
+                if (!TextUtils.isEmpty(str) && (textView = this.f) != null) {
+                    textView.setText(str);
+                    o(adBaseModel);
+                }
+                if (TextUtils.isEmpty(adBaseModel.f.d)) {
+                    return;
+                }
+                this.i = new ck0(rj0.b(adBaseModel), this.h);
+                l51 l51Var = this.e;
+                if (l51Var != null) {
+                    l51Var.d(adBaseModel);
+                }
+                this.i.n(new b(this, adBaseModel));
+                return;
+            }
+            i(8);
         }
     }
 }

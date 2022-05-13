@@ -1,30 +1,78 @@
 package com.repackage;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public abstract class th0 {
+public class th0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final sh0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public th0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755290891, "Lcom/repackage/th0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755290891, "Lcom/repackage/th0;");
+                return;
             }
         }
+        a = new sh0();
     }
 
-    public abstract String a();
+    public static boolean a(@NonNull Context context, @NonNull yh0 yh0Var, @Nullable Map<String, Object> map, @Nullable ci0 ci0Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, context, yh0Var, map, ci0Var)) == null) ? a.a(context, yh0Var, map, ci0Var) : invokeLLLL.booleanValue;
+    }
 
-    public abstract boolean b(Context context, vh0 vh0Var);
+    public static boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? c(str, null) : invokeL.booleanValue;
+    }
+
+    public static boolean c(String str, @Nullable Context context) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, context)) == null) ? d(str, context, null) : invokeLL.booleanValue;
+    }
+
+    public static boolean d(String str, @Nullable Context context, @Nullable Map<String, Object> map) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, context, map)) == null) ? e(str, context, map, null) : invokeLLL.booleanValue;
+    }
+
+    public static boolean e(String str, @Nullable Context context, @Nullable Map<String, Object> map, @Nullable ci0 ci0Var) {
+        InterceptResult invokeLLLL;
+        z01 z01Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65541, null, str, context, map, ci0Var)) == null) {
+            if (w01.a && (z01Var = (z01) v01.a().a(z01.class)) != null) {
+                z01Var.a(str);
+            }
+            if (!hi0.o(str)) {
+                hi0.d(ci0Var, str, 201, false);
+                return false;
+            }
+            if (context == null) {
+                context = ki0.b();
+            }
+            return a(context, new yh0(str), map, ci0Var);
+        }
+        return invokeLLLL.booleanValue;
+    }
 }

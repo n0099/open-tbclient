@@ -1,66 +1,73 @@
 package com.repackage;
 
 import android.content.Context;
-import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class yb9 {
     public static /* synthetic */ Interceptable $ic = null;
-    public static int a = -1;
-    public static String b = "";
+    public static String b = "UnionIDFactory";
+    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public cc9 a;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755147423, "Lcom/repackage/yb9;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755147423, "Lcom/repackage/yb9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755147423, "Lcom/repackage/yb9;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+        c = vb9.e();
+    }
+
+    public yb9(Context context) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755147423, "Lcom/repackage/yb9;");
+        int a = wb9.a();
+        if (c) {
+            String str = b;
+            Log.e(str, "UnionIDFactory manufacturer:" + a);
+        }
+        if (a == 10001) {
+            this.a = new ec9(context);
+        } else if (a != 10002) {
+            this.a = new fc9(context);
+        } else {
+            if (c) {
+                Log.e(b, "UnionIDFactory XMUnionID");
+            }
+            this.a = new gc9(context);
         }
     }
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
+    public cc9 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (!TextUtils.isEmpty(b)) {
-                return b;
-            }
-            try {
-                b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return b;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static int b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            int i = a;
-            if (i >= 0) {
-                return i;
-            }
-            try {
-                a = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return a;
-        }
-        return invokeL.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (cc9) invokeV.objValue;
     }
 }

@@ -44,22 +44,22 @@ public class mq7 extends jq7 {
                 return;
             }
         }
-        ViewStub viewStub = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f0923cd);
+        ViewStub viewStub = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f09241d);
         this.o = viewStub;
         viewStub.inflate();
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.o.getLayoutParams();
-        layoutParams.topMargin = ((oi.i(tbPageContext.getPageActivity()) / 2) + oi.f(tbPageContext.getPageActivity(), R.dimen.tbds239)) - oi.f(tbPageContext.getPageActivity(), R.dimen.tbds140);
+        layoutParams.topMargin = ((mi.i(tbPageContext.getPageActivity()) / 2) + mi.f(tbPageContext.getPageActivity(), R.dimen.tbds239)) - mi.f(tbPageContext.getPageActivity(), R.dimen.tbds140);
         this.o.setLayoutParams(layoutParams);
-        this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922a4);
-        ViewStub viewStub2 = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f0923ca);
+        this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922fa);
+        ViewStub viewStub2 = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f09241a);
         this.p = viewStub2;
         viewStub2.inflate();
-        this.r = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ff2);
-        this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091608);
-        this.t = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ff3);
-        this.u = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09016f);
-        this.v = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ff4);
-        this.w = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918eb);
+        this.r = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092050);
+        this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09161f);
+        this.t = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092051);
+        this.u = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090165);
+        this.v = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092052);
+        this.w = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091943);
     }
 
     @Override // com.repackage.jq7
@@ -67,31 +67,31 @@ public class mq7 extends jq7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.a(i);
-            vr4 d = vr4.d(this.q);
+            gs4 d = gs4.d(this.q);
             d.v(R.color.CAM_X0105);
             d.z(R.dimen.T_X03);
             d.A(R.string.F_X02);
-            vr4 d2 = vr4.d(this.r);
+            gs4 d2 = gs4.d(this.r);
             d2.v(R.color.CAM_X0108);
             d2.z(R.dimen.tbds29);
             d2.A(R.string.F_X01);
-            vr4 d3 = vr4.d(this.t);
+            gs4 d3 = gs4.d(this.t);
             d3.v(R.color.CAM_X0108);
             d3.z(R.dimen.tbds29);
             d3.A(R.string.F_X01);
-            vr4 d4 = vr4.d(this.v);
+            gs4 d4 = gs4.d(this.v);
             d4.v(R.color.CAM_X0108);
             d4.z(R.dimen.tbds29);
             d4.A(R.string.F_X01);
-            vr4 d5 = vr4.d(this.s);
+            gs4 d5 = gs4.d(this.s);
             d5.v(R.color.CAM_X0302);
             d5.z(R.dimen.tbds29);
             d5.A(R.string.F_X01);
-            vr4 d6 = vr4.d(this.u);
+            gs4 d6 = gs4.d(this.u);
             d6.v(R.color.CAM_X0302);
             d6.z(R.dimen.tbds29);
             d6.A(R.string.F_X01);
-            vr4 d7 = vr4.d(this.w);
+            gs4 d7 = gs4.d(this.w);
             d7.v(R.color.CAM_X0302);
             d7.z(R.dimen.tbds29);
             d7.A(R.string.F_X01);
@@ -123,12 +123,12 @@ public class mq7 extends jq7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             if (i == 1) {
-                this.s.setText(R.string.obfuscated_res_0x7f0f0cba);
+                this.s.setText(R.string.obfuscated_res_0x7f0f0cd5);
             } else if (i == 2) {
-                this.s.setText(R.string.obfuscated_res_0x7f0f0cbb);
+                this.s.setText(R.string.obfuscated_res_0x7f0f0cd6);
             } else if (i != 3) {
             } else {
-                this.s.setText(R.string.obfuscated_res_0x7f0f0cbc);
+                this.s.setText(R.string.obfuscated_res_0x7f0f0cd7);
             }
         }
     }

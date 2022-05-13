@@ -68,13 +68,13 @@ public class e extends d implements View.OnClickListener {
     }
 
     private void b() {
-        this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0910fc);
-        this.c = (KSCornerImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0910f9);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0910fb);
-        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0910ec);
-        this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0910ea);
-        this.g = (KSCornerImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0910fa);
-        this.h = this.a.findViewById(R.id.obfuscated_res_0x7f091129);
+        this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f09110b);
+        this.c = (KSCornerImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091108);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09110a);
+        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0910fb);
+        this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0910f9);
+        this.g = (KSCornerImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091109);
+        this.h = this.a.findViewById(R.id.obfuscated_res_0x7f091138);
         this.f.setOnClickListener(this);
         this.c.setOnClickListener(this);
         this.h.setOnClickListener(this);

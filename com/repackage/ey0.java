@@ -20,10 +20,10 @@ public class ey0 {
             return;
         }
         Context b = wp0.b();
-        zi0.c("DumediaUtils", "initCyber, pid = " + Process.myPid());
+        cj0.c("DumediaUtils", "initCyber, pid = " + Process.myPid());
         try {
             if (TextUtils.isEmpty(str)) {
-                str = hi0.a().b();
+                str = ki0.a().b();
             }
             CyberPlayerManager.install(b, str, (String) null, i, z ? BDRemotePlayerService.class : null, map, installListener);
             if (getNetHandleListener != null) {

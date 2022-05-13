@@ -1,43 +1,32 @@
 package com.repackage;
 
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.searchbox.fluency.tracer.FpsTracer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Comparator;
 /* loaded from: classes6.dex */
-public class hh implements Comparator<gh> {
+public class hh {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public hh() {
+    public static void a(String str, int i, String str2, boolean z, boolean z2, long j, long j2, long j3, long j4, long j5, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if ((interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z), Boolean.valueOf(z2), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Integer.valueOf(i2)}) == null) && BdBaseApplication.getInst().isSmallFlow()) {
+            sg statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
+            statsItem.b("action", "network_monitor_a");
+            statsItem.b("cmd", String.valueOf(i));
+            statsItem.b("url", str2);
+            statsItem.b("issuccess", z ? "1" : "0");
+            statsItem.b("ishttp", z2 ? "1" : "0");
+            statsItem.b(FpsTracer.UBC_KEY_NET_TYPE, ki.m());
+            statsItem.b("connt", String.valueOf(j));
+            statsItem.b("rwt", String.valueOf(j2));
+            statsItem.b("parset", String.valueOf(j3));
+            statsItem.b("fbt", String.valueOf(j4));
+            statsItem.b("abt", String.valueOf(j5));
+            statsItem.b("salno", String.valueOf(i2));
+            BdStatisticsManager.getInstance().performance(str, statsItem);
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Comparator
-    /* renamed from: a */
-    public int compare(gh ghVar, gh ghVar2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, ghVar, ghVar2)) == null) {
-            int i = (ghVar.c > ghVar2.c ? 1 : (ghVar.c == ghVar2.c ? 0 : -1));
-            if (i > 0) {
-                return 1;
-            }
-            return i == 0 ? 0 : -1;
-        }
-        return invokeLL.intValue;
     }
 }

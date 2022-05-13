@@ -1,6 +1,6 @@
 package com.repackage;
 
-import android.content.Context;
+import android.content.DialogInterface;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,76 +8,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.PBError;
-/* loaded from: classes6.dex */
-public class ej9 extends zi9 {
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.kwad.sdk.api.KsNativeAd;
+/* loaded from: classes5.dex */
+public class ej9 extends kj9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gq9 a;
+    public boolean a;
+    public boolean b;
+    public final /* synthetic */ KsNativeAd c;
+    public final /* synthetic */ dj9 d;
 
-    /* loaded from: classes6.dex */
-    public class a implements hq9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jj9 a;
-
-        public a(ej9 ej9Var, jj9 jj9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ej9Var, jj9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = jj9Var;
-        }
-
-        @Override // com.win.opensdk.PBListener
-        public void onClicked() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.onClicked();
-            }
-        }
-
-        @Override // com.repackage.hq9
-        public void onDisplayed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.onDisplayed();
-            }
-        }
-
-        @Override // com.win.opensdk.PBListener
-        public void onFail(PBError pBError) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) {
-                this.a.a(pBError.getMsg(), pBError.getCode());
-            }
-        }
-
-        @Override // com.win.opensdk.PBListener
-        public void onLoaded() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.a.onLoaded();
-            }
-        }
-    }
-
-    public ej9(Context context, String str) {
+    public ej9(dj9 dj9Var, KsNativeAd ksNativeAd) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {dj9Var, ksNativeAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -87,37 +34,37 @@ public class ej9 extends zi9 {
                 return;
             }
         }
-        this.a = new gq9(context.getApplicationContext(), str);
+        this.d = dj9Var;
+        this.c = ksNativeAd;
     }
 
-    @Override // com.repackage.yi9
-    public void a() {
+    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
+    public boolean handleDownloadDialog(DialogInterface.OnClickListener onClickListener) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.h();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, onClickListener)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
+    public void onAdClicked(View view2, KsNativeAd ksNativeAd) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, ksNativeAd) == null) {
+            LogPrinter.d();
+            this.d.onAdClicked(this.b, new String[0]);
+            this.b = true;
         }
     }
 
-    @Override // com.repackage.yi9
-    public void b() {
+    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
+    public void onAdShow(KsNativeAd ksNativeAd) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.j();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ksNativeAd) == null) {
+            LogPrinter.d();
+            this.d.onAdShow(this.c, this.a, new String[0]);
+            this.a = true;
         }
-    }
-
-    @Override // com.repackage.zi9
-    public void c(jj9 jj9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jj9Var) == null) {
-            this.a.k(new a(this, jj9Var));
-        }
-    }
-
-    @Override // com.repackage.zi9
-    public View d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.i() : (View) invokeV.objValue;
     }
 }

@@ -51,7 +51,7 @@ public class bn {
             String a2 = com.xiaomi.push.p.a(context).a("mipush", "td_key", "");
             if (TextUtils.isEmpty(a2)) {
                 a2 = com.xiaomi.push.bm.a(20);
-                com.xiaomi.push.p.a(context).m578a("mipush", "td_key", a2);
+                com.xiaomi.push.p.a(context).m579a("mipush", "td_key", a2);
             }
             return a(a2);
         }
@@ -62,7 +62,7 @@ public class bn {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            byte[] copyOf = Arrays.copyOf(com.xiaomi.push.bj.m218a(str), 16);
+            byte[] copyOf = Arrays.copyOf(com.xiaomi.push.bj.m219a(str), 16);
             copyOf[0] = 68;
             copyOf[15] = 84;
             return copyOf;
@@ -94,7 +94,7 @@ public class bn {
                 if (b != null && b.length >= 1) {
                     if (b.length > 10240) {
                         str2 = "TinyData write to cache file failed case too much data content item:" + hjVar.d() + "  ts:" + System.currentTimeMillis();
-                        com.xiaomi.channel.commonutils.logger.b.m108a(str2);
+                        com.xiaomi.channel.commonutils.logger.b.m109a(str2);
                         com.xiaomi.push.y.a((Closeable) null);
                         com.xiaomi.push.y.a((Closeable) null);
                     }
@@ -133,7 +133,7 @@ public class bn {
                     }
                 }
                 str2 = "TinyData write to cache file failed case encryption fail item:" + hjVar.d() + "  ts:" + System.currentTimeMillis();
-                com.xiaomi.channel.commonutils.logger.b.m108a(str2);
+                com.xiaomi.channel.commonutils.logger.b.m109a(str2);
                 com.xiaomi.push.y.a((Closeable) null);
                 com.xiaomi.push.y.a((Closeable) null);
             } catch (Throwable th2) {

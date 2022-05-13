@@ -13,9 +13,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.mcssdk.mode.CommandMessage;
-import com.repackage.d4a;
-import com.repackage.e4a;
-import com.repackage.f4a;
+import com.repackage.x2a;
+import com.repackage.y2a;
+import com.repackage.z2a;
 import com.yy.mobile.framework.revenuesdk.baseapi.Env;
 import com.yy.mobile.framework.revenuesdk.baseapi.ProtocolType;
 import com.yy.mobile.framework.revenuesdk.baseapi.data.DataSenderConfig;
@@ -47,7 +47,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
     public String version;
 
     /* loaded from: classes9.dex */
-    public class a extends e4a {
+    public class a extends y2a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -84,7 +84,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
             this.g = arrayList;
         }
 
-        @Override // com.repackage.e4a
+        @Override // com.repackage.y2a
         public void a(Request request, boolean z, Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{request, Boolean.valueOf(z), exc}) == null) {
@@ -108,7 +108,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
             }
         }
 
-        @Override // com.repackage.e4a
+        @Override // com.repackage.y2a
         public void b(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
@@ -243,7 +243,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
             hashMap2.put("data", jSONObject2.toString());
             hashMap2.put("ticket", pSCIMessageRequest.getTicket());
             RLog.info("HttpDataSenderAdapter", "sendByHttpPost requstUrl:" + str3 + " seq:" + str2 + " sign:" + md5 + " hostId:" + this.hostId + " authType:" + this.authType + " clientVersion:" + this.version);
-            d4a.f().e(str3, hashMap2, i, i2, pSCIMessageRequest.getTraceid(), this.version, this.pakageName, this.hostId, this.authType, new a(this, i, i2, str2, bArr, pSCIMessageRequest, str, arrayList));
+            x2a.f().e(str3, hashMap2, i, i2, pSCIMessageRequest.getTraceid(), this.version, this.pakageName, this.hostId, this.authType, new a(this, i, i2, str2, bArr, pSCIMessageRequest, str, arrayList));
         }
     }
 
@@ -252,7 +252,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
             RLog.info("HttpDataSenderAdapter", "cancelAllRequest appId:" + i + " useChannel:" + i2);
-            d4a.f().d(i, i2);
+            x2a.f().d(i, i2);
         }
     }
 
@@ -284,7 +284,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
             DataSenderConfig dataSenderConfig = this.config;
             if (dataSenderConfig != null && !TextUtils.isEmpty(dataSenderConfig.gslbAppId)) {
                 RLog.warn("HttpDataSenderAdapter", "tryInitHttpDns gslbAppId:" + this.config.gslbAppId);
-                f4a b = f4a.b();
+                z2a b = z2a.b();
                 DataSenderConfig dataSenderConfig2 = this.config;
                 b.e(dataSenderConfig2.appContext, dataSenderConfig2.gslbAppId, dataSenderConfig2.hdid);
             }

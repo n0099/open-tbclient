@@ -1,148 +1,178 @@
 package com.repackage;
 
-import android.graphics.Color;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import android.widget.TextView;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.SimpleDateFormat;
-import java.util.Locale;
 /* loaded from: classes7.dex */
-public class vu2 {
-    public static /* synthetic */ Interceptable $ic;
+public class vu2 implements yl2 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static Boolean c = null;
+    public static int d = -1;
+    public static int e = -1;
+    public static int f = -1;
+    public static int g = -1;
+    public static int h = -1;
+    public static int i = -1;
+    public static int j = -1;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
 
-    public vu2() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755218754, "Lcom/repackage/vu2;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755218754, "Lcom/repackage/vu2;");
         }
     }
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = true;
-        }
-    }
-
-    public final ViewGroup b() {
+    public static boolean a() {
         InterceptResult invokeV;
-        ViewGroup viewGroup;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (j03.a0() == null || j03.a0().x() == null || (viewGroup = (ViewGroup) j03.a0().x().findViewById(16908290)) == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (f == -1) {
+                f = b("swanswitch_file_res_cache_option");
             }
-            ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f091d8f);
-            if (viewGroup2 != null) {
-                return viewGroup2;
+            return f == 1;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static int b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            bk2.g0().getSwitch(str, 0);
+            if (yl2.a) {
+                Log.d("SwanPerformance", "packing[" + str + " = 0" + PreferencesUtil.RIGHT_MOUNT);
             }
-            ViewGroup viewGroup3 = (ViewGroup) LayoutInflater.from(j03.a0().x()).inflate(R.layout.obfuscated_res_0x7f0d07c4, viewGroup);
-            this.b = true;
-            return viewGroup3;
+            return 0;
         }
-        return (ViewGroup) invokeV.objValue;
+        return invokeL.intValue;
     }
 
-    public void c() {
+    public static boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.b) {
-            d();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (i == -1) {
+                i = b("swan_http_interceptor_opt");
+            }
+            return i > 0;
         }
+        return invokeV.booleanValue;
     }
 
-    public final void d() {
-        j03 a0;
+    public static boolean d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (a0 = j03.a0()) == null || a0.x() == null) {
-            return;
-        }
-        ViewGroup viewGroup = (ViewGroup) a0.x().findViewById(R.id.obfuscated_res_0x7f091d8f);
-        if (viewGroup != null && (viewGroup.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) viewGroup.getParent()).removeView(viewGroup);
-        }
-        this.b = false;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? b(str) != 0 : invokeL.booleanValue;
     }
 
-    public void e() {
+    public static boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a = false;
-            c();
-            k();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f() > 0 : invokeV.booleanValue;
     }
 
-    public void f(long j) {
+    public static int f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            j(R.id.obfuscated_res_0x7f090985, j, "#80ff0000", "FCP");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (j == -1) {
+                j = b("swan_js_thread_opt");
+            }
+            return j;
         }
+        return invokeV.intValue;
     }
 
-    public void g(long j) {
+    public static int g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            j(R.id.obfuscated_res_0x7f0909a3, j, "#80ff0000", "FIP");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (h == -1) {
+                h = b("swan_preload_slave_opt");
+            }
+            return h;
         }
+        return invokeV.intValue;
     }
 
-    public void h(long j) {
+    public static boolean h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            j(R.id.obfuscated_res_0x7f0909eb, j, "#8000ff00", "FMP");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            if (d == -1) {
+                d = b("swan_http_thread_opt");
+            }
+            return d > 0;
         }
+        return invokeV.booleanValue;
     }
 
-    public void i(long j) {
+    public static boolean i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            j(R.id.obfuscated_res_0x7f090c08, j, "#80ff0000", "FTP");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            if (d == -1) {
+                d = b("swan_http_thread_opt");
+            }
+            int i2 = d;
+            return i2 > 0 && i2 != 2;
         }
+        return invokeV.booleanValue;
     }
 
-    public final void j(int i, long j, String str, String str2) {
-        ViewGroup b;
+    public static int j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), str, str2}) == null) || this.a || (b = b()) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            if (g == -1) {
+                g = b("swan_ubc_samping_opt");
+            }
+            return g;
         }
-        TextView textView = (TextView) b.findViewById(i);
-        textView.setText(String.format(str2 + ":[%s]ms", Long.valueOf(j)));
-        textView.setBackgroundColor(Color.parseColor(str));
+        return invokeV.intValue;
     }
 
-    public void k() {
+    public static boolean k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.b) {
-            return;
-        }
-        b();
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? j() > 0 : invokeV.booleanValue;
     }
 
-    public void l(long j, long j2) {
-        ViewGroup b;
+    public static boolean l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || this.a || (b = b()) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            if (c == null) {
+                c = Boolean.valueOf(d("swan_js_thread_dispatch"));
+            }
+            return c.booleanValue();
         }
-        ((TextView) b.findViewById(R.id.obfuscated_res_0x7f091dcc)).setText(String.format("启动:[%s] 耗时:[%s]ms", new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault()).format(Long.valueOf(j)), Long.valueOf(j2)));
+        return invokeV.booleanValue;
+    }
+
+    public static boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            if (e == -1) {
+                e = b("swan_webview_ssl_opt");
+            }
+            return e > 0;
+        }
+        return invokeV.booleanValue;
     }
 }

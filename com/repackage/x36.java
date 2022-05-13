@@ -1,59 +1,110 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.SparseArray;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.SocketMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.adp.framework.task.SocketMessageTask;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.gson.Gson;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes7.dex */
-public final class x36 {
+public class x36 extends va {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, String> a;
-    public static Map<String, String> b;
-    public static Map<String, String> c;
     public transient /* synthetic */ FieldHolder $fh;
+    public q36 a;
+    public SparseArray<String> b;
+    public HashMap<String, String> c;
+    public Gson d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755222474, "Lcom/repackage/x36;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755222474, "Lcom/repackage/x36;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x36(int i) {
+        super(i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new HashMap();
-        b = new HashMap();
-        c = new HashMap();
-        a.put("CAM_X0906", "CAM_X0906");
-        b.put("CAM_X0906", "com.baidu.tbadk.core.elementsMaven.EMABTest");
-        c.put("CAM_X0906", "testMethod");
+        this.d = new Gson();
+        a();
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public final void a() {
+        int e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (b.containsKey(str)) {
-                try {
-                    Method declaredMethod = Class.forName(b.get(str)).getDeclaredMethod(c.get(str), new Class[0]);
-                    declaredMethod.setAccessible(true);
-                    Object invoke = declaredMethod.invoke(null, new Object[0]);
-                    return ((invoke instanceof Boolean) && ((Boolean) invoke).booleanValue()) ? a.get(str) : str;
-                } catch (ClassNotFoundException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
-                    e.printStackTrace();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b = new SparseArray<>();
+            ArrayList<HttpMessageTask> findHttpTasks = MessageManager.getInstance().findHttpTasks();
+            if (ListUtils.isEmpty(findHttpTasks)) {
+                return;
+            }
+            for (int i = 0; i < findHttpTasks.size(); i++) {
+                String url = findHttpTasks.get(i).getUrl();
+                if (!li.isEmpty(url) && url.contains("?")) {
+                    String[] split = url.split("[?]");
+                    String str = split[1];
+                    String str2 = split[0];
+                    if (!li.isEmpty(str) && str.contains("=") && (e = kg.e(str.split("[=]")[1], 0)) != 0) {
+                        this.b.put(e, str2.replace(TbConfig.SERVER_ADDRESS, ""));
+                    }
                 }
             }
-            return str;
         }
-        return (String) invokeL.objValue;
+    }
+
+    public void b(q36 q36Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q36Var) == null) {
+            this.a = q36Var;
+        }
+    }
+
+    public void c(HashMap<String, String> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) {
+            this.c = hashMap;
+        }
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
+    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
+    @Override // com.repackage.qa
+    public /* bridge */ /* synthetic */ SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
+        SocketMessage socketMessage2 = socketMessage;
+        process2(socketMessage2, socketMessageTask);
+        return socketMessage2;
+    }
+
+    /* renamed from: process  reason: avoid collision after fix types in other method */
+    public SocketMessage process2(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
+        InterceptResult invokeLL;
+        HashMap<String, String> hashMap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, socketMessage, socketMessageTask)) == null) {
+            String str = this.b.get(socketMessage.getCmd());
+            if (str != null && (hashMap = this.c) != null && hashMap.get(str) != null && this.a != null) {
+                this.a.a(str, this.d.toJson(this.c.get(str)), this.d.toJson(this.d.toJson(socketMessage.getData())));
+            }
+            return socketMessage;
+        }
+        return (SocketMessage) invokeLL.objValue;
     }
 }

@@ -1,5 +1,5 @@
 package com.repackage;
 /* loaded from: classes6.dex */
 public interface fa8 {
-    aa8 getVideoOrVrView();
+    void j(boolean z);
 }

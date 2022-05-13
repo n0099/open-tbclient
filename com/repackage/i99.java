@@ -1,19 +1,13 @@
 package com.repackage;
+
+import java.io.IOException;
 /* loaded from: classes6.dex */
 public interface i99 {
-    int a(byte[] bArr, int i);
+    void a() throws IOException;
 
-    boolean a();
+    void b(String str) throws IOException;
 
-    boolean a(int i, int i2, int i3, int i4);
+    int c(byte[] bArr, int i, int i2) throws IOException;
 
-    byte[] a(int i);
-
-    boolean b();
-
-    void c();
-
-    void d();
-
-    void e();
+    void d(q99 q99Var);
 }

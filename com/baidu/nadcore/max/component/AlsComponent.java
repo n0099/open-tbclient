@@ -14,12 +14,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.bn0;
-import com.repackage.e31;
 import com.repackage.en0;
 import com.repackage.ez0;
-import com.repackage.fi0;
 import com.repackage.hn0;
+import com.repackage.ii0;
 import com.repackage.in0;
+import com.repackage.o31;
 import com.repackage.qn0;
 import com.repackage.tm0;
 import com.repackage.um0;
@@ -71,7 +71,7 @@ public final class AlsComponent extends AbsComponentPlugin {
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
-    public void c(fi0 event) {
+    public void c(ii0 event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
@@ -212,22 +212,22 @@ public final class AlsComponent extends AbsComponentPlugin {
             Intrinsics.checkNotNullParameter(type, "type");
             Intrinsics.checkNotNullParameter(area, "area");
             Intrinsics.checkNotNullParameter(ext1, "ext1");
-            ClogBuilder q = new ClogBuilder().t(type).q(ClogBuilder.Page.PAGE_VIDEO_IMMERSIVE_LP);
+            ClogBuilder s = new ClogBuilder().x(type).s(ClogBuilder.Page.PAGE_VIDEO_IMMERSIVE_LP);
             if (!TextUtils.isEmpty(area)) {
-                q.h(area);
+                s.h(area);
             }
             if (!TextUtils.isEmpty(this.d)) {
-                q.n(this.d);
+                s.n(this.d);
             }
             if (!TextUtils.isEmpty(ext1)) {
-                q.i(ext1);
+                s.i(ext1);
             }
-            ez0.b(q);
+            ez0.c(s);
         }
     }
 
     public final void q() {
-        e31 e;
+        o31 e;
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {

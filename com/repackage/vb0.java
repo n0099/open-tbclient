@@ -1,123 +1,46 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.util.DisplayMetrics;
+import androidx.annotation.Nullable;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.regex.Pattern;
 /* loaded from: classes7.dex */
 public class vb0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755237075, "Lcom/repackage/vb0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755237075, "Lcom/repackage/vb0;");
-                return;
-            }
-        }
-        Pattern.compile("^((https|http|ftp|rtsp|mms)?://)?(([0-9a-zA-Z_!~*'().&=+$%-]+: )?[0-9a-zA-Z_!~*'().&=+$%-]+@)?(([0-9]{1,3}\\.){3}[0-9]{1,3}|([0-9a-zA-Z_!~*'()-]+\\.)*([0-9a-zA-Z][0-9a-zA-Z-]{0,61})?[0-9a-zA-Z]\\.[a-zA-Z]{2,6})(:[0-9]{1,4})?((/?)|(/[0-9a-zA-Z_!~*'().;?:@&=+$,%#-]+)+/?)$");
-    }
-
-    public static String a(String str, Map<String, String> map) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, map)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            String c = c(map);
-            if (TextUtils.isEmpty(c)) {
-                return str;
-            }
-            if (str.contains("?")) {
-                return str + "&" + c;
-            }
-            return str + "?" + c;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String b(String str) {
+    public static float a(@Nullable Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+            if (displayMetrics != null) {
+                return displayMetrics.density;
             }
-            int indexOf = str.indexOf("?");
-            if (indexOf > 0) {
-                return str.substring(indexOf + 1);
-            }
-            return null;
+            return 0.0f;
         }
-        return (String) invokeL.objValue;
+        return invokeL.floatValue;
     }
 
-    public static String c(Map<String, String> map) {
-        InterceptResult invokeL;
-        String encode;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
-            if (map == null) {
-                return "";
-            }
-            StringBuilder sb = new StringBuilder();
-            for (String str : map.keySet()) {
-                if (sb.length() > 0) {
-                    sb.append("&");
-                }
-                String str2 = map.get(str);
-                if (str != null) {
-                    try {
-                        encode = URLEncoder.encode(str, "UTF-8");
-                    } catch (UnsupportedEncodingException e) {
-                        lb0.a(e);
-                    }
-                } else {
-                    encode = "";
-                }
-                sb.append(encode);
-                sb.append("=");
-                sb.append(str2 != null ? URLEncoder.encode(str2, "UTF-8") : "");
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static Map<String, String> d(String str) {
+    public static int b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            HashMap hashMap = new HashMap();
-            for (String str2 : str.split("&")) {
-                String[] split = str2.split("=");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            int identifier = context.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
+            int i = 0;
+            if (identifier > 0) {
                 try {
-                    hashMap.put(URLDecoder.decode(split[0], "UTF-8"), split.length > 1 ? URLDecoder.decode(split[1], "UTF-8") : "");
-                } catch (UnsupportedEncodingException unused) {
+                    i = context.getResources().getDimensionPixelSize(identifier);
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
-            return hashMap;
+            return i == 0 ? (int) (a(context) * 25.0f) : i;
         }
-        return (Map) invokeL.objValue;
+        return invokeL.intValue;
     }
 }

@@ -1,19 +1,27 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface lk2 {
-    void a(Activity activity, String str, String str2);
+public class lk2 {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile kk2 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b(Context context);
-
-    void c(Activity activity, String str, i71 i71Var);
-
-    void d(Context context, JSONObject jSONObject, i71 i71Var);
-
-    void e(Activity activity, String str, i71 i71Var);
-
-    void f(Activity activity, String str, t71<JSONObject> t71Var);
+    public static synchronized kk2 a() {
+        InterceptResult invokeV;
+        kk2 kk2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (lk2.class) {
+                if (a == null) {
+                    a = new kk2();
+                }
+                kk2Var = a;
+            }
+            return kk2Var;
+        }
+        return (kk2) invokeV.objValue;
+    }
 }

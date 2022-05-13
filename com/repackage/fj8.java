@@ -4,11 +4,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.FrsPage.Group;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class fj8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public gj8 f;
+    public String g;
+    public int h;
+    public List<String> i;
 
     public fj8() {
         Interceptable interceptable = $ic;
@@ -22,14 +31,5 @@ public class fj8 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public void a(Group group) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, group) == null) || group == null) {
-            return;
-        }
-        group.group_count.intValue();
-        group.hide_recommend_group.intValue();
     }
 }

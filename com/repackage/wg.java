@@ -1,88 +1,54 @@
 package com.repackage;
 
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class wg extends xe {
+public class wg {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public wg() {
+    public static String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (context == null) {
+                return null;
             }
+            if (ki.H()) {
+                return "WIFI";
+            }
+            if (ki.x()) {
+                int f = ki.f();
+                StringBuilder sb = new StringBuilder();
+                if (f == 1) {
+                    sb.append('M');
+                } else if (f == 2) {
+                    sb.append('U');
+                } else if (f != 3) {
+                    sb.append('N');
+                } else {
+                    sb.append('T');
+                }
+                if (ki.E()) {
+                    sb.append("_WAP_");
+                } else {
+                    sb.append("_NET_");
+                }
+                if (ki.u()) {
+                    sb.append("3G");
+                } else if (ki.v()) {
+                    sb.append("4G");
+                } else if (ki.t()) {
+                    sb.append("2G");
+                } else {
+                    sb.append('N');
+                }
+                return sb.toString();
+            }
+            return "unknown";
         }
-    }
-
-    public static boolean isOn() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? SwitchManager.getInstance().findType("android_should_open_ubc_log") == 1 : invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.xe
-    public void changeSettingByType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-        }
-    }
-
-    @Override // com.repackage.xe
-    public String[] getCrashKeys() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (String[]) invokeV.objValue;
-    }
-
-    @Override // com.repackage.xe
-    public int getDefaultType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.repackage.xe
-    public int getMaxCrashTimes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 10;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.repackage.xe
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "android_should_open_ubc_log" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.xe
-    public int getOffType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
+        return (String) invokeL.objValue;
     }
 }

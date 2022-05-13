@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.v51;
+import com.repackage.g61;
 /* loaded from: classes2.dex */
 public class NPSHookManager {
     public static /* synthetic */ Interceptable $ic;
@@ -31,6 +31,6 @@ public class NPSHookManager {
         if (!(interceptable == null || interceptable.invokeL(65537, null, application) == null) || Build.VERSION.SDK_INT >= 28) {
             return;
         }
-        v51.a(application);
+        g61.a(application);
     }
 }

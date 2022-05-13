@@ -30,10 +30,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.un.w0;
-import com.repackage.an8;
-import com.repackage.oi;
-import com.repackage.ym8;
-import com.repackage.zm8;
+import com.repackage.mi;
+import com.repackage.vl8;
+import com.repackage.wl8;
+import com.repackage.xl8;
 /* loaded from: classes3.dex */
 public class WriteActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
@@ -124,7 +124,7 @@ public class WriteActivityConfig extends IntentConfig {
     public void send() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            an8.g = new Intent(getIntent());
+            xl8.g = new Intent(getIntent());
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this));
         }
     }
@@ -635,10 +635,10 @@ public class WriteActivityConfig extends IntentConfig {
         Activity currentActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            boolean q = ym8.k().q();
-            zm8.a("发帖阻拦状态 = " + q);
+            boolean q = vl8.k().q();
+            wl8.a("发帖阻拦状态 = " + q);
             if (q && z && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null) {
-                oi.N(currentActivity, "正在发布，请稍后");
+                mi.N(currentActivity, "正在发布，请稍后");
             }
             return q;
         }

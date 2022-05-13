@@ -52,18 +52,18 @@ public abstract class y48 {
     public int f;
     public UserData g;
     public AntiData h;
-    public ArrayList<uo> i;
+    public ArrayList<ro> i;
     public a58 j;
-    public k18 k;
-    public it6 l;
+    public e18 k;
+    public is6 l;
     public List<AlaLiveInfoCoreData> m;
     public e58 n;
     public g58 o;
-    public List<uo> p;
-    public ArrayList<uo> q;
+    public List<ro> p;
+    public ArrayList<ro> q;
     public ArrayList<l58> r;
-    public ArrayList<uo> s;
-    public o18 t;
+    public ArrayList<ro> s;
+    public i18 t;
     public l58 u;
     public l58 v;
     public l58 w;
@@ -97,16 +97,16 @@ public abstract class y48 {
         this.D = new ArrayList();
     }
 
-    public b18 a(int i, int i2) {
+    public v08 a(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
-            b18 b18Var = new b18();
-            b18Var.a = i;
-            b18Var.c = i2;
-            return b18Var;
+            v08 v08Var = new v08();
+            v08Var.a = i;
+            v08Var.c = i2;
+            return v08Var;
         }
-        return (b18) invokeII.objValue;
+        return (v08) invokeII.objValue;
     }
 
     public abstract void b();
@@ -117,9 +117,9 @@ public abstract class y48 {
         if (interceptable == null || (invokeIII = interceptable.invokeIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3)) == null) {
             l58 l58Var = new l58();
             TbadkCoreApplication.getInst().getString(i2);
-            s28 s28Var = new s28();
-            l58Var.a = s28Var;
-            s28Var.a = i3;
+            q28 q28Var = new q28();
+            l58Var.a = q28Var;
+            q28Var.a = i3;
             return l58Var;
         }
         return (l58) invokeIII.objValue;
@@ -129,62 +129,62 @@ public abstract class y48 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.r.clear();
-            l58 c = c(R.drawable.icon_starer_caise_heibai, R.string.obfuscated_res_0x7f0f0a81, 20);
+            l58 c = c(R.drawable.icon_starer_caise_heibai, R.string.obfuscated_res_0x7f0f0a87, 20);
             this.v = c;
             c.b = new Bundle();
             this.v.b.putBoolean("person_center_item_red_tip", true);
             this.v.a.b = new Bundle();
             this.v.a.b.putSerializable(UserData.TYPE_USER, this.g);
             this.r.add(this.v);
-            l58 c2 = c(R.drawable.icon_lover_caise_heibai, R.string.obfuscated_res_0x7f0f0432, 24);
+            l58 c2 = c(R.drawable.icon_lover_caise_heibai, R.string.obfuscated_res_0x7f0f0439, 24);
             this.w = c2;
             c2.b = new Bundle();
             this.w.b.putBoolean("person_center_item_red_tip", true);
             this.w.a.b = new Bundle();
             this.w.a.b.putSerializable(UserData.TYPE_USER, this.g);
             this.r.add(this.w);
-            l58 c3 = c(R.drawable.icon_liwu_caise_heibai, R.string.obfuscated_res_0x7f0f0796, 32);
+            l58 c3 = c(R.drawable.icon_liwu_caise_heibai, R.string.obfuscated_res_0x7f0f079f, 32);
             this.u = c3;
             c3.b = new Bundle();
             this.u.b.putBoolean("person_center_item_red_tip", true);
             this.u.a.b = new Bundle();
             this.u.a.b.putSerializable(UserData.TYPE_USER, this.g);
             this.r.add(this.u);
-            l58 c4 = c(R.drawable.icon_lishi_caise_heibai, R.string.obfuscated_res_0x7f0f082a, 21);
+            l58 c4 = c(R.drawable.icon_lishi_caise_heibai, R.string.obfuscated_res_0x7f0f0832, 21);
             c4.a.b = new Bundle();
             c4.a.b.putSerializable(UserData.TYPE_USER, this.g);
             this.r.add(c4);
             if (TbadkCoreApplication.getInst().appResponseToIntentClass(AlaLiveRoomActivityConfig.class)) {
-                l58 c5 = c(R.drawable.icon_zhibou_caise_heibai, R.string.obfuscated_res_0x7f0f021c, 29);
+                l58 c5 = c(R.drawable.icon_zhibou_caise_heibai, R.string.obfuscated_res_0x7f0f021e, 29);
                 c5.b = new Bundle();
                 c5.a.b = new Bundle();
                 c5.a.b.putSerializable(UserData.TYPE_USER, this.g);
                 this.r.add(c5);
             }
-            l58 c6 = c(R.drawable.icon_vip_heibai, R.string.obfuscated_res_0x7f0f0aa2, 16);
+            l58 c6 = c(R.drawable.icon_vip_heibai, R.string.obfuscated_res_0x7f0f0aa9, 16);
             this.x = c6;
             c6.b = new Bundle();
             this.x.b.putBoolean("person_center_item_red_tip", true);
             this.x.a.b = new Bundle();
             this.x.a.b.putSerializable(UserData.TYPE_USER, this.g);
             this.r.add(this.x);
-            l58 c7 = c(R.drawable.icon_bookshoop_caise_heibai, R.string.obfuscated_res_0x7f0f031a, 31);
+            l58 c7 = c(R.drawable.icon_bookshoop_caise_heibai, R.string.obfuscated_res_0x7f0f031f, 31);
             c7.a.b = new Bundle();
             c7.a.b.putSerializable(UserData.TYPE_USER, this.g);
-            o18 o18Var = this.t;
-            if (o18Var != null) {
-                c7.a.b.putString("book_jump_link", o18Var.a);
+            i18 i18Var = this.t;
+            if (i18Var != null) {
+                c7.a.b.putString("book_jump_link", i18Var.a);
             }
             this.r.add(c7);
-            l58 c8 = c(R.drawable.icon_kabao_caise_heibai, R.string.obfuscated_res_0x7f0f037f, 33);
+            l58 c8 = c(R.drawable.icon_kabao_caise_heibai, R.string.obfuscated_res_0x7f0f0385, 33);
             c8.a.b = new Bundle();
             c8.a.b.putSerializable(UserData.TYPE_USER, this.g);
             this.r.add(c8);
-            l58 c9 = c(R.drawable.icon_xiaofeijilu_caise_heibai, R.string.obfuscated_res_0x7f0f042f, 17);
+            l58 c9 = c(R.drawable.icon_xiaofeijilu_caise_heibai, R.string.obfuscated_res_0x7f0f0436, 17);
             c9.a.b = new Bundle();
             c9.a.b.putSerializable(UserData.TYPE_USER, this.g);
             this.r.add(c9);
-            l58 c10 = c(R.drawable.icon_fuwu_caise_heibai, R.string.obfuscated_res_0x7f0f0e2e, 39);
+            l58 c10 = c(R.drawable.icon_fuwu_caise_heibai, R.string.obfuscated_res_0x7f0f0e4c, 39);
             c10.a.b = new Bundle();
             c10.a.b.putString("key_service_centre", "");
             this.r.add(c10);
@@ -197,16 +197,16 @@ public abstract class y48 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.h : (AntiData) invokeV.objValue;
     }
 
-    public ArrayList<uo> f() {
+    public ArrayList<ro> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.q : (ArrayList) invokeV.objValue;
     }
 
-    public it6 g() {
+    public is6 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.l : (it6) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.l : (is6) invokeV.objValue;
     }
 
     public List<ThreadData> h() {
@@ -227,15 +227,15 @@ public abstract class y48 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.g : (UserData) invokeV.objValue;
     }
 
-    public List<uo> k() {
+    public List<ro> k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            k18 k18Var = this.k;
-            if (k18Var == null) {
+            e18 e18Var = this.k;
+            if (e18Var == null) {
                 return null;
             }
-            return k18Var.a();
+            return e18Var.a();
         }
         return (List) invokeV.objValue;
     }
@@ -325,7 +325,7 @@ public abstract class y48 {
                 z48Var.j = forumDynamic.member_count.intValue();
                 z48Var.k = forumDynamic.thread_count.intValue();
                 this.p.add(z48Var);
-                this.p.add(a(oi.f(TbadkCoreApplication.getInst().getApplicationContext(), R.dimen.obfuscated_res_0x7f070198), R.color.CAM_X0204));
+                this.p.add(a(mi.f(TbadkCoreApplication.getInst().getApplicationContext(), R.dimen.obfuscated_res_0x7f070198), R.color.CAM_X0204));
             }
         }
     }
@@ -411,15 +411,15 @@ public abstract class y48 {
         e58Var.e(user);
     }
 
-    public void v(a18 a18Var) {
+    public void v(u08 u08Var) {
         String str;
         String str2;
         boolean z;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048597, this, a18Var) == null) || a18Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048597, this, u08Var) == null) || u08Var == null) {
             return;
         }
-        this.B = a18Var.GetUser();
+        this.B = u08Var.GetUser();
         if (this.g == null) {
             this.g = new UserData();
         }
@@ -431,15 +431,15 @@ public abstract class y48 {
         if (this.z == null) {
             this.z = new PersonUserGodInfo();
         }
-        UserGodInfo userGodInfo = a18Var.getUserGodInfo();
+        UserGodInfo userGodInfo = u08Var.getUserGodInfo();
         if (userGodInfo != null && (userGodInfo.god_type.intValue() == 2 || userGodInfo.god_type.intValue() == 1)) {
             this.g.setIsBigV(true);
-            this.z.parserProtobuf(a18Var.getUserGodInfo());
+            this.z.parserProtobuf(u08Var.getUserGodInfo());
         }
         if (this.h == null) {
             this.h = new AntiData();
         }
-        this.h.parserProtobuf(a18Var.GetAntiStat());
+        this.h.parserProtobuf(u08Var.GetAntiStat());
         User user = this.B;
         if (user != null) {
             PrivSets privSets = user.priv_sets;
@@ -449,36 +449,36 @@ public abstract class y48 {
             }
             this.c = this.B.sex.intValue();
         }
-        if (a18Var.getTaInfo() != null) {
-            this.b = a18Var.getTaInfo().is_friend.intValue() == 1;
+        if (u08Var.getTaInfo() != null) {
+            this.b = u08Var.getTaInfo().is_friend.intValue() == 1;
         }
-        this.g.setIsFriend(a18Var.getTaInfo().is_friend.intValue());
-        if (a18Var.getBookrackData() != null) {
-            l18 l18Var = new l18();
-            l18Var.a(a18Var.getBookrackData());
-            this.t = new o18(true, l18Var);
+        this.g.setIsFriend(u08Var.getTaInfo().is_friend.intValue());
+        if (u08Var.getBookrackData() != null) {
+            f18 f18Var = new f18();
+            f18Var.a(u08Var.getBookrackData());
+            this.t = new i18(true, f18Var);
         }
-        if (!ListUtils.isEmpty(a18Var.getConcernedForumList()) && !this.a && !n()) {
-            p(a18Var.getConcernedForumList());
+        if (!ListUtils.isEmpty(u08Var.getConcernedForumList()) && !this.a && !n()) {
+            p(u08Var.getConcernedForumList());
         }
         if (this.n == null) {
             u(this.B);
         }
         Random random = new Random();
-        if (this.a && !ListUtils.isEmpty(a18Var.GetPostList())) {
-            for (PostInfoList postInfoList : a18Var.GetPostList()) {
+        if (this.a && !ListUtils.isEmpty(u08Var.GetPostList())) {
+            for (PostInfoList postInfoList : u08Var.GetPostList()) {
                 if ((postInfoList != null && postInfoList.is_post_deleted.intValue() == 2 && postInfoList.thread_type.longValue() == 40) || (postInfoList != null && postInfoList.is_post_deleted.intValue() == 2 && postInfoList.is_share_thread.intValue() == 1)) {
                     t(this.B, postInfoList, random);
                 }
             }
         }
         String yearBytime = StringHelper.getYearBytime(System.currentTimeMillis());
-        if (!ListUtils.isEmpty(a18Var.getDynamicInfoList())) {
+        if (!ListUtils.isEmpty(u08Var.getDynamicInfoList())) {
             Date date = new Date();
             String str3 = "";
             String str4 = "";
             boolean z2 = true;
-            for (DynamicInfo dynamicInfo : a18Var.getDynamicInfoList()) {
+            for (DynamicInfo dynamicInfo : u08Var.getDynamicInfoList()) {
                 if (dynamicInfo != null && dynamicInfo.dynamic_timestamp.longValue() >= 0) {
                     long longValue = dynamicInfo.dynamic_timestamp.longValue() * 1000;
                     date.setTime(longValue);
@@ -519,15 +519,15 @@ public abstract class y48 {
         }
         if (this.a) {
             d();
-            a18Var.getMaskType();
+            u08Var.getMaskType();
         }
-        a18Var.getUserAgreeInfo();
-        a18Var.getLiveInfo();
-        this.l = a18Var.getGoodsWindowInfo();
-        this.m = a18Var.getLiveReplayInfo();
-        this.A = a18Var.getNicknameInfo();
-        this.E = a18Var.getHotRankEntry();
-        List<ThreadInfo> newestThreadList = a18Var.getNewestThreadList();
+        u08Var.getUserAgreeInfo();
+        u08Var.getLiveInfo();
+        this.l = u08Var.getGoodsWindowInfo();
+        this.m = u08Var.getLiveReplayInfo();
+        this.A = u08Var.getNicknameInfo();
+        this.E = u08Var.getHotRankEntry();
+        List<ThreadInfo> newestThreadList = u08Var.getNewestThreadList();
         if (ListUtils.isEmpty(newestThreadList)) {
             return;
         }
@@ -549,7 +549,7 @@ public abstract class y48 {
             this.e = 1;
             this.f = -1;
             this.g = null;
-            ArrayList<uo> arrayList = this.i;
+            ArrayList<ro> arrayList = this.i;
             if (arrayList != null) {
                 arrayList.clear();
             }
@@ -558,11 +558,11 @@ public abstract class y48 {
             this.k = null;
             this.n = null;
             this.o = null;
-            List<uo> list = this.p;
+            List<ro> list = this.p;
             if (list != null) {
                 list.clear();
             }
-            ArrayList<uo> arrayList2 = this.s;
+            ArrayList<ro> arrayList2 = this.s;
             if (arrayList2 != null) {
                 arrayList2.clear();
             }

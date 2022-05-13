@@ -1,6 +1,5 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,11 +8,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class j2a<E> extends f2a<E> {
+public final class j2a extends i2a {
     public static /* synthetic */ Interceptable $ic;
-    public static final long f;
+    public static final j2a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile long producerIndex;
 
     static {
         InterceptResult invokeClinit;
@@ -28,39 +26,26 @@ public abstract class j2a<E> extends f2a<E> {
                 return;
             }
         }
-        f = z2a.a(j2a.class, "producerIndex");
+        a = new j2a();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j2a(int i) {
-        super(i);
+    public j2a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
     }
 
-    public final long h() {
+    public static i2a e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.producerIndex : invokeV.longValue;
-    }
-
-    public final void i(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            z2a.a.i(this, f, j);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (i2a) invokeV.objValue;
     }
 }

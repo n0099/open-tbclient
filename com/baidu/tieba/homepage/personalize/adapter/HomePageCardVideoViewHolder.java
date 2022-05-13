@@ -7,10 +7,10 @@ import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.dx5;
+import com.repackage.ex5;
 import com.repackage.w68;
 /* loaded from: classes3.dex */
-public class HomePageCardVideoViewHolder<T extends dx5> extends CardViewHolder<T> implements w68 {
+public class HomePageCardVideoViewHolder<T extends ex5> extends CardViewHolder<T> implements w68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,7 +32,7 @@ public class HomePageCardVideoViewHolder<T extends dx5> extends CardViewHolder<T
             if (t == 0) {
                 return 0;
             }
-            return ((dx5) t).getCurrentPosition();
+            return ((ex5) t).getCurrentPosition();
         }
         return invokeV.intValue;
     }
@@ -46,7 +46,7 @@ public class HomePageCardVideoViewHolder<T extends dx5> extends CardViewHolder<T
             if (t == 0) {
                 return null;
             }
-            return ((dx5) t).w();
+            return ((ex5) t).v();
         }
         return (String) invokeV.objValue;
     }
@@ -60,7 +60,7 @@ public class HomePageCardVideoViewHolder<T extends dx5> extends CardViewHolder<T
             if (t == 0) {
                 return null;
             }
-            return ((dx5) t).x();
+            return ((ex5) t).w();
         }
         return (View) invokeV.objValue;
     }
@@ -84,7 +84,7 @@ public class HomePageCardVideoViewHolder<T extends dx5> extends CardViewHolder<T
             if (t == 0) {
                 return false;
             }
-            return ((dx5) t).F();
+            return ((ex5) t).E();
         }
         return invokeV.booleanValue;
     }
@@ -98,7 +98,7 @@ public class HomePageCardVideoViewHolder<T extends dx5> extends CardViewHolder<T
             if (t == 0) {
                 return false;
             }
-            return ((dx5) t).isPlaying();
+            return ((ex5) t).isPlaying();
         }
         return invokeV.booleanValue;
     }
@@ -110,7 +110,7 @@ public class HomePageCardVideoViewHolder<T extends dx5> extends CardViewHolder<T
         if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (t = this.a) == 0) {
             return;
         }
-        ((dx5) t).startPlay();
+        ((ex5) t).startPlay();
     }
 
     @Override // com.repackage.w68
@@ -120,6 +120,6 @@ public class HomePageCardVideoViewHolder<T extends dx5> extends CardViewHolder<T
         if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (t = this.a) == 0) {
             return;
         }
-        ((dx5) t).stopPlay();
+        ((ex5) t).stopPlay();
     }
 }

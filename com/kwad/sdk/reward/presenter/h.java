@@ -79,7 +79,7 @@ public class h extends com.kwad.sdk.reward.g {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        KsToastView ksToastView = (KsToastView) a(R.id.obfuscated_res_0x7f09114d);
+        KsToastView ksToastView = (KsToastView) a(R.id.obfuscated_res_0x7f09115c);
         this.b = ksToastView;
         ksToastView.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.reward.presenter.h.3
             @Override // android.view.View.OnClickListener

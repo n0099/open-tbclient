@@ -7,7 +7,7 @@ import androidx.annotation.Nullable;
 import com.baidu.nadcore.player.strategy.IVideoUpdateStrategy;
 /* loaded from: classes6.dex */
 public interface fq0 extends bq0, dq0 {
-    public static final a a = y31.a;
+    public static final a a = j41.a;
 
     /* loaded from: classes6.dex */
     public interface a {

@@ -1,5 +1,115 @@
 package com.repackage;
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.zx9;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes7.dex */
-public interface uz9<T1, T2, R> {
-    R call(T1 t1, T2 t2);
+public final class uz9 extends zx9 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final uz9 a;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes7.dex */
+    public final class a extends zx9.a implements dy9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final p2a a;
+        public final /* synthetic */ uz9 b;
+
+        public a(uz9 uz9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uz9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = uz9Var;
+            this.a = new p2a();
+        }
+
+        @Override // com.repackage.zx9.a
+        public dy9 b(jy9 jy9Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jy9Var)) == null) {
+                jy9Var.call();
+                return t2a.c();
+            }
+            return (dy9) invokeL.objValue;
+        }
+
+        @Override // com.repackage.zx9.a
+        public dy9 c(jy9 jy9Var, long j, TimeUnit timeUnit) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{jy9Var, Long.valueOf(j), timeUnit})) == null) ? b(new yz9(jy9Var, this, this.b.now() + timeUnit.toMillis(j))) : (dy9) invokeCommon.objValue;
+        }
+
+        @Override // com.repackage.dy9
+        public boolean isUnsubscribed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.isUnsubscribed() : invokeV.booleanValue;
+        }
+
+        @Override // com.repackage.dy9
+        public void unsubscribe() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                this.a.unsubscribe();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755243523, "Lcom/repackage/uz9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755243523, "Lcom/repackage/uz9;");
+                return;
+            }
+        }
+        a = new uz9();
+    }
+
+    public uz9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.repackage.zx9
+    public zx9.a createWorker() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (zx9.a) invokeV.objValue;
+    }
 }

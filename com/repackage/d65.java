@@ -1,49 +1,67 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.mutiprocess.showreplyinpb.ShowReplyInPbEvent;
+import android.content.ContentResolver;
+import android.net.Uri;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class d65 implements i55<ShowReplyInPbEvent> {
+public class d65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public d65() {
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? iu4.k().i() : (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.i55
-    /* renamed from: a */
-    public boolean onEvent(ShowReplyInPbEvent showReplyInPbEvent) {
+    public static ContentResolver b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? iu4.k().j() : (ContentResolver) invokeV.objValue;
+    }
+
+    public static OrmObject c(String str, Class<?> cls) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, cls)) == null) {
+            if (str == null || cls == null) {
+                return null;
+            }
+            return OrmObject.objectWithJsonStr(d(str), cls);
+        }
+        return (OrmObject) invokeLL.objValue;
+    }
+
+    public static String d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, showReplyInPbEvent)) == null) {
-            if (showReplyInPbEvent == null) {
-                return false;
-            }
-            if (showReplyInPbEvent.isSubPbReply) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921481, showReplyInPbEvent.writeData));
-                return true;
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921480, showReplyInPbEvent.writeData));
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return e(Uri.parse(a() + str));
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static String e(Uri uri) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, uri)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            try {
+                str = b().getType(uri);
+            } catch (SecurityException e) {
+                BdLog.detailException(e);
+                str = null;
+            }
+            long currentTimeMillis2 = System.currentTimeMillis();
+            c65.m("getValue uri=" + uri + " Time:" + (currentTimeMillis2 - currentTimeMillis));
+            return str;
+        }
+        return (String) invokeL.objValue;
     }
 }

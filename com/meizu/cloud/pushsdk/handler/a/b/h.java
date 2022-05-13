@@ -2,7 +2,7 @@ package com.meizu.cloud.pushsdk.handler.a.b;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.repackage.ym9;
+import com.repackage.tl9;
 import com.xiaomi.mipush.sdk.MiPushMessage;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -41,7 +41,7 @@ public class h implements Parcelable {
                 this.c = jSONObject.getInt(MiPushMessage.KEY_NOTIFY_ID);
             }
         } catch (JSONException e) {
-            ym9.b("WithDrawMessage", "parse WithDrawMessage error " + e.getMessage());
+            tl9.b("WithDrawMessage", "parse WithDrawMessage error " + e.getMessage());
         }
         this.a = new b(str3, str4, str5);
     }

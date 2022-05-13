@@ -1,34 +1,26 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.hardware.Camera;
+import com.faceunity.encoder.TextureMovieEncoder;
 /* loaded from: classes6.dex */
-public class ot8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public String c;
+public interface ot8 {
 
-    public ot8(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), str2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = str;
-        this.b = i;
-        this.c = str2;
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(boolean z, String str);
     }
+
+    void a(Camera camera);
+
+    void b(Camera camera);
+
+    void c(a aVar);
+
+    void d(Camera camera);
+
+    void e(Camera camera);
+
+    void setOnEncoderStatusUpdateListener(TextureMovieEncoder.OnEncoderStatusUpdateListener onEncoderStatusUpdateListener);
+
+    void setPreviewSize(int i, int i2);
 }

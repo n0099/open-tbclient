@@ -20,11 +20,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fo;
-import com.repackage.hg;
-import com.repackage.ig;
-import com.repackage.mg;
-import com.repackage.ni;
+import com.repackage.co;
+import com.repackage.fg;
+import com.repackage.gg;
+import com.repackage.kg;
+import com.repackage.li;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.HashMap;
@@ -43,7 +43,7 @@ public class PersonHeaderBackgroundController {
     public View.OnClickListener f;
 
     /* loaded from: classes3.dex */
-    public class a extends hg<fo> {
+    public class a extends fg<co> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonHeaderBackgroundController a;
@@ -66,7 +66,7 @@ public class PersonHeaderBackgroundController {
             this.a = personHeaderBackgroundController;
         }
 
-        @Override // com.repackage.hg
+        @Override // com.repackage.fg
         public void onCancelled(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -74,7 +74,7 @@ public class PersonHeaderBackgroundController {
             }
         }
 
-        @Override // com.repackage.hg
+        @Override // com.repackage.fg
         public void onProgressUpdate(Object... objArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, objArr) == null) {
@@ -83,13 +83,13 @@ public class PersonHeaderBackgroundController {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.hg
-        public void onLoaded(fo foVar, String str, int i) {
+        @Override // com.repackage.fg
+        public void onLoaded(co coVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, foVar, str, i) == null) {
-                super.onLoaded((a) foVar, str, i);
-                if (foVar != null) {
-                    foVar.h(this.a.b);
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, coVar, str, i) == null) {
+                super.onLoaded((a) coVar, str, i);
+                if (coVar != null) {
+                    coVar.h(this.a.b);
                 }
             }
         }
@@ -129,7 +129,7 @@ public class PersonHeaderBackgroundController {
                     String userId = this.a.d.getUserId();
                     String bg_pic = this.a.d.getBg_pic();
                     try {
-                        i = mg.e((String) this.a.f(bg_pic).get("props_id"), -1);
+                        i = kg.e((String) this.a.f(bg_pic).get("props_id"), -1);
                     } catch (URISyntaxException unused) {
                         i = -1;
                     }
@@ -179,10 +179,10 @@ public class PersonHeaderBackgroundController {
         }
         this.d = userData;
         String bg_pic = userData.getBg_pic();
-        if (ni.isEmpty(bg_pic)) {
+        if (li.isEmpty(bg_pic)) {
             return;
         }
-        ig.h().k(bg_pic, 10, new a(this), 0, 0, this.a.getUniqueId(), new Object[0]);
+        gg.h().k(bg_pic, 10, new a(this), 0, 0, this.a.getUniqueId(), new Object[0]);
     }
 
     public final Map<String, String> f(String str) throws URISyntaxException {

@@ -1,5 +1,15 @@
 package com.repackage;
+
+import com.yy.mobile.framework.revenuesdk.payapi.request.GetBannerConfigReqParams;
+import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyReqParams;
+import tv.athena.revenue.payui.model.PayFlowType;
 /* loaded from: classes7.dex */
 public interface r4a {
-    void a(boolean z, int i);
+    GetBannerConfigReqParams a();
+
+    w2a b(PayFlowType payFlowType);
+
+    QueryCurrencyReqParams c();
+
+    QueryCurrencyReqParams d();
 }

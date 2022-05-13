@@ -20,7 +20,7 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.MessageLite;
 import com.google.protobuf.MessageLiteOrBuilder;
 import com.google.protobuf.Parser;
-import com.repackage.bn3;
+import com.repackage.mn3;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
@@ -153,7 +153,7 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                Bimlog$LogResponse bimlog$LogResponse = new Bimlog$LogResponse(this, (bn3) null);
+                Bimlog$LogResponse bimlog$LogResponse = new Bimlog$LogResponse(this, (mn3) null);
                 int i = this.a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
                 bimlog$LogResponse.errorCode_ = this.b;
@@ -335,7 +335,7 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
         bimlog$LogResponse.initFields();
     }
 
-    public /* synthetic */ Bimlog$LogResponse(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, bn3 bn3Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bimlog$LogResponse(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, mn3 mn3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -503,7 +503,7 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
         }
     }
 
-    public /* synthetic */ Bimlog$LogResponse(GeneratedMessageLite.Builder builder, bn3 bn3Var) {
+    public /* synthetic */ Bimlog$LogResponse(GeneratedMessageLite.Builder builder, mn3 mn3Var) {
         this(builder);
     }
 

@@ -1,23 +1,19 @@
 package com.repackage;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.anim.AnimationProperty;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class ym2 extends vm2 {
+public class ym2 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ym2 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public cn2 A;
-    public double B;
-    public int C;
-    public String z;
+    public final l93 a;
 
     public ym2() {
         Interceptable interceptable = $ic;
@@ -32,31 +28,69 @@ public class ym2 extends vm2 {
                 return;
             }
         }
-        this.z = "";
-        this.C = 1000;
-    }
-
-    @Override // com.repackage.vm2, com.repackage.zv1, com.repackage.iq2
-    public void a(JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        this.a = new l93("swan_local_ab_data");
+        if (ProcessUtils.isMainProcess()) {
+            this.a.clear();
         }
-        super.a(jSONObject);
-        this.z = jSONObject.optString("markerId");
-        cn2 cn2Var = new cn2();
-        this.A = cn2Var;
-        cn2Var.a(jSONObject.optJSONObject("destination"));
-        jSONObject.optBoolean("autoRotate");
-        this.B = jSONObject.optDouble(AnimationProperty.ROTATE);
-        this.C = Math.abs(jSONObject.optInt("duration", this.C));
+        c();
     }
 
-    @Override // com.repackage.zv1, com.repackage.iq2
-    public boolean isValid() {
+    public static ym2 b() {
         InterceptResult invokeV;
-        cn2 cn2Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.c) || TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.z) || (cn2Var = this.A) == null || !cn2Var.isValid()) ? false : true : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (ym2.class) {
+                    if (b == null) {
+                        b = new ym2();
+                    }
+                }
+            }
+            return b;
+        }
+        return (ym2) invokeV.objValue;
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.getString("sids", "") : (String) invokeV.objValue;
+    }
+
+    public final void c() {
+        Object e;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && ProcessUtils.isMainProcess()) {
+            List<zm2> c = new xm2().c();
+            for (zm2 zm2Var : c) {
+                an2 b2 = zm2Var.b();
+                bn2 c2 = zm2Var.c();
+                if (b2 == null) {
+                    e = c2.d();
+                } else {
+                    e = b2.e();
+                }
+                if (e instanceof Boolean) {
+                    this.a.writeBool(c2.e(), ((Boolean) e).booleanValue());
+                } else if (e instanceof Double) {
+                    this.a.writeDouble(c2.e(), ((Double) e).doubleValue());
+                } else if (e instanceof Integer) {
+                    this.a.writeInt(c2.e(), ((Integer) e).intValue());
+                } else if (e instanceof Long) {
+                    this.a.writeLong(c2.e(), ((Long) e).longValue());
+                } else if (e instanceof String) {
+                    this.a.writeString(c2.e(), (String) e);
+                }
+            }
+            StringBuilder sb = new StringBuilder();
+            for (zm2 zm2Var2 : c) {
+                an2 b3 = zm2Var2.b();
+                if (b3 != null) {
+                    sb.append(b3.d());
+                    sb.append("-");
+                }
+            }
+            this.a.writeString("sids", sb.length() == 0 ? "" : sb.substring(0, sb.length() - 1));
+        }
     }
 }

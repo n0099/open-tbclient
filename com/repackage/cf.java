@@ -416,7 +416,7 @@ public class cf implements View.OnKeyListener, View.OnClickListener {
     public void o(Activity activity, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048586, this, activity, z) == null) {
-            p((ViewGroup) activity.findViewById(16908290), activity, z);
+            q((ViewGroup) activity.findViewById(16908290), activity, z);
         }
     }
 
@@ -444,7 +444,7 @@ public class cf implements View.OnKeyListener, View.OnClickListener {
         return invokeLIL.booleanValue;
     }
 
-    public final void p(ViewGroup viewGroup, Activity activity, boolean z) {
+    public final void q(ViewGroup viewGroup, Activity activity, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048589, this, viewGroup, activity, z) == null) {
             if (this.b == null) {
@@ -477,7 +477,7 @@ public class cf implements View.OnKeyListener, View.OnClickListener {
     public void r(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, activity) == null) {
-            p((ViewGroup) activity.getWindow().getDecorView(), activity, true);
+            q((ViewGroup) activity.getWindow().getDecorView(), activity, true);
         }
     }
 

@@ -1,86 +1,14 @@
 package com.repackage;
-
-import android.annotation.SuppressLint;
-import android.os.Build;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-@SuppressLint({"ObsoleteSdkInt"})
-/* loaded from: classes7.dex */
-public final class qc3 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? Build.VERSION.SDK_INT >= 29 : invokeV.booleanValue;
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Build.VERSION.SDK_INT >= 9 : invokeV.booleanValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Build.VERSION.SDK_INT >= 11 : invokeV.booleanValue;
-    }
-
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? Build.VERSION.SDK_INT >= 18 : invokeV.booleanValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? Build.VERSION.SDK_INT >= 19 : invokeV.booleanValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? Build.VERSION.SDK_INT >= 21 : invokeV.booleanValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? Build.VERSION.SDK_INT >= 22 : invokeV.booleanValue;
-    }
-
-    public static boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? Build.VERSION.SDK_INT >= 23 : invokeV.booleanValue;
-    }
-
-    public static boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? Build.VERSION.SDK_INT >= 24 : invokeV.booleanValue;
-    }
-
-    public static boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? Build.VERSION.SDK_INT >= 26 : invokeV.booleanValue;
-    }
-
-    public static boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? Build.VERSION.SDK_INT == 9 : invokeV.booleanValue;
-    }
-
-    public static boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? Build.VERSION.SDK_INT == 10 : invokeV.booleanValue;
-    }
+/* loaded from: classes6.dex */
+public interface qc3 {
+    public static final pc3<Long> b = new pc3<>("index_cost_recent_launch_total");
+    public static final pc3<Long> c = new pc3<>("index_cost_recent_download");
+    public static final pc3<Long> d = new pc3<>("index_cost_recent_page_switch");
+    public static final pc3<Long> e = new pc3<>("index_cost_recent_page_rendered_initial");
+    public static final pc3<Long> f = new pc3<>("index_cost_current_page_rendered");
+    public static final pc3<Long> g = new pc3<>("index_cost_startup_page_first_rendered");
+    public static final pc3<Long> h = new pc3<>("index_storage_size");
+    public static final pc3<Long> i = new pc3<>("index_cost_on_screen");
+    public static final pc3<String> j = new pc3<>("index_start_up_api_info");
+    public static final pc3<String> k = new pc3<>("index_prelink_info");
 }

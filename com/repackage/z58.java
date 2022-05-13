@@ -40,7 +40,7 @@ public class z58 {
         c = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
     }
 
-    public static List<uo> a(List<ThreadData> list) {
+    public static List<ro> a(List<ThreadData> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
@@ -52,7 +52,7 @@ public class z58 {
                 ThreadData threadData = (ThreadData) ListUtils.getItem(list, i);
                 if (threadData != null) {
                     AbsGroupUbsABTest.setCardInfoUbsABTest(threadData);
-                    xx5 d = d(threadData);
+                    yx5 d = d(threadData);
                     if (d != null) {
                         arrayList.add(d);
                     }
@@ -64,7 +64,7 @@ public class z58 {
         return (List) invokeL.objValue;
     }
 
-    public static List<uo> b(List<ThreadData> list) {
+    public static List<ro> b(List<ThreadData> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
@@ -74,13 +74,13 @@ public class z58 {
                 i58Var.d = c;
                 i58Var.c = b;
                 i58Var.b = a;
-                i58Var.a = R.string.obfuscated_res_0x7f0f0df7;
+                i58Var.a = R.string.obfuscated_res_0x7f0f0e15;
                 arrayList.add(i58Var);
                 for (int i = 0; i < list.size(); i++) {
                     ThreadData threadData = list.get(i);
                     if (threadData != null) {
                         AbsGroupUbsABTest.setCardInfoUbsABTest(threadData);
-                        xx5 d = d(threadData);
+                        yx5 d = d(threadData);
                         if (d != null) {
                             arrayList.add(d);
                         }
@@ -93,7 +93,7 @@ public class z58 {
         return (List) invokeL.objValue;
     }
 
-    public static List<uo> c(List<uo> list) {
+    public static List<ro> c(List<ro> list) {
         InterceptResult invokeL;
         ThreadData threadData;
         Interceptable interceptable = $ic;
@@ -103,10 +103,10 @@ public class z58 {
                 return arrayList;
             }
             for (int i = 0; i < list.size(); i++) {
-                uo uoVar = (uo) ListUtils.getItem(list, i);
-                if ((uoVar instanceof CardPersonDynamicThreadData) && (threadData = ((CardPersonDynamicThreadData) uoVar).p) != null) {
+                ro roVar = (ro) ListUtils.getItem(list, i);
+                if ((roVar instanceof CardPersonDynamicThreadData) && (threadData = ((CardPersonDynamicThreadData) roVar).p) != null) {
                     AbsGroupUbsABTest.setCardInfoUbsABTest(threadData);
-                    xx5 d = d(threadData);
+                    yx5 d = d(threadData);
                     if (d != null) {
                         arrayList.add(d);
                     }
@@ -118,48 +118,48 @@ public class z58 {
         return (List) invokeL.objValue;
     }
 
-    public static xx5 d(ThreadData threadData) {
+    public static yx5 d(ThreadData threadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, threadData)) == null) {
-            xx5 xx5Var = null;
+            yx5 yx5Var = null;
             if (threadData == null) {
                 return null;
             }
             threadData.isFromPersonPolymeric = true;
             threadData.insertItemToTitleOrAbstractText();
             if (threadData.isShareThread) {
-                xx5Var = new fy5();
-                xx5Var.a = threadData;
-            } else if (ay5.W(threadData)) {
-                xx5Var = new ay5(threadData);
-            } else if (by5.Z(threadData)) {
-                xx5Var = new by5(threadData);
-            } else if (!fy5.W(threadData) && !fy5.X(threadData)) {
-                if (gy5.R(threadData)) {
-                    xx5Var = new gy5(threadData);
+                yx5Var = new gy5();
+                yx5Var.a = threadData;
+            } else if (by5.W(threadData)) {
+                yx5Var = new by5(threadData);
+            } else if (cy5.Z(threadData)) {
+                yx5Var = new cy5(threadData);
+            } else if (!gy5.W(threadData) && !gy5.X(threadData)) {
+                if (hy5.R(threadData)) {
+                    yx5Var = new hy5(threadData);
                 }
             } else {
-                xx5Var = new fy5();
+                yx5Var = new gy5();
                 if (!threadData.isLinkThread() && !threadData.isSmartAppThreadType()) {
                     threadData.isGodThread();
                 }
-                xx5Var.a = threadData;
+                yx5Var.a = threadData;
             }
-            if (xx5Var != null) {
-                AbsGroupUbsABTest.setCardInfoUbsABTest(xx5Var);
+            if (yx5Var != null) {
+                AbsGroupUbsABTest.setCardInfoUbsABTest(yx5Var);
             }
-            return xx5Var;
+            return yx5Var;
         }
-        return (xx5) invokeL.objValue;
+        return (yx5) invokeL.objValue;
     }
 
-    public static ThreadData e(uo uoVar) {
+    public static ThreadData e(ro roVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, uoVar)) == null) {
-            if (uoVar != null && (uoVar instanceof pn4)) {
-                ThreadData threadData = ((pn4) uoVar).getThreadData();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, roVar)) == null) {
+            if (roVar != null && (roVar instanceof zn4)) {
+                ThreadData threadData = ((zn4) roVar).getThreadData();
                 threadData.isFromPersonPolymeric = true;
                 AbsGroupUbsABTest.setCardInfoUbsABTest(threadData);
                 return threadData;

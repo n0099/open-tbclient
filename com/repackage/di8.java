@@ -1,75 +1,95 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.os.Bundle;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.StampShareDialogConfig;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
+import android.graphics.Color;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ThemeElement;
 /* loaded from: classes5.dex */
 public class di8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ThemeElement a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public ei8 b;
 
-    public di8(Context context, ei8 ei8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, ei8Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755766338, "Lcom/repackage/di8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755766338, "Lcom/repackage/di8;");
                 return;
             }
         }
-        this.a = context;
-        this.b = ei8Var;
+        ThemeElement.Builder builder = new ThemeElement.Builder();
+        builder.common_color = "#FF614EC2";
+        builder.dark_color = "#FF614EC2";
+        builder.light_color = "#FF614EC2";
+        builder.pattern_image = "http://imgsrc.baidu.com/forum/pic/item/00a8540828381f3028c4e2d1a6014c086f06f075.jpg";
+        builder.font_color = "#FFFFFFFF";
+        a = builder.build(false);
     }
 
-    public void a() {
+    public static int a(int i, float f) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ShareItem shareItem = new ShareItem();
-            Bundle e = shareItem.e();
-            if (e == null) {
-                e = new Bundle();
-            }
-            e.putInt("obj_locate", 20);
-            shareItem.k(e);
-            shareItem.l0 = true;
-            shareItem.b0 = 1;
-            StampShareDialogConfig stampShareDialogConfig = new StampShareDialogConfig(this.a, shareItem, true, this.b);
-            stampShareDialogConfig.setIsCopyLink(false);
-            stampShareDialogConfig.setHideMode(stampShareDialogConfig.hideMode | 32);
-            this.b.e(b("https://tieba.baidu.com/mo/q/icon/home"));
-            MessageManager.getInstance().sendMessage(new CustomMessage(2001276, stampShareDialogConfig));
-        }
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) ? (i & 16777215) | (((int) ((i >>> 24) * f)) << 24) : invokeCommon.intValue;
     }
 
-    public final Bitmap b(String str) {
+    @NonNull
+    public static ThemeElement b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (ThemeElement) invokeV.objValue;
+    }
+
+    public static int c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            float[] fArr = new float[3];
+            Color.colorToHSV(i, fArr);
+            if ((fArr[0] < 0.0f || fArr[0] >= 60.0f) && ((fArr[0] < 120.0f || fArr[0] >= 180.0f) && fArr[0] < 240.0f && fArr[0] >= 300.0f)) {
+                fArr[0] = fArr[0] + 15.0f;
+            } else {
+                fArr[0] = fArr[0] - 15.0f;
+            }
+            return Color.HSVToColor(fArr);
+        }
+        return invokeI.intValue;
+    }
+
+    public static boolean d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? i == Integer.MAX_VALUE : invokeI.booleanValue;
+    }
+
+    public static int e(String str) {
         InterceptResult invokeL;
-        CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (str == null || str.length() == 0 || (runTask = MessageManager.getInstance().runTask(2921388, Bitmap.class, str)) == null || runTask.getData() == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (str != null) {
+                if (str.length() != 0) {
+                    try {
+                        if (!str.startsWith("#")) {
+                            str = "#" + str;
+                        }
+                    } catch (Exception unused) {
+                        return Integer.MAX_VALUE;
+                    }
+                }
+                return Color.parseColor(str);
             }
-            return (Bitmap) runTask.getData();
+            return Integer.MAX_VALUE;
         }
-        return (Bitmap) invokeL.objValue;
+        return invokeL.intValue;
     }
 }

@@ -38,7 +38,7 @@ public class ts7 {
         SocketMessageTask socketMessageTask = new SocketMessageTask(309644);
         socketMessageTask.setResponsedClass(ThreadPublishSocketResMessage.class);
         MessageManager.getInstance().registerTask(socketMessageTask);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VOTE_THREAD_PULISH, kk8.a(TbConfig.URL_THREAD_PUBLISH, 309644));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VOTE_THREAD_PULISH, hj8.a(TbConfig.URL_THREAD_PUBLISH, 309644));
         tbHttpMessageTask.setResponsedClass(ThreadPublishHttpResMeesage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }

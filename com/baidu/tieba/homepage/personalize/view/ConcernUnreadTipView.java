@@ -21,9 +21,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
-import com.repackage.oz6;
-import com.repackage.vt4;
+import com.repackage.iu4;
+import com.repackage.mi;
+import com.repackage.oy6;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class ConcernUnreadTipView extends RelativeLayout {
@@ -63,16 +63,16 @@ public class ConcernUnreadTipView extends RelativeLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.h = oi.f(getContext(), R.dimen.tbds94);
-            this.i = 0 - oi.f(getContext(), R.dimen.tbds18);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0201, (ViewGroup) this, true);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0906bd);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0906b8);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906b9);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0906ba);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0906bb);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0906bc);
-            setPadding(0, 0, 0, oi.f(context, R.dimen.tbds44));
+            this.h = mi.f(getContext(), R.dimen.tbds94);
+            this.i = 0 - mi.f(getContext(), R.dimen.tbds18);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01fa, (ViewGroup) this, true);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0906b8);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0906b3);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906b4);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0906b5);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0906b6);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0906b7);
+            setPadding(0, 0, 0, mi.f(context, R.dimen.tbds44));
             b();
         }
     }
@@ -104,41 +104,41 @@ public class ConcernUnreadTipView extends RelativeLayout {
         }
     }
 
-    public void setData(oz6 oz6Var) {
+    public void setData(oy6 oy6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, oz6Var) == null) || oz6Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, oy6Var) == null) || oy6Var == null) {
             return;
         }
-        if (!oz6Var.a()) {
+        if (!oy6Var.a()) {
             setVisibility(8);
             return;
         }
-        if (oz6Var.c > 0) {
-            vt4.k().x(vt4.o("concern_unread_tip_next_show_time"), System.currentTimeMillis() + oz6Var.c);
+        if (oy6Var.c > 0) {
+            iu4.k().x(iu4.o("concern_unread_tip_next_show_time"), System.currentTimeMillis() + oy6Var.c);
         }
-        if (this.d != null && !StringUtils.isNull(oz6Var.d)) {
-            this.d.setText(oz6Var.d);
+        if (this.d != null && !StringUtils.isNull(oy6Var.d)) {
+            this.d.setText(oy6Var.d);
         }
         LinearLayout linearLayout = this.c;
-        if (linearLayout == null || oz6Var.b == null) {
+        if (linearLayout == null || oy6Var.b == null) {
             return;
         }
         linearLayout.removeAllViews();
-        List<String> list = oz6Var.b;
+        List<String> list = oy6Var.b;
         for (int i = 0; i < list.size(); i++) {
             String str = list.get(i);
             if (!StringUtils.isNull(str)) {
-                FrameLayout frameLayout = (FrameLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0200, null);
+                FrameLayout frameLayout = (FrameLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d01f9, null);
                 int i2 = this.h;
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i2, i2);
                 if (i > 0) {
                     layoutParams.leftMargin = this.i;
                 }
                 frameLayout.setLayoutParams(layoutParams);
-                HeadImageView headImageView = (HeadImageView) frameLayout.findViewById(R.id.obfuscated_res_0x7f090ef7);
+                HeadImageView headImageView = (HeadImageView) frameLayout.findViewById(R.id.obfuscated_res_0x7f090f04);
                 headImageView.setIsRound(true);
                 headImageView.setDrawBorder(false);
-                SkinManager.setImageResource((ImageView) frameLayout.findViewById(R.id.obfuscated_res_0x7f091624), R.drawable.bg_unread_tip_head_border);
+                SkinManager.setImageResource((ImageView) frameLayout.findViewById(R.id.obfuscated_res_0x7f09164b), R.drawable.bg_unread_tip_head_border);
                 this.c.addView(frameLayout);
                 headImageView.setPageId(this.g);
                 headImageView.K(str, 12, false);

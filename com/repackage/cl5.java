@@ -10,7 +10,6 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.advert.sdk.data.WirelessNetworkType;
-import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -38,7 +37,7 @@ public class cl5 {
             Integer valueOf = Integer.valueOf(WirelessNetworkType.UNKNOWN_NETWORK.getValue());
             if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
                 String typeName = activeNetworkInfo.getTypeName();
-                if (typeName.equalsIgnoreCase(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING)) {
+                if (typeName.equalsIgnoreCase("WIFI")) {
                     return Integer.valueOf(WirelessNetworkType.WIFI.getValue());
                 }
                 if (typeName.equalsIgnoreCase("MOBILE")) {

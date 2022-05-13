@@ -1,36 +1,122 @@
 package com.repackage;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.manage.Download;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction;
+import com.baidu.swan.game.ad.downloader.model.DownloadState;
 import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes7.dex */
-public class vq3 extends jw2 {
+public class vq3 implements cy3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String f;
-    public JSONObject g;
-    public yq3 h;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public static final /* synthetic */ int[] b;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(80567100, "Lcom/repackage/vq3$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(80567100, "Lcom/repackage/vq3$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[Download.DownloadState.values().length];
+            b = iArr;
+            try {
+                iArr[Download.DownloadState.WAITING.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                b[Download.DownloadState.DOWNLOADING.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                b[Download.DownloadState.PAUSE.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                b[Download.DownloadState.FAILED.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                b[Download.DownloadState.CANCEL.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                b[Download.DownloadState.FINISH.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+            int[] iArr2 = new int[SwanAppDownloadAction.SwanAppDownloadType.values().length];
+            a = iArr2;
+            try {
+                iArr2[SwanAppDownloadAction.SwanAppDownloadType.TYPE_QUERY_STATUS.ordinal()] = 1;
+            } catch (NoSuchFieldError unused7) {
+            }
+            try {
+                a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD.ordinal()] = 2;
+            } catch (NoSuchFieldError unused8) {
+            }
+            try {
+                a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD.ordinal()] = 3;
+            } catch (NoSuchFieldError unused9) {
+            }
+            try {
+                a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_CANCEL_DOWNLOAD.ordinal()] = 4;
+            } catch (NoSuchFieldError unused10) {
+            }
+            try {
+                a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_STOP_SERVICE.ordinal()] = 5;
+            } catch (NoSuchFieldError unused11) {
+            }
+            try {
+                a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_RESUME_DOWNLOAD.ordinal()] = 6;
+            } catch (NoSuchFieldError unused12) {
+            }
+            try {
+                a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_INSTALL_APP.ordinal()] = 7;
+            } catch (NoSuchFieldError unused13) {
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b extends bx2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ vq3 b;
+        public uo3 c;
 
-        public a(vq3 vq3Var, JSONObject jSONObject) {
+        public b(uo3 uo3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vq3Var, jSONObject};
+                Object[] objArr = {uo3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -40,118 +126,38 @@ public class vq3 extends jw2 {
                     return;
                 }
             }
-            this.b = vq3Var;
-            this.a = jSONObject;
+            this.c = uo3Var;
         }
 
-        /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-        @Override // java.lang.Runnable
-        public void run() {
-            char c;
+        @Override // com.repackage.zw2
+        public long a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                uq3.t().I(this.b.g);
-                String str = this.b.f;
-                switch (str.hashCode()) {
-                    case -1261560102:
-                        if (str.equals("queryStatus")) {
-                            c = 1;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -625158317:
-                        if (str.equals("deleteDownload")) {
-                            c = 4;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -451216226:
-                        if (str.equals("pauseDownload")) {
-                            c = 2;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -234424485:
-                        if (str.equals("open_manual")) {
-                            c = 7;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 184711125:
-                        if (str.equals("resumeDownload")) {
-                            c = 3;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 900412038:
-                        if (str.equals("installApp")) {
-                            c = 5;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 1554935562:
-                        if (str.equals("startDownload")) {
-                            c = 0;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 1921860518:
-                        if (str.equals("startDownloadFile")) {
-                            c = '\b';
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 1944785703:
-                        if (str.equals("checkPackageExpired")) {
-                            c = 6;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    default:
-                        c = 65535;
-                        break;
-                }
-                switch (c) {
-                    case 0:
-                        this.b.w(this.a);
-                        return;
-                    case 1:
-                        this.b.u(this.a);
-                        return;
-                    case 2:
-                        this.b.t(this.a);
-                        return;
-                    case 3:
-                        this.b.v(this.a);
-                        return;
-                    case 4:
-                        this.b.p(this.a);
-                        return;
-                    case 5:
-                        this.b.q(this.a);
-                        return;
-                    case 6:
-                        this.b.s(this.a);
-                        return;
-                    case 7:
-                        this.b.r(this.a);
-                        return;
-                    case '\b':
-                        this.b.x(this.a);
-                        return;
-                    default:
-                        return;
-                }
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 0L;
             }
+            return invokeV.longValue;
+        }
+
+        @Override // com.repackage.zw2
+        public boolean c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.bx2, com.repackage.zw2
+        public void onEvent(@NonNull xw2 xw2Var) {
+            Bundle a;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xw2Var) == null) || (a = xw2Var.a()) == null) {
+                return;
+            }
+            vq3.g(a, this.c);
         }
     }
 
@@ -169,85 +175,181 @@ public class vq3 extends jw2 {
         }
     }
 
-    @Override // com.repackage.jw2
-    public void b(@NonNull Bundle bundle) {
+    public static void g(@NonNull Bundle bundle, uo3 uo3Var) {
+        String string;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            this.f = bundle.getString("operation", "");
-            this.g = jd3.d(bundle.getString("ubc_params", ""));
-            JSONObject d = jd3.d(bundle.getString("data", ""));
-            if (this.h == null) {
-                this.h = new yq3(this);
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, bundle, uo3Var) == null) || (string = bundle.getString("functionType")) == null || uo3Var == null) {
+            return;
+        }
+        String string2 = bundle.getString("resultData", "");
+        int hashCode = string.hashCode();
+        if (hashCode != -1013362275) {
+            if (hashCode == -530890460 && string.equals("onSuccess")) {
+                c = 0;
             }
-            uq3.t().H(this.h);
-            uq3.m.execute(new a(this, d));
+            c = 65535;
+        } else {
+            if (string.equals("onFail")) {
+                c = 1;
+            }
+            c = 65535;
+        }
+        if (c != 0) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(string2);
+            int optInt = jSONObject.optInt("progress", -1);
+            if (optInt > -1 && optInt <= 100) {
+                uo3Var.a(optInt);
+            }
+            if (jSONObject.optBoolean("installed")) {
+                uo3Var.c(DownloadState.INSTALLED, optInt);
+                return;
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject("data");
+            if (optJSONObject == null) {
+                return;
+            }
+            switch (a.b[Download.DownloadState.getState(optJSONObject.optInt("status", -1)).ordinal()]) {
+                case 1:
+                    uo3Var.c(DownloadState.WAIT, optInt);
+                    return;
+                case 2:
+                    uo3Var.c(DownloadState.DOWNLOADING, optInt);
+                    return;
+                case 3:
+                    uo3Var.c(DownloadState.DOWNLOAD_PAUSED, optInt);
+                    return;
+                case 4:
+                    uo3Var.c(DownloadState.DOWNLOAD_FAILED, optInt);
+                    return;
+                case 5:
+                    uo3Var.c(DownloadState.DELETED, optInt);
+                    return;
+                case 6:
+                    uo3Var.c(DownloadState.DOWNLOADED, optInt);
+                    return;
+                default:
+                    uo3Var.c(DownloadState.NOT_START, optInt);
+                    return;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
-    public final void p(@NonNull JSONObject jSONObject) {
+    @Override // com.repackage.cy3
+    public boolean a(@NonNull Context context, @NonNull SwanAppDownloadAction.SwanAppDownloadType swanAppDownloadType, @NonNull uo3 uo3Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            uq3.t().s(jSONObject.optString("key_download_package_name"));
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, swanAppDownloadType, uo3Var)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("key_download_package_name", getPackageName());
+                jSONObject.put("key_download_url", f());
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put(GameGuideConfigInfo.KEY_CONFIG_NAME, sq3.o.z() == null ? "" : sq3.o.z().configName);
+                jSONObject.put("download_params", jSONObject2.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            String e2 = e(swanAppDownloadType);
+            Bundle bundle = new Bundle();
+            bundle.putString("operation", e2);
+            bundle.putString("ubc_params", new or3().a());
+            bundle.putString("data", jSONObject.toString());
+            px2 z = t03.J().z();
+            if (z != null) {
+                z.W(bundle, gr3.class, new b(uo3Var));
+                return false;
+            }
+            return false;
         }
+        return invokeLLL.booleanValue;
     }
 
-    public final void q(@NonNull JSONObject jSONObject) {
+    @Override // com.repackage.cy3
+    public boolean b(Context context, String str, String str2, String str3) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            String optString = jSONObject.optString("key_download_url");
-            String optString2 = jSONObject.optString("key_download_package_name");
-            String optString3 = jSONObject.optString("download_params");
-            er3.n().h("manualInstall", new dr3(this.g), optString2, optString3, optString);
-            uq3.t().L(optString, optString2, optString3);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(xq3.b, str2);
+                jSONObject.put("key_download_url", str);
+                jSONObject.put(xq3.c, str3);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            Bundle bundle = new Bundle();
+            bundle.putString("operation", "startDownloadFile");
+            bundle.putString("ubc_params", new or3().a());
+            bundle.putString("data", jSONObject.toString());
+            px2 z = t03.J().z();
+            if (z != null) {
+                z.V(bundle, gr3.class);
+                return false;
+            }
+            return false;
         }
+        return invokeLLLL.booleanValue;
     }
 
-    public final void r(@NonNull JSONObject jSONObject) {
+    @Override // com.repackage.cy3
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
-            uq3.t().x(jSONObject.optString("key_download_url"), jSONObject.optString("key_download_package_name"));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return (TextUtils.isEmpty(f()) || TextUtils.isEmpty(getPackageName())) ? false : true;
         }
+        return invokeV.booleanValue;
     }
 
-    public final void s(@NonNull JSONObject jSONObject) {
+    public final String e(SwanAppDownloadAction.SwanAppDownloadType swanAppDownloadType) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
-            uq3.t().p(jSONObject.optString("key_download_url"), jSONObject.optString("key_download_package_name"), jSONObject.optLong(GameGuideConfigInfo.KEY_PACKAGE_EXPIRE, 0L));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, swanAppDownloadType)) == null) {
+            switch (a.a[swanAppDownloadType.ordinal()]) {
+                case 1:
+                    return "queryStatus";
+                case 2:
+                    return "startDownload";
+                case 3:
+                    return "pauseDownload";
+                case 4:
+                case 5:
+                    return "deleteDownload";
+                case 6:
+                    return "resumeDownload";
+                case 7:
+                    return "installApp";
+                default:
+                    return "";
+            }
         }
+        return (String) invokeL.objValue;
     }
 
-    public final void t(@NonNull JSONObject jSONObject) {
+    public final String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
-            uq3.t().y(jSONObject.optString("key_download_package_name"));
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? sq3.o.H() : (String) invokeV.objValue;
     }
 
-    public final void u(@NonNull JSONObject jSONObject) {
+    @Override // com.repackage.cy3
+    public String getPackageName() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) {
-            uq3.t().z(jSONObject.optString("key_download_package_name"));
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? sq3.o.I() : (String) invokeV.objValue;
     }
 
-    public final void v(@NonNull JSONObject jSONObject) {
+    @Override // com.repackage.cy3
+    public void init() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) {
-            uq3.t().G(jSONObject.optString("key_download_url"), jSONObject.optString("key_download_package_name"), jSONObject.optString("download_params"));
-        }
-    }
-
-    public final void w(@NonNull JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) {
-            uq3.t().J(jSONObject.optString("key_download_url"), jSONObject.optString("key_download_package_name"), jSONObject.optString("download_params"));
-        }
-    }
-
-    public final void x(@NonNull JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) {
-            uq3.t().K(jSONObject.optString("key_download_url"), jSONObject.optString(mq3.b), jSONObject.optString(mq3.c));
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            sq3.o.w();
         }
     }
 }

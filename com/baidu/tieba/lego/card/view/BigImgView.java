@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.mi;
 /* loaded from: classes3.dex */
 public class BigImgView extends BaseCardView<BigImgCard> {
     public static /* synthetic */ Interceptable $ic;
@@ -40,8 +40,8 @@ public class BigImgView extends BaseCardView<BigImgCard> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: D */
-    public void u(BigImgCard bigImgCard, int i) {
+    /* renamed from: C */
+    public void t(BigImgCard bigImgCard, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, bigImgCard, i) == null) {
         }
@@ -49,19 +49,19 @@ public class BigImgView extends BaseCardView<BigImgCard> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: E */
-    public void v(BigImgCard bigImgCard) {
+    /* renamed from: D */
+    public void u(BigImgCard bigImgCard) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bigImgCard) == null) {
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.m.getLayoutParams();
             if (bigImgCard.getRatio() > 0.0d) {
-                int ratio = (int) (bigImgCard.getRatio() * oi.k(getContext()));
+                int ratio = (int) (bigImgCard.getRatio() * mi.k(getContext()));
                 if (Math.abs(ratio - layoutParams.height) > 10) {
                     layoutParams.height = ratio;
                     this.m.setLayoutParams(layoutParams);
                 }
             } else {
-                layoutParams.height = (int) ((oi.k(getContext()) * 0.5f) + 0.5f);
+                layoutParams.height = (int) ((mi.k(getContext()) * 0.5f) + 0.5f);
                 this.m.setLayoutParams(layoutParams);
             }
             this.m.K(bigImgCard.getUrl(), 10, false);
@@ -69,7 +69,7 @@ public class BigImgView extends BaseCardView<BigImgCard> {
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    public View r() {
+    public View q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

@@ -1,5 +1,9 @@
 package com.repackage;
 /* loaded from: classes5.dex */
-public interface bj extends dj {
-    void d(int i);
+public interface bj {
+    void b(int i);
+
+    void c(String str, int i);
+
+    void error(int i, String str);
 }

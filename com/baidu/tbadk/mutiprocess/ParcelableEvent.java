@@ -9,9 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.h55;
+import com.repackage.x55;
 /* loaded from: classes3.dex */
-public abstract class ParcelableEvent implements h55, Parcelable {
+public abstract class ParcelableEvent implements x55, Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int mPid;
@@ -36,28 +36,28 @@ public abstract class ParcelableEvent implements h55, Parcelable {
         this.mPid = Process.myPid();
     }
 
-    @Override // com.repackage.h55
+    @Override // com.repackage.x55
     public int getPid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mPid : invokeV.intValue;
     }
 
-    @Override // com.repackage.h55
+    @Override // com.repackage.x55
     public int getTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mTag : invokeV.intValue;
     }
 
-    @Override // com.repackage.h55
+    @Override // com.repackage.x55
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mType : invokeV.intValue;
     }
 
-    @Override // com.repackage.h55
+    @Override // com.repackage.x55
     public void setTag(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) || bdUniqueId == null) {

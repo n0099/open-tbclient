@@ -1,33 +1,7 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.searchbox.http.cookie.CookieManager;
-import com.baidu.searchbox.http.request.HttpRequestBuilder;
-import java.util.List;
-import okhttp3.Interceptor;
+import android.view.View;
 /* loaded from: classes7.dex */
 public interface y64 {
-    String a();
-
-    CookieManager f();
-
-    int g();
-
-    Context getAppContext();
-
-    int getReadTimeout();
-
-    boolean h();
-
-    boolean i();
-
-    boolean isDebug();
-
-    void j(String str, HttpRequestBuilder httpRequestBuilder);
-
-    int k();
-
-    List<Interceptor> l();
-
-    int m();
+    boolean b(View view2, a74 a74Var);
 }

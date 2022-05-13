@@ -1,21 +1,22 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class pv3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static long b;
-    public static String c;
+    public static volatile boolean a;
+    public static volatile boolean b;
+    public static volatile List<va2> c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,89 +32,96 @@ public class pv3 {
                 return;
             }
         }
-        a = tg1.a;
-        b = 86400000L;
-        c = "duration_permission_list";
+        c = new ArrayList();
     }
 
-    public static void a(JsObject jsObject) {
-        qv3 qv3Var;
+    public pv3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, jsObject) == null) {
-            j03 L = j03.L();
-            qs1 qs1Var = null;
-            if (jsObject == null || L == null || !b(L)) {
-                qv3Var = null;
-            } else {
-                if (a) {
-                    Log.e("SwanGameDurationApi", "params is " + jsObject.toString());
-                }
-                qs1 F = qs1.F(jsObject);
-                String B = F.B("swanGameId");
-                if (TextUtils.isEmpty(B)) {
-                    qv3Var = null;
-                } else {
-                    r83 a2 = x83.a();
-                    if (!c(Long.valueOf(a2.getLong(B + "_LastPause", 0L)), Long.valueOf(System.currentTimeMillis()))) {
-                        a2.putLong(B + "_Duration", 0L);
-                    }
-                    qv3Var = new qv3();
-                    qv3Var.duration = a2.getLong(B + "_Duration", 0L);
-                }
-                qs1Var = F;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            u24.call(qs1Var, true, qv3Var);
         }
     }
 
-    public static boolean b(j03 j03Var) {
-        InterceptResult invokeL;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, j03Var)) == null) {
-            String string = x83.a().getString(c, "");
-            if (!TextUtils.isEmpty(string)) {
-                try {
-                    JSONArray jSONArray = new JSONArray(string);
-                    for (int i = 0; i < jSONArray.length(); i++) {
-                        if (j03.f0().contains(jSONArray.optString(i))) {
-                            return true;
-                        }
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && a && !b) {
+            synchronized (pv3.class) {
+                if (c != null) {
+                    for (int i = 0; i < c.size(); i++) {
+                        hm2.U().m("console", c.get(i));
                     }
-                } catch (Exception e) {
-                    if (a) {
-                        e.printStackTrace();
-                    }
+                    c.clear();
+                    c = null;
                 }
             }
-            return false;
+            b = true;
         }
-        return invokeL.booleanValue;
     }
 
-    public static boolean c(Long l, Long l2) {
-        InterceptResult invokeLL;
+    public static String b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, l, l2)) == null) ? l.longValue() / 86400000 == l2.longValue() / 86400000 : invokeLL.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i != 2 ? i != 3 ? i != 4 ? i != 5 ? i != 6 ? TbConfig.TMP_LOG_DIR_NAME : "debug" : "warn" : "error" : "info" : "debug" : (String) invokeI.objValue;
     }
 
-    public static void d(long j, long j2) {
+    public static void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || j2 <= j || j03.L() == null || TextUtils.isEmpty(j03.f0())) {
-            return;
-        }
-        String f0 = j03.f0();
-        r83 a2 = x83.a();
-        long j3 = a2.getLong(f0 + "_LastPause", 0L);
-        long j4 = a2.getLong(f0 + "_Duration", 0L);
-        if (c(Long.valueOf(j), Long.valueOf(j2))) {
-            if (c(Long.valueOf(j3), Long.valueOf(j))) {
-                a2.putLong(f0 + "_Duration", (j4 + j2) - j);
-            } else {
-                a2.putLong(f0 + "_Duration", j2 - j);
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            synchronized (pv3.class) {
+                c = new ArrayList();
             }
-        } else {
-            a2.putLong(f0 + "_Duration", j2 % b);
+            b = false;
         }
-        a2.putLong(f0 + "_LastPause", System.currentTimeMillis());
+    }
+
+    public static void d(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65541, null, i, str) == null) {
+            e(b(i), str);
+        }
+    }
+
+    public static void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && a) {
+            f(jv3.t(str, str2));
+        }
+    }
+
+    public static void f(va2 va2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, va2Var) == null) {
+            if (!b) {
+                synchronized (pv3.class) {
+                    if (c != null) {
+                        c.add(va2Var);
+                        return;
+                    }
+                }
+            }
+            hm2.U().m("console", va2Var);
+        }
+    }
+
+    public static void g(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) && a) {
+            f(jv3.v(str, str2));
+        }
+    }
+
+    public static void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65545, null, z) == null) {
+            a = z;
+            ux1.n(z);
+        }
     }
 }

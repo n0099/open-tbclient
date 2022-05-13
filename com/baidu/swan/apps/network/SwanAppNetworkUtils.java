@@ -11,7 +11,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,12 +18,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d72;
-import com.repackage.de3;
-import com.repackage.sw2;
-import com.repackage.tg1;
-import com.repackage.wr2;
-import com.repackage.ww2;
+import com.repackage.dx2;
+import com.repackage.eh1;
+import com.repackage.hs2;
+import com.repackage.hx2;
+import com.repackage.o72;
+import com.repackage.oe3;
 import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import org.json.JSONException;
@@ -64,7 +63,7 @@ public class SwanAppNetworkUtils {
                 }
             }
             NONE = new NetType("NONE", 0, "no");
-            WIFI = new NetType(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 1, "wifi");
+            WIFI = new NetType("WIFI", 1, "wifi");
             _2G = new NetType("_2G", 2, "2g");
             _3G = new NetType("_3G", 3, "3g");
             _4G = new NetType("_4G", 4, "4g");
@@ -109,7 +108,7 @@ public class SwanAppNetworkUtils {
     }
 
     /* loaded from: classes2.dex */
-    public static class a implements sw2<Bundle> {
+    public static class a implements dx2<Bundle> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
@@ -133,7 +132,7 @@ public class SwanAppNetworkUtils {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.sw2
+        @Override // com.repackage.dx2
         /* renamed from: a */
         public void onResult(Bundle bundle) {
             b bVar;
@@ -163,7 +162,7 @@ public class SwanAppNetworkUtils {
                 return;
             }
         }
-        a = tg1.a;
+        a = eh1.a;
     }
 
     public static boolean a(OkHttpClient okHttpClient, String str) {
@@ -193,7 +192,7 @@ public class SwanAppNetworkUtils {
     public static void b(@NonNull b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, bVar) == null) {
-            ww2.a(wr2.class, null, new a(bVar));
+            hx2.a(hs2.class, null, new a(bVar));
         }
     }
 
@@ -330,7 +329,7 @@ public class SwanAppNetworkUtils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            String f = de3.f(d72.U().g0());
+            String f = oe3.f(o72.U().g0());
             return TextUtils.isEmpty(f) ? "" : f;
         }
         return (String) invokeV.objValue;

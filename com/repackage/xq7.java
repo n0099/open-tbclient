@@ -15,7 +15,7 @@ public class xq7 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public PayVcodeActivity a;
-    public sl8 b;
+    public pk8 b;
 
     public xq7(PayVcodeActivity payVcodeActivity) {
         Interceptable interceptable = $ic;
@@ -35,10 +35,10 @@ public class xq7 extends WebChromeClient {
         this.a = payVcodeActivity;
     }
 
-    public void a(sl8 sl8Var) {
+    public void a(pk8 pk8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sl8Var) == null) {
-            this.b = sl8Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, pk8Var) == null) {
+            this.b = pk8Var;
         }
     }
 
@@ -48,8 +48,8 @@ public class xq7 extends WebChromeClient {
         PayVcodeActivity payVcodeActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            sl8 sl8Var = this.b;
-            if ((sl8Var == null || !sl8Var.onJsPrompt(str2, jsPromptResult)) && (payVcodeActivity = this.a) != null && rg.f(payVcodeActivity.getPageContext())) {
+            pk8 pk8Var = this.b;
+            if ((pk8Var == null || !pk8Var.onJsPrompt(str2, jsPromptResult)) && (payVcodeActivity = this.a) != null && pg.f(payVcodeActivity.getPageContext())) {
                 return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
             }
             return true;

@@ -1,106 +1,25 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bb4;
-import java.util.Iterator;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicBoolean;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class x94 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public y94 a;
-    public BlockingQueue<Runnable> b;
-    public ThreadPoolExecutor c;
-    public ja4 d;
-    public final AtomicBoolean e;
-    @SuppressLint({"SyntheticAccessor"})
-    public final fa4 f;
-    public final pa4 g;
-    public ea4 h;
-
-    /* loaded from: classes7.dex */
-    public class a implements fa4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x94 a;
-
-        public a(x94 x94Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x94Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = x94Var;
-        }
-
-        @Override // com.repackage.fa4
-        public <T> void a(ja4<T> ja4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, ja4Var) == null) {
-                this.a.d = ja4Var;
-            }
-        }
-
-        @Override // com.repackage.fa4
-        public <T> void b(ja4<T> ja4Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ja4Var) == null) && this.a.d == ja4Var) {
-                this.a.d = null;
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements ea4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x94 a;
-
-        public b(x94 x94Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x94Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = x94Var;
-        }
-
-        @Override // com.repackage.ea4
-        public Runnable a(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) ? this.a.d(z) : (Runnable) invokeZ.objValue;
-        }
-    }
+    public int a;
+    public String b;
+    public String c;
+    public long d;
+    public JSONObject e;
 
     public x94() {
         Interceptable interceptable = $ic;
@@ -115,120 +34,102 @@ public class x94 {
                 return;
             }
         }
-        this.e = new AtomicBoolean(false);
-        this.f = new a(this);
-        this.g = new pa4(this.f);
-        this.h = new b(this);
-        this.a = new y94();
-        this.b = new LinkedBlockingQueue();
-        this.c = new ThreadPoolExecutor(1, 1, 1L, TimeUnit.SECONDS, this.b);
-        c(this.a);
+        this.a = -1;
     }
 
-    public void c(fa4 fa4Var) {
+    public static x94 a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, fa4Var) == null) {
-            this.g.c(fa4Var);
-        }
-    }
-
-    public synchronized Runnable d(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-            synchronized (this) {
-                if (this.a != null) {
-                    if (z) {
-                        return this.a.g();
-                    }
-                    return this.a.i();
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                return b(new JSONObject(str));
+            } catch (JSONException unused) {
                 return null;
             }
         }
-        return (Runnable) invokeZ.objValue;
+        return (x94) invokeL.objValue;
     }
 
-    public synchronized boolean e(String str) {
+    public static x94 b(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            synchronized (this) {
-                if (this.d == null) {
-                    return false;
-                }
-                Object f = this.d.f();
-                if (f instanceof g94) {
-                    return TextUtils.equals(((g94) f).g, str);
-                }
-                if (f instanceof bb4.a) {
-                    return TextUtils.equals(((bb4.a) f).b, str);
-                }
-                return false;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            x94 x94Var = new x94();
+            x94Var.i(jSONObject.optInt("errno", -1));
+            x94Var.j(jSONObject.optString("errmsg"));
+            x94Var.l(jSONObject.optString("tipmsg"));
+            x94Var.k(jSONObject.optLong(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID));
+            x94Var.h(jSONObject.optJSONObject("data"));
+            return x94Var;
         }
-        return invokeL.booleanValue;
+        return (x94) invokeL.objValue;
     }
 
-    public synchronized boolean f(String str) {
-        InterceptResult invokeL;
+    public JSONObject c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            synchronized (this) {
-                Iterator<ja4> f = this.a.f();
-                while (f.hasNext()) {
-                    ja4 next = f.next();
-                    if (next != null) {
-                        Object f2 = next.f();
-                        if (f2 instanceof g94) {
-                            if (TextUtils.equals(((g94) f2).g, str)) {
-                                return true;
-                            }
-                        } else if ((f2 instanceof bb4.a) && TextUtils.equals(((bb4.a) f2).b, str)) {
-                            return true;
-                        }
-                    }
-                }
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (JSONObject) invokeV.objValue;
     }
 
-    public synchronized <T> void g(ja4<T> ja4Var) {
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ja4Var) == null) {
-            synchronized (this) {
-                this.a.h(ja4Var);
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public long f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : invokeV.longValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public void h(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
+            this.e = jSONObject;
         }
     }
 
-    public synchronized <T> void h(ja4<T> ja4Var) {
+    public void i(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ja4Var) == null) {
-            synchronized (this) {
-                g(ja4Var);
-                j();
-            }
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.a = i;
         }
     }
 
-    public void i(fa4 fa4Var) {
+    public void j(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, fa4Var) == null) {
-            this.g.d(fa4Var);
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.b = str;
         }
     }
 
-    public synchronized void j() {
+    public void k(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            synchronized (this) {
-                if (this.b.size() < 1) {
-                    this.c.execute(new ka4(this.e, this.g, this.h));
-                }
-            }
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            this.d = j;
+        }
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.c = str;
         }
     }
 }

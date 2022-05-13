@@ -79,7 +79,7 @@ public class b extends RefreshLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, attributeSet)) == null) {
-            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040527, R.attr.obfuscated_res_0x7f040529});
+            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04052c, R.attr.obfuscated_res_0x7f04052e});
             int dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(1, this.mRefreshViewSize);
             int dimensionPixelOffset2 = obtainStyledAttributes.getDimensionPixelOffset(1, this.mRefreshViewSize);
             obtainStyledAttributes.recycle();
@@ -93,7 +93,7 @@ public class b extends RefreshLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, attributeSet)) == null) {
-            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040527, R.attr.obfuscated_res_0x7f040529});
+            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04052c, R.attr.obfuscated_res_0x7f04052e});
             this.mRefreshLayout = obtainStyledAttributes.getResourceId(0, 0);
             obtainStyledAttributes.recycle();
             int a = g.a(getContext(), 22.5f);

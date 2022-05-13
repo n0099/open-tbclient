@@ -160,7 +160,7 @@ public class j88 {
                 return;
             }
         }
-        if (ii.c()) {
+        if (gi.c()) {
             new a().execute(new Void[0]);
         }
     }
@@ -242,7 +242,7 @@ public class j88 {
 
     public final void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && ii.c()) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && gi.c()) {
             File file = new File(yl7.e + yl7.a + this.a + yl7.a);
             if (file.exists()) {
                 return;
@@ -299,14 +299,14 @@ public class j88 {
 
     public final void l() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && ii.c()) {
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && gi.c()) {
             new c(this).execute(new d88(this.b, this.c, this.d, this.a));
         }
     }
 
     public final void m(x78 x78Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048587, this, x78Var) == null) && ii.c() && x78Var != null) {
+        if ((interceptable == null || interceptable.invokeL(1048587, this, x78Var) == null) && gi.c() && x78Var != null) {
             new b(this).execute(new k88(x78Var, this.a));
         }
     }

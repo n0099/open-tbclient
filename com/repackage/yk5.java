@@ -23,43 +23,44 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.tc1;
-import com.repackage.yi5;
+import com.repackage.ed1;
+import com.repackage.qj5;
 import java.io.PrintStream;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class yk5 implements ml5 {
+public class yk5 implements nl5 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile xa1 k;
-    public static volatile boolean l;
-    public static volatile sa1 m;
+    public static volatile ib1 l;
+    public static volatile boolean m;
+    public static volatile db1 n;
     public transient /* synthetic */ FieldHolder $fh;
     public int b;
     public volatile AdLoadState c;
     public WeakReference<ViewGroup> d;
-    public ql4 e;
+    public bm4 e;
     public boolean f;
     public long g;
     public final SplashNativePolicy h;
     public int i;
     public boolean j;
+    public String k;
 
     /* loaded from: classes7.dex */
-    public class a implements sa1 {
+    public class a implements db1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ yk5 a;
 
         /* renamed from: com.repackage.yk5$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0558a implements Runnable {
+        public class RunnableC0560a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0558a(a aVar) {
+            public RunnableC0560a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -81,7 +82,7 @@ public class yk5 implements ml5 {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    ll5.e().n(this.a.a.e);
+                    ml5.e().n(this.a.a.e);
                 }
             }
         }
@@ -114,7 +115,7 @@ public class yk5 implements ml5 {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    ll5.e().n(this.a.a.e);
+                    ml5.e().n(this.a.a.e);
                 }
             }
         }
@@ -137,62 +138,62 @@ public class yk5 implements ml5 {
             this.a = yk5Var;
         }
 
-        @Override // com.repackage.sa1
+        @Override // com.repackage.db1
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 System.out.println("SplashTes=>PrologueAdSdkSplash=>onSkip");
-                if (ml5.a) {
+                if (nl5.a) {
                     System.out.println("IAdSdkSplash prologue ad onskip");
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016311, "advertevent://ignore"));
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getClass().getSimpleName()).param("obj_param1", 2).param(TiebaStatic.Params.OBJ_PARAM2, this.a.e == null ? 0 : this.a.e.hashCode()));
-                new StatisticItem(TbadkCoreStatisticKey.CLOSE_AD_TIME).param("obj_source", 5).param("obj_type", "a064").param("obj_param1", 3).param(TiebaStatic.Params.OBJ_TO, ub5.m(this.a.i)).param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param(TiebaStatic.Params.OBJ_PARAM2, this.a.f ? 2 : 1).param("fid", this.a.g).eventStat();
+                new StatisticItem(TbadkCoreStatisticKey.CLOSE_AD_TIME).param("obj_source", 5).param("obj_type", "a064").param("obj_param1", 3).param(TiebaStatic.Params.OBJ_TO, lc5.m(this.a.i)).param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param(TiebaStatic.Params.OBJ_PARAM2, this.a.f ? 2 : 1).param("fid", this.a.g).eventStat();
             }
         }
 
-        @Override // com.repackage.sa1
+        @Override // com.repackage.db1
         public void b() {
             boolean z;
             boolean z2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (ml5.a) {
+                if (nl5.a) {
                     System.out.println("IAdSdkSplash prologue ad onclick");
                 }
                 if (this.a.e != null) {
-                    if (yk5.k == null || yk5.k.a() == null) {
+                    if (yk5.l == null || yk5.l.b() == null) {
                         z = false;
                         z2 = false;
                     } else {
-                        z = yk5.k.a().optInt(TiebaStatic.Params.AD_TYPE, 0) == 1;
-                        z2 = yk5.k.a().optInt("full_type", 0) == 1;
+                        z = yk5.l.b().optInt(TiebaStatic.Params.AD_TYPE, 0) == 1;
+                        z2 = yk5.l.b().optInt("full_type", 0) == 1;
                     }
-                    ql4 ql4Var = this.a.e;
+                    bm4 bm4Var = this.a.e;
                     yk5 yk5Var = this.a;
-                    ql4Var.d(z, z2, yk5Var.b, null, ub5.m(yk5Var.i), null);
+                    bm4Var.e(z, z2, yk5Var.b, null, lc5.m(yk5Var.i), null);
                 }
             }
         }
 
-        @Override // com.repackage.sa1
+        @Override // com.repackage.db1
         public void c(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                rl5.i(rl5.b, "1", str, null, 1, 0, this.a.f, this.a.g);
-                rl5.j(rl5.b, "1", str, null, null, null, this.a.g);
-                if (ml5.a) {
+                sl5.i(sl5.b, "1", str, null, 1, 0, this.a.f, this.a.g);
+                sl5.j(sl5.b, "1", str, null, null, null, this.a.g);
+                if (nl5.a) {
                     PrintStream printStream = System.out;
                     printStream.println("IAdSdkSplash prologue ad loaded failed: " + str);
                 }
                 if (this.a.e != null) {
-                    this.a.e.f(rl5.b);
+                    this.a.e.f(sl5.b, false);
                 }
                 this.a.c = AdLoadState.FAILED;
-                if (oi.B()) {
-                    ll5.e().n(this.a.e);
+                if (mi.B()) {
+                    ml5.e().n(this.a.e);
                 } else {
-                    pg.a().post(new b(this));
+                    ng.a().post(new b(this));
                 }
                 i("advert_show", 0);
                 if (this.a.h != null) {
@@ -201,7 +202,7 @@ public class yk5 implements ml5 {
             }
         }
 
-        @Override // com.repackage.sa1
+        @Override // com.repackage.db1
         public boolean d(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -211,57 +212,61 @@ public class yk5 implements ml5 {
             return invokeL.booleanValue;
         }
 
-        @Override // com.repackage.sa1
+        @Override // com.repackage.db1
         public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                if (ml5.a) {
+                if (nl5.a) {
                     System.out.println("IAdSdkSplash prologue ad finish");
                 }
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getClass().getSimpleName()).param("obj_param1", 1).param(TiebaStatic.Params.OBJ_PARAM2, this.a.e == null ? 0 : this.a.e.hashCode()));
-                new StatisticItem(TbadkCoreStatisticKey.CLOSE_AD_TIME).param("obj_source", 5).param("obj_type", "a064").param("obj_param1", 2).param(TiebaStatic.Params.OBJ_TO, ub5.m(this.a.i)).param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param(TiebaStatic.Params.OBJ_PARAM2, this.a.f ? 2 : 1).param("fid", this.a.g).eventStat();
+                new StatisticItem(TbadkCoreStatisticKey.CLOSE_AD_TIME).param("obj_source", 5).param("obj_type", "a064").param("obj_param1", 2).param(TiebaStatic.Params.OBJ_TO, lc5.m(this.a.i)).param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param(TiebaStatic.Params.OBJ_PARAM2, this.a.f ? 2 : 1).param("fid", this.a.g).eventStat();
                 if (this.a.e != null) {
                     this.a.e.onAdDismiss();
                 }
             }
         }
 
-        @Override // com.repackage.sa1
-        public void f(ld1 ld1Var) {
+        @Override // com.repackage.db1
+        public void f(wd1 wd1Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, ld1Var) == null) {
-                if (ml5.a) {
+            if (interceptable == null || interceptable.invokeL(1048581, this, wd1Var) == null) {
+                if (nl5.a) {
                     System.out.println("IAdSdkSplash prologue gd loaded success");
                 }
                 this.a.c = AdLoadState.SUCCEED;
                 if (this.a.e != null) {
-                    this.a.e.f(rl5.b);
+                    this.a.e.f(sl5.b, true);
                 }
-                if (oi.B()) {
-                    ll5.e().n(this.a.e);
+                if (mi.B()) {
+                    ml5.e().n(this.a.e);
                 } else {
-                    pg.a().post(new RunnableC0558a(this));
+                    ng.a().post(new RunnableC0560a(this));
                 }
                 i("advert_load", 1);
                 if (this.a.h != null) {
-                    if (ld1Var == null) {
+                    if (wd1Var == null) {
                         this.a.h.onSplashEvent(66);
                     } else {
-                        JSONObject a = ld1Var.a();
-                        this.a.i = a != null ? a.optInt("source", -1) : -1;
+                        mb1 a = wd1Var.a();
+                        if (a != null) {
+                            this.a.k = a.e();
+                        }
+                        JSONObject b2 = wd1Var.b();
+                        this.a.i = b2 != null ? b2.optInt("source", -1) : -1;
                         this.a.h.onSplashEvent(65, this.a.i);
                     }
                 }
-                rl5.i(rl5.b, "0", null, ub5.m(this.a.i), 0, 0, this.a.f, this.a.g);
-                ql5.f(this.a.i, this.a.g);
+                sl5.i(sl5.b, "0", null, lc5.m(this.a.i), 0, 0, this.a.f, this.a.g);
+                rl5.f(this.a.i, this.a.g);
             }
         }
 
-        @Override // com.repackage.sa1
+        @Override // com.repackage.db1
         public void g() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                if (ml5.a) {
+                if (nl5.a) {
                     System.out.println("IAdSdkSplash prologue ad onAdPlayError");
                 }
                 if (this.a.e != null) {
@@ -270,7 +275,7 @@ public class yk5 implements ml5 {
             }
         }
 
-        @Override // com.repackage.sa1
+        @Override // com.repackage.db1
         @NonNull
         public ViewGroup h() {
             InterceptResult invokeV;
@@ -281,20 +286,20 @@ public class yk5 implements ml5 {
         public final void i(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i) == null) {
-                ug a = r85.a();
+                sg a = i95.a();
                 a.b("type", "prologue");
                 a.b("locate", SpeedStatsUtils.UBC_VALUE_SPLASH);
-                a.c("switch", Integer.valueOf(ll5.e().d()));
+                a.c("switch", Integer.valueOf(ml5.e().d()));
                 a.c("isSuccess", Integer.valueOf(i));
                 BdStatisticsManager.getInstance().debug(str, a);
             }
         }
 
-        @Override // com.repackage.sa1
+        @Override // com.repackage.db1
         public void onAdShow() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-                if (ml5.a) {
+                if (nl5.a) {
                     System.out.println("IAdSdkSplash prologue ad show");
                 }
                 if (this.a.e != null) {
@@ -302,7 +307,7 @@ public class yk5 implements ml5 {
                 }
                 if (!this.a.j) {
                     this.a.j = true;
-                    rl5.j(rl5.b, "0", null, ub5.m(this.a.i), null, null, this.a.g);
+                    sl5.j(sl5.b, "0", null, lc5.m(this.a.i), null, null, this.a.g);
                 }
                 i("advert_show", 1);
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getClass().getSimpleName()).param("obj_param1", 0).param(TiebaStatic.Params.OBJ_PARAM2, this.a.e != null ? this.a.e.hashCode() : 0));
@@ -311,7 +316,7 @@ public class yk5 implements ml5 {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements sa1 {
+    public class b implements db1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ yk5 a;
@@ -334,42 +339,42 @@ public class yk5 implements ml5 {
             this.a = yk5Var;
         }
 
-        @Override // com.repackage.sa1
+        @Override // com.repackage.db1
         public void a() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || yk5.m == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || yk5.n == null) {
                 return;
             }
-            yk5.m.a();
+            yk5.n.a();
         }
 
-        @Override // com.repackage.sa1
+        @Override // com.repackage.db1
         public void b() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || yk5.m == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || yk5.n == null) {
                 return;
             }
-            yk5.m.b();
+            yk5.n.b();
         }
 
-        @Override // com.repackage.sa1
+        @Override // com.repackage.db1
         public void c(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                if (yk5.m != null) {
-                    if (yk5.m != null) {
-                        yk5.m.c(str);
+                if (yk5.n != null) {
+                    if (yk5.n != null) {
+                        yk5.n.c(str);
                         return;
                     }
                     return;
                 }
                 HashMap<String, Object> hashMap = new HashMap<>();
                 hashMap.put("data", str);
-                yi5.c().a(this.a.f(), "onAdLoadFailed", hashMap);
+                qj5.c().a(this.a.f(), "onAdLoadFailed", hashMap);
             }
         }
 
-        @Override // com.repackage.sa1
+        @Override // com.repackage.db1
         public boolean d(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -379,62 +384,62 @@ public class yk5 implements ml5 {
             return invokeL.booleanValue;
         }
 
-        @Override // com.repackage.sa1
+        @Override // com.repackage.db1
         public void e() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || yk5.m == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || yk5.n == null) {
                 return;
             }
-            yk5.m.e();
+            yk5.n.e();
         }
 
-        @Override // com.repackage.sa1
-        public void f(ld1 ld1Var) {
+        @Override // com.repackage.db1
+        public void f(wd1 wd1Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, ld1Var) == null) {
-                if (yk5.m != null) {
-                    if (yk5.m != null) {
-                        yk5.m.f(ld1Var);
+            if (interceptable == null || interceptable.invokeL(1048581, this, wd1Var) == null) {
+                if (yk5.n != null) {
+                    if (yk5.n != null) {
+                        yk5.n.f(wd1Var);
                         return;
                     }
                     return;
                 }
                 HashMap<String, Object> hashMap = new HashMap<>();
-                hashMap.put("data", ld1Var);
-                yi5.c().a(this.a.f(), "onAdLoaded", hashMap);
+                hashMap.put("data", wd1Var);
+                qj5.c().a(this.a.f(), "onAdLoaded", hashMap);
             }
         }
 
-        @Override // com.repackage.sa1
+        @Override // com.repackage.db1
         public void g() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || yk5.m == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || yk5.n == null) {
                 return;
             }
-            yk5.m.g();
+            yk5.n.g();
         }
 
-        @Override // com.repackage.sa1
+        @Override // com.repackage.db1
         @NonNull
         public ViewGroup h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                if (yk5.m != null) {
-                    return yk5.m.h();
+                if (yk5.n != null) {
+                    return yk5.n.h();
                 }
                 return new RelativeLayout(TbadkCoreApplication.getInst().getContext());
             }
             return (ViewGroup) invokeV.objValue;
         }
 
-        @Override // com.repackage.sa1
+        @Override // com.repackage.db1
         public void onAdShow() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || yk5.m == null) {
+            if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || yk5.n == null) {
                 return;
             }
-            yk5.m.onAdShow();
+            yk5.n.onAdShow();
         }
     }
 
@@ -475,6 +480,7 @@ public class yk5 implements ml5 {
         this.g = -1L;
         this.i = -1;
         this.j = false;
+        this.k = null;
         this.h = splashNativePolicy;
     }
 
@@ -485,69 +491,69 @@ public class yk5 implements ml5 {
         }
     }
 
-    @Override // com.repackage.ml5
+    @Override // com.repackage.nl5
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            l = true;
-            v(new b(this), null);
+            m = true;
+            x(new b(this), null);
         }
     }
 
-    @Override // com.repackage.ml5
+    @Override // com.repackage.nl5
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d.get() != null && this.d.get().getChildCount() > 0 : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.ml5
+    @Override // com.repackage.nl5
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ub5.m(this.i) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? lc5.m(this.i) : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.ml5
+    @Override // com.repackage.nl5
     public AdLoadState d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (AdLoadState) invokeV.objValue;
     }
 
-    @Override // com.repackage.ml5
+    @Override // com.repackage.nl5
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (k != null) {
-                k.g();
-                k = null;
+            if (l != null) {
+                l.h();
+                l = null;
             }
-            m = null;
+            n = null;
         }
     }
 
-    @Override // com.repackage.ml5
-    public void e(tl4 tl4Var) {
+    @Override // com.repackage.nl5
+    public void e(em4 em4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, tl4Var) == null) || tl4Var == null || tl4Var.b() == null || tl4Var.b().getContext() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, em4Var) == null) || em4Var == null || em4Var.b() == null || em4Var.b().getContext() == null) {
             return;
         }
-        this.e = tl4Var.a();
-        this.f = tl4Var.d();
-        this.g = tl4Var.c();
-        this.d = new WeakReference<>(tl4Var.b());
+        this.e = em4Var.a();
+        this.f = em4Var.d();
+        this.g = em4Var.c();
+        this.d = new WeakReference<>(em4Var.b());
         a aVar = new a(this);
-        m = aVar;
-        if (l) {
+        n = aVar;
+        if (m) {
             t();
-            l = false;
+            m = false;
             return;
         }
-        v(aVar, this.e);
+        x(aVar, this.e);
     }
 
-    @Override // com.repackage.ml5
+    @Override // com.repackage.nl5
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -566,27 +572,27 @@ public class yk5 implements ml5 {
         this.d.get().setLayoutParams(layoutParams);
     }
 
-    @Override // com.repackage.ml5
+    @Override // com.repackage.nl5
     public void show() {
         WeakReference<ViewGroup> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || k == null || (weakReference = this.d) == null || weakReference.get() == null || this.c != AdLoadState.SUCCEED) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || l == null || (weakReference = this.d) == null || weakReference.get() == null || this.c != AdLoadState.SUCCEED) {
             return;
         }
         s();
         this.c = AdLoadState.SHOWED;
-        if (ml5.a) {
+        if (nl5.a) {
             System.out.println("IAdSdkSplash prologue ad start show");
         }
-        k.m(this.d.get());
+        l.n(this.d.get());
     }
 
     public final void t() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || m == null || yi5.c().d(f()).isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || n == null || qj5.c().d(f()).isEmpty()) {
             return;
         }
-        for (yi5.a aVar : yi5.c().d(f())) {
+        for (qj5.a aVar : qj5.c().d(f())) {
             String str = aVar.a;
             char c = 65535;
             int hashCode = str.hashCode();
@@ -598,32 +604,55 @@ public class yk5 implements ml5 {
                 c = 1;
             }
             if (c == 0) {
-                m.f((ld1) aVar.b.get("data"));
+                n.f((wd1) aVar.b.get("data"));
             } else if (c == 1) {
-                m.c((String) aVar.b.get("data"));
+                n.c((String) aVar.b.get("data"));
             }
         }
-        yi5.c().b(f());
+        qj5.c().b(f());
     }
 
-    public final void v(sa1 sa1Var, ql4 ql4Var) {
+    public boolean v() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, sa1Var, ql4Var) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (qj5.c().d(f()).isEmpty()) {
+                return false;
+            }
+            for (qj5.a aVar : qj5.c().d(f())) {
+                if ("onAdLoaded".equals(aVar.a)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? !qj5.c().d(f()).isEmpty() : invokeV.booleanValue;
+    }
+
+    public final void x(db1 db1Var, bm4 bm4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, db1Var, bm4Var) == null) {
             try {
                 Context context = TbadkCoreApplication.getInst().getContext();
-                tc1.b bVar = new tc1.b();
-                bVar.j(oi.k(context));
-                bVar.k(oi.i(context));
-                k = new xa1(context, ab1.m(), bVar.i(), sa1Var);
+                ed1.b bVar = new ed1.b();
+                bVar.j(mi.k(context));
+                bVar.k(mi.i(context));
+                l = new ib1(context, lb1.m(), bVar.i(), db1Var);
                 this.c = AdLoadState.LOADING;
-                k.h();
-                if (ml5.a) {
+                l.i();
+                if (nl5.a) {
                     System.out.println("IAdSdkSplash prologue ad start load");
                 }
             } catch (OutOfMemoryError unused) {
                 TbadkCoreApplication.getInst().onLowMemory();
-                if (ql4Var != null) {
-                    ql4Var.c("oom");
+                if (bm4Var != null) {
+                    bm4Var.c("oom");
                 }
             }
         }

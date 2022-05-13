@@ -1,79 +1,60 @@
 package com.repackage;
 
 import androidx.annotation.NonNull;
-import java.util.ArrayList;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public interface ug2 extends vg2 {
+public class ug2 extends oe2<fh2> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public interface a {
+    public ug2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    void D(int i);
+    @Override // com.repackage.oe2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setRemoteVideoPlayState" : (String) invokeV.objValue;
+    }
 
-    void E();
-
-    void F(long j);
-
-    void I(int i);
-
-    void J(int i);
-
-    void K(int i);
-
-    void M(boolean z);
-
-    void S();
-
-    void V(int i);
-
-    void Y(int i);
-
-    void Z(@NonNull a aVar);
-
-    void a0();
-
-    void d();
-
-    void d0(boolean z);
-
-    void e(int i);
-
-    void e0(long j, boolean z);
-
-    void exitRoom();
-
-    void f();
-
-    void g(boolean z);
-
-    ArrayList<yg2> h();
-
-    void i(boolean z);
-
-    void i0(String str);
-
-    void j(long j);
-
-    void l0(long j);
-
-    void m0(boolean z);
-
-    void n();
-
-    void p(long j, boolean z);
-
-    void r(String str);
-
-    void setCameraFace(boolean z);
-
-    void t(boolean z);
-
-    void u(xg2 xg2Var);
-
-    ArrayList<wg2> v();
-
-    void x(boolean z);
-
-    void y(boolean z);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.oe2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull fh2 fh2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, fh2Var) == null) {
+            String str = command.what;
+            d(fh2Var, str, "" + command.obj, true);
+            Object obj = command.obj;
+            if (obj instanceof JSONObject) {
+                JSONObject jSONObject = (JSONObject) obj;
+                if (jSONObject.has("status") && jSONObject.has("userId")) {
+                    long optLong = jSONObject.optLong("userId", -1L);
+                    boolean optBoolean = jSONObject.optBoolean("status");
+                    if (dh2.a(optLong)) {
+                        fh2Var.e0(optLong, optBoolean);
+                    }
+                }
+            }
+        }
+    }
 }

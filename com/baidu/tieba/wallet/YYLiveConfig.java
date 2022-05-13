@@ -6,8 +6,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ni;
-import com.repackage.vt4;
+import com.repackage.iu4;
+import com.repackage.li;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -60,18 +60,18 @@ public class YYLiveConfig {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
             if (jSONObject != null) {
                 parse(jSONObject);
-                vt4.k().y("key_extra_yy_config", jSONObject.toString());
+                iu4.k().y("key_extra_yy_config", jSONObject.toString());
                 return;
             }
-            String q = vt4.k().q("key_extra_yy_config", "");
-            if (!ni.isEmpty(q)) {
+            String q = iu4.k().q("key_extra_yy_config", "");
+            if (!li.isEmpty(q)) {
                 try {
                     parse(new JSONObject(q));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-            vt4.k().y("key_extra_yy_config", "");
+            iu4.k().y("key_extra_yy_config", "");
         }
     }
 
@@ -86,7 +86,7 @@ public class YYLiveConfig {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            vt4.k().y("key_extra_yy_config", jSONObject.toString());
+            iu4.k().y("key_extra_yy_config", jSONObject.toString());
         }
     }
 }

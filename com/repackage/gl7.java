@@ -46,13 +46,13 @@ public class gl7 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0808, (ViewGroup) null);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0801, (ViewGroup) null);
             this.a = inflate;
             this.b = context;
             inflate.setTag(this);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091ed6);
-            this.d = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091ed5);
-            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091ed4);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091f2e);
+            this.d = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091f2d);
+            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091f2c);
             this.f = findViewById;
             findViewById.setTag(this);
             return this.a;

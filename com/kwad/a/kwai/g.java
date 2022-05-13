@@ -8,7 +8,7 @@ import com.kwad.a.kwai.c;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 /* loaded from: classes5.dex */
-public class g extends c.AbstractC0283c {
+public class g extends c.AbstractC0282c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

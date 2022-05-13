@@ -1,174 +1,129 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.text.TextUtils;
+import android.widget.BaseAdapter;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.img.ImageUploadResult;
+import com.baidu.tieba.faceshop.forumpackage.data.ForumEmotionPackageData;
+import com.baidu.tieba.faceshop.forumpackage.model.ForumEmotionModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes6.dex */
 public class m96 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public BdTypeListView b;
+    public final List<eo> c;
+    public l96 d;
+    public n96 e;
+    public final List<ro> f;
 
-    /* loaded from: classes6.dex */
-    public class a implements d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AtomicInteger a;
-        public final /* synthetic */ List b;
-        public final /* synthetic */ c c;
-
-        public a(m96 m96Var, AtomicInteger atomicInteger, List list, c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m96Var, atomicInteger, list, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = atomicInteger;
-            this.b = list;
-            this.c = cVar;
-        }
-
-        @Override // com.repackage.m96.d
-        public void a(ImageUploadResult imageUploadResult) {
-            ImageUploadResult.picInfo picinfo;
-            ImageUploadResult.PicDetailedInfo picDetailedInfo;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, imageUploadResult) == null) {
-                this.a.decrementAndGet();
-                if (imageUploadResult != null && (picinfo = imageUploadResult.picInfo) != null && (picDetailedInfo = picinfo.bigPic) != null && !TextUtils.isEmpty(picDetailedInfo.picUrl)) {
-                    this.b.add(imageUploadResult.picInfo.bigPic.picUrl);
-                }
-                if (this.a.get() == 0) {
-                    if (!ListUtils.isEmpty(this.b)) {
-                        this.c.cdnSuccess(this.b);
-                    } else {
-                        this.c.cdnFail();
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ImageFileInfo a;
-        public final /* synthetic */ d b;
-
-        public b(m96 m96Var, ImageFileInfo imageFileInfo, d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m96Var, imageFileInfo, dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = imageFileInfo;
-            this.b = dVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String filePath = this.a.getFilePath();
-                o35 o35Var = new o35("from_user_collect");
-                if (this.a.isGif()) {
-                    this.b.a(o35Var.m(filePath, true, false));
-                    return;
-                }
-                Bitmap b = ho7.b(this.a);
-                if (b == null) {
-                    this.b.a(null);
-                    return;
-                }
-                String saveBitmapByAbsolutelyPath = FileHelper.saveBitmapByAbsolutelyPath(TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath(), "face_" + Math.abs(filePath.hashCode()), b, 60);
-                b.recycle();
-                if (TextUtils.isEmpty(saveBitmapByAbsolutelyPath)) {
-                    this.b.a(null);
-                    return;
-                }
-                ImageUploadResult m = o35Var.m(saveBitmapByAbsolutelyPath, false, false);
-                FileHelper.deleteFile(new File(saveBitmapByAbsolutelyPath));
-                this.b.a(m);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface c {
-        void cdnFail();
-
-        void cdnSuccess(List<String> list);
-    }
-
-    /* loaded from: classes6.dex */
-    public interface d {
-        void a(ImageUploadResult imageUploadResult);
-    }
-
-    public m96() {
+    public m96(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView, ForumEmotionModel forumEmotionModel) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdTypeListView, forumEmotionModel};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = new ArrayList();
+        this.f = new ArrayList();
+        this.a = tbPageContext;
+        this.b = bdTypeListView;
+        c(forumEmotionModel);
     }
 
-    public void a(ArrayList<ImageFileInfo> arrayList, c cVar) {
+    public void a(List<ro> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, arrayList, cVar) == null) || ListUtils.isEmpty(arrayList)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        AtomicInteger atomicInteger = new AtomicInteger();
-        atomicInteger.set(arrayList.size());
-        ArrayList arrayList2 = new ArrayList();
-        Iterator<ImageFileInfo> it = arrayList.iterator();
-        while (it.hasNext()) {
-            b(it.next(), new a(this, atomicInteger, arrayList2, cVar));
+        if (this.b != null) {
+            this.f.addAll(list);
+            this.b.setData(this.f);
+        }
+        d();
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f.size() : invokeV.intValue;
+    }
+
+    public final void c(ForumEmotionModel forumEmotionModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, forumEmotionModel) == null) {
+            l96 l96Var = new l96(this.a, forumEmotionModel.A(), q96.b);
+            this.d = l96Var;
+            this.c.add(l96Var);
+            n96 n96Var = new n96(this.a, forumEmotionModel.A(), o96.a);
+            this.e = n96Var;
+            this.c.add(n96Var);
+            this.b.a(this.c);
         }
     }
 
-    public final void b(ImageFileInfo imageFileInfo, d dVar) {
+    public void d() {
+        BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageFileInfo, dVar) == null) {
-            yn7.b().a(new b(this, imageFileInfo, dVar));
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (bdTypeListView = this.b) == null || bdTypeListView.getAdapter2() == null || !(this.b.getAdapter2() instanceof BaseAdapter)) {
+            return;
+        }
+        this.b.getAdapter2().notifyDataSetChanged();
+    }
+
+    public void e(List<ro> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, list) == null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        if (!ListUtils.isEmpty(this.f)) {
+            this.f.clear();
+        }
+        BdTypeListView bdTypeListView = this.b;
+        if (bdTypeListView != null) {
+            bdTypeListView.setData(list);
+            this.f.addAll(list);
+        }
+        d();
+    }
+
+    public void f(k96 k96Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, k96Var) == null) {
+            this.d.b0(k96Var);
+            this.e.b0(k96Var);
+        }
+    }
+
+    public void g(ForumEmotionPackageData forumEmotionPackageData) {
+        ForumEmotionPackageData forumEmotionPackageData2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, forumEmotionPackageData) == null) || forumEmotionPackageData == null || ListUtils.isEmpty(this.f)) {
+            return;
+        }
+        for (ro roVar : this.f) {
+            if (roVar != null && (roVar instanceof q96) && (forumEmotionPackageData2 = ((q96) roVar).a) != null && forumEmotionPackageData2.id == forumEmotionPackageData.id) {
+                forumEmotionPackageData2.download = forumEmotionPackageData.download;
+                forumEmotionPackageData2.share = forumEmotionPackageData.share;
+                d();
+                return;
+            }
         }
     }
 }

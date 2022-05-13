@@ -106,7 +106,7 @@ public class u88 {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            long g = mg.g(this.b, 0L);
+            long g = kg.g(this.b, 0L);
             if (g == 0) {
                 PushDialogActivity pushDialogActivity = this.a;
                 if (pushDialogActivity != null) {

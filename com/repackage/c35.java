@@ -1,256 +1,105 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.client.HttpClient;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.NetMessage;
+import android.content.Context;
+import android.text.TextWatcher;
+import android.widget.EditText;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.data.CloseAdData;
-import com.baidu.tbadk.data.PayMemberInfoData;
-import com.baidu.tbadk.data.UserData;
-import com.baidu.tbadk.getUserInfo.GetUserInfoHttpResponseMessage;
-import com.baidu.tbadk.getUserInfo.GetUserInfoRequstData;
-import com.baidu.tbadk.getUserInfo.GetUserInfoSocketResponseMessage;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.editortools.pb.PbNewInputContainer;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class c35 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static c35 c = null;
-    public static boolean d = true;
+public class c35 extends i15 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public UserData a;
-    public TbHttpMessageTask b;
+    public EditText t;
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c35 a;
-
-        public a(c35 c35Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c35Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = c35Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                GetUserInfoRequstData c = this.a.c();
-                c.setNetType(NetMessage.NetType.HTTP);
-                if (this.a.b != null) {
-                    new HttpClient.a(c.getHttpMessage(), this.a.b).execute(new HttpMessage[0]);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AccountData a;
-
-        public b(c35 c35Var, AccountData accountData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c35Var, accountData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = accountData;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                en4.g(this.a);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755848116, "Lcom/repackage/c35;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755848116, "Lcom/repackage/c35;");
-        }
-    }
-
-    public c35() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c35(Context context, boolean z, boolean z2, int i) {
+        super(context, (String) null, 27);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static c35 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (c == null) {
-                synchronized (c35.class) {
-                    if (c == null) {
-                        c = new c35();
-                    }
-                }
-            }
-            return c;
-        }
-        return (c35) invokeV.objValue;
-    }
-
-    public final GetUserInfoRequstData c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            GetUserInfoRequstData getUserInfoRequstData = new GetUserInfoRequstData(CmdConfigHttp.CMD_GET_USER_INFO, 303024);
-            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-            if (currentAccountObj != null) {
-                getUserInfoRequstData.setUid(mg.g(currentAccountObj.getID(), 0L));
-            }
-            getUserInfoRequstData.setScreenWidth(oi.k(TbadkCoreApplication.getInst().getApp()));
-            return getUserInfoRequstData;
-        }
-        return (GetUserInfoRequstData) invokeV.objValue;
-    }
-
-    public UserData e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (UserData) invokeV.objValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            kk8.h(303024, GetUserInfoSocketResponseMessage.class, false, false);
-            TbHttpMessageTask c2 = kk8.c(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
-            this.b = c2;
-            c2.setTimeOut(fb.d().b());
-            this.b.setRetry(fb.d().a());
-            this.b.setConnectTimeOut(fb.d().c());
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            new Thread(new a(this)).start();
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (d) {
-                g();
-                d = false;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            MessageManager.getInstance().sendMessage(c());
+        }
+        this.o = false;
+        this.n = 3;
+        PbNewInputContainer pbNewInputContainer = new PbNewInputContainer(context);
+        this.m = pbNewInputContainer;
+        pbNewInputContainer.setTransLink(!z);
+        ((PbNewInputContainer) this.m).setmAtListRequestResponseCode(i);
+        this.t = ((PbNewInputContainer) this.m).getInputView();
+        ((PbNewInputContainer) this.m).setHint(context.getString(R.string.obfuscated_res_0x7f0f108b));
+        ((PbNewInputContainer) this.m).G(z2);
+        this.p = new int[]{4, 17, 24, 3, 9, 6, 44, 12, 10, 13, 11, 28, 29, 39, 45};
+    }
+
+    public void f(TextWatcher textWatcher) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, textWatcher) == null) {
+            this.t.addTextChangedListener(textWatcher);
         }
     }
 
-    public void i(UserData userData) {
+    public void g(int i) {
+        j15 j15Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, userData) == null) {
-            this.a = userData;
-            if (userData == null) {
-                return;
-            }
-            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-            if (currentAccountObj == null) {
-                currentAccountObj = new AccountData();
-            }
-            if (!StringUtils.isNull(userData.getUserName())) {
-                currentAccountObj.setAccount(userData.getUserName());
-            }
-            if (!StringUtils.isNull(userData.getPortrait())) {
-                currentAccountObj.setPortrait(userData.getPortrait());
-            }
-            currentAccountObj.setSex(userData.getSex());
-            currentAccountObj.setMemberType(userData.getIsMem());
-            currentAccountObj.setVipInfo(userData.getUserVipInfo());
-            currentAccountObj.setPersonalBgUrl(userData.getBg_pic());
-            if (userData.getGodUserData() != null) {
-                currentAccountObj.setGodType(userData.getGodUserData().getType());
-            }
-            if (userData.getNewGodData() != null) {
-                currentAccountObj.setNewGodStatus(userData.getNewGodData().getStatus());
-            }
-            if (!TextUtils.isEmpty(userData.getUk())) {
-                currentAccountObj.setUk(userData.getUk());
-            }
-            currentAccountObj.setIsBigV(userData.isBigV());
-            currentAccountObj.setNameShow(userData.getName_show());
-            TbadkCoreApplication.getInst().setDefaultBubble(userData.getBimg_url());
-            PayMemberInfoData payMemberInfoData = userData.getPayMemberInfoData();
-            if (currentAccountObj.getVipInfo() != null) {
-                currentAccountObj.setMemberIconUrl(currentAccountObj.getVipInfo().getVipIconUrl());
-            } else {
-                currentAccountObj.setMemberIconUrl(null);
-            }
-            CloseAdData closeAdData = userData.getCloseAdData();
-            if (closeAdData != null) {
-                currentAccountObj.setMemberCloseAdIsOpen(closeAdData.y());
-                currentAccountObj.setMemberCloseAdVipClose(closeAdData.z());
-            }
-            currentAccountObj.setUserIcons(userData.getIconInfo());
-            currentAccountObj.setIsSelectTail(userData.getIsSelectTail());
-            sg.a().c(new b(this, currentAccountObj));
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001247, payMemberInfoData));
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (j15Var = this.m) == null) {
+            return;
         }
+        ((PbNewInputContainer) j15Var).x(i);
+    }
+
+    public EditText h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.t : (EditText) invokeV.objValue;
+    }
+
+    public void i(TextWatcher textWatcher) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, textWatcher) == null) {
+            this.t.removeTextChangedListener(textWatcher);
+        }
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || this.m == null || StringUtils.isNull(str)) {
+            return;
+        }
+        ((PbNewInputContainer) this.m).setDefaultHint(str);
+    }
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.m == null || StringUtils.isNull(str)) {
+            return;
+        }
+        ((PbNewInputContainer) this.m).setHint(str);
+    }
+
+    public void l(int i) {
+        j15 j15Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048582, this, i) == null) || (j15Var = this.m) == null) {
+            return;
+        }
+        ((PbNewInputContainer) j15Var).setType(i);
     }
 }

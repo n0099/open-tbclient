@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<b> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public IBinder a;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a implements Parcelable.Creator<b> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -1,7 +1,9 @@
 package com.repackage;
+
+import android.content.Context;
 /* loaded from: classes6.dex */
 public interface jk1 {
-    vj1 a();
+    void a(Context context, int i);
 
-    ck1 b();
+    int b(Context context);
 }

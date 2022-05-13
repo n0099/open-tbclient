@@ -19,8 +19,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a15;
-import com.repackage.i05;
+import com.repackage.p15;
+import com.repackage.w05;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class EmotionTabWidgetView extends LinearLayout {
@@ -62,7 +62,7 @@ public class EmotionTabWidgetView extends LinearLayout {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.e == null) {
                 return;
             }
-            this.a.e.A(new i05(3, -1, null));
+            this.a.e.A(new w05(3, -1, null));
         }
     }
 
@@ -126,10 +126,10 @@ public class EmotionTabWidgetView extends LinearLayout {
         c(context);
     }
 
-    public void b(a15 a15Var) {
+    public void b(p15 p15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, a15Var) == null) {
-            this.a.j(a15Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, p15Var) == null) {
+            this.a.j(p15Var);
         }
     }
 
@@ -137,11 +137,11 @@ public class EmotionTabWidgetView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             removeAllViews();
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0272, (ViewGroup) this, true);
-            this.a = (EmotionTabHorizonScrollView) findViewById(R.id.obfuscated_res_0x7f090965);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090963);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090966);
-            this.d = findViewById(R.id.obfuscated_res_0x7f0922d5);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d026a, (ViewGroup) this, true);
+            this.a = (EmotionTabHorizonScrollView) findViewById(R.id.obfuscated_res_0x7f09095e);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09095c);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09095f);
+            this.d = findViewById(R.id.obfuscated_res_0x7f09232b);
             this.b.setOnClickListener(new a(this));
             this.c.setOnClickListener(new b(this));
             this.c.setVisibility(8);
@@ -175,7 +175,7 @@ public class EmotionTabWidgetView extends LinearLayout {
         }
     }
 
-    public void setDatas(ArrayList<a15> arrayList) {
+    public void setDatas(ArrayList<p15> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) {
             this.a.setDatas(arrayList);

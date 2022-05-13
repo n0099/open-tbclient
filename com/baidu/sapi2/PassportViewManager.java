@@ -66,7 +66,7 @@ public class PassportViewManager implements NoProguard {
                     return;
                 }
             }
-            DEFAULT_TEXT_COLOR = PassportViewManager.c.context.getResources().getColor(R.color.obfuscated_res_0x7f0609da);
+            DEFAULT_TEXT_COLOR = PassportViewManager.c.context.getResources().getColor(R.color.obfuscated_res_0x7f0609e3);
         }
 
         public TitleViewModule() {
@@ -153,7 +153,7 @@ public class PassportViewManager implements NoProguard {
                 titleViewModule.bgColor = -1;
             }
             if (titleViewModule.leftBtnImgResId == Integer.MAX_VALUE) {
-                titleViewModule.leftBtnImgResId = R.drawable.obfuscated_res_0x7f081000;
+                titleViewModule.leftBtnImgResId = R.drawable.obfuscated_res_0x7f081016;
             }
         }
     }

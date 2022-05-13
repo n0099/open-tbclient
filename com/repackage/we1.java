@@ -1,81 +1,30 @@
 package com.repackage;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class we1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile we1 g;
+    public static volatile we1 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public BroadcastReceiver a;
-    public int b;
-    public boolean c;
-    public boolean d;
-    public boolean e;
-    public HashSet<String> f;
+    public Context a;
 
-    /* loaded from: classes7.dex */
-    public class a extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ we1 a;
-
-        public a(we1 we1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {we1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = we1Var;
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-                String stringExtra = intent.getStringExtra("ss");
-                if (this.a.b == 1) {
-                    return;
-                }
-                if (TextUtils.isEmpty(stringExtra)) {
-                    this.a.b = 1;
-                } else if ("LOADED".equals(stringExtra)) {
-                    if (this.a.f.isEmpty()) {
-                        return;
-                    }
-                    this.a.b = 1;
-                } else {
-                    this.a.b = 1;
-                    this.a.f.add(stringExtra);
-                }
-            }
-        }
-    }
-
-    public we1() {
+    public we1(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -85,107 +34,255 @@ public class we1 {
                 return;
             }
         }
-        this.b = 0;
-        this.c = false;
-        this.d = false;
-        this.e = false;
-        this.f = new HashSet<>();
+        this.a = context;
     }
 
-    public static we1 c() {
-        InterceptResult invokeV;
+    public static we1 a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (g == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (b == null) {
                 synchronized (we1.class) {
-                    if (g == null) {
-                        g = new we1();
+                    if (b == null) {
+                        b = new we1(context);
                     }
                 }
             }
-            return g;
+            return b;
         }
-        return (we1) invokeV.objValue;
+        return (we1) invokeL.objValue;
     }
 
-    public void d(Context context) {
+    public String b(JSONObject jSONObject, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            try {
-                if (this.a != null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, jSONObject, j)) == null) {
+            if (jSONObject != null) {
+                try {
+                    if (jSONObject.length() != 0) {
+                        String d = new pf1(this.a, null).d(jSONObject, j);
+                        if (!TextUtils.isEmpty(d)) {
+                            return d;
+                        }
+                    }
+                } catch (Throwable th) {
+                    fg1.d(th);
+                }
+            }
+            return "";
+        }
+        return (String) invokeLJ.objValue;
+    }
+
+    public final void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+            if (jSONObject != null) {
+                JSONArray optJSONArray = jSONObject.optJSONArray("1");
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    ue1.f(this.a).C("k_retry_code_cm", optJSONArray.toString());
+                } else {
+                    ue1.f(this.a).C("k_retry_code_cm", "");
+                }
+                JSONArray optJSONArray2 = jSONObject.optJSONArray("2");
+                if (optJSONArray2 != null && optJSONArray2.length() > 0) {
+                    ue1.f(this.a).C("k_retry_code_cu", optJSONArray2.toString());
+                } else {
+                    ue1.f(this.a).C("k_retry_code_cu", "");
+                }
+                JSONArray optJSONArray3 = jSONObject.optJSONArray("3");
+                if (optJSONArray3 != null && optJSONArray3.length() > 0) {
+                    ue1.f(this.a).C("k_retry_code_ct", optJSONArray3.toString());
+                    return;
+                } else {
+                    ue1.f(this.a).C("k_retry_code_ct", "");
                     return;
                 }
-                this.a = new a(this);
-                IntentFilter intentFilter = new IntentFilter();
-                intentFilter.addAction("android.intent.action.SIM_STATE_CHANGED");
-                context.registerReceiver(this.a, intentFilter);
-            } catch (Throwable th) {
-                uf1.d(th);
             }
+            ue1.f(this.a).C("k_retry_code_cm", "");
+            ue1.f(this.a).C("k_retry_code_cu", "");
+            ue1.f(this.a).C("k_retry_code_ct", "");
         }
     }
 
-    public void e(Context context, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject) == null) {
-            this.d = jSONObject.optInt("1", 0) == 1;
-            this.c = jSONObject.optInt("2", 0) == 1;
-            this.e = jSONObject.optInt("3", 0) == 1;
-            if (this.c) {
-                d(context);
-            } else {
-                h(context);
-            }
-        }
-    }
-
-    public int f() {
+    public synchronized boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.c) {
-                return this.b;
-            }
-            return -1000;
-        }
-        return invokeV.intValue;
-    }
-
-    public void h(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            try {
-                if (this.a == null) {
-                    return;
+            synchronized (this) {
+                try {
+                    if (f()) {
+                        return true;
+                    }
+                    pf1 pf1Var = new pf1(this.a, null);
+                    String b2 = pf1Var.b();
+                    if (TextUtils.isEmpty(b2)) {
+                        for (int i = 0; i < 3; i++) {
+                            b2 = pf1Var.b();
+                            if (!TextUtils.isEmpty(b2)) {
+                                break;
+                            }
+                        }
+                    }
+                    if (TextUtils.isEmpty(b2)) {
+                        return false;
+                    }
+                    JSONObject jSONObject = new JSONObject(b2);
+                    int optInt = jSONObject.optInt("0", -1);
+                    if (optInt == 2) {
+                        ue1.f(this.a).S(false);
+                    } else {
+                        ue1.f(this.a).S(true);
+                    }
+                    if (optInt == 1 || optInt == 3) {
+                        return true;
+                    }
+                    JSONObject optJSONObject = jSONObject.optJSONObject("1");
+                    if (optJSONObject == null) {
+                        return false;
+                    }
+                    JSONObject optJSONObject2 = optJSONObject.optJSONObject("yd_config");
+                    if (optJSONObject2 != null) {
+                        String optString = optJSONObject2.optString("app_id");
+                        String optString2 = optJSONObject2.optString(GameGuideConfigInfo.KEY_APP_KEY);
+                        if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
+                            cf1.k("cm", optString, optString2);
+                        }
+                        int optInt2 = optJSONObject2.optInt("status", -1);
+                        if (optInt2 == 1) {
+                            ue1.f(this.a).l(true);
+                        } else if (optInt2 == 2) {
+                            ue1.f(this.a).l(false);
+                        }
+                        ue1.f(this.a).Y(optJSONObject2.toString());
+                    }
+                    JSONObject optJSONObject3 = optJSONObject.optJSONObject("dx_config");
+                    if (optJSONObject3 != null) {
+                        String optString3 = optJSONObject3.optString("app_id");
+                        String optString4 = optJSONObject3.optString(GameGuideConfigInfo.KEY_APP_KEY);
+                        if (!TextUtils.isEmpty(optString3) && !TextUtils.isEmpty(optString4)) {
+                            cf1.k(Config.EXCEPTION_CRASH_TYPE, optString3, optString4);
+                        }
+                        int optInt3 = optJSONObject3.optInt("status", -1);
+                        if (optInt3 == 1) {
+                            ue1.f(this.a).w(true);
+                        } else if (optInt3 == 2) {
+                            ue1.f(this.a).w(false);
+                        }
+                        ue1.f(this.a).s(optJSONObject3.toString());
+                    }
+                    JSONObject optJSONObject4 = optJSONObject.optJSONObject("lt_config");
+                    if (optJSONObject4 != null) {
+                        String optString5 = optJSONObject4.optString("app_id");
+                        String optString6 = optJSONObject4.optString(GameGuideConfigInfo.KEY_APP_KEY);
+                        if (!TextUtils.isEmpty(optString5) && !TextUtils.isEmpty(optString6)) {
+                            cf1.k("cu", optString5, optString6);
+                        }
+                        int optInt4 = optJSONObject4.optInt("status", -1);
+                        if (optInt4 == 1) {
+                            ue1.f(this.a).D(true);
+                        } else if (optInt4 == 2) {
+                            ue1.f(this.a).D(false);
+                        }
+                        ue1.f(this.a).M(optJSONObject4.toString());
+                    }
+                    JSONObject optJSONObject5 = optJSONObject.optJSONObject("auto_config");
+                    if (optJSONObject5 != null) {
+                        String optString7 = optJSONObject5.optString(GameGuideConfigInfo.KEY_APP_KEY, "");
+                        String optString8 = optJSONObject5.optString("secret_key", "");
+                        if (!TextUtils.isEmpty(optString7) && !TextUtils.isEmpty(optString8)) {
+                            te1.b = optString7;
+                            te1.c = optString8;
+                            ue1.f(this.a).H(optString7, optString8);
+                        }
+                    }
+                    ue1.f(this.a).Q(optJSONObject.optString("encrypt_key", ""));
+                    JSONObject optJSONObject6 = jSONObject.optJSONObject("a_setting");
+                    if (optJSONObject6 != null) {
+                        ue1.f(this.a).I("1".equals(optJSONObject6.optString("1", "1")));
+                        ue1.f(this.a).y(optJSONObject6.optInt("2"));
+                        ue1.f(this.a).N("1".equals(optJSONObject6.optString("3", "0")));
+                        c(optJSONObject6.optJSONObject("4"));
+                    }
+                    ue1.f(this.a).j(jSONObject.optLong("3", 300L) * 1000);
+                    ue1.f(this.a).P(System.currentTimeMillis());
+                    return true;
+                } catch (Throwable th) {
+                    fg1.d(th);
+                    return false;
                 }
-                context.unregisterReceiver(this.a);
-                this.a = null;
-            } catch (Throwable th) {
-                uf1.d(th);
             }
-        }
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.d) {
-                if (this.e) {
-                    return this.c && this.b != 1;
-                }
-                return true;
-            }
-            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public void j() {
+    public String e(JSONObject jSONObject, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.b = 0;
-            this.f.clear();
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, jSONObject, j)) == null) {
+            if (jSONObject != null) {
+                try {
+                    if (jSONObject.length() != 0) {
+                        String i = new pf1(this.a, null).i(jSONObject, j);
+                        if (!TextUtils.isEmpty(i)) {
+                            return i;
+                        }
+                    }
+                } catch (Throwable th) {
+                    fg1.d(th);
+                }
+            }
+            return "";
         }
+        return (String) invokeLJ.objValue;
+    }
+
+    public final boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            try {
+                if (System.currentTimeMillis() - ue1.f(this.a).i0() > ue1.f(this.a).E()) {
+                    return false;
+                }
+                String o0 = ue1.f(this.a).o0();
+                String O = ue1.f(this.a).O();
+                String f0 = ue1.f(this.a).f0();
+                if (TextUtils.isEmpty(o0) && TextUtils.isEmpty(O) && TextUtils.isEmpty(f0)) {
+                    return false;
+                }
+                if (!TextUtils.isEmpty(o0)) {
+                    JSONObject jSONObject = new JSONObject(o0);
+                    String string = jSONObject.getString("app_id");
+                    String string2 = jSONObject.getString(GameGuideConfigInfo.KEY_APP_KEY);
+                    if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(string2)) {
+                        cf1.k("cm", string, string2);
+                    }
+                }
+                if (!TextUtils.isEmpty(O)) {
+                    JSONObject jSONObject2 = new JSONObject(O);
+                    String string3 = jSONObject2.getString("app_id");
+                    String string4 = jSONObject2.getString(GameGuideConfigInfo.KEY_APP_KEY);
+                    if (!TextUtils.isEmpty(string3) && !TextUtils.isEmpty(string4)) {
+                        cf1.k(Config.EXCEPTION_CRASH_TYPE, string3, string4);
+                    }
+                }
+                if (TextUtils.isEmpty(f0)) {
+                    return true;
+                }
+                JSONObject jSONObject3 = new JSONObject(f0);
+                String optString = jSONObject3.optString("app_id");
+                String optString2 = jSONObject3.optString(GameGuideConfigInfo.KEY_APP_KEY);
+                if (TextUtils.isEmpty(optString) || TextUtils.isEmpty(optString2)) {
+                    return true;
+                }
+                cf1.k("cu", optString, optString2);
+                return true;
+            } catch (Throwable th) {
+                fg1.d(th);
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
     }
 }

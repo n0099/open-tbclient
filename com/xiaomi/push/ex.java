@@ -124,11 +124,11 @@ public class ex implements iq<ex, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, exVar)) == null) {
             if (ex.class.equals(exVar.getClass())) {
-                int compareTo = Boolean.valueOf(m336a()).compareTo(Boolean.valueOf(exVar.m336a()));
+                int compareTo = Boolean.valueOf(m337a()).compareTo(Boolean.valueOf(exVar.m337a()));
                 if (compareTo != 0) {
                     return compareTo;
                 }
-                if (!m336a() || (a11 = ir.a(this.f325a, exVar.f325a)) == 0) {
+                if (!m337a() || (a11 = ir.a(this.f325a, exVar.f325a)) == 0) {
                     int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(exVar.b()));
                     if (compareTo2 != 0) {
                         return compareTo2;
@@ -246,13 +246,13 @@ public class ex implements iq<ex, Object>, Serializable, Cloneable {
         if (interceptable != null && interceptable.invokeL(1048581, this, jbVar) != null) {
             return;
         }
-        jbVar.m562a();
+        jbVar.m563a();
         while (true) {
-            iy m558a = jbVar.m558a();
-            byte b2 = m558a.a;
+            iy m559a = jbVar.m559a();
+            byte b2 = m559a.a;
             if (b2 == 0) {
                 jbVar.f();
-                if (!m336a()) {
+                if (!m337a()) {
                     throw new jc("Required field 'chid' was not found in serialized data! Struct: " + toString());
                 } else if (!b()) {
                     throw new jc("Required field 'type' was not found in serialized data! Struct: " + toString());
@@ -263,7 +263,7 @@ public class ex implements iq<ex, Object>, Serializable, Cloneable {
                     throw new jc("Required field 'value' was not found in serialized data! Struct: " + toString());
                 }
             }
-            switch (m558a.f791a) {
+            switch (m559a.f791a) {
                 case 1:
                     if (b2 == 3) {
                         this.f325a = jbVar.a();
@@ -274,7 +274,7 @@ public class ex implements iq<ex, Object>, Serializable, Cloneable {
                     break;
                 case 2:
                     if (b2 == 8) {
-                        this.f326a = jbVar.m556a();
+                        this.f326a = jbVar.m557a();
                         b(true);
                         continue;
                         jbVar.g();
@@ -282,7 +282,7 @@ public class ex implements iq<ex, Object>, Serializable, Cloneable {
                     break;
                 case 3:
                     if (b2 == 8) {
-                        this.f329b = jbVar.m556a();
+                        this.f329b = jbVar.m557a();
                         c(true);
                         continue;
                         jbVar.g();
@@ -290,21 +290,21 @@ public class ex implements iq<ex, Object>, Serializable, Cloneable {
                     break;
                 case 4:
                     if (b2 == 11) {
-                        this.f327a = jbVar.m563a();
+                        this.f327a = jbVar.m564a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 5:
                     if (b2 == 11) {
-                        this.f330b = jbVar.m563a();
+                        this.f330b = jbVar.m564a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 6:
                     if (b2 == 8) {
-                        this.f331c = jbVar.m556a();
+                        this.f331c = jbVar.m557a();
                         d(true);
                         continue;
                         jbVar.g();
@@ -312,21 +312,21 @@ public class ex implements iq<ex, Object>, Serializable, Cloneable {
                     break;
                 case 7:
                     if (b2 == 11) {
-                        this.f332c = jbVar.m563a();
+                        this.f332c = jbVar.m564a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 8:
                     if (b2 == 11) {
-                        this.f334d = jbVar.m563a();
+                        this.f334d = jbVar.m564a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 9:
                     if (b2 == 8) {
-                        this.f333d = jbVar.m556a();
+                        this.f333d = jbVar.m557a();
                         e(true);
                         continue;
                         jbVar.g();
@@ -334,7 +334,7 @@ public class ex implements iq<ex, Object>, Serializable, Cloneable {
                     break;
                 case 10:
                     if (b2 == 8) {
-                        this.f335e = jbVar.m556a();
+                        this.f335e = jbVar.m557a();
                         f(true);
                         continue;
                         jbVar.g();
@@ -354,14 +354,14 @@ public class ex implements iq<ex, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m336a() {
+    public boolean m337a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f328a.get(0) : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m337a(ex exVar) {
+    public boolean m338a(ex exVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, exVar)) == null) {
@@ -480,7 +480,7 @@ public class ex implements iq<ex, Object>, Serializable, Cloneable {
                 jbVar.b();
             }
             jbVar.c();
-            jbVar.m566a();
+            jbVar.m567a();
         }
     }
 
@@ -583,7 +583,7 @@ public class ex implements iq<ex, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, obj)) == null) {
             if (obj != null && (obj instanceof ex)) {
-                return m337a((ex) obj);
+                return m338a((ex) obj);
             }
             return false;
         }

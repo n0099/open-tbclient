@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.go;
+import com.repackage.Cdo;
 /* loaded from: classes.dex */
 public class BdRoundedImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
@@ -132,16 +132,16 @@ public class BdRoundedImageView extends ImageView {
             return;
         }
         int i2 = 0;
-        if (drawable instanceof go) {
-            go goVar = (go) drawable;
-            goVar.g(this.h);
-            goVar.e((this.d || !z) ? this.a : 0.0f);
+        if (drawable instanceof Cdo) {
+            Cdo cdo = (Cdo) drawable;
+            cdo.g(this.h);
+            cdo.e((this.d || !z) ? this.a : 0.0f);
             if (this.d || !z) {
                 i2 = this.b;
             }
-            goVar.d(i2);
-            goVar.c(this.c);
-            goVar.f(this.e);
+            cdo.d(i2);
+            cdo.c(this.c);
+            cdo.f(this.e);
         } else if (drawable instanceof LayerDrawable) {
             LayerDrawable layerDrawable = (LayerDrawable) drawable;
             int numberOfLayers = layerDrawable.getNumberOfLayers();
@@ -210,7 +210,7 @@ public class BdRoundedImageView extends ImageView {
     public void setBackgroundDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, drawable) == null) {
-            this.g = go.b(drawable);
+            this.g = Cdo.b(drawable);
             b();
             super.setBackgroundDrawable(this.g);
         }
@@ -265,7 +265,7 @@ public class BdRoundedImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, bitmap) == null) {
             if (bitmap != null && !bitmap.isRecycled()) {
-                this.f = new go(bitmap);
+                this.f = new Cdo(bitmap);
                 c();
             } else {
                 this.f = null;
@@ -279,7 +279,7 @@ public class BdRoundedImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, drawable) == null) {
             if (drawable != null) {
-                this.f = go.b(drawable);
+                this.f = Cdo.b(drawable);
                 c();
             } else {
                 this.f = null;
@@ -394,7 +394,7 @@ public class BdRoundedImageView extends ImageView {
         this.c = ColorStateList.valueOf(0);
         this.d = false;
         this.e = false;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843037, R.attr.obfuscated_res_0x7f0400e1, R.attr.obfuscated_res_0x7f0400e2, R.attr.obfuscated_res_0x7f040196, R.attr.obfuscated_res_0x7f040312, R.attr.obfuscated_res_0x7f040550}, i2, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843037, R.attr.obfuscated_res_0x7f0400e4, R.attr.obfuscated_res_0x7f0400e5, R.attr.obfuscated_res_0x7f040199, R.attr.obfuscated_res_0x7f040316, R.attr.obfuscated_res_0x7f040555}, i2, 0);
         int i5 = obtainStyledAttributes.getInt(0, -1);
         if (i5 >= 0) {
             setScaleType(i[i5]);

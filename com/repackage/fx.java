@@ -1,30 +1,71 @@
 package com.repackage;
 
-import android.graphics.Rect;
-import android.view.View;
+import android.os.Build;
+import android.os.HandlerThread;
+import android.os.Looper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class fx {
+public class fx extends HandlerThread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(View view2, View view3, int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fx(String str, int i) {
+        super(str, i);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65536, null, view2, view3, i) == null) {
-            b(view2, view3, i, i, i, i);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
     }
 
-    public static void b(View view2, View view3, int i, int i2, int i3, int i4) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{view2, view3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) || view3 == null || view2 == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                Looper looper = getLooper();
+                if (Build.VERSION.SDK_INT >= 18) {
+                    looper.quitSafely();
+                } else {
+                    looper.quit();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-        if (view2.getTouchDelegate() instanceof dx) {
-            ((dx) view2.getTouchDelegate()).b(view3, i, i2, i3, i4);
-        } else {
-            view2.setTouchDelegate(new dx(view3, i, i2, i3, i4, new Rect(0, 0, 0, 0)));
+    }
+
+    @Override // android.os.HandlerThread
+    public boolean quit() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? quitSafely() : invokeV.booleanValue;
+    }
+
+    @Override // android.os.HandlerThread
+    public boolean quitSafely() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            gx.c(this);
+            return true;
         }
+        return invokeV.booleanValue;
     }
 }

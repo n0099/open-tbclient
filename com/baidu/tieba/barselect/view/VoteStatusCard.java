@@ -17,19 +17,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hw5;
-import com.repackage.oi;
-import com.repackage.tw8;
-import com.repackage.xv5;
+import com.repackage.iw5;
+import com.repackage.mi;
+import com.repackage.qv8;
 import com.repackage.yv5;
+import com.repackage.zv5;
 /* loaded from: classes3.dex */
 public class VoteStatusCard extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public int b;
-    public yv5 c;
-    public xv5 d;
+    public zv5 c;
+    public yv5 d;
     public TextView e;
     public VoteStatusView f;
     public TextView g;
@@ -107,16 +107,16 @@ public class VoteStatusCard extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090325);
-            this.f = (VoteStatusView) findViewById(R.id.obfuscated_res_0x7f092409);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0902a9);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0902a8);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092411);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f092407);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f09193f);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f09193e);
-            this.n = findViewById(R.id.obfuscated_res_0x7f0923f6);
-            this.m = (NewVoteCountDownView) findViewById(R.id.obfuscated_res_0x7f0923f7);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09031e);
+            this.f = (VoteStatusView) findViewById(R.id.obfuscated_res_0x7f092459);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09029f);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09029e);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092461);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f092457);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091997);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f091996);
+            this.n = findViewById(R.id.obfuscated_res_0x7f092446);
+            this.m = (NewVoteCountDownView) findViewById(R.id.obfuscated_res_0x7f092447);
         }
     }
 
@@ -142,13 +142,13 @@ public class VoteStatusCard extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.a = getContext();
             setOrientation(1);
-            setMinimumHeight(oi.f(getContext(), R.dimen.tbds90));
+            setMinimumHeight(mi.f(getContext(), R.dimen.tbds90));
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             setBackgroundResource(R.drawable.bar_select_bg_shadow_and_radius);
-            int f = oi.f(this.a, R.dimen.tbds56);
-            int f2 = oi.f(this.a, R.dimen.tbds52);
+            int f = mi.f(this.a, R.dimen.tbds56);
+            int f2 = mi.f(this.a, R.dimen.tbds52);
             setPadding(f, f2, f, f2);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08af, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08a4, (ViewGroup) this, true);
             b();
             c();
         }
@@ -174,11 +174,11 @@ public class VoteStatusCard extends LinearLayout {
             }
             TextView textView2 = this.i;
             if (textView2 != null) {
-                textView2.setTextColor(this.b > hw5.a ? color : color2);
+                textView2.setTextColor(this.b > iw5.a ? color : color2);
             }
             TextView textView3 = this.k;
             if (textView3 != null) {
-                if (this.b <= hw5.b) {
+                if (this.b <= iw5.b) {
                     color = color2;
                 }
                 textView3.setTextColor(color);
@@ -197,18 +197,18 @@ public class VoteStatusCard extends LinearLayout {
                 newVoteCountDownView.f(i);
             }
             int color3 = SkinManager.getColor(R.color.CAM_X0206);
-            tw8 tw8Var = new tw8(this.o, 902.0f, 224.0f);
-            tw8Var.a(color3);
-            this.n.setBackground(tw8Var);
+            qv8 qv8Var = new qv8(this.o, 902.0f, 224.0f);
+            qv8Var.a(color3);
+            this.n.setBackground(qv8Var);
         }
     }
 
-    public void setData(yv5 yv5Var) {
+    public void setData(zv5 zv5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, yv5Var) == null) {
-            this.c = yv5Var;
-            if (yv5Var != null && yv5Var.a() != null) {
-                xv5 a2 = this.c.a();
+        if (interceptable == null || interceptable.invokeL(1048581, this, zv5Var) == null) {
+            this.c = zv5Var;
+            if (zv5Var != null && zv5Var.a() != null) {
+                yv5 a2 = this.c.a();
                 this.d = a2;
                 int g = a2.g();
                 this.b = g;
@@ -217,7 +217,7 @@ public class VoteStatusCard extends LinearLayout {
                 this.h.setText(StringHelper.getDateStringMd(this.d.c() * 1000));
                 this.j.setText(StringHelper.getDateStringMdHm(this.d.h() * 1000));
                 this.l.setText(StringHelper.getDateStringMdHm(this.d.d() * 1000));
-                if (this.b == hw5.b) {
+                if (this.b == iw5.b) {
                     this.n.setVisibility(0);
                     NewVoteCountDownView.b bVar = this.q;
                     if (bVar != null) {
@@ -259,7 +259,7 @@ public class VoteStatusCard extends LinearLayout {
                 return;
             }
         }
-        this.b = hw5.b;
+        this.b = iw5.b;
         this.q = new a(this);
         d();
     }

@@ -28,7 +28,7 @@ public class gk5 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public List<iy4> b;
+    public List<wy4> b;
     public int c;
     public int d;
     public int e;
@@ -132,12 +132,12 @@ public class gk5 extends BaseAdapter {
         }
     }
 
-    public gk5(Context context, sm4 sm4Var) {
+    public gk5(Context context, dn4 dn4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, sm4Var};
+            Object[] objArr = {context, dn4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -152,7 +152,7 @@ public class gk5 extends BaseAdapter {
         this.d = R.color.CAM_X0105;
         this.e = R.color.CAM_X0108;
         this.f = R.color.CAM_X0109;
-        this.i = oi.f(context, R.dimen.obfuscated_res_0x7f0701e8);
+        this.i = mi.f(context, R.dimen.obfuscated_res_0x7f0701e8);
         this.j = TbadkCoreApplication.getInst().appResponseToIntentClass(PersonGroupActivityConfig.class);
     }
 
@@ -193,7 +193,7 @@ public class gk5 extends BaseAdapter {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: d */
-    public iy4 getItem(int i) {
+    public wy4 getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
@@ -203,10 +203,10 @@ public class gk5 extends BaseAdapter {
             }
             return this.b.get(i - i2);
         }
-        return (iy4) invokeI.objValue;
+        return (wy4) invokeI.objValue;
     }
 
-    public void e(List<iy4> list) {
+    public void e(List<wy4> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             this.b = list;
@@ -227,7 +227,7 @@ public class gk5 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             int i = this.j ? 3 : 2;
-            List<iy4> list = this.b;
+            List<wy4> list = this.b;
             return list == null ? i : list.size() + i;
         }
         return invokeV.intValue;
@@ -245,7 +245,7 @@ public class gk5 extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            iy4 item = getItem(i);
+            wy4 item = getItem(i);
             if (i == 0) {
                 return 0;
             }
@@ -280,45 +280,45 @@ public class gk5 extends BaseAdapter {
                 if (view2 != 0 && view2.getTag() != null && (view2.getTag() instanceof d)) {
                     dVar3 = (d) view2.getTag();
                 } else {
-                    view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0085, (ViewGroup) null);
+                    view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0081, (ViewGroup) null);
                     dVar3 = new d(this, null);
-                    dVar3.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090142);
-                    dVar3.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090144);
-                    dVar3.c = view2.findViewById(R.id.obfuscated_res_0x7f090141);
+                    dVar3.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090138);
+                    dVar3.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09013a);
+                    dVar3.c = view2.findViewById(R.id.obfuscated_res_0x7f090137);
                     view2.setTag(dVar3);
                 }
                 SkinManager.setImageResource(dVar3.a, R.drawable.icon_new_friend);
                 SkinManager.setViewTextColor(dVar3.b, this.d, 1);
                 SkinManager.setBackgroundResource(dVar3.c, R.color.CAM_X0204);
                 SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
-                c((TextView) view2.findViewById(R.id.obfuscated_res_0x7f090143), this.c);
+                c((TextView) view2.findViewById(R.id.obfuscated_res_0x7f090139), this.c);
                 return view2;
             } else if (getItemViewType(i) == 5) {
                 if (view2 != 0 && view2.getTag() != null && (view2.getTag() instanceof d)) {
                     dVar2 = (d) view2.getTag();
                 } else {
-                    view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0085, (ViewGroup) null);
+                    view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0081, (ViewGroup) null);
                     dVar2 = new d(this, null);
-                    dVar2.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090142);
-                    dVar2.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090144);
-                    dVar2.c = view2.findViewById(R.id.obfuscated_res_0x7f090141);
+                    dVar2.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090138);
+                    dVar2.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09013a);
+                    dVar2.c = view2.findViewById(R.id.obfuscated_res_0x7f090137);
                     view2.setTag(dVar2);
                 }
                 SkinManager.setImageResource(dVar2.a, R.drawable.icon_add_friend);
                 SkinManager.setViewTextColor(dVar2.b, this.d, 1);
-                dVar2.b.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0617));
+                dVar2.b.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f061d));
                 SkinManager.setBackgroundResource(dVar2.c, R.color.CAM_X0204);
                 SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
-                ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f090143)).setVisibility(8);
+                ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f090139)).setVisibility(8);
                 return view2;
             } else if (getItemViewType(i) == 1) {
                 if (view2 != 0 && view2.getTag() != null && (view2.getTag() instanceof d)) {
                     dVar = (d) view2.getTag();
                 } else {
-                    view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0084, (ViewGroup) null);
+                    view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0080, (ViewGroup) null);
                     dVar = new d(this, null);
-                    dVar.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09013f);
-                    dVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090140);
+                    dVar.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090135);
+                    dVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090136);
                     view2.setTag(dVar);
                 }
                 SkinManager.setImageResource(dVar.a, R.drawable.icon_me_group);
@@ -326,15 +326,15 @@ public class gk5 extends BaseAdapter {
                 SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
                 return view2;
             } else {
-                iy4 item = getItem(i);
+                wy4 item = getItem(i);
                 if (getItemViewType(i) == 2) {
                     if (view2 != null && view2.getTag() != null && (view2.getTag() instanceof c)) {
                         cVar = (c) view2.getTag();
                     } else {
-                        view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0083, (ViewGroup) null);
+                        view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d007f, (ViewGroup) null);
                         cVar = new c(this, null);
-                        cVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09013d);
-                        cVar.b = view2.findViewById(R.id.obfuscated_res_0x7f09013c);
+                        cVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090133);
+                        cVar.b = view2.findViewById(R.id.obfuscated_res_0x7f090132);
                         view2.setTag(cVar);
                     }
                     if (item.a() != null) {
@@ -348,12 +348,12 @@ public class gk5 extends BaseAdapter {
                         bVar = (b) view2.getTag();
                     } else {
                         bVar = new b(this, null);
-                        view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0081, (ViewGroup) null);
-                        bVar.a = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090138);
-                        bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090139);
-                        bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090794);
-                        bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090795);
-                        bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f090137);
+                        view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d007d, (ViewGroup) null);
+                        bVar.a = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f09012e);
+                        bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09012f);
+                        bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090791);
+                        bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090792);
+                        bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f09012d);
                         view2.setTag(bVar);
                     }
                     if (item.f() != null) {
@@ -365,7 +365,7 @@ public class gk5 extends BaseAdapter {
                         if (item.b().b() == 1) {
                             bVar.d.setVisibility(0);
                             SkinManager.setViewTextColor(bVar.d, this.f, 1);
-                            bVar.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0431));
+                            bVar.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0438));
                             bVar.d.setCompoundDrawables(null, null, null, null);
                             bVar.e.setVisibility(8);
                         } else if (item.b().b() == 0) {
@@ -400,7 +400,7 @@ public class gk5 extends BaseAdapter {
                     }
                     SkinManager.setViewTextColor(bVar.b, this.d, 1);
                     String a2 = item.a();
-                    iy4 item2 = getItem(i + 1);
+                    wy4 item2 = getItem(i + 1);
                     if ((TextUtils.isEmpty(a2) || item2 == null || a2.equals(item2.a())) ? false : true) {
                         bVar.c.setVisibility(4);
                     } else {

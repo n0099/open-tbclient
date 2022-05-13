@@ -109,17 +109,17 @@ public class lm7 {
         this.h = false;
         this.j = new a(this);
         this.g = collectTabActivity;
-        FragmentTabHost fragmentTabHost = (FragmentTabHost) collectTabActivity.findViewById(R.id.obfuscated_res_0x7f091e30);
+        FragmentTabHost fragmentTabHost = (FragmentTabHost) collectTabActivity.findViewById(R.id.obfuscated_res_0x7f091e88);
         this.b = fragmentTabHost;
         fragmentTabHost.setup(this.g.getSupportFragmentManager());
         this.b.setOnPageChangeListener(this.j);
-        this.e = (NavigationBar) this.g.findViewById(R.id.obfuscated_res_0x7f091515);
-        this.f = (NoNetworkView) this.g.findViewById(R.id.obfuscated_res_0x7f0923af);
+        this.e = (NavigationBar) this.g.findViewById(R.id.obfuscated_res_0x7f091534);
+        this.f = (NoNetworkView) this.g.findViewById(R.id.obfuscated_res_0x7f0923ff);
         this.e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.e.setCenterTextTitle(this.g.getPageContext().getString(R.string.obfuscated_res_0x7f0f0b31));
-        TextView textView = (TextView) this.e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d05e6, this.g).findViewById(R.id.obfuscated_res_0x7f091aa9);
+        this.e.setCenterTextTitle(this.g.getPageContext().getString(R.string.obfuscated_res_0x7f0f0b45));
+        TextView textView = (TextView) this.e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d05d9, this.g).findViewById(R.id.obfuscated_res_0x7f091af7);
         this.a = textView;
-        textView.setText(R.string.obfuscated_res_0x7f0f0513);
+        textView.setText(R.string.obfuscated_res_0x7f0f0519);
         this.a.setOnClickListener(this.g);
         this.e.onChangeSkinType(this.g.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         j(TbadkCoreApplication.getInst().getSkinType());
@@ -133,26 +133,26 @@ public class lm7 {
             Fragment fragment = this.d;
             if (fragment instanceof CollectFragment) {
                 CollectFragment collectFragment = (CollectFragment) fragment;
-                if (!collectFragment.C0()) {
+                if (!collectFragment.D0()) {
                     z = false;
                 }
-                k(collectFragment.C0());
+                k(collectFragment.D0());
                 i = collectFragment.getType();
             } else {
                 i = -1;
             }
             this.h = z;
-            this.a.setText(z ? R.string.obfuscated_res_0x7f0f04e7 : R.string.obfuscated_res_0x7f0f0513);
+            this.a.setText(z ? R.string.obfuscated_res_0x7f0f04ed : R.string.obfuscated_res_0x7f0f0519);
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             int i2 = R.color.navi_op_text;
             if (skinType == 2) {
-                SkinManager.setNavbarTitleColor(this.a, R.color.navi_op_text, R.color.obfuscated_res_0x7f060870);
+                SkinManager.setNavbarTitleColor(this.a, R.color.navi_op_text, R.color.obfuscated_res_0x7f06087a);
             } else {
                 TextView textView = this.a;
                 if (this.h) {
                     i2 = R.color.CAM_X0302;
                 }
-                SkinManager.setNavbarTitleColor(textView, i2, R.color.obfuscated_res_0x7f060870);
+                SkinManager.setNavbarTitleColor(textView, i2, R.color.obfuscated_res_0x7f06087a);
             }
             Bundle bundle = new Bundle();
             bundle.putBoolean("is_edit_state", this.h);
@@ -161,10 +161,10 @@ public class lm7 {
         }
     }
 
-    public final void c(m45 m45Var, FragmentTabIndicator fragmentTabIndicator) {
-        n45 b;
+    public final void c(d55 d55Var, FragmentTabIndicator fragmentTabIndicator) {
+        e55 b;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m45Var, fragmentTabIndicator) == null) || (b = m45Var.b()) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d55Var, fragmentTabIndicator) == null) || (b = d55Var.b()) == null) {
             return;
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
@@ -176,7 +176,7 @@ public class lm7 {
         fragmentTabIndicator.e(TbadkCoreApplication.getInst().getSkinType());
         fragmentTabIndicator.setTipPosType(1);
         bVar.b = fragmentTabIndicator;
-        bVar.d = m45Var;
+        bVar.d = d55Var;
         this.b.c(bVar);
     }
 
@@ -204,7 +204,7 @@ public class lm7 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ListUtils.getCount(this.i) : invokeV.intValue;
     }
 
-    public void h(ArrayList<m45> arrayList) {
+    public void h(ArrayList<d55> arrayList) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048582, this, arrayList) == null) || arrayList == null || arrayList.isEmpty()) {
             return;
@@ -212,9 +212,9 @@ public class lm7 {
         this.i = arrayList;
         this.b.u();
         for (int i = 0; i < arrayList.size(); i++) {
-            m45 m45Var = arrayList.get(i);
-            if (m45Var != null && m45Var.d()) {
-                c(m45Var, (FragmentTabIndicator) m45Var.c(this.g.getPageContext().getPageActivity()));
+            d55 d55Var = arrayList.get(i);
+            if (d55Var != null && d55Var.d()) {
+                c(d55Var, (FragmentTabIndicator) d55Var.c(this.g.getPageContext().getPageActivity()));
             }
         }
         this.b.n(0);
@@ -242,7 +242,7 @@ public class lm7 {
                     this.b.getTabWrapper().setVisibility(0);
                 }
             }
-            SkinManager.setNavbarTitleColor(this.a, R.color.navi_op_text, R.color.obfuscated_res_0x7f060870);
+            SkinManager.setNavbarTitleColor(this.a, R.color.navi_op_text, R.color.obfuscated_res_0x7f06087a);
             this.e.onChangeSkinType(this.g.getPageContext(), i);
             this.f.c(this.g.getPageContext(), i);
         }
@@ -256,8 +256,8 @@ public class lm7 {
             if (z) {
                 return;
             }
-            this.a.setText(R.string.obfuscated_res_0x7f0f0513);
-            SkinManager.setNavbarTitleColor(this.a, R.color.navi_op_text, R.color.obfuscated_res_0x7f060870);
+            this.a.setText(R.string.obfuscated_res_0x7f0f0519);
+            SkinManager.setNavbarTitleColor(this.a, R.color.navi_op_text, R.color.obfuscated_res_0x7f06087a);
         }
     }
 

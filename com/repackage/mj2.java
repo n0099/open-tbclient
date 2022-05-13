@@ -1,262 +1,302 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.graphics.drawable.BitmapDrawable;
+import android.text.Editable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.EditText;
+import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListAdapter;
+import android.widget.PopupWindow;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.nio.ByteBuffer;
-import java.nio.channels.Channels;
-import java.nio.channels.FileChannel;
-import java.nio.channels.FileLock;
-import java.nio.charset.Charset;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class mj2 {
+public class mj2 extends PopupWindow {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public SwanAppActivity a;
+    public EditText b;
+    public String[] c;
+    public int d;
+    public d e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755497444, "Lcom/repackage/mj2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements AdapterView.OnItemClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ mj2 b;
+
+        public a(mj2 mj2Var, int i) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mj2Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755497444, "Lcom/repackage/mj2;");
+            this.b = mj2Var;
+            this.a = i;
+        }
+
+        @Override // android.widget.AdapterView.OnItemClickListener
+        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                int selectionStart = this.b.b.getSelectionStart();
+                Editable text = this.b.b.getText();
+                if (i == 11) {
+                    if (selectionStart <= 0 || text == null || text.length() <= 0) {
+                        return;
+                    }
+                    int i2 = selectionStart - 1;
+                    text.delete(i2, selectionStart);
+                    this.b.b.setText(text);
+                    this.b.b.setSelection(i2);
+                    return;
+                }
+                int length = text.length();
+                int i3 = this.a;
+                if (length < i3 || i3 < 0) {
+                    text.insert(selectionStart, this.b.c[i]);
+                    this.b.b.setText(text);
+                    this.b.b.setSelection(selectionStart + this.b.c[i].length());
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ GridView a;
+        public final /* synthetic */ AdapterView.OnItemClickListener b;
+
+        /* loaded from: classes6.dex */
+        public class a implements View.OnClickListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                    int intValue = ((Integer) view2.getTag()).intValue();
+                    b bVar = this.a;
+                    bVar.b.onItemClick(bVar.a, view2, intValue, intValue);
+                }
+            }
+        }
+
+        public b(mj2 mj2Var, GridView gridView, AdapterView.OnItemClickListener onItemClickListener) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mj2Var, gridView, onItemClickListener};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gridView;
+            this.b = onItemClickListener;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int childCount = this.a.getChildCount();
+                if (childCount > 0) {
+                    this.a.setClickable(false);
+                    for (int i = 0; i < childCount; i++) {
+                        View childAt = this.a.getChildAt(i);
+                        childAt.setTag(Integer.valueOf(i));
+                        childAt.setOnClickListener(new a(this));
+                    }
+                    return;
+                }
+                this.a.setOnItemClickListener(this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mj2 a;
+
+        public c(mj2 mj2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mj2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = mj2Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.dismiss();
+                this.a.b.clearFocus();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface d {
+        void a();
+
+        void b(int i);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mj2(@NonNull SwanAppActivity swanAppActivity, @NonNull EditText editText, int i, int i2) {
+        super(swanAppActivity);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {swanAppActivity, editText, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = tg1.a;
+        this.c = new String[12];
+        c(i);
+        d(swanAppActivity, editText, i2);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:53:0x00bc A[Catch: all -> 0x00f3, TryCatch #2 {, blocks: (B:6:0x0007, B:8:0x0012, B:10:0x0016, B:13:0x001f, B:23:0x0077, B:24:0x007a, B:51:0x00b4, B:53:0x00bc, B:54:0x00d8, B:27:0x007f, B:28:0x0085, B:59:0x00e1, B:60:0x00e4, B:64:0x00f2, B:63:0x00e9, B:46:0x00a5, B:47:0x00a8, B:50:0x00ad), top: B:74:0x0007, inners: #0, #6, #10 }] */
-    /* JADX WARN: Removed duplicated region for block: B:72:0x00e1 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    @SuppressLint({"SwanDebugLog"})
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static synchronized String a(String str) {
-        InterceptResult invokeL;
-        BufferedReader bufferedReader;
-        String str2;
-        String stackTraceString;
+    public final void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            synchronized (mj2.class) {
-                long currentTimeMillis = System.currentTimeMillis();
-                FileLock fileLock = null;
-                if (TextUtils.isEmpty(str) && a) {
-                    Log.w("SwanAppFile", "path name is empty");
-                    return null;
-                }
-                StringBuffer stringBuffer = new StringBuffer();
-                try {
-                    FileChannel channel = new RandomAccessFile(str, "rw").getChannel();
-                    FileLock lock = channel.lock(0L, Long.MAX_VALUE, true);
-                    try {
-                        bufferedReader = new BufferedReader(Channels.newReader(channel, Charset.defaultCharset().name()));
-                        while (true) {
-                            try {
-                                String readLine = bufferedReader.readLine();
-                                if (readLine == null) {
-                                    break;
-                                }
-                                stringBuffer.append(readLine);
-                            } catch (IOException e) {
-                                e = e;
-                                fileLock = lock;
-                                try {
-                                    Log.e("SwanAppFile", Log.getStackTraceString(e));
-                                    if (fileLock != null) {
-                                        try {
-                                            fileLock.release();
-                                        } catch (IOException e2) {
-                                            str2 = "SwanAppFile";
-                                            stackTraceString = Log.getStackTraceString(e2);
-                                            Log.e(str2, stackTraceString);
-                                            long currentTimeMillis2 = System.currentTimeMillis();
-                                            if (a) {
-                                            }
-                                            return stringBuffer.toString();
-                                        }
-                                    }
-                                    mg4.d(bufferedReader);
-                                    long currentTimeMillis22 = System.currentTimeMillis();
-                                    if (a) {
-                                    }
-                                    return stringBuffer.toString();
-                                } catch (Throwable th) {
-                                    th = th;
-                                    if (fileLock != null) {
-                                        try {
-                                            fileLock.release();
-                                        } catch (IOException e3) {
-                                            Log.e("SwanAppFile", Log.getStackTraceString(e3));
-                                            throw th;
-                                        }
-                                    }
-                                    mg4.d(bufferedReader);
-                                    throw th;
-                                }
-                            } catch (Throwable th2) {
-                                th = th2;
-                                fileLock = lock;
-                                if (fileLock != null) {
-                                }
-                                mg4.d(bufferedReader);
-                                throw th;
-                            }
-                        }
-                        if (a) {
-                            Log.d("SwanAppFile", "Read file: " + stringBuffer.toString());
-                        }
-                        if (lock != null) {
-                            try {
-                                lock.release();
-                            } catch (IOException e4) {
-                                str2 = "SwanAppFile";
-                                stackTraceString = Log.getStackTraceString(e4);
-                                Log.e(str2, stackTraceString);
-                                long currentTimeMillis222 = System.currentTimeMillis();
-                                if (a) {
-                                }
-                                return stringBuffer.toString();
-                            }
-                        }
-                        mg4.d(bufferedReader);
-                    } catch (IOException e5) {
-                        e = e5;
-                        bufferedReader = null;
-                    } catch (Throwable th3) {
-                        th = th3;
-                        bufferedReader = null;
-                    }
-                } catch (IOException e6) {
-                    e = e6;
-                    bufferedReader = null;
-                } catch (Throwable th4) {
-                    th = th4;
-                    bufferedReader = null;
-                }
-                long currentTimeMillis2222 = System.currentTimeMillis();
-                if (a) {
-                    Log.d("SwanAppFile", "Read file done: cost time = " + (currentTimeMillis2222 - currentTimeMillis) + "ms");
-                }
-                return stringBuffer.toString();
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            int i2 = 0;
+            while (i2 < 9) {
+                int i3 = i2 + 1;
+                this.c[i2] = String.valueOf(i3);
+                i2 = i3;
             }
+            if (i == 1) {
+                this.c[9] = "X";
+            } else if (i == 0) {
+                this.c[9] = "";
+            } else if (i == 2) {
+                this.c[9] = ".";
+            }
+            this.c[10] = "0";
         }
-        return (String) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:51:0x00c2 A[Catch: all -> 0x00f5, TRY_LEAVE, TryCatch #2 {, blocks: (B:6:0x0007, B:8:0x0012, B:10:0x0016, B:28:0x007d, B:32:0x008b, B:49:0x00ba, B:51:0x00c2, B:31:0x0082, B:56:0x00e3, B:60:0x00f1, B:61:0x00f4, B:59:0x00e8, B:44:0x00a9, B:48:0x00b7, B:47:0x00ae), top: B:73:0x0007, inners: #1, #4, #6 }] */
-    /* JADX WARN: Removed duplicated region for block: B:71:0x00e3 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    @SuppressLint({"SwanDebugLog"})
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static synchronized boolean b(String str, String str2, boolean z) {
-        InterceptResult invokeLLZ;
-        FileChannel fileChannel;
+    public final void d(@NonNull SwanAppActivity swanAppActivity, @NonNull EditText editText, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, str, str2, z)) == null) {
-            synchronized (mj2.class) {
-                long currentTimeMillis = System.currentTimeMillis();
-                boolean z2 = false;
-                if (TextUtils.isEmpty(str) && a) {
-                    Log.w("SwanAppFile", "path name is null");
-                    return false;
-                }
-                FileLock fileLock = null;
-                try {
-                    File file = new File(str);
-                    File file2 = new File(file.getParent());
-                    if (!file2.exists()) {
-                        file2.mkdirs();
-                    }
-                    if (!file.exists()) {
-                        file.createNewFile();
-                    }
-                    FileChannel channel = new FileOutputStream(file, z).getChannel();
-                    try {
-                        fileLock = channel.lock();
-                        if (TextUtils.isEmpty(str2)) {
-                            str2 = "";
-                        }
-                        channel.write(ByteBuffer.wrap(str2.getBytes()));
-                        z2 = true;
-                        if (a) {
-                            Log.d("SwanAppFile", "Write file：" + str2);
-                        }
-                        if (fileLock != null) {
-                            try {
-                                fileLock.release();
-                            } catch (IOException e) {
-                                Log.e("SwanAppFile", Log.getStackTraceString(e));
-                            }
-                        }
-                        mg4.d(channel);
-                    } catch (IOException e2) {
-                        fileChannel = channel;
-                        e = e2;
-                        try {
-                            Log.e("SwanAppFile", Log.getStackTraceString(e));
-                            if (fileLock != null) {
-                                try {
-                                    fileLock.release();
-                                } catch (IOException e3) {
-                                    Log.e("SwanAppFile", Log.getStackTraceString(e3));
-                                }
-                            }
-                            mg4.d(fileChannel);
-                            long currentTimeMillis2 = System.currentTimeMillis();
-                            if (a) {
-                            }
-                            return z2;
-                        } catch (Throwable th) {
-                            th = th;
-                            if (fileLock != null) {
-                                try {
-                                    fileLock.release();
-                                } catch (IOException e4) {
-                                    Log.e("SwanAppFile", Log.getStackTraceString(e4));
-                                }
-                            }
-                            mg4.d(fileChannel);
-                            throw th;
-                        }
-                    } catch (Throwable th2) {
-                        fileChannel = channel;
-                        th = th2;
-                        if (fileLock != null) {
-                        }
-                        mg4.d(fileChannel);
-                        throw th;
-                    }
-                } catch (IOException e5) {
-                    e = e5;
-                    fileChannel = null;
-                } catch (Throwable th3) {
-                    th = th3;
-                    fileChannel = null;
-                }
-                long currentTimeMillis22 = System.currentTimeMillis();
-                if (a) {
-                    Log.d("SwanAppFile", "Write file done: cost time =" + (currentTimeMillis22 - currentTimeMillis) + "ms");
-                }
-                return z2;
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, swanAppActivity, editText, i) == null) {
+            this.a = swanAppActivity;
+            this.b = editText;
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(swanAppActivity).inflate(R.layout.obfuscated_res_0x7f0d00b7, (ViewGroup) null);
+            this.d = swanAppActivity.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070154);
+            linearLayout.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+            GridView gridView = (GridView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091011);
+            gridView.setAdapter((ListAdapter) new lj2(swanAppActivity, this.c));
+            oe3.a0(new b(this, gridView, new a(this, i)));
+            ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09066a);
+            imageView.setOnClickListener(new c(this));
+            imageView.setClickable(true);
+            setContentView(linearLayout);
+            setWidth(-1);
+            setHeight(this.d);
+            setBackgroundDrawable(new BitmapDrawable());
+        }
+    }
+
+    @Override // android.widget.PopupWindow
+    public void dismiss() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.dismiss();
+            d dVar = this.e;
+            if (dVar != null) {
+                dVar.a();
             }
         }
-        return invokeLLZ.booleanValue;
+    }
+
+    public void e(@NonNull d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
+            this.e = dVar;
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || isShowing()) {
+            return;
+        }
+        showAtLocation(this.a.getWindow().getDecorView(), 80, 0, 0);
+        d dVar = this.e;
+        if (dVar != null) {
+            dVar.b(this.d);
+        }
     }
 }

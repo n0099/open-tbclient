@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -14,24 +13,20 @@ import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.mi;
 /* loaded from: classes4.dex */
 public class MsgSettingItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
-    public TbImageView b;
-    public TextView c;
-    public BdSwitchView d;
-    public View e;
-    public int f;
+    public TextView b;
+    public BdSwitchView c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgSettingItemView(Context context) {
@@ -58,71 +53,64 @@ public class MsgSettingItemView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0567, (ViewGroup) this, true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091c96);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091c98);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091c97);
-            BdSwitchView bdSwitchView = (BdSwitchView) findViewById(R.id.obfuscated_res_0x7f091c95);
-            this.d = bdSwitchView;
-            oi.b(context, bdSwitchView, 10, 10, 10, 10);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091d38);
-            this.e = findViewById;
-            findViewById.setVisibility(0);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d055a, (ViewGroup) this, true);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091ce2);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091ce3);
+            BdSwitchView bdSwitchView = (BdSwitchView) findViewById(R.id.obfuscated_res_0x7f091ce1);
+            this.c = bdSwitchView;
+            mi.b(context, bdSwitchView, 10, 10, 10, 10);
         }
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d.d() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c.f() : invokeV.booleanValue;
     }
 
     @SuppressLint({"ResourceAsColor"})
     public void c(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            tbPageContext.getLayoutMode().k(i == 1);
-            tbPageContext.getLayoutMode().j(this);
-            this.d.setBackgroundRes(SkinManager.getBitmap(R.drawable.obfuscated_res_0x7f0802e5), SkinManager.getBitmap(R.drawable.obfuscated_res_0x7f0802e4), SkinManager.getBitmap(R.drawable.obfuscated_res_0x7f080398));
-            int i2 = this.f;
-            if (i2 != 0) {
-                SkinManager.setImageResource(this.b, i2);
-            }
+            SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0109);
+            this.c.b();
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.d.f();
+            this.c.i();
         }
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.d.i();
+            this.c.k();
         }
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.d.j();
+            this.c.l();
         }
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.d.l();
+            this.c.n();
         }
     }
 
     public BdSwitchView getSwitchView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : (BdSwitchView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.c : (BdSwitchView) invokeV.objValue;
     }
 
     @Deprecated
@@ -135,33 +123,24 @@ public class MsgSettingItemView extends LinearLayout {
     public void setOnSwitchStateChangeListener(BdSwitchView.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bVar) == null) {
-            this.d.setOnSwitchStateChangeListener(bVar);
+            this.c.setOnSwitchStateChangeListener(bVar);
         }
-    }
-
-    public void setSpaceView(int i) {
-        View view2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048586, this, i) == null) || (view2 = this.e) == null) {
-            return;
-        }
-        view2.setVisibility(i);
     }
 
     public void setSwitchStateNoCallback(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
             if (z) {
-                this.d.l();
+                this.c.n();
             } else {
-                this.d.i();
+                this.c.k();
             }
         }
     }
 
     public void setText(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
             if (StringUtils.isNULL(str)) {
                 str = "";
             }
@@ -169,30 +148,27 @@ public class MsgSettingItemView extends LinearLayout {
         }
     }
 
-    public void setTipImageListener(View.OnClickListener onClickListener) {
+    public void setTextSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, onClickListener) == null) {
-            this.b.setOnClickListener(onClickListener);
+        if (!(interceptable == null || interceptable.invokeI(1048589, this, i) == null) || i == 0) {
+            return;
         }
+        this.a.setTextSize(i);
     }
 
-    public void setTipImageResource(int i) {
+    public void setTipText(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.f = i;
-            SkinManager.setImageResource(this.b, i);
-            this.b.setVisibility(0);
+        if (!(interceptable == null || interceptable.invokeI(1048591, this, i) == null) || i == 0) {
+            return;
         }
+        this.b.setVisibility(0);
+        this.b.setText(i);
     }
 
-    public void setTipText(String str) {
+    public void setTextSize(int i, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            if (StringUtils.isNULL(str)) {
-                str = "";
-            }
-            this.c.setVisibility(0);
-            this.c.setText(str);
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            this.a.setTextSize(i, f);
         }
     }
 
@@ -220,18 +196,9 @@ public class MsgSettingItemView extends LinearLayout {
 
     public void setText(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048588, this, i) == null) || i == 0) {
+        if (!(interceptable == null || interceptable.invokeI(1048587, this, i) == null) || i == 0) {
             return;
         }
         this.a.setText(i);
-    }
-
-    public void setTipText(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048592, this, i) == null) || i == 0) {
-            return;
-        }
-        this.c.setVisibility(0);
-        this.c.setText(i);
     }
 }

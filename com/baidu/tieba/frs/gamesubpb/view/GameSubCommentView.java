@@ -13,15 +13,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cl6;
-import com.repackage.wk6;
+import com.repackage.dk6;
+import com.repackage.xj6;
 /* loaded from: classes3.dex */
 public class GameSubCommentView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
     public SpannableTextView b;
-    public wk6.a c;
+    public xj6.a c;
 
     /* loaded from: classes3.dex */
     public static class GameSubCommentViewHolder extends TypeAdapter.ViewHolder {
@@ -50,10 +50,10 @@ public class GameSubCommentView {
             this.a = gameSubCommentView;
         }
 
-        public void c(cl6 cl6Var) {
+        public void c(dk6 dk6Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cl6Var) == null) {
-                this.a.b(cl6Var);
+            if (interceptable == null || interceptable.invokeL(1048576, this, dk6Var) == null) {
+                this.a.b(dk6Var);
             }
         }
     }
@@ -62,15 +62,15 @@ public class GameSubCommentView {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cl6 a;
+        public final /* synthetic */ dk6 a;
         public final /* synthetic */ GameSubCommentView b;
 
-        public a(GameSubCommentView gameSubCommentView, cl6 cl6Var) {
+        public a(GameSubCommentView gameSubCommentView, dk6 dk6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gameSubCommentView, cl6Var};
+                Object[] objArr = {gameSubCommentView, dk6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -81,7 +81,7 @@ public class GameSubCommentView {
                 }
             }
             this.b = gameSubCommentView;
-            this.a = cl6Var;
+            this.a = dk6Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -109,20 +109,20 @@ public class GameSubCommentView {
                 return;
             }
         }
-        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d037d, (ViewGroup) null);
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0374, (ViewGroup) null);
         this.a = inflate;
-        SpannableTextView spannableTextView = (SpannableTextView) inflate.findViewById(R.id.obfuscated_res_0x7f091da6);
+        SpannableTextView spannableTextView = (SpannableTextView) inflate.findViewById(R.id.obfuscated_res_0x7f091dfe);
         this.b = spannableTextView;
         SkinManager.setViewTextColor(spannableTextView, (int) R.color.CAM_X0106);
     }
 
-    public void b(cl6 cl6Var) {
+    public void b(dk6 dk6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, cl6Var) == null) || cl6Var == null || cl6Var.d == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, dk6Var) == null) || dk6Var == null || dk6Var.d == null) {
             return;
         }
-        this.b.e(cl6Var);
-        this.b.setOnClickListener(new a(this, cl6Var));
+        this.b.e(dk6Var);
+        this.b.setOnClickListener(new a(this, dk6Var));
     }
 
     public View c() {
@@ -131,7 +131,7 @@ public class GameSubCommentView {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (View) invokeV.objValue;
     }
 
-    public void d(wk6.a aVar) {
+    public void d(xj6.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             this.c = aVar;

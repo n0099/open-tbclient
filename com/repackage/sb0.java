@@ -1,46 +1,50 @@
 package com.repackage;
 
-import android.content.Context;
-import android.util.DisplayMetrics;
-import androidx.annotation.Nullable;
-import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.security.MessageDigest;
+import java.util.Locale;
 /* loaded from: classes7.dex */
 public class sb0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static float a(@Nullable Context context) {
-        InterceptResult invokeL;
+    public static String a(byte[] bArr, String str, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-            if (displayMetrics != null) {
-                return displayMetrics.density;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase(Locale.getDefault());
+                }
+                if (hexString.length() == 1) {
+                    sb.append("0");
+                }
+                sb.append(hexString);
+                sb.append(str);
             }
-            return 0.0f;
+            return sb.toString();
         }
-        return invokeL.floatValue;
+        return (String) invokeLLZ.objValue;
     }
 
-    public static int b(Context context) {
-        InterceptResult invokeL;
+    public static String b(byte[] bArr, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            int identifier = context.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
-            int i = 0;
-            if (identifier > 0) {
-                try {
-                    i = context.getResources().getDimensionPixelSize(identifier);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, bArr, z)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.reset();
+                messageDigest.update(bArr);
+                bArr = messageDigest.digest();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return i == 0 ? (int) (a(context) * 25.0f) : i;
+            return a(bArr, "", z);
         }
-        return invokeL.intValue;
+        return (String) invokeLZ.objValue;
     }
 }

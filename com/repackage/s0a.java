@@ -1,48 +1,61 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.internal.producers.SingleProducer;
+import rx.internal.util.atomic.LinkedQueueNode;
 /* loaded from: classes7.dex */
-public final class s0a<T> extends gz9<T> {
+public abstract class s0a<E> extends q0a<E> {
     public static /* synthetic */ Interceptable $ic;
+    public static final long a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final hz9<? super T> b;
+    public LinkedQueueNode<E> producerNode;
 
-    public s0a(hz9<? super T> hz9Var) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755372979, "Lcom/repackage/s0a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755372979, "Lcom/repackage/s0a;");
+                return;
+            }
+        }
+        a = t1a.a(s0a.class, "producerNode");
+    }
+
+    public s0a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {hz9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.b = hz9Var;
     }
 
-    @Override // com.repackage.gz9
-    public void b(Throwable th) {
+    public final LinkedQueueNode<E> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-            this.b.onError(th);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (LinkedQueueNode) t1a.a.f(this, a) : (LinkedQueueNode) invokeV.objValue;
     }
 
-    @Override // com.repackage.gz9
-    public void c(T t) {
+    public final void c(LinkedQueueNode<E> linkedQueueNode) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            this.b.f(new SingleProducer(this.b, t));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linkedQueueNode) == null) {
+            this.producerNode = linkedQueueNode;
         }
     }
 }

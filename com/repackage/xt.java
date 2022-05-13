@@ -1,7 +1,8 @@
 package com.repackage;
-/* loaded from: classes7.dex */
-public interface xt {
-    String a(String str);
 
-    void a(String str, String str2);
+import com.baidu.bdtask.framework.ui.mvvm.IViewData;
+import com.repackage.yt;
+/* loaded from: classes7.dex */
+public interface xt<D extends IViewData, VM extends yt<? extends D>> {
+    void a(VM vm);
 }

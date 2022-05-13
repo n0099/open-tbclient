@@ -1,15 +1,178 @@
 package com.repackage;
 
-import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.tbadk.widget.TbImageView;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public interface zr4 {
-    cs4 a();
+public class zr4 extends BaseAdapter {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<as4> a;
+    public TbPageContext<?> b;
+    public boolean c;
 
-    View b();
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
 
-    es4 c();
+    /* loaded from: classes7.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public TextView b;
+        public ImageView c;
 
-    TbImageView d(Context context);
+        public b(zr4 zr4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zr4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(zr4 zr4Var, a aVar) {
+            this(zr4Var);
+        }
+    }
+
+    public zr4(TbPageContext<?> tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = false;
+        this.b = tbPageContext;
+        this.a = new ArrayList<>();
+    }
+
+    public final boolean a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            ArrayList<as4> arrayList = this.a;
+            return arrayList != null && i == arrayList.size() - 1;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public void c(ArrayList<as4> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
+            this.a = arrayList;
+            notifyDataSetChanged();
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.size() : invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? this.a.get(i) : invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
+            as4 as4Var = this.a.get(i);
+            if (as4Var == null) {
+                return null;
+            }
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0232, viewGroup, false);
+                bVar = new b(this, null);
+                bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f95);
+                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f79);
+                bVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09060e);
+            } else {
+                bVar = (b) view2.getTag();
+            }
+            bVar.a.setText(as4Var.c());
+            if (StringUtils.isNull(as4Var.a())) {
+                bVar.b.setVisibility(8);
+            } else {
+                bVar.b.setText(as4Var.a());
+                bVar.b.setVisibility(0);
+            }
+            if (as4Var.d()) {
+                bVar.c.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080811, WebPManager.ResourceStateType.NORMAL));
+                bVar.c.setVisibility(0);
+            } else if (this.c) {
+                WebPManager.setPureDrawable(bVar.c, R.drawable.obfuscated_res_0x7f0809ba, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL);
+                bVar.c.setVisibility(0);
+            } else {
+                bVar.c.setVisibility(4);
+            }
+            if (a(i)) {
+                SkinManager.setBackgroundResource(view2, R.drawable.dialog_single_button_bg_selector);
+            } else {
+                SkinManager.setBackgroundResource(view2, R.drawable.dialg_alert_btn_bg);
+            }
+            view2.setTag(bVar);
+            this.b.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
+            this.b.getLayoutMode().j(view2);
+            return view2;
+        }
+        return (View) invokeILL.objValue;
+    }
 }

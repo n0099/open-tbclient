@@ -1,6 +1,7 @@
 package com.baidu.tieba.ad.asyncpv;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.LaunchStatsUtils;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
@@ -46,7 +47,7 @@ public class AdAsyncResponseData extends JsonHttpResponsedMessage {
             if (optJSONObject == null) {
                 return null;
             }
-            JSONArray optJSONArray = optJSONObject.optJSONArray("ad");
+            JSONArray optJSONArray = optJSONObject.optJSONArray(LaunchStatsUtils.AD);
             ArrayList arrayList = new ArrayList();
             for (int i = 0; i < optJSONArray.length(); i++) {
                 JSONObject optJSONObject2 = optJSONArray.optJSONObject(i).optJSONObject("adInfo");

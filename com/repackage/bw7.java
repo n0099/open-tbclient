@@ -1,11 +1,15 @@
 package com.repackage;
 
+import android.net.Uri;
+import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.pb.pb.main.PbFragment;
-import com.baidu.tieba.pb.pb.main.SubmitPbShowTipHttpResponseMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -14,15 +18,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class bw7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PbFragment a;
-    public nz5 b;
+    public TbPageContext a;
+    public boolean b;
+    public fq4 c;
 
-    public bw7(PbFragment pbFragment) {
+    public bw7(TbPageContext tbPageContext) {
+        Uri uri;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pbFragment};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,19 +38,36 @@ public class bw7 {
                 return;
             }
         }
-        this.a = pbFragment;
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SUBMIT_PB_SHOW_TIP, TbConfig.SERVER_ADDRESS + TbConfig.SUBMIT_SHOW_PB_TIPS);
-        tbHttpMessageTask.setResponsedClass(SubmitPbShowTipHttpResponseMessage.class);
-        tbHttpMessageTask.setIsNeedTbs(true);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
-    }
-
-    public void a() {
-        nz5 nz5Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (nz5Var = this.b) == null) {
+        this.b = false;
+        this.a = tbPageContext;
+        if (tbPageContext.getPageActivity() == null || this.a.getPageActivity().getIntent() == null || (uri = (Uri) this.a.getPageActivity().getIntent().getParcelableExtra(IntentConfig.KEY_URI)) == null) {
             return;
         }
-        nz5Var.I();
+        String queryParameter = uri.getQueryParameter("tid");
+        uri.getQueryParameter(TiebaStatic.Params.EQID);
+        fq4 fq4Var = new fq4();
+        this.c = fq4Var;
+        fq4Var.a = uri.getQueryParameter("tid");
+        this.c.b = uri.getQueryParameter(TiebaStatic.Params.EQID);
+        if (TextUtils.isEmpty(queryParameter) || x8.g().h() > 3) {
+            return;
+        }
+        this.b = true;
+    }
+
+    public void a(PbModel pbModel) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, pbModel) == null) || !this.b || this.c == null || pbModel == null || pbModel.P1() == null || pbModel.P1().l() == null) {
+            return;
+        }
+        ForumData l = pbModel.P1().l();
+        this.c.c = l.getFirst_class();
+        this.c.d = l.getSecond_class();
+        TbSingleton.getInstance().setPbToHomeUpdateData(this.c);
+        if (x8.g().i("MainTabActivity")) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921455));
+        } else {
+            TbSingleton.getInstance().setForceRefreshHomeRecommend(true);
+        }
     }
 }

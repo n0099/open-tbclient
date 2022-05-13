@@ -11,8 +11,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.bs7;
-import com.repackage.su7;
-import com.repackage.yc8;
+import com.repackage.ru7;
+import com.repackage.ub8;
 import com.repackage.zr7;
 import java.util.ArrayList;
 import org.json.JSONObject;
@@ -87,10 +87,10 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             int i2 = this.updateType;
             if (i2 == 3) {
-                su7.b().e(this.cacheKey, this.isFromMark, bArr);
+                ru7.b().e(this.cacheKey, this.isFromMark, bArr);
             } else if (i2 != 4) {
             } else {
-                su7.b().f(this.cacheKey, bArr);
+                ru7.b().f(this.cacheKey, bArr);
             }
         }
     }
@@ -127,12 +127,12 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
             this.pbData.x0(pbPageResIdl.data);
             DataRes dataRes = pbPageResIdl.data;
             if (dataRes != null) {
-                JSONObject b = yc8.b(dataRes.thread);
+                JSONObject b = ub8.b(dataRes.thread);
                 ArrayList arrayList = new ArrayList();
                 if (b != null) {
                     arrayList.add(b);
                 }
-                yc8.f().h("PB", arrayList);
+                ub8.f().h("PB", arrayList);
             }
             BdLog.detailException(null);
         }

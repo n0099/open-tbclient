@@ -1,128 +1,55 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.adp.plugin.PluginCenter;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.zm9;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes6.dex */
-public class jd9 extends id9 {
+public final class jd9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public class a implements zm9.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AtomicBoolean a;
-        public final /* synthetic */ Object b;
-        public final /* synthetic */ jd9 c;
-
-        public a(jd9 jd9Var, AtomicBoolean atomicBoolean, Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jd9Var, atomicBoolean, obj};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static String a(byte[] bArr, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase();
                 }
-            }
-            this.c = jd9Var;
-            this.a = atomicBoolean;
-            this.b = obj;
-        }
-
-        @Override // com.repackage.zm9.c
-        public void a(int i, Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, exc) == null) {
-                this.c.g = i;
-                this.a.set(true);
-                synchronized (this.b) {
-                    this.b.notifyAll();
+                if (hexString.length() == 1) {
+                    sb.append("0");
                 }
+                sb.append(hexString);
+                sb.append(str);
             }
+            return sb.toString();
         }
-
-        @Override // com.repackage.zm9.c
-        public void b(String str, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) {
-                this.c.d = str;
-                this.c.b = z;
-                this.c.c = true;
-                this.c.g = 0;
-                this.a.set(true);
-                synchronized (this.b) {
-                    this.b.notifyAll();
-                }
-            }
-        }
+        return (String) invokeLLZ.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jd9(Context context) {
-        super(context);
+    public static byte[] b(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.reset();
+                messageDigest.update(bArr);
+                return messageDigest.digest();
+            } catch (NoSuchAlgorithmException e) {
+                throw new RuntimeException(e);
             }
         }
-        this.d = "";
-        this.b = false;
-        this.c = false;
-        this.g = -200;
+        return (byte[]) invokeL.objValue;
     }
 
-    @Override // com.repackage.hd9
-    public hd9 d() {
-        InterceptResult invokeV;
+    public static String c(byte[] bArr, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            n();
-            return this;
-        }
-        return (hd9) invokeV.objValue;
-    }
-
-    public hd9 n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Object obj = new Object();
-            AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-            zm9.d(this.a, new a(this, atomicBoolean, obj));
-            synchronized (obj) {
-                if (!atomicBoolean.get()) {
-                    try {
-                        obj.wait(PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL);
-                    } catch (InterruptedException unused) {
-                    }
-                }
-            }
-            return this;
-        }
-        return (hd9) invokeV.objValue;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, bArr, z)) == null) ? a(b(bArr), "", z) : (String) invokeLZ.objValue;
     }
 }

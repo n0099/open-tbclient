@@ -31,10 +31,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import com.repackage.tr6;
-import com.repackage.ur6;
-import com.repackage.vr4;
-import com.repackage.x45;
+import com.repackage.gs4;
+import com.repackage.n55;
+import com.repackage.tq6;
+import com.repackage.uq6;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -94,17 +94,17 @@ public final class VoiceRoomListAdapter extends ListAdapter<VoiceRoomWrapper, Vi
                 if (bundle != null) {
                     VoiceRoomStat voiceRoomStat = VoiceRoomStat.a;
                     VoiceRoomStat.StatType statType = VoiceRoomStat.StatType.ITEM_CLICK;
-                    f = tr6.f(bundle);
+                    f = tq6.f(bundle);
                     Integer valueOf = Integer.valueOf(i);
                     Long l = voiceRoom.room_id;
-                    d = tr6.d(bundle);
+                    d = tq6.d(bundle);
                     Long valueOf2 = Long.valueOf(d);
-                    e = tr6.e(bundle);
+                    e = tq6.e(bundle);
                     voiceRoomStat.c(statType, f, valueOf, l, valueOf2, e);
                 }
                 Long l2 = voiceRoom.room_id;
                 Intrinsics.checkNotNullExpressionValue(l2, "voiceRoom.room_id");
-                ((x45) ServiceManager.getService(x45.a.a())).a(tbPageContext, l2.longValue());
+                ((n55) ServiceManager.getService(n55.a.a())).a(tbPageContext, l2.longValue());
             }
         }
 
@@ -121,7 +121,7 @@ public final class VoiceRoomListAdapter extends ListAdapter<VoiceRoomWrapper, Vi
                 a aVar = this.a;
                 aVar.e().setText(voiceRoom.room_name);
                 StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
-                String string = aVar.d().getResources().getString(R.string.obfuscated_res_0x7f0f074c);
+                String string = aVar.d().getResources().getString(R.string.obfuscated_res_0x7f0f0755);
                 Intrinsics.checkNotNullExpressionValue(string, "root.resources.getString(R.string.frs_voice_desc)");
                 String format = String.format(string, Arrays.copyOf(new Object[]{Integer.valueOf(voiceRoom.talker.size()), voiceRoom.joined_num}, 2));
                 Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(format, *args)");
@@ -147,7 +147,7 @@ public final class VoiceRoomListAdapter extends ListAdapter<VoiceRoomWrapper, Vi
                     }
                     i2 = i3;
                 }
-                View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.repackage.sr6
+                View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.repackage.sq6
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -166,12 +166,12 @@ public final class VoiceRoomListAdapter extends ListAdapter<VoiceRoomWrapper, Vi
                 }
                 VoiceRoomStat voiceRoomStat = VoiceRoomStat.a;
                 VoiceRoomStat.StatType statType = VoiceRoomStat.StatType.ITEM_EXPOSE;
-                f = tr6.f(bundle);
+                f = tq6.f(bundle);
                 Integer valueOf = Integer.valueOf(i);
                 Long l = voiceRoom.room_id;
-                d = tr6.d(bundle);
+                d = tq6.d(bundle);
                 Long valueOf2 = Long.valueOf(d);
-                e = tr6.e(bundle);
+                e = tq6.e(bundle);
                 voiceRoomStat.c(statType, f, valueOf, l, valueOf2, e);
             }
         }
@@ -180,16 +180,16 @@ public final class VoiceRoomListAdapter extends ListAdapter<VoiceRoomWrapper, Vi
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
                 a aVar = this.a;
-                vr4 d = vr4.d(aVar.d());
+                gs4 d = gs4.d(aVar.d());
                 d.n(R.string.J_X05);
                 d.f(R.color.CAM_X0205);
-                vr4 d2 = vr4.d(aVar.g());
+                gs4 d2 = gs4.d(aVar.g());
                 d2.n(R.string.J_X01);
                 d2.v(R.color.CAM_X0115);
                 d2.f(R.color.CAM_X0919);
-                vr4.d(aVar.e()).v(R.color.CAM_X0105);
-                vr4.d(aVar.b()).v(R.color.CAM_X0108);
-                vr4 d3 = vr4.d(aVar.a());
+                gs4.d(aVar.e()).v(R.color.CAM_X0105);
+                gs4.d(aVar.b()).v(R.color.CAM_X0108);
+                gs4 d3 = gs4.d(aVar.a());
                 d3.n(R.string.J_X01);
                 d3.v(R.color.CAM_X0115);
                 d3.h(R.color.CAM_X0919);
@@ -243,22 +243,22 @@ public final class VoiceRoomListAdapter extends ListAdapter<VoiceRoomWrapper, Vi
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, root)) == null) {
                     Intrinsics.checkNotNullParameter(root, "root");
-                    View findViewById = root.findViewById(R.id.obfuscated_res_0x7f0923ea);
+                    View findViewById = root.findViewById(R.id.obfuscated_res_0x7f09243a);
                     Intrinsics.checkNotNullExpressionValue(findViewById, "root.findViewById(R.id.voicing_icon)");
                     TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById;
-                    View findViewById2 = root.findViewById(R.id.obfuscated_res_0x7f0923eb);
+                    View findViewById2 = root.findViewById(R.id.obfuscated_res_0x7f09243b);
                     Intrinsics.checkNotNullExpressionValue(findViewById2, "root.findViewById(R.id.voicing_text)");
                     TextView textView = (TextView) findViewById2;
-                    View findViewById3 = root.findViewById(R.id.obfuscated_res_0x7f092013);
+                    View findViewById3 = root.findViewById(R.id.obfuscated_res_0x7f092071);
                     Intrinsics.checkNotNullExpressionValue(findViewById3, "root.findViewById(R.id.title)");
                     TextView textView2 = (TextView) findViewById3;
-                    View findViewById4 = root.findViewById(R.id.obfuscated_res_0x7f090d50);
+                    View findViewById4 = root.findViewById(R.id.obfuscated_res_0x7f090d3d);
                     Intrinsics.checkNotNullExpressionValue(findViewById4, "root.findViewById(R.id.headers)");
                     FrameLayout frameLayout = (FrameLayout) findViewById4;
-                    View findViewById5 = root.findViewById(R.id.obfuscated_res_0x7f090780);
+                    View findViewById5 = root.findViewById(R.id.obfuscated_res_0x7f09077d);
                     Intrinsics.checkNotNullExpressionValue(findViewById5, "root.findViewById(R.id.desc)");
                     TextView textView3 = (TextView) findViewById5;
-                    View findViewById6 = root.findViewById(R.id.obfuscated_res_0x7f090063);
+                    View findViewById6 = root.findViewById(R.id.obfuscated_res_0x7f090064);
                     Intrinsics.checkNotNullExpressionValue(findViewById6, "root.findViewById(R.id.action_join)");
                     return new a(root, tBLottieAnimationView, textView, textView2, frameLayout, textView3, (TextView) findViewById6);
                 }
@@ -316,15 +316,15 @@ public final class VoiceRoomListAdapter extends ListAdapter<VoiceRoomWrapper, Vi
             this.g = actionJoin;
             ArrayList arrayList = new ArrayList();
             this.h = arrayList;
-            View findViewById = this.e.findViewById(R.id.obfuscated_res_0x7f090d39);
+            View findViewById = this.e.findViewById(R.id.obfuscated_res_0x7f090d26);
             Intrinsics.checkNotNullExpressionValue(findViewById, "headers.findViewById(R.id.header0)");
             arrayList.add(findViewById);
             List<HeadImageView> list = this.h;
-            View findViewById2 = this.e.findViewById(R.id.obfuscated_res_0x7f090d3a);
+            View findViewById2 = this.e.findViewById(R.id.obfuscated_res_0x7f090d27);
             Intrinsics.checkNotNullExpressionValue(findViewById2, "headers.findViewById(R.id.header1)");
             list.add(findViewById2);
             List<HeadImageView> list2 = this.h;
-            View findViewById3 = this.e.findViewById(R.id.obfuscated_res_0x7f090d3b);
+            View findViewById3 = this.e.findViewById(R.id.obfuscated_res_0x7f090d28);
             Intrinsics.checkNotNullExpressionValue(findViewById3, "headers.findViewById(R.id.header2)");
             list2.add(findViewById3);
             for (HeadImageView headImageView : this.h) {
@@ -413,7 +413,7 @@ public final class VoiceRoomListAdapter extends ListAdapter<VoiceRoomWrapper, Vi
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VoiceRoomListAdapter(TbPageContext<?> tbPageContext, Bundle bundle) {
-        super(new ur6());
+        super(new uq6());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -457,7 +457,7 @@ public final class VoiceRoomListAdapter extends ListAdapter<VoiceRoomWrapper, Vi
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parent, i)) == null) {
             Intrinsics.checkNotNullParameter(parent, "parent");
-            View view2 = LayoutInflater.from(parent.getContext()).inflate(R.layout.obfuscated_res_0x7f0d02f6, parent, false);
+            View view2 = LayoutInflater.from(parent.getContext()).inflate(R.layout.obfuscated_res_0x7f0d02ed, parent, false);
             a.C0191a c0191a = a.i;
             Intrinsics.checkNotNullExpressionValue(view2, "view");
             return new ViewHolder(c0191a.a(view2));

@@ -1,8 +1,10 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.client.HttpClient;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,167 +12,135 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class s70 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String g = "Flow";
+    public static /* synthetic */ Interceptable $ic;
+    public static final ConcurrentHashMap<Integer, ResponsedMessage<?>> a;
+    public static final ConcurrentHashMap<Integer, b> b;
+    public static final ConcurrentHashMap<Integer, Integer> c;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public final long c;
-    public long d;
-    public Context e;
-    public Map<String, String> f;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public static class a extends HttpClient.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public final /* synthetic */ s70 c;
+        public final /* synthetic */ int e;
+        public final /* synthetic */ HttpMessage f;
 
-        public a(s70 s70Var, String str, String str2) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(HttpMessage httpMessage, HttpMessageTask httpMessageTask, int i, HttpMessage httpMessage2) {
+            super(httpMessage, httpMessageTask);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {s70Var, str, str2};
+                Object[] objArr = {httpMessage, httpMessageTask, Integer.valueOf(i), httpMessage2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((HttpMessage) objArr2[0], (HttpMessageTask) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.c = s70Var;
-            this.a = str;
-            this.b = str2;
+            this.e = i;
+            this.f = httpMessage2;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: e */
+        public void publishProgress(ResponsedMessage<?>... responsedMessageArr) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.f.put(this.a, this.b);
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessageArr) == null) {
+                synchronized (s70.class) {
+                    s70.c.remove(Integer.valueOf(this.e));
+                    if (responsedMessageArr != null && responsedMessageArr.length > 0) {
+                        b bVar = (b) s70.b.remove(Integer.valueOf(this.e));
+                        if (bVar == null) {
+                            s70.a.put(Integer.valueOf(this.f.getCmd()), responsedMessageArr[0]);
+                        } else {
+                            bVar.a(responsedMessageArr[0]);
+                        }
+                    }
+                }
             }
         }
+    }
+
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(ResponsedMessage<?> responsedMessage);
+
+        void b();
     }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755367771, "Lcom/repackage/s70;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755367771, "Lcom/repackage/s70;");
-        }
-    }
-
-    public s70(Context context, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755367771, "Lcom/repackage/s70;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755367771, "Lcom/repackage/s70;");
                 return;
             }
         }
-        this.d = 0L;
-        this.e = context;
-        this.a = i;
-        this.b = i2;
-        this.c = System.currentTimeMillis();
-        this.f = new ConcurrentHashMap();
+        a = new ConcurrentHashMap<>();
+        b = new ConcurrentHashMap<>();
+        c = new ConcurrentHashMap<>();
+        d = BdUniqueId.gen();
     }
 
-    public s70 b(String str, int i) {
-        InterceptResult invokeLI;
+    public s70() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                q70.h(this.e).f().execute(new a(this, str, String.valueOf(i)));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            String str2 = g;
-            y80.a(str2, "flow addEvent id:" + str + ",value:" + i);
-            return this;
-        }
-        return (s70) invokeLI.objValue;
-    }
-
-    public s70 c(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                q70.h(this.e).f().execute(new a(this, str, String.valueOf(j)));
-            }
-            String str2 = g;
-            y80.a(str2, "flow addEvent id:" + str + ",value:" + j);
-            return this;
-        }
-        return (s70) invokeLJ.objValue;
-    }
-
-    public s70 d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && str2 != null) {
-                q70.h(this.e).f().execute(new a(this, str, str2));
-            }
-            String str3 = g;
-            y80.a(str3, "flow addEvent id:" + str + ",value:" + str2);
-            return this;
-        }
-        return (s70) invokeLL.objValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.d = System.currentTimeMillis();
-            q70.h(this.e).e(this);
         }
     }
 
-    public String f() {
-        InterceptResult invokeV;
+    public static synchronized void d(int i, b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                for (Map.Entry<String, String> entry : this.f.entrySet()) {
-                    jSONObject.put(entry.getKey(), entry.getValue());
+        if (interceptable == null || interceptable.invokeIL(65541, null, i, bVar) == null) {
+            synchronized (s70.class) {
+                if (c.containsKey(Integer.valueOf(i))) {
+                    b.put(Integer.valueOf(i), bVar);
+                    return;
                 }
-            } catch (JSONException e) {
-                e.printStackTrace();
+                if (a.containsKey(Integer.valueOf(i))) {
+                    bVar.a(a.remove(Integer.valueOf(i)));
+                } else {
+                    bVar.b();
+                }
             }
-            return jSONObject.toString();
         }
-        return (String) invokeV.objValue;
     }
 
-    public Map<String, String> g() {
-        InterceptResult invokeV;
+    public static synchronized void e(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : (Map) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLL(65542, null, httpMessage, httpMessageTask) == null) {
+            synchronized (s70.class) {
+                if (httpMessage == null || httpMessageTask == null) {
+                    return;
+                }
+                int cmd = httpMessage.getCmd();
+                c.put(Integer.valueOf(cmd), 0);
+                new a(httpMessage, httpMessageTask, cmd, httpMessage).execute(new HttpMessage[0]);
+            }
+        }
     }
 }

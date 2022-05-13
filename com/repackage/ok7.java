@@ -293,9 +293,9 @@ public class ok7 {
         this.a = true;
         TailData tailData = this.c;
         if (tailData != null && tailData.getId() > 0) {
-            this.e.sendMessage(new UpdateTailNetMessage(this.c.getId(), b2, this.d.getFontColor(), this.e.getString(R.string.obfuscated_res_0x7f0f1338)));
+            this.e.sendMessage(new UpdateTailNetMessage(this.c.getId(), b2, this.d.getFontColor(), this.e.getString(R.string.obfuscated_res_0x7f0f135a)));
         } else {
-            this.e.sendMessage(new AddTailNetMessage(b2, this.d.getFontColor(), this.e.getString(R.string.obfuscated_res_0x7f0f1338)));
+            this.e.sendMessage(new AddTailNetMessage(b2, this.d.getFontColor(), this.e.getString(R.string.obfuscated_res_0x7f0f135a)));
         }
     }
 

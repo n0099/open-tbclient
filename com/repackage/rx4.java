@@ -1,118 +1,67 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 /* loaded from: classes7.dex */
 public class rx4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final rx4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public final boolean c;
+    public List<sx4> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755334973, "Lcom/repackage/rx4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755334973, "Lcom/repackage/rx4;");
-                return;
-            }
-        }
-        d = new rx4(false);
-    }
-
-    public rx4(boolean z) {
+    public rx4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = "";
-        this.b = "";
-        this.c = z;
     }
 
-    public static rx4 e(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public void a(JSONArray jSONArray) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return d;
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("video_activity");
-            if (optJSONObject != null) {
-                String optString = optJSONObject.optString("image_url");
-                String optString2 = optJSONObject.optString("url");
-                if (!StringUtils.isNull(optString) && !StringUtils.isNull(optString2)) {
-                    rx4 rx4Var = new rx4(true);
-                    rx4Var.g(optString);
-                    rx4Var.f(optString2);
-                    return rx4Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
+            this.a = new ArrayList();
+            try {
+                if (jSONArray == null) {
+                    iu4.k().y("key_index_tab_info_list", "[]");
+                    return;
                 }
+                JSONArray jSONArray2 = new JSONArray(iu4.k().q("key_index_tab_info_list", "[]"));
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    sx4 sx4Var = new sx4();
+                    sx4 sx4Var2 = new sx4();
+                    sx4Var.e(jSONArray.getJSONObject(i));
+                    for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
+                        sx4Var2.e(jSONArray2.getJSONObject(i2));
+                        if (sx4Var.c != null && sx4Var.c.equals(sx4Var2.c)) {
+                            if (!TextUtils.isEmpty(sx4Var2.e) && sx4Var2.e.equals(sx4Var.e)) {
+                                z = false;
+                                sx4Var.f = z;
+                            }
+                            z = true;
+                            sx4Var.f = z;
+                        }
+                    }
+                    if (!sx4Var.c()) {
+                        this.a.add(sx4Var);
+                    }
+                }
+                iu4.k().y("key_index_tab_info_list", jSONArray.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return d;
-        }
-        return (rx4) invokeL.objValue;
-    }
-
-    public boolean a(rx4 rx4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, rx4Var)) == null) ? this.b.equals(rx4Var.b()) && this.a.equals(rx4Var.c()) : invokeL.booleanValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.a = str;
         }
     }
 }

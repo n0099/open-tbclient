@@ -44,7 +44,7 @@ public class ht7 extends et7<it7, CustomDialogData> {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? oi.f(this.c, R.dimen.obfuscated_res_0x7f07030b) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? mi.f(this.c, R.dimen.obfuscated_res_0x7f07030b) : invokeV.intValue;
     }
 
     @Override // com.repackage.jt7

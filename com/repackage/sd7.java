@@ -1,28 +1,22 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface sd7<T extends ICardInfo> {
-    void b(BdUniqueId bdUniqueId);
+public class sd7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void e();
-
-    void f();
-
-    void g();
-
-    void h();
-
-    void setAfterClickSchemeListener(vc7 vc7Var);
-
-    void setBusinessType(int i);
-
-    void setDownloadAppCallback(xc7 xc7Var);
-
-    void setFromCDN(boolean z);
-
-    void setPosition(int i);
-
-    void update(Object obj);
+    public static int a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (i < 0) {
+                return 0;
+            }
+            return i;
+        }
+        return invokeI.intValue;
+    }
 }

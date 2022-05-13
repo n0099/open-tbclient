@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ae3;
+import com.repackage.le3;
 @SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes2.dex */
 public class DrawableCenterTextView extends TextView {
@@ -135,7 +135,7 @@ public class DrawableCenterTextView extends TextView {
                 this.a.setCornerRadius(4.0f);
             }
             if (this.h) {
-                int f2 = ae3.f(getContext(), 0.5f);
+                int f2 = le3.f(getContext(), 0.5f);
                 Object obj = this.d;
                 if (obj instanceof String) {
                     this.a.setStroke(f2, Color.parseColor(obj.toString()));
@@ -181,7 +181,7 @@ public class DrawableCenterTextView extends TextView {
             float width = getWidth();
             float height = getHeight();
             Paint paint = new Paint();
-            paint.setStrokeWidth(ae3.f(getContext(), 0.5f));
+            paint.setStrokeWidth(le3.f(getContext(), 0.5f));
             Object obj = this.e;
             if (obj instanceof String) {
                 paint.setColor(Color.parseColor(obj.toString()));
@@ -242,8 +242,8 @@ public class DrawableCenterTextView extends TextView {
             }
             drawable = null;
             i = -1;
-            int w = ae3.w(this);
-            int v = ae3.v(this);
+            int w = le3.w(this);
+            int v = le3.v(this);
             int compoundDrawablePadding = getCompoundDrawablePadding();
             if (drawable != null) {
                 Rect bounds = drawable.getBounds();

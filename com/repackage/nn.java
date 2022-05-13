@@ -1,26 +1,35 @@
 package com.repackage;
 
-import android.content.Context;
-import android.util.Log;
+import com.baidu.searchbox.cloudcontrol.utils.CloudControlUrlConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class nn {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "http://mbd.baidu.com";
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            try {
-                return en.d(context.getApplicationContext().getClassLoader(), str);
-            } catch (Throwable th) {
-                Log.e("soloader", "loadSoFile error " + th.getMessage());
-                return false;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1964032443, "Lcom/repackage/nn;")) == null) {
+            return;
         }
-        return invokeLL.booleanValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1964032443, "Lcom/repackage/nn;");
+        }
+    }
+
+    public static String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? String.format(CloudControlUrlConfig.mUrl, a) : (String) invokeV.objValue;
     }
 }

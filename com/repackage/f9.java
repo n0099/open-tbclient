@@ -24,8 +24,8 @@ public class f9 {
             if (context instanceof c9) {
                 return ((c9) context).getPageContext();
             }
-            Field b = ei.b(context.getClass(), e9.class);
-            if (b == null || (a = ei.a(context, b)) == null || !(a instanceof e9) || !(a instanceof c9)) {
+            Field b = ci.b(context.getClass(), e9.class);
+            if (b == null || (a = ci.a(context, b)) == null || !(a instanceof e9) || !(a instanceof c9)) {
                 return null;
             }
             return ((c9) a).getPageContext();
@@ -44,8 +44,8 @@ public class f9 {
             if (context instanceof c9) {
                 return (c9) context;
             }
-            Field b = ei.b(context.getClass(), e9.class);
-            if (b == null || (a = ei.a(context, b)) == null || !(a instanceof e9) || !(a instanceof c9)) {
+            Field b = ci.b(context.getClass(), e9.class);
+            if (b == null || (a = ci.a(context, b)) == null || !(a instanceof e9) || !(a instanceof c9)) {
                 return null;
             }
             return (c9) a;
@@ -70,8 +70,8 @@ public class f9 {
                     return (e9) orignalPage;
                 }
             }
-            Field b = ei.b(context.getClass(), e9.class);
-            if (b == null || (a = ei.a(context, b)) == null || !(a instanceof e9)) {
+            Field b = ci.b(context.getClass(), e9.class);
+            if (b == null || (a = ci.a(context, b)) == null || !(a instanceof e9)) {
                 return null;
             }
             return (e9) a;

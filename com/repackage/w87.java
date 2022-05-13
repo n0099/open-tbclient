@@ -1,53 +1,26 @@
 package com.repackage;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.im.message.RequestSearchGroupsLocalMessage;
-import com.baidu.tieba.im.message.ResponseSearchGroupLocalMessage;
+import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class w87 implements CustomMessageTask.CustomRunnable<Object> {
+public class w87 {
     public static /* synthetic */ Interceptable $ic;
+    public static ArrayList<MetaData> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public w87() {
+    public static ArrayList<MetaData> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? a : (ArrayList) invokeV.objValue;
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        InterceptResult invokeL;
+    public static void b(ArrayList<MetaData> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage == null || !(customMessage instanceof RequestSearchGroupsLocalMessage)) {
-                return null;
-            }
-            long groupId = ((RequestSearchGroupsLocalMessage) customMessage).getGroupId();
-            ResponseSearchGroupLocalMessage responseSearchGroupLocalMessage = new ResponseSearchGroupLocalMessage(2001207);
-            responseSearchGroupLocalMessage.setOrginalMessage(customMessage);
-            responseSearchGroupLocalMessage.setError(0);
-            responseSearchGroupLocalMessage.setGid(groupId);
-            String str = groupId + "";
-            br4.f();
-            qe<String> g = br4.g("tb.im_group_search_history");
-            g.g(str, g.get(str));
-            return responseSearchGroupLocalMessage;
+        if (interceptable == null || interceptable.invokeL(65537, null, arrayList) == null) {
+            a = arrayList;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

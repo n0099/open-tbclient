@@ -1,63 +1,46 @@
 package com.repackage;
 
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class md5 {
+public final class md5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+
+    public static void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(65536, null, z) == null) && !z) {
+            throw new IllegalArgumentException();
+        }
+    }
+
     @NonNull
-    public Runnable b;
-
-    public md5(@NonNull Runnable runnable) {
+    public static <T> T b(@Nullable T t) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {runnable};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, t)) == null) {
+            if (t != null) {
+                return t;
             }
+            throw null;
         }
-        this.a = false;
-        this.b = runnable;
+        return (T) invokeL.objValue;
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public static void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a) {
-                return false;
-            }
-            this.a = true;
-            this.b.run();
-            return true;
+        if (interceptable == null || interceptable.invokeZ(65538, null, z) == null) {
+            d(z, null);
         }
-        return invokeV.booleanValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public static void d(boolean z, @Nullable String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a) {
-                this.b.run();
-                return true;
-            }
-            return false;
+        if ((interceptable == null || interceptable.invokeZL(65539, null, z, str) == null) && !z) {
+            throw new IllegalStateException(str);
         }
-        return invokeV.booleanValue;
     }
 }

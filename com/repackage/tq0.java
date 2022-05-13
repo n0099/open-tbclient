@@ -40,7 +40,7 @@ public final class tq0 {
                     }
                     return null;
                 } catch (Exception e) {
-                    zi0.a("AuthParser", e.getMessage());
+                    cj0.a("AuthParser", e.getMessage());
                 }
             }
             return null;

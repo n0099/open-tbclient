@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rc5;
+import com.repackage.jd5;
 import tbclient.HotThreadList.DataReq;
 import tbclient.HotThreadList.HotThreadListReqIdl;
 /* loaded from: classes3.dex */
@@ -52,7 +52,7 @@ public class HotTopicTabRequest extends NetMessage {
             builder.tab_id = this.tabId;
             builder.tab_code = this.tabCode;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                rc5.a(builder, true);
+                jd5.a(builder, true);
             }
             HotThreadListReqIdl.Builder builder2 = new HotThreadListReqIdl.Builder();
             builder2.data = builder.build(false);

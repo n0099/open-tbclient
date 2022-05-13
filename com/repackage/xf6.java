@@ -1,52 +1,68 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.GradientDrawable;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.zd6;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import com.repackage.pv5;
 /* loaded from: classes7.dex */
-public class xf6 implements zd6.d {
+public class xf6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public View b;
-    public TextView c;
-    public TextView d;
-    public TextView e;
-    public yf6 f;
-    public zd6 g;
-    public View h;
-    public ImageView i;
-    public ImageView j;
-    public ImageView k;
-    public TextView l;
-    public View m;
-    public View.OnClickListener n;
+    public View a;
+    public rv5 b;
+    public rv5 c;
+    public rv5 d;
+    public ValueAnimator e;
 
     /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
+    public class a implements pv5.j {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TBLottieAnimationView a;
+
+        public a(xf6 xf6Var, TBLottieAnimationView tBLottieAnimationView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xf6Var, tBLottieAnimationView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tBLottieAnimationView;
+        }
+
+        @Override // com.repackage.pv5.j
+        public void a(pv5 pv5Var, boolean z, float f, float f2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{pv5Var, Boolean.valueOf(z), Float.valueOf(f), Float.valueOf(f2)}) == null) {
+                this.a.playAnimation();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ xf6 a;
 
-        public a(xf6 xf6Var) {
+        public b(xf6 xf6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -64,21 +80,124 @@ public class xf6 implements zd6.d {
             this.a = xf6Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == this.a.j.getId()) {
-                this.a.a.getPageActivity().finish();
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                this.a.e.start();
             }
         }
     }
 
-    public xf6(TbPageContext tbPageContext, View view2) {
+    /* loaded from: classes7.dex */
+    public class c implements ValueAnimator.AnimatorUpdateListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xf6 a;
+
+        public c(xf6 xf6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xf6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xf6Var;
+        }
+
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) || this.a.a == null) {
+                return;
+            }
+            this.a.a.setRotation(((Float) valueAnimator.getAnimatedValue()).floatValue());
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d extends AnimatorListenerAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xf6 a;
+
+        public d(xf6 xf6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xf6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xf6Var;
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                this.a.d.h();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class e implements pv5.j {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TBLottieAnimationView a;
+
+        public e(xf6 xf6Var, TBLottieAnimationView tBLottieAnimationView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xf6Var, tBLottieAnimationView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tBLottieAnimationView;
+        }
+
+        @Override // com.repackage.pv5.j
+        @SuppressLint({"WrongConstant"})
+        public void a(pv5 pv5Var, boolean z, float f, float f2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{pv5Var, Boolean.valueOf(z), Float.valueOf(f), Float.valueOf(f2)}) == null) {
+                this.a.setRepeatCount(-1);
+                this.a.setRepeatMode(2);
+                this.a.playAnimation();
+            }
+        }
+    }
+
+    public xf6(View view2, TBLottieAnimationView tBLottieAnimationView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, view2};
+            Object[] objArr = {view2, tBLottieAnimationView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -88,110 +207,57 @@ public class xf6 implements zd6.d {
                 return;
             }
         }
-        this.n = new a(this);
-        this.a = tbPageContext;
-        this.b = view2;
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09206d);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906e0);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c86);
-        this.h = view2.findViewById(R.id.obfuscated_res_0x7f091cd2);
-        this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090bc8);
-        ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090675);
-        this.j = imageView;
-        imageView.setOnClickListener(this.n);
-        ImageView imageView2 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ed9);
-        this.k = imageView2;
-        ViewGroup.LayoutParams layoutParams = imageView2.getLayoutParams();
-        int k = oi.k(tbPageContext.getPageActivity()) - (oi.f(tbPageContext.getPageActivity(), R.dimen.tbds49) * 2);
-        layoutParams.width = k;
-        layoutParams.height = (int) (((k * 364) * 1.0f) / 980.0f);
-        this.k.setLayoutParams(layoutParams);
-        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091989);
-        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0911c8);
-        this.m = findViewById;
-        findViewById.setBackground(f());
-        this.h.setBackground(f());
-        yf6 yf6Var = new yf6(tbPageContext);
-        this.f = yf6Var;
-        yf6Var.k();
-        i();
-        zd6 zd6Var = new zd6(tbPageContext);
-        this.g = zd6Var;
-        zd6Var.o(view2, this.h, this);
-        zd6 zd6Var2 = this.g;
-        yf6 yf6Var2 = this.f;
-        zd6Var2.q(yf6Var2.b, yf6Var2.f);
-        this.g.r(5);
+        this.a = view2;
+        this.b = d(view2, pv5.n, 170.0f, 0.5f, 1.0f);
+        this.c = d(view2, pv5.o, 170.0f, 0.5f, 1.0f);
+        this.e = e(view2, 0.0f, 6.0f, 100L);
+        this.d = d(view2, pv5.p, 200.0f, 0.4f, 0.0f);
+        f(tBLottieAnimationView);
     }
 
-    @Override // com.repackage.zd6.d
-    public void a() {
+    public final rv5 d(View view2, qv5<View> qv5Var, float f, float f2, float f3) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.h.setBackground(new ColorDrawable(SkinManager.getColor(R.color.CAM_X0201)));
-            this.k.setImageResource(R.drawable.obfuscated_res_0x7f080f7d);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{view2, qv5Var, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            sv5 sv5Var = new sv5(f3);
+            sv5Var.f(f);
+            sv5Var.d(f2);
+            rv5 rv5Var = new rv5(view2, qv5Var);
+            rv5Var.m(sv5Var);
+            return rv5Var;
         }
+        return (rv5) invokeCommon.objValue;
     }
 
-    @Override // com.repackage.zd6.d
-    public void b() {
+    public final ValueAnimator e(View view2, float f, float f2, long j) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.h.setBackground(f());
-            this.k.setImageResource(R.drawable.obfuscated_res_0x7f080f7c);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2), Long.valueOf(j)})) == null) {
+            ValueAnimator ofFloat = ValueAnimator.ofFloat(f, f2);
+            ofFloat.setTarget(view2);
+            ofFloat.setDuration(j);
+            return ofFloat;
         }
+        return (ValueAnimator) invokeCommon.objValue;
     }
 
-    public final void e(String str) {
-        CustomResponsedMessage runTask;
+    public final void f(TBLottieAnimationView tBLottieAnimationView) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || str == null || str.length() == 0 || (runTask = MessageManager.getInstance().runTask(2921388, Bitmap.class, str)) == null || runTask.getData() == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tBLottieAnimationView) == null) || tBLottieAnimationView == null) {
             return;
         }
-        this.i.setImageBitmap((Bitmap) runTask.getData());
+        this.b.b(new a(this, tBLottieAnimationView));
+        tBLottieAnimationView.addAnimatorListener(new b(this));
+        this.e.addUpdateListener(new c(this));
+        this.e.addListener(new d(this));
+        this.d.b(new e(this, tBLottieAnimationView));
     }
 
-    public final GradientDrawable f() {
-        InterceptResult invokeV;
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, new int[]{SkinManager.getColor(R.color.CAM_X0201), SkinManager.getColor(R.color.CAM_X0201)});
-            gradientDrawable.setGradientType(0);
-            gradientDrawable.setShape(0);
-            gradientDrawable.setCornerRadius(oi.f(this.a.getPageActivity(), R.dimen.tbds31));
-            return gradientDrawable;
-        }
-        return (GradientDrawable) invokeV.objValue;
-    }
-
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            SkinManager.setImageResource(this.j, R.drawable.icon_popup_shut_n);
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0109);
-        }
-    }
-
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.b.setVisibility(z ? 0 : 8);
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.c.setText("你好，朋友！");
-            this.d.setText(this.f.h());
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日");
-            Date date = new Date(System.currentTimeMillis());
-            TextView textView = this.e;
-            textView.setText(this.f.d + "\n" + simpleDateFormat.format(date));
-            e(this.f.c);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b.h();
+            this.c.h();
         }
     }
 }

@@ -39,7 +39,7 @@ public class pr7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             MessageManager messageManager = MessageManager.getInstance();
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHOSEN_PB_PRAISE, kk8.a(TbConfig.FINE_PB_PRAISE, 309095));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHOSEN_PB_PRAISE, hj8.a(TbConfig.FINE_PB_PRAISE, 309095));
             tbHttpMessageTask.setResponsedClass(ChosenPbZanHttpResponse.class);
             messageManager.registerTask(tbHttpMessageTask);
         }
@@ -48,11 +48,11 @@ public class pr7 {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            l95 l95Var = new l95(309095);
-            l95Var.setResponsedClass(ChosenPbZanSocketResponse.class);
-            l95Var.g(true);
-            l95Var.h(false);
-            MessageManager.getInstance().registerTask(l95Var);
+            ca5 ca5Var = new ca5(309095);
+            ca5Var.setResponsedClass(ChosenPbZanSocketResponse.class);
+            ca5Var.g(true);
+            ca5Var.h(false);
+            MessageManager.getInstance().registerTask(ca5Var);
         }
     }
 

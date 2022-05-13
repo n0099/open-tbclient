@@ -14,13 +14,13 @@ public class wo8 extends CustomMessageListener {
     public final MainTabActivity a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wo8(MainTabActivity mainTabActivity, wn8 wn8Var) {
-        super(2016311);
+    public wo8(MainTabActivity mainTabActivity, tm8 tm8Var) {
+        super(2921504);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, wn8Var};
+            Object[] objArr = {mainTabActivity, tm8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,9 +38,8 @@ public class wo8 extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof String) || "advertevent://ignore".equals((String) customResponsedMessage.getData())) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+            this.a.updateProfileInfo();
         }
-        this.a.mIsSplashClick = true;
     }
 }

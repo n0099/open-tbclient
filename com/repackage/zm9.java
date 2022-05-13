@@ -1,167 +1,38 @@
 package com.repackage;
 
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
-import android.os.Handler;
-import android.os.IBinder;
-import android.os.Looper;
-import android.os.Message;
-import android.os.RemoteException;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.uodis.opendevice.aidl.OpenDeviceIdentifierService;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class zm9 {
+public class zm9 implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Handler a;
-    public Context b;
-    public c c;
-    public ServiceConnection d;
+    public Context a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public HashMap<String, String> h;
 
-    /* loaded from: classes7.dex */
-    public class a implements ServiceConnection {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zm9 a;
-
-        public a(zm9 zm9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zm9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zm9Var;
-        }
-
-        @Override // android.content.ServiceConnection
-        public void onBindingDied(ComponentName componentName) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, componentName) == null) {
-            }
-        }
-
-        @Override // android.content.ServiceConnection
-        public void onNullBinding(ComponentName componentName) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            }
-        }
-
-        @Override // android.content.ServiceConnection
-        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, componentName, iBinder) == null) {
-                this.a.a.obtainMessage(1, OpenDeviceIdentifierService.Stub.asInterface(iBinder)).sendToTarget();
-                this.a.a.removeMessages(2);
-            }
-        }
-
-        @Override // android.content.ServiceConnection
-        public void onServiceDisconnected(ComponentName componentName) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, componentName) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zm9 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(zm9 zm9Var, Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zm9Var, looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zm9Var;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                int i = message.what;
-                if (i == 0) {
-                    this.a.c.a(-1, null);
-                } else if (i != 1) {
-                    if (i != 2) {
-                        return;
-                    }
-                    this.a.c.a(-2, null);
-                } else {
-                    OpenDeviceIdentifierService openDeviceIdentifierService = (OpenDeviceIdentifierService) message.obj;
-                    try {
-                        try {
-                            this.a.c.b(openDeviceIdentifierService.getOaid(), openDeviceIdentifierService.isOaidTrackLimited());
-                            try {
-                                this.a.b.unbindService(this.a.d);
-                            } catch (Exception e) {
-                                this.a.c.a(-4, e);
-                            }
-                        } catch (RemoteException e2) {
-                            this.a.c.a(-3, e2);
-                            try {
-                                this.a.b.unbindService(this.a.d);
-                            } catch (Exception unused) {
-                            }
-                        }
-                    } catch (Throwable th) {
-                        try {
-                            this.a.b.unbindService(this.a.d);
-                        } catch (Exception e3) {
-                            this.a.c.a(-4, e3);
-                        }
-                        throw th;
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public interface c {
-        void a(int i, Exception exc);
-
-        void b(String str, boolean z);
-    }
-
-    public zm9(Context context, c cVar, Handler handler) {
+    public zm9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, cVar, handler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -171,37 +42,179 @@ public class zm9 {
                 return;
             }
         }
-        this.d = new a(this);
-        this.b = context;
-        this.c = cVar;
-        this.a = new b(this, handler == null ? Looper.getMainLooper() : handler.getLooper());
+        this.b = "";
+        this.c = "";
+        this.d = "";
+        this.e = "";
+        this.f = "";
+        this.g = "";
+        this.h = new HashMap<>();
     }
 
-    public static void d(Context context, c cVar) {
+    public String a(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, cVar) == null) {
-            e(context, cVar, null);
-        }
-    }
-
-    public static void e(Context context, c cVar, Handler handler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, null, context, cVar, handler) == null) {
-            new zm9(context.getApplicationContext(), cVar, handler).f();
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
-            intent.setPackage("com.huawei.hwid");
-            if (this.b.bindService(intent, this.d, 1)) {
-                Handler handler = this.a;
-                handler.sendMessageDelayed(handler.obtainMessage(2), 10000L);
-                return;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            if (z) {
+                return m(this.b);
             }
-            this.a.sendEmptyMessage(0);
+            return this.b;
         }
+        return (String) invokeZ.objValue;
+    }
+
+    public Context b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (Context) invokeV.objValue;
+    }
+
+    public String c(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+            if (this.h.isEmpty()) {
+                return "";
+            }
+            JSONObject jSONObject = new JSONObject();
+            for (Map.Entry<String, String> entry : this.h.entrySet()) {
+                try {
+                    jSONObject.put(entry.getKey(), entry.getValue());
+                } catch (JSONException unused) {
+                    return "";
+                }
+            }
+            if (z) {
+                return m(jSONObject.toString());
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public Object clone() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            try {
+                zm9 zm9Var = (zm9) super.clone();
+                HashMap<String, String> hashMap = new HashMap<>();
+                for (Map.Entry<String, String> entry : zm9Var.h.entrySet()) {
+                    hashMap.put(entry.getKey(), entry.getValue());
+                }
+                zm9Var.h = hashMap;
+                return zm9Var;
+            } catch (CloneNotSupportedException unused) {
+                return null;
+            }
+        }
+        return invokeV.objValue;
+    }
+
+    public String d(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+            if (z) {
+                return m(this.d);
+            }
+            return this.d;
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public String e(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+            if (z) {
+                return m(this.f);
+            }
+            return this.f;
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public String f(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
+            if (z) {
+                return m(this.c);
+            }
+            return this.c;
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public String g(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
+            if (z) {
+                return m(this.g);
+            }
+            return this.g;
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public String h(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
+            if (z) {
+                return m(this.e);
+            }
+            return this.e;
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void j(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, context) == null) {
+            this.a = context.getApplicationContext();
+        }
+    }
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            this.d = str;
+        }
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public final String m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            try {
+                return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
+            } catch (UnsupportedEncodingException unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? (this.a == null || TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.d) || TextUtils.isEmpty(this.e)) ? false : true : invokeV.booleanValue;
     }
 }

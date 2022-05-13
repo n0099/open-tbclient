@@ -85,19 +85,19 @@ public class dk7 {
         this.l = 3;
         this.a = tbPageContext.getPageActivity();
         this.b = tbPageContext;
-        tbPageContext.getPageActivity().setContentView(R.layout.obfuscated_res_0x7f0d0542);
-        NavigationBar navigationBar = (NavigationBar) tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091515);
+        tbPageContext.getPageActivity().setContentView(R.layout.obfuscated_res_0x7f0d0536);
+        NavigationBar navigationBar = (NavigationBar) tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091534);
         this.c = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.c.showBottomLine();
-        this.d = (NoNetworkView) tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091598);
+        this.d = (NoNetworkView) tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f0915ac);
         this.c.onChangeSkinType(tbPageContext, TbadkApplication.getInst().getSkinType());
-        this.e = (TbImageView) tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091dc8);
-        this.f = (TextView) tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091dc9);
-        this.g = (TextView) tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091666);
-        this.i = (TextView) tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091dce);
-        this.h = (TextView) tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091ff9);
-        TextView textView = (TextView) tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091600);
+        this.e = (TbImageView) tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091e21);
+        this.f = (TextView) tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091e22);
+        this.g = (TextView) tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f09168d);
+        this.i = (TextView) tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091e27);
+        this.h = (TextView) tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f092057);
+        TextView textView = (TextView) tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091618);
         this.j = textView;
         textView.setOnClickListener(new a(this));
         c();
@@ -106,17 +106,17 @@ public class dk7 {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.g.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0d48), str));
+            this.g.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0d62), str));
         }
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.k = this.c.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f0380));
+            this.k = this.c.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f0386));
             this.d.c(this.b, TbadkApplication.getInst().getSkinType());
             SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0105);
-            SkinManager.setImageResource(this.e, R.drawable.obfuscated_res_0x7f080a18);
+            SkinManager.setImageResource(this.e, R.drawable.obfuscated_res_0x7f080a30);
             SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0305);
@@ -133,7 +133,7 @@ public class dk7 {
                 this.c.onChangeSkinType(this.b, i);
                 this.d.c(this.b, i);
                 SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0105);
-                SkinManager.setImageResource(this.e, R.drawable.obfuscated_res_0x7f080a18);
+                SkinManager.setImageResource(this.e, R.drawable.obfuscated_res_0x7f080a30);
                 SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0105);
                 SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
                 SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0305);

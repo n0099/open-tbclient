@@ -1,81 +1,373 @@
 package com.repackage;
 
-import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.request.HttpRequest;
-import com.baidu.swan.apps.statistic.interfacestability.SwanInterfaceType;
+import com.baidu.swan.apps.setting.oauth.OAuthException;
+import com.baidu.swan.apps.setting.oauth.TaskState;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Set;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class r53 extends u53<JSONObject> {
+public abstract class r53<ResultDataT> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context m;
+    public final x53<ResultDataT> a;
+    public final Set<nf3<x53<ResultDataT>>> b;
+    public final LinkedList<t53> c;
+    public boolean d;
+    public boolean e;
 
-    public r53(Context context) {
+    /* loaded from: classes7.dex */
+    public class a extends t53 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ r53 c;
+
+        public a(r53 r53Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r53Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = r53Var;
+        }
+
+        @Override // com.repackage.t53
+        public boolean f() throws Exception {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.c.k()) {
+                    return true;
+                }
+                s53.k("initialPrepare failed", Boolean.TRUE);
+                throw new OAuthException(10001);
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b extends t53 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ r53 c;
+
+        public b(r53 r53Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r53Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = r53Var;
+        }
+
+        @Override // com.repackage.t53
+        public boolean f() throws Exception {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.c.j()) {
+                    return true;
+                }
+                s53.k("finalPrepare failed", Boolean.TRUE);
+                if (r53.f) {
+                    throw new OAuthException(10001);
+                }
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nf3 a;
+        public final /* synthetic */ r53 b;
+
+        public c(r53 r53Var, nf3 nf3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r53Var, nf3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = r53Var;
+            this.a = nf3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            nf3 nf3Var;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (nf3Var = this.a) == null) {
+                return;
+            }
+            nf3Var.onCallback(this.b.a);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755399391, "Lcom/repackage/r53;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755399391, "Lcom/repackage/r53;");
+                return;
+            }
+        }
+        f = eh1.a;
+    }
+
+    public r53() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.m = context;
+        this.a = new x53<>();
+        this.b = new HashSet();
+        this.c = new LinkedList<>();
+        this.d = false;
+        this.e = false;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.g53
-    /* renamed from: P */
-    public JSONObject m(JSONObject jSONObject) throws JSONException {
+    public final synchronized void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                i();
+            }
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            b bVar = new b(this);
+            bVar.h(this);
+            bVar.g();
+            this.e = true;
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            d(null);
+        }
+    }
+
+    @NonNull
+    public r53 call() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (TaskState.INIT == e()) {
+                s(TaskState.CALLING);
+                n();
+            }
+            return this;
+        }
+        return (r53) invokeV.objValue;
+    }
+
+    public void d(@Nullable Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, exc) == null) {
+            if (exc instanceof OAuthException) {
+                this.a.c = (OAuthException) exc;
+            } else if (exc != null) {
+                s53.t("OAuthTask#finish", exc.getMessage());
+                this.a.c = new OAuthException(exc, 10001);
+            }
+            if (!this.a.c() && f && exc != null) {
+                exc.printStackTrace();
+            }
+            s(TaskState.FINISHED);
+            s53.k(toString(), Boolean.FALSE);
+            g();
+            this.b.clear();
+        }
+    }
+
+    public TaskState e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.b : (TaskState) invokeV.objValue;
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            a aVar = new a(this);
+            aVar.h(this);
+            aVar.g();
+            this.d = true;
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            for (nf3<x53<ResultDataT>> nf3Var : this.b) {
+                s53.l(new c(this, nf3Var));
+            }
+        }
+    }
+
+    public r53 h(@NonNull t53 t53Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) ? h53.c(jSONObject) : (JSONObject) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t53Var)) == null) {
+            t53Var.h(this);
+            this.c.offer(t53Var);
+            return this;
+        }
+        return (r53) invokeL.objValue;
     }
 
-    @Override // com.repackage.g53
+    public abstract void i();
+
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            j03 L = j03.L();
-            if (L != null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("ma_id", L.N());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                v("data", jSONObject.toString());
-                return true;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return true;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.u53
-    public HttpRequest w(u53 u53Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, u53Var)) == null) ? qj2.o().g(this.m, u53Var.B()) : (HttpRequest) invokeL.objValue;
-    }
-
-    @Override // com.repackage.u53
-    public SwanInterfaceType z() {
+    public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? SwanInterfaceType.SWAN_ID : (SwanInterfaceType) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void l(t53 t53Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, t53Var) == null) {
+            if (t53Var.c()) {
+                n();
+            } else {
+                d(t53Var.b());
+            }
+        }
+    }
+
+    public abstract ResultDataT m(JSONObject jSONObject) throws JSONException;
+
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            if (!TaskState.CALLING.equals(e())) {
+                if (f) {
+                    s53.k("IllegalState on prepare", Boolean.FALSE);
+                }
+            } else if (!this.d) {
+                f();
+            } else if (!this.c.isEmpty()) {
+                this.c.poll().g();
+            } else if (!this.e) {
+                b();
+            } else {
+                a();
+            }
+        }
+    }
+
+    public r53<ResultDataT> o(nf3<x53<ResultDataT>> nf3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, nf3Var)) == null) {
+            if (this.a.b.isCallbackAvailable()) {
+                this.b.add(nf3Var);
+            }
+            return this;
+        }
+        return (r53) invokeL.objValue;
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            this.a.b = TaskState.INIT;
+            this.d = false;
+            this.e = false;
+        }
+    }
+
+    public r53<ResultDataT> q(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) ? this : (r53) invokeL.objValue;
+    }
+
+    public void r(ResultDataT resultdatat) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, resultdatat) == null) {
+            this.a.a = resultdatat;
+        }
+    }
+
+    public final void s(TaskState taskState) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, taskState) == null) {
+            this.a.b = taskState;
+        }
     }
 }

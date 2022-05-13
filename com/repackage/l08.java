@@ -1,94 +1,41 @@
 package com.repackage;
 
-import android.graphics.drawable.Drawable;
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.util.SparseIntArray;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class l08 {
+public class l08 extends qu4 {
     public static /* synthetic */ Interceptable $ic;
-    public static SparseIntArray a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755582787, "Lcom/repackage/l08;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755582787, "Lcom/repackage/l08;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public l08(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new SparseIntArray();
     }
 
-    public static void a(SmallTailInfo smallTailInfo, TextView textView, boolean z, boolean z2, boolean z3) {
+    @Override // com.repackage.pu4, com.repackage.go
+    public View n() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{smallTailInfo, textView, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) || smallTailInfo == null || textView == null) {
-            return;
-        }
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
-        int b = b(R.dimen.obfuscated_res_0x7f070207);
-        if (z2 && z3) {
-            layoutParams.setMargins(b, b(R.dimen.obfuscated_res_0x7f070305), b, b(R.dimen.obfuscated_res_0x7f070263));
-        } else if (z) {
-            layoutParams.setMargins(0, b(R.dimen.obfuscated_res_0x7f070305), 0, 0);
-        } else if (!z2) {
-            layoutParams.setMargins(b(R.dimen.obfuscated_res_0x7f070235), b(R.dimen.obfuscated_res_0x7f070305), b(R.dimen.obfuscated_res_0x7f07020f), b(R.dimen.obfuscated_res_0x7f0701b2));
-        } else {
-            layoutParams.setMargins(b, b(R.dimen.obfuscated_res_0x7f070305), b, b(R.dimen.obfuscated_res_0x7f0701b2));
-        }
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        spannableStringBuilder.append((CharSequence) "icon");
-        spannableStringBuilder.append((CharSequence) smallTailInfo.tailSpannable);
-        Drawable drawable = SkinManager.getDrawable(R.drawable.icon_pb_tail);
-        drawable.setBounds(0, 0, b, b);
-        ud5 ud5Var = new ud5(drawable);
-        ud5Var.c(b(R.dimen.obfuscated_res_0x7f070224));
-        spannableStringBuilder.setSpan(ud5Var, 0, 4, 33);
-        textView.setLayoutParams(layoutParams);
-        textView.setText(spannableStringBuilder);
-        textView.setTextColor(smallTailInfo.showColorId);
-        textView.setVisibility(0);
-    }
-
-    public static int b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            int i2 = a.get(i, -1);
-            if (i2 == -1) {
-                int f = oi.f(TbadkCoreApplication.getInst().getContext(), i);
-                a.put(i, f);
-                return f;
-            }
-            return i2;
-        }
-        return invokeI.intValue;
-    }
-
-    public static void c(SmallTailInfo smallTailInfo, TextView textView, boolean z, boolean z2, boolean z3) {
-        SpannableString spannableString;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{smallTailInfo, textView, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) || smallTailInfo == null || (spannableString = smallTailInfo.tailSpannable) == null || spannableString.length() == 0 || textView == null) {
-            return;
-        }
-        smallTailInfo.updateShowInfo();
-        a(smallTailInfo, textView, z, z2, z3);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? super.n() : (View) invokeV.objValue;
     }
 }

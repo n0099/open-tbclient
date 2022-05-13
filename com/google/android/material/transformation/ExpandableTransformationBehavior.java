@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class ExpandableTransformationBehavior extends ExpandableBehavior {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

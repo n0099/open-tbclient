@@ -12,12 +12,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mg;
-import com.repackage.uo;
+import com.repackage.kg;
+import com.repackage.ro;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class AlaEnterEffectData implements Serializable, uo {
+public class AlaEnterEffectData implements Serializable, ro {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALA_ENTER_EFFECT_DOWNLOADING = 102;
     public static final int ALA_ENTER_EFFECT_HAS_DOWNLOAD = 101;
@@ -83,7 +83,7 @@ public class AlaEnterEffectData implements Serializable, uo {
         }
     }
 
-    @Override // com.repackage.uo
+    @Override // com.repackage.ro
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -125,8 +125,8 @@ public class AlaEnterEffectData implements Serializable, uo {
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("props_info");
         if (optJSONObject2 != null) {
-            this.propId = mg.e(optJSONObject2.optString("props_id"), 0);
-            this.price = mg.g(optJSONObject2.optString("price"), 0L);
+            this.propId = kg.e(optJSONObject2.optString("props_id"), 0);
+            this.price = kg.g(optJSONObject2.optString("price"), 0L);
             this.time = optJSONObject2.optString("buy_cycle");
             this.buy_staus = optJSONObject2.optInt("buy_staus");
         }

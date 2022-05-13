@@ -1,148 +1,64 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.BlockPopInfoData;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tieba.R;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.tieba.frs.itemtab.card.CardItemHotVideoLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
 /* loaded from: classes6.dex */
-public class il6 {
+public class il6 extends zx<zn4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public CardItemHotVideoLayout f;
 
-    /* loaded from: classes6.dex */
-    public static class a implements cr4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) || cr4Var == null) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public il6(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            cr4Var.dismiss();
         }
+        this.f = new CardItemHotVideoLayout(context);
     }
 
-    /* loaded from: classes6.dex */
-    public static class b implements cr4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-        public final /* synthetic */ BlockPopInfoData b;
-
-        public b(TbPageContext tbPageContext, BlockPopInfoData blockPopInfoData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tbPageContext, blockPopInfoData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tbPageContext;
-            this.b = blockPopInfoData;
-        }
-
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                UrlManager.getInstance().dealOneLink(this.a, new String[]{this.b.ahead_url});
-                if (cr4Var == null) {
-                    return;
-                }
-                cr4Var.dismiss();
-            }
-        }
-    }
-
-    public static boolean a(TbPageContext<?> tbPageContext, FrsViewData frsViewData) {
-        InterceptResult invokeLL;
-        String fixedText;
+    @Override // com.repackage.zx
+    public View g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tbPageContext, frsViewData)) == null) {
-            if (tbPageContext != null && frsViewData != null) {
-                if (!ViewHelper.checkUpIsLogin(tbPageContext.getPageActivity())) {
-                    return true;
-                }
-                AntiData anti = frsViewData.getAnti();
-                if (anti != null) {
-                    if (b(tbPageContext, anti.getBlock_stat(), anti.mFrsForbidenDialogInfo)) {
-                        return true;
-                    }
-                    if (anti.getIfpost() == 0 && !StringUtils.isNull(anti.getForbid_info())) {
-                        String forbid_info = anti.getForbid_info();
-                        if (StringHelper.getRealSize(forbid_info) > 14) {
-                            forbid_info = StringHelper.getFixedText(forbid_info, 7, false) + "\n" + forbid_info.substring(fixedText.length());
-                        }
-                        BdToast i = BdToast.i(tbPageContext.getPageActivity(), forbid_info, R.drawable.obfuscated_res_0x7f0809a9, true);
-                        i.k(1.25f);
-                        i.q();
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (View) invokeV.objValue;
     }
 
-    public static boolean b(TbPageContext<?> tbPageContext, int i, BlockPopInfoData blockPopInfoData) {
-        InterceptResult invokeLIL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.oy
+    /* renamed from: o */
+    public void a(zn4 zn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, tbPageContext, i, blockPopInfoData)) == null) {
-            if (blockPopInfoData == null || blockPopInfoData.can_post.intValue() == 1 || !TbadkCoreApplication.isLogin()) {
-                return false;
-            }
-            String string = StringUtils.isNull(blockPopInfoData.block_info) ? tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f06c1) : blockPopInfoData.block_info;
-            if (i != 1 && i != 2) {
-                BdToast i2 = BdToast.i(tbPageContext.getPageActivity(), string, R.drawable.obfuscated_res_0x7f0809a9, true);
-                i2.k(1.25f);
-                i2.q();
-                return false;
-            }
-            cr4 cr4Var = new cr4(tbPageContext.getPageActivity());
-            cr4Var.setMessage(StringHelper.getFixedText(string, 50, true));
-            cr4Var.setNegativeButton(StringHelper.getFixedText(StringUtils.isNull(blockPopInfoData.ok_info) ? tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f07d8) : blockPopInfoData.ok_info, 4, true), new a());
-            if (!StringUtils.isNull(blockPopInfoData.ahead_info) && !StringUtils.isNull(blockPopInfoData.ahead_url)) {
-                cr4Var.setPositiveButton(StringHelper.getFixedText(blockPopInfoData.ahead_info, 4, true), new b(tbPageContext, blockPopInfoData));
-            }
-            cr4Var.create(tbPageContext).show();
-            return true;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zn4Var) == null) {
+            this.f.setData((pl6) zn4Var);
         }
-        return invokeLIL.booleanValue;
+    }
+
+    @Override // com.repackage.py
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
+            this.f.onChangeSkinType(tbPageContext, i);
+        }
     }
 }

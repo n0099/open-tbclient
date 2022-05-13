@@ -7,19 +7,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.x7;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public abstract class n06 extends n0 {
+public abstract class n06 implements i0, x7.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final k06 d;
+    public g06 a;
 
-    public n06(k06 danmakuContext) {
+    public n06() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {danmakuContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,26 +28,29 @@ public abstract class n06 extends n0 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(danmakuContext, "danmakuContext");
-        this.d = danmakuContext;
+        this.a = g06.i.a();
     }
 
-    @Override // com.repackage.n0
-    @CallSuper
-    public void g(k0 engine) {
+    public final g06 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, engine) == null) {
-            Intrinsics.checkNotNullParameter(engine, "engine");
-            super.g(engine);
-            j();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (g06) invokeV.objValue;
+    }
+
+    public final void b(g06 g06Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, g06Var) == null) {
+            Intrinsics.checkNotNullParameter(g06Var, "<set-?>");
+            this.a = g06Var;
         }
     }
 
-    public final k06 i() {
-        InterceptResult invokeV;
+    @Override // com.repackage.x7.a
+    @CallSuper
+    public void reset() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (k06) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a = g06.i.a();
+        }
     }
-
-    public abstract void j();
 }

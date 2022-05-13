@@ -1,152 +1,35 @@
 package com.repackage;
 
 import android.app.Activity;
-import android.graphics.Rect;
-import android.os.Build;
-import android.view.View;
-import android.view.ViewTreeObserver;
-import android.view.Window;
-import android.widget.FrameLayout;
+import android.app.Dialog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
+import tv.athena.revenue.api.pay.params.AppCustomExpand;
+import tv.athena.revenue.payui.view.IYYPayWayView;
+import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes6.dex */
-public class p4a {
+public class p4a implements IYYPayWayView.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Activity a;
-    public Window b;
-    public View c;
-    public View d;
-    public View e;
-    public m4a f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public int k;
-    public int l;
-    public int m;
-    public int n;
-    public boolean o;
-    public ViewTreeObserver.OnGlobalLayoutListener p;
+    public Dialog b;
+    public IYYPayWayView c;
+    public IYYPayWayView.b d;
+    public IPayCallback<CurrencyChargeMessage> e;
+    public s3a f;
 
-    /* loaded from: classes6.dex */
-    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ p4a a;
-
-        public a(p4a p4aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p4aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = p4aVar;
-        }
-
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
-            int i;
-            int i2;
-            int i3;
-            int height;
-            int i4;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.o) {
-                Rect rect = new Rect();
-                this.a.c.getWindowVisibleDisplayFrame(rect);
-                if (this.a.f.x) {
-                    int height2 = (this.a.d.getHeight() - rect.bottom) - this.a.n;
-                    if (this.a.f.z != null) {
-                        this.a.f.z.a(height2 > this.a.n, height2);
-                    }
-                } else if (this.a.e != null) {
-                    if (this.a.f.s) {
-                        height = this.a.d.getHeight() + this.a.l + this.a.m;
-                        i4 = rect.bottom;
-                    } else if (this.a.f.n) {
-                        height = this.a.d.getHeight() + this.a.l;
-                        i4 = rect.bottom;
-                    } else {
-                        height = this.a.d.getHeight();
-                        i4 = rect.bottom;
-                    }
-                    int i5 = height - i4;
-                    int i6 = this.a.f.e ? i5 - this.a.n : i5;
-                    if (this.a.f.e && i5 == this.a.n) {
-                        i5 -= this.a.n;
-                    }
-                    if (i6 != this.a.k) {
-                        this.a.d.setPadding(this.a.g, this.a.h, this.a.i, i5 + this.a.j);
-                        this.a.k = i6;
-                        if (this.a.f.z != null) {
-                            this.a.f.z.a(i6 > this.a.n, i6);
-                        }
-                    }
-                } else {
-                    int height3 = this.a.d.getHeight() - rect.bottom;
-                    if (this.a.f.v && this.a.f.w) {
-                        if (Build.VERSION.SDK_INT == 19 || q4a.i()) {
-                            i2 = this.a.n;
-                        } else if (!this.a.f.e) {
-                            i3 = height3;
-                            if (this.a.f.e && height3 == this.a.n) {
-                                height3 -= this.a.n;
-                            }
-                            int i7 = height3;
-                            height3 = i3;
-                            i = i7;
-                        } else {
-                            i2 = this.a.n;
-                        }
-                        i3 = height3 - i2;
-                        if (this.a.f.e) {
-                            height3 -= this.a.n;
-                        }
-                        int i72 = height3;
-                        height3 = i3;
-                        i = i72;
-                    } else {
-                        i = height3;
-                    }
-                    if (height3 != this.a.k) {
-                        if (this.a.f.s) {
-                            this.a.d.setPadding(0, this.a.l + this.a.m, 0, i);
-                        } else if (this.a.f.n) {
-                            this.a.d.setPadding(0, this.a.l, 0, i);
-                        } else {
-                            this.a.d.setPadding(0, 0, 0, i);
-                        }
-                        this.a.k = height3;
-                        if (this.a.f.z != null) {
-                            this.a.f.z.a(height3 > this.a.n, height3);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public p4a(Activity activity, Window window) {
+    public p4a(Activity activity, Dialog dialog, IYYPayWayView iYYPayWayView, IYYPayWayView.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback, s3a s3aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, window};
+            Object[] objArr = {activity, dialog, iYYPayWayView, bVar, iPayCallback, s3aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -156,60 +39,30 @@ public class p4a {
                 return;
             }
         }
-        this.p = new a(this);
+        RLog.info("PayWayViewCallback", "create PayWayViewCallback");
         this.a = activity;
-        this.b = window;
-        View decorView = window.getDecorView();
-        this.c = decorView;
-        FrameLayout frameLayout = (FrameLayout) decorView.findViewById(16908290);
-        if (frameLayout == null) {
-            return;
-        }
-        View childAt = frameLayout.getChildAt(0);
-        this.e = childAt;
-        frameLayout = childAt != null ? childAt : frameLayout;
-        this.d = frameLayout;
-        this.g = frameLayout.getPaddingLeft();
-        this.h = this.d.getPaddingTop();
-        this.i = this.d.getPaddingRight();
-        this.j = this.d.getPaddingBottom();
-        l4a l4aVar = new l4a(this.a);
-        this.l = l4aVar.i();
-        this.n = l4aVar.d();
-        this.m = l4aVar.a();
-        this.o = l4aVar.l();
+        this.b = dialog;
+        this.c = iYYPayWayView;
+        this.d = bVar;
+        this.e = iPayCallback;
+        this.f = s3aVar;
     }
 
-    public static p4a q(Activity activity, Window window) {
-        InterceptResult invokeLL;
+    @Override // tv.athena.revenue.payui.view.IYYPayWayView.a
+    public void a(v4a v4aVar, s4a s4aVar, AppCustomExpand appCustomExpand) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, activity, window)) == null) ? new p4a(activity, window) : (p4a) invokeLL.objValue;
-    }
-
-    public void o(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (Build.VERSION.SDK_INT >= 19) {
-                this.b.setSoftInputMode(i);
-                this.c.getViewTreeObserver().removeOnGlobalLayoutListener(this.p);
-            }
-            this.a = null;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, v4aVar, s4aVar, appCustomExpand) == null) {
+            RLog.info("PayWayViewCallback", "onStartPay");
+            this.f.d(this.a, v4aVar, s4aVar, this.b, this.c, appCustomExpand, this.d, this.e);
         }
     }
 
-    public void p(int i) {
+    @Override // tv.athena.revenue.payui.view.IYYPayWayView.a
+    public void onRefreshViewFail(int i, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || Build.VERSION.SDK_INT < 19) {
-            return;
-        }
-        this.b.setSoftInputMode(i);
-        this.c.getViewTreeObserver().addOnGlobalLayoutListener(this.p);
-    }
-
-    public void r(m4a m4aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, m4aVar) == null) {
-            this.f = m4aVar;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+            RLog.info("PayWayViewCallback", "showPayWayDialog onRefreshViewFail");
+            i5a.b(this.b, PayDialogType.PAY_WAY_DIALOG);
         }
     }
 }

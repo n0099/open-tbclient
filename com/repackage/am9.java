@@ -1,19 +1,15 @@
 package com.repackage;
 
-import android.app.ActivityManager;
-import android.content.Context;
-import android.os.Process;
+import android.graphics.BitmapFactory;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class am9 {
+public final class am9 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile String a;
-    public static final Object b;
+    public static final BitmapFactory.Options a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,43 +25,6 @@ public class am9 {
                 return;
             }
         }
-        b = new Object();
-    }
-
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a != null) {
-                return a;
-            }
-            synchronized (b) {
-                if (a != null) {
-                    return a;
-                }
-                a = b(rl9.getContext().provideContext());
-                return a;
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            int myPid = Process.myPid();
-            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
-            if (runningAppProcesses == null || runningAppProcesses.isEmpty()) {
-                return null;
-            }
-            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                if (runningAppProcessInfo != null && runningAppProcessInfo.pid == myPid) {
-                    return runningAppProcessInfo.processName;
-                }
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
+        a = new BitmapFactory.Options();
     }
 }

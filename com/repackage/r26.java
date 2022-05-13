@@ -2,7 +2,7 @@ package com.repackage;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardCompetition;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,11 +11,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class r26 extends BaseCardInfo {
+public class r26 implements ro {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public sk6 a;
+    public FeatureCardCompetition a;
 
     static {
         InterceptResult invokeClinit;
@@ -47,20 +47,24 @@ public class r26 extends BaseCardInfo {
         }
     }
 
-    public sk6 e() {
+    public FeatureCardCompetition a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (sk6) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (FeatureCardCompetition) invokeV.objValue;
     }
 
-    public void g(sk6 sk6Var) {
+    public void b(FeatureCardCompetition featureCardCompetition) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sk6Var) == null) {
-            this.a = sk6Var;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, featureCardCompetition) == null) || featureCardCompetition == null) {
+            return;
         }
+        this.a = featureCardCompetition;
+        String str = featureCardCompetition.title;
+        Integer num = featureCardCompetition.floor;
+        Integer num2 = featureCardCompetition.type;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.uo
+    @Override // com.repackage.ro
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

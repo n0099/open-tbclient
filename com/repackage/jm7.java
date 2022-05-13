@@ -85,7 +85,7 @@ public class jm7 extends hm7 {
                 return;
             }
             if (layout.getEllipsisCount(layout.getLineCount() - 1) <= 0) {
-                this.a.d.setCompoundDrawablePadding(oi.f(this.b.d, R.dimen.tbds10));
+                this.a.d.setCompoundDrawablePadding(mi.f(this.b.d, R.dimen.tbds10));
             } else {
                 this.a.d.setCompoundDrawablePadding(0);
             }
@@ -173,7 +173,7 @@ public class jm7 extends hm7 {
         public LinearLayout h;
         public LinearLayout i;
         public NewMyFansUserLikeButton j;
-        public nv4 k;
+        public aw4 k;
         public ProgressBar l;
         public TextView m;
         public TextView n;
@@ -240,27 +240,27 @@ public class jm7 extends hm7 {
     }
 
     @Override // com.repackage.hm7
-    public void a(wp4 wp4Var) {
+    public void a(hq4 hq4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, wp4Var) == null) || wp4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, hq4Var) == null) || hq4Var == null) {
             return;
         }
-        this.i = wp4Var.i;
+        this.i = hq4Var.i;
         ArrayList arrayList = new ArrayList();
-        if (this.a.isEmpty() && !ListUtils.isEmpty(wp4Var.a())) {
-            Iterator<UserData> it = wp4Var.a().iterator();
+        if (this.a.isEmpty() && !ListUtils.isEmpty(hq4Var.a())) {
+            Iterator<UserData> it = hq4Var.a().iterator();
             while (it.hasNext()) {
                 UserData next = it.next();
                 if (next != null && !StringUtils.isNull(next.getUserId())) {
-                    this.k.add(Long.valueOf(mg.g(next.getUserId(), 0L)));
+                    this.k.add(Long.valueOf(kg.g(next.getUserId(), 0L)));
                 }
             }
-            arrayList.addAll(wp4Var.a());
+            arrayList.addAll(hq4Var.a());
             UserData userData = new UserData();
             userData.mAttentionType = 0;
             arrayList.add(userData);
         }
-        arrayList.addAll(i(wp4Var.b()));
+        arrayList.addAll(i(hq4Var.b()));
         this.a.addAll(arrayList);
         if (this.a.isEmpty() || this.a.get(0).mAttentionType == 3) {
             return;
@@ -376,57 +376,57 @@ public class jm7 extends hm7 {
             } else {
                 dVar = new d(this, null);
                 if (getItemViewType(i) == 0) {
-                    view2 = LayoutInflater.from(this.d.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06c7, (ViewGroup) null);
-                    ViewGroup viewGroup2 = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f090fad);
+                    view2 = LayoutInflater.from(this.d.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06bf, (ViewGroup) null);
+                    ViewGroup viewGroup2 = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f090fbc);
                     dVar.a = viewGroup2;
                     viewGroup2.setOnClickListener(this.n);
-                    ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f091824);
+                    ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f09187a);
                     dVar.c = clickableHeaderImageView;
-                    clickableHeaderImageView.setRadius(oi.f(this.d.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07030b));
+                    clickableHeaderImageView.setRadius(mi.f(this.d.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07030b));
                     dVar.c.setAutoChangeStyle(true);
                     dVar.c.setGodIconWidth(R.dimen.tbds36);
                     dVar.c.setOnClickListener(this.o);
                     dVar.c.setTag(Integer.valueOf(i));
-                    TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f09229b);
+                    TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f0922f1);
                     dVar.b = tBLottieAnimationView;
                     SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.card_live_header_bg);
                     j((UserData) ListUtils.getItem(this.a, i), dVar, i);
-                    dVar.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090ef0);
-                    dVar.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091eb0);
-                    EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0914e5);
+                    dVar.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090efd);
+                    dVar.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f08);
+                    EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091504);
                     dVar.d = eMTextView;
                     eMTextView.getViewTreeObserver().addOnGlobalLayoutListener(new a(this, dVar));
-                    View a2 = xk4.b().a(this.d.getPageContext().getPageActivity(), 5);
+                    View a2 = il4.b().a(this.d.getPageContext().getPageActivity(), 5);
                     dVar.e = a2;
                     if (a2 != null) {
                         a2.setVisibility(8);
                         dVar.i.addView(dVar.e, 1);
                     }
-                    dVar.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0902bc);
-                    dVar.f = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090f42);
-                    TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905fd);
+                    dVar.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0902b2);
+                    dVar.f = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090f4f);
+                    TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905f7);
                     dVar.g = textView;
                     textView.setOnClickListener(this.l);
-                    NewMyFansUserLikeButton newMyFansUserLikeButton = (NewMyFansUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f0902c7);
+                    NewMyFansUserLikeButton newMyFansUserLikeButton = (NewMyFansUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f0902be);
                     dVar.j = newMyFansUserLikeButton;
                     newMyFansUserLikeButton.setContext(this.d.getPageContext());
                     dVar.j.setCallback(this.p);
-                    dVar.k = new nv4(this.d.getPageContext(), dVar.j);
+                    dVar.k = new aw4(this.d.getPageContext(), dVar.j);
                     dVar.l = null;
                     dVar.n = null;
                     dVar.o = null;
                 } else if (getItemViewType(i) == 2) {
-                    view2 = LayoutInflater.from(this.d.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06c9, (ViewGroup) null);
-                    dVar.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917ec);
-                    dVar.o = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091566);
+                    view2 = LayoutInflater.from(this.d.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06c1, (ViewGroup) null);
+                    dVar.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091841);
+                    dVar.o = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091583);
                 } else if (getItemViewType(i) == 3) {
-                    view2 = LayoutInflater.from(this.d.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0128, (ViewGroup) null);
-                    dVar.p = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0902c9);
+                    view2 = LayoutInflater.from(this.d.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0124, (ViewGroup) null);
+                    dVar.p = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0902c0);
                 } else {
-                    view2 = LayoutInflater.from(this.d.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0600, (ViewGroup) null);
-                    dVar.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0916eb);
+                    view2 = LayoutInflater.from(this.d.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d05f4, (ViewGroup) null);
+                    dVar.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091713);
                     view2.setOnClickListener(this.m);
-                    dVar.l = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f09191d);
+                    dVar.l = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091975);
                     dVar.n = null;
                     dVar.o = null;
                 }
@@ -447,27 +447,27 @@ public class jm7 extends hm7 {
                     dVar.m.setVisibility(0);
                     if (this.f) {
                         if (this.g) {
-                            dVar.m.setText(R.string.obfuscated_res_0x7f0f0c70);
+                            dVar.m.setText(R.string.obfuscated_res_0x7f0f0c89);
                         } else {
                             int i2 = this.h;
                             if (i2 == 2) {
-                                dVar.m.setText(R.string.obfuscated_res_0x7f0f0821);
+                                dVar.m.setText(R.string.obfuscated_res_0x7f0f0829);
                             } else if (i2 == 1) {
-                                dVar.m.setText(R.string.obfuscated_res_0x7f0f0825);
+                                dVar.m.setText(R.string.obfuscated_res_0x7f0f082d);
                             } else {
-                                dVar.m.setText(R.string.obfuscated_res_0x7f0f0c28);
+                                dVar.m.setText(R.string.obfuscated_res_0x7f0f0c3e);
                             }
                         }
                     } else if (this.g) {
-                        dVar.m.setText(R.string.obfuscated_res_0x7f0f0c73);
+                        dVar.m.setText(R.string.obfuscated_res_0x7f0f0c8c);
                     } else {
                         int i3 = this.h;
                         if (i3 == 2) {
-                            dVar.m.setText(R.string.obfuscated_res_0x7f0f0823);
+                            dVar.m.setText(R.string.obfuscated_res_0x7f0f082b);
                         } else if (i3 == 1) {
-                            dVar.m.setText(R.string.obfuscated_res_0x7f0f0826);
+                            dVar.m.setText(R.string.obfuscated_res_0x7f0f082e);
                         } else {
-                            dVar.m.setText(R.string.obfuscated_res_0x7f0f0c38);
+                            dVar.m.setText(R.string.obfuscated_res_0x7f0f0c4e);
                         }
                     }
                 } else {
@@ -487,13 +487,13 @@ public class jm7 extends hm7 {
                             dVar.e.setVisibility(8);
                         } else {
                             dVar.e.setVisibility(0);
-                            wk4 wk4Var = new wk4();
-                            wk4Var.a = userData.getAlaUserData();
-                            wk4Var.b = 5;
-                            dVar.e.setTag(wk4Var);
+                            hl4 hl4Var = new hl4();
+                            hl4Var.a = userData.getAlaUserData();
+                            hl4Var.b = 5;
+                            dVar.e.setTag(hl4Var);
                         }
                     }
-                    if (ni.isEmpty(userData.getIntro())) {
+                    if (li.isEmpty(userData.getIntro())) {
                         dVar.f.setVisibility(8);
                     } else {
                         dVar.f.setVisibility(0);
@@ -527,7 +527,7 @@ public class jm7 extends hm7 {
             } else if (getItemViewType(i) == 2) {
                 dVar.n.setText(this.i);
             } else if (getItemViewType(i) != 2 || getItemViewType(i) != 3) {
-                dVar.d.setText(this.d.getPageContext().getString(R.string.obfuscated_res_0x7f0f0a2e));
+                dVar.d.setText(this.d.getPageContext().getString(R.string.obfuscated_res_0x7f0f0a34));
                 dVar.l.setVisibility(0);
             }
             h(view2, dVar);
@@ -591,7 +591,7 @@ public class jm7 extends hm7 {
             Iterator<UserData> it = arrayList.iterator();
             while (it.hasNext()) {
                 UserData next = it.next();
-                if (next != null && !StringUtils.isNull(next.getUserId()) && !this.k.contains(Long.valueOf(mg.g(next.getUserId(), 0L)))) {
+                if (next != null && !StringUtils.isNull(next.getUserId()) && !this.k.contains(Long.valueOf(kg.g(next.getUserId(), 0L)))) {
                     arrayList2.add(next);
                 }
             }

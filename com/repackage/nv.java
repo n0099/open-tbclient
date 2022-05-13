@@ -1,72 +1,74 @@
 package com.repackage;
 
-import com.baidu.bdtask.ctrl.model.TaskStatus;
-import com.baidu.bdtask.model.info.TaskInfo;
-import com.baidu.bdtask.model.ui.TaskUIData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.Map;
+import kotlin.TypeCastException;
+import kotlin.Unit;
+import kotlin.collections.MapsKt__MapsKt;
+import kotlin.io.CloseableKt;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
 public final class nv {
     public static /* synthetic */ Interceptable $ic;
-    public static final nv a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964032195, "Lcom/repackage/nv;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    public static final Map<String, Object> a(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
+            if (bArr.length == 0) {
+                return MapsKt__MapsKt.emptyMap();
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1964032195, "Lcom/repackage/nv;");
-                return;
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+            try {
+                ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
+                Object readObject = objectInputStream.readObject();
+                if (readObject != null) {
+                    Map<String, Object> map = (Map) readObject;
+                    CloseableKt.closeFinally(objectInputStream, null);
+                    CloseableKt.closeFinally(byteArrayInputStream, null);
+                    return map;
+                }
+                throw new TypeCastException("null cannot be cast to non-null type kotlin.collections.Map<kotlin.String, kotlin.Any>");
+            } catch (Throwable th) {
+                try {
+                    throw th;
+                } catch (Throwable th2) {
+                    CloseableKt.closeFinally(byteArrayInputStream, th);
+                    throw th2;
+                }
             }
         }
-        a = new nv();
+        return (Map) invokeL.objValue;
     }
 
-    public nv() {
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, INVOKE, MOVE_EXCEPTION, THROW, THROW, INVOKE, MOVE_EXCEPTION] complete} */
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    public static final byte[] b(Map<String, ? extends Object> map) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, map)) != null) {
+            return (byte[]) invokeL.objValue;
         }
-    }
-
-    public final mv a(TaskStatus taskStatus, TaskInfo taskInfo) {
-        InterceptResult invokeLL;
-        int i;
-        TaskUIData taskUIData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, taskStatus, taskInfo)) == null) {
-            if (taskStatus.isFinished()) {
-                taskUIData = taskInfo.getResponse().getUi();
-                i = taskInfo.getResponse().getUiType();
-            } else if (taskStatus.isRunning()) {
-                taskUIData = taskInfo.getTaskMeter().getUi();
-                i = taskInfo.getTaskMeter().getUiType();
-            } else if (taskStatus.isInited() || taskStatus.isRegistered()) {
-                taskUIData = taskInfo.getTaskGuide().getUi();
-                i = taskInfo.getTaskGuide().getUiType();
-            } else {
-                i = -1;
-                taskUIData = null;
-            }
-            return new mv(i, taskUIData);
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        try {
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+            objectOutputStream.writeObject(map);
+            Unit unit = Unit.INSTANCE;
+            CloseableKt.closeFinally(objectOutputStream, null);
+            byte[] byteArray = byteArrayOutputStream.toByteArray();
+            Intrinsics.checkExpressionValueIsNotNull(byteArray, "bytesStream.toByteArray()");
+            CloseableKt.closeFinally(byteArrayOutputStream, null);
+            Intrinsics.checkExpressionValueIsNotNull(byteArray, "ByteArrayOutputStream().…m.toByteArray()\n        }");
+            return byteArray;
+        } finally {
         }
-        return (mv) invokeLL.objValue;
     }
 }

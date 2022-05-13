@@ -19,11 +19,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cg5;
-import com.repackage.oi;
-import com.repackage.qf5;
-import com.repackage.sf5;
-import com.repackage.xf5;
+import com.repackage.jg5;
+import com.repackage.lg5;
+import com.repackage.mi;
+import com.repackage.qg5;
+import com.repackage.vg5;
 import java.util.Date;
 /* loaded from: classes3.dex */
 public class PersonConstellationActivity extends BaseActivity {
@@ -48,8 +48,8 @@ public class PersonConstellationActivity extends BaseActivity {
     public TextView mShowStatusTipView;
     public BdSwitchView.b mSwitchChangeListener;
     public BdSwitchView mSwitchView;
-    public cg5 mTimePickerView;
-    public xf5 mTimeSelectListener;
+    public vg5 mTimePickerView;
+    public qg5 mTimeSelectListener;
 
     /* loaded from: classes3.dex */
     public class a implements BdSwitchView.b {
@@ -130,7 +130,7 @@ public class PersonConstellationActivity extends BaseActivity {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements sf5 {
+    public class c implements lg5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonConstellationActivity a;
@@ -222,15 +222,15 @@ public class PersonConstellationActivity extends BaseActivity {
             this.a = personConstellationActivity;
         }
 
-        @Override // com.repackage.sf5
+        @Override // com.repackage.lg5
         public void a(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 SkinManager.setBackgroundResource(view2, R.drawable.person_birthday_select_top_bg);
-                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917a7);
+                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917e7);
                 textView.setOnClickListener(new a(this));
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1, TbadkCoreApplication.getInst().getSkinType());
-                TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917a6);
+                TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917e6);
                 SkinManager.setViewTextColor(textView2, R.color.CAM_X0302, 1, TbadkCoreApplication.getInst().getSkinType());
                 textView2.setOnClickListener(new b(this));
             }
@@ -238,7 +238,7 @@ public class PersonConstellationActivity extends BaseActivity {
     }
 
     /* loaded from: classes3.dex */
-    public class d implements xf5 {
+    public class d implements qg5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonConstellationActivity a;
@@ -261,14 +261,14 @@ public class PersonConstellationActivity extends BaseActivity {
             this.a = personConstellationActivity;
         }
 
-        @Override // com.repackage.xf5
+        @Override // com.repackage.qg5
         public void a(Date date, View view2) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, date, view2) == null) || date == null) {
                 return;
             }
             if (date.getTime() > System.currentTimeMillis()) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0de8);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0e02);
                 return;
             }
             this.a.mConsNameView.setText(StringHelper.dateToConstellation(date));
@@ -278,9 +278,9 @@ public class PersonConstellationActivity extends BaseActivity {
                 this.a.mShowStatusTipView.setVisibility(8);
                 this.a.mSwitchView.setVisibility(0);
                 if (this.a.mShowStatus == 1) {
-                    this.a.mSwitchView.j();
+                    this.a.mSwitchView.l();
                 } else {
-                    this.a.mSwitchView.f();
+                    this.a.mSwitchView.i();
                 }
             }
         }
@@ -344,7 +344,7 @@ public class PersonConstellationActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
             this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-            this.mSwitchView.setBackgroundRes(SkinManager.getBitmap(R.drawable.obfuscated_res_0x7f0802e5), SkinManager.getBitmap(R.drawable.obfuscated_res_0x7f0802e4), SkinManager.getBitmap(R.drawable.obfuscated_res_0x7f080398));
+            this.mSwitchView.b();
             SkinManager.setViewTextColor(this.mBirthdayLabel, R.color.CAM_X0105, 1, i);
             SkinManager.setViewTextColor(this.mShowStatusLabel, R.color.CAM_X0105, 1, i);
             SkinManager.setViewTextColor(this.mConsNameView, R.color.CAM_X0109, 1, i);
@@ -359,36 +359,36 @@ public class PersonConstellationActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d06b9);
+            setContentView(R.layout.obfuscated_res_0x7f0d06ae);
             initData();
-            this.mRootView = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0917a9);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ad);
+            this.mRootView = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0917e9);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923fd);
             this.mNavigationBar = navigationBar;
-            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0e00)).setTextSize(0, getResources().getDimensionPixelSize(R.dimen.tbfontsize44));
-            View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d05e6, (View.OnClickListener) null);
+            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0e1e)).setTextSize(0, getResources().getDimensionPixelSize(R.dimen.tbfontsize44));
+            View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d05d9, (View.OnClickListener) null);
             this.mCompleteLayout = addCustomView;
-            TextView textView = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091aa9);
+            TextView textView = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091af7);
             this.mCompleteView = textView;
             textView.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.tbfontsize44));
-            this.mCompleteView.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0dfc));
+            this.mCompleteView.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0e1a));
             SkinManager.setViewTextColor(this.mCompleteView, R.color.navi_op_text, 1);
             this.mCompleteLayout.setOnClickListener(this.mClickListener);
-            ImageView imageView = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d089e, (View.OnClickListener) null);
+            ImageView imageView = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d0893, (View.OnClickListener) null);
             this.mBackImg = imageView;
             imageView.setOnClickListener(this.mClickListener);
             SkinManager.setImageResource(this.mBackImg, R.drawable.selector_topbar_return_black);
-            BdSwitchView bdSwitchView = (BdSwitchView) findViewById(R.id.obfuscated_res_0x7f0917aa);
+            BdSwitchView bdSwitchView = (BdSwitchView) findViewById(R.id.obfuscated_res_0x7f0917ea);
             this.mSwitchView = bdSwitchView;
             bdSwitchView.setOnSwitchStateChangeListener(this.mSwitchChangeListener);
-            oi.b(getPageContext().getPageActivity(), this.mSwitchView, 10, 10, 10, 10);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0917a5);
+            mi.b(getPageContext().getPageActivity(), this.mSwitchView, 10, 10, 10, 10);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0917e5);
             this.mBirthdayLayout = relativeLayout;
             relativeLayout.setOnClickListener(this.mClickListener);
-            this.mConsNameView = (TextView) findViewById(R.id.obfuscated_res_0x7f0906d0);
-            this.mBirthdayView = (TextView) findViewById(R.id.obfuscated_res_0x7f0906ce);
-            this.mBirthdayLabel = (TextView) findViewById(R.id.obfuscated_res_0x7f09037b);
-            this.mShowStatusLabel = (TextView) findViewById(R.id.obfuscated_res_0x7f0917a8);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0917ab);
+            this.mConsNameView = (TextView) findViewById(R.id.obfuscated_res_0x7f0906cb);
+            this.mBirthdayView = (TextView) findViewById(R.id.obfuscated_res_0x7f0906c9);
+            this.mBirthdayLabel = (TextView) findViewById(R.id.obfuscated_res_0x7f090373);
+            this.mShowStatusLabel = (TextView) findViewById(R.id.obfuscated_res_0x7f0917e8);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0917eb);
             this.mShowStatusTipView = textView2;
             if (this.mBirthdayTime == 0) {
                 textView2.setVisibility(0);
@@ -398,9 +398,9 @@ public class PersonConstellationActivity extends BaseActivity {
             textView2.setVisibility(8);
             this.mSwitchView.setVisibility(0);
             if (this.mShowStatus == 1) {
-                this.mSwitchView.l();
+                this.mSwitchView.n();
             } else {
-                this.mSwitchView.i();
+                this.mSwitchView.k();
             }
             Date date = new Date(this.mBirthdayTime * 1000);
             this.mConsNameView.setText(StringHelper.dateToConstellation(date));
@@ -412,22 +412,22 @@ public class PersonConstellationActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (this.mTimePickerView == null) {
-                qf5 qf5Var = new qf5(getActivity(), this.mTimeSelectListener);
-                qf5Var.k(R.layout.obfuscated_res_0x7f0d06a9, new c(this));
-                qf5Var.f(18);
-                qf5Var.p(new boolean[]{true, true, true, false, false, false});
-                qf5Var.j("年", "月", "日", "时", "分", "秒");
-                qf5Var.l(2.0f);
-                qf5Var.o(0, 0, 0, 0, 0, 0);
-                qf5Var.b(false);
-                qf5Var.i(SkinManager.getColor(R.color.CAM_X0206));
-                qf5Var.m(SkinManager.getColor(R.color.CAM_X0105));
-                qf5Var.n(SkinManager.getColor(R.color.CAM_X0109));
-                qf5Var.d(SkinManager.getColor(R.color.black_alpha30));
-                qf5Var.e(SkinManager.getColor(R.color.CAM_X0201));
-                qf5Var.c(false);
-                qf5Var.h(this.mRootView);
-                this.mTimePickerView = qf5Var.a();
+                jg5 jg5Var = new jg5(getActivity(), this.mTimeSelectListener);
+                jg5Var.k(R.layout.obfuscated_res_0x7f0d069a, new c(this));
+                jg5Var.f(18);
+                jg5Var.p(new boolean[]{true, true, true, false, false, false});
+                jg5Var.j("年", "月", "日", "时", "分", "秒");
+                jg5Var.l(2.0f);
+                jg5Var.o(0, 0, 0, 0, 0, 0);
+                jg5Var.b(false);
+                jg5Var.i(SkinManager.getColor(R.color.CAM_X0206));
+                jg5Var.m(SkinManager.getColor(R.color.CAM_X0105));
+                jg5Var.n(SkinManager.getColor(R.color.CAM_X0109));
+                jg5Var.d(SkinManager.getColor(R.color.black_alpha30));
+                jg5Var.e(SkinManager.getColor(R.color.CAM_X0201));
+                jg5Var.c(false);
+                jg5Var.h(this.mRootView);
+                this.mTimePickerView = jg5Var.a();
             }
             this.mTimePickerView.v();
         }

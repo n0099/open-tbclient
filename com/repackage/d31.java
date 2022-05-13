@@ -1,88 +1,83 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.webkit.JavascriptInterface;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Intent;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class d31 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public c31 b;
-    public int c;
+public interface d31 {
+    public static final d31 a = new a();
 
     /* loaded from: classes5.dex */
-    public interface a {
-        String a();
-    }
+    public static class a implements d31 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public d31(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        this.c = 0;
-        this.c = i;
-    }
 
-    public void a(c31 c31Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, c31Var) == null) {
-            this.b = c31Var;
-        }
-    }
-
-    public void b(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.a = aVar;
-        }
-    }
-
-    @JavascriptInterface
-    public void getPerformanceTiming(String str) {
-        c31 c31Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (c31Var = this.b) == null) {
-            return;
-        }
-        c31Var.b(str);
-    }
-
-    @JavascriptInterface
-    public String getSysHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            a aVar = this.a;
-            if (aVar != null) {
-                String a2 = aVar.a();
-                return TextUtils.isEmpty(a2) ? "" : a2;
+        @Override // com.repackage.d31
+        public boolean a(Intent intent) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
+                return false;
             }
-            return "";
+            return invokeL.booleanValue;
         }
-        return (String) invokeV.objValue;
     }
 
-    @JavascriptInterface
-    public int pageType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : invokeV.intValue;
+    /* loaded from: classes5.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static d31 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-492075471, "Lcom/repackage/d31$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-492075471, "Lcom/repackage/d31$b;");
+                    return;
+                }
+            }
+            a = c31.e();
+        }
+
+        @NonNull
+        public static d31 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                if (a == null) {
+                    a = d31.a;
+                }
+                return a;
+            }
+            return (d31) invokeV.objValue;
+        }
     }
+
+    boolean a(Intent intent);
 }

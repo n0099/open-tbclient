@@ -33,11 +33,11 @@ public class oi7 implements ThirdPartAliRechargeService {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, activity, str, z)) == null) {
-            vk4 vk4Var = new vk4();
-            vk4Var.a = activity;
-            vk4Var.b = str;
-            vk4Var.c = z;
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921539, String.class, vk4Var);
+            gl4 gl4Var = new gl4();
+            gl4Var.a = activity;
+            gl4Var.b = str;
+            gl4Var.c = z;
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921539, String.class, gl4Var);
             return runTask == null ? "" : (String) runTask.getData();
         }
         return (String) invokeLLZ.objValue;

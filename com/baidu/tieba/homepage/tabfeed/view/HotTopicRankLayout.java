@@ -19,16 +19,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fz;
-import com.repackage.gz;
-import com.repackage.km4;
-import com.repackage.oi;
+import com.repackage.gs4;
+import com.repackage.mi;
+import com.repackage.oy;
+import com.repackage.py;
 import com.repackage.r07;
-import com.repackage.r17;
-import com.repackage.vr4;
-import com.repackage.zw6;
+import com.repackage.rz6;
+import com.repackage.vm4;
+import com.repackage.zv6;
 /* loaded from: classes3.dex */
-public class HotTopicRankLayout extends LinearLayout implements gz, fz<r17>, View.OnClickListener {
+public class HotTopicRankLayout extends LinearLayout implements py, oy<r07>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -41,10 +41,10 @@ public class HotTopicRankLayout extends LinearLayout implements gz, fz<r17>, Vie
     public View h;
     public LinearLayout i;
     public String j;
-    public km4<zw6> k;
+    public vm4<zv6> k;
 
     /* loaded from: classes3.dex */
-    public class a implements km4<zw6> {
+    public class a implements vm4<zv6> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HotTopicRankLayout a;
@@ -68,23 +68,23 @@ public class HotTopicRankLayout extends LinearLayout implements gz, fz<r17>, Vie
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.km4
+        @Override // com.repackage.vm4
         /* renamed from: b */
-        public void c(View view2, zw6 zw6Var, int i, long j) {
+        public void c(View view2, zv6 zv6Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, zw6Var, Integer.valueOf(i), Long.valueOf(j)}) != null) || zw6Var == null) {
+            if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, zv6Var, Integer.valueOf(i), Long.valueOf(j)}) != null) || zv6Var == null) {
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.km4
+        @Override // com.repackage.vm4
         /* renamed from: d */
-        public void a(View view2, zw6 zw6Var, int i, long j) {
+        public void a(View view2, zv6 zv6Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view2, zw6Var, Integer.valueOf(i), Long.valueOf(j)}) == null) || zw6Var == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view2, zv6Var, Integer.valueOf(i), Long.valueOf(j)}) == null) || zv6Var == null) {
                 return;
             }
-            r07.a("c13753", zw6Var, i + 1, this.a.j);
+            rz6.a("c13753", zv6Var, i + 1, this.a.j);
         }
     }
 
@@ -115,19 +115,19 @@ public class HotTopicRankLayout extends LinearLayout implements gz, fz<r17>, Vie
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d038e, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0385, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092202);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fd6);
-            this.e = findViewById(R.id.obfuscated_res_0x7f0911d8);
-            this.g = findViewById(R.id.obfuscated_res_0x7f090808);
-            this.h = findViewById(R.id.obfuscated_res_0x7f090802);
-            this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906e0);
-            this.c = findViewById(R.id.obfuscated_res_0x7f09202d);
-            int f = oi.f(getContext(), R.dimen.M_H_X004);
-            int f2 = oi.f(getContext(), R.dimen.M_H_X004);
-            int f3 = oi.f(getContext(), R.dimen.M_W_X005);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09225a);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fe3);
+            this.e = findViewById(R.id.obfuscated_res_0x7f0911e7);
+            this.g = findViewById(R.id.obfuscated_res_0x7f0907ff);
+            this.h = findViewById(R.id.obfuscated_res_0x7f0907f9);
+            this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906db);
+            this.c = findViewById(R.id.obfuscated_res_0x7f09208a);
+            int f = mi.f(getContext(), R.dimen.M_H_X004);
+            int f2 = mi.f(getContext(), R.dimen.M_H_X004);
+            int f3 = mi.f(getContext(), R.dimen.M_W_X005);
             this.c.setPadding(f3, f, f3, f2);
             ViewGroup.LayoutParams layoutParams = this.c.getLayoutParams();
             layoutParams.width = -1;
@@ -135,7 +135,7 @@ public class HotTopicRankLayout extends LinearLayout implements gz, fz<r17>, Vie
             this.c.setLayoutParams(layoutParams);
             this.d.setMaxLines(1);
             this.d.setEllipsize(TextUtils.TruncateAt.END);
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0904f8);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0904f5);
             HotTopicTabRankListLayout hotTopicTabRankListLayout = new HotTopicTabRankListLayout(getContext());
             this.b = hotTopicTabRankListLayout;
             hotTopicTabRankListLayout.setOnItemCoverListener(this.k);
@@ -148,39 +148,39 @@ public class HotTopicRankLayout extends LinearLayout implements gz, fz<r17>, Vie
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fz
+    @Override // com.repackage.oy
     /* renamed from: d */
-    public void a(r17 r17Var) {
+    public void a(r07 r07Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, r17Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, r07Var) == null) {
             TextView textView = this.d;
-            String str = r17Var.b;
+            String str = r07Var.b;
             if (str == null) {
                 str = "";
             }
             textView.setText(str);
-            this.b.b(r17Var);
+            this.b.b(r07Var);
             this.g.setVisibility(0);
             this.h.setVisibility(8);
             HomeGroupUbsUIHelper.handleLine(this.g);
-            r07.c("c13753", this.j);
+            rz6.c("c13753", this.j);
         }
     }
 
-    @Override // com.repackage.gz
+    @Override // com.repackage.py
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) || this.a == i) {
             return;
         }
-        vr4 d = vr4.d(this.d);
+        gs4 d = gs4.d(this.d);
         d.v(R.color.CAM_X0105);
         d.z(R.dimen.T_X07);
         d.A(R.string.F_X02);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f08091f, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f080933, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
         HomeGroupUbsUIHelper.handleLineColor(this.g);
         this.a = i;
-        vr4 d2 = vr4.d(this.i);
+        gs4 d2 = gs4.d(this.i);
         d2.n(R.string.J_X06);
         d2.f(R.color.CAM_X0205);
     }

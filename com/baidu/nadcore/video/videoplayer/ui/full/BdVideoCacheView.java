@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ay0;
-import com.repackage.b21;
+import com.repackage.l21;
 import java.util.Locale;
 /* loaded from: classes2.dex */
 public class BdVideoCacheView extends FrameLayout {
@@ -45,14 +45,14 @@ public class BdVideoCacheView extends FrameLayout {
                 return;
             }
         }
-        b21.c(18.0f);
-        b21.c(22.0f);
-        e = b21.d(200.0f);
-        f = b21.d(200.0f);
-        b21.d(10.0f);
-        b21.d(25.0f);
-        b21.d(6.0f);
-        b21.d(8.0f);
+        l21.c(18.0f);
+        l21.c(22.0f);
+        e = l21.d(200.0f);
+        f = l21.d(200.0f);
+        l21.d(10.0f);
+        l21.d(25.0f);
+        l21.d(6.0f);
+        l21.d(8.0f);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

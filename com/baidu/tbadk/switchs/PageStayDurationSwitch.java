@@ -6,8 +6,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.q85;
 import com.repackage.xe;
-import com.repackage.z75;
 /* loaded from: classes3.dex */
 public class PageStayDurationSwitch extends xe {
     public static /* synthetic */ Interceptable $ic;
@@ -31,7 +31,7 @@ public class PageStayDurationSwitch extends xe {
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            z75.b().i(1 == i);
+            q85.b().i(1 == i);
         }
     }
 

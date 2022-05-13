@@ -1,124 +1,174 @@
 package com.repackage;
 
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.view.animation.Animation;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class mg {
+public abstract class mg implements Animation.AnimationListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(@Nullable Object obj, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65536, null, obj, z)) == null) {
-            try {
-                if (obj instanceof Boolean) {
-                    return ((Boolean) obj).booleanValue();
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Animation a;
+        public final /* synthetic */ mg b;
+
+        public a(mg mgVar, Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mgVar, animation};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return obj instanceof String ? Boolean.parseBoolean((String) obj) : z;
-            } catch (Exception unused) {
-                return z;
+            }
+            this.b = mgVar;
+            this.a = animation;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.c(this.a);
             }
         }
-        return invokeLZ.booleanValue;
     }
 
-    public static boolean b(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, str, z)) == null) {
-            if (str == null) {
-                return z;
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Animation a;
+        public final /* synthetic */ mg b;
+
+        public b(mg mgVar, Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mgVar, animation};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            try {
-                return Boolean.parseBoolean(str);
-            } catch (Exception unused) {
-                return z;
+            this.b = mgVar;
+            this.a = animation;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.a(this.a);
             }
         }
-        return invokeLZ.booleanValue;
     }
 
-    public static double c(String str, double d) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Double.valueOf(d)})) == null) {
-            if (str == null) {
-                return d;
+    /* loaded from: classes6.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Animation a;
+        public final /* synthetic */ mg b;
+
+        public c(mg mgVar, Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mgVar, animation};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            try {
-                return Double.parseDouble(str);
-            } catch (Exception unused) {
-                return d;
+            this.b = mgVar;
+            this.a = animation;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.b(this.a);
             }
         }
-        return invokeCommon.doubleValue;
     }
 
-    public static float d(String str, float f) {
-        InterceptResult invokeLF;
+    public mg() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65539, null, str, f)) == null) {
-            if (str == null) {
-                return f;
-            }
-            try {
-                return Float.parseFloat(str);
-            } catch (Exception unused) {
-                return f;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return invokeLF.floatValue;
     }
 
-    public static int e(String str, int i) {
-        InterceptResult invokeLI;
+    public void a(Animation animation) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i)) == null) {
-            if (str == null) {
-                return i;
-            }
-            try {
-                return Integer.parseInt(str);
-            } catch (Exception unused) {
-                return i;
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
         }
-        return invokeLI.intValue;
     }
 
-    public static int f(String str, int i, int i2) {
-        InterceptResult invokeLII;
+    public void b(Animation animation) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, str, i, i2)) == null) {
-            if (str == null) {
-                return i;
-            }
-            try {
-                return Integer.parseInt(str, i2);
-            } catch (Exception unused) {
-                return i;
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
         }
-        return invokeLII.intValue;
     }
 
-    public static long g(String str, long j) {
-        InterceptResult invokeLJ;
+    public void c(Animation animation) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, str, j)) == null) {
-            if (str == null) {
-                return j;
-            }
-            try {
-                return Long.parseLong(str);
-            } catch (Exception unused) {
-                return j;
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
         }
-        return invokeLJ.longValue;
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, animation) == null) {
+            ng.a().post(new b(this, animation));
+        }
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, animation) == null) {
+            ng.a().post(new c(this, animation));
+        }
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, animation) == null) {
+            ng.a().post(new a(this, animation));
+        }
     }
 }

@@ -14,8 +14,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lz8;
-import com.repackage.mz8;
+import com.repackage.iy8;
+import com.repackage.jy8;
 /* loaded from: classes4.dex */
 public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     public static /* synthetic */ Interceptable $ic = null;
@@ -27,8 +27,8 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     public static final String ACCOUNT_ACCESS_VALID_SUCCESS = "http://tieba.baidu.com/account/access/valid_success";
     public transient /* synthetic */ FieldHolder $fh;
     public AccessState mAccessState;
-    public lz8 mPresenter;
-    public mz8 mView;
+    public iy8 mPresenter;
+    public jy8 mView;
     public WriteData mWriteData;
     public NewWriteModel mWriteModel;
 
@@ -96,7 +96,7 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            this.mView = new mz8(this);
+            this.mView = new jy8(this);
             Intent intent = getIntent();
             if (intent == null) {
                 return;
@@ -111,9 +111,9 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
                 if (this.mWriteData.getWriteImagesInfo() != null) {
                     this.mWriteModel.i0(this.mWriteData.getWriteImagesInfo().size() > 0);
                 }
-                lz8 lz8Var = new lz8(this.mView, this.mWriteModel);
-                this.mPresenter = lz8Var;
-                this.mView.l(lz8Var);
+                iy8 iy8Var = new iy8(this.mView, this.mWriteModel);
+                this.mPresenter = iy8Var;
+                this.mView.l(iy8Var);
                 this.mPresenter.h(joinStrsForH5());
                 return;
             }

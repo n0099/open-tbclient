@@ -1,209 +1,89 @@
 package com.repackage;
 
+import android.app.Application;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class li0 implements oi0 {
+public class li0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final List<cm0> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ni0 f;
-    public final pi0 g;
-    public final qi0 h;
 
-    public li0() {
-        pi0 pi0Var;
-        qi0 qi0Var;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                for (cm0 cm0Var : li0.a) {
+                    cm0Var.b();
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        List<cm0> list;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755528258, "Lcom/repackage/li0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755528258, "Lcom/repackage/li0;");
                 return;
             }
         }
-        this.f = hi0.c().a();
-        synchronized (hi0.class) {
-            pi0Var = (pi0) ServiceManager.getService(pi0.b);
-            pi0Var = pi0Var == null ? pi0.c : pi0Var;
+        a = new ArrayList();
+        ec1<cm0> ec1Var = new em0().a;
+        if (ec1Var == null || (list = ec1Var.getList()) == null) {
+            return;
         }
-        this.g = pi0Var;
-        synchronized (hi0.class) {
-            qi0Var = (qi0) ServiceManager.getService(qi0.d);
-            qi0Var = qi0Var == null ? qi0.e : qi0Var;
+        a.addAll(list);
+    }
+
+    public static void b(@NonNull Application application) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, application) == null) {
+            ki0.a = application;
+            ro0.a(application);
+            for (cm0 cm0Var : a) {
+                cm0Var.a(application);
+            }
         }
-        this.h = qi0Var;
     }
 
-    @Override // com.repackage.ni0
-    public String a() {
-        InterceptResult invokeV;
+    public static void c() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f.a() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ni0
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f.b() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ni0
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f.c() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ni0
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f.d() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ni0
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f.e() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.pi0
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.g.f() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ni0
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f.g() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ni0
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f.h() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ni0
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f.i() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ni0
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f.j() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ni0
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f.k() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ni0
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f.l() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ni0
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f.m() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.qi0
-    public String n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.h.n() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ni0
-    @NonNull
-    public String o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f.o() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ni0
-    public String p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f.p() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ni0
-    public String packageName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f.packageName() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ni0
-    public String q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f.q() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.qi0
-    public String r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.h.r() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.qi0
-    public String s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.h.s() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ni0
-    public String t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f.t() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ni0
-    public String u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f.u() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ni0
-    public boolean v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f.v() : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            c01.c(new a(), "nad_core_init_on_create", 0);
+        }
     }
 }

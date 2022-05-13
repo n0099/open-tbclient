@@ -1,126 +1,154 @@
 package com.repackage;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.webkit.JsPromptResult;
-import android.webkit.JsResult;
-import android.webkit.WebChromeClient;
-import android.webkit.WebStorage;
-import android.webkit.WebView;
-import android.widget.FrameLayout;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.NewTopicList.NewTopicList;
+import tbclient.NewTopicList.PkModule;
+import tbclient.TopicModule;
 /* loaded from: classes7.dex */
-public class t17 extends WebChromeClient {
+public class t17 extends yx5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId i0;
+    public static final BdUniqueId j0;
     public transient /* synthetic */ FieldHolder $fh;
-    public b9 a;
-    public sl8 b;
+    public int R;
+    public long S;
+    public String T;
+    public String U;
+    public long V;
+    public String W;
+    public u17 X;
+    public PostData Y;
+    public int Z;
+    public String g0;
+    public ThreadData h0;
 
-    public t17(b9 b9Var) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755343529, "Lcom/repackage/t17;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755343529, "Lcom/repackage/t17;");
+                return;
+            }
+        }
+        i0 = BdUniqueId.gen();
+        j0 = BdUniqueId.gen();
+    }
+
+    public t17() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {b9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = b9Var;
+        this.Z = 0;
     }
 
-    public void a(sl8 sl8Var) {
+    public static boolean N(ThreadData threadData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sl8Var) == null) {
-            this.b = sl8Var;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) ? threadData != null && threadData.getType() == ThreadData.TYPE_TOPIC : invokeL.booleanValue;
+    }
+
+    public void O(NewTopicList newTopicList) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, newTopicList) == null) || newTopicList == null) {
+            return;
+        }
+        this.S = newTopicList.topic_id.longValue();
+        this.T = newTopicList.topic_name;
+        this.U = newTopicList.topic_desc;
+        this.V = newTopicList.discuss_num.longValue();
+        this.W = newTopicList.topic_image;
+        PkModule pkModule = newTopicList.pk_module;
+        if (pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
+            u17 u17Var = new u17();
+            this.X = u17Var;
+            u17Var.a = this.S;
+            u17Var.f = 1;
+            u17Var.b(newTopicList.pk_module);
+        }
+        if (newTopicList.top_agree_post != null) {
+            PostData postData = new PostData();
+            this.Y = postData;
+            postData.j0(newTopicList.top_agree_post);
         }
     }
 
-    @Override // android.webkit.WebChromeClient
-    public View getVideoLoadingProgressView() {
+    public void P(TopicModule topicModule) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, topicModule) == null) || topicModule == null) {
+            return;
+        }
+        this.S = topicModule.topic_id.longValue();
+        this.T = topicModule.topic_name;
+        this.U = topicModule.topic_desc;
+        this.W = topicModule.topic_image;
+        this.g0 = topicModule.topic_avatar;
+        tbclient.PkModule pkModule = topicModule.pk_module;
+        if (pkModule == null || pkModule.agree == null || pkModule.disagree == null) {
+            return;
+        }
+        u17 u17Var = new u17();
+        this.X = u17Var;
+        u17Var.a = this.S;
+        u17Var.f = 3;
+        u17Var.c(topicModule.pk_module);
+    }
+
+    public void Q(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) == null) {
+            this.h0 = threadData;
+        }
+    }
+
+    @Override // com.repackage.yx5, com.repackage.zn4
+    public wp4 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.a.getPageActivity());
-            frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-            return frameLayout;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
-            super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
-            quotaUpdater.updateQuota(j2 * 2);
-        }
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, webView, str, str2, jsResult)) == null) {
-            b9 b9Var = this.a;
-            if (b9Var == null || !rg.f(b9Var)) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            wp4 negFeedBackData = super.getNegFeedBackData();
+            if (negFeedBackData != null) {
+                negFeedBackData.q(this.S);
             }
-            return super.onJsAlert(webView, str, str2, jsResult);
+            return negFeedBackData;
         }
-        return invokeLLLL.booleanValue;
+        return (wp4) invokeV.objValue;
     }
 
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
-        InterceptResult invokeLLLL;
+    @Override // com.repackage.yx5, com.repackage.zn4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, webView, str, str2, jsResult)) == null) {
-            b9 b9Var = this.a;
-            if (b9Var == null || !rg.f(b9Var)) {
-                return true;
-            }
-            return super.onJsBeforeUnload(webView, str, str2, jsResult);
-        }
-        return invokeLLLL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.h0 : (ThreadData) invokeV.objValue;
     }
 
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
-        InterceptResult invokeLLLL;
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.ro
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, webView, str, str2, jsResult)) == null) {
-            b9 b9Var = this.a;
-            if (b9Var == null || !rg.f(b9Var)) {
-                return true;
-            }
-            return super.onJsConfirm(webView, str, str2, jsResult);
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLLL;
-        b9 b9Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            sl8 sl8Var = this.b;
-            if ((sl8Var == null || !sl8Var.onJsPrompt(str2, jsPromptResult)) && (b9Var = this.a) != null && rg.f(b9Var)) {
-                return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
-            }
-            return true;
-        }
-        return invokeLLLLL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.Z == 0 ? i0 : j0 : (BdUniqueId) invokeV.objValue;
     }
 }

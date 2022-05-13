@@ -27,10 +27,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bn4;
 import com.repackage.j78;
+import com.repackage.ln4;
 import com.repackage.m78;
-import com.repackage.pg;
+import com.repackage.ng;
 import com.repackage.r78;
 import tbclient.VideoInfo;
 /* loaded from: classes3.dex */
@@ -542,7 +542,7 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
             if (this.c == null || this.a == null || (tbVideoViewContainer = this.e) == null || tbVideoViewContainer.getControl() == null) {
                 return;
             }
-            if (bn4.c().g() && this.i != null && videoInfo != null) {
+            if (ln4.c().g() && this.i != null && videoInfo != null) {
                 this.a.setVisibility(0);
                 this.c.setDefaultBgResource(R.drawable.pic_bg_video_frs);
                 this.c.K(videoInfo.thumbnail_url, 10, false);
@@ -553,7 +553,7 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
                     l(true, 4);
                 }
                 this.b.setText(StringHelper.stringForVideoTime(videoInfo.video_duration.intValue() * 1000));
-                this.k.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0e4d), StringHelper.numFormatOverWan(videoInfo.play_count.intValue())));
+                this.k.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0e6b), StringHelper.numFormatOverWan(videoInfo.play_count.intValue())));
                 return;
             }
             this.a.setVisibility(8);
@@ -563,30 +563,30 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0145, this);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0141, this);
             setOrientation(1);
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090ab2);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090aa0);
             this.a = frameLayout;
             frameLayout.setOnClickListener(this);
             this.a.addOnAttachStateChangeListener(new a(this));
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090e82);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090e89);
             this.c = tbImageView;
             tbImageView.setDefaultBgResource(R.drawable.pic_bg_video_frs);
             this.c.setEvent(this.p);
             this.c.setGifIconSupport(false);
-            this.h = new j78((ViewGroup) findViewById(R.id.obfuscated_res_0x7f0902ec));
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e83);
+            this.h = new j78((ViewGroup) findViewById(R.id.obfuscated_res_0x7f0902e5));
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e8a);
             TbVideoViewContainer tbVideoViewContainer = new TbVideoViewContainer(getContext());
             this.e = tbVideoViewContainer;
             tbVideoViewContainer.getControl().setStageType("2003");
             k();
             this.e.getControl().setOperableVideoContainer(this.q);
             this.e.getControl().setOnSurfaceDestroyedListener(this.u);
-            this.j = findViewById(R.id.obfuscated_res_0x7f0902e9);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0902eb);
-            this.g = findViewById(R.id.obfuscated_res_0x7f0902ea);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091f43);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091f44);
+            this.j = findViewById(R.id.obfuscated_res_0x7f0902e2);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0902e4);
+            this.g = findViewById(R.id.obfuscated_res_0x7f0902e3);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091f9b);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091f9c);
         }
     }
 
@@ -630,13 +630,13 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
             return;
         }
         SkinManager.setBackgroundResource(this, R.drawable.addresslist_item_bg);
-        SkinManager.setImageResource(this.d, R.drawable.obfuscated_res_0x7f08039a);
+        SkinManager.setImageResource(this.d, R.drawable.obfuscated_res_0x7f080392);
         SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0101);
         SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0101);
         SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0101);
         SkinManager.setBackgroundColor(this.g, R.color.common_color_10014);
         if (this.f != null) {
-            this.f.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080a6a), (Drawable) null, (Drawable) null);
+            this.f.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080a83), (Drawable) null, (Drawable) null);
         }
         this.l = i;
     }
@@ -658,8 +658,8 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            pg.a().removeCallbacks(this.s);
-            pg.a().removeCallbacks(this.t);
+            ng.a().removeCallbacks(this.s);
+            ng.a().removeCallbacks(this.t);
         }
     }
 
@@ -681,8 +681,8 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
         }
         if (z || this.m != i) {
             this.m = i;
-            pg.a().removeCallbacks(this.t);
-            pg.a().removeCallbacks(this.s);
+            ng.a().removeCallbacks(this.t);
+            ng.a().removeCallbacks(this.s);
             this.d.setVisibility(0);
             this.c.clearAnimation();
             this.c.setVisibility(0);

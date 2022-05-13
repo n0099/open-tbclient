@@ -100,7 +100,7 @@ public class fl0 extends Handler implements dl0 {
     public <T extends bl0> void a(gl0 gl0Var, el0<T> el0Var, T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, gl0Var, el0Var, t) == null) {
-            if (si0.a()) {
+            if (vi0.a()) {
                 el0Var.onEvent(t);
                 return;
             }

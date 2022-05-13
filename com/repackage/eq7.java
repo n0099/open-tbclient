@@ -16,13 +16,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class eq7 extends ho<gq7, b> {
+public class eq7 extends eo<gq7, b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public km4<gq7> i;
+    public vm4<gq7> i;
 
     /* loaded from: classes6.dex */
-    public class a implements km4<gq7> {
+    public class a implements vm4<gq7> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -43,7 +43,7 @@ public class eq7 extends ho<gq7, b> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.km4
+        @Override // com.repackage.vm4
         /* renamed from: b */
         public void c(View view2, gq7 gq7Var, int i, long j) {
             Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class eq7 extends ho<gq7, b> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.km4
+        @Override // com.repackage.vm4
         /* renamed from: d */
         public void a(View view2, gq7 gq7Var, int i, long j) {
             Interceptable interceptable = $ic;
@@ -129,7 +129,7 @@ public class eq7 extends ho<gq7, b> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
+    @Override // com.repackage.eo
     /* renamed from: Z */
     public b M(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -146,7 +146,7 @@ public class eq7 extends ho<gq7, b> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
+    @Override // com.repackage.eo
     /* renamed from: a0 */
     public View S(int i, View view2, ViewGroup viewGroup, gq7 gq7Var, b bVar) {
         InterceptResult invokeCommon;

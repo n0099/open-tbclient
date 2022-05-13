@@ -1,46 +1,47 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
+import android.util.Base64;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.completeTask.CompleteTaskReqMsg;
+import com.baidu.tbadk.BdToken.GetTokenHttpResponsedMessage;
+import com.baidu.tbadk.BdToken.GetTokenRequestMessage;
+import com.baidu.tbadk.BdToken.GetTokenSocketResponsedMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class bj4 {
     public static /* synthetic */ Interceptable $ic;
-    public static bj4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public ni4 a;
-    public CustomMessageListener b;
-    public CustomMessageListener c;
+    public boolean a;
+    public b b;
+    public wa c;
 
     /* loaded from: classes5.dex */
-    public class a extends CustomMessageListener {
+    public class a extends wa {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ bj4 a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(bj4 bj4Var, int i) {
-            super(i);
+        public a(bj4 bj4Var, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bj4Var, Integer.valueOf(i)};
+                Object[] objArr = {bj4Var, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -49,52 +50,25 @@ public class bj4 {
             this.a = bj4Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        @Override // com.repackage.wa
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.a.a == null || customResponsedMessage == null) {
-                return;
-            }
-            Object data = customResponsedMessage.getData();
-            if ((data instanceof cn8) && ((cn8) data).b) {
-                this.a.e();
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                this.a.a = false;
+                if (responsedMessage == null || responsedMessage.getError() != 0) {
+                    this.a.d(false, null);
+                } else if (responsedMessage instanceof GetTokenSocketResponsedMessage) {
+                    this.a.d(true, ((GetTokenSocketResponsedMessage) responsedMessage).getData());
+                } else if (responsedMessage instanceof GetTokenHttpResponsedMessage) {
+                    this.a.d(true, ((GetTokenHttpResponsedMessage) responsedMessage).getData());
+                }
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(bj4 bj4Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bj4Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
-            }
-        }
+    public interface b {
+        void a(boolean z, wj4 wj4Var);
     }
 
     public bj4() {
@@ -110,64 +84,52 @@ public class bj4 {
                 return;
             }
         }
-        this.b = new a(this, 2001437);
-        this.c = new b(this, 2005016);
+        this.a = false;
+        this.c = new a(this, CmdConfigHttp.CMD_GET_TOKEN, 309608);
+        f();
+        e();
     }
 
-    public static bj4 c() {
-        InterceptResult invokeV;
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (d == null) {
-                synchronized (bj4.class) {
-                    if (d == null) {
-                        d = new bj4();
-                    }
-                }
-            }
-            return d;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.a) {
+            return;
         }
-        return (bj4) invokeV.objValue;
+        this.a = true;
+        GetTokenRequestMessage getTokenRequestMessage = new GetTokenRequestMessage();
+        getTokenRequestMessage.setToken(Base64.encodeToString(str.getBytes(), 2));
+        getTokenRequestMessage.setBaiduCuid(TbadkCoreApplication.getInst().getCuidGalaxy2());
+        MessageManager.getInstance().sendMessage(getTokenRequestMessage);
     }
 
-    public void d(BdUniqueId bdUniqueId) {
+    public final void d(boolean z, wj4 wj4Var) {
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bdUniqueId) == null) {
-            this.b.setTag(bdUniqueId);
-            this.c.setTag(bdUniqueId);
-            MessageManager.getInstance().registerListener(this.b);
+        if (!(interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, wj4Var) == null) || (bVar = this.b) == null) {
+            return;
+        }
+        bVar.a(z, wj4Var);
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             MessageManager.getInstance().registerListener(this.c);
         }
     }
 
-    public final void e() {
-        ni4 ni4Var;
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (ni4Var = this.a) == null || ni4Var.d() == 0 || this.a.q() == 0 || this.a.x() != 9) {
-            return;
-        }
-        try {
-            String valueOf = String.valueOf(this.a.d());
-            String valueOf2 = String.valueOf(this.a.q());
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put(valueOf, valueOf2);
-            CompleteTaskReqMsg completeTaskReqMsg = new CompleteTaskReqMsg(0);
-            completeTaskReqMsg.completeId = jSONObject.toString();
-            JSONObject a2 = tj4.a(null, this.a.d(), this.a.q(), this.a.E());
-            if (a2 != null) {
-                completeTaskReqMsg.setToken(a2.toString());
-            }
-            completeTaskReqMsg.setNetType(NetMessage.NetType.HTTP);
-            MessageManager.getInstance().sendMessage(completeTaskReqMsg);
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            hj8.h(309608, GetTokenSocketResponsedMessage.class, false, false);
+            hj8.c(309608, CmdConfigHttp.CMD_GET_TOKEN, TbConfig.URL_GET_TOKEN, GetTokenHttpResponsedMessage.class, false, false, false, false);
         }
     }
 
-    public void f(ni4 ni4Var) {
+    public void g(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ni4Var) == null) {
-            this.a = ni4Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
+            this.b = bVar;
         }
     }
 }

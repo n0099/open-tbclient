@@ -1,277 +1,234 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
+import android.os.Bundle;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.pms.constants.ErrorConstant;
+import com.baidu.swan.apps.core.pms.PMSDownloadType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
-import com.facebook.common.internal.Sets;
-import com.repackage.ib4;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import com.repackage.q32;
+import com.repackage.qj2;
+import com.repackage.y32;
+import java.io.File;
 import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes7.dex */
-public final class z32 {
+public abstract class z32<T extends y32> extends g84<t94> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final Set<Integer> b;
-    public static final Map<String, Long> c;
-    public static int d;
-    public static final ef3<String, String> e;
-    public static final ef3<ib4.a, String> f;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public final T a;
 
     /* loaded from: classes7.dex */
-    public static class a implements ef3<String, String> {
+    public class a implements q32.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ t94 a;
+        public final /* synthetic */ z32 b;
 
-        public a() {
+        public a(z32 z32Var, t94 t94Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z32Var, t94Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.b = z32Var;
+            this.a = t94Var;
+        }
+
+        @Override // com.repackage.q32.c
+        public void a(PMSDownloadType pMSDownloadType) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, pMSDownloadType) == null) {
+                this.b.r(this.a);
             }
         }
 
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.ef3
-        public /* bridge */ /* synthetic */ String a(String str) {
-            String str2 = str;
-            b(str2);
-            return str2;
-        }
-
-        public String b(String str) {
-            InterceptResult invokeL;
+        @Override // com.repackage.q32.c
+        public void b(PMSDownloadType pMSDownloadType, nc3 nc3Var) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? str : (String) invokeL.objValue;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSDownloadType, nc3Var) == null) {
+                this.b.u(this.a, nc3Var);
+            }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class b implements ef3<ib4.a, String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ef3
-        /* renamed from: b */
-        public String a(ib4.a aVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) ? aVar == null ? "" : aVar.b() : (String) invokeL.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755163016, "Lcom/repackage/z32;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755163016, "Lcom/repackage/z32;");
+    public z32(@NonNull T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = tg1.a;
-        b = Sets.newHashSet(0, 1010, 1011, 1012, 1020, 1015);
-        c = new ConcurrentHashMap();
-        d = 1800;
-        e = new a();
-        f = new b();
+        this.a = t;
     }
 
-    public static <T> T a(String str, T t) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, t)) == null) {
-            if (a) {
-                Log.i("PreDownloadUtils", "Recorded=" + c.size() + " # " + str + " => " + t);
-            }
-            return t;
-        }
-        return (T) invokeLL.objValue;
-    }
-
-    public static boolean b(@NonNull String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.j84
+    /* renamed from: l */
+    public String d(t94 t94Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            Long l = c.get(str);
-            return l == null || System.currentTimeMillis() - l.longValue() > ((long) (d * 1000));
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, t94Var)) == null) ? qj2.e.h().getAbsolutePath() : (String) invokeL.objValue;
     }
 
-    public static boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? g(str, true) : invokeL.booleanValue;
-    }
-
-    public static boolean d(@NonNull String str, @Nullable String str2) {
+    @Override // com.repackage.l84
+    @NonNull
+    public Bundle m(@NonNull Bundle bundle, Set<String> set) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            if (str2 != null) {
-                str = str + str2;
-            }
-            return c(str);
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, bundle, set)) == null) ? this.a.m(bundle, set) : (Bundle) invokeLL.objValue;
+    }
+
+    public PMSDownloadType o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? PMSDownloadType.PLUGIN : (PMSDownloadType) invokeV.objValue;
+    }
+
+    public final void p(t94 t94Var, nc3 nc3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t94Var, nc3Var) == null) {
+            u(t94Var, nc3Var);
+            q32.c().a(t94Var, o(), nc3Var);
         }
-        return invokeLL.booleanValue;
     }
 
-    public static boolean e(String str) {
-        InterceptResult invokeL;
+    public final void q(@NonNull t94 t94Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? g(str, false) : invokeL.booleanValue;
-    }
-
-    public static boolean f(@Nullable String str, @Nullable String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
-            if (str2 != null && str != null) {
-                str = str + str2;
-            }
-            return e(str);
+        if (interceptable == null || interceptable.invokeL(1048585, this, t94Var) == null) {
+            r(t94Var);
+            q32.c().b(t94Var, o());
         }
-        return invokeLL.booleanValue;
     }
 
-    public static boolean g(@Nullable String str, boolean z) {
-        InterceptResult invokeLZ;
-        boolean z2;
+    public abstract void r(@NonNull t94 t94Var);
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.g84, com.repackage.j84
+    /* renamed from: s */
+    public void e(t94 t94Var, m94 m94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65543, null, str, z)) == null) {
-            String str2 = "shouldDownloadItem app=" + str + " record=" + z + ZeusCrashHandler.NAME_SEPERATOR;
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            if (z) {
-                c.put(str, Long.valueOf(System.currentTimeMillis()));
-                z2 = true;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, t94Var, m94Var) == null) {
+            super.e(t94Var, m94Var);
+            mw2.b("plugin download error: " + m94Var);
+            nc3 nc3Var = new nc3();
+            nc3Var.k(17L);
+            nc3Var.i((long) m94Var.a);
+            nc3Var.d(m94Var.b);
+            nc3Var.f(m94Var.toString());
+            p(t94Var, nc3Var);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.g84, com.repackage.j84
+    /* renamed from: t */
+    public void i(t94 t94Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, t94Var) == null) {
+            super.i(t94Var);
+            if (t94Var == null) {
+                mw2.b("download finish, plugin is null");
+                nc3 nc3Var = new nc3();
+                nc3Var.k(17L);
+                nc3Var.i(2201L);
+                nc3Var.d(ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_NETWORK);
+                p(null, nc3Var);
+            } else if (!he3.a(new File(t94Var.a), t94Var.m)) {
+                xg4.M(t94Var.a);
+                mw2.b("download finish, check zip sign failure");
+                nc3 nc3Var2 = new nc3();
+                nc3Var2.k(17L);
+                nc3Var2.i(2202L);
+                nc3Var2.d(ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_MD5);
+                p(t94Var, nc3Var2);
             } else {
-                z2 = !c.containsKey(str);
-            }
-            Boolean valueOf = Boolean.valueOf(z2);
-            a(str2 + " should", valueOf);
-            if (!valueOf.booleanValue()) {
-                Boolean valueOf2 = Boolean.valueOf(b(str));
-                a(str2 + " AB", valueOf2);
-                if (!valueOf2.booleanValue()) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    public static List<String> h(Collection<String> collection) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, collection)) == null) ? j(e, collection) : (List) invokeL.objValue;
-    }
-
-    public static List<ib4.a> i(Collection<ib4.a> collection) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, collection)) == null) ? j(f, collection) : (List) invokeL.objValue;
-    }
-
-    public static <SwanItemT> List<SwanItemT> j(@NonNull ef3<SwanItemT, String> ef3Var, Collection<SwanItemT> collection) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, ef3Var, collection)) == null) ? k(ef3Var, collection, false) : (List) invokeLL.objValue;
-    }
-
-    public static <SwanItemT> List<SwanItemT> k(@NonNull ef3<SwanItemT, String> ef3Var, Collection<SwanItemT> collection, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65547, null, ef3Var, collection, z)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (collection != null) {
-                Iterator<SwanItemT> it = collection.iterator();
-                while (it.hasNext()) {
-                    SwanItemT next = it.next();
-                    if (g(next == null ? "" : ef3Var.a(next), z)) {
-                        arrayList.add(next);
+                File t = qj2.t(t94Var.g, String.valueOf(t94Var.i));
+                xg4.l(t);
+                if (t != null && t.exists()) {
+                    boolean U = xg4.U(t94Var.a, t.getAbsolutePath());
+                    xg4.M(t94Var.a);
+                    mw2.b("download finish, unZipSuccess = " + U);
+                    if (!U) {
+                        nc3 nc3Var3 = new nc3();
+                        nc3Var3.k(17L);
+                        nc3Var3.i(2320L);
+                        nc3Var3.d("plugin unzip fail.");
+                        p(t94Var, nc3Var3);
+                        return;
                     }
+                    t94Var.c = t94Var.b();
+                    t94Var.d = t94Var.b();
+                    p84.i().m(t94Var);
+                    q(t94Var);
+                    return;
                 }
-                a("shouldDownloadSet", "record=" + z + " targets=" + collection.size() + " should=" + arrayList.size());
+                xg4.M(t94Var.a);
+                mw2.b("download finish, create file failure, name = " + t94Var.g + " ; version = " + t94Var.i);
+                nc3 nc3Var4 = new nc3();
+                nc3Var4.k(17L);
+                nc3Var4.i(2203L);
+                nc3Var4.d(ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_PATH);
+                p(t94Var, nc3Var4);
             }
-            return arrayList;
         }
-        return (List) invokeLLZ.objValue;
     }
 
-    public static boolean l(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65548, null, i)) == null) ? b.contains(Integer.valueOf(i)) : invokeI.booleanValue;
-    }
+    public abstract void u(t94 t94Var, nc3 nc3Var);
 
-    public static boolean m(b94 b94Var) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.g84, com.repackage.j84
+    /* renamed from: v */
+    public void c(t94 t94Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, b94Var)) == null) ? b94Var != null && l(b94Var.a) : invokeL.booleanValue;
-    }
-
-    public static boolean n(@Nullable String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) {
-            if (str == null) {
-                return false;
+        if (interceptable == null || interceptable.invokeL(1048590, this, t94Var) == null) {
+            super.c(t94Var);
+            if (t94Var != null) {
+                mw2.b("plugin download start: bundleId = " + t94Var.g);
             }
-            Iterator<Map.Entry<String, Long>> it = c.entrySet().iterator();
-            while (it.hasNext()) {
-                Map.Entry<String, Long> next = it.next();
-                if (next != null && next.getKey() != null && next.getKey().startsWith(str)) {
-                    it.remove();
-                }
-            }
-            return true;
         }
-        return invokeL.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.g84, com.repackage.j84
+    /* renamed from: w */
+    public void f(t94 t94Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, t94Var) == null) {
+            super.f(t94Var);
+            if (t94Var != null) {
+                mw2.b("plugin on downloading: bundleId = " + t94Var.g);
+            }
+            x(t94Var);
+        }
+    }
+
+    public final void x(t94 t94Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, t94Var) == null) {
+            q32.c().d(t94Var, new a(this, t94Var));
+        }
     }
 }

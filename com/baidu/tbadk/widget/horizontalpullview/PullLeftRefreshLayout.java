@@ -19,13 +19,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ee5;
+import com.repackage.xe5;
 /* loaded from: classes3.dex */
 public class PullLeftRefreshLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RecyclerView a;
-    public ee5 b;
+    public xe5 b;
     public View c;
     public int d;
     public int e;
@@ -557,9 +557,9 @@ public class PullLeftRefreshLayout extends FrameLayout {
                                 getParent().requestDisallowInterceptTouchEvent(true);
                             }
                             this.d = 2;
-                            ee5 ee5Var = this.b;
-                            if (ee5Var != null) {
-                                ee5Var.b(this.c);
+                            xe5 xe5Var = this.b;
+                            if (xe5Var != null) {
+                                xe5Var.b(this.c);
                             }
                             return true;
                         }
@@ -632,9 +632,9 @@ public class PullLeftRefreshLayout extends FrameLayout {
                         if (abs >= 0.0f) {
                             this.n = 0.0f;
                             this.a.setTranslationX(0.0f);
-                            ee5 ee5Var = this.b;
-                            if (ee5Var != null) {
-                                ee5Var.b(this.c);
+                            xe5 xe5Var = this.b;
+                            if (xe5Var != null) {
+                                xe5Var.b(this.c);
                             }
                         } else {
                             int i2 = this.f;
@@ -642,21 +642,21 @@ public class PullLeftRefreshLayout extends FrameLayout {
                                 float f2 = -i2;
                                 this.n = f2;
                                 this.a.setTranslationX(f2);
-                                ee5 ee5Var2 = this.b;
-                                if (ee5Var2 != null) {
-                                    ee5Var2.a(this.c);
+                                xe5 xe5Var2 = this.b;
+                                if (xe5Var2 != null) {
+                                    xe5Var2.a(this.c);
                                 }
                             } else {
                                 this.a.setTranslationX(abs);
                                 if (Math.abs(this.n) > this.h) {
-                                    ee5 ee5Var3 = this.b;
-                                    if (ee5Var3 != null) {
-                                        ee5Var3.a(this.c);
+                                    xe5 xe5Var3 = this.b;
+                                    if (xe5Var3 != null) {
+                                        xe5Var3.a(this.c);
                                     }
                                 } else {
-                                    ee5 ee5Var4 = this.b;
-                                    if (ee5Var4 != null) {
-                                        ee5Var4.b(this.c);
+                                    xe5 xe5Var4 = this.b;
+                                    if (xe5Var4 != null) {
+                                        xe5Var4.b(this.c);
                                     }
                                 }
                             }
@@ -698,11 +698,11 @@ public class PullLeftRefreshLayout extends FrameLayout {
         }
     }
 
-    public void setRefreshViewAndListener(ee5 ee5Var) {
+    public void setRefreshViewAndListener(xe5 xe5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, ee5Var) == null) {
-            this.b = ee5Var;
-            this.c = ee5Var.getView();
+        if (interceptable == null || interceptable.invokeL(1048592, this, xe5Var) == null) {
+            this.b = xe5Var;
+            this.c = xe5Var.getView();
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 8388613;
             this.c.setLayoutParams(layoutParams);

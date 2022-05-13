@@ -17,11 +17,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ad5;
-import com.repackage.an4;
-import com.repackage.dd5;
-import com.repackage.ii5;
-import com.repackage.ks4;
+import com.repackage.kn4;
+import com.repackage.sd5;
+import com.repackage.vd5;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class InitLaunchSyncTask extends LaunchTask {
@@ -45,7 +43,7 @@ public class InitLaunchSyncTask extends LaunchTask {
     private void cleanDirectoryNewStatIfNeed() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && TbadkCoreApplication.getInst().isMainProcess(true) && TbadkCoreApplication.getInst().getIsFirstUse()) {
-            dd5.b(new ad5<Object>(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitLaunchSyncTask.2
+            vd5.b(new sd5<Object>(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitLaunchSyncTask.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InitLaunchSyncTask this$0;
@@ -68,7 +66,7 @@ public class InitLaunchSyncTask extends LaunchTask {
                     this.this$0 = this;
                 }
 
-                @Override // com.repackage.ad5
+                @Override // com.repackage.sd5
                 public Object doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -87,7 +85,6 @@ public class InitLaunchSyncTask extends LaunchTask {
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
-        an4 an4Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (TbadkCoreApplication.getInst().isMainProcess(false)) {
@@ -141,13 +138,9 @@ public class InitLaunchSyncTask extends LaunchTask {
                     return invokeL.booleanValue;
                 }
             });
-            if (ks4.a().a) {
-                an4Var = new ii5();
-            } else {
-                an4Var = new an4();
-            }
-            TbadkCoreApplication.getInst().setCoreActivityLifecycleCallbacks(an4Var);
-            TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(an4Var);
+            kn4 kn4Var = new kn4();
+            TbadkCoreApplication.getInst().setCoreActivityLifecycleCallbacks(kn4Var);
+            TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(kn4Var);
             InputMethodManagerLeaksFixer.fixFocusedViewLeak(TbadkCoreApplication.getInst());
             cleanDirectoryNewStatIfNeed();
         }

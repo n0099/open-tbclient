@@ -1,64 +1,76 @@
 package com.repackage;
 
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTSplashAd;
-import com.fun.ad.sdk.FunSplashAdInteractionListener;
-import com.repackage.og9;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
+import java.lang.reflect.Field;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class pg9 extends og9.b {
+public class pg9 extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ yg9 f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pg9(og9 og9Var, TTSplashAd tTSplashAd, String str, yg9 yg9Var) {
-        super(og9Var, tTSplashAd, str);
+    public pg9(Ssp.Pid pid) {
+        super(pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {og9Var, tTSplashAd, str, yg9Var};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((og9) objArr2[0], (TTSplashAd) objArr2[1], (String) objArr2[2]);
+                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = yg9Var;
     }
 
-    @Override // com.repackage.og9.b, com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
-    public void onAdClicked(View view2, int i) {
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    public RippedAd getRippedAdInternal(Object obj) {
+        InterceptResult invokeL;
+        Object findField;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
-            super.onAdClicked(view2, i);
-            yg9 yg9Var = this.f;
-            String str = this.b;
-            FunSplashAdInteractionListener funSplashAdInteractionListener = yg9Var.j;
-            if (funSplashAdInteractionListener != null) {
-                funSplashAdInteractionListener.onAdClicked(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (obj == null) {
+                return null;
+            }
+            try {
+                Field declaredField = obj.getClass().getSuperclass().getSuperclass().getDeclaredField("a");
+                declaredField.setAccessible(true);
+                Object obj2 = declaredField.get(obj);
+                if (obj2 == null) {
+                    return null;
+                }
+                Field declaredField2 = obj2.getClass().getDeclaredField("b");
+                declaredField2.setAccessible(true);
+                Object obj3 = declaredField2.get(obj2);
+                if (obj3 == null || (findField = ReflectionUtils.findField("com.qq.e.comm.plugin.model.RewardADData", obj3)) == null) {
+                    return null;
+                }
+                Field declaredField3 = findField.getClass().getSuperclass().getDeclaredField("L");
+                declaredField3.setAccessible(true);
+                JSONObject jSONObject = (JSONObject) declaredField3.get(findField);
+                if (jSONObject == null) {
+                    return null;
+                }
+                return sg9.a(jSONObject);
+            } catch (Exception e) {
+                LogPrinter.e(e);
+                return null;
             }
         }
-    }
-
-    @Override // com.repackage.og9.b, com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
-    public void onAdShow(View view2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
-            super.onAdShow(view2, i);
-            yg9 yg9Var = this.f;
-            yg9Var.g = yg9Var.b.getWidth();
-            yg9Var.h = yg9Var.b.getHeight();
-        }
+        return (RippedAd) invokeL.objValue;
     }
 }

@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.titan.sdk.verifier.ApkSignatureSchemeV2Verifier;
 import com.kuaishou.weapon.un.w0;
-import com.repackage.i11;
-import com.repackage.rd1;
+import com.repackage.ce1;
+import com.repackage.s11;
 /* loaded from: classes2.dex */
 public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPlayer.OnCompletionListener, MediaPlayer.OnErrorListener, MediaPlayer.OnInfoListener, MediaPlayer.OnSeekCompleteListener {
     public static /* synthetic */ Interceptable $ic;
@@ -25,7 +25,7 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
     public MediaPlayer a;
     public Surface b;
     public SurfaceHolder c;
-    public rd1 d;
+    public ce1 d;
     public State e;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -192,12 +192,12 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
     }
 
     public final void f(int i) {
-        rd1 rd1Var;
+        ce1 ce1Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048581, this, i) == null) || (rd1Var = this.d) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048581, this, i) == null) || (ce1Var = this.d) == null) {
             return;
         }
-        rd1Var.a(i);
+        ce1Var.a(i);
     }
 
     public void g() {
@@ -271,10 +271,10 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
         }
     }
 
-    public void m(rd1 rd1Var) {
+    public void m(ce1 ce1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, rd1Var) == null) {
-            this.d = rd1Var;
+        if (interceptable == null || interceptable.invokeL(1048588, this, ce1Var) == null) {
+            this.d = ce1Var;
         }
     }
 
@@ -383,7 +383,7 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
 
     public void r(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048598, this, context, i) == null) || this.a == null || context == null || !i11.a(context, "android.permission.WAKE_LOCK")) {
+        if (!(interceptable == null || interceptable.invokeLI(1048598, this, context, i) == null) || this.a == null || context == null || !s11.a(context, "android.permission.WAKE_LOCK")) {
             return;
         }
         this.a.setWakeMode(context.getApplicationContext(), i);

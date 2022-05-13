@@ -90,7 +90,7 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091303) {
+        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091312) {
             finish();
             hideDialog();
         }
@@ -105,17 +105,17 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             setActivityBgTransparent();
-            setContentView(R.layout.obfuscated_res_0x7f0d08be);
+            setContentView(R.layout.obfuscated_res_0x7f0d08b3);
             Intent intent = getIntent();
             this.showHideView = intent.getBooleanExtra("showHideView", false);
             this.mDialogId = intent.getLongExtra("dialogId", -1L);
-            PluginRoundProgressBar pluginRoundProgressBar = (PluginRoundProgressBar) findViewById(R.id.obfuscated_res_0x7f091922);
+            PluginRoundProgressBar pluginRoundProgressBar = (PluginRoundProgressBar) findViewById(R.id.obfuscated_res_0x7f09197a);
             this.mRoundProgressBar = pluginRoundProgressBar;
             pluginRoundProgressBar.setMax(100);
             this.mRoundProgressBar.setRoundColor(0);
             this.mRoundProgressBar.setTextColor(-1);
             this.mRoundProgressBar.setRoundProgressColor(-1);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091303);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091312);
             this.mCancel = textView;
             if (this.showHideView) {
                 textView.setVisibility(8);

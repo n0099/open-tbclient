@@ -1,11 +1,6 @@
 package com.repackage;
 
-import android.content.Context;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
+import android.graphics.Point;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,352 +8,50 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ve0;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ne0 {
     public static /* synthetic */ Interceptable $ic = null;
-    public static String m = "def";
+    public static float j = 0.0f;
+    public static float k = 0.0f;
+    public static float l = 1.0f;
+    public static float m = 1.0f;
+    public static float n;
+    public static List<Point> o;
+    public static List<Point> p;
+    public static List<Point> q;
+    public static List<Point> r;
+    public static List<List<Point>> s;
     public transient /* synthetic */ FieldHolder $fh;
-    public ue0 a;
-    public String b;
-    public List<ve0> c;
-    public List<ve0> d;
-    public pe0 e;
-    public pe0 f;
-    public ve0 g;
-    public ve0.c h;
-    public Context i;
-    public Boolean j;
-    public boolean k;
-    public ve0.c l;
-
-    /* loaded from: classes6.dex */
-    public class a extends ve0.c<ve0> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ne0 a;
-
-        public a(ne0 ne0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ne0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ne0Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ve0.c
-        /* renamed from: e */
-        public void a(ve0 ve0Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, ve0Var, str) == null) {
-                this.a.d.remove(ve0Var);
-                this.a.c.add(ve0Var);
-                if (ve0Var == this.a.g) {
-                    this.a.a.i(ne0.m, this.a.g.m());
-                }
-                if (this.a.q()) {
-                    this.a.r();
-                }
-                super.a(ve0Var, str);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ve0.c
-        /* renamed from: f */
-        public void b(ve0 ve0Var, Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048580, this, ve0Var, exc) == null) {
-                super.b(ve0Var, exc);
-                this.a.s();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ve0.c
-        /* renamed from: g */
-        public void c(ve0 ve0Var, long j, long j2, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{ve0Var, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
-                super.c(ve0Var, j, j2, i);
-                int k = this.a.k();
-                if (this.a.h != null) {
-                    this.a.h.c(this.a, 0L, 100L, k);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ne0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-159637702, "Lcom/repackage/ne0$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-159637702, "Lcom/repackage/ne0$b;");
-                    return;
-                }
-            }
-            a = new ne0(null);
-        }
-    }
+    public float a;
+    public float b;
+    public float c;
+    public float d;
+    public float e;
+    public List<Point> f;
+    public List<Point> g;
+    public List<Point> h;
+    public List<Point> i;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755472520, "Lcom/repackage/ne0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755472520, "Lcom/repackage/ne0;");
-        }
-    }
-
-    public /* synthetic */ ne0(a aVar) {
-        this();
-    }
-
-    public static void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
-            Log.d("DuAr_InitModel", str);
-        }
-    }
-
-    public static final ne0 j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-            m = str;
-            return b.a;
-        }
-        return (ne0) invokeL.objValue;
-    }
-
-    public final void h(ve0 ve0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ve0Var) == null) {
-            boolean q = ve0Var.q();
-            if (p()) {
-                i("isLoaded " + q + StringUtil.ARRAY_ELEMENT_SEPARATOR + ve0Var.o() + " to " + ve0Var.m());
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755472520, "Lcom/repackage/ne0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (ve0Var.q()) {
-                this.c.add(ve0Var);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755472520, "Lcom/repackage/ne0;");
                 return;
             }
-            if (this.d == null) {
-                this.d = new ArrayList();
-            }
-            this.d.add(ve0Var);
         }
-    }
-
-    public final int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<ve0> list = this.d;
-            float f = 100.0f;
-            if (list != null && list.size() != 0) {
-                float size = 100.0f / (this.c.size() + this.d.size());
-                float f2 = 0.0f;
-                for (int i = 0; i < this.d.size(); i++) {
-                    f2 += (this.d.get(i).n() / 100.0f) * size;
-                }
-                f = (this.c.size() * size) + f2;
-            }
-            return (int) f;
-        }
-        return invokeV.intValue;
-    }
-
-    public File l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f.g : (File) invokeV.objValue;
-    }
-
-    public File m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e.g : (File) invokeV.objValue;
-    }
-
-    public boolean n(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            Boolean bool = this.j;
-            if (bool != null && bool.booleanValue()) {
-                return this.j.booleanValue();
-            }
-            this.j = Boolean.FALSE;
-            long currentTimeMillis = System.currentTimeMillis();
-            boolean k0 = ee0.k0();
-            if (p()) {
-                i("ARControllerProxy.loadSoFile " + k0);
-            }
-            if (!k0) {
-                return this.j.booleanValue();
-            }
-            File file = this.f.g;
-            if (p()) {
-                i("setResConfig " + file);
-            }
-            if (file != null) {
-                fe0.s(new ge0(file.getAbsolutePath()));
-            }
-            if (p()) {
-                i("initRecource costMS: " + (System.currentTimeMillis() - currentTimeMillis));
-            }
-            Boolean bool2 = Boolean.TRUE;
-            this.j = bool2;
-            return bool2.booleanValue();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.c.clear();
-            List<ve0> list = this.d;
-            if (list != null) {
-                list.clear();
-            }
-            if ("live".equals(fe0.e())) {
-                this.e = pe0.i();
-                this.f = pe0.g();
-            }
-            if (BdUploadHandler.MEDIA_SOURCE_KEY.equals(fe0.e())) {
-                this.e = pe0.h();
-                this.f = pe0.f();
-            }
-            if ("tieba".equals(fe0.e())) {
-                this.e = pe0.i();
-                this.f = pe0.f();
-            }
-            oe0 oe0Var = new oe0(this.f);
-            this.g = oe0Var;
-            h(oe0Var);
-            h(new oe0(this.e));
-        }
-    }
-
-    public final boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? fe0.m() : invokeV.booleanValue;
-    }
-
-    public boolean q() {
-        InterceptResult invokeV;
-        List<ve0> list;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.c.size() > 0 && ((list = this.d) == null || list.size() == 0) : invokeV.booleanValue;
-    }
-
-    public void r() {
-        File file;
-        ve0.c cVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            synchronized (this) {
-                this.k = false;
-            }
-            boolean n = n(this.i);
-            String str = null;
-            if (!n && (cVar = this.h) != null) {
-                cVar.b(null, null);
-                return;
-            }
-            this.a.n(this.b);
-            this.a.f();
-            if (p()) {
-                i("all onCompleted " + n);
-            }
-            if (this.h == null || !n) {
-                return;
-            }
-            pe0 pe0Var = this.f;
-            if (pe0Var != null && (file = pe0Var.g) != null) {
-                str = file.getAbsolutePath();
-            }
-            this.h.a(this, str);
-        }
-    }
-
-    public void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            if (p()) {
-                i("all onFailed .");
-            }
-            synchronized (this) {
-                this.k = false;
-            }
-        }
-    }
-
-    public final void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.b = this.a.e(m);
-            List<ve0> list = this.d;
-            if (list != null && list.size() > 0) {
-                for (ve0 ve0Var : this.d) {
-                    ve0Var.l(this.l);
-                }
-                return;
-            }
-            r();
-        }
-    }
-
-    public void u(Context context, ve0.c<ne0> cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, context, cVar) == null) {
-            this.i = context;
-            this.h = cVar;
-            synchronized (this) {
-                if (this.k) {
-                    if (p()) {
-                        i("start return, isLoading true");
-                    }
-                    return;
-                }
-                this.k = true;
-                o();
-                t();
-            }
-        }
+        a();
     }
 
     public ne0() {
@@ -374,12 +67,145 @@ public class ne0 {
                 return;
             }
         }
-        this.c = new ArrayList();
-        this.d = null;
-        this.l = new a(this);
-        ue0 ue0Var = new ue0(qe0.d().g());
-        this.a = ue0Var;
-        ue0Var.h(m);
-        o();
+        this.a = j;
+        this.b = k;
+        this.c = l;
+        this.d = m;
+        this.e = n;
+        this.f = o;
+        this.g = p;
+        this.h = q;
+        this.i = r;
+    }
+
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            ArrayList arrayList = new ArrayList();
+            o = arrayList;
+            arrayList.add(new Point(0, 0));
+            o.add(new Point(255, 255));
+            ArrayList arrayList2 = new ArrayList();
+            p = arrayList2;
+            arrayList2.add(new Point(0, 0));
+            p.add(new Point(255, 255));
+            ArrayList arrayList3 = new ArrayList();
+            q = arrayList3;
+            arrayList3.add(new Point(0, 0));
+            q.add(new Point(255, 255));
+            ArrayList arrayList4 = new ArrayList();
+            r = arrayList4;
+            arrayList4.add(new Point(0, 0));
+            r.add(new Point(255, 255));
+            ArrayList arrayList5 = new ArrayList();
+            s = arrayList5;
+            arrayList5.add(o);
+            s.add(p);
+            s.add(q);
+            s.add(r);
+        }
+    }
+
+    public static ne0 b(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        int i5;
+        int i6;
+        int i7;
+        int i8;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
+            if (jSONObject == null || jSONObject.length() == 0) {
+                return null;
+            }
+            ne0 ne0Var = new ne0();
+            try {
+                JSONObject jSONObject2 = jSONObject.getJSONObject("female");
+                if (jSONObject2 != null) {
+                    jSONObject2.optDouble("intensity_smooth");
+                    jSONObject2.optDouble("intensity_white");
+                }
+                JSONObject jSONObject3 = jSONObject.getJSONObject("male");
+                if (jSONObject3 != null) {
+                    jSONObject3.optDouble("intensity_smooth");
+                    jSONObject3.optDouble("intensity_white");
+                }
+                ne0Var.a = (float) jSONObject.optDouble("intensity_sharpness");
+                ne0Var.b = (float) jSONObject.optDouble("intensity_brightness");
+                ne0Var.c = (float) jSONObject.optDouble("intensity_contrast");
+                ne0Var.d = (float) jSONObject.optDouble("intensity_saturation");
+                JSONObject optJSONObject = jSONObject.optJSONObject("curves");
+                if (optJSONObject != null && optJSONObject.length() > 0) {
+                    ne0Var.e = (float) optJSONObject.optDouble("intensity_curves");
+                    JSONArray jSONArray = optJSONObject.getJSONArray("composite");
+                    if (jSONArray != null && jSONArray.length() > 0) {
+                        ne0Var.f = new CopyOnWriteArrayList();
+                        for (int i9 = 0; i9 < jSONArray.length(); i9++) {
+                            JSONObject jSONObject4 = jSONArray.getJSONObject(i9);
+                            if (jSONObject4 == null || jSONObject4.length() <= 0) {
+                                i7 = 0;
+                                i8 = 0;
+                            } else {
+                                i8 = jSONObject4.optInt("x");
+                                i7 = jSONObject4.optInt("y");
+                            }
+                            ne0Var.f.add(new Point(i8, i7));
+                        }
+                    }
+                    JSONArray jSONArray2 = optJSONObject.getJSONArray("red");
+                    if (jSONArray2 != null && jSONArray2.length() > 0) {
+                        ne0Var.g = new CopyOnWriteArrayList();
+                        for (int i10 = 0; i10 < jSONArray2.length(); i10++) {
+                            JSONObject jSONObject5 = jSONArray2.getJSONObject(i10);
+                            if (jSONObject5 == null || jSONObject5.length() <= 0) {
+                                i5 = 0;
+                                i6 = 0;
+                            } else {
+                                i6 = jSONObject5.optInt("x");
+                                i5 = jSONObject5.optInt("y");
+                            }
+                            ne0Var.g.add(new Point(i6, i5));
+                        }
+                    }
+                    JSONArray jSONArray3 = optJSONObject.getJSONArray("green");
+                    if (jSONArray3 != null && jSONArray3.length() > 0) {
+                        ne0Var.h = new CopyOnWriteArrayList();
+                        for (int i11 = 0; i11 < jSONArray3.length(); i11++) {
+                            JSONObject jSONObject6 = jSONArray3.getJSONObject(i11);
+                            if (jSONObject6 == null || jSONObject6.length() <= 0) {
+                                i3 = 0;
+                                i4 = 0;
+                            } else {
+                                i4 = jSONObject6.optInt("x");
+                                i3 = jSONObject6.optInt("y");
+                            }
+                            ne0Var.h.add(new Point(i4, i3));
+                        }
+                    }
+                    JSONArray jSONArray4 = optJSONObject.getJSONArray("blue");
+                    if (jSONArray4 != null && jSONArray4.length() > 0) {
+                        ne0Var.i = new CopyOnWriteArrayList();
+                        for (int i12 = 0; i12 < jSONArray4.length(); i12++) {
+                            JSONObject jSONObject7 = jSONArray4.getJSONObject(i12);
+                            if (jSONObject7 == null || jSONObject7.length() <= 0) {
+                                i = 0;
+                                i2 = 0;
+                            } else {
+                                i2 = jSONObject7.optInt("x");
+                                i = jSONObject7.optInt("y");
+                            }
+                            ne0Var.i.add(new Point(i2, i));
+                        }
+                    }
+                }
+                return ne0Var;
+            } catch (JSONException unused) {
+                return null;
+            }
+        }
+        return (ne0) invokeL.objValue;
     }
 }

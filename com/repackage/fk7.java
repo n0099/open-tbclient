@@ -159,7 +159,7 @@ public class fk7 extends BaseAdapter {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            SpannableString spannableString = new SpannableString(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f055f, str));
+            SpannableString spannableString = new SpannableString(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0565, str));
             spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0105)), 0, 4, 33);
             spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0308)), 4, 5, 33);
             spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0105)), 5, 16, 33);
@@ -201,21 +201,21 @@ public class fk7 extends BaseAdapter {
                 bVar = (b) view2.getTag();
                 inflate = view2;
             } else {
-                inflate = LayoutInflater.from(this.a.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d054a, (ViewGroup) null);
+                inflate = LayoutInflater.from(this.a.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d053e, (ViewGroup) null);
                 bVar = new b(null);
-                bVar.a = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090d2d);
-                bVar.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0915a9);
-                bVar.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0915ab);
-                bVar.c = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0913dc);
-                bVar.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0913e1);
-                bVar.f = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0913e0);
-                bVar.j = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0923ce);
-                bVar.k = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0915a8);
-                bVar.l = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923d7);
-                bVar.m = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0915aa);
-                bVar.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0908db);
-                bVar.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091211);
-                bVar.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a98);
+                bVar.a = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090d1a);
+                bVar.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0915bd);
+                bVar.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0915bf);
+                bVar.c = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0913f1);
+                bVar.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0913f6);
+                bVar.f = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0913f5);
+                bVar.j = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09241e);
+                bVar.k = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0915bc);
+                bVar.l = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092427);
+                bVar.m = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0915be);
+                bVar.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0908d3);
+                bVar.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09121e);
+                bVar.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ae6);
                 inflate.setTag(bVar);
             }
             if (!TbadkApplication.getInst().appResponseToCmd(CmdConfigHttp.CMD_HTTP_GET_YINJI)) {
@@ -244,16 +244,16 @@ public class fk7 extends BaseAdapter {
                     i2 = 1;
                 } else {
                     if (1 == this.b) {
-                        string = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0a9c);
+                        string = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0aa3);
                     } else {
-                        string = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1511);
+                        string = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f153c);
                     }
                     i2 = 1;
-                    bVar.g.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f055e, string, ni.getDateStringDay(new Date(j2 * 1000))));
+                    bVar.g.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0564, string, li.getDateStringDay(new Date(j2 * 1000))));
                     SkinManager.setViewTextColor(bVar.g, R.color.CAM_X0101, 1);
                 }
                 bVar.d.setText(eVar.b);
-                bVar.h.setText(this.b == i2 ? R.string.obfuscated_res_0x7f0f0438 : R.string.obfuscated_res_0x7f0f043a);
+                bVar.h.setText(this.b == i2 ? R.string.obfuscated_res_0x7f0f0440 : R.string.obfuscated_res_0x7f0f0442);
                 bVar.h.setOnClickListener(this.a);
                 bVar.l.setText(String.valueOf(j));
                 SkinManager.setImageResource(bVar.j, R.drawable.icon_vip_dou);
@@ -261,7 +261,7 @@ public class fk7 extends BaseAdapter {
                 bVar.b.setVisibility(0);
                 bVar.c.setVisibility(8);
                 bVar.e.setText(eVar.b);
-                bVar.h.setText(R.string.obfuscated_res_0x7f0f050a);
+                bVar.h.setText(R.string.obfuscated_res_0x7f0f0510);
                 bVar.h.setOnClickListener(this.a);
                 bVar.m.setText(String.valueOf(j));
                 SkinManager.setImageResource(bVar.k, R.drawable.icon_vip_dou);
@@ -284,12 +284,12 @@ public class fk7 extends BaseAdapter {
             if (view2 != null && view2.getTag() != null && (view2.getTag() instanceof c)) {
                 cVar = (c) view2.getTag();
             } else {
-                view2 = LayoutInflater.from(this.a.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d054b, (ViewGroup) null);
+                view2 = LayoutInflater.from(this.a.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d053f, (ViewGroup) null);
                 cVar = new c(null);
-                cVar.a = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f85);
-                cVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092013);
-                cVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09078c);
-                cVar.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0907e3);
+                cVar.a = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f92);
+                cVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092071);
+                cVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090789);
+                cVar.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0907da);
                 view2.setTag(cVar);
             }
             if (getItemViewType(i - 1) == 1) {
@@ -319,7 +319,7 @@ public class fk7 extends BaseAdapter {
             if (i >= 0 || j3 > 86400) {
                 return (86400 >= j3 || j3 > ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME) ? (ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME >= j3 || j3 > 259200) ? "3" : "2" : "1";
             }
-            return this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1401);
+            return this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1429);
         }
         return (String) invokeCommon.objValue;
     }
@@ -333,9 +333,9 @@ public class fk7 extends BaseAdapter {
             if (view2 != null && view2.getTag() != null && (view2.getTag() instanceof d)) {
                 dVar = (d) view2.getTag();
             } else {
-                view2 = LayoutInflater.from(this.a.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d054c, (ViewGroup) null);
+                view2 = LayoutInflater.from(this.a.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d0540, (ViewGroup) null);
                 dVar = new d(null);
-                dVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092045);
+                dVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920a2);
                 view2.setTag(dVar);
             }
             dVar.a.setText((String) getItem(i));

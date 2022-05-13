@@ -1,24 +1,26 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import org.java_websocket.exceptions.InvalidDataException;
+import org.java_websocket.framing.Framedata;
 /* loaded from: classes6.dex */
-public class iv9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface iv9 {
+    iv9 a();
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            try {
-                return jv9.c(context);
-            } catch (Exception unused) {
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
+    boolean b(String str);
+
+    void c(Framedata framedata);
+
+    String d();
+
+    boolean e(String str);
+
+    void f(Framedata framedata) throws InvalidDataException;
+
+    String g();
+
+    void h(Framedata framedata) throws InvalidDataException;
+
+    void reset();
+
+    String toString();
 }

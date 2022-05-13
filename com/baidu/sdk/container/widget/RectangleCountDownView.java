@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c11;
+import com.repackage.m11;
 @SuppressLint({"AppCompatCustomView", "DefaultLocale", "NewApi"})
 /* loaded from: classes2.dex */
 public class RectangleCountDownView extends AbsCountDownView {
@@ -85,11 +85,11 @@ public class RectangleCountDownView extends AbsCountDownView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, context, attributeSet) == null) {
             setTextColor(Color.parseColor("#ffffff"));
-            setWidth(c11.c.a(context, 72.0f));
-            setHeight(c11.c.a(context, 30.0f));
+            setWidth(m11.c.a(context, 72.0f));
+            setHeight(m11.c.a(context, 30.0f));
             setGravity(17);
             GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setCornerRadius(c11.c.a(context, 15.0f));
+            gradientDrawable.setCornerRadius(m11.c.a(context, 15.0f));
             gradientDrawable.setColor(Color.parseColor("#33000000"));
             setBackground(gradientDrawable);
             setText(String.format("跳过 %02d", Long.valueOf(this.e / 1000)));

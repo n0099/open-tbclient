@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nr4;
+import com.repackage.yr4;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.SmartApp;
@@ -31,16 +31,16 @@ public class k38 {
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
     public Context b;
-    public lr4 c;
-    public nr4 d;
-    public List<jr4> e;
-    public jr4 f;
+    public wr4 c;
+    public yr4 d;
+    public List<ur4> e;
+    public ur4 f;
     public b g;
     public SmartApp h;
-    public nr4.d i;
+    public yr4.d i;
 
     /* loaded from: classes6.dex */
-    public class a implements nr4.d {
+    public class a implements yr4.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ k38 a;
@@ -63,7 +63,7 @@ public class k38 {
             this.a = k38Var;
         }
 
-        @Override // com.repackage.nr4.d
+        @Override // com.repackage.yr4.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.h == null) {
@@ -126,7 +126,7 @@ public class k38 {
         this.a = tbPageContext;
         Activity pageActivity = tbPageContext.getPageActivity();
         this.b = pageActivity;
-        this.d = new nr4(pageActivity);
+        this.d = new yr4(pageActivity);
         this.e = new ArrayList();
     }
 
@@ -140,12 +140,12 @@ public class k38 {
     public void e() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.c == null) {
-            jr4 jr4Var = new jr4(this.b.getString(R.string.obfuscated_res_0x7f0f0495), this.d);
-            this.f = jr4Var;
-            jr4Var.m(this.i);
+            ur4 ur4Var = new ur4(this.b.getString(R.string.obfuscated_res_0x7f0f049d), this.d);
+            this.f = ur4Var;
+            ur4Var.m(this.i);
             this.e.add(this.f);
             this.d.j(this.e);
-            this.c = new lr4(this.a, this.d);
+            this.c = new wr4(this.a, this.d);
         }
     }
 
@@ -157,11 +157,11 @@ public class k38 {
     }
 
     public void g() {
-        lr4 lr4Var;
+        wr4 wr4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (lr4Var = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (wr4Var = this.c) == null) {
             return;
         }
-        lr4Var.m();
+        wr4Var.m();
     }
 }

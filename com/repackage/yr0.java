@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c11;
+import com.repackage.m11;
 /* loaded from: classes7.dex */
 public class yr0 extends sr0 {
     public static /* synthetic */ Interceptable $ic;
@@ -79,12 +79,12 @@ public class yr0 extends sr0 {
             this.b = textView;
             textView.setEllipsize(TextUtils.TruncateAt.END);
             this.b.setMaxLines(2);
-            this.b.setLineSpacing(b21.b(1.33f), 1.0f);
+            this.b.setLineSpacing(l21.b(1.33f), 1.0f);
             this.b.setTextColor(-1);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-            layoutParams.topMargin = c11.c.a(getContext(), 9.0f);
-            layoutParams.rightMargin = c11.c.a(getContext(), 15.0f);
-            layoutParams.leftMargin = c11.c.a(getContext(), 15.0f);
+            layoutParams.topMargin = m11.c.a(getContext(), 9.0f);
+            layoutParams.rightMargin = m11.c.a(getContext(), 15.0f);
+            layoutParams.leftMargin = m11.c.a(getContext(), 15.0f);
             this.b.setLayoutParams(layoutParams);
         }
     }

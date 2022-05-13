@@ -13,17 +13,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d55;
+import com.repackage.t55;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes6.dex */
-public class l38 implements d55, PersonPostModel.d, PersonPostModel.c {
+public class l38 implements t55, PersonPostModel.d, PersonPostModel.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
     public PersonPostModel a;
     @Nullable
-    public d55.a b;
+    public t55.a b;
 
     public l38(@NonNull TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
@@ -50,9 +50,9 @@ public class l38 implements d55, PersonPostModel.d, PersonPostModel.c {
             return;
         }
         ArrayList arrayList = new ArrayList();
-        Iterator<uo> it = personPostModel.threadList.iterator();
+        Iterator<ro> it = personPostModel.threadList.iterator();
         while (it.hasNext()) {
-            uo next = it.next();
+            ro next = it.next();
             if (next instanceof CardPersonDynamicThreadData) {
                 ThreadData threadData = ((CardPersonDynamicThreadData) next).getThreadData();
                 if (!TextUtils.equals(threadData.getTid(), "0")) {
@@ -66,7 +66,7 @@ public class l38 implements d55, PersonPostModel.d, PersonPostModel.c {
 
     @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.d
     public void O(PersonPostModel personPostModel, boolean z) {
-        d55.a aVar;
+        t55.a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, personPostModel, z) == null) || (aVar = this.b) == null) {
             return;
@@ -74,15 +74,15 @@ public class l38 implements d55, PersonPostModel.d, PersonPostModel.c {
         aVar.a();
     }
 
-    @Override // com.repackage.d55
-    public void a(@Nullable d55.a aVar) {
+    @Override // com.repackage.t55
+    public void a(@Nullable t55.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             this.b = aVar;
         }
     }
 
-    @Override // com.repackage.d55
+    @Override // com.repackage.t55
     public void b(@NonNull String str, @Nullable MetaData metaData, @NonNull Integer num, @NonNull Integer num2, @NonNull Integer num3, @NonNull Integer num4, @NonNull Long l, @NonNull Integer num5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, metaData, num, num2, num3, num4, l, num5}) == null) {

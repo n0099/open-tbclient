@@ -1,20 +1,22 @@
 package com.repackage;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
+import android.os.Build;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class a95 extends ua {
+public class a95 extends f95 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public z85 b;
+    public boolean c;
+    public boolean d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a95() {
-        super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -22,29 +24,55 @@ public class a95 extends ua {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ra
-    /* renamed from: c */
-    public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
-        InterceptResult invokeL;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
-            if (socketResponsedMessage == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            z85 z85Var = this.b;
+            if (z85Var != null) {
+                return z85Var.b();
             }
-            if (socketResponsedMessage.getError() == 2260104) {
-                kc5.a();
-            }
-            return socketResponsedMessage;
+            return -1;
         }
-        return (SocketResponsedMessage) invokeL.objValue;
+        return invokeV.intValue;
+    }
+
+    public void c() {
+        z85 z85Var;
+        k95 k95Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.d || (z85Var = this.b) == null || z85Var.b() < 0 || (k95Var = (k95) PerformanceLoggerHelper.getInstance().getLoggerWithType(this.a)) == null) {
+            return;
+        }
+        k95Var.e(this);
+        this.d = true;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !this.c && PerformanceLoggerHelper.getInstance().isSmallFlow()) {
+            this.c = true;
+            if (Build.VERSION.SDK_INT >= 16) {
+                if (this.b == null) {
+                    this.b = new z85();
+                }
+                this.b.c();
+            }
+        }
+    }
+
+    public void e() {
+        z85 z85Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || Build.VERSION.SDK_INT < 16 || (z85Var = this.b) == null) {
+            return;
+        }
+        z85Var.d();
     }
 }

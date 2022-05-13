@@ -26,17 +26,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.bm;
 import com.repackage.cm;
+import com.repackage.dm;
 import com.repackage.em;
 import com.repackage.fm;
-import com.repackage.gm;
-import com.repackage.hm;
+import com.repackage.ih;
 import com.repackage.im;
-import com.repackage.kh;
+import com.repackage.jm;
+import com.repackage.ki;
 import com.repackage.lm;
-import com.repackage.mi;
-import com.repackage.mm;
-import com.repackage.om;
-import com.repackage.pg;
+import com.repackage.ng;
+import com.repackage.yl;
+import com.repackage.zl;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Hashtable;
@@ -60,8 +60,8 @@ public class PluginPackageManager {
     public int i;
     public boolean j;
     public BroadcastReceiver k;
-    public fm.c l;
-    public im m;
+    public cm.c l;
+    public fm m;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
@@ -162,7 +162,7 @@ public class PluginPackageManager {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.c.g && mi.z()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.c.g && ki.z()) {
                 if (this.b < 3) {
                     PluginPackageManager pluginPackageManager = this.c;
                     pluginPackageManager.z(pluginPackageManager.j);
@@ -230,7 +230,7 @@ public class PluginPackageManager {
                 boolean booleanExtra = intent.getBooleanExtra("is_inject_classloader", false);
                 String stringExtra5 = intent.getStringExtra("cmd_range");
                 String stringExtra6 = intent.getStringExtra("install_flag");
-                PluginSetting g = om.h().g(stringExtra);
+                PluginSetting g = lm.h().g(stringExtra);
                 if (g == null) {
                     g = new PluginSetting();
                     g.forbidden = false;
@@ -238,7 +238,7 @@ public class PluginPackageManager {
                 if (this.this$0.c) {
                     str2 = "load_lowversion";
                     if (this.installFailRetryMap.containsKey(g.packageName)) {
-                        em b = em.b();
+                        bm b = bm.b();
                         StringBuilder sb = new StringBuilder();
                         str3 = "plugin_load";
                         sb.append("retry_at_num_");
@@ -258,12 +258,12 @@ public class PluginPackageManager {
                         g.installStatus = 0;
                         g.tempVersionCode = 0;
                         if (this.this$0.c) {
-                            em.b().d("plugin_install_suc", stringExtra, g, "");
-                            em b2 = em.b();
+                            bm.b().d("plugin_install_suc", stringExtra, g, "");
+                            bm b2 = bm.b();
                             b2.m("plugin_install", "plugin_install_suc", stringExtra, "flag=" + stringExtra6 + "_fail=" + g.install_fail_count);
                             if (intExtra < PluginPackageManager.n) {
-                                em.b().i("plugin_launch_lowversion", stringExtra);
-                                em b3 = em.b();
+                                bm.b().i("plugin_launch_lowversion", stringExtra);
+                                bm b3 = bm.b();
                                 StringBuilder sb2 = new StringBuilder();
                                 sb2.append("broadcast_suc-");
                                 sb2.append(g.apkPath);
@@ -288,7 +288,7 @@ public class PluginPackageManager {
                         g.replaceMethodClasses = intent.getStringExtra("replace_method_classes");
                         g.setInjectClassloader(booleanExtra);
                         this.this$0.k(g);
-                        om.h().r(stringExtra, g, this.this$0.c);
+                        lm.h().r(stringExtra, g, this.this$0.c);
                         boolean z = !g.isPatch && TextUtils.isEmpty(g.replaceMethodClasses);
                         if (!TextUtils.isEmpty(g.requireLoad) && g.requireLoad.equals("0") && !z) {
                             PluginCenter.getInstance().launch(g.packageName);
@@ -322,7 +322,7 @@ public class PluginPackageManager {
                 g.replaceMethodClasses = intent.getStringExtra("replace_method_classes");
                 g.setInjectClassloader(booleanExtra);
                 this.this$0.k(g);
-                om.h().r(stringExtra, g, this.this$0.c);
+                lm.h().r(stringExtra, g, this.this$0.c);
                 if (g.isPatch) {
                 }
                 if (!TextUtils.isEmpty(g.requireLoad)) {
@@ -342,13 +342,13 @@ public class PluginPackageManager {
                 if (TextUtils.isEmpty(stringExtra10)) {
                     pluginSetting = null;
                 } else {
-                    PluginSetting g2 = om.h().g(stringExtra10);
+                    PluginSetting g2 = lm.h().g(stringExtra10);
                     if ("apk_not_exist".equals(stringExtra8) && g2 != null && g2.installStatus == 0 && g2.tempVersionCode == 0) {
-                        em b4 = em.b();
+                        bm b4 = bm.b();
                         b4.m("plugin_install", "intercept_apk_not_exist", stringExtra10, stringExtra11 + "_" + stringExtra7);
                         return;
                     } else if ("assets_not_found".equals(stringExtra8)) {
-                        em b5 = em.b();
+                        bm b5 = bm.b();
                         b5.m("plugin_install", "assets_not_found", stringExtra10, stringExtra11 + "_" + stringExtra9);
                         return;
                     } else {
@@ -371,12 +371,12 @@ public class PluginPackageManager {
                                 pluginSetting.install_fail_count = 0;
                                 pluginSetting.installStatus = 0;
                             }
-                            if (pluginSetting.install_fail_count >= kh.o().q("alert_plugin", 3)) {
+                            if (pluginSetting.install_fail_count >= ih.o().q("alert_plugin", 3)) {
                                 BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
                                 bdStatisticsManager.alert("alert_plugin", "package name = " + stringExtra10 + "; fail count = " + pluginSetting.install_fail_count);
                             }
                         }
-                        om.h().r(stringExtra10, pluginSetting, this.this$0.c);
+                        lm.h().r(stringExtra10, pluginSetting, this.this$0.c);
                     }
                 }
                 this.this$0.n(substring, false, stringExtra8);
@@ -388,39 +388,39 @@ public class PluginPackageManager {
                         } else if (!lowerCase.contains("read-only_file_system") && !lowerCase.contains("read-only file system")) {
                             if (!lowerCase.contains("permission_denied") && !lowerCase.contains("permission denied")) {
                                 if (lowerCase.contains("fsync_failed") || lowerCase.contains("fsync failed")) {
-                                    em.b().i("plugin_fsync_failed", stringExtra10);
+                                    bm.b().i("plugin_fsync_failed", stringExtra10);
                                     stringExtra8 = "fsync_failed";
                                 }
                             } else {
-                                em.b().i("plugin_permission_denied", stringExtra10);
+                                bm.b().i("plugin_permission_denied", stringExtra10);
                                 stringExtra8 = "permission_denied";
                             }
                         } else {
-                            em.b().i("plugin_read_file_sys", stringExtra10);
+                            bm.b().i("plugin_read_file_sys", stringExtra10);
                             stringExtra8 = "read_file_system";
                         }
                     }
                     if ("rom_size".equals(stringExtra8)) {
-                        em.b().i("plugin_rom_small", stringExtra10);
+                        bm.b().i("plugin_rom_small", stringExtra10);
                     }
-                    em.b().e("plugin_install_fail", stringExtra10, pluginSetting, stringExtra8);
-                    em b6 = em.b();
+                    bm.b().e("plugin_install_fail", stringExtra10, pluginSetting, stringExtra8);
+                    bm b6 = bm.b();
                     b6.p("plugin_install", stringExtra8, stringExtra10, stringExtra9 + "_flag=" + stringExtra11);
                 }
             } else if ("com.baidu.adp.plugin.installcancel".equals(action)) {
                 String stringExtra12 = intent.getStringExtra("package_name");
-                PluginSetting g3 = om.h().g(stringExtra12);
+                PluginSetting g3 = lm.h().g(stringExtra12);
                 if (g3 != null) {
-                    om.h().q(stringExtra12, true);
+                    lm.h().q(stringExtra12, true);
                     if (g3.versionCode < PluginPackageManager.n) {
-                        em.b().i("plugin_launch_lowversion", stringExtra12);
-                        em b7 = em.b();
+                        bm.b().i("plugin_launch_lowversion", stringExtra12);
+                        bm b7 = bm.b();
                         b7.m("plugin_load", "load_lowversion", stringExtra12, "broadcast_cancel-" + g3.apkPath + "-" + g3.versionCode + "-" + g3.forbidden + "-" + g3.tempVersionCode + "-" + g3.installStatus);
                     }
                     str = null;
                 } else {
                     str = null;
-                    em.b().m("plugin_install", "install_cancel_settingnull", stringExtra12, null);
+                    bm.b().m("plugin_install", "install_cancel_settingnull", stringExtra12, null);
                 }
                 this.this$0.n(stringExtra12, true, str);
             } else if ("com.baidu.adp.plugin.deleted".equals(action)) {
@@ -429,7 +429,7 @@ public class PluginPackageManager {
                 if (TextUtils.isEmpty(stringExtra14)) {
                     return;
                 }
-                PluginSetting g4 = om.h().g(stringExtra14);
+                PluginSetting g4 = lm.h().g(stringExtra14);
                 if (g4 == null) {
                     g4 = new PluginSetting();
                     g4.packageName = stringExtra14;
@@ -443,9 +443,9 @@ public class PluginPackageManager {
                     g4.install_fail_count = 0;
                     g4.installStatus = 0;
                 }
-                om.h().r(stringExtra14, g4, this.this$0.c);
+                lm.h().r(stringExtra14, g4, this.this$0.c);
                 if ("low_version_code".equals(stringExtra13)) {
-                    em.b().i("plugin_low_version_code", stringExtra14);
+                    bm.b().i("plugin_low_version_code", stringExtra14);
                 }
             }
         }
@@ -526,7 +526,7 @@ public class PluginPackageManager {
     }
 
     /* loaded from: classes.dex */
-    public class d implements fm.c {
+    public class d implements cm.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PluginPackageManager a;
@@ -549,17 +549,17 @@ public class PluginPackageManager {
             this.a = pluginPackageManager;
         }
 
-        @Override // com.repackage.fm.c
+        @Override // com.repackage.cm.c
         public void a(String str, String str2) {
             PluginSetting g;
             String[] split;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || (g = om.h().g(str)) == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || (g = lm.h().g(str)) == null) {
                 return;
             }
             if (!TextUtils.isEmpty(g.apkPath) && g.apkPath.equals(str2)) {
-                em.b().m("plugin_setting", "del_unuse_plugin_setting", g.packageName, "apkpath-" + g.apkPath + "-forbidden-" + g.forbidden + "-enable-" + g.enable + "-abandonapkpath-" + g.getAbandon_apk_path() + "-versioncode-" + g.versionCode);
-                om.h().l(str);
+                bm.b().m("plugin_setting", "del_unuse_plugin_setting", g.packageName, "apkpath-" + g.apkPath + "-forbidden-" + g.forbidden + "-enable-" + g.enable + "-abandonapkpath-" + g.getAbandon_apk_path() + "-versioncode-" + g.versionCode);
+                lm.h().l(str);
             } else if (!TextUtils.isEmpty(g.getAbandon_apk_path())) {
                 String str3 = "";
                 for (String str4 : g.getAbandon_apk_path().split(",")) {
@@ -570,7 +570,7 @@ public class PluginPackageManager {
                         str3 = str3 + str4;
                     }
                 }
-                om.h().o(str, str3, this.a.c);
+                lm.h().o(str, str3, this.a.c);
             }
         }
     }
@@ -605,13 +605,13 @@ public class PluginPackageManager {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                lm.a().b(om.h().i(), this.a, this.b.m);
+                im.a().b(lm.h().i(), this.a, this.b.m);
             }
         }
     }
 
     /* loaded from: classes.dex */
-    public class f implements im {
+    public class f implements fm {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -633,7 +633,7 @@ public class PluginPackageManager {
     }
 
     /* loaded from: classes.dex */
-    public class g implements hm {
+    public class g implements em {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -661,7 +661,7 @@ public class PluginPackageManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long a;
-        public bm b;
+        public yl b;
         public String c;
 
         public /* synthetic */ h(PluginPackageManager pluginPackageManager, b bVar) {
@@ -758,7 +758,7 @@ public class PluginPackageManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            PluginSetting g2 = om.h().g(str);
+            PluginSetting g2 = lm.h().g(str);
             return g2 != null && g2.enable;
         }
         return invokeL.booleanValue;
@@ -786,63 +786,63 @@ public class PluginPackageManager {
     public final void k(PluginSetting pluginSetting) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pluginSetting) == null) && this.c) {
-            gm.e().d(pluginSetting);
+            dm.e().d(pluginSetting);
         }
     }
 
     public final void l(String str, String str2) {
         PluginSetting g2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) || TextUtils.isEmpty(str) || (g2 = om.h().g(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) || TextUtils.isEmpty(str) || (g2 = lm.h().g(str)) == null) {
             return;
         }
-        if (g2.installStatus == mm.a && TextUtils.isEmpty(str2)) {
-            em.b().o("plugin_del_unuse", "server forbidden", str);
+        if (g2.installStatus == jm.a && TextUtils.isEmpty(str2)) {
+            bm.b().o("plugin_del_unuse", "server forbidden", str);
             m(str);
         } else if (!TextUtils.isEmpty(g2.getAbandon_apk_path())) {
             String[] split = str2.split(",");
             String[] split2 = g2.getAbandon_apk_path().split(",");
             HashMap hashMap = new HashMap();
-            ArrayList<fm.b> arrayList = new ArrayList<>();
+            ArrayList<cm.b> arrayList = new ArrayList<>();
             for (String str3 : split) {
                 hashMap.put(str3, "");
             }
             for (String str4 : split2) {
                 if (hashMap.get(str4) == null) {
-                    arrayList.add(new fm.b(str, str4));
+                    arrayList.add(new cm.b(str, str4));
                 }
             }
-            fm.h().f(arrayList, this.l);
+            cm.h().f(arrayList, this.l);
         }
     }
 
     public final void m(String str) {
         PluginSetting g2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || TextUtils.isEmpty(str) || (g2 = om.h().g(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || TextUtils.isEmpty(str) || (g2 = lm.h().g(str)) == null) {
             return;
         }
-        ArrayList<fm.b> arrayList = new ArrayList<>();
+        ArrayList<cm.b> arrayList = new ArrayList<>();
         if (!TextUtils.isEmpty(g2.getAbandon_apk_path())) {
             for (String str2 : g2.getAbandon_apk_path().split(",")) {
-                arrayList.add(new fm.b(str, str2));
+                arrayList.add(new cm.b(str, str2));
             }
         }
-        arrayList.add(new fm.b(str, g2.apkPath));
-        fm.h().f(arrayList, this.l);
+        arrayList.add(new cm.b(str, g2.apkPath));
+        cm.h().f(arrayList, this.l);
     }
 
     public final void n(String str, boolean z, String str2) {
         h remove;
-        bm bmVar;
+        yl ylVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Boolean.valueOf(z), str2}) == null) || StringUtils.isNull(str) || (remove = this.b.remove(str)) == null || (bmVar = remove.b) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Boolean.valueOf(z), str2}) == null) || StringUtils.isNull(str) || (remove = this.b.remove(str)) == null || (ylVar = remove.b) == null) {
             return;
         }
         if (z) {
-            bmVar.a(str);
+            ylVar.a(str);
         } else {
-            bmVar.b(remove.c, str2);
+            ylVar.b(remove.c, str2);
         }
     }
 
@@ -853,7 +853,7 @@ public class PluginPackageManager {
             if (str == null || str.length() == 0) {
                 return null;
             }
-            return om.h().g(str);
+            return lm.h().g(str);
         }
         return (PluginSetting) invokeL.objValue;
     }
@@ -868,10 +868,10 @@ public class PluginPackageManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (om.h().i() == null) {
+            if (lm.h().i() == null) {
                 return false;
             }
-            return om.h().i().isFeatureForbidden(str);
+            return lm.h().i().isFeatureForbidden(str);
         }
         return invokeL.booleanValue;
     }
@@ -900,18 +900,18 @@ public class PluginPackageManager {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.d : invokeV.booleanValue;
     }
 
-    public void x(String str, bm bmVar) {
+    public void x(String str, yl ylVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048589, this, str, bmVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048589, this, str, ylVar) == null) {
             boolean u = u(str);
-            boolean B = cm.y().B(str);
+            boolean B = zl.y().B(str);
             if (u && !B) {
-                bmVar.a(str);
+                ylVar.a(str);
             } else {
                 h hVar = new h(this, null);
                 hVar.c = str;
                 hVar.a = System.currentTimeMillis();
-                hVar.b = bmVar;
+                hVar.b = ylVar;
                 synchronized (this) {
                     if (this.b.size() < 1000) {
                         this.b.put(str, hVar);
@@ -943,7 +943,7 @@ public class PluginPackageManager {
     public void z(boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048591, this, z) == null) && this.c) {
-            pg.a().postDelayed(new e(this, z), 1500L);
+            ng.a().postDelayed(new e(this, z), 1500L);
         }
     }
 }

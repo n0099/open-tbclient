@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.nr4;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class p88 {
@@ -32,9 +32,9 @@ public class p88 {
     public View b;
     public View c;
     public BdListView d;
-    public lf7 e;
+    public of7 e;
     public View f;
-    public cr4 g;
+    public nr4 g;
     public NoDataView h;
     public boolean i;
 
@@ -146,7 +146,7 @@ public class p88 {
     }
 
     /* loaded from: classes6.dex */
-    public class d implements cr4.e {
+    public class d implements nr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -166,17 +166,17 @@ public class p88 {
             }
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.nr4.e
+        public void onClick(nr4 nr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, nr4Var) == null) {
+                nr4Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class e implements cr4.e {
+    public class e implements nr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ p88 a;
@@ -199,11 +199,11 @@ public class p88 {
             this.a = p88Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.nr4.e
+        public void onClick(nr4 nr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, nr4Var) == null) {
+                nr4Var.dismiss();
                 this.a.a.getModel().g();
                 this.a.d.setVisibility(8);
                 this.a.n();
@@ -297,14 +297,14 @@ public class p88 {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.c = this.a.findViewById(R.id.obfuscated_res_0x7f090d63);
-            this.d = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f090d64);
+            this.c = this.a.findViewById(R.id.obfuscated_res_0x7f090d53);
+            this.d = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f090d54);
             BdListViewHelper.d(this.a.getActivity(), this.d, BdListViewHelper.HeadType.DEFAULT);
-            lf7 lf7Var = new lf7(this.a.getPageContext().getPageActivity(), null);
-            this.e = lf7Var;
-            lf7Var.b(false);
+            of7 of7Var = new of7(this.a.getPageContext().getPageActivity(), null);
+            this.e = of7Var;
+            of7Var.b(false);
             this.d.setAdapter((ListAdapter) this.e);
-            View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0397, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d038e, (ViewGroup) null);
             this.f = inflate;
             this.d.addFooterView(inflate);
             this.f.setOnClickListener(new a(this));
@@ -329,7 +329,7 @@ public class p88 {
     public void j(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            f95.a(this.a.getPageContext(), this.f);
+            w95.a(this.a.getPageContext(), this.f);
             this.e.notifyDataSetChanged();
             NoDataView noDataView = this.h;
             if (noDataView != null) {
@@ -359,7 +359,7 @@ public class p88 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (this.g == null) {
-                this.g = new cr4(this.a.getPageContext().getPageActivity()).setMessage(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0254)).setPositiveButton(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f03d3), new e(this)).setNegativeButton(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f036e), new d(this)).create(this.a.getPageContext());
+                this.g = new nr4(this.a.getPageContext().getPageActivity()).setMessage(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0256)).setPositiveButton(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f03d8), new e(this)).setNegativeButton(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0374), new d(this)).create(this.a.getPageContext());
             }
             this.g.show();
         }
@@ -377,7 +377,7 @@ public class p88 {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            o(R.string.obfuscated_res_0x7f0f0c1d);
+            o(R.string.obfuscated_res_0x7f0f0c33);
         }
     }
 
@@ -385,7 +385,7 @@ public class p88 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
             if (this.h == null) {
-                NoDataView a2 = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), this.c, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, oi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f0702a1)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f1389), null);
+                NoDataView a2 = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), this.c, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, mi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f0702a1)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f13ab), null);
                 this.h = a2;
                 a2.f(this.a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
                 this.h.setOnTouchListener(new f(this));
@@ -399,7 +399,7 @@ public class p88 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             this.d.setVisibility(8);
-            o(R.string.obfuscated_res_0x7f0f0c1e);
+            o(R.string.obfuscated_res_0x7f0f0c34);
         }
     }
 }

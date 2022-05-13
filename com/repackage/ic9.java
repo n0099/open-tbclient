@@ -1,123 +1,110 @@
 package com.repackage;
 
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.ByteArrayOutputStream;
 /* loaded from: classes6.dex */
 public class ic9 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static Toast a = null;
-    public static int b = -1;
-    public static int c = -1;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public boolean b;
+    public boolean c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755623118, "Lcom/repackage/ic9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public ic9(String str, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755623118, "Lcom/repackage/ic9;");
-        }
+        this.a = str;
+        this.b = z;
+        this.c = z2;
     }
 
-    public static void a(int i) {
+    public static int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65537, null, i) == null) {
-            b(i, 0);
-        }
-    }
-
-    public static void b(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65538, null, i, i2) == null) {
-            c(d89.c().getContext().getResources().getString(i), i2);
-        }
-    }
-
-    public static void c(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65539, null, str, i) == null) {
-            d(str, i, null);
-        }
-    }
-
-    public static void d(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i, str2) == null) {
-            e(str, i, str2, -1);
-        }
-    }
-
-    public static void e(String str, int i, String str2, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2)}) == null) {
-            if (b != -1 && c != -1) {
-                Toast toast = a;
-                if (toast != null) {
-                    toast.cancel();
-                }
-                Toast toast2 = new Toast(d89.c().getContext());
-                a = toast2;
-                if (i2 > -1) {
-                    toast2.setGravity(i2, 0, 0);
-                }
-                a.setDuration(i);
-                try {
-                    View inflate = LayoutInflater.from(d89.c().getContext()).inflate(b, (ViewGroup) null);
-                    TextView textView = (TextView) inflate.findViewById(c);
-                    if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str) && str.contains(str2)) {
-                        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-                        spannableStringBuilder.setSpan(new ForegroundColorSpan(d89.c().getContext().getResources().getColor(R.color.obfuscated_res_0x7f0603f6)), str.indexOf(str2), str.indexOf(str2) + str2.length(), 33);
-                        textView.setText(spannableStringBuilder);
-                    } else {
-                        textView.setText(str);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            return i != 5 ? -1 : 0;
+                        }
+                        return 1;
                     }
-                    a.setView(inflate);
-                    a.show();
-                    return;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return;
+                    return 3;
                 }
+                return 4;
             }
-            Toast toast3 = a;
-            if (toast3 == null) {
-                Toast makeText = Toast.makeText(d89.c().getContext(), str, i);
-                a = makeText;
-                if (i2 > -1) {
-                    makeText.setGravity(i2, 0, 0);
-                }
-            } else {
-                toast3.cancel();
-                Toast makeText2 = Toast.makeText(d89.c().getContext(), str, i);
-                a = makeText2;
-                if (i2 > -1) {
-                    makeText2.setGravity(i2, 0, 0);
-                }
-                a.setDuration(i);
-            }
-            try {
-                a.show();
-            } catch (Exception unused) {
-            }
+            return 6;
         }
+        return invokeI.intValue;
+    }
+
+    public String b(byte[] bArr) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            for (int i2 = 0; i2 < (bArr.length + 4) / 5; i2++) {
+                short[] sArr = new short[5];
+                int[] iArr = new int[8];
+                int i3 = 5;
+                for (int i4 = 0; i4 < 5; i4++) {
+                    int i5 = (i2 * 5) + i4;
+                    if (i5 < bArr.length) {
+                        sArr[i4] = (short) (bArr[i5] & 255);
+                    } else {
+                        sArr[i4] = 0;
+                        i3--;
+                    }
+                }
+                int a = a(i3);
+                iArr[0] = (byte) ((sArr[0] >> 3) & 31);
+                iArr[1] = (byte) (((sArr[0] & 7) << 2) | ((sArr[1] >> 6) & 3));
+                iArr[2] = (byte) ((sArr[1] >> 1) & 31);
+                iArr[3] = (byte) (((sArr[1] & 1) << 4) | ((sArr[2] >> 4) & 15));
+                iArr[4] = (byte) (((sArr[2] & 15) << 1) | ((sArr[3] >> 7) & 1));
+                iArr[5] = (byte) ((sArr[3] >> 2) & 31);
+                iArr[6] = (byte) (((sArr[4] >> 5) & 7) | ((sArr[3] & 3) << 3));
+                iArr[7] = (byte) (sArr[4] & 31);
+                int i6 = 0;
+                while (true) {
+                    i = 8 - a;
+                    if (i6 >= i) {
+                        break;
+                    }
+                    char charAt = this.a.charAt(iArr[i6]);
+                    if (this.c) {
+                        charAt = Character.toLowerCase(charAt);
+                    }
+                    byteArrayOutputStream.write(charAt);
+                    i6++;
+                }
+                if (this.b) {
+                    while (i < 8) {
+                        byteArrayOutputStream.write(61);
+                        i++;
+                    }
+                }
+            }
+            return new String(byteArrayOutputStream.toByteArray());
+        }
+        return (String) invokeL.objValue;
     }
 }

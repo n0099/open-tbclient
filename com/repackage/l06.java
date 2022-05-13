@@ -1,12 +1,13 @@
 package com.repackage;
 
 import android.graphics.Canvas;
-import android.os.SystemClock;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.danmu.ecs.system.DataSystem;
-import com.baidu.tieba.danmu.ecs.system.RenderSystem;
+import com.baidu.tieba.danmu.cache.CacheManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,26 +15,75 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.TuplesKt;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function0;
+import com.repackage.g26;
+import java.util.ArrayList;
+import java.util.List;
+import kotlin.collections.CollectionsKt___CollectionsKt;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class l06 extends q0 {
+public final class l06 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a m;
+    public static final c h;
+    public static final b i;
+    public static final l06 j;
     public transient /* synthetic */ FieldHolder $fh;
-    public final k06 j;
-    public final i26 k;
-    public long l;
+    public final c26 a;
+    public final j26 b;
+    public final CacheManager c;
+    public a06 d;
+    public final z06 e;
+    public List<g06> f;
+    public g26 g;
 
     /* loaded from: classes6.dex */
-    public static final class a {
+    public final class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ l06 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(l06 this$0, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {this$0, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            Intrinsics.checkNotNullParameter(looper, "looper");
+            this.a = this$0;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message msg) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, msg) == null) {
+                Intrinsics.checkNotNullParameter(msg, "msg");
+                if (msg.what == -1) {
+                    BdLog.w("DanmakuEngine [Context] onCacheSign, updateRender");
+                    this.a.c().H();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class b implements c26 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public a() {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,32 +97,153 @@ public final class l06 extends q0 {
             }
         }
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+        @Override // com.repackage.c26
+        public o26 a(g06 item, g26 displayer, a06 config) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, displayer, config)) == null) {
+                Intrinsics.checkNotNullParameter(item, "item");
+                Intrinsics.checkNotNullParameter(displayer, "displayer");
+                Intrinsics.checkNotNullParameter(config, "config");
+                return new o26(0, 0);
+            }
+            return (o26) invokeLLL.objValue;
+        }
+
+        @Override // com.repackage.c26
+        public void b(g06 item, Canvas canvas, g26 displayer, a06 config) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item, canvas, displayer, config) == null) {
+                Intrinsics.checkNotNullParameter(item, "item");
+                Intrinsics.checkNotNullParameter(canvas, "canvas");
+                Intrinsics.checkNotNullParameter(displayer, "displayer");
+                Intrinsics.checkNotNullParameter(config, "config");
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ c(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
 
-        public static /* synthetic */ l06 c(a aVar, b26 b26Var, t16 t16Var, int i, Object obj) {
-            if ((i & 2) != 0) {
-                t16Var = aVar.a();
-            }
-            return aVar.b(b26Var, t16Var);
-        }
-
-        public final x16 a() {
+        public final l06 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new x16(new u16(), TuplesKt.to(5, new v16()), TuplesKt.to(1, new w16()), TuplesKt.to(4, new s16())) : (x16) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? l06.j : (l06) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class d implements g26 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+        public final int c;
+        public final float d;
+        public final float e;
+        public final int f;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = 4;
+            this.e = 1.0f;
+            this.f = 200;
         }
 
-        public final l06 b(b26 renderer, t16 layouter) {
-            InterceptResult invokeLL;
+        @Override // com.repackage.g26
+        public int a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, renderer, layouter)) == null) {
-                Intrinsics.checkNotNullParameter(renderer, "renderer");
-                Intrinsics.checkNotNullParameter(layouter, "layouter");
-                return new l06(renderer, layouter);
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : invokeV.intValue;
+        }
+
+        @Override // com.repackage.g26
+        public float b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : invokeV.floatValue;
+        }
+
+        @Override // com.repackage.g26
+        public int c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.intValue;
+        }
+
+        @Override // com.repackage.g26
+        public float d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? g26.a.a(this) : invokeV.floatValue;
+        }
+
+        @Override // com.repackage.g26
+        public float e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : invokeV.floatValue;
+        }
+
+        @Override // com.repackage.g26
+        public int getHeight() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : invokeV.intValue;
+        }
+
+        @Override // com.repackage.g26
+        public int getWidth() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : invokeV.intValue;
+        }
+
+        @Override // com.repackage.g26
+        public void setHeight(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+                this.a = i;
             }
-            return (l06) invokeLL.objValue;
+        }
+
+        @Override // com.repackage.g26
+        public void setWidth(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+                this.b = i;
+            }
         }
     }
 
@@ -89,198 +260,94 @@ public final class l06 extends q0 {
                 return;
             }
         }
-        m = new a(null);
+        h = new c(null);
+        b bVar = new b();
+        i = bVar;
+        j = new l06(bVar);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l06(b26 renderer, t16 layouter) {
-        super(200, 1000, 200, 1500);
+    public l06(c26 renderer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {renderer, layouter};
+            newInitContext.initArgs = r3;
+            Object[] objArr = {renderer};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         Intrinsics.checkNotNullParameter(renderer, "renderer");
-        Intrinsics.checkNotNullParameter(layouter, "layouter");
-        k06 k06Var = new k06(renderer);
-        this.j = k06Var;
-        this.k = k06Var.f();
-        j16 j16Var = new j16(this.j);
-        j16Var.a = 1;
-        Unit unit = Unit.INSTANCE;
-        g(j16Var);
-        DataSystem dataSystem = new DataSystem(this.j);
-        dataSystem.a = 2;
-        Unit unit2 = Unit.INSTANCE;
-        g(dataSystem);
-        l16 l16Var = new l16(this.j);
-        l16Var.a = 3;
-        Unit unit3 = Unit.INSTANCE;
-        g(l16Var);
-        h16 h16Var = new h16(this.j);
-        h16Var.a = 4;
-        Unit unit4 = Unit.INSTANCE;
-        g(h16Var);
-        RenderSystem renderSystem = new RenderSystem(this.j);
-        renderSystem.a = 5;
-        Unit unit5 = Unit.INSTANCE;
-        g(renderSystem);
-        l16 l16Var2 = (l16) k(l16.class);
-        if (l16Var2 == null) {
-            return;
-        }
-        l16Var2.p(layouter);
+        this.a = renderer;
+        this.b = new j26();
+        Looper myLooper = Looper.myLooper();
+        Intrinsics.checkNotNull(myLooper);
+        Intrinsics.checkNotNullExpressionValue(myLooper, "myLooper()!!");
+        this.c = new CacheManager(new a(this, myLooper), this.a);
+        this.d = new a06(0, 0L, 0L, 0L, 0.0f, 0.0f, 0.0f, 0.0f, false, 0, false, false, 0, 0, 0, 0, 0, 0, 0, 0, null, null, 4194303, null);
+        this.e = new z06();
+        new f06();
+        this.f = new ArrayList();
+        new f06();
+        this.g = new d();
+        this.f.iterator();
+        new ArrayList();
+        new ArrayList();
     }
 
-    public static /* synthetic */ void E(l06 l06Var, Float f, int i, Object obj) {
-        if ((i & 1) != 0) {
-            f = null;
-        }
-        l06Var.D(f);
-    }
-
-    public final void A() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.k.d(true);
-            v0<n0> systems = l();
-            Intrinsics.checkNotNullExpressionValue(systems, "systems");
-            for (n0 n0Var : systems) {
-                p(n0Var);
-            }
-        }
-    }
-
-    public final void B(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            i26.f(this.k, j, 0.0f, 2, null);
-            this.j.c().J();
-            this.j.c().I();
-            this.j.c().F();
-        }
-    }
-
-    public final void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            i26.f(this.k, 0L, 0.0f, 3, null);
-            this.k.d(false);
-        }
-    }
-
-    public final void D(Float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, f) == null) {
-            q16.b("Engine_step");
-            this.k.g(f);
-            q16.a();
-        }
-    }
-
-    public final void F(zz5 danmakuConfig) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, danmakuConfig) == null) {
-            Intrinsics.checkNotNullParameter(danmakuConfig, "danmakuConfig");
-            j16 j16Var = (j16) k(j16.class);
-            if (j16Var == null) {
-                return;
-            }
-            j16Var.m(danmakuConfig);
-        }
-    }
-
-    public final void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            q16.b("act");
-            long elapsedRealtime = SystemClock.elapsedRealtime();
-            i26 i26Var = this.k;
-            long a2 = i26Var.a() - this.l;
-            update(i26Var.b());
-            long elapsedRealtime2 = SystemClock.elapsedRealtime() - elapsedRealtime;
-            if (elapsedRealtime2 >= 20) {
-                BdLog.w("DanmakuEngine [Engine][ACT] overload act: interval: " + a2 + ", cost: " + elapsedRealtime2);
-            }
-            this.l = i26Var.a();
-            q16.a();
-        }
-    }
-
-    public final void s(Canvas canvas, Function0<Unit> onRenderReady) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, canvas, onRenderReady) == null) {
-            Intrinsics.checkNotNullParameter(canvas, "canvas");
-            Intrinsics.checkNotNullParameter(onRenderReady, "onRenderReady");
-            RenderSystem renderSystem = (RenderSystem) k(RenderSystem.class);
-            if (renderSystem == null) {
-                return;
-            }
-            renderSystem.k(canvas, onRenderReady);
-        }
-    }
-
-    public final zz5 t() {
+    public final CacheManager b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            j16 j16Var = (j16) k(j16.class);
-            if (j16Var == null) {
-                return null;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (CacheManager) invokeV.objValue;
+    }
+
+    public final a06 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (a06) invokeV.objValue;
+    }
+
+    public final g26 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : (g26) invokeV.objValue;
+    }
+
+    public final z06 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (z06) invokeV.objValue;
+    }
+
+    public final j26 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (j26) invokeV.objValue;
+    }
+
+    public final void g(g26 g26Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, g26Var) == null) {
+            Intrinsics.checkNotNullParameter(g26Var, "<set-?>");
+            this.g = g26Var;
+        }
+    }
+
+    public final void h(a06 config) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, config) == null) {
+            Intrinsics.checkNotNullParameter(config, "config");
+            this.d = config;
+            if (this.e.b().size() != config.i().size()) {
+                this.e.d(CollectionsKt___CollectionsKt.toList(config.i()));
             }
-            return j16Var.k();
+            if (this.e.c().size() != config.n().size()) {
+                this.e.e(CollectionsKt___CollectionsKt.toList(config.n()));
+            }
         }
-        return (zz5) invokeV.objValue;
-    }
-
-    public final k06 u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.j : (k06) invokeV.objValue;
-    }
-
-    public final long v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.k.a() : invokeV.longValue;
-    }
-
-    public final i26 w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.k : (i26) invokeV.objValue;
-    }
-
-    public final boolean x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.k.c() : invokeV.booleanValue;
-    }
-
-    public final void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.k.d(true);
-        }
-    }
-
-    public final void z() {
-        DataSystem dataSystem;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (dataSystem = (DataSystem) k(DataSystem.class)) == null) {
-            return;
-        }
-        dataSystem.D();
     }
 }

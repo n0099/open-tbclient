@@ -174,7 +174,7 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
             ScanBoxView scanBoxView = new ScanBoxView(getContext());
             this.c = scanBoxView;
             scanBoxView.k(context, attributeSet);
-            this.b.setId(R.id.obfuscated_res_0x7f090371);
+            this.b.setId(R.id.obfuscated_res_0x7f09036a);
             addView(this.b);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(context, attributeSet);
             layoutParams.addRule(6, this.b.getId());

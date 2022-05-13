@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.eu4;
+import com.repackage.ru4;
 /* loaded from: classes3.dex */
 public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPraiseInfoLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -82,7 +82,7 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
             super.H();
             this.e.setVisibilityListener(this.p0);
             this.e.v(true);
-            eu4.b(this);
+            ru4.b(this);
         }
     }
 
@@ -114,7 +114,7 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
     public View j(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) ? LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08b5, (ViewGroup) this, true) : (View) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) ? LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08aa, (ViewGroup) this, true) : (View) invokeL.objValue;
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout

@@ -6,23 +6,21 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ala.alasquare.special_forum.subtab.view.ConcernTabLiveItemView;
+import com.baidu.tieba.ala.alasquare.special_forum.subtab.view.ConcernTabEmptyView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class oq5 extends ho<xq5, ConcernTabLiveItemView.ViewHolder> {
+public class oq5 extends eo<xq5, ConcernTabEmptyView.ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext i;
-    public String j;
-    public String k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public oq5(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), xq5.d);
+        super(tbPageContext.getPageActivity(), xq5.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -39,54 +37,30 @@ public class oq5 extends ho<xq5, ConcernTabLiveItemView.ViewHolder> {
                 return;
             }
         }
-        this.j = "";
-        this.k = "";
         this.i = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
+    @Override // com.repackage.eo
     /* renamed from: Z */
-    public ConcernTabLiveItemView.ViewHolder M(ViewGroup viewGroup) {
+    public ConcernTabEmptyView.ViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            ConcernTabLiveItemView concernTabLiveItemView = new ConcernTabLiveItemView(this.i, viewGroup);
-            concernTabLiveItemView.v(this.j);
-            concernTabLiveItemView.a(this.k);
-            concernTabLiveItemView.getClass();
-            return new ConcernTabLiveItemView.ViewHolder(concernTabLiveItemView, concernTabLiveItemView);
-        }
-        return (ConcernTabLiveItemView.ViewHolder) invokeL.objValue;
-    }
-
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.k = str;
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new ConcernTabEmptyView.ViewHolder(new ConcernTabEmptyView(this.i, viewGroup).k()) : (ConcernTabEmptyView.ViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
+    @Override // com.repackage.eo
     /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, xq5 xq5Var, ConcernTabLiveItemView.ViewHolder viewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, xq5 xq5Var, ConcernTabEmptyView.ViewHolder viewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, xq5Var, viewHolder})) == null) {
-            if (viewHolder == null || xq5Var == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, xq5Var, viewHolder})) == null) {
+            if (viewHolder == null) {
                 return null;
             }
-            viewHolder.a.l(xq5Var);
             return viewHolder.b();
         }
         return (View) invokeCommon.objValue;
-    }
-
-    public void b0(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.j = str;
-        }
     }
 }

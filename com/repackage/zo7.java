@@ -73,12 +73,12 @@ public class zo7 {
                 return;
             }
         }
-        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d026d, (ViewGroup) null);
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0265, (ViewGroup) null);
         this.b = inflate;
-        View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f09089c);
+        View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f090894);
         this.a = findViewById;
         findViewById.setVisibility(8);
-        this.c = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0908a2);
+        this.c = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09089a);
     }
 
     public View b() {
@@ -109,7 +109,7 @@ public class zo7 {
     public void update(Integer num) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, num) == null) {
-            pg.a().post(new a(this, num));
+            ng.a().post(new a(this, num));
         }
     }
 }

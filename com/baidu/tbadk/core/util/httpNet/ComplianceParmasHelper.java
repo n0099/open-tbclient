@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fi;
+import com.repackage.di;
 import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -53,7 +53,7 @@ public class ComplianceParmasHelper {
     public static String getBase64Value(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? !TextUtils.isEmpty(str) ? fi.j(str.getBytes()) : str : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? !TextUtils.isEmpty(str) ? di.j(str.getBytes()) : str : (String) invokeL.objValue;
     }
 
     public static String getRenameKey(String str) {

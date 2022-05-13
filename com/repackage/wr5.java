@@ -1,8 +1,9 @@
 package com.repackage;
 
-import android.view.ViewGroup;
-import com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder;
+import com.baidu.tbadk.core.data.ThreadData;
 /* loaded from: classes7.dex */
 public interface wr5 {
-    AlaBannerViewHolder a(ViewGroup viewGroup, int i);
+    void a(int i, String str, ThreadData threadData);
+
+    void b(pr5 pr5Var);
 }

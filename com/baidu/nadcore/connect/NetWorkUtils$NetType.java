@@ -1,6 +1,5 @@
 package com.baidu.nadcore.connect;
 
-import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,7 +36,7 @@ public final class NetWorkUtils$NetType {
             }
         }
         NONE = new NetWorkUtils$NetType("NONE", 0, "no");
-        WIFI = new NetWorkUtils$NetType(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 1, "wifi");
+        WIFI = new NetWorkUtils$NetType("WIFI", 1, "wifi");
         _2G = new NetWorkUtils$NetType("_2G", 2, "2g");
         _3G = new NetWorkUtils$NetType("_3G", 3, "3g");
         _4G = new NetWorkUtils$NetType("_4G", 4, "4g");

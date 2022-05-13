@@ -1,110 +1,149 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.content.Context;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.reporter.Reporter;
+import com.bytedance.sdk.openadsdk.AdSlot;
+import com.bytedance.sdk.openadsdk.TTAdNative;
+import com.bytedance.sdk.openadsdk.TTAdSdk;
+import com.bytedance.sdk.openadsdk.TTFullScreenVideoAd;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes5.dex */
-public class ag9 {
+public class ag9 extends uf9<TTFullScreenVideoAd> {
     public static /* synthetic */ Interceptable $ic;
-    public static final gg9<Reporter> a;
-    public static final gg9<Reporter> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a extends gg9<Reporter> {
+    public class a implements TTAdNative.FullScreenVideoAdListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ag9 a;
 
-        public a() {
+        public a(ag9 ag9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ag9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.a = ag9Var;
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
+        public void onError(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
+                this.a.onError(i, str);
             }
         }
 
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        /* JADX WARN: Type inference failed for: r1v0, types: [com.fun.ad.sdk.internal.api.reporter.Reporter, java.lang.Object] */
-        @Override // com.repackage.gg9
-        public Reporter a() {
-            InterceptResult invokeV;
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener
+        public void onFullScreenVideoAdLoad(TTFullScreenVideoAd tTFullScreenVideoAd) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new eg9("https://rpe.xdplt.com/evt/", true) : invokeV.objValue;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tTFullScreenVideoAd) == null) {
+                LogPrinter.d();
+                this.a.onAdLoaded((ag9) tTFullScreenVideoAd);
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener
+        public void onFullScreenVideoCached() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                LogPrinter.d();
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener
+        public void onFullScreenVideoCached(TTFullScreenVideoAd tTFullScreenVideoAd) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, tTFullScreenVideoAd) == null) {
+            }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class b extends gg9<Reporter> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        /* JADX WARN: Type inference failed for: r1v0, types: [com.fun.ad.sdk.internal.api.reporter.Reporter, java.lang.Object] */
-        @Override // com.repackage.gg9
-        public Reporter a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new cg9("https://rpd.xdplt.com/evt/") : invokeV.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755857602, "Lcom/repackage/ag9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755857602, "Lcom/repackage/ag9;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ag9(FunAdType funAdType, Ssp.Pid pid) {
+        super(funAdType, pid);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {funAdType, pid};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new a();
-        b = new b();
     }
 
-    /* JADX WARN: Type inference failed for: r1v7, types: [T, java.lang.Object] */
-    public static Reporter a() {
-        InterceptResult invokeV;
-        Reporter reporter;
+    public AdSlot a(FunAdSlot funAdSlot) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            gg9<Reporter> gg9Var = a;
-            synchronized (gg9Var) {
-                if (gg9Var.a == null) {
-                    gg9Var.a = gg9Var.a();
-                }
-                reporter = gg9Var.a;
-            }
-            return reporter;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, funAdSlot)) == null) {
+            return new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setDownloadType(FunAdSdk.getFunAdConfig().downLoadType).setOrientation(this.mPid.isHorizontal ? 2 : 1).build();
         }
-        return (Reporter) invokeV.objValue;
+        return (AdSlot) invokeL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            TTFullScreenVideoAd tTFullScreenVideoAd = (TTFullScreenVideoAd) obj;
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
+            if (this.i == null) {
+                this.i = TTAdSdk.getAdManager().createAdNative(context.getApplicationContext());
+            }
+            AdSlot a2 = a(funAdSlot);
+            onLoadStart(funAdSlot);
+            this.i.loadFullScreenVideoAd(a2, new a(this));
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
+            TTFullScreenVideoAd tTFullScreenVideoAd = (TTFullScreenVideoAd) obj;
+            onShowStart();
+            tTFullScreenVideoAd.setFullScreenVideoAdInteractionListener(new bg9(this, tTFullScreenVideoAd));
+            tTFullScreenVideoAd.setDownloadListener(new mf9(null));
+            tTFullScreenVideoAd.showFullScreenVideoAd(activity);
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

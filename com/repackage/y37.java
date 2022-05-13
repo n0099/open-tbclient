@@ -1,83 +1,62 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.TopicList.TopicList;
-import tbclient.TopicList.TopicListModule;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class y37 implements uo {
+public class y37 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755192652, "Lcom/repackage/y37;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755192652, "Lcom/repackage/y37;");
-                return;
-            }
-        }
-        a = BdUniqueId.gen();
+    public static ImMessageCenterPojo a(ImMessageCenterPojo imMessageCenterPojo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, imMessageCenterPojo)) == null) ? (imMessageCenterPojo == null || imMessageCenterPojo.getCustomGroupType() != -7 || imMessageCenterPojo.getUnread_count() <= 0) ? imMessageCenterPojo : b(imMessageCenterPojo, r67.p().n()) : (ImMessageCenterPojo) invokeL.objValue;
     }
 
-    public y37() {
+    public static ImMessageCenterPojo b(ImMessageCenterPojo imMessageCenterPojo, List<ImMessageCenterPojo> list) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, imMessageCenterPojo, list)) == null) {
+            ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
+            imMessageCenterPojo2.setGid(imMessageCenterPojo.getGid());
+            imMessageCenterPojo2.setGroup_name(imMessageCenterPojo.getGroup_name());
+            imMessageCenterPojo2.setNameShow(imMessageCenterPojo.getNameShow());
+            imMessageCenterPojo2.setGroup_head(imMessageCenterPojo.getGroup_head());
+            imMessageCenterPojo2.setBjhAvatar(imMessageCenterPojo.getBjhAvatar());
+            imMessageCenterPojo2.setIs_hidden(imMessageCenterPojo.getIs_hidden());
+            imMessageCenterPojo2.setUnread_count(imMessageCenterPojo.getUnread_count());
+            imMessageCenterPojo2.setLast_rid(imMessageCenterPojo.getLast_rid());
+            imMessageCenterPojo2.setLast_user_name(imMessageCenterPojo.getLast_user_name());
+            imMessageCenterPojo2.setLast_content_time(imMessageCenterPojo.getLast_content_time());
+            imMessageCenterPojo2.setLast_content(imMessageCenterPojo.getLast_content());
+            imMessageCenterPojo2.setSend_status(imMessageCenterPojo.getSend_status());
+            imMessageCenterPojo2.setType(imMessageCenterPojo.getType());
+            imMessageCenterPojo2.setSelf(imMessageCenterPojo.isSelf());
+            imMessageCenterPojo2.setIsFriend(imMessageCenterPojo.getIsFriend());
+            imMessageCenterPojo2.setFollowStatus(imMessageCenterPojo.getFollowStatus());
+            imMessageCenterPojo2.setCustomGroupType(imMessageCenterPojo.getCustomGroupType());
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            boolean z = true;
+            for (ImMessageCenterPojo imMessageCenterPojo3 : list) {
+                if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == 2 && imMessageCenterPojo3.getIsFriend() == 0) {
+                    if (!t77.j().c(currentAccount, imMessageCenterPojo3.getGid())) {
+                        imMessageCenterPojo2.setUnread_count(imMessageCenterPojo2.getUnread_count() - imMessageCenterPojo3.getUnread_count());
+                    } else {
+                        u77.a().c(true);
+                        z = false;
+                    }
+                }
             }
-        }
-    }
-
-    public void a(TopicList topicList) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, topicList) == null) || topicList == null) {
-            return;
-        }
-        topicList.topic_id.longValue();
-        String str = topicList.topic_name;
-        topicList.tag.intValue();
-        topicList.discuss_num.longValue();
-        String str2 = topicList.topic_desc;
-        String str3 = topicList.topic_pic;
-    }
-
-    public void b(TopicListModule topicListModule) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, topicListModule) == null) {
-            try {
-                String str = topicListModule.module_title;
-                String str2 = topicListModule.tips;
-                String str3 = topicListModule.rule_jump_url;
-            } catch (Exception e) {
-                BdLog.e(e.toString());
+            if (z) {
+                imMessageCenterPojo2.setUnread_count(1);
+                u77.a().c(false);
             }
+            return imMessageCenterPojo2;
         }
-    }
-
-    @Override // com.repackage.uo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a : (BdUniqueId) invokeV.objValue;
+        return (ImMessageCenterPojo) invokeLL.objValue;
     }
 }

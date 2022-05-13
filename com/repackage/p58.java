@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class p58 implements uw8 {
+public class p58 implements rv8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
@@ -52,20 +52,20 @@ public class p58 implements uw8 {
         this.a = tbPageContext;
     }
 
-    @Override // com.repackage.uw8
-    public void a(View view2, y76 y76Var) {
+    @Override // com.repackage.rv8
+    public void a(View view2, h76 h76Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, view2, y76Var) == null) || y76Var == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, view2, h76Var) == null) || h76Var == null) {
             return;
         }
         UserData userData = null;
-        Bundle bundle = y76Var.b;
+        Bundle bundle = h76Var.b;
         if (bundle != null && (userData = (UserData) bundle.getSerializable(UserData.TYPE_USER)) != null) {
             this.b = TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), userData.getUserId()) ? 1 : 2;
             this.c = userData.isGod() ? 1 : 2;
             this.d = this.b == 1;
         }
-        switch (y76Var.a) {
+        switch (h76Var.a) {
             case 2:
                 if (ViewHelper.checkUpIsLogin(this.a.getPageActivity())) {
                     UrlManager.getInstance().dealOneLink(this.a, new String[]{TbConfig.URL_MEMBER_BUY});
@@ -76,13 +76,13 @@ public class p58 implements uw8 {
                 if (userData == null) {
                     return;
                 }
-                ul4.q(this.a.getPageActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f14ac), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + userData.getUserId() + "&opacity=0", true, true, true);
+                fm4.q(this.a.getPageActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f14d7), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + userData.getUserId() + "&opacity=0", true, true, true);
                 return;
             case 4:
                 if (userData == null) {
                     return;
                 }
-                if (y76Var instanceof s28) {
+                if (h76Var instanceof q28) {
                     TiebaStatic.log(new StatisticItem("c11586"));
                 } else {
                     TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 2).param("obj_type", this.b).param("obj_source", this.c));

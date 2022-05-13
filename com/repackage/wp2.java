@@ -36,7 +36,7 @@ public abstract class wp2 {
                 return;
             }
         }
-        a = tg1.a;
+        a = eh1.a;
     }
 
     public wp2(@NonNull String str) {
@@ -55,46 +55,46 @@ public abstract class wp2 {
         }
     }
 
-    public abstract boolean a(rp2 rp2Var, tp2 tp2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j03 j03Var);
+    public abstract boolean a(mp2 mp2Var, op2 op2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u03 u03Var);
 
     @Nullable
-    public rp2 b(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
+    public mp2 b(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
         InterceptResult invokeLLLLL;
-        hn2 f;
+        sn2 f;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3, jSONObject)) == null) {
-            if (TextUtils.isEmpty(str3) || (f = in2.f(str, str2, str3)) == null || !(f.i() instanceof rp2)) {
+            if (TextUtils.isEmpty(str3) || (f = tn2.f(str, str2, str3)) == null || !(f.i() instanceof mp2)) {
                 return null;
             }
-            return (rp2) f.i();
+            return (mp2) f.i();
         }
-        return (rp2) invokeLLLLL.objValue;
+        return (mp2) invokeLLLLL.objValue;
     }
 
-    public boolean c(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j03 j03Var) {
+    public boolean c(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u03 u03Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, j03Var)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, u03Var)) == null) {
             if (a) {
                 Log.d("VideoPlayerAction", "handle entity: " + unitedSchemeEntity.toString());
             }
             JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
             if (optParamsAsJo == null) {
-                jx1.c("vrvideo", "param is null");
+                ux1.c("video", "param is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                 return false;
             }
-            rp2 b = b(context, optParamsAsJo.optString("slaveId"), optParamsAsJo.optString("sanId"), optParamsAsJo.optString("videoId"), optParamsAsJo);
+            mp2 b = b(context, optParamsAsJo.optString("slaveId"), optParamsAsJo.optString("componentId"), optParamsAsJo.optString("componentId"), optParamsAsJo);
             if (b != null && context != null) {
-                tp2 h = tp2.h(optParamsAsJo, b.d());
+                op2 h = op2.h(optParamsAsJo, b.g());
                 if (!h.isValid()) {
-                    jx1.c("vrvideo", "param is invalid");
+                    ux1.c("video", "param is invalid");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                     return false;
                 }
-                return a(b, h, context, unitedSchemeEntity, callbackHandler, j03Var);
+                return a(b, h, context, unitedSchemeEntity, callbackHandler, u03Var);
             }
-            jx1.c("vrvideo", "player id is invalid or context is null");
+            ux1.c("video", "player id is invalid or context is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }

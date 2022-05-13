@@ -1,111 +1,77 @@
 package com.repackage;
 
 import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.L;
-import com.win.opensdk.PBError;
-import com.win.opensdk.activitys.H5Activity;
+import java.io.File;
+import java.util.Iterator;
+import java.util.List;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes6.dex */
 public class kq9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ThreadPoolExecutor a;
     public transient /* synthetic */ FieldHolder $fh;
-    public xt9 a;
-    public lq9 b;
 
-    public kq9(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755550082, "Lcom/repackage/kq9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755550082, "Lcom/repackage/kq9;");
                 return;
             }
         }
-        xt9 xt9Var = new xt9(context.getApplicationContext(), str);
-        this.a = xt9Var;
-        xt9Var.h = new lo9(this);
+        a = new ThreadPoolExecutor(1, 5, 1L, TimeUnit.MINUTES, new LinkedBlockingQueue(30));
     }
 
-    public void a() {
+    public static String a(Context context, String str, String str2, List list, dq9 dq9Var) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            xt9 xt9Var = this.a;
-            xt9Var.e = false;
-            xt9Var.c = false;
-            xt9Var.d = false;
-            au9 au9Var = xt9Var.i;
-            if (au9Var != null) {
-                au9Var.b();
-            }
-        }
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            xt9 xt9Var = this.a;
-            if (!xt9Var.c()) {
-                if (!(xt9Var.d && !xt9Var.e && xt9Var.e() && !xt9Var.f.isShown() && xt9Var.f.isEffective())) {
-                    return false;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65537, null, context, str, str2, list, dq9Var)) == null) {
+            AtomicInteger atomicInteger = new AtomicInteger(0);
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                String str3 = (String) it.next();
+                File file = new File(str2, String.valueOf(str3.hashCode()));
+                if (file.exists()) {
+                    if (file.length() == xp9.b(context).a(str3)) {
+                        str = str.replace(str3, "file://" + file.getAbsolutePath());
+                        atomicInteger.addAndGet(1);
+                    }
                 }
             }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            xt9 xt9Var = this.a;
-            if (xt9Var.e() && xt9Var.f.isEffective() && !xt9Var.f.isShown()) {
-                xt9Var.a(xt9Var.f);
-                return;
-            }
-            if (xt9Var.i == null) {
-                xt9Var.i = new au9(xt9Var.b, xt9Var.a, L.d);
-            }
-            xt9Var.i.g = new pt9(xt9Var);
-            xt9Var.i.g();
-        }
-    }
-
-    public void d(lq9 lq9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, lq9Var) == null) {
-            this.b = lq9Var;
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            xt9 xt9Var = this.a;
-            if (!wp9.H(xt9Var.b)) {
-                lq9 lq9Var = xt9Var.h;
-                if (lq9Var != null) {
-                    lq9Var.d(PBError.NO_NETWORK.getMsg());
+            if (dq9Var != null) {
+                if (atomicInteger.get() <= 0) {
+                    dq9Var.a(0);
+                } else if (atomicInteger.get() == list.size()) {
+                    dq9Var.a(2);
+                } else {
+                    dq9Var.a(1);
                 }
-            } else if (xt9Var.g() && xt9Var.c() && xt9Var.e()) {
-                xt9Var.c = false;
-                ap9.b().d(ap9.c(xt9Var.f.getTraceid(), xt9Var.f.getId(), xt9Var.f.getPid()), xt9Var.g);
-                xt9Var.f.setShown(true);
-                wp9.l(xt9Var.b, xt9Var.f);
-                rp9.a().c(ap9.c(xt9Var.f.getTraceid(), xt9Var.f.getId(), xt9Var.a), xt9Var.f);
-                H5Activity.a(xt9Var.b, xt9Var.f, xt9Var.a);
-                vp9.b(xt9Var.f.getId() + xt9Var.a, xt9Var);
+            }
+            return str;
+        }
+        return (String) invokeLLLLL.objValue;
+    }
+
+    public static void b(Context context, String str, List list, aq9 aq9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65538, null, context, str, list, aq9Var) == null) {
+            try {
+                a.execute(new up9(context, str, list, aq9Var));
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

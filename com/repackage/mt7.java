@@ -10,7 +10,6 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.BigImgPbActivityConfig;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
@@ -19,6 +18,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.pb.PbPageRequestMessage;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -33,10 +33,11 @@ import java.util.regex.Pattern;
 /* loaded from: classes6.dex */
 public class mt7 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean A;
+    public static String A;
     public static boolean B;
-    public static PbActivityConfig C;
-    public static wa D;
+    public static boolean C;
+    public static PbActivityConfig D;
+    public static wa E;
     public static String a;
     public static String b;
     public static String c;
@@ -45,21 +46,21 @@ public class mt7 {
     public static String f;
     public static String g;
     public static boolean h;
-    public static final BdUniDispatchSchemeController.b i;
-    public static int j;
+    public static TbHttpMessageTask i;
+    public static final BdUniDispatchSchemeController.b j;
     public static int k;
-    public static String l;
+    public static int l;
     public static String m;
-    public static boolean n;
+    public static String n;
     public static boolean o;
     public static boolean p;
-    public static int q;
-    public static String r;
+    public static boolean q;
+    public static int r;
     public static String s;
-    public static boolean t;
+    public static String t;
     public static boolean u;
-    public static long v;
-    public static String w;
+    public static boolean v;
+    public static long w;
     public static String x;
     public static String y;
     public static String z;
@@ -100,7 +101,7 @@ public class mt7 {
                 String unused3 = mt7.c = (String) hashMap.get(BdUniDispatchSchemeController.PARAM_ORI_UGC_TID);
             }
             if (hashMap.get(BdUniDispatchSchemeController.PARAM_ORI_UGC_TYPE) instanceof String) {
-                int unused4 = mt7.d = mg.e((String) hashMap.get(BdUniDispatchSchemeController.PARAM_ORI_UGC_TYPE), 0);
+                int unused4 = mt7.d = kg.e((String) hashMap.get(BdUniDispatchSchemeController.PARAM_ORI_UGC_TYPE), 0);
             }
             if (hashMap.get(BdUniDispatchSchemeController.PARAM_ORI_UGC_VID) instanceof String) {
                 String unused5 = mt7.e = (String) hashMap.get(BdUniDispatchSchemeController.PARAM_ORI_UGC_VID);
@@ -136,21 +137,11 @@ public class mt7 {
 
         @Override // com.repackage.wa
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            boolean z;
-            long j;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                if (responsedMessage.getOrginalMessage().getSelf() instanceof PbPageRequestMessage) {
-                    PbPageRequestMessage pbPageRequestMessage = (PbPageRequestMessage) responsedMessage.getOrginalMessage().getSelf();
-                    z = pbPageRequestMessage.isFromPbOptimize();
-                    j = pbPageRequestMessage.get_kz();
-                } else {
-                    z = false;
-                    j = 0;
-                }
-                if (lt7.a().e() && z && j == mg.g(mt7.a, 0L)) {
-                    TbSingleton.getInstance().pushPbResMsg = responsedMessage;
-                }
+            if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && (responsedMessage.getOrginalMessage().getSelf() instanceof PbPageRequestMessage)) {
+                PbPageRequestMessage pbPageRequestMessage = (PbPageRequestMessage) responsedMessage.getOrginalMessage().getSelf();
+                pbPageRequestMessage.isFromPbOptimize();
+                pbPageRequestMessage.get_kz();
             }
         }
     }
@@ -168,37 +159,37 @@ public class mt7 {
                 return;
             }
         }
-        i = new a();
-        D = new b(CmdConfigHttp.PB_PAGE_HTTP_CMD, 302001);
+        j = new a();
+        E = new b(CmdConfigHttp.PB_PAGE_HTTP_CMD, 302001);
+    }
+
+    public static String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            String str = a;
+            String g2 = (str == null || str.equals("0")) ? g() : a;
+            if (p) {
+                g2 = g2 + "_host";
+            }
+            int i2 = r;
+            if (i2 == 1) {
+                g2 = g2 + "_rev";
+            } else if (i2 == 2) {
+                g2 = g2 + "_hot";
+            }
+            if (TbadkCoreApplication.getCurrentAccount() != null) {
+                return g2 + TbadkCoreApplication.getCurrentAccount();
+            }
+            return g2;
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            String str = a;
-            String h2 = (str == null || str.equals("0")) ? h() : a;
-            if (o) {
-                h2 = h2 + "_host";
-            }
-            int i2 = q;
-            if (i2 == 1) {
-                h2 = h2 + "_rev";
-            } else if (i2 == 2) {
-                h2 = h2 + "_hot";
-            }
-            if (TbadkCoreApplication.getCurrentAccount() != null) {
-                return h2 + TbadkCoreApplication.getCurrentAccount();
-            }
-            return h2;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             String str = "";
             if (b != null) {
                 str = "" + b;
@@ -215,10 +206,10 @@ public class mt7 {
         return (String) invokeV.objValue;
     }
 
-    public static HashMap<String, Object> i(String str) {
+    public static HashMap<String, Object> h(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
             if (StringUtils.isNull(str)) {
                 return null;
             }
@@ -241,9 +232,9 @@ public class mt7 {
         return (HashMap) invokeL.objValue;
     }
 
-    public static void j(Intent intent) {
+    public static void i(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, intent) == null) {
+        if (interceptable == null || interceptable.invokeL(65545, null, intent) == null) {
             a = intent.getStringExtra("thread_id");
             b = intent.getStringExtra("key_ori_ugc_nid");
             c = intent.getStringExtra("key_ori_ugc_tid");
@@ -257,7 +248,7 @@ public class mt7 {
             h = false;
             if (BdUniDispatchSchemeController.isUniScheme(uri)) {
                 h = true;
-                BdUniDispatchSchemeController.getInstance().parsePbScheme(uri, i);
+                BdUniDispatchSchemeController.getInstance().parsePbScheme(uri, j);
             } else if (StringUtils.isNull(a)) {
                 h = true;
                 String uri2 = uri != null ? uri.toString() : "";
@@ -266,7 +257,7 @@ public class mt7 {
                         return;
                     }
                     String decode = Uri.decode(uri.getEncodedPath());
-                    if (StringUtils.isNull(decode) || i(decode) == null) {
+                    if (StringUtils.isNull(decode) || h(decode) == null) {
                         return;
                     }
                     HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SCHEMA_UPLOAD);
@@ -284,44 +275,44 @@ public class mt7 {
                         c = uri.getQueryParameter("key_ori_ugc_tid");
                     }
                     if (d == 0) {
-                        d = mg.e(uri.getQueryParameter("key_ori_ugc_type"), 0);
+                        d = kg.e(uri.getQueryParameter("key_ori_ugc_type"), 0);
                     }
                     if (StringUtils.isNull(e)) {
                         e = uri.getQueryParameter("key_ori_ugc_vid");
                     }
                 }
             }
-            if (ni.isEmpty(a)) {
+            if (li.isEmpty(a)) {
                 a = "0";
             }
             int intExtra = intent.getIntExtra("key_start_from", 0);
-            j = intExtra;
+            k = intExtra;
             if (intExtra == 0) {
-                j = k;
+                k = l;
             }
-            l = intent.getStringExtra("post_id");
-            m = intent.getStringExtra("forum_id");
-            n = intent.getBooleanExtra("KEY_NEED_REPOST_RECOMMEND_FORUM", false);
-            o = intent.getBooleanExtra("host_only", false);
-            p = intent.getBooleanExtra("squence", true);
+            m = intent.getStringExtra("post_id");
+            n = intent.getStringExtra("forum_id");
+            o = intent.getBooleanExtra("KEY_NEED_REPOST_RECOMMEND_FORUM", false);
+            p = intent.getBooleanExtra("host_only", false);
+            q = intent.getBooleanExtra("squence", true);
             int intExtra2 = intent.getIntExtra("sort_type", -1);
-            q = intExtra2;
+            r = intExtra2;
             if (intExtra2 < 0) {
-                intExtra2 = vt4.k().l("key_pb_current_sort_type", 2);
+                intExtra2 = iu4.k().l("key_pb_current_sort_type", 2);
             }
-            q = intExtra2;
-            l = intExtra2 != 2 ? l : "0";
-            r = intent.getStringExtra("st_type");
-            s = intent.getStringExtra("locate");
-            t = intent.getBooleanExtra("from_mark", false);
-            u = intent.getBooleanExtra("is_pv", false);
-            v = intent.getLongExtra("msg_id", 0L);
-            w = intent.getStringExtra("from_forum_name");
-            x = intent.getStringExtra("op_type");
-            y = intent.getStringExtra("op_url");
-            z = intent.getStringExtra("op_stat");
-            A = intent.getBooleanExtra("from_smart_frs", false);
-            B = intent.getIntExtra("request_code", -1) == 18003;
+            r = intExtra2;
+            m = intExtra2 != 2 ? m : "0";
+            s = intent.getStringExtra("st_type");
+            t = intent.getStringExtra("locate");
+            u = intent.getBooleanExtra("from_mark", false);
+            v = intent.getBooleanExtra("is_pv", false);
+            w = intent.getLongExtra("msg_id", 0L);
+            x = intent.getStringExtra("from_forum_name");
+            y = intent.getStringExtra("op_type");
+            z = intent.getStringExtra("op_url");
+            A = intent.getStringExtra("op_stat");
+            B = intent.getBooleanExtra("from_smart_frs", false);
+            C = intent.getIntExtra("request_code", -1) == 18003;
         }
     }
 
@@ -331,7 +322,7 @@ public class mt7 {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static int k(String[] strArr) {
+    public static int j(String[] strArr) {
         InterceptResult invokeL;
         String c2;
         boolean z2;
@@ -342,7 +333,7 @@ public class mt7 {
         String substring;
         PbActivityConfig createNormalCfg;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, strArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, strArr)) == null) {
             if (strArr == null || strArr.length == 0 || strArr[0] == null) {
                 return 3;
             }
@@ -359,8 +350,8 @@ public class mt7 {
                 c2 = matcher.group(1);
                 Uri parse = Uri.parse(lowerCase);
                 str4 = parse.getQueryParameter("pid");
-                z3 = mg.b(parse.getQueryParameter("is_video"), false);
-                z5 = mg.b(parse.getQueryParameter("is_official_video"), false);
+                z3 = kg.b(parse.getQueryParameter("is_video"), false);
+                z5 = kg.b(parse.getQueryParameter("is_official_video"), false);
                 str = parse.getQueryParameter("broadcast_id");
                 if (lowerCase != null) {
                     String[] split = lowerCase.split("&");
@@ -373,7 +364,7 @@ public class mt7 {
                             }
                         }
                     }
-                    z2 = mg.b(nd5.c(lowerCase, "is_from_push="), false);
+                    z2 = kg.b(ge5.c(lowerCase, "is_from_push="), false);
                 } else {
                     z2 = false;
                 }
@@ -394,7 +385,7 @@ public class mt7 {
                     }
                 }
                 if (lowerCase != null) {
-                    String c3 = nd5.c(lowerCase, "sttype=");
+                    String c3 = ge5.c(lowerCase, "sttype=");
                     if (!StringUtils.isNull(c3)) {
                         str3 = c3;
                     }
@@ -440,7 +431,7 @@ public class mt7 {
                     } else if (TextUtils.isEmpty(lowerCase) || !lowerCase.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) || !lowerCase.contains("kz=")) {
                         return 3;
                     } else {
-                        c2 = nd5.c(lowerCase, "kz=");
+                        c2 = ge5.c(lowerCase, "kz=");
                     }
                     z2 = false;
                     str = null;
@@ -463,8 +454,8 @@ public class mt7 {
             } else {
                 createNormalCfg = new PbActivityConfig(TbadkCoreApplication.getInst()).createNormalCfg(c2, str4, str3);
             }
-            if (!TextUtils.isEmpty(lowerCase) && lowerCase.contains(BigImgPbActivityConfig.OPEN_COMMON) && "1".equals(nd5.c(lowerCase, BigImgPbActivityConfig.OPEN_COMMON))) {
-                createNormalCfg.setUserName(nd5.c(lowerCase, BigImgPbActivityConfig.BIG_PB_USER_NAME));
+            if (!TextUtils.isEmpty(lowerCase) && lowerCase.contains(BigImgPbActivityConfig.OPEN_COMMON) && "1".equals(ge5.c(lowerCase, BigImgPbActivityConfig.OPEN_COMMON))) {
+                createNormalCfg.setUserName(ge5.c(lowerCase, BigImgPbActivityConfig.BIG_PB_USER_NAME));
             }
             createNormalCfg.setVideo_source(str2);
             createNormalCfg.setStartFrom(25);
@@ -481,81 +472,81 @@ public class mt7 {
             if (lowerCase != null && lowerCase.contains("fr=collect")) {
                 createNormalCfg.setJumpToCommentArea(true);
             }
-            C = createNormalCfg;
+            D = createNormalCfg;
             return 0;
         }
         return invokeL.intValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:54:0x012e A[Catch: Exception -> 0x0232, TryCatch #0 {Exception -> 0x0232, blocks: (B:9:0x0029, B:11:0x002d, B:14:0x0037, B:18:0x009f, B:20:0x00af, B:21:0x00b2, B:23:0x00bf, B:24:0x00c2, B:26:0x00c6, B:27:0x00cb, B:29:0x00cf, B:30:0x00d4, B:32:0x00d8, B:33:0x00e7, B:35:0x00eb, B:36:0x00ee, B:38:0x00f2, B:39:0x010a, B:41:0x0111, B:44:0x0116, B:46:0x011d, B:48:0x0124, B:54:0x012e, B:56:0x0138, B:58:0x013c, B:59:0x0141, B:63:0x0167, B:65:0x0172, B:67:0x017f, B:69:0x0189, B:71:0x0190, B:73:0x0194, B:75:0x0199, B:78:0x019e, B:80:0x01a5, B:82:0x01c1, B:83:0x01ca, B:85:0x01d1, B:87:0x01db, B:94:0x01f2, B:90:0x01e6, B:79:0x01a2, B:70:0x018d, B:66:0x017a, B:55:0x0132, B:45:0x011a), top: B:103:0x0029 }] */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x0132 A[Catch: Exception -> 0x0232, TryCatch #0 {Exception -> 0x0232, blocks: (B:9:0x0029, B:11:0x002d, B:14:0x0037, B:18:0x009f, B:20:0x00af, B:21:0x00b2, B:23:0x00bf, B:24:0x00c2, B:26:0x00c6, B:27:0x00cb, B:29:0x00cf, B:30:0x00d4, B:32:0x00d8, B:33:0x00e7, B:35:0x00eb, B:36:0x00ee, B:38:0x00f2, B:39:0x010a, B:41:0x0111, B:44:0x0116, B:46:0x011d, B:48:0x0124, B:54:0x012e, B:56:0x0138, B:58:0x013c, B:59:0x0141, B:63:0x0167, B:65:0x0172, B:67:0x017f, B:69:0x0189, B:71:0x0190, B:73:0x0194, B:75:0x0199, B:78:0x019e, B:80:0x01a5, B:82:0x01c1, B:83:0x01ca, B:85:0x01d1, B:87:0x01db, B:94:0x01f2, B:90:0x01e6, B:79:0x01a2, B:70:0x018d, B:66:0x017a, B:55:0x0132, B:45:0x011a), top: B:103:0x0029 }] */
-    /* JADX WARN: Removed duplicated region for block: B:58:0x013c A[Catch: Exception -> 0x0232, TryCatch #0 {Exception -> 0x0232, blocks: (B:9:0x0029, B:11:0x002d, B:14:0x0037, B:18:0x009f, B:20:0x00af, B:21:0x00b2, B:23:0x00bf, B:24:0x00c2, B:26:0x00c6, B:27:0x00cb, B:29:0x00cf, B:30:0x00d4, B:32:0x00d8, B:33:0x00e7, B:35:0x00eb, B:36:0x00ee, B:38:0x00f2, B:39:0x010a, B:41:0x0111, B:44:0x0116, B:46:0x011d, B:48:0x0124, B:54:0x012e, B:56:0x0138, B:58:0x013c, B:59:0x0141, B:63:0x0167, B:65:0x0172, B:67:0x017f, B:69:0x0189, B:71:0x0190, B:73:0x0194, B:75:0x0199, B:78:0x019e, B:80:0x01a5, B:82:0x01c1, B:83:0x01ca, B:85:0x01d1, B:87:0x01db, B:94:0x01f2, B:90:0x01e6, B:79:0x01a2, B:70:0x018d, B:66:0x017a, B:55:0x0132, B:45:0x011a), top: B:103:0x0029 }] */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x012e A[Catch: Exception -> 0x022d, TryCatch #0 {Exception -> 0x022d, blocks: (B:9:0x0029, B:11:0x002d, B:14:0x0037, B:18:0x009f, B:20:0x00af, B:21:0x00b2, B:23:0x00bf, B:24:0x00c2, B:26:0x00c6, B:27:0x00cb, B:29:0x00cf, B:30:0x00d4, B:32:0x00d8, B:33:0x00e7, B:35:0x00eb, B:36:0x00ee, B:38:0x00f2, B:39:0x010a, B:41:0x0111, B:44:0x0116, B:46:0x011d, B:48:0x0124, B:54:0x012e, B:56:0x0138, B:58:0x013c, B:59:0x0141, B:63:0x0167, B:65:0x0172, B:67:0x017f, B:69:0x0189, B:71:0x0190, B:73:0x0194, B:75:0x0199, B:78:0x019e, B:80:0x01a5, B:82:0x01c1, B:83:0x01ca, B:85:0x01d1, B:87:0x01db, B:94:0x01f2, B:90:0x01e6, B:79:0x01a2, B:70:0x018d, B:66:0x017a, B:55:0x0132, B:45:0x011a), top: B:103:0x0029 }] */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x0132 A[Catch: Exception -> 0x022d, TryCatch #0 {Exception -> 0x022d, blocks: (B:9:0x0029, B:11:0x002d, B:14:0x0037, B:18:0x009f, B:20:0x00af, B:21:0x00b2, B:23:0x00bf, B:24:0x00c2, B:26:0x00c6, B:27:0x00cb, B:29:0x00cf, B:30:0x00d4, B:32:0x00d8, B:33:0x00e7, B:35:0x00eb, B:36:0x00ee, B:38:0x00f2, B:39:0x010a, B:41:0x0111, B:44:0x0116, B:46:0x011d, B:48:0x0124, B:54:0x012e, B:56:0x0138, B:58:0x013c, B:59:0x0141, B:63:0x0167, B:65:0x0172, B:67:0x017f, B:69:0x0189, B:71:0x0190, B:73:0x0194, B:75:0x0199, B:78:0x019e, B:80:0x01a5, B:82:0x01c1, B:83:0x01ca, B:85:0x01d1, B:87:0x01db, B:94:0x01f2, B:90:0x01e6, B:79:0x01a2, B:70:0x018d, B:66:0x017a, B:55:0x0132, B:45:0x011a), top: B:103:0x0029 }] */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x013c A[Catch: Exception -> 0x022d, TryCatch #0 {Exception -> 0x022d, blocks: (B:9:0x0029, B:11:0x002d, B:14:0x0037, B:18:0x009f, B:20:0x00af, B:21:0x00b2, B:23:0x00bf, B:24:0x00c2, B:26:0x00c6, B:27:0x00cb, B:29:0x00cf, B:30:0x00d4, B:32:0x00d8, B:33:0x00e7, B:35:0x00eb, B:36:0x00ee, B:38:0x00f2, B:39:0x010a, B:41:0x0111, B:44:0x0116, B:46:0x011d, B:48:0x0124, B:54:0x012e, B:56:0x0138, B:58:0x013c, B:59:0x0141, B:63:0x0167, B:65:0x0172, B:67:0x017f, B:69:0x0189, B:71:0x0190, B:73:0x0194, B:75:0x0199, B:78:0x019e, B:80:0x01a5, B:82:0x01c1, B:83:0x01ca, B:85:0x01d1, B:87:0x01db, B:94:0x01f2, B:90:0x01e6, B:79:0x01a2, B:70:0x018d, B:66:0x017a, B:55:0x0132, B:45:0x011a), top: B:103:0x0029 }] */
     /* JADX WARN: Removed duplicated region for block: B:61:0x0164  */
     /* JADX WARN: Removed duplicated region for block: B:62:0x0166  */
-    /* JADX WARN: Removed duplicated region for block: B:65:0x0172 A[Catch: Exception -> 0x0232, TryCatch #0 {Exception -> 0x0232, blocks: (B:9:0x0029, B:11:0x002d, B:14:0x0037, B:18:0x009f, B:20:0x00af, B:21:0x00b2, B:23:0x00bf, B:24:0x00c2, B:26:0x00c6, B:27:0x00cb, B:29:0x00cf, B:30:0x00d4, B:32:0x00d8, B:33:0x00e7, B:35:0x00eb, B:36:0x00ee, B:38:0x00f2, B:39:0x010a, B:41:0x0111, B:44:0x0116, B:46:0x011d, B:48:0x0124, B:54:0x012e, B:56:0x0138, B:58:0x013c, B:59:0x0141, B:63:0x0167, B:65:0x0172, B:67:0x017f, B:69:0x0189, B:71:0x0190, B:73:0x0194, B:75:0x0199, B:78:0x019e, B:80:0x01a5, B:82:0x01c1, B:83:0x01ca, B:85:0x01d1, B:87:0x01db, B:94:0x01f2, B:90:0x01e6, B:79:0x01a2, B:70:0x018d, B:66:0x017a, B:55:0x0132, B:45:0x011a), top: B:103:0x0029 }] */
-    /* JADX WARN: Removed duplicated region for block: B:66:0x017a A[Catch: Exception -> 0x0232, TryCatch #0 {Exception -> 0x0232, blocks: (B:9:0x0029, B:11:0x002d, B:14:0x0037, B:18:0x009f, B:20:0x00af, B:21:0x00b2, B:23:0x00bf, B:24:0x00c2, B:26:0x00c6, B:27:0x00cb, B:29:0x00cf, B:30:0x00d4, B:32:0x00d8, B:33:0x00e7, B:35:0x00eb, B:36:0x00ee, B:38:0x00f2, B:39:0x010a, B:41:0x0111, B:44:0x0116, B:46:0x011d, B:48:0x0124, B:54:0x012e, B:56:0x0138, B:58:0x013c, B:59:0x0141, B:63:0x0167, B:65:0x0172, B:67:0x017f, B:69:0x0189, B:71:0x0190, B:73:0x0194, B:75:0x0199, B:78:0x019e, B:80:0x01a5, B:82:0x01c1, B:83:0x01ca, B:85:0x01d1, B:87:0x01db, B:94:0x01f2, B:90:0x01e6, B:79:0x01a2, B:70:0x018d, B:66:0x017a, B:55:0x0132, B:45:0x011a), top: B:103:0x0029 }] */
-    /* JADX WARN: Removed duplicated region for block: B:69:0x0189 A[Catch: Exception -> 0x0232, TryCatch #0 {Exception -> 0x0232, blocks: (B:9:0x0029, B:11:0x002d, B:14:0x0037, B:18:0x009f, B:20:0x00af, B:21:0x00b2, B:23:0x00bf, B:24:0x00c2, B:26:0x00c6, B:27:0x00cb, B:29:0x00cf, B:30:0x00d4, B:32:0x00d8, B:33:0x00e7, B:35:0x00eb, B:36:0x00ee, B:38:0x00f2, B:39:0x010a, B:41:0x0111, B:44:0x0116, B:46:0x011d, B:48:0x0124, B:54:0x012e, B:56:0x0138, B:58:0x013c, B:59:0x0141, B:63:0x0167, B:65:0x0172, B:67:0x017f, B:69:0x0189, B:71:0x0190, B:73:0x0194, B:75:0x0199, B:78:0x019e, B:80:0x01a5, B:82:0x01c1, B:83:0x01ca, B:85:0x01d1, B:87:0x01db, B:94:0x01f2, B:90:0x01e6, B:79:0x01a2, B:70:0x018d, B:66:0x017a, B:55:0x0132, B:45:0x011a), top: B:103:0x0029 }] */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x018d A[Catch: Exception -> 0x0232, TryCatch #0 {Exception -> 0x0232, blocks: (B:9:0x0029, B:11:0x002d, B:14:0x0037, B:18:0x009f, B:20:0x00af, B:21:0x00b2, B:23:0x00bf, B:24:0x00c2, B:26:0x00c6, B:27:0x00cb, B:29:0x00cf, B:30:0x00d4, B:32:0x00d8, B:33:0x00e7, B:35:0x00eb, B:36:0x00ee, B:38:0x00f2, B:39:0x010a, B:41:0x0111, B:44:0x0116, B:46:0x011d, B:48:0x0124, B:54:0x012e, B:56:0x0138, B:58:0x013c, B:59:0x0141, B:63:0x0167, B:65:0x0172, B:67:0x017f, B:69:0x0189, B:71:0x0190, B:73:0x0194, B:75:0x0199, B:78:0x019e, B:80:0x01a5, B:82:0x01c1, B:83:0x01ca, B:85:0x01d1, B:87:0x01db, B:94:0x01f2, B:90:0x01e6, B:79:0x01a2, B:70:0x018d, B:66:0x017a, B:55:0x0132, B:45:0x011a), top: B:103:0x0029 }] */
-    /* JADX WARN: Removed duplicated region for block: B:73:0x0194 A[Catch: Exception -> 0x0232, TryCatch #0 {Exception -> 0x0232, blocks: (B:9:0x0029, B:11:0x002d, B:14:0x0037, B:18:0x009f, B:20:0x00af, B:21:0x00b2, B:23:0x00bf, B:24:0x00c2, B:26:0x00c6, B:27:0x00cb, B:29:0x00cf, B:30:0x00d4, B:32:0x00d8, B:33:0x00e7, B:35:0x00eb, B:36:0x00ee, B:38:0x00f2, B:39:0x010a, B:41:0x0111, B:44:0x0116, B:46:0x011d, B:48:0x0124, B:54:0x012e, B:56:0x0138, B:58:0x013c, B:59:0x0141, B:63:0x0167, B:65:0x0172, B:67:0x017f, B:69:0x0189, B:71:0x0190, B:73:0x0194, B:75:0x0199, B:78:0x019e, B:80:0x01a5, B:82:0x01c1, B:83:0x01ca, B:85:0x01d1, B:87:0x01db, B:94:0x01f2, B:90:0x01e6, B:79:0x01a2, B:70:0x018d, B:66:0x017a, B:55:0x0132, B:45:0x011a), top: B:103:0x0029 }] */
-    /* JADX WARN: Removed duplicated region for block: B:82:0x01c1 A[Catch: Exception -> 0x0232, TryCatch #0 {Exception -> 0x0232, blocks: (B:9:0x0029, B:11:0x002d, B:14:0x0037, B:18:0x009f, B:20:0x00af, B:21:0x00b2, B:23:0x00bf, B:24:0x00c2, B:26:0x00c6, B:27:0x00cb, B:29:0x00cf, B:30:0x00d4, B:32:0x00d8, B:33:0x00e7, B:35:0x00eb, B:36:0x00ee, B:38:0x00f2, B:39:0x010a, B:41:0x0111, B:44:0x0116, B:46:0x011d, B:48:0x0124, B:54:0x012e, B:56:0x0138, B:58:0x013c, B:59:0x0141, B:63:0x0167, B:65:0x0172, B:67:0x017f, B:69:0x0189, B:71:0x0190, B:73:0x0194, B:75:0x0199, B:78:0x019e, B:80:0x01a5, B:82:0x01c1, B:83:0x01ca, B:85:0x01d1, B:87:0x01db, B:94:0x01f2, B:90:0x01e6, B:79:0x01a2, B:70:0x018d, B:66:0x017a, B:55:0x0132, B:45:0x011a), top: B:103:0x0029 }] */
-    /* JADX WARN: Removed duplicated region for block: B:85:0x01d1 A[Catch: Exception -> 0x0232, TryCatch #0 {Exception -> 0x0232, blocks: (B:9:0x0029, B:11:0x002d, B:14:0x0037, B:18:0x009f, B:20:0x00af, B:21:0x00b2, B:23:0x00bf, B:24:0x00c2, B:26:0x00c6, B:27:0x00cb, B:29:0x00cf, B:30:0x00d4, B:32:0x00d8, B:33:0x00e7, B:35:0x00eb, B:36:0x00ee, B:38:0x00f2, B:39:0x010a, B:41:0x0111, B:44:0x0116, B:46:0x011d, B:48:0x0124, B:54:0x012e, B:56:0x0138, B:58:0x013c, B:59:0x0141, B:63:0x0167, B:65:0x0172, B:67:0x017f, B:69:0x0189, B:71:0x0190, B:73:0x0194, B:75:0x0199, B:78:0x019e, B:80:0x01a5, B:82:0x01c1, B:83:0x01ca, B:85:0x01d1, B:87:0x01db, B:94:0x01f2, B:90:0x01e6, B:79:0x01a2, B:70:0x018d, B:66:0x017a, B:55:0x0132, B:45:0x011a), top: B:103:0x0029 }] */
+    /* JADX WARN: Removed duplicated region for block: B:65:0x0172 A[Catch: Exception -> 0x022d, TryCatch #0 {Exception -> 0x022d, blocks: (B:9:0x0029, B:11:0x002d, B:14:0x0037, B:18:0x009f, B:20:0x00af, B:21:0x00b2, B:23:0x00bf, B:24:0x00c2, B:26:0x00c6, B:27:0x00cb, B:29:0x00cf, B:30:0x00d4, B:32:0x00d8, B:33:0x00e7, B:35:0x00eb, B:36:0x00ee, B:38:0x00f2, B:39:0x010a, B:41:0x0111, B:44:0x0116, B:46:0x011d, B:48:0x0124, B:54:0x012e, B:56:0x0138, B:58:0x013c, B:59:0x0141, B:63:0x0167, B:65:0x0172, B:67:0x017f, B:69:0x0189, B:71:0x0190, B:73:0x0194, B:75:0x0199, B:78:0x019e, B:80:0x01a5, B:82:0x01c1, B:83:0x01ca, B:85:0x01d1, B:87:0x01db, B:94:0x01f2, B:90:0x01e6, B:79:0x01a2, B:70:0x018d, B:66:0x017a, B:55:0x0132, B:45:0x011a), top: B:103:0x0029 }] */
+    /* JADX WARN: Removed duplicated region for block: B:66:0x017a A[Catch: Exception -> 0x022d, TryCatch #0 {Exception -> 0x022d, blocks: (B:9:0x0029, B:11:0x002d, B:14:0x0037, B:18:0x009f, B:20:0x00af, B:21:0x00b2, B:23:0x00bf, B:24:0x00c2, B:26:0x00c6, B:27:0x00cb, B:29:0x00cf, B:30:0x00d4, B:32:0x00d8, B:33:0x00e7, B:35:0x00eb, B:36:0x00ee, B:38:0x00f2, B:39:0x010a, B:41:0x0111, B:44:0x0116, B:46:0x011d, B:48:0x0124, B:54:0x012e, B:56:0x0138, B:58:0x013c, B:59:0x0141, B:63:0x0167, B:65:0x0172, B:67:0x017f, B:69:0x0189, B:71:0x0190, B:73:0x0194, B:75:0x0199, B:78:0x019e, B:80:0x01a5, B:82:0x01c1, B:83:0x01ca, B:85:0x01d1, B:87:0x01db, B:94:0x01f2, B:90:0x01e6, B:79:0x01a2, B:70:0x018d, B:66:0x017a, B:55:0x0132, B:45:0x011a), top: B:103:0x0029 }] */
+    /* JADX WARN: Removed duplicated region for block: B:69:0x0189 A[Catch: Exception -> 0x022d, TryCatch #0 {Exception -> 0x022d, blocks: (B:9:0x0029, B:11:0x002d, B:14:0x0037, B:18:0x009f, B:20:0x00af, B:21:0x00b2, B:23:0x00bf, B:24:0x00c2, B:26:0x00c6, B:27:0x00cb, B:29:0x00cf, B:30:0x00d4, B:32:0x00d8, B:33:0x00e7, B:35:0x00eb, B:36:0x00ee, B:38:0x00f2, B:39:0x010a, B:41:0x0111, B:44:0x0116, B:46:0x011d, B:48:0x0124, B:54:0x012e, B:56:0x0138, B:58:0x013c, B:59:0x0141, B:63:0x0167, B:65:0x0172, B:67:0x017f, B:69:0x0189, B:71:0x0190, B:73:0x0194, B:75:0x0199, B:78:0x019e, B:80:0x01a5, B:82:0x01c1, B:83:0x01ca, B:85:0x01d1, B:87:0x01db, B:94:0x01f2, B:90:0x01e6, B:79:0x01a2, B:70:0x018d, B:66:0x017a, B:55:0x0132, B:45:0x011a), top: B:103:0x0029 }] */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x018d A[Catch: Exception -> 0x022d, TryCatch #0 {Exception -> 0x022d, blocks: (B:9:0x0029, B:11:0x002d, B:14:0x0037, B:18:0x009f, B:20:0x00af, B:21:0x00b2, B:23:0x00bf, B:24:0x00c2, B:26:0x00c6, B:27:0x00cb, B:29:0x00cf, B:30:0x00d4, B:32:0x00d8, B:33:0x00e7, B:35:0x00eb, B:36:0x00ee, B:38:0x00f2, B:39:0x010a, B:41:0x0111, B:44:0x0116, B:46:0x011d, B:48:0x0124, B:54:0x012e, B:56:0x0138, B:58:0x013c, B:59:0x0141, B:63:0x0167, B:65:0x0172, B:67:0x017f, B:69:0x0189, B:71:0x0190, B:73:0x0194, B:75:0x0199, B:78:0x019e, B:80:0x01a5, B:82:0x01c1, B:83:0x01ca, B:85:0x01d1, B:87:0x01db, B:94:0x01f2, B:90:0x01e6, B:79:0x01a2, B:70:0x018d, B:66:0x017a, B:55:0x0132, B:45:0x011a), top: B:103:0x0029 }] */
+    /* JADX WARN: Removed duplicated region for block: B:73:0x0194 A[Catch: Exception -> 0x022d, TryCatch #0 {Exception -> 0x022d, blocks: (B:9:0x0029, B:11:0x002d, B:14:0x0037, B:18:0x009f, B:20:0x00af, B:21:0x00b2, B:23:0x00bf, B:24:0x00c2, B:26:0x00c6, B:27:0x00cb, B:29:0x00cf, B:30:0x00d4, B:32:0x00d8, B:33:0x00e7, B:35:0x00eb, B:36:0x00ee, B:38:0x00f2, B:39:0x010a, B:41:0x0111, B:44:0x0116, B:46:0x011d, B:48:0x0124, B:54:0x012e, B:56:0x0138, B:58:0x013c, B:59:0x0141, B:63:0x0167, B:65:0x0172, B:67:0x017f, B:69:0x0189, B:71:0x0190, B:73:0x0194, B:75:0x0199, B:78:0x019e, B:80:0x01a5, B:82:0x01c1, B:83:0x01ca, B:85:0x01d1, B:87:0x01db, B:94:0x01f2, B:90:0x01e6, B:79:0x01a2, B:70:0x018d, B:66:0x017a, B:55:0x0132, B:45:0x011a), top: B:103:0x0029 }] */
+    /* JADX WARN: Removed duplicated region for block: B:82:0x01c1 A[Catch: Exception -> 0x022d, TryCatch #0 {Exception -> 0x022d, blocks: (B:9:0x0029, B:11:0x002d, B:14:0x0037, B:18:0x009f, B:20:0x00af, B:21:0x00b2, B:23:0x00bf, B:24:0x00c2, B:26:0x00c6, B:27:0x00cb, B:29:0x00cf, B:30:0x00d4, B:32:0x00d8, B:33:0x00e7, B:35:0x00eb, B:36:0x00ee, B:38:0x00f2, B:39:0x010a, B:41:0x0111, B:44:0x0116, B:46:0x011d, B:48:0x0124, B:54:0x012e, B:56:0x0138, B:58:0x013c, B:59:0x0141, B:63:0x0167, B:65:0x0172, B:67:0x017f, B:69:0x0189, B:71:0x0190, B:73:0x0194, B:75:0x0199, B:78:0x019e, B:80:0x01a5, B:82:0x01c1, B:83:0x01ca, B:85:0x01d1, B:87:0x01db, B:94:0x01f2, B:90:0x01e6, B:79:0x01a2, B:70:0x018d, B:66:0x017a, B:55:0x0132, B:45:0x011a), top: B:103:0x0029 }] */
+    /* JADX WARN: Removed duplicated region for block: B:85:0x01d1 A[Catch: Exception -> 0x022d, TryCatch #0 {Exception -> 0x022d, blocks: (B:9:0x0029, B:11:0x002d, B:14:0x0037, B:18:0x009f, B:20:0x00af, B:21:0x00b2, B:23:0x00bf, B:24:0x00c2, B:26:0x00c6, B:27:0x00cb, B:29:0x00cf, B:30:0x00d4, B:32:0x00d8, B:33:0x00e7, B:35:0x00eb, B:36:0x00ee, B:38:0x00f2, B:39:0x010a, B:41:0x0111, B:44:0x0116, B:46:0x011d, B:48:0x0124, B:54:0x012e, B:56:0x0138, B:58:0x013c, B:59:0x0141, B:63:0x0167, B:65:0x0172, B:67:0x017f, B:69:0x0189, B:71:0x0190, B:73:0x0194, B:75:0x0199, B:78:0x019e, B:80:0x01a5, B:82:0x01c1, B:83:0x01ca, B:85:0x01d1, B:87:0x01db, B:94:0x01f2, B:90:0x01e6, B:79:0x01a2, B:70:0x018d, B:66:0x017a, B:55:0x0132, B:45:0x011a), top: B:103:0x0029 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void l() {
+    public static void k() {
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65548, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
             PbPageRequestMessage pbPageRequestMessage = new PbPageRequestMessage();
             pbPageRequestMessage.setUpdateType(3);
             pbPageRequestMessage.setIsReqAd(1);
-            pbPageRequestMessage.setLastids(yz4.o);
-            if (o || t) {
-                B = false;
+            pbPageRequestMessage.setLastids(m05.l);
+            if (p || u) {
+                C = false;
             }
             try {
                 if (a != null && a.length() != 0) {
-                    pbPageRequestMessage.set_kz(mg.g(a, 0L));
+                    pbPageRequestMessage.set_kz(kg.g(a, 0L));
                     pbPageRequestMessage.setFloorSortType(1);
                     pbPageRequestMessage.setFloor_rn(4);
                     pbPageRequestMessage.set_rn(15);
                     pbPageRequestMessage.set_with_floor(1);
-                    pbPageRequestMessage.set_scr_w(Integer.valueOf(oi.k(TbadkCoreApplication.getInst().getApp())));
-                    pbPageRequestMessage.set_scr_h(Integer.valueOf(oi.i(TbadkCoreApplication.getInst().getApp())));
+                    pbPageRequestMessage.set_scr_w(Integer.valueOf(mi.k(TbadkCoreApplication.getInst().getApp())));
+                    pbPageRequestMessage.set_scr_h(Integer.valueOf(mi.i(TbadkCoreApplication.getInst().getApp())));
                     pbPageRequestMessage.set_scr_dip(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
                     pbPageRequestMessage.set_q_type(Integer.valueOf(TbImageHelper.getInstance().isShowBigImage() ? 2 : 1));
                     pbPageRequestMessage.setSchemeUrl(g);
-                    if (!p) {
+                    if (!q) {
                         pbPageRequestMessage.set_r(1);
                     }
-                    pbPageRequestMessage.set_r(Integer.valueOf(q));
-                    if (o) {
+                    pbPageRequestMessage.set_r(Integer.valueOf(r));
+                    if (p) {
                         pbPageRequestMessage.set_lz(1);
                     }
-                    if (r != null) {
-                        pbPageRequestMessage.set_st_type(r);
-                    }
                     if (s != null) {
-                        pbPageRequestMessage.setLocate(s);
+                        pbPageRequestMessage.set_st_type(s);
                     }
-                    if (u) {
-                        pbPageRequestMessage.set_message_id(Integer.valueOf((int) v));
+                    if (t != null) {
+                        pbPageRequestMessage.setLocate(t);
+                    }
+                    if (v) {
+                        pbPageRequestMessage.set_message_id(Integer.valueOf((int) w));
                         pbPageRequestMessage.set_message_click("1");
                     }
-                    if (B) {
+                    if (C) {
                         pbPageRequestMessage.set_banner(1);
                     }
-                    if (x != null) {
-                        pbPageRequestMessage.setOpType(x);
-                        pbPageRequestMessage.setOpUrl(y);
-                        pbPageRequestMessage.setOpStat(mg.e(z, 0));
-                        pbPageRequestMessage.setOpMessageID(v);
+                    if (y != null) {
+                        pbPageRequestMessage.setOpType(y);
+                        pbPageRequestMessage.setOpUrl(z);
+                        pbPageRequestMessage.setOpStat(kg.e(A, 0));
+                        pbPageRequestMessage.setOpMessageID(w);
                     }
                     pbPageRequestMessage.set_thread_type(0);
-                    if (!t && !o) {
+                    if (!u && !p) {
                         pbPageRequestMessage.set_banner(1);
                         pbPageRequestMessage.set_back(0);
-                        if (q != 0 && q != 2) {
+                        if (r != 0 && r != 2) {
                             z2 = false;
                             if (!z2) {
                                 pbPageRequestMessage.set_pn(1);
@@ -563,27 +554,27 @@ public class mt7 {
                                 pbPageRequestMessage.set_last(1);
                                 pbPageRequestMessage.set_pn(1);
                             }
-                            if (t) {
+                            if (u) {
                                 pbPageRequestMessage.set_st_type("store_thread");
                             }
-                            o(pbPageRequestMessage);
-                            pbPageRequestMessage.setIsFromMark(Boolean.valueOf(t));
-                            pbPageRequestMessage.setCacheKey(g());
-                            pbPageRequestMessage.setObjParam1(String.valueOf(j));
+                            m(pbPageRequestMessage);
+                            pbPageRequestMessage.setIsFromMark(Boolean.valueOf(u));
+                            pbPageRequestMessage.setCacheKey(f());
+                            pbPageRequestMessage.setObjParam1(String.valueOf(k));
                             pbPageRequestMessage.setIsSubPostDataReverse(false);
-                            pbPageRequestMessage.setFromSmartFrs(!A ? 1 : 0);
+                            pbPageRequestMessage.setFromSmartFrs(!B ? 1 : 0);
                             if (!UtilHelper.isUgcThreadType(d)) {
                                 pbPageRequestMessage.setForumId(String.valueOf(0));
                             } else {
-                                pbPageRequestMessage.setForumId(m);
+                                pbPageRequestMessage.setForumId(n);
                             }
-                            pbPageRequestMessage.setNeedRepostRecommendForum(n);
-                            if (j != 7) {
+                            pbPageRequestMessage.setNeedRepostRecommendForum(o);
+                            if (k != 7) {
                                 pbPageRequestMessage.setFrom_push(1);
                             } else {
                                 pbPageRequestMessage.setFrom_push(0);
                             }
-                            if (j != 7 && j != 5 && !h) {
+                            if (k != 7 && k != 5 && !h) {
                                 pbPageRequestMessage.setSourceType(2);
                                 pbPageRequestMessage.setOriUgcNid(b);
                                 pbPageRequestMessage.setOriUgcTid(c);
@@ -599,38 +590,35 @@ public class mt7 {
                                             pbPageRequestMessage.setAfterAdThreadCount(i2);
                                             pbPageRequestMessage.setImmersionVideoCommentSource(0);
                                             pbPageRequestMessage.setReqFoldComment(false);
+                                            pbPageRequestMessage.setTag(s70.d);
                                             pbPageRequestMessage.getHttpMessage().addHeader("thread_id", a);
                                             pbPageRequestMessage.getHttpMessage().addHeader("client_type", "2");
                                             pbPageRequestMessage.setFromPbOptimize(true);
-                                            lt7.a().f(true);
-                                            Class.forName("com.baidu.tieba.pb.pb.main.PbActivityStatic");
-                                            MessageManager.getInstance().registerListener(D);
-                                            MessageManager.getInstance().sendMessage(pbPageRequestMessage);
+                                            MessageManager.getInstance().registerListener(E);
+                                            s70.e(pbPageRequestMessage.getHttpMessage(), i);
                                         }
                                     } else if (pbPageRequestMessage.getPn().intValue() == 1) {
                                         pbPageRequestMessage.setAfterAdThreadCount(i2);
                                         pbPageRequestMessage.setImmersionVideoCommentSource(0);
                                         pbPageRequestMessage.setReqFoldComment(false);
+                                        pbPageRequestMessage.setTag(s70.d);
                                         pbPageRequestMessage.getHttpMessage().addHeader("thread_id", a);
                                         pbPageRequestMessage.getHttpMessage().addHeader("client_type", "2");
                                         pbPageRequestMessage.setFromPbOptimize(true);
-                                        lt7.a().f(true);
-                                        Class.forName("com.baidu.tieba.pb.pb.main.PbActivityStatic");
-                                        MessageManager.getInstance().registerListener(D);
-                                        MessageManager.getInstance().sendMessage(pbPageRequestMessage);
+                                        MessageManager.getInstance().registerListener(E);
+                                        s70.e(pbPageRequestMessage.getHttpMessage(), i);
                                     }
                                 }
                                 i2 = 0;
                                 pbPageRequestMessage.setAfterAdThreadCount(i2);
                                 pbPageRequestMessage.setImmersionVideoCommentSource(0);
                                 pbPageRequestMessage.setReqFoldComment(false);
+                                pbPageRequestMessage.setTag(s70.d);
                                 pbPageRequestMessage.getHttpMessage().addHeader("thread_id", a);
                                 pbPageRequestMessage.getHttpMessage().addHeader("client_type", "2");
                                 pbPageRequestMessage.setFromPbOptimize(true);
-                                lt7.a().f(true);
-                                Class.forName("com.baidu.tieba.pb.pb.main.PbActivityStatic");
-                                MessageManager.getInstance().registerListener(D);
-                                MessageManager.getInstance().sendMessage(pbPageRequestMessage);
+                                MessageManager.getInstance().registerListener(E);
+                                s70.e(pbPageRequestMessage.getHttpMessage(), i);
                             }
                             pbPageRequestMessage.setSourceType(1);
                             pbPageRequestMessage.setOriUgcNid(b);
@@ -646,31 +634,30 @@ public class mt7 {
                             pbPageRequestMessage.setAfterAdThreadCount(i22);
                             pbPageRequestMessage.setImmersionVideoCommentSource(0);
                             pbPageRequestMessage.setReqFoldComment(false);
+                            pbPageRequestMessage.setTag(s70.d);
                             pbPageRequestMessage.getHttpMessage().addHeader("thread_id", a);
                             pbPageRequestMessage.getHttpMessage().addHeader("client_type", "2");
                             pbPageRequestMessage.setFromPbOptimize(true);
-                            lt7.a().f(true);
-                            Class.forName("com.baidu.tieba.pb.pb.main.PbActivityStatic");
-                            MessageManager.getInstance().registerListener(D);
-                            MessageManager.getInstance().sendMessage(pbPageRequestMessage);
+                            MessageManager.getInstance().registerListener(E);
+                            s70.e(pbPageRequestMessage.getHttpMessage(), i);
                         }
                         z2 = true;
                         if (!z2) {
                         }
-                        if (t) {
+                        if (u) {
                         }
-                        o(pbPageRequestMessage);
-                        pbPageRequestMessage.setIsFromMark(Boolean.valueOf(t));
-                        pbPageRequestMessage.setCacheKey(g());
-                        pbPageRequestMessage.setObjParam1(String.valueOf(j));
+                        m(pbPageRequestMessage);
+                        pbPageRequestMessage.setIsFromMark(Boolean.valueOf(u));
+                        pbPageRequestMessage.setCacheKey(f());
+                        pbPageRequestMessage.setObjParam1(String.valueOf(k));
                         pbPageRequestMessage.setIsSubPostDataReverse(false);
-                        pbPageRequestMessage.setFromSmartFrs(!A ? 1 : 0);
+                        pbPageRequestMessage.setFromSmartFrs(!B ? 1 : 0);
                         if (!UtilHelper.isUgcThreadType(d)) {
                         }
-                        pbPageRequestMessage.setNeedRepostRecommendForum(n);
-                        if (j != 7) {
+                        pbPageRequestMessage.setNeedRepostRecommendForum(o);
+                        if (k != 7) {
                         }
-                        if (j != 7) {
+                        if (k != 7) {
                             pbPageRequestMessage.setSourceType(2);
                             pbPageRequestMessage.setOriUgcNid(b);
                             pbPageRequestMessage.setOriUgcTid(c);
@@ -685,13 +672,12 @@ public class mt7 {
                             pbPageRequestMessage.setAfterAdThreadCount(i222);
                             pbPageRequestMessage.setImmersionVideoCommentSource(0);
                             pbPageRequestMessage.setReqFoldComment(false);
+                            pbPageRequestMessage.setTag(s70.d);
                             pbPageRequestMessage.getHttpMessage().addHeader("thread_id", a);
                             pbPageRequestMessage.getHttpMessage().addHeader("client_type", "2");
                             pbPageRequestMessage.setFromPbOptimize(true);
-                            lt7.a().f(true);
-                            Class.forName("com.baidu.tieba.pb.pb.main.PbActivityStatic");
-                            MessageManager.getInstance().registerListener(D);
-                            MessageManager.getInstance().sendMessage(pbPageRequestMessage);
+                            MessageManager.getInstance().registerListener(E);
+                            s70.e(pbPageRequestMessage.getHttpMessage(), i);
                         }
                         pbPageRequestMessage.setSourceType(1);
                         pbPageRequestMessage.setOriUgcNid(b);
@@ -707,34 +693,33 @@ public class mt7 {
                         pbPageRequestMessage.setAfterAdThreadCount(i2222);
                         pbPageRequestMessage.setImmersionVideoCommentSource(0);
                         pbPageRequestMessage.setReqFoldComment(false);
+                        pbPageRequestMessage.setTag(s70.d);
                         pbPageRequestMessage.getHttpMessage().addHeader("thread_id", a);
                         pbPageRequestMessage.getHttpMessage().addHeader("client_type", "2");
                         pbPageRequestMessage.setFromPbOptimize(true);
-                        lt7.a().f(true);
-                        Class.forName("com.baidu.tieba.pb.pb.main.PbActivityStatic");
-                        MessageManager.getInstance().registerListener(D);
-                        MessageManager.getInstance().sendMessage(pbPageRequestMessage);
+                        MessageManager.getInstance().registerListener(E);
+                        s70.e(pbPageRequestMessage.getHttpMessage(), i);
                     }
                     pbPageRequestMessage.set_banner(0);
                     pbPageRequestMessage.set_back(0);
-                    if (q != 0) {
+                    if (r != 0) {
                         z2 = false;
                         if (!z2) {
                         }
-                        if (t) {
+                        if (u) {
                         }
-                        o(pbPageRequestMessage);
-                        pbPageRequestMessage.setIsFromMark(Boolean.valueOf(t));
-                        pbPageRequestMessage.setCacheKey(g());
-                        pbPageRequestMessage.setObjParam1(String.valueOf(j));
+                        m(pbPageRequestMessage);
+                        pbPageRequestMessage.setIsFromMark(Boolean.valueOf(u));
+                        pbPageRequestMessage.setCacheKey(f());
+                        pbPageRequestMessage.setObjParam1(String.valueOf(k));
                         pbPageRequestMessage.setIsSubPostDataReverse(false);
-                        pbPageRequestMessage.setFromSmartFrs(!A ? 1 : 0);
+                        pbPageRequestMessage.setFromSmartFrs(!B ? 1 : 0);
                         if (!UtilHelper.isUgcThreadType(d)) {
                         }
-                        pbPageRequestMessage.setNeedRepostRecommendForum(n);
-                        if (j != 7) {
+                        pbPageRequestMessage.setNeedRepostRecommendForum(o);
+                        if (k != 7) {
                         }
-                        if (j != 7) {
+                        if (k != 7) {
                         }
                         pbPageRequestMessage.setSourceType(1);
                         pbPageRequestMessage.setOriUgcNid(b);
@@ -750,31 +735,30 @@ public class mt7 {
                         pbPageRequestMessage.setAfterAdThreadCount(i22222);
                         pbPageRequestMessage.setImmersionVideoCommentSource(0);
                         pbPageRequestMessage.setReqFoldComment(false);
+                        pbPageRequestMessage.setTag(s70.d);
                         pbPageRequestMessage.getHttpMessage().addHeader("thread_id", a);
                         pbPageRequestMessage.getHttpMessage().addHeader("client_type", "2");
                         pbPageRequestMessage.setFromPbOptimize(true);
-                        lt7.a().f(true);
-                        Class.forName("com.baidu.tieba.pb.pb.main.PbActivityStatic");
-                        MessageManager.getInstance().registerListener(D);
-                        MessageManager.getInstance().sendMessage(pbPageRequestMessage);
+                        MessageManager.getInstance().registerListener(E);
+                        s70.e(pbPageRequestMessage.getHttpMessage(), i);
                     }
                     z2 = true;
                     if (!z2) {
                     }
-                    if (t) {
+                    if (u) {
                     }
-                    o(pbPageRequestMessage);
-                    pbPageRequestMessage.setIsFromMark(Boolean.valueOf(t));
-                    pbPageRequestMessage.setCacheKey(g());
-                    pbPageRequestMessage.setObjParam1(String.valueOf(j));
+                    m(pbPageRequestMessage);
+                    pbPageRequestMessage.setIsFromMark(Boolean.valueOf(u));
+                    pbPageRequestMessage.setCacheKey(f());
+                    pbPageRequestMessage.setObjParam1(String.valueOf(k));
                     pbPageRequestMessage.setIsSubPostDataReverse(false);
-                    pbPageRequestMessage.setFromSmartFrs(!A ? 1 : 0);
+                    pbPageRequestMessage.setFromSmartFrs(!B ? 1 : 0);
                     if (!UtilHelper.isUgcThreadType(d)) {
                     }
-                    pbPageRequestMessage.setNeedRepostRecommendForum(n);
-                    if (j != 7) {
+                    pbPageRequestMessage.setNeedRepostRecommendForum(o);
+                    if (k != 7) {
                     }
-                    if (j != 7) {
+                    if (k != 7) {
                     }
                     pbPageRequestMessage.setSourceType(1);
                     pbPageRequestMessage.setOriUgcNid(b);
@@ -790,13 +774,12 @@ public class mt7 {
                     pbPageRequestMessage.setAfterAdThreadCount(i222222);
                     pbPageRequestMessage.setImmersionVideoCommentSource(0);
                     pbPageRequestMessage.setReqFoldComment(false);
+                    pbPageRequestMessage.setTag(s70.d);
                     pbPageRequestMessage.getHttpMessage().addHeader("thread_id", a);
                     pbPageRequestMessage.getHttpMessage().addHeader("client_type", "2");
                     pbPageRequestMessage.setFromPbOptimize(true);
-                    lt7.a().f(true);
-                    Class.forName("com.baidu.tieba.pb.pb.main.PbActivityStatic");
-                    MessageManager.getInstance().registerListener(D);
-                    MessageManager.getInstance().sendMessage(pbPageRequestMessage);
+                    MessageManager.getInstance().registerListener(E);
+                    s70.e(pbPageRequestMessage.getHttpMessage(), i);
                 }
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
@@ -804,29 +787,20 @@ public class mt7 {
         }
     }
 
-    public static void m(Intent intent) {
+    public static void l(String[] strArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65549, null, intent) == null) || intent == null) {
-            return;
-        }
-        j(intent);
-        l();
-    }
-
-    public static void n(String[] strArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65550, null, strArr) == null) && k(strArr) == 0) {
-            j(C.getIntent());
-            l();
+        if ((interceptable == null || interceptable.invokeL(65548, null, strArr) == null) && j(strArr) == 0) {
+            i(D.getIntent());
+            k();
         }
     }
 
-    public static void o(PbPageRequestMessage pbPageRequestMessage) {
+    public static void m(PbPageRequestMessage pbPageRequestMessage) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65551, null, pbPageRequestMessage) == null) || TextUtils.isEmpty(w) || ma8.q().b() == null) {
+        if (!(interceptable == null || interceptable.invokeL(65549, null, pbPageRequestMessage) == null) || TextUtils.isEmpty(x) || ja8.l().b() == null) {
             return;
         }
-        pbPageRequestMessage.setRefreshCount(ma8.q().b().d(w, true) + 1);
-        pbPageRequestMessage.setLoadCount(ma8.q().b().e(w, true));
+        pbPageRequestMessage.setRefreshCount(ja8.l().b().d(x, true) + 1);
+        pbPageRequestMessage.setLoadCount(ja8.l().b().e(x, true));
     }
 }

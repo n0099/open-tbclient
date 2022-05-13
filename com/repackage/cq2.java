@@ -1,111 +1,178 @@
 package com.repackage;
 
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.Pair;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class cq2 extends pq1 {
+public class cq2 implements sn2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public mm1 a;
+    public String b;
+    public eq2 c;
+    public boolean d;
+    public Context e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cq2(@NonNull ko1 ko1Var) {
-        super(ko1Var);
+    public cq2(Context context, @NonNull eq2 eq2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ko1Var};
+            Object[] objArr = {context, eq2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ko1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.e = context;
+        this.c = eq2Var;
+        this.b = eq2Var.j;
+        e();
+        a();
     }
 
-    @Override // com.repackage.mo1
-    public String j() {
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.b)) {
+            return;
+        }
+        tn2.a(this);
+    }
+
+    @Override // com.repackage.sn2
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "UpdateMenuStyleApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c.c : (String) invokeV.objValue;
     }
 
-    public js1 x(String str) {
-        InterceptResult invokeL;
+    @Override // com.repackage.sn2
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#changeMenuStyle", false);
-            Pair<js1, JSONObject> s = s(str);
-            JSONObject jSONObject = (JSONObject) s.second;
-            if (((js1) s.first).isSuccess() && jSONObject != null) {
-                String optString = jSONObject.optString("type");
-                if (TextUtils.isEmpty(optString)) {
-                    return new js1(202);
-                }
-                int y = y(optString);
-                wl2 U = wl2.U();
-                if (U == null) {
-                    return new js1(1001);
-                }
-                sz1 V = U.V();
-                if (V == null) {
-                    return new js1(1001);
-                }
-                pz1 m = V.m();
-                if (m == null) {
-                    return new js1(1001);
-                }
-                o64 N1 = m.N1();
-                if (N1 == null) {
-                    if (m instanceof wz1) {
-                        ((wz1) m).i3(y);
-                        return js1.f();
-                    }
-                    return new js1(1001);
-                }
-                N1.e(y);
-                N1.z();
-                return js1.f();
-            }
-            return new js1(202);
-        }
-        return (js1) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
-    public final int y(String str) {
-        InterceptResult invokeL;
-        char c;
+    public eq2 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            int hashCode = str.hashCode();
-            if (hashCode != -1866956286) {
-                if (hashCode == -838846263 && str.equals("update")) {
-                    c = 0;
-                }
-                c = 65535;
-            } else {
-                if (str.equals("webDegrade")) {
-                    c = 1;
-                }
-                c = 65535;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (eq2) invokeV.objValue;
+    }
+
+    public mm1 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.a == null) {
+                ux1.i("VrVideo", "create player");
+                this.a = bk2.D0().create();
             }
-            if (c != 0) {
-                return c != 1 ? 12 : 20;
-            }
-            return 19;
+            return this.a;
         }
-        return invokeL.intValue;
+        return (mm1) invokeV.objValue;
+    }
+
+    @Override // com.repackage.sn2
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            eq2 eq2Var = this.c;
+            return eq2Var != null ? eq2Var.t : "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void g(eq2 eq2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, eq2Var) == null) {
+            ux1.i("VrVideo", "Open Player " + eq2Var.j);
+            mm1 mm1Var = this.a;
+            if (mm1Var != null) {
+                mm1Var.e(eq2Var, this.e);
+            }
+            this.c = eq2Var;
+        }
+    }
+
+    public void h(eq2 eq2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, eq2Var) == null) {
+            ux1.b("VrVideo", "update 接口");
+            mm1 mm1Var = this.a;
+            if (mm1Var != null) {
+                mm1Var.d(eq2Var, true);
+            }
+            this.c = eq2Var;
+        }
+    }
+
+    @Override // com.repackage.sn2
+    public Object i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this : invokeV.objValue;
+    }
+
+    @Override // com.repackage.sn2
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+        }
+    }
+
+    @Override // com.repackage.sn2
+    public void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            if (z) {
+                if (this.d) {
+                    e().resume();
+                }
+                e().b();
+            } else if (this.a != null) {
+                this.d = e().isPlaying();
+                e().pause();
+                e().c();
+            }
+        }
+    }
+
+    @Override // com.repackage.sn2
+    public boolean onBackPressed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            ux1.i("VrVideo", "onBackPressed");
+            mm1 mm1Var = this.a;
+            return mm1Var != null && mm1Var.onBackPressed();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.sn2
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            ux1.i("VrVideo", MissionEvent.MESSAGE_DESTROY);
+            mm1 mm1Var = this.a;
+            if (mm1Var != null) {
+                mm1Var.stop();
+                this.a = null;
+            }
+            tn2.k(this);
+        }
     }
 }

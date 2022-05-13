@@ -1,80 +1,31 @@
 package com.repackage;
 
-import android.util.Base64;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.GetTokenHttpResponsedMessage;
-import com.baidu.tbadk.BdToken.GetTokenRequestMessage;
-import com.baidu.tbadk.BdToken.GetTokenSocketResponsedMessage;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import android.content.Context;
+import android.util.Log;
+import android.webkit.WebResourceResponse;
+import androidx.annotation.NonNull;
+import androidx.annotation.WorkerThread;
+import androidx.webkit.WebViewAssetLoader;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class qi4 {
+import java.io.File;
+import java.io.IOException;
+/* loaded from: classes6.dex */
+public final class qi4 implements WebViewAssetLoader.PathHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public b b;
-    public wa c;
+    @NonNull
+    public final File a;
 
-    /* loaded from: classes7.dex */
-    public class a extends wa {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qi4 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(qi4 qi4Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qi4Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qi4Var;
-        }
-
-        @Override // com.repackage.wa
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.a = false;
-                if (responsedMessage == null || responsedMessage.getError() != 0) {
-                    this.a.d(false, null);
-                } else if (responsedMessage instanceof GetTokenSocketResponsedMessage) {
-                    this.a.d(true, ((GetTokenSocketResponsedMessage) responsedMessage).getData());
-                } else if (responsedMessage instanceof GetTokenHttpResponsedMessage) {
-                    this.a.d(true, ((GetTokenHttpResponsedMessage) responsedMessage).getData());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(boolean z, lj4 lj4Var);
-    }
-
-    public qi4() {
+    public qi4(@NonNull Context context, @NonNull File file) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, file};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -84,52 +35,32 @@ public class qi4 {
                 return;
             }
         }
-        this.a = false;
-        this.c = new a(this, CmdConfigHttp.CMD_GET_TOKEN, 309608);
-        f();
-        e();
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.a) {
-            return;
-        }
-        this.a = true;
-        GetTokenRequestMessage getTokenRequestMessage = new GetTokenRequestMessage();
-        getTokenRequestMessage.setToken(Base64.encodeToString(str.getBytes(), 2));
-        getTokenRequestMessage.setBaiduCuid(TbadkCoreApplication.getInst().getCuidGalaxy2());
-        MessageManager.getInstance().sendMessage(getTokenRequestMessage);
-    }
-
-    public final void d(boolean z, lj4 lj4Var) {
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, lj4Var) == null) || (bVar = this.b) == null) {
-            return;
-        }
-        bVar.a(z, lj4Var);
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().registerListener(this.c);
+        try {
+            this.a = new File(pi4.a(file));
+        } catch (IOException e) {
+            throw new IllegalArgumentException("Failed to resolve the canonical path for the given directory: " + file.getPath(), e);
         }
     }
 
-    public final void f() {
+    @Override // androidx.webkit.WebViewAssetLoader.PathHandler
+    @NonNull
+    @WorkerThread
+    public WebResourceResponse handle(@NonNull String str) {
+        InterceptResult invokeL;
+        File b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            kk8.h(309608, GetTokenSocketResponsedMessage.class, false, false);
-            kk8.c(309608, CmdConfigHttp.CMD_GET_TOKEN, TbConfig.URL_GET_TOKEN, GetTokenHttpResponsedMessage.class, false, false, false, false);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            try {
+                b = pi4.b(this.a, str);
+            } catch (IOException e) {
+                Log.e("ExtStoragePathHandler", "Error opening the requested path: " + str, e);
+            }
+            if (b != null) {
+                return new WebResourceResponse(pi4.c(str), null, pi4.e(b));
+            }
+            Log.e("ExtStoragePathHandler", String.format("The requested file: %s is outside the mounted directory: %s", str, this.a));
+            return new WebResourceResponse(null, null, null);
         }
-    }
-
-    public void g(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.b = bVar;
-        }
+        return (WebResourceResponse) invokeL.objValue;
     }
 }

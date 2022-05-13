@@ -18,7 +18,7 @@ public class w48 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, List<uo> list) {
+    public static void a(String str, List<ro> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(65536, null, str, list) == null) || StringUtils.isNull(str)) {
             return;
@@ -29,11 +29,11 @@ public class w48 {
         JSONArray jSONArray = new JSONArray();
         int size = list.size();
         for (int i = 0; i < size; i++) {
-            uo uoVar = list.get(i);
-            if (uoVar instanceof xz4) {
-                xz4 xz4Var = (xz4) uoVar;
-                if (!xz4Var.e()) {
-                    jSONArray.put(xz4Var.a());
+            ro roVar = list.get(i);
+            if (roVar instanceof l05) {
+                l05 l05Var = (l05) roVar;
+                if (!l05Var.e()) {
+                    jSONArray.put(l05Var.a());
                 }
             }
         }
@@ -43,18 +43,18 @@ public class w48 {
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public static void b(xz4 xz4Var, List<uo> list) {
-        xz4 xz4Var2;
+    public static void b(l05 l05Var, List<ro> list) {
+        l05 l05Var2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, xz4Var, list) == null) || xz4Var == null || ListUtils.isEmpty(list) || StringUtils.isNull(xz4Var.a())) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, l05Var, list) == null) || l05Var == null || ListUtils.isEmpty(list) || StringUtils.isNull(l05Var.a())) {
             return;
         }
         JSONArray jSONArray = new JSONArray();
         int size = list.size();
         for (int i = 0; i < size; i++) {
-            uo uoVar = list.get(i);
-            if ((uoVar instanceof xz4) && (xz4Var2 = (xz4) uoVar) != xz4Var && !xz4Var2.e()) {
-                jSONArray.put(xz4Var2.a());
+            ro roVar = list.get(i);
+            if ((roVar instanceof l05) && (l05Var2 = (l05) roVar) != l05Var && !l05Var2.e()) {
+                jSONArray.put(l05Var2.a());
             }
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
@@ -82,13 +82,13 @@ public class w48 {
         return (String) invokeLL.objValue;
     }
 
-    public static void d(xz4 xz4Var, BdUniqueId bdUniqueId) {
+    public static void d(l05 l05Var, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, xz4Var, bdUniqueId) == null) || xz4Var == null || StringUtils.isNull(xz4Var.a()) || !ListUtils.isEmpty(MessageManager.getInstance().findMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT, bdUniqueId))) {
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, l05Var, bdUniqueId) == null) || l05Var == null || StringUtils.isNull(l05Var.a()) || !ListUtils.isEmpty(MessageManager.getInstance().findMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT, bdUniqueId))) {
             return;
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT);
-        httpMessage.addParam("pic_url", xz4Var.a());
+        httpMessage.addParam("pic_url", l05Var.a());
         httpMessage.setTag(bdUniqueId);
         MessageManager.getInstance().sendMessage(httpMessage);
     }

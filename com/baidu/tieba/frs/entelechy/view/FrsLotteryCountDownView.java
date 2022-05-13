@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pg;
+import com.repackage.ng;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes3.dex */
@@ -137,7 +137,7 @@ public class FrsLotteryCountDownView extends LinearLayout {
                     frsLotteryCountDownView.i.setText(StringUtils.string(Long.valueOf((((j % FrsLotteryCountDownView.l) % FrsLotteryCountDownView.m) % FrsLotteryCountDownView.n) / FrsLotteryCountDownView.o)));
                     return;
                 }
-                pg.a().postDelayed(new b(new WeakReference(this), null), TimeUnit.SECONDS.toSeconds(3L));
+                ng.a().postDelayed(new b(new WeakReference(this), null), TimeUnit.SECONDS.toSeconds(3L));
             }
         }
     }
@@ -188,16 +188,16 @@ public class FrsLotteryCountDownView extends LinearLayout {
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d033c, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0333, (ViewGroup) this, true);
             this.b = inflate;
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091334);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091335);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091336);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091337);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091338);
-            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091339);
-            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09133a);
-            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09133b);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091343);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091344);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091345);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091346);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091347);
+            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091348);
+            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091349);
+            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09134a);
         }
     }
 

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ww2;
+import com.repackage.hx2;
 /* loaded from: classes2.dex */
 public class SwanProcessCallStub extends IProcessBridge.Stub {
     public static /* synthetic */ Interceptable $ic;
@@ -56,7 +56,7 @@ public class SwanProcessCallStub extends IProcessBridge.Stub {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return ww2.e(str, bundle);
+            return hx2.e(str, bundle);
         }
         return (Bundle) invokeLL.objValue;
     }

@@ -1,45 +1,61 @@
 package com.repackage;
 
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.R;
+import androidx.core.app.NotificationCompat;
+import com.baidu.tbadk.core.data.AbstractData;
+import com.baidu.tbadk.data.MetaData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class ak8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public MetaData a;
+    public List<AbstractData> b;
 
-    public static boolean a(String str, Boolean bool) {
-        InterceptResult invokeLL;
+    public ak8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, bool)) == null) {
-            if (SwitchManager.getInstance().findType("voice") != 0 || ((str != null && b(str)) || bool == null)) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return bool.booleanValue();
         }
-        return invokeLL.booleanValue;
+        this.b = new ArrayList();
     }
 
-    public static boolean b(String str) {
-        InterceptResult invokeL;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String[] stringArray = TbadkCoreApplication.getInst().getApp().getResources().getStringArray(R.array.obfuscated_res_0x7f030014);
-            String string = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f0643);
-            int length = stringArray.length;
-            for (int i = 0; i < length; i++) {
-                if (stringArray[i].equals(str)) {
-                    return true;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            try {
+                jSONObject.optString("id");
+                MetaData metaData = new MetaData();
+                this.a = metaData;
+                metaData.parserJson(jSONObject.optJSONObject(NotificationCompat.CarExtender.KEY_AUTHOR));
+                JSONArray optJSONArray = jSONObject.optJSONArray("abstract");
+                this.b = new ArrayList();
+                if (optJSONArray != null) {
+                    int length = optJSONArray.length();
+                    for (int i = 0; i < length; i++) {
+                        AbstractData abstractData = new AbstractData();
+                        abstractData.parserJson(optJSONArray.getJSONObject(i));
+                        this.b.add(abstractData);
+                    }
                 }
-                if (str.equals(stringArray[i] + string)) {
-                    return true;
-                }
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            return false;
         }
-        return invokeL.booleanValue;
     }
 }

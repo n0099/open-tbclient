@@ -13,31 +13,27 @@ import com.fun.ad.sdk.FunAdSlot;
 import com.fun.ad.sdk.FunAdType;
 import com.fun.ad.sdk.internal.api.ReporterPidLoader;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.AdRipper;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.qq.e.ads.banner2.UnifiedBannerADListener;
-import com.qq.e.ads.banner2.UnifiedBannerView;
-import com.qq.e.comm.util.AdError;
 /* loaded from: classes6.dex */
-public class oi9 extends ReporterPidLoader<UnifiedBannerView> {
+public class oi9 extends ReporterPidLoader<xh9> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements UnifiedBannerADListener {
+    public class a implements hi9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
         public boolean b;
-        public final /* synthetic */ UnifiedBannerView[] c;
+        public final /* synthetic */ xh9 c;
         public final /* synthetic */ oi9 d;
 
-        public a(oi9 oi9Var, UnifiedBannerView[] unifiedBannerViewArr) {
+        public a(oi9 oi9Var, xh9 xh9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {oi9Var, unifiedBannerViewArr};
+                Object[] objArr = {oi9Var, xh9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,11 +44,10 @@ public class oi9 extends ReporterPidLoader<UnifiedBannerView> {
                 }
             }
             this.d = oi9Var;
-            this.c = unifiedBannerViewArr;
+            this.c = xh9Var;
         }
 
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onADClicked() {
+        public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 LogPrinter.d();
@@ -61,70 +56,26 @@ public class oi9 extends ReporterPidLoader<UnifiedBannerView> {
             }
         }
 
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onADCloseOverlay() {
+        public void b(String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                LogPrinter.d();
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i) == null) {
+                LogPrinter.e("onFail errorCode: " + i + ", errorMessage: " + str, new Object[0]);
+                this.d.onError(i, str);
             }
         }
 
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onADClosed() {
+        public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                LogPrinter.e();
-                this.d.onAdClose();
-            }
-        }
-
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onADExposure() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 LogPrinter.d();
-                this.d.onAdShow(this.c[0], this.a, new String[0]);
-                this.a = true;
-            }
-        }
-
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onADLeftApplication() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                LogPrinter.d();
-            }
-        }
-
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onADOpenOverlay() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                LogPrinter.e();
-            }
-        }
-
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onADReceive() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                LogPrinter.d();
-                this.d.onAdLoaded((oi9) this.c[0]);
-            }
-        }
-
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onNoAD(AdError adError) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, adError) == null) {
-                this.d.onError(adError.getErrorCode(), adError.getErrorMsg());
+                this.d.onAdLoaded((oi9) this.c);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public oi9(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.BANNER), pid, false);
+        super(FunAdType.obtainType(pid, FunAdType.AdType.REWARD), pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -135,7 +86,7 @@ public class oi9 extends ReporterPidLoader<UnifiedBannerView> {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -144,35 +95,38 @@ public class oi9 extends ReporterPidLoader<UnifiedBannerView> {
     }
 
     @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public AdRipper createAdRipper(Ssp.Pid pid) {
-        InterceptResult invokeL;
+    public void destroyInternal(Object obj) {
+        xh9 xh9Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new ai9(pid) : (AdRipper) invokeL.objValue;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, obj) == null) || (xh9Var = (xh9) obj) == null) {
+            return;
+        }
+        xh9Var.a();
     }
 
     @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
-        UnifiedBannerView unifiedBannerView;
+    public boolean isAdAvailable(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) || (unifiedBannerView = (UnifiedBannerView) obj) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            xh9 xh9Var = (xh9) obj;
+            return xh9Var != null && xh9Var.d();
         }
-        unifiedBannerView.destroy();
+        return invokeL.booleanValue;
     }
 
     @Override // com.fun.ad.sdk.internal.api.BasePidLoader
     public void loadInternal(Context context, FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
+            xh9 xh9Var = (xh9) rh9.a(context, this.mPid);
             onLoadStart(funAdSlot);
-            if (!(context instanceof Activity)) {
-                onError(0, "NoA");
+            if (xh9Var == null) {
+                onError(0, "jy 激励广告创建失败");
                 return;
             }
-            UnifiedBannerView unifiedBannerView = new UnifiedBannerView((Activity) context, this.mPid.pid, new a(this, r6));
-            unifiedBannerView.setRefresh(0);
-            unifiedBannerView.loadAD();
-            UnifiedBannerView[] unifiedBannerViewArr = {unifiedBannerView};
+            xh9Var.c(new a(this, xh9Var));
+            xh9Var.b();
         }
     }
 
@@ -181,15 +135,14 @@ public class oi9 extends ReporterPidLoader<UnifiedBannerView> {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
-            UnifiedBannerView unifiedBannerView = (UnifiedBannerView) obj;
+            xh9 xh9Var = (xh9) obj;
             onShowStart();
-            if (unifiedBannerView.getParent() != null) {
-                ((ViewGroup) unifiedBannerView.getParent()).removeView(unifiedBannerView);
+            if (xh9Var.d()) {
+                xh9Var.e();
+                return true;
             }
-            viewGroup.removeAllViews();
-            int width = viewGroup.getWidth();
-            viewGroup.addView(unifiedBannerView, new ViewGroup.LayoutParams(width, Math.round(width / 6.4f)));
-            return true;
+            LogPrinter.e("Ad isn't ready now", new Object[0]);
+            return false;
         }
         return invokeLLLL.booleanValue;
     }

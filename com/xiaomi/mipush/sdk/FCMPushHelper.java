@@ -32,7 +32,7 @@ public class FCMPushHelper {
     public static void clearToken(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            i.m169a(context, e.b);
+            i.m170a(context, e.b);
         }
     }
 
@@ -46,7 +46,7 @@ public class FCMPushHelper {
     public static boolean isFCMSwitchOpen(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? i.m171a(context, e.b) && MiPushClient.getOpenFCMPush(context) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? i.m172a(context, e.b) && MiPushClient.getOpenFCMPush(context) : invokeL.booleanValue;
     }
 
     public static void notifyFCMNotificationCome(Context context, Map<String, String> map) {

@@ -27,14 +27,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b38;
-import com.repackage.fc5;
-import com.repackage.h45;
 import com.repackage.j38;
 import com.repackage.k38;
+import com.repackage.ki;
+import com.repackage.li;
 import com.repackage.mi;
-import com.repackage.ni;
-import com.repackage.oi;
-import com.repackage.ul5;
+import com.repackage.vl5;
+import com.repackage.wc5;
+import com.repackage.y45;
 import tbclient.SmartApp;
 /* loaded from: classes3.dex */
 public class SmartAppBrowseHistoryActivity extends BaseActivity {
@@ -47,7 +47,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
     public FrameLayout mListContainer;
     public j38 mModel;
     public NavigationBar mNavigationBar;
-    public h45 mNetRefreshView;
+    public y45 mNetRefreshView;
     public NoDataView mNoDataView;
     public View.OnClickListener mNoDataViewRefreshListener;
     public TextView mNoMoreDataView;
@@ -167,8 +167,8 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (view2.getTag() instanceof SmartApp)) {
                 SmartApp smartApp = (SmartApp) view2.getTag();
-                if (!ul5.b(smartApp.id, smartApp.link, "1191000600000000", smartApp.is_game)) {
-                    if (ni.isEmpty(smartApp.h5_url)) {
+                if (!vl5.b(smartApp.id, smartApp.link, "1191000600000000", smartApp.is_game)) {
+                    if (li.isEmpty(smartApp.h5_url)) {
                         return;
                     }
                     UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{smartApp.h5_url});
@@ -260,7 +260,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && mi.A()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ki.A()) {
                 if (this.a.mNetRefreshView != null) {
                     this.a.mNetRefreshView.dettachView(this.a.mListContainer);
                     this.a.mNetRefreshView = null;
@@ -298,7 +298,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !fc5.a() && mi.A()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !wc5.a() && ki.A()) {
                 this.a.loadData();
             }
         }
@@ -352,7 +352,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
     public void dealNoMoreDataView(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65549, this, i) == null) {
-            if (oi.f(getActivity(), R.dimen.tbds177) * i >= oi.i(getActivity()) - this.mNavigationBar.getHeight()) {
+            if (mi.f(getActivity(), R.dimen.tbds177) * i >= mi.i(getActivity()) - this.mNavigationBar.getHeight()) {
                 this.mRecyclerView.z(this.mNoMoreDataView);
                 this.mRecyclerView.r(this.mNoMoreDataView);
                 return;
@@ -364,16 +364,16 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
     private void firstLoadData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, this) == null) {
-            if (mi.A()) {
+            if (ki.A()) {
                 loadData();
                 return;
             }
             this.mRecyclerView.setVisibility(8);
             if (this.mNetRefreshView == null) {
-                this.mNetRefreshView = new h45(getActivity(), this.mOnNoNetButtonClickListener);
+                this.mNetRefreshView = new y45(getActivity(), this.mOnNoNetButtonClickListener);
             }
             this.mNetRefreshView.k(getActivity().getResources().getDimensionPixelSize(R.dimen.tbds340));
-            this.mNetRefreshView.m(getString(R.string.obfuscated_res_0x7f0f0c17));
+            this.mNetRefreshView.m(getString(R.string.obfuscated_res_0x7f0f0c2d));
             this.mNetRefreshView.attachView(this.mListContainer, true);
             this.mNetRefreshView.p();
             this.mNetRefreshView.onChangeSkinType();
@@ -384,15 +384,15 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65551, this) == null) {
             setContentView(R.layout.obfuscated_res_0x7f0d0055);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09151b);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091539);
             this.mNavigationBar = navigationBar;
-            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f082d));
+            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0835));
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.mNoNetworkView = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f091d25);
-            this.mNoDataView = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.e.d(null, getString(R.string.obfuscated_res_0x7f0f0c3f)), NoDataViewFactory.c.a(new NoDataViewFactory.b(getResources().getString(R.string.obfuscated_res_0x7f0f0f66), this.mNoDataViewRefreshListener)));
+            this.mNoNetworkView = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f091d7c);
+            this.mNoDataView = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.e.d(null, getString(R.string.obfuscated_res_0x7f0f0c55)), NoDataViewFactory.c.a(new NoDataViewFactory.b(getResources().getString(R.string.obfuscated_res_0x7f0f0f81), this.mNoDataViewRefreshListener)));
             this.mNoDataView.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
-            this.mListContainer = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091d24);
-            BdRecyclerView bdRecyclerView = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f091d23);
+            this.mListContainer = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091d7b);
+            BdRecyclerView bdRecyclerView = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f091d7a);
             this.mRecyclerView = bdRecyclerView;
             bdRecyclerView.setLayoutManager(new LinearLayoutManager(this));
             SmartAppBrowseHistoryAdapter smartAppBrowseHistoryAdapter = new SmartAppBrowseHistoryAdapter(getActivity());
@@ -401,10 +401,10 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
             this.mAdapter.k(this.mOnLongClickListener);
             this.mRecyclerView.setAdapter(this.mAdapter);
             this.mNoMoreDataView = new TextView(getActivity());
-            this.mNoMoreDataView.setLayoutParams(new RecyclerView.LayoutParams(-1, oi.f(getActivity(), R.dimen.tbds182)));
+            this.mNoMoreDataView.setLayoutParams(new RecyclerView.LayoutParams(-1, mi.f(getActivity(), R.dimen.tbds182)));
             this.mNoMoreDataView.setGravity(17);
-            this.mNoMoreDataView.setText(R.string.obfuscated_res_0x7f0f09e6);
-            this.mNoMoreDataView.setTextSize(0, oi.f(getActivity(), R.dimen.tbds33));
+            this.mNoMoreDataView.setText(R.string.obfuscated_res_0x7f0f09ec);
+            this.mNoMoreDataView.setTextSize(0, mi.f(getActivity(), R.dimen.tbds33));
         }
     }
 
@@ -428,9 +428,9 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
             super.onChangeSkinType(i);
             this.mNavigationBar.onChangeSkinType(getPageContext(), i);
             this.mNoNetworkView.c(getPageContext(), i);
-            h45 h45Var = this.mNetRefreshView;
-            if (h45Var != null) {
-                h45Var.onChangeSkinType();
+            y45 y45Var = this.mNetRefreshView;
+            if (y45Var != null) {
+                y45Var.onChangeSkinType();
             }
             NoDataView noDataView = this.mNoDataView;
             if (noDataView != null) {

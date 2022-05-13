@@ -56,7 +56,10 @@ public class nj0 extends pz0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
-                super.beginTransaction();
+                try {
+                    super.beginTransaction();
+                } catch (Exception unused) {
+                }
             }
         }
     }
@@ -68,7 +71,11 @@ public class nj0 extends pz0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, yz0Var)) == null) {
             synchronized (this) {
-                delete = super.delete(str, yz0Var);
+                try {
+                    delete = super.delete(str, yz0Var);
+                } catch (Exception unused) {
+                    return -1;
+                }
             }
             return delete;
         }
@@ -80,7 +87,10 @@ public class nj0 extends pz0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             synchronized (this) {
-                super.endTransaction();
+                try {
+                    super.endTransaction();
+                } catch (Exception unused) {
+                }
             }
         }
     }
@@ -92,7 +102,11 @@ public class nj0 extends pz0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, xz0Var)) == null) {
             synchronized (this) {
-                insert = super.insert(xz0Var);
+                try {
+                    insert = super.insert(xz0Var);
+                } catch (Exception unused) {
+                    return -1L;
+                }
             }
             return insert;
         }
@@ -106,7 +120,11 @@ public class nj0 extends pz0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, xz0Var, yz0Var)) == null) {
             synchronized (this) {
-                query = super.query(xz0Var, yz0Var);
+                try {
+                    query = super.query(xz0Var, yz0Var);
+                } catch (Exception unused) {
+                    return false;
+                }
             }
             return query;
         }
@@ -118,7 +136,10 @@ public class nj0 extends pz0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             synchronized (this) {
-                super.setTransactionSuccessful();
+                try {
+                    super.setTransactionSuccessful();
+                } catch (Exception unused) {
+                }
             }
         }
     }
@@ -130,7 +151,11 @@ public class nj0 extends pz0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, xz0Var, oz0VarArr)) == null) {
             synchronized (this) {
-                update = super.update(xz0Var, oz0VarArr);
+                try {
+                    update = super.update(xz0Var, oz0VarArr);
+                } catch (Exception unused) {
+                    return -1;
+                }
             }
             return update;
         }
@@ -144,7 +169,11 @@ public class nj0 extends pz0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, xz0Var, oz0VarArr)) == null) {
             synchronized (this) {
-                delete = super.delete(xz0Var, oz0VarArr);
+                try {
+                    delete = super.delete(xz0Var, oz0VarArr);
+                } catch (Exception unused) {
+                    return -1;
+                }
             }
             return delete;
         }
@@ -158,7 +187,11 @@ public class nj0 extends pz0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, str, strArr, objArr)) == null) {
             synchronized (this) {
-                insert = super.insert(str, strArr, objArr);
+                try {
+                    insert = super.insert(str, strArr, objArr);
+                } catch (Exception unused) {
+                    return -1L;
+                }
             }
             return insert;
         }
@@ -172,7 +205,11 @@ public class nj0 extends pz0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, xz0Var, oz0VarArr)) == null) {
             synchronized (this) {
-                query = super.query(xz0Var, oz0VarArr);
+                try {
+                    query = super.query(xz0Var, oz0VarArr);
+                } catch (Exception unused) {
+                    return false;
+                }
             }
             return query;
         }
@@ -186,7 +223,11 @@ public class nj0 extends pz0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048590, this, cls, yz0Var, oz0VarArr, objArr)) == null) {
             synchronized (this) {
-                update = super.update(cls, yz0Var, oz0VarArr, objArr);
+                try {
+                    update = super.update(cls, yz0Var, oz0VarArr, objArr);
+                } catch (Exception unused) {
+                    return -1;
+                }
             }
             return update;
         }
@@ -200,7 +241,11 @@ public class nj0 extends pz0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, oz0VarArr, yz0Var)) == null) {
             synchronized (this) {
-                query = super.query(str, oz0VarArr, yz0Var);
+                try {
+                    query = super.query(str, oz0VarArr, yz0Var);
+                } catch (Exception unused) {
+                    return new a01(null);
+                }
             }
             return query;
         }
@@ -214,7 +259,11 @@ public class nj0 extends pz0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, xz0Var, yz0Var)) == null) {
             synchronized (this) {
-                update = super.update(xz0Var, yz0Var);
+                try {
+                    update = super.update(xz0Var, yz0Var);
+                } catch (Exception unused) {
+                    return -1;
+                }
             }
             return update;
         }
@@ -228,7 +277,11 @@ public class nj0 extends pz0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, zz0Var)) == null) {
             synchronized (this) {
-                query = super.query(zz0Var);
+                try {
+                    query = super.query(zz0Var);
+                } catch (Exception unused) {
+                    return new a01(null);
+                }
             }
             return query;
         }
@@ -242,7 +295,11 @@ public class nj0 extends pz0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048591, this, str, contentValues, yz0Var)) == null) {
             synchronized (this) {
-                update = super.update(str, contentValues, yz0Var);
+                try {
+                    update = super.update(str, contentValues, yz0Var);
+                } catch (Exception unused) {
+                    return -1;
+                }
             }
             return update;
         }
@@ -256,7 +313,11 @@ public class nj0 extends pz0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048592, this, str, columnArr, yz0Var)) == null) {
             synchronized (this) {
-                update = super.update(str, columnArr, yz0Var);
+                try {
+                    update = super.update(str, columnArr, yz0Var);
+                } catch (Exception unused) {
+                    return -1;
+                }
             }
             return update;
         }

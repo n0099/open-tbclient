@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,7 +45,7 @@ public class NetWorkUtils {
                 }
             }
             NONE = new NetType("NONE", 0, "no");
-            WIFI = new NetType(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 1, "wifi");
+            WIFI = new NetType("WIFI", 1, "wifi");
             _2G = new NetType("_2G", 2, "2g");
             _3G = new NetType("_3G", 3, "3g");
             _4G = new NetType("_4G", 4, "4g");

@@ -1,72 +1,109 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import android.os.Bundle;
+import android.os.Message;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-public class pv2 extends n32 {
+public class pv2 implements yl2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public v12<Boolean> c;
-    public String d;
-    public String e;
-    public long f;
-    public final y74<i94> g;
+    public Map<Runnable, String> c;
 
     /* loaded from: classes6.dex */
-    public class a extends o32<pv2> {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pv2 b;
+    }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(pv2 pv2Var, pv2 pv2Var2) {
-            super(pv2Var2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pv2Var, pv2Var2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((n32) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final pv2 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-86619961, "Lcom/repackage/pv2$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-86619961, "Lcom/repackage/pv2$b;");
                     return;
                 }
             }
-            this.b = pv2Var;
-        }
-
-        @Override // com.repackage.o32
-        public void r(@NonNull i94 i94Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, i94Var) == null) {
-                this.b.c.a(Boolean.TRUE);
-            }
-        }
-
-        @Override // com.repackage.o32
-        public void u(i94 i94Var, cc3 cc3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i94Var, cc3Var) == null) {
-                this.b.c.a(Boolean.FALSE);
-            }
+            a = new pv2(null);
         }
     }
 
-    public pv2(String str, String str2, long j, v12<Boolean> v12Var) {
+    public /* synthetic */ pv2(a aVar) {
+        this();
+    }
+
+    public static pv2 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (pv2) invokeV.objValue;
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.c.isEmpty()) {
+            return;
+        }
+        if (yl2.a) {
+            Log.d("SwanPerformance", "main process batch handle thread, size = " + this.c.size());
+        }
+        for (Map.Entry<Runnable, String> entry : this.c.entrySet()) {
+            if (entry != null) {
+                ExecutorUtilsExt.postOnElastic(entry.getKey(), entry.getValue(), 2);
+            }
+        }
+        this.c.clear();
+    }
+
+    public void c(Message message) {
+        Object obj;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) || message == null || (obj = message.obj) == null || !(obj instanceof Bundle)) {
+            return;
+        }
+        Bundle bundle = (Bundle) obj;
+        boolean z = bundle.getBoolean("is_timeout", false);
+        String string = bundle.getString("app_id", null);
+        if (yl2.a) {
+            Log.e("SwanPerformance", "main process launch end，timeout = " + z + " ; appId = " + string);
+        }
+        a();
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (yl2.a) {
+                Log.e("SwanPerformance", "main process launch start，appId = " + str);
+            }
+            System.currentTimeMillis();
+        }
+    }
+
+    public pv2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Long.valueOf(j), v12Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -76,63 +113,6 @@ public class pv2 extends n32 {
                 return;
             }
         }
-        this.g = new a(this, this);
-        this.c = v12Var;
-        this.d = str;
-        this.e = str2;
-        this.f = j;
-    }
-
-    @Override // com.repackage.c84
-    public void D(b94 b94Var) {
-        i94 p;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, b94Var) == null) {
-            super.D(b94Var);
-            if (b94Var != null) {
-                if (b94Var.a == 1010 && (p = qv2.p(this.d, this.e, this.f)) != null) {
-                    p.d = p.b();
-                    e84.i().x(p);
-                }
-                bw2.b("fetch plugin error: " + b94Var.toString());
-            } else {
-                bw2.b("fetch plugin error");
-            }
-            this.c.a(Boolean.FALSE);
-        }
-    }
-
-    @Override // com.repackage.c84
-    public void F() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.F();
-            bw2.b("fetch plugin success");
-        }
-    }
-
-    @Override // com.repackage.c84
-    public void G() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.G();
-            bw2.b("no package");
-            this.c.a(Boolean.FALSE);
-        }
-    }
-
-    @Override // com.repackage.c84
-    public void H(pd4 pd4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, pd4Var) == null) {
-            super.H(pd4Var);
-        }
-    }
-
-    @Override // com.repackage.c84
-    public y74<i94> y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g : (y74) invokeV.objValue;
+        this.c = new ConcurrentHashMap();
     }
 }

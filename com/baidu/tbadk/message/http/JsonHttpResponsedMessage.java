@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.of;
+import com.repackage.pf;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
@@ -46,11 +46,11 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage
-    public void logStatInBackground(int i, of ofVar) {
+    public void logStatInBackground(int i, pf pfVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, ofVar) == null) {
-            super.logStatInBackground(i, ofVar);
-            TiebaStatic.netJson(ofVar, getError(), getErrorString());
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, pfVar) == null) {
+            super.logStatInBackground(i, pfVar);
+            TiebaStatic.netJson(pfVar, getError(), getErrorString());
         }
     }
 
@@ -71,7 +71,7 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
                 errorData.parserJson(str);
                 setError(errorData.getError_code());
                 if (getError() == -1) {
-                    setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f059f));
+                    setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f05a5));
                 } else {
                     setErrorString(errorData.getError_msg());
                 }
@@ -81,7 +81,7 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
                 jSONObject = jSONObject2;
                 BdLog.e(e.getMessage());
                 setError(-1);
-                setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f059f));
+                setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f05a5));
                 return jSONObject;
             }
         } catch (Exception e2) {

@@ -10,20 +10,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class ky5 extends BaseCardInfo implements ly5 {
+public class ky5 extends BaseCardInfo implements my5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId j;
+    public static final BdUniqueId g;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
+    public boolean a;
+    public boolean b;
     public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public long h;
-    public String i;
+    public List<jy5> d;
+    public int e;
+    public int f;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +36,7 @@ public class ky5 extends BaseCardInfo implements ly5 {
                 return;
             }
         }
-        j = BdUniqueId.gen();
+        g = BdUniqueId.gen();
     }
 
     public ky5() {
@@ -51,45 +49,50 @@ public class ky5 extends BaseCardInfo implements ly5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = true;
+        this.b = true;
     }
 
-    @Override // com.repackage.ly5
+    @Override // com.repackage.my5
     public void c(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.a = z;
         }
     }
 
-    @Override // com.repackage.ly5
+    @Override // com.repackage.my5
     public int getPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (int) this.h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.uo
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.ro
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? j : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? g : (BdUniqueId) invokeV.objValue;
     }
 
-    @Override // com.repackage.ly5
+    @Override // com.repackage.my5
     public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return false;
+            return true;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.ly5
+    @Override // com.repackage.my5
     public void t(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.b = z;
         }
     }
 }

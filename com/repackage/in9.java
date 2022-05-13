@@ -1,27 +1,26 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.view.MotionEvent;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.opensource.svgaplayer.proto.AudioEntity;
+import com.win.opensdk.core.Info;
 /* loaded from: classes6.dex */
-public final class in9 {
+public class in9 implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final int b;
-    public Integer c;
-    public Integer d;
+    public final /* synthetic */ un9 a;
 
-    public in9(AudioEntity audioEntity) {
+    public in9(un9 un9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {audioEntity};
+            Object[] objArr = {un9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,56 +30,59 @@ public final class in9 {
                 return;
             }
         }
-        String str = audioEntity.audioKey;
-        Integer num = audioEntity.startFrame;
-        this.a = num != null ? num.intValue() : 0;
-        Integer num2 = audioEntity.endFrame;
-        this.b = num2 != null ? num2.intValue() : 0;
-        Integer num3 = audioEntity.startTime;
-        if (num3 != null) {
-            num3.intValue();
+        this.a = un9Var;
+    }
+
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
+        InterceptResult invokeLL;
+        Info info;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            if (action == 0) {
+                this.a.j = true;
+                this.a.k = System.currentTimeMillis();
+                this.a.l = motionEvent.getX();
+                this.a.m = motionEvent.getY();
+                this.a.n = (int) motionEvent.getRawX();
+                this.a.o = (int) motionEvent.getRawY();
+                this.a.v = System.currentTimeMillis();
+                this.a.p = (int) motionEvent.getX();
+                this.a.q = (int) motionEvent.getY();
+                un9.d(this.a, view2);
+            } else if (action == 1) {
+                this.a.w = (int) motionEvent.getRawX();
+                this.a.x = (int) motionEvent.getRawY();
+                this.a.r = (int) motionEvent.getX();
+                this.a.s = (int) motionEvent.getY();
+                this.a.y = System.currentTimeMillis();
+                Math.abs(motionEvent.getX() - this.a.l);
+                Math.abs(motionEvent.getY() - this.a.m);
+                if (System.currentTimeMillis() - this.a.k < 2000) {
+                    un9 un9Var = this.a;
+                    if (un9Var.j && (info = un9Var.c) != null && vp9.d(info, un9Var.h)) {
+                        this.a.h = System.currentTimeMillis();
+                        un9 un9Var2 = this.a;
+                        Context context = un9Var2.a;
+                        String open = un9Var2.c.getOpen();
+                        un9 un9Var3 = this.a;
+                        vp9.a(context, open, un9Var3.c, un9Var3.g, un9Var3.h().toString());
+                        tq9 a = xq9.a(this.a.a);
+                        a.h(new br9(this.a.c), null);
+                        a.l("desc", this.a.h().toString());
+                        a.m();
+                        un9 un9Var4 = this.a;
+                        ro9.p(un9Var4.c, un9Var4.h().toString());
+                        sn9 sn9Var = this.a.f;
+                        if (sn9Var != null) {
+                            sn9Var.onClicked();
+                        }
+                    }
+                }
+            }
+            return true;
         }
-        Integer num4 = audioEntity.totalTime;
-        if (num4 != null) {
-            num4.intValue();
-        }
-    }
-
-    public final int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public final Integer b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (Integer) invokeV.objValue;
-    }
-
-    public final Integer c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (Integer) invokeV.objValue;
-    }
-
-    public final int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public final void e(Integer num) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, num) == null) {
-            this.d = num;
-        }
-    }
-
-    public final void f(Integer num) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, num) == null) {
-            this.c = num;
-        }
+        return invokeLL.booleanValue;
     }
 }

@@ -75,7 +75,7 @@ public class ve extends he<String> {
             Cursor rawQuery = sQLiteDatabase.rawQuery("SELECT m_key, m_ns, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.b + " where m_key = ?", new String[]{str});
             try {
                 if (!rawQuery.moveToNext()) {
-                    lg.a(rawQuery);
+                    jg.a(rawQuery);
                     return null;
                 }
                 le<String> leVar = new le<>();
@@ -85,12 +85,12 @@ public class ve extends he<String> {
                 leVar.e = rawQuery.getLong(3);
                 leVar.f = rawQuery.getLong(4);
                 leVar.b = rawQuery.getString(5);
-                lg.a(rawQuery);
+                jg.a(rawQuery);
                 return leVar;
             } catch (Throwable th) {
                 th = th;
                 cursor = rawQuery;
-                lg.a(cursor);
+                jg.a(cursor);
                 throw th;
             }
         } catch (Throwable th2) {

@@ -6,23 +6,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.exceptions.CompositeException;
-import rx.exceptions.OnCompletedFailedException;
-import rx.exceptions.OnErrorFailedException;
+import com.yy.mobile.framework.revenuesdk.IRevenue;
+import com.yy.mobile.framework.revenuesdk.RevenueConfig;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IEventReporter;
+import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
+import com.yy.mobile.framework.revenuesdk.payapi.reporter.IPayReporter;
+import kotlin.jvm.internal.Intrinsics;
+import tv.athena.revenue.api.IMiddleRevenue;
+import tv.athena.revenue.api.MiddleRevenueConfig;
+import tv.athena.revenue.api.pay.IMiddlePayService;
 /* loaded from: classes5.dex */
-public final class c3a implements az9, iz9 {
+public final class c3a implements IMiddleRevenue {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final az9 a;
-    public iz9 b;
-    public boolean c;
+    public final b3a a;
+    public final IRevenue b;
 
-    public c3a(az9 az9Var) {
+    public c3a(MiddleRevenueConfig middleRevenueConfig, IRevenue iRevenue) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {az9Var};
+            Object[] objArr = {middleRevenueConfig, iRevenue};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,69 +37,51 @@ public final class c3a implements az9, iz9 {
                 return;
             }
         }
-        this.a = az9Var;
+        this.b = iRevenue;
+        IAppPayService appPayService = this.b.getAppPayService();
+        Intrinsics.checkExpressionValueIsNotNull(appPayService, "revenue.appPayService");
+        this.a = new b3a(middleRevenueConfig, appPayService);
     }
 
-    @Override // com.repackage.iz9
-    public boolean isUnsubscribed() {
+    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
+    public IAppPayService getAppPayService() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c || this.b.isUnsubscribed() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (IAppPayService) invokeV.objValue;
     }
 
-    @Override // com.repackage.az9
-    public void onCompleted() {
+    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
+    public IEventReporter getEventReporter() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.c) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
         }
-        this.c = true;
-        try {
-            this.a.onCompleted();
-        } catch (Throwable th) {
-            nz9.e(th);
-            throw new OnCompletedFailedException(th);
-        }
+        return (IEventReporter) invokeV.objValue;
     }
 
-    @Override // com.repackage.az9
-    public void onError(Throwable th) {
+    @Override // tv.athena.revenue.api.IMiddleRevenue
+    public IMiddlePayService getMiddlePayService() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-            j3a.j(th);
-            if (this.c) {
-                return;
-            }
-            this.c = true;
-            try {
-                this.a.onError(th);
-            } catch (Throwable th2) {
-                nz9.e(th2);
-                throw new OnErrorFailedException(new CompositeException(th, th2));
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (IMiddlePayService) invokeV.objValue;
     }
 
-    @Override // com.repackage.az9
-    public void onSubscribe(iz9 iz9Var) {
+    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
+    public IPayReporter getPayReporter() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, iz9Var) == null) {
-            this.b = iz9Var;
-            try {
-                this.a.onSubscribe(this);
-            } catch (Throwable th) {
-                nz9.e(th);
-                iz9Var.unsubscribe();
-                onError(th);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
         }
+        return (IPayReporter) invokeV.objValue;
     }
 
-    @Override // com.repackage.iz9
-    public void unsubscribe() {
+    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
+    public void updateConfig(RevenueConfig revenueConfig) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b.unsubscribe();
+        if (interceptable == null || interceptable.invokeL(1048580, this, revenueConfig) == null) {
+            this.b.updateConfig(revenueConfig);
         }
     }
 }

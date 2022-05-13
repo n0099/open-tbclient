@@ -3,13 +3,23 @@ package com.repackage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.download.exception.DownloadException;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public abstract class r99 {
+public class r99 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public boolean b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public boolean g;
+    public String h;
 
     public r99() {
         Interceptable interceptable = $ic;
@@ -25,51 +35,43 @@ public abstract class r99 {
         }
     }
 
-    public void a(String str) {
+    public JSONObject a() {
+        InterceptResult invokeV;
+        JSONObject jSONObject;
+        JSONException e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("type", this.a);
+                    jSONObject.put("doReport", this.b);
+                    jSONObject.put("name", this.c);
+                    jSONObject.put("code", this.d);
+                    jSONObject.put("msg", this.e);
+                    jSONObject.put("data", this.f);
+                    jSONObject.put("isShowSpecialToast", this.g);
+                    jSONObject.put("specialToast", this.h);
+                } catch (JSONException e2) {
+                    e = e2;
+                    e.printStackTrace();
+                    return jSONObject;
+                }
+            } catch (JSONException e3) {
+                jSONObject = null;
+                e = e3;
+            }
+            return jSONObject;
         }
+        return (JSONObject) invokeV.objValue;
     }
 
-    public void b(long j, boolean z) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "type:" + this.a + "name:" + this.c + "code:" + this.d + "msg:" + this.e + "data" + this.f + "doReport : " + this.b;
         }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    public void f(DownloadException downloadException) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, downloadException) == null) {
-        }
-    }
-
-    public void g(long j, long j2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-        }
+        return (String) invokeV.objValue;
     }
 }

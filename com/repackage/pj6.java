@@ -1,50 +1,121 @@
 package com.repackage;
 
+import android.content.Context;
 import android.view.View;
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
-import com.baidu.tieba.R;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.yw5;
 /* loaded from: classes6.dex */
-public class pj6 {
+public class pj6 extends eo<s26, CardViewHolder<yw5>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public BarImageView b;
-    public TextView c;
-    public TextView d;
-    public TextView e;
-    public EntelechyUserLikeButton f;
-    public View g;
-    public int h;
-    public int i;
+    public TbPageContext<?> i;
+    public yw5 j;
+    public ux5 k;
+    public String l;
 
-    public pj6(View view2) {
+    /* loaded from: classes6.dex */
+    public class a implements yw5.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pj6 a;
+
+        public a(pj6 pj6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pj6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pj6Var;
+        }
+
+        @Override // com.repackage.yw5.a
+        public void a(View view2, BaseCardInfo baseCardInfo) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, view2, baseCardInfo) == null) || this.a.k == null) {
+                return;
+            }
+            this.a.k.a(view2, baseCardInfo);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pj6(TbPageContext tbPageContext, String str) {
+        super(tbPageContext.getPageActivity(), s26.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
+            Object[] objArr = {tbPageContext, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = 3;
-        this.a = view2;
-        this.b = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090af3);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090af6);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090af4);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090af5);
-        this.f = (EntelechyUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f090af1);
-        this.g = view2.findViewById(R.id.obfuscated_res_0x7f090af2);
+        this.i = tbPageContext;
+        this.l = str;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.eo
+    /* renamed from: a0 */
+    public CardViewHolder<yw5> M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            this.j = new yw5(this.i, this.l);
+            return new CardViewHolder<>(this.j);
+        }
+        return (CardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.eo
+    /* renamed from: b0 */
+    public View S(int i, View view2, ViewGroup viewGroup, s26 s26Var, CardViewHolder<yw5> cardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, s26Var, cardViewHolder})) == null) {
+            if (cardViewHolder.c() == null) {
+                return null;
+            }
+            cardViewHolder.c().l(s26Var);
+            cardViewHolder.c().m(this.i, TbadkCoreApplication.getInst().getSkinType());
+            cardViewHolder.c().v(new a(this));
+            return cardViewHolder.c().k();
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public void c0(ux5 ux5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ux5Var) == null) {
+            this.k = ux5Var;
+        }
     }
 }

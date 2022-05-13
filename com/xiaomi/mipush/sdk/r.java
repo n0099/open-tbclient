@@ -38,7 +38,7 @@ public class r implements di {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.m149a(this.a).d() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.m150a(this.a).d() : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.di

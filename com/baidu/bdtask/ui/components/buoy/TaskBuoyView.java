@@ -34,17 +34,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.er;
-import com.repackage.ex;
-import com.repackage.fx;
-import com.repackage.sw;
-import com.repackage.tw;
-import com.repackage.uw;
-import com.repackage.vs;
-import com.repackage.xu;
-import com.repackage.yt;
-import com.repackage.yv;
-import com.repackage.zv;
+import com.repackage.bw;
+import com.repackage.cw;
+import com.repackage.dw;
+import com.repackage.es;
+import com.repackage.gu;
+import com.repackage.ht;
+import com.repackage.hv;
+import com.repackage.iv;
+import com.repackage.nq;
+import com.repackage.nw;
+import com.repackage.ow;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -56,9 +56,9 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.ranges.RangesKt___RangesKt;
 import kotlin.text.StringsKt__StringsJVMKt;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000¼\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0007\n\u0002\b\u0002\n\u0002\u0010\t\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\b\u001c\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u000f\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0007\b\u0017\u0018\u00002\u00020\u00012\u00020\u0002B\u0011\u0012\u0006\u0010+\u001a\u00020*¢\u0006\u0006\b\u0092\u0001\u0010\u0093\u0001J\u0017\u0010\u0006\u001a\u00020\u00052\u0006\u0010\u0004\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0006\u0010\u0007J%\u0010\f\u001a\u00020\u00052\u0006\u0010\t\u001a\u00020\b2\f\u0010\u000b\u001a\b\u0012\u0004\u0012\u00020\u00050\nH\u0002¢\u0006\u0004\b\f\u0010\rJ\u000f\u0010\u000e\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\u000e\u0010\u000fJ\u000f\u0010\u0011\u001a\u00020\u0010H\u0016¢\u0006\u0004\b\u0011\u0010\u0012J\u0019\u0010\u0016\u001a\u0004\u0018\u00010\u00152\u0006\u0010\u0014\u001a\u00020\u0013H\u0002¢\u0006\u0004\b\u0016\u0010\u0017J'\u0010\u001d\u001a\u00020\u00132\u0006\u0010\u0019\u001a\u00020\u00182\u0006\u0010\u001a\u001a\u00020\u00132\u0006\u0010\u001c\u001a\u00020\u001bH\u0002¢\u0006\u0004\b\u001d\u0010\u001eJ\u000f\u0010\u001f\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\u001f\u0010\u000fJ\u000f\u0010 \u001a\u00020\u0003H\u0016¢\u0006\u0004\b \u0010\u000fJ\u000f\u0010!\u001a\u00020\u0018H\u0002¢\u0006\u0004\b!\u0010\"J!\u0010&\u001a\u0004\u0018\u00010%2\u0006\u0010#\u001a\u00020\u00032\u0006\u0010$\u001a\u00020\u0003H\u0002¢\u0006\u0004\b&\u0010'J\u000f\u0010(\u001a\u00020\u0005H\u0002¢\u0006\u0004\b(\u0010)J\u0017\u0010-\u001a\u00020,2\u0006\u0010+\u001a\u00020*H\u0016¢\u0006\u0004\b-\u0010.J\u0017\u0010/\u001a\u00020,2\u0006\u0010\u0014\u001a\u00020\u0013H\u0002¢\u0006\u0004\b/\u00100J\u0017\u00102\u001a\u00020,2\u0006\u00101\u001a\u00020\u0003H\u0002¢\u0006\u0004\b2\u00103J\u000f\u00104\u001a\u00020,H\u0002¢\u0006\u0004\b4\u00105J\u000f\u00106\u001a\u00020,H\u0016¢\u0006\u0004\b6\u00105J\u000f\u00107\u001a\u00020,H\u0002¢\u0006\u0004\b7\u00105J\u000f\u00108\u001a\u00020\u0005H\u0016¢\u0006\u0004\b8\u0010)J\u000f\u00109\u001a\u00020\u0005H\u0016¢\u0006\u0004\b9\u0010)J\u0017\u0010<\u001a\u00020\u00052\u0006\u0010;\u001a\u00020:H\u0016¢\u0006\u0004\b<\u0010=J\u001f\u0010>\u001a\u00020\u00052\u0006\u0010#\u001a\u00020\u00032\u0006\u0010$\u001a\u00020\u0003H\u0002¢\u0006\u0004\b>\u0010?J'\u0010A\u001a\u00020\u00052\u0006\u0010@\u001a\u00020\u00132\u000e\b\u0002\u0010\u000b\u001a\b\u0012\u0004\u0012\u00020\u00050\nH\u0002¢\u0006\u0004\bA\u0010BJ\u0017\u0010D\u001a\u00020\u00052\u0006\u0010C\u001a\u00020\u0013H\u0002¢\u0006\u0004\bD\u0010EJ\u0017\u0010F\u001a\u00020\u00052\u0006\u0010\u001a\u001a\u00020\u0013H\u0002¢\u0006\u0004\bF\u0010EJ\u0017\u0010H\u001a\u00020\u00052\u0006\u0010G\u001a\u00020\u0013H\u0002¢\u0006\u0004\bH\u0010EJ\u001f\u0010K\u001a\u00020\u00052\u0006\u0010I\u001a\u00020\u00132\u0006\u0010J\u001a\u00020\u0013H\u0002¢\u0006\u0004\bK\u0010LJ'\u0010O\u001a\u00020\u00052\u0006\u0010\u0019\u001a\u00020\u00182\u0006\u0010M\u001a\u00020\u001b2\u0006\u0010N\u001a\u00020\u0013H\u0002¢\u0006\u0004\bO\u0010PJ!\u0010R\u001a\u00020\u00052\u0010\b\u0002\u0010Q\u001a\n\u0012\u0004\u0012\u00020\u0005\u0018\u00010\nH\u0002¢\u0006\u0004\bR\u0010SR\u0016\u0010T\u001a\u00020\u00038\u0002@\u0002X\u0082D¢\u0006\u0006\n\u0004\bT\u0010UR\u0016\u0010V\u001a\u00020\u00038\u0002@\u0002X\u0082D¢\u0006\u0006\n\u0004\bV\u0010UR\u0016\u0010X\u001a\u00020W8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bX\u0010YR\u0018\u0010[\u001a\u0004\u0018\u00010Z8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b[\u0010\\R\u0018\u0010^\u001a\u0004\u0018\u00010]8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b^\u0010_R\u0016\u0010`\u001a\u00020,8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b`\u0010aR\u0016\u0010b\u001a\u00020\u00038\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bb\u0010UR\"\u0010d\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00050\n0c8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bd\u0010eR(\u0010g\u001a\u00020f8\u0006@\u0006X\u0087\u000e¢\u0006\u0018\n\u0004\bg\u0010h\u0012\u0004\bm\u0010)\u001a\u0004\bi\u0010j\"\u0004\bk\u0010lR*\u0010o\u001a\u0004\u0018\u00010n8\u0006@\u0006X\u0087\u000e¢\u0006\u0018\n\u0004\bo\u0010p\u0012\u0004\bu\u0010)\u001a\u0004\bq\u0010r\"\u0004\bs\u0010tR\u0016\u0010+\u001a\u00020*8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b+\u0010vR\u0016\u0010w\u001a\u00020\u00188\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bw\u0010xR\u0018\u0010y\u001a\u0004\u0018\u00010:8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\by\u0010zR\u0016\u0010{\u001a\u00020,8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b{\u0010aR\u0016\u0010|\u001a\u00020,8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b|\u0010aR\u0016\u00104\u001a\u00020,8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b4\u0010aR\u0016\u0010}\u001a\u00020,8\u0002@\u0002X\u0083\u000e¢\u0006\u0006\n\u0004\b}\u0010aR\u0019\u0010\u007f\u001a\u0004\u0018\u00010~8\u0002@\u0002X\u0082\u0004¢\u0006\u0007\n\u0005\b\u007f\u0010\u0080\u0001R\u001b\u0010\u0081\u0001\u001a\u0004\u0018\u00010\u00138\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0081\u0001\u0010\u0082\u0001R\u001b\u0010\u0083\u0001\u001a\u0004\u0018\u00010\u00138\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0083\u0001\u0010\u0082\u0001R\u001b\u0010\u0084\u0001\u001a\u0004\u0018\u00010\u00138\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0084\u0001\u0010\u0082\u0001R\u001b\u0010\u0085\u0001\u001a\u0004\u0018\u00010\u00138\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0085\u0001\u0010\u0082\u0001R\u001c\u0010\u0087\u0001\u001a\u0005\u0018\u00010\u0086\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0087\u0001\u0010\u0088\u0001R\u001a\u0010\u008a\u0001\u001a\u00030\u0089\u00018\u0002@\u0002X\u0082\u0004¢\u0006\b\n\u0006\b\u008a\u0001\u0010\u008b\u0001R\u001e\u0010\u008c\u0001\u001a\b\u0012\u0004\u0012\u00020%0c8\u0002@\u0002X\u0082\u0004¢\u0006\u0007\n\u0005\b\u008c\u0001\u0010eR\u001c\u0010\u008e\u0001\u001a\u0005\u0018\u00010\u008d\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u008e\u0001\u0010\u008f\u0001R\u001b\u0010\u0090\u0001\u001a\u0004\u0018\u00010\u00108\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0090\u0001\u0010\u0091\u0001¨\u0006\u0094\u0001"}, d2 = {"Lcom/baidu/bdtask/ui/components/buoy/TaskBuoyView;", "Lcom/repackage/sw;", "Lcom/repackage/er;", "", "newStatus", "", "addStatus", "(I)V", "Lcom/baidu/bdtask/framework/ui/buoy/BuoyViewData;", "data", "Lkotlin/Function0;", "nextAction", "buoyViewInit", "(Lcom/baidu/bdtask/framework/ui/buoy/BuoyViewData;Lkotlin/Function0;)V", "getAnimationProcessBufferTime", "()I", "Landroid/view/View;", "getContentView", "()Landroid/view/View;", "", "actionId", "Lcom/baidu/bdtask/model/info/TaskInfo;", "getCurTaskInfo", "(Ljava/lang/String;)Lcom/baidu/bdtask/model/info/TaskInfo;", "", "rate", "msg", "", "total", "getFormatMsgStr", "(FLjava/lang/String;J)Ljava/lang/String;", "getLayoutId", "getMaxProcessValue", "getRate", "()F", "start", "end", "Ljava/lang/Runnable;", "getUpdateAction", "(II)Ljava/lang/Runnable;", "initView", "()V", "Landroid/content/Context;", "context", "", "isActivityValid", "(Landroid/content/Context;)Z", "isFirstRoundTask", "(Ljava/lang/String;)Z", "checkStatus", "isIncluded", "(I)Z", "isReady", "()Z", "isSmooth", "isUpdateEnable", "onAttachedToWindow", "onDetachedFromWindow", "Lcom/baidu/bdtask/component/buoy/TaskBuoyViewModel;", "model", "onViewModelBind", "(Lcom/baidu/bdtask/component/buoy/TaskBuoyViewModel;)V", "requestUpdateProcess", "(II)V", TaskUIData.keyBgUrl, "updateBg", "(Ljava/lang/String;Lkotlin/Function0;)V", "closeBgUrl", "updateCloseBg", "(Ljava/lang/String;)V", "updateMsg", TaskUIData.keyTxtColor, "updateMsgUI", "pBackColor", "pForeColor", "updateProcessUI", "(Ljava/lang/String;Ljava/lang/String;)V", "totalTime", "message", "updateProcessValue", "(FJLjava/lang/String;)V", "action", "withSafeRun", "(Lkotlin/Function0;)V", "DEFAULT_BUFFER_TIME", "I", "MAX_PROCESS_VALUE", "Ljava/util/concurrent/locks/ReentrantLock;", "actionLock", "Ljava/util/concurrent/locks/ReentrantLock;", "Landroid/widget/ImageView;", "buoyClose", "Landroid/widget/ImageView;", "Landroid/widget/RelativeLayout;", "buoyContainer", "Landroid/widget/RelativeLayout;", "buoyHide", "Z", "buoyStatus", "Ljava/util/Queue;", "cacheActions", "Ljava/util/Queue;", "Lcom/baidu/bdtask/ui/components/buoy/TaskBuoyViewClickListener;", "componentClickListener", "Lcom/baidu/bdtask/ui/components/buoy/TaskBuoyViewClickListener;", "getComponentClickListener", "()Lcom/baidu/bdtask/ui/components/buoy/TaskBuoyViewClickListener;", "setComponentClickListener", "(Lcom/baidu/bdtask/ui/components/buoy/TaskBuoyViewClickListener;)V", "componentClickListener$annotations", "Landroid/view/View$OnClickListener;", "componentCloseExtraClickListener", "Landroid/view/View$OnClickListener;", "getComponentCloseExtraClickListener", "()Landroid/view/View$OnClickListener;", "setComponentCloseExtraClickListener", "(Landroid/view/View$OnClickListener;)V", "componentCloseExtraClickListener$annotations", "Landroid/content/Context;", "curRate", "F", "curTaskModel", "Lcom/baidu/bdtask/component/buoy/TaskBuoyViewModel;", "isAttached", "isDetached", "isUpdating", "Landroid/widget/TextView;", "msgTextView", "Landroid/widget/TextView;", "preBgUrl", "Ljava/lang/String;", "preCloseBgUrl", "preProcessBackColor", "preProcessForeColor", "Landroid/widget/ProgressBar;", "progressBar", "Landroid/widget/ProgressBar;", "Lcom/baidu/bdtask/ui/components/buoy/BuoyContainer;", "root", "Lcom/baidu/bdtask/ui/components/buoy/BuoyContainer;", "updateQueue", "Landroid/animation/ValueAnimator;", "valueAnimator", "Landroid/animation/ValueAnimator;", NativeConstants.TYPE_VIEW, "Landroid/view/View;", "<init>", "(Landroid/content/Context;)V", "lib-bdtask-ui-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000¼\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0007\n\u0002\b\u0002\n\u0002\u0010\t\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\b\u001c\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u000f\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0007\b\u0017\u0018\u00002\u00020\u00012\u00020\u0002B\u0011\u0012\u0006\u0010+\u001a\u00020*¢\u0006\u0006\b\u0092\u0001\u0010\u0093\u0001J\u0017\u0010\u0006\u001a\u00020\u00052\u0006\u0010\u0004\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0006\u0010\u0007J%\u0010\f\u001a\u00020\u00052\u0006\u0010\t\u001a\u00020\b2\f\u0010\u000b\u001a\b\u0012\u0004\u0012\u00020\u00050\nH\u0002¢\u0006\u0004\b\f\u0010\rJ\u000f\u0010\u000e\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\u000e\u0010\u000fJ\u000f\u0010\u0011\u001a\u00020\u0010H\u0016¢\u0006\u0004\b\u0011\u0010\u0012J\u0019\u0010\u0016\u001a\u0004\u0018\u00010\u00152\u0006\u0010\u0014\u001a\u00020\u0013H\u0002¢\u0006\u0004\b\u0016\u0010\u0017J'\u0010\u001d\u001a\u00020\u00132\u0006\u0010\u0019\u001a\u00020\u00182\u0006\u0010\u001a\u001a\u00020\u00132\u0006\u0010\u001c\u001a\u00020\u001bH\u0002¢\u0006\u0004\b\u001d\u0010\u001eJ\u000f\u0010\u001f\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\u001f\u0010\u000fJ\u000f\u0010 \u001a\u00020\u0003H\u0016¢\u0006\u0004\b \u0010\u000fJ\u000f\u0010!\u001a\u00020\u0018H\u0002¢\u0006\u0004\b!\u0010\"J!\u0010&\u001a\u0004\u0018\u00010%2\u0006\u0010#\u001a\u00020\u00032\u0006\u0010$\u001a\u00020\u0003H\u0002¢\u0006\u0004\b&\u0010'J\u000f\u0010(\u001a\u00020\u0005H\u0002¢\u0006\u0004\b(\u0010)J\u0017\u0010-\u001a\u00020,2\u0006\u0010+\u001a\u00020*H\u0016¢\u0006\u0004\b-\u0010.J\u0017\u0010/\u001a\u00020,2\u0006\u0010\u0014\u001a\u00020\u0013H\u0002¢\u0006\u0004\b/\u00100J\u0017\u00102\u001a\u00020,2\u0006\u00101\u001a\u00020\u0003H\u0002¢\u0006\u0004\b2\u00103J\u000f\u00104\u001a\u00020,H\u0002¢\u0006\u0004\b4\u00105J\u000f\u00106\u001a\u00020,H\u0016¢\u0006\u0004\b6\u00105J\u000f\u00107\u001a\u00020,H\u0002¢\u0006\u0004\b7\u00105J\u000f\u00108\u001a\u00020\u0005H\u0016¢\u0006\u0004\b8\u0010)J\u000f\u00109\u001a\u00020\u0005H\u0016¢\u0006\u0004\b9\u0010)J\u0017\u0010<\u001a\u00020\u00052\u0006\u0010;\u001a\u00020:H\u0016¢\u0006\u0004\b<\u0010=J\u001f\u0010>\u001a\u00020\u00052\u0006\u0010#\u001a\u00020\u00032\u0006\u0010$\u001a\u00020\u0003H\u0002¢\u0006\u0004\b>\u0010?J'\u0010A\u001a\u00020\u00052\u0006\u0010@\u001a\u00020\u00132\u000e\b\u0002\u0010\u000b\u001a\b\u0012\u0004\u0012\u00020\u00050\nH\u0002¢\u0006\u0004\bA\u0010BJ\u0017\u0010D\u001a\u00020\u00052\u0006\u0010C\u001a\u00020\u0013H\u0002¢\u0006\u0004\bD\u0010EJ\u0017\u0010F\u001a\u00020\u00052\u0006\u0010\u001a\u001a\u00020\u0013H\u0002¢\u0006\u0004\bF\u0010EJ\u0017\u0010H\u001a\u00020\u00052\u0006\u0010G\u001a\u00020\u0013H\u0002¢\u0006\u0004\bH\u0010EJ\u001f\u0010K\u001a\u00020\u00052\u0006\u0010I\u001a\u00020\u00132\u0006\u0010J\u001a\u00020\u0013H\u0002¢\u0006\u0004\bK\u0010LJ'\u0010O\u001a\u00020\u00052\u0006\u0010\u0019\u001a\u00020\u00182\u0006\u0010M\u001a\u00020\u001b2\u0006\u0010N\u001a\u00020\u0013H\u0002¢\u0006\u0004\bO\u0010PJ!\u0010R\u001a\u00020\u00052\u0010\b\u0002\u0010Q\u001a\n\u0012\u0004\u0012\u00020\u0005\u0018\u00010\nH\u0002¢\u0006\u0004\bR\u0010SR\u0016\u0010T\u001a\u00020\u00038\u0002@\u0002X\u0082D¢\u0006\u0006\n\u0004\bT\u0010UR\u0016\u0010V\u001a\u00020\u00038\u0002@\u0002X\u0082D¢\u0006\u0006\n\u0004\bV\u0010UR\u0016\u0010X\u001a\u00020W8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bX\u0010YR\u0018\u0010[\u001a\u0004\u0018\u00010Z8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b[\u0010\\R\u0018\u0010^\u001a\u0004\u0018\u00010]8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b^\u0010_R\u0016\u0010`\u001a\u00020,8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b`\u0010aR\u0016\u0010b\u001a\u00020\u00038\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bb\u0010UR\"\u0010d\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00050\n0c8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bd\u0010eR(\u0010g\u001a\u00020f8\u0006@\u0006X\u0087\u000e¢\u0006\u0018\n\u0004\bg\u0010h\u0012\u0004\bm\u0010)\u001a\u0004\bi\u0010j\"\u0004\bk\u0010lR*\u0010o\u001a\u0004\u0018\u00010n8\u0006@\u0006X\u0087\u000e¢\u0006\u0018\n\u0004\bo\u0010p\u0012\u0004\bu\u0010)\u001a\u0004\bq\u0010r\"\u0004\bs\u0010tR\u0016\u0010+\u001a\u00020*8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b+\u0010vR\u0016\u0010w\u001a\u00020\u00188\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bw\u0010xR\u0018\u0010y\u001a\u0004\u0018\u00010:8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\by\u0010zR\u0016\u0010{\u001a\u00020,8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b{\u0010aR\u0016\u0010|\u001a\u00020,8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b|\u0010aR\u0016\u00104\u001a\u00020,8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b4\u0010aR\u0016\u0010}\u001a\u00020,8\u0002@\u0002X\u0083\u000e¢\u0006\u0006\n\u0004\b}\u0010aR\u0019\u0010\u007f\u001a\u0004\u0018\u00010~8\u0002@\u0002X\u0082\u0004¢\u0006\u0007\n\u0005\b\u007f\u0010\u0080\u0001R\u001b\u0010\u0081\u0001\u001a\u0004\u0018\u00010\u00138\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0081\u0001\u0010\u0082\u0001R\u001b\u0010\u0083\u0001\u001a\u0004\u0018\u00010\u00138\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0083\u0001\u0010\u0082\u0001R\u001b\u0010\u0084\u0001\u001a\u0004\u0018\u00010\u00138\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0084\u0001\u0010\u0082\u0001R\u001b\u0010\u0085\u0001\u001a\u0004\u0018\u00010\u00138\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0085\u0001\u0010\u0082\u0001R\u001c\u0010\u0087\u0001\u001a\u0005\u0018\u00010\u0086\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0087\u0001\u0010\u0088\u0001R\u001a\u0010\u008a\u0001\u001a\u00030\u0089\u00018\u0002@\u0002X\u0082\u0004¢\u0006\b\n\u0006\b\u008a\u0001\u0010\u008b\u0001R\u001e\u0010\u008c\u0001\u001a\b\u0012\u0004\u0012\u00020%0c8\u0002@\u0002X\u0082\u0004¢\u0006\u0007\n\u0005\b\u008c\u0001\u0010eR\u001c\u0010\u008e\u0001\u001a\u0005\u0018\u00010\u008d\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u008e\u0001\u0010\u008f\u0001R\u001b\u0010\u0090\u0001\u001a\u0004\u0018\u00010\u00108\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0090\u0001\u0010\u0091\u0001¨\u0006\u0094\u0001"}, d2 = {"Lcom/baidu/bdtask/ui/components/buoy/TaskBuoyView;", "Lcom/repackage/bw;", "Lcom/repackage/nq;", "", "newStatus", "", "addStatus", "(I)V", "Lcom/baidu/bdtask/framework/ui/buoy/BuoyViewData;", "data", "Lkotlin/Function0;", "nextAction", "buoyViewInit", "(Lcom/baidu/bdtask/framework/ui/buoy/BuoyViewData;Lkotlin/Function0;)V", "getAnimationProcessBufferTime", "()I", "Landroid/view/View;", "getContentView", "()Landroid/view/View;", "", "actionId", "Lcom/baidu/bdtask/model/info/TaskInfo;", "getCurTaskInfo", "(Ljava/lang/String;)Lcom/baidu/bdtask/model/info/TaskInfo;", "", "rate", "msg", "", "total", "getFormatMsgStr", "(FLjava/lang/String;J)Ljava/lang/String;", "getLayoutId", "getMaxProcessValue", "getRate", "()F", "start", "end", "Ljava/lang/Runnable;", "getUpdateAction", "(II)Ljava/lang/Runnable;", "initView", "()V", "Landroid/content/Context;", "context", "", "isActivityValid", "(Landroid/content/Context;)Z", "isFirstRoundTask", "(Ljava/lang/String;)Z", "checkStatus", "isIncluded", "(I)Z", "isReady", "()Z", "isSmooth", "isUpdateEnable", "onAttachedToWindow", "onDetachedFromWindow", "Lcom/baidu/bdtask/component/buoy/TaskBuoyViewModel;", "model", "onViewModelBind", "(Lcom/baidu/bdtask/component/buoy/TaskBuoyViewModel;)V", "requestUpdateProcess", "(II)V", TaskUIData.keyBgUrl, "updateBg", "(Ljava/lang/String;Lkotlin/Function0;)V", "closeBgUrl", "updateCloseBg", "(Ljava/lang/String;)V", "updateMsg", TaskUIData.keyTxtColor, "updateMsgUI", "pBackColor", "pForeColor", "updateProcessUI", "(Ljava/lang/String;Ljava/lang/String;)V", "totalTime", "message", "updateProcessValue", "(FJLjava/lang/String;)V", "action", "withSafeRun", "(Lkotlin/Function0;)V", "DEFAULT_BUFFER_TIME", "I", "MAX_PROCESS_VALUE", "Ljava/util/concurrent/locks/ReentrantLock;", "actionLock", "Ljava/util/concurrent/locks/ReentrantLock;", "Landroid/widget/ImageView;", "buoyClose", "Landroid/widget/ImageView;", "Landroid/widget/RelativeLayout;", "buoyContainer", "Landroid/widget/RelativeLayout;", "buoyHide", "Z", "buoyStatus", "Ljava/util/Queue;", "cacheActions", "Ljava/util/Queue;", "Lcom/baidu/bdtask/ui/components/buoy/TaskBuoyViewClickListener;", "componentClickListener", "Lcom/baidu/bdtask/ui/components/buoy/TaskBuoyViewClickListener;", "getComponentClickListener", "()Lcom/baidu/bdtask/ui/components/buoy/TaskBuoyViewClickListener;", "setComponentClickListener", "(Lcom/baidu/bdtask/ui/components/buoy/TaskBuoyViewClickListener;)V", "componentClickListener$annotations", "Landroid/view/View$OnClickListener;", "componentCloseExtraClickListener", "Landroid/view/View$OnClickListener;", "getComponentCloseExtraClickListener", "()Landroid/view/View$OnClickListener;", "setComponentCloseExtraClickListener", "(Landroid/view/View$OnClickListener;)V", "componentCloseExtraClickListener$annotations", "Landroid/content/Context;", "curRate", "F", "curTaskModel", "Lcom/baidu/bdtask/component/buoy/TaskBuoyViewModel;", "isAttached", "isDetached", "isUpdating", "Landroid/widget/TextView;", "msgTextView", "Landroid/widget/TextView;", "preBgUrl", "Ljava/lang/String;", "preCloseBgUrl", "preProcessBackColor", "preProcessForeColor", "Landroid/widget/ProgressBar;", "progressBar", "Landroid/widget/ProgressBar;", "Lcom/baidu/bdtask/ui/components/buoy/BuoyContainer;", "root", "Lcom/baidu/bdtask/ui/components/buoy/BuoyContainer;", "updateQueue", "Landroid/animation/ValueAnimator;", "valueAnimator", "Landroid/animation/ValueAnimator;", NativeConstants.TYPE_VIEW, "Landroid/view/View;", "<init>", "(Landroid/content/Context;)V", "lib-bdtask-ui-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes.dex */
-public class TaskBuoyView extends er implements sw {
+public class TaskBuoyView extends nq implements bw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TaskBuoyViewModel A;
@@ -69,7 +69,7 @@ public class TaskBuoyView extends er implements sw {
     public ImageView f;
     public final TextView g;
     public ProgressBar h;
-    public uw i;
+    public dw i;
     public View.OnClickListener j;
     public final Queue<Runnable> k;
     public final int l;
@@ -283,8 +283,8 @@ public class TaskBuoyView extends er implements sw {
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
             TaskInfo c;
-            yv v;
-            zv d;
+            hv v;
+            iv d;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.u = true;
@@ -293,7 +293,7 @@ public class TaskBuoyView extends er implements sw {
                 }
                 TaskBuoyViewModel taskBuoyViewModel = this.a.A;
                 if (taskBuoyViewModel != null && (c = taskBuoyViewModel.c()) != null && (v = BDPTask.m.v()) != null && (d = v.d()) != null) {
-                    d.b(c.getSingleKey(), vs.c.a());
+                    d.b(c.getSingleKey(), es.c.a());
                 }
                 this.a.c().a();
                 View.OnClickListener I = this.a.I();
@@ -348,7 +348,7 @@ public class TaskBuoyView extends er implements sw {
                 return;
             }
             this.a.c().b();
-            uw H = this.a.H();
+            dw H = this.a.H();
             BuoyContainer buoyContainer = this.a.c;
             Intrinsics.checkExpressionValueIsNotNull(viewData, "viewData");
             H.a(buoyContainer, c, viewData);
@@ -376,14 +376,14 @@ public class TaskBuoyView extends er implements sw {
         this.c = new BuoyContainer(applicationContext, this);
         View inflate = LayoutInflater.from(this.B.getApplicationContext()).inflate(K(), this.c);
         this.d = inflate;
-        this.e = inflate != null ? (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090463) : null;
+        this.e = inflate != null ? (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09045e) : null;
         View view2 = this.d;
-        this.f = view2 != null ? (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090462) : null;
+        this.f = view2 != null ? (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09045d) : null;
         View view3 = this.d;
-        this.g = view3 != null ? (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091edf) : null;
+        this.g = view3 != null ? (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091f37) : null;
         View view4 = this.d;
-        this.h = view4 != null ? (ProgressBar) view4.findViewById(R.id.obfuscated_res_0x7f091ee5) : null;
-        this.i = new tw();
+        this.h = view4 != null ? (ProgressBar) view4.findViewById(R.id.obfuscated_res_0x7f091f3d) : null;
+        this.i = new cw();
         this.k = new ConcurrentLinkedQueue();
         this.l = 1000;
         this.m = 500;
@@ -440,10 +440,10 @@ public class TaskBuoyView extends er implements sw {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.m : invokeV.intValue;
     }
 
-    public final uw H() {
+    public final dw H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.i : (uw) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.i : (dw) invokeV.objValue;
     }
 
     public final View.OnClickListener I() {
@@ -468,7 +468,7 @@ public class TaskBuoyView extends er implements sw {
     public int K() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? R.layout.obfuscated_res_0x7f0d0746 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? R.layout.obfuscated_res_0x7f0d0739 : invokeV.intValue;
     }
 
     public int L() {
@@ -490,7 +490,7 @@ public class TaskBuoyView extends er implements sw {
     }
 
     public final void N() {
-        yt h;
+        ht h;
         Context appContext;
         Resources resources;
         Interceptable interceptable = $ic;
@@ -515,11 +515,11 @@ public class TaskBuoyView extends er implements sw {
             if (view3 != null) {
                 view3.setClickable(true);
             }
-            yv v = BDPTask.m.v();
+            hv v = BDPTask.m.v();
             if (v == null || (h = v.h()) == null || (appContext = h.getAppContext()) == null || (resources = appContext.getResources()) == null) {
                 return;
             }
-            fx.a(this.d, this.f, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705db));
+            ow.a(this.d, this.f, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705db));
             getContentView().setVisibility(4);
         }
     }
@@ -529,7 +529,7 @@ public class TaskBuoyView extends er implements sw {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) {
             if (context instanceof Activity) {
-                return !xu.a((Activity) context);
+                return !gu.a((Activity) context);
             }
             return true;
         }
@@ -593,10 +593,10 @@ public class TaskBuoyView extends er implements sw {
         }
     }
 
-    public final void U(uw uwVar) {
+    public final void U(dw dwVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, uwVar) == null) {
-            this.i = uwVar;
+        if (interceptable == null || interceptable.invokeL(1048592, this, dwVar) == null) {
+            this.i = dwVar;
         }
     }
 
@@ -630,8 +630,8 @@ public class TaskBuoyView extends er implements sw {
     }
 
     public final void Z(String str) {
-        yv v;
-        yt h;
+        hv v;
+        ht h;
         Context appContext;
         Resources resources;
         TextView textView;
@@ -639,12 +639,12 @@ public class TaskBuoyView extends er implements sw {
         if (!(interceptable == null || interceptable.invokeL(1048596, this, str) == null) || (v = BDPTask.m.v()) == null || (h = v.h()) == null || (appContext = h.getAppContext()) == null || (resources = appContext.getResources()) == null || (textView = this.g) == null) {
             return;
         }
-        textView.setTextColor(ex.a.a(str, resources.getColor(R.color.obfuscated_res_0x7f060abe)));
+        textView.setTextColor(nw.a.a(str, resources.getColor(R.color.obfuscated_res_0x7f060ac7)));
     }
 
     public final void a0(String str, String str2) {
-        yv v;
-        yt h;
+        hv v;
+        ht h;
         Context appContext;
         Resources resources;
         Drawable progressDrawable;
@@ -661,14 +661,14 @@ public class TaskBuoyView extends er implements sw {
             LayerDrawable layerDrawable = (LayerDrawable) mutate;
             Drawable drawable = layerDrawable.getDrawable(0);
             if (drawable != null) {
-                ((GradientDrawable) drawable).setColor(ex.a.a(str, resources.getColor(R.color.obfuscated_res_0x7f060abb)));
+                ((GradientDrawable) drawable).setColor(nw.a.a(str, resources.getColor(R.color.obfuscated_res_0x7f060ac4)));
                 Drawable drawable2 = layerDrawable.getDrawable(1);
                 if (drawable2 == null) {
                     throw new TypeCastException("null cannot be cast to non-null type android.graphics.drawable.ScaleDrawable");
                 }
                 Drawable drawable3 = ((ScaleDrawable) drawable2).getDrawable();
                 if (drawable3 != null) {
-                    ((GradientDrawable) drawable3).setColor(ex.a.a(str2, resources.getColor(R.color.obfuscated_res_0x7f060abc)));
+                    ((GradientDrawable) drawable3).setColor(nw.a.a(str2, resources.getColor(R.color.obfuscated_res_0x7f060ac5)));
                     ProgressBar progressBar2 = this.h;
                     if (progressBar2 != null) {
                         progressBar2.setProgressDrawable(layerDrawable);
@@ -745,7 +745,7 @@ public class TaskBuoyView extends er implements sw {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ou
+    @Override // com.repackage.xt
     /* renamed from: d */
     public void a(TaskBuoyViewModel taskBuoyViewModel) {
         Interceptable interceptable = $ic;
@@ -756,14 +756,14 @@ public class TaskBuoyView extends er implements sw {
         }
     }
 
-    @Override // com.repackage.ku
+    @Override // com.repackage.tt
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.c : (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.sw
+    @Override // com.repackage.bw
     public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
@@ -774,7 +774,7 @@ public class TaskBuoyView extends er implements sw {
         }
     }
 
-    @Override // com.repackage.sw
+    @Override // com.repackage.bw
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048604, this) == null) {

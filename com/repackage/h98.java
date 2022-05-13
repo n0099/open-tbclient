@@ -140,7 +140,7 @@ public class h98 {
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:20:0x003d, code lost:
-            com.repackage.ul4.i(r0.get(r2));
+            com.repackage.fm4.i(r0.get(r2));
          */
         @Override // com.repackage.wa
         /*
@@ -328,35 +328,35 @@ public class h98 {
                         try {
                             fileInputStream = new FileInputStream(str2);
                             try {
-                                String b = ui.b(fileInputStream);
+                                String b = si.b(fileInputStream);
                                 if (StringUtils.isNull(b) || !b.toLowerCase().equals(this.e.toLowerCase())) {
                                     h98.h = 2;
-                                    kt4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "md5 error");
+                                    xt4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "md5 error");
                                     h98.m(this.a);
-                                    pi.e(fileInputStream);
+                                    ni.e(fileInputStream);
                                     return null;
                                 }
                             } catch (FileNotFoundException e) {
                                 e = e;
                                 e.printStackTrace();
-                                pi.e(fileInputStream);
+                                ni.e(fileInputStream);
                                 str = h98.g + "bdtbWCacheTemp/" + this.a + "/" + this.d + "/";
                                 new File(str).mkdirs();
-                                if (!dt4.b(str2, str)) {
+                                if (!qt4.b(str2, str)) {
                                 }
                                 h98.m(this.a);
                                 r = h98.r(this.a, this.d);
                                 if (r == null) {
                                 }
                                 h98.h = 5;
-                                kt4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "bundle incomplete");
+                                xt4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "bundle incomplete");
                                 h98.q().k(this.a);
                                 return null;
                             }
                         } catch (Throwable th) {
                             th = th;
                             inputStream = "obj_type";
-                            pi.e(inputStream);
+                            ni.e(inputStream);
                             throw th;
                         }
                     } catch (FileNotFoundException e2) {
@@ -365,27 +365,27 @@ public class h98 {
                     } catch (Throwable th2) {
                         th = th2;
                         inputStream = null;
-                        pi.e(inputStream);
+                        ni.e(inputStream);
                         throw th;
                     }
-                    pi.e(fileInputStream);
+                    ni.e(fileInputStream);
                     str = h98.g + "bdtbWCacheTemp/" + this.a + "/" + this.d + "/";
                     new File(str).mkdirs();
-                    if (!dt4.b(str2, str)) {
+                    if (!qt4.b(str2, str)) {
                         String str3 = h98.g + "bdtbNWCache/" + this.a + "/" + this.d + "/";
                         new File(str3).mkdirs();
                         if (!FileHelper.CopyDir(str, str3, true)) {
                             h98.h = 4;
-                            kt4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "write error");
+                            xt4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "write error");
                         }
                     } else {
                         h98.h = 3;
-                        kt4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "unzip error");
+                        xt4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "unzip error");
                     }
                 } else {
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_H5_OFFLINE_PACKAGE_DOWNLOAD).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", "2"));
                     h98.h = 1;
-                    kt4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "download error");
+                    xt4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "download error");
                 }
                 h98.m(this.a);
                 r = h98.r(this.a, this.d);
@@ -394,7 +394,7 @@ public class h98 {
                     return r;
                 }
                 h98.h = 5;
-                kt4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "bundle incomplete");
+                xt4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "bundle incomplete");
                 h98.q().k(this.a);
                 return null;
             }
@@ -493,7 +493,7 @@ public class h98 {
                         h98.l(r.c, str);
                     } else {
                         h98.h = 5;
-                        kt4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", str, "hybridVersion", s, "hybridResult", "bundle incomplete");
+                        xt4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", str, "hybridVersion", s, "hybridResult", "bundle incomplete");
                         this.a.k(str);
                     }
                 }
@@ -509,7 +509,7 @@ public class h98 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gVar) == null) {
                 if (gVar == null) {
-                    kt4.a("OfflineCache", -1L, -1, "readFile", -1, "read error", new Object[0]);
+                    xt4.a("OfflineCache", -1L, -1, "readFile", -1, "read error", new Object[0]);
                 } else {
                     i98.a().g(gVar.b);
                 }
@@ -648,7 +648,7 @@ public class h98 {
                     i98.a().f(true, str);
                     return;
                 }
-                kt4.a("OfflineCache", -1L, 0, "downloadCache", 0, "", "url", a2, "hybridVersion", c2, "lastVersion", s, "type", "start", "hybridName", str, "hybridResult", "success");
+                xt4.a("OfflineCache", -1L, 0, "downloadCache", 0, "", "url", a2, "hybridVersion", c2, "lastVersion", s, "type", "start", "hybridName", str, "hybridResult", "success");
                 new d(str, l98Var, true ^ d2).execute(new Void[0]);
                 return;
             }
@@ -698,17 +698,17 @@ public class h98 {
                 }
                 try {
                     hVar.b = x(fileInputStream);
-                    pi.e(fileInputStream);
+                    ni.e(fileInputStream);
                 } catch (FileNotFoundException e3) {
                     e = e3;
                     fileInputStream2 = fileInputStream;
                     e.printStackTrace();
-                    pi.e(fileInputStream2);
+                    ni.e(fileInputStream2);
                     return hVar;
                 } catch (Throwable th) {
                     th = th;
                     fileInputStream2 = fileInputStream;
-                    pi.e(fileInputStream2);
+                    ni.e(fileInputStream2);
                     throw th;
                 }
                 return hVar;
@@ -798,28 +798,28 @@ public class h98 {
                 e = e11;
                 inputStreamReader2 = inputStreamReader;
                 e.printStackTrace();
-                pi.g(inputStreamReader2);
-                pi.g(bufferedReader);
+                ni.g(inputStreamReader2);
+                ni.g(bufferedReader);
                 return hashMap;
             } catch (JSONException e12) {
                 e = e12;
                 inputStreamReader2 = inputStreamReader;
                 e.printStackTrace();
-                pi.g(inputStreamReader2);
-                pi.g(bufferedReader);
+                ni.g(inputStreamReader2);
+                ni.g(bufferedReader);
                 return hashMap;
             } catch (Exception e13) {
                 e = e13;
                 inputStreamReader2 = inputStreamReader;
                 e.printStackTrace();
-                pi.g(inputStreamReader2);
-                pi.g(bufferedReader);
+                ni.g(inputStreamReader2);
+                ni.g(bufferedReader);
                 return hashMap;
             } catch (Throwable th3) {
                 th = th3;
                 inputStreamReader2 = inputStreamReader;
-                pi.g(inputStreamReader2);
-                pi.g(bufferedReader);
+                ni.g(inputStreamReader2);
+                ni.g(bufferedReader);
                 throw th;
             }
             if (jSONObject.has(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME) && (optJSONObject = jSONObject.optJSONObject(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME)) != null && (keys = optJSONObject.keys()) != null) {
@@ -851,12 +851,12 @@ public class h98 {
                     hashMap.put(next, j98Var);
                     optJSONObject = jSONObject2;
                 }
-                pi.g(inputStreamReader);
-                pi.g(bufferedReader);
+                ni.g(inputStreamReader);
+                ni.g(bufferedReader);
                 return hashMap;
             }
-            pi.g(inputStreamReader);
-            pi.g(bufferedReader);
+            ni.g(inputStreamReader);
+            ni.g(bufferedReader);
             return null;
         } catch (Throwable th4) {
             th = th4;
@@ -914,7 +914,7 @@ public class h98 {
                     if (file2.exists()) {
                         FileHelper.deleteFileOrDir(file2);
                     }
-                    if (dt4.e(str2, str3)) {
+                    if (qt4.e(str2, str3)) {
                         NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_OFFLINE_PACK);
                         netWork.addPostData("offline_pack_version", s);
                         netWork.addPostData("mod_name", str);
@@ -979,7 +979,7 @@ public class h98 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             n();
-            vt4.k().y("pref_key_quick_webview_versions", "");
+            iu4.k().y("pref_key_quick_webview_versions", "");
             String str = g + "bdtbNWCache";
             File file = new File(str);
             if (!file.exists() || !file.isDirectory() || (list = file.list()) == null || list.length == 0) {
@@ -1008,7 +1008,7 @@ public class h98 {
             return;
         }
         j(str);
-        vt4.k().y("pref_key_quick_webview_versions", D());
+        iu4.k().y("pref_key_quick_webview_versions", D());
         File file = new File(g + "bdtbNWCache/" + str);
         if (file.exists() && file.isDirectory()) {
             FileHelper.deleteFileOrDir(file);
@@ -1062,7 +1062,7 @@ public class h98 {
             MessageManager.getInstance().registerListener(this.e);
             MessageManager.getInstance().registerListener(this.d);
             this.b = new File(g + "bdtbNWCache").getAbsolutePath();
-            w(vt4.k().q("pref_key_quick_webview_versions", ""));
+            w(iu4.k().q("pref_key_quick_webview_versions", ""));
         }
     }
 
@@ -1120,7 +1120,7 @@ public class h98 {
             if (TextUtils.isEmpty(D)) {
                 return;
             }
-            vt4.k().y("pref_key_quick_webview_versions", D);
+            iu4.k().y("pref_key_quick_webview_versions", D);
         }
     }
 }

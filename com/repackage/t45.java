@@ -1,187 +1,224 @@
 package com.repackage;
 
-import android.app.Activity;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.content.Context;
+import android.graphics.Rect;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import androidx.core.widget.NestedScrollView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.ExternalTransferSpeedStats;
-import com.baidu.searchbox.launch.SmartLaunchStats;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class t45 implements s45 {
+public class t45 extends r45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public Map<String, r45> c;
-    public boolean d;
+    public NestedScrollView a;
+    public LinearLayout b;
+    public TbImageView c;
+    public TextView d;
+    public TextView e;
+    public TBSpecificationBtn f;
+    public LinearLayout g;
+    public int h;
+    public Rect i;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
-        public static final t45 a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ t45 a;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-32966401, "Lcom/repackage/t45$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-32966401, "Lcom/repackage/t45$a;");
+        public a(t45 t45Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t45Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new t45();
+            this.a = t45Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.a(-1);
+            }
         }
     }
 
-    public t45() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t45(Context context, View.OnClickListener onClickListener) {
+        super(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d033c, (ViewGroup) null));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, onClickListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new HashMap();
+        this.h = 0;
+        this.i = new Rect();
+        this.a = (NestedScrollView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091c51);
+        this.b = (LinearLayout) this.attachedView.findViewById(R.id.obfuscated_res_0x7f0906cd);
+        this.c = (TbImageView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091555);
+        this.d = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091554);
+        this.e = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091557);
+        this.g = (LinearLayout) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091556);
+        this.f = (TBSpecificationBtn) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091553);
+        xu4 xu4Var = new xu4();
+        this.f.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0f83));
+        this.f.setTextSize(R.dimen.tbds42);
+        this.f.setConfig(xu4Var);
+        this.f.setOnClickListener(onClickListener);
+        this.attachedView.setOnClickListener(null);
     }
 
-    public static final t45 d() {
-        InterceptResult invokeV;
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a : (t45) invokeV.objValue;
-    }
-
-    @Override // com.repackage.s45
-    public void a() {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Iterator<Map.Entry<String, r45>> it = this.c.entrySet().iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    z = true;
-                    break;
-                }
-                Map.Entry<String, r45> next = it.next();
-                if (next.getValue() != null && !next.getValue().m()) {
-                    z = false;
-                    break;
-                }
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            if (this.h <= 0) {
+                this.h = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds156);
             }
-            this.d = z;
-            if (z) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921551, Boolean.TRUE));
+            NestedScrollView nestedScrollView = this.a;
+            if (nestedScrollView == null) {
+                return;
+            }
+            if (i == 0) {
+                nestedScrollView.post(new a(this));
+            }
+            if (this.a.getLocalVisibleRect(this.i)) {
+                int i2 = this.i.bottom;
+                int abs = Math.abs(this.b.getTop());
+                int abs2 = i2 - Math.abs(this.b.getBottom());
+                ViewGroup.LayoutParams layoutParams = this.b.getLayoutParams();
+                if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
+                    ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
+                    int i3 = this.h;
+                    if (abs < i3) {
+                        marginLayoutParams.topMargin = i3;
+                        this.b.setLayoutParams(marginLayoutParams);
+                    } else if (abs == i3) {
+                        if (abs2 > i3) {
+                            marginLayoutParams.topMargin = i3 + ((abs2 - i3) / 2);
+                            this.b.setLayoutParams(marginLayoutParams);
+                        }
+                    } else if (abs > i3) {
+                        if (abs2 < i3) {
+                            marginLayoutParams.topMargin = i3;
+                        } else if (abs2 == i3) {
+                            marginLayoutParams.topMargin = i3;
+                        } else if (abs2 > i3) {
+                            marginLayoutParams.topMargin = (abs + abs2) / 2;
+                        }
+                        this.b.setLayoutParams(marginLayoutParams);
+                    }
+                }
             }
         }
     }
 
-    public boolean b() {
+    public View b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long currentTimeMillis = System.currentTimeMillis() / 1000;
-            return this.d && currentTimeMillis > f() && currentTimeMillis < e();
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.attachedView : (View) invokeV.objValue;
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || str == null) {
+            return;
         }
-        return invokeV.booleanValue;
+        this.f.setText(str);
     }
 
-    public r45 c(String str) {
-        InterceptResult invokeL;
+    public void d(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.c.get(str) : (r45) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            if (str == null) {
+                this.d.setVisibility(8);
+                return;
+            }
+            this.d.setVisibility(0);
+            this.d.setText(str);
+        }
     }
 
-    public long e() {
-        InterceptResult invokeV;
+    public void e(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.longValue;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || str == null) {
+            return;
+        }
+        this.e.setText(str);
     }
 
-    public long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : invokeV.longValue;
-    }
-
-    public void g() {
-        BdUniqueId uniqueId;
+    public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (currentActivity instanceof BaseActivity) {
-                uniqueId = ((BaseActivity) currentActivity).getUniqueId();
-            } else {
-                uniqueId = currentActivity instanceof BaseFragmentActivity ? ((BaseFragmentActivity) currentActivity).getUniqueId() : null;
-            }
-            for (Map.Entry<String, r45> entry : this.c.entrySet()) {
-                if (entry.getValue() != null) {
-                    entry.getValue().q(uniqueId);
-                    entry.getValue().p(this);
-                    entry.getValue().n();
-                }
+            this.f.setVisibility(0);
+            this.e.setVisibility(0);
+            SkinManager.setViewTextColor(this.d, R.color.CAM_X0109, 1);
+        }
+    }
+
+    public void onChangeSkinType() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            SkinManager.setImageResource(this.c, R.drawable.new_pic_emotion_08);
+            SkinManager.setViewTextColor(this.d, R.color.CAM_X0109, 1, skinType);
+            SkinManager.setViewTextColor(this.e, R.color.CAM_X0107, 1, skinType);
+            SkinManager.setBackgroundColor(this.attachedView, R.color.CAM_X0201);
+            TBSpecificationBtn tBSpecificationBtn = this.f;
+            if (tBSpecificationBtn != null) {
+                tBSpecificationBtn.k();
             }
         }
     }
 
-    public void h(JSONObject jSONObject) {
+    @Override // com.repackage.r45
+    public void onViewAttached() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) {
-            this.a = jSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY);
-            this.b = jSONObject.optLong("end_time");
-            JSONObject optJSONObject = jSONObject.optJSONObject(ExternalTransferSpeedStats.FEED_PAGE);
-            if (optJSONObject != null) {
-                r45 r45Var = new r45();
-                r45Var.o(optJSONObject);
-                this.c.put("homePage", r45Var);
-            }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("forum");
-            if (optJSONObject2 != null) {
-                r45 r45Var2 = new r45();
-                r45Var2.o(optJSONObject2);
-                this.c.put("enterForum", r45Var2);
-            }
-            JSONObject optJSONObject3 = jSONObject.optJSONObject("channel");
-            if (optJSONObject3 != null) {
-                r45 r45Var3 = new r45();
-                r45Var3.o(optJSONObject3);
-                this.c.put("channel", r45Var3);
-            }
-            JSONObject optJSONObject4 = jSONObject.optJSONObject("news");
-            if (optJSONObject4 != null) {
-                r45 r45Var4 = new r45();
-                r45Var4.o(optJSONObject4);
-                this.c.put("message", r45Var4);
-            }
-            JSONObject optJSONObject5 = jSONObject.optJSONObject("personal");
-            if (optJSONObject5 != null) {
-                r45 r45Var5 = new r45();
-                r45Var5.o(optJSONObject5);
-                this.c.put("person", r45Var5);
-            }
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.onViewAttached();
+            onChangeSkinType();
+        }
+    }
+
+    @Override // com.repackage.r45
+    public void onViewDettached() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            super.onViewDettached();
+            this.c.setImageResource(0);
         }
     }
 }

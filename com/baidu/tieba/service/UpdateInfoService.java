@@ -15,15 +15,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.gf;
-import com.repackage.tc8;
-/* loaded from: classes4.dex */
+import com.repackage.rb8;
+/* loaded from: classes3.dex */
 public class UpdateInfoService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public gf.c locationCallBack;
     public ReportUserInfoModel mModel;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements ReportUserInfoModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,7 +72,7 @@ public class UpdateInfoService extends BdBaseService {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements gf.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,9 +102,9 @@ public class UpdateInfoService extends BdBaseService {
             if ((interceptable == null || interceptable.invokeILL(1048576, this, i, str, address) == null) && i == 0 && address != null) {
                 float longitude = (float) address.getLongitude();
                 float latitude = (float) address.getLatitude();
-                tc8.e().j(String.valueOf(longitude));
-                tc8.e().i(String.valueOf(latitude));
-                tc8.e().k(System.currentTimeMillis());
+                rb8.e().j(String.valueOf(longitude));
+                rb8.e().i(String.valueOf(latitude));
+                rb8.e().k(System.currentTimeMillis());
                 if (this.a.mModel.z() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
                     this.a.mModel.B(1, longitude, latitude);
                     this.a.mModel.C();

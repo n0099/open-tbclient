@@ -1,23 +1,15 @@
 package com.repackage;
+
+import android.view.View;
 /* loaded from: classes7.dex */
 public interface zv4 {
-    boolean a();
+    void a(View view2);
 
-    void b();
+    void b(View.OnClickListener onClickListener);
 
-    boolean c(String str);
+    void c(boolean z, int i, boolean z2);
 
-    int d();
+    void d(int i);
 
-    void e();
-
-    void f();
-
-    int g();
-
-    void h();
-
-    boolean isPlaying();
-
-    void seek(int i);
+    void e(boolean z, int i);
 }

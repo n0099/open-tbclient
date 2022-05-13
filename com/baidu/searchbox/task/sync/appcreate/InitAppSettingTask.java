@@ -1,26 +1,21 @@
 package com.baidu.searchbox.task.sync.appcreate;
 
-import android.content.res.AssetManager;
-import android.graphics.BitmapFactory;
-import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.az4;
-import com.repackage.ey4;
-import com.repackage.s85;
+import com.repackage.dd5;
+import com.repackage.j95;
+import com.repackage.my4;
+import com.repackage.oz4;
+import com.repackage.sy4;
 import com.repackage.x8;
-import com.repackage.yx4;
-import java.io.IOException;
-import java.io.InputStream;
 /* loaded from: classes2.dex */
 public class InitAppSettingTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -40,49 +35,13 @@ public class InitAppSettingTask extends LaunchTask {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0057  */
-    /* JADX WARN: Removed duplicated region for block: B:23:0x0065  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     private void initSettings() {
-        boolean z;
-        AssetManager assets;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            int i = 0;
             TbadkCoreApplication.getInst().mVoiceHeadsetMode = TbadkSettings.getInst().loadInt("voice_headset_mode", 0);
-            if (TbadkSettings.getInst().loadInt("webp_failure_count", -1) == -1) {
-                if (Build.VERSION.SDK_INT >= 14 && (assets = TbadkCoreApplication.getInst().getContext().getAssets()) != null) {
-                    InputStream inputStream = null;
-                    try {
-                        inputStream = assets.open("webp_test/test.webp");
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    if (inputStream != null && BitmapFactory.decodeStream(inputStream) != null) {
-                        z = true;
-                        if (z) {
-                            TiebaStatic.log("LocalWebpUnSupport");
-                            TbadkCoreApplication.getInst().mCapableOfWebp = false;
-                            i = 6;
-                        } else {
-                            TbadkCoreApplication.getInst().mCapableOfWebp = true;
-                        }
-                        TbadkSettings.getInst().saveInt("webp_failure_count", i);
-                        TbadkSettings.getInst().saveBoolean("capable_of_webp_format", TbadkCoreApplication.getInst().mCapableOfWebp);
-                    }
-                }
-                z = false;
-                if (z) {
-                }
-                TbadkSettings.getInst().saveInt("webp_failure_count", i);
-                TbadkSettings.getInst().saveBoolean("capable_of_webp_format", TbadkCoreApplication.getInst().mCapableOfWebp);
-            } else {
-                TbadkCoreApplication.getInst().mCapableOfWebp = TbadkSettings.getInst().loadBoolean("capable_of_webp_format", false);
-            }
-            s85.b().r(System.currentTimeMillis() - currentTimeMillis);
+            dd5.c();
+            j95.b().r(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 
@@ -95,9 +54,9 @@ public class InitAppSettingTask extends LaunchTask {
             initSettings();
             TbadkCoreApplication.getInst().initSetting();
             long currentTimeMillis = System.currentTimeMillis();
-            yx4.d().n();
-            s85.b().y(System.currentTimeMillis() - currentTimeMillis);
-            x8.f().q(20);
+            my4.d().o();
+            j95.b().y(System.currentTimeMillis() - currentTimeMillis);
+            x8.g().r(20);
         }
     }
 
@@ -125,14 +84,14 @@ public class InitAppSettingTask extends LaunchTask {
             if (TextUtils.isEmpty(loadString)) {
                 return;
             }
-            ey4 ey4Var = new ey4();
-            ey4Var.e(loadString);
-            az4 a = az4.a();
-            a.g(ey4Var.b() == 1);
-            a.h(ey4Var.c());
-            a.i(ey4Var.d() * 1000);
-            if (ey4Var.a() != null) {
-                a.j(ey4Var.a());
+            sy4 sy4Var = new sy4();
+            sy4Var.e(loadString);
+            oz4 a = oz4.a();
+            a.g(sy4Var.b() == 1);
+            a.h(sy4Var.c());
+            a.i(sy4Var.d() * 1000);
+            if (sy4Var.a() != null) {
+                a.j(sy4Var.a());
             }
         }
     }

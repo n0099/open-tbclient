@@ -134,7 +134,7 @@ public class SwitchAccountActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d04df);
+                setContentView(R.layout.obfuscated_res_0x7f0d04d4);
                 init();
             } catch (Throwable th) {
                 reportWebviewError(th);
@@ -160,7 +160,7 @@ public class SwitchAccountActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.setupViews();
-            setTitleText(R.string.obfuscated_res_0x7f0f1062);
+            setTitleText(R.string.obfuscated_res_0x7f0f107a);
             SapiWebView sapiWebView = this.sapiWebView;
             sapiWebView.showSwitchAccount = this.configuration.supportMultipleAccounts;
             sapiWebView.showLinkAccount = this.v.supportQueryAssociatedAccount;

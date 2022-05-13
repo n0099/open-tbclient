@@ -8,221 +8,76 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes7.dex */
 public class z92 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<String> a;
-    public final Map<String, a<Boolean>> b;
-    public final Map<String, a<b>> c;
-    public a<Exception> d;
+    public final Map<Integer, Integer> a;
 
     /* loaded from: classes7.dex */
-    public static class a<T> {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final z92 a;
         public transient /* synthetic */ FieldHolder $fh;
-        public Set<cf3<T>> a;
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(143336737, "Lcom/repackage/z92$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(143336737, "Lcom/repackage/z92$a;");
                     return;
                 }
             }
-            this.a = new HashSet();
+            a = new z92();
         }
-
-        public void a(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
-                for (cf3<T> cf3Var : this.a) {
-                    cf3Var.onCallback(t);
-                }
-            }
-        }
-
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.clear();
-            }
-        }
-
-        public void c(cf3<T> cf3Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cf3Var) == null) || cf3Var == null) {
-                return;
-            }
-            this.a.add(cf3Var);
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final long a;
-        public final long b;
-
-        public b(long j, long j2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = j;
-            this.b = j2;
-            int i3 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
-        }
-
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b > 0 : invokeV.booleanValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755157250, "Lcom/repackage/z92;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755157250, "Lcom/repackage/z92;");
-                return;
-            }
-        }
-        boolean z = tg1.a;
     }
 
     public z92() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashSet();
-        this.b = new HashMap();
-        this.c = new HashMap();
-        this.d = new a<>();
+        this.a = new ConcurrentHashMap();
     }
 
-    public static <T> a<T> i(Map<String, a<T>> map, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, map, str)) == null) {
-            a<T> aVar = map.get(str);
-            if (aVar == null) {
-                a<T> aVar2 = new a<>();
-                map.put(str, aVar2);
-                return aVar2;
-            }
-            return aVar;
-        }
-        return (a) invokeLL.objValue;
-    }
-
-    public HashSet<String> a() {
+    public static z92 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new HashSet<>(this.a) : (HashSet) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a : (z92) invokeV.objValue;
     }
 
-    public void b(Exception exc) {
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-            this.d.a(exc);
-            this.d.b();
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.a.put(Integer.valueOf(i), Integer.valueOf(c(i) + 1));
+            ux1.k("SwanRecoveryCounter", "addRecoveryCount level=" + i);
         }
     }
 
-    public void c(String str, boolean z) {
+    public int c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
-            a i = i(this.b, str);
-            i.a(Boolean.valueOf(z));
-            i.b();
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            Integer num = this.a.get(Integer.valueOf(i));
+            int intValue = num != null ? num.intValue() : 0;
+            ux1.k("SwanRecoveryCounter", "getRecoveryCount level=" + i + ";count=" + intValue);
+            return intValue;
         }
-    }
-
-    public void d(String str, b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, bVar) == null) {
-            if (bVar == null || bVar.a()) {
-                i(this.c, str).a(bVar);
-            }
-        }
-    }
-
-    public z92 e(cf3<Exception> cf3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cf3Var)) == null) {
-            this.d.c(cf3Var);
-            return this;
-        }
-        return (z92) invokeL.objValue;
-    }
-
-    public z92 f(String... strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, strArr)) == null) {
-            this.a.addAll(Arrays.asList(strArr));
-            return this;
-        }
-        return (z92) invokeL.objValue;
-    }
-
-    public final <T> z92 g(Map<String, a<T>> map, String str, cf3<T> cf3Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, map, str, cf3Var)) == null) {
-            f(str);
-            i(map, str).c(cf3Var);
-            return this;
-        }
-        return (z92) invokeLLL.objValue;
-    }
-
-    public z92 h(String str, cf3<Boolean> cf3Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, cf3Var)) == null) {
-            g(this.b, str, cf3Var);
-            return this;
-        }
-        return (z92) invokeLL.objValue;
+        return invokeI.intValue;
     }
 }

@@ -1,23 +1,83 @@
 package com.repackage;
 
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.view.MessageRedDotView;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.R;
+import com.baidu.tieba.frs.shrinkhead.LogicField;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import tbclient.ZoneRight.DataReq;
-import tbclient.ZoneRight.ZoneRightReqIdl;
 /* loaded from: classes6.dex */
-public class on6 implements o65 {
+public class on6 extends ln6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
-    public String c;
-    public int d;
-    public int e;
+    public ImageView j;
+    public nz5 k;
+    public ImageView l;
+    public MessageRedDotView m;
+    public ImageView n;
+    public TextView o;
+
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-122518147, "Lcom/repackage/on6$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-122518147, "Lcom/repackage/on6$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[LogicField.values().length];
+            a = iArr;
+            try {
+                iArr[LogicField.SEARCH_BTN.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[LogicField.MESSAGE_ICON_CONTROLLER.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[LogicField.MESSAGE_BTN.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[LogicField.MESSAGE_RED_DOT.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                a[LogicField.SHARE_BTN.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                a[LogicField.FOLD_TITLE.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+        }
+    }
 
     public on6() {
         Interceptable interceptable = $ic;
@@ -33,40 +93,87 @@ public class on6 implements o65 {
         }
     }
 
-    @Override // com.repackage.q65
-    public Object f(boolean z) {
-        InterceptResult invokeZ;
+    @Override // com.repackage.ln6, com.repackage.nn6
+    @Nullable
+    public <T> T a(@NonNull LogicField logicField) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            DataReq.Builder builder = new DataReq.Builder();
-            rc5.c(builder, true, false, true);
-            builder.forum_id = Long.valueOf(mg.g(this.c, 0L));
-            builder.thread_id = Long.valueOf(this.b);
-            builder.req_type = Integer.valueOf(this.d == 1 ? 2 : 1);
-            ZoneRightReqIdl.Builder builder2 = new ZoneRightReqIdl.Builder();
-            builder2.data = builder.build(false);
-            return builder2.build(false);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, logicField)) == null) {
+            switch (a.a[logicField.ordinal()]) {
+                case 1:
+                    return (T) this.j;
+                case 2:
+                    return (T) this.k;
+                case 3:
+                    return (T) this.l;
+                case 4:
+                    return (T) this.m;
+                case 5:
+                    return (T) this.n;
+                case 6:
+                    return (T) this.o;
+                default:
+                    return (T) super.a(logicField);
+            }
         }
-        return invokeZ.objValue;
+        return (T) invokeL.objValue;
     }
 
-    @Override // com.repackage.n65
-    public HashMap<String, Object> u() {
-        InterceptResult invokeV;
+    @Override // com.repackage.ln6
+    public void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.e.setContentPaddingTop(mi.f(this.c.getContext(), R.dimen.tbds24));
+            q();
+            p();
+            r();
+            o();
         }
-        return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.repackage.n65
-    public HashMap<String, String> w() {
-        InterceptResult invokeV;
+    public final void o() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.o = this.e.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, "", null, false);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
+            int dimension = (int) this.b.getResources().getDimension(R.dimen.obfuscated_res_0x7f0701d5);
+            layoutParams.setMargins(0, dimension, dimension, dimension);
+            this.o.setLayoutParams(layoutParams);
+            this.o.setPadding(0, 0, this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5), 0);
+            this.o.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
         }
-        return (HashMap) invokeV.objValue;
+    }
+
+    public final void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            nz5 nz5Var = new nz5(this.b);
+            this.k = nz5Var;
+            this.e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, nz5Var.c(), (View.OnClickListener) null);
+            this.l = this.k.b();
+            MessageRedDotView a2 = this.k.a();
+            this.m = a2;
+            a2.setShadowEnabled(false);
+            this.k.c().setOnClickListener(this.d);
+            this.k.f(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, true);
+        }
+    }
+
+    public final void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.j = (ImageView) this.e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0353, (View.OnClickListener) null);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.j, R.drawable.obfuscated_res_0x7f080612, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            this.j.setOnClickListener(this.d);
+        }
+    }
+
+    public final void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.n = (ImageView) this.e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0354, (View.OnClickListener) null);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.n, R.drawable.obfuscated_res_0x7f080613, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            this.n.setOnClickListener(this.d);
+        }
     }
 }

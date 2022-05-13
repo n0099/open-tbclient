@@ -4,7 +4,6 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.recapp.report.AdUploadHttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,18 +47,18 @@ public class jz0 extends hz0 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            oi0 d = hi0.d();
+            ri0 d = ki0.d();
             StringBuilder sb = new StringBuilder();
-            d(sb, AdUploadHttpRequest.KEY_PRODUCT_ID, d.l());
+            d(sb, "productId", d.l());
             d(sb, HttpRequest.CLIENT_TYPE, "2");
-            d(sb, AdUploadHttpRequest.KEY_OS_TYPE, "2");
-            d(sb, AdUploadHttpRequest.KEY_OS_VERSION, d.c());
+            d(sb, "_os_type", "2");
+            d(sb, "_os_version", d.c());
             d(sb, "_client_version", d.q());
-            d(sb, "_sdk_version", "5.2.0.3");
+            d(sb, "_sdk_version", "5.2.0.21");
             d(sb, "model", d.j());
             d(sb, "cuid", d.b());
             d(sb, "net_type", String.valueOf(new fp0().c()));
-            if (yf0.a) {
+            if (bg0.a) {
                 d(sb, "rd", d.r());
                 d(sb, "qa", d.s());
                 d(sb, "story_id", d.n());

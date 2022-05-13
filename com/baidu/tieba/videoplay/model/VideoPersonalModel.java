@@ -15,9 +15,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.c55;
-import com.repackage.d55;
-import com.repackage.w45;
+import com.repackage.m55;
+import com.repackage.s55;
+import com.repackage.t55;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -30,9 +30,9 @@ public class VideoPersonalModel extends BdBaseModel {
     @Nullable
     public b b;
     @NonNull
-    public c55 c;
+    public s55 c;
     @NonNull
-    public d55 d;
+    public t55 d;
     @Nullable
     public UserItemData e;
     @NonNull
@@ -41,7 +41,7 @@ public class VideoPersonalModel extends BdBaseModel {
     public boolean h;
 
     /* loaded from: classes4.dex */
-    public class a implements d55.a {
+    public class a implements t55.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoRecommentPlayActivityConfig.PersonalPageParams a;
@@ -66,7 +66,7 @@ public class VideoPersonalModel extends BdBaseModel {
             this.a = personalPageParams;
         }
 
-        @Override // com.repackage.d55.a
+        @Override // com.repackage.t55.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -74,7 +74,7 @@ public class VideoPersonalModel extends BdBaseModel {
             }
         }
 
-        @Override // com.repackage.d55.a
+        @Override // com.repackage.t55.a
         public void b(@NonNull List<ThreadData> list, @Nullable Map<String, Object> map) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, map) == null) || this.b.b == null || list.isEmpty()) {
@@ -120,11 +120,11 @@ public class VideoPersonalModel extends BdBaseModel {
                 return;
             }
         }
-        this.c = (c55) w45.c(c55.b);
+        this.c = (s55) m55.c(s55.b);
         this.f = new ArrayList();
         this.h = false;
         this.a = personalPageParams;
-        d55 a2 = this.c.a(tbPageContext);
+        t55 a2 = this.c.a(tbPageContext);
         this.d = a2;
         a2.a(new a(this, personalPageParams));
     }

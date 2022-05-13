@@ -61,7 +61,7 @@ public final class y {
                 ibVar.f614a.f543c = str.substring(str.indexOf("/") + 1);
                 faVar.a(ip.a(ibVar), lVar.c);
                 faVar.a((short) 1);
-                com.xiaomi.channel.commonutils.logger.b.m108a("try send mi push message. packagename:" + ibVar.f619b + " action:" + ibVar.f612a);
+                com.xiaomi.channel.commonutils.logger.b.m109a("try send mi push message. packagename:" + ibVar.f619b + " action:" + ibVar.f612a);
                 return faVar;
             } catch (NullPointerException e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
@@ -155,16 +155,16 @@ public final class y {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, xMPushService, ibVar) == null) {
             cy.a(ibVar.b(), xMPushService.getApplicationContext(), ibVar, -1);
-            fl m598a = xMPushService.m598a();
-            if (m598a == null) {
+            fl m599a = xMPushService.m599a();
+            if (m599a == null) {
                 throw new fw("try send msg while connection is null.");
             }
-            if (!m598a.m361a()) {
+            if (!m599a.m362a()) {
                 throw new fw("Don't support XMPP connection.");
             }
             fa a = a(m.a((Context) xMPushService), xMPushService, ibVar);
             if (a != null) {
-                m598a.b(a);
+                m599a.b(a);
             }
         }
     }
@@ -188,16 +188,16 @@ public final class y {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65547, null, xMPushService, str, bArr) == null) {
             cy.a(str, xMPushService.getApplicationContext(), bArr);
-            fl m598a = xMPushService.m598a();
-            if (m598a == null) {
+            fl m599a = xMPushService.m599a();
+            if (m599a == null) {
                 throw new fw("try send msg while connection is null.");
             }
-            if (!m598a.m361a()) {
+            if (!m599a.m362a()) {
                 throw new fw("Don't support XMPP connection.");
             }
             fa a = a(xMPushService, bArr);
             if (a != null) {
-                m598a.b(a);
+                m599a.b(a);
             } else {
                 p.a(xMPushService, str, bArr, ErrorCode.ERROR_INVALID_PAYLOAD, "not a valid message");
             }

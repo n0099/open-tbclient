@@ -1,178 +1,270 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.BdLog;
+import android.app.Activity;
+import android.app.Dialog;
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.IntentSender;
+import android.content.ServiceConnection;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.os.Bundle;
+import android.util.AttributeSet;
+import android.view.ContextMenu;
+import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.view.accessibility.AccessibilityEvent;
 import com.baidu.adp.plugin.pluginBase.PluginBaseActivity;
-import com.baidu.adp.plugin.pluginBase.PluginBaseFragmentActivity;
-import com.baidu.adp.plugin.pluginBase.PluginBaseRemoteActivity;
-import com.baidu.adp.plugin.pluginBase.PluginBaseRemoteSingleTaskActivity;
-import com.baidu.adp.plugin.pluginBase.PluginBaseSingleTaskActivity;
-import com.baidu.adp.plugin.pluginBase.PluginBaseThirdActivity;
-import com.baidu.adp.plugin.pluginBase.PluginBaseThirdFragmentActivity;
-import com.baidu.adp.plugin.pluginBase.PluginBaseThirdSingleTaskActivity;
-import com.baidu.adp.plugin.proxy.activity.ActivityProxy;
-import com.baidu.adp.plugin.proxy.activity.FragmentActivityProxy;
-import com.baidu.adp.plugin.proxy.activity.RemoteActivityProxy;
-import com.baidu.adp.plugin.proxy.activity.ThirdActivityProxy;
-import com.baidu.adp.plugin.proxy.activity.ThirdFragmentActivityProxy;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes7.dex */
-public class ul {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile ul g;
-    public transient /* synthetic */ FieldHolder $fh;
-    public Map<Class<?>, Class<?>> a;
-    public Map<Class<?>, Class<?>> b;
-    public Map<Class<?>, Class<?>> c;
-    public int d;
-    public int e;
-    public int f;
+public interface ul {
+    Activity getActivity();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1964025778, "Lcom/repackage/ul;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1964025778, "Lcom/repackage/ul;");
-        }
-    }
+    PluginBaseActivity getTarget();
 
-    public ul() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = 0;
-        this.e = 0;
-        this.f = 0;
-        this.a = new HashMap();
-        this.b = new HashMap();
-        this.c = new HashMap();
-    }
+    void proxyAddContentView(View view2, ViewGroup.LayoutParams layoutParams);
 
-    public static ul a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (g == null) {
-                synchronized (ul.class) {
-                    if (g == null) {
-                        g = new ul();
-                    }
-                }
-            }
-            return g;
-        }
-        return (ul) invokeV.objValue;
-    }
+    boolean proxyBindService(Intent intent, ServiceConnection serviceConnection, int i);
 
-    public Class<?> b(Class<?> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
-            if (cls == null) {
-                return null;
-            }
-            if (PluginBaseSingleTaskActivity.class.isAssignableFrom(cls)) {
-                Class<?> cls2 = this.a.get(cls);
-                if (cls2 != null) {
-                    return cls2;
-                }
-                int i = this.e;
-                if (i == 20) {
-                    BdLog.e("can not find singletaskactivity,Has started 20 singletaskactivity");
-                    return null;
-                }
-                this.e = i + 1;
-                try {
-                    cls2 = Class.forName("com.baidu.adp.plugin.proxy.activity.SingleTaskActivityProxy" + this.e);
-                    this.a.put(cls, cls2);
-                    return cls2;
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    return cls2;
-                }
-            } else if (PluginBaseRemoteSingleTaskActivity.class.isAssignableFrom(cls)) {
-                Class<?> cls3 = this.b.get(cls);
-                if (cls3 != null) {
-                    return cls3;
-                }
-                int i2 = this.f;
-                if (i2 == 10) {
-                    BdLog.e("can not find singletaskactivity,Has started 10 remote singletaskactivity");
-                    return null;
-                }
-                this.f = i2 + 1;
-                try {
-                    cls3 = Class.forName("com.baidu.adp.plugin.proxy.activity.RemoteSingleTaskActivityProxy" + this.f);
-                    this.b.put(cls, cls3);
-                    return cls3;
-                } catch (Exception e2) {
-                    BdLog.e(e2);
-                    return cls3;
-                }
-            } else if (PluginBaseRemoteActivity.class.isAssignableFrom(cls)) {
-                return RemoteActivityProxy.class;
-            } else {
-                if (PluginBaseThirdSingleTaskActivity.class.isAssignableFrom(cls)) {
-                    Class<?> cls4 = this.c.get(cls);
-                    if (cls4 != null) {
-                        return cls4;
-                    }
-                    int i3 = this.d;
-                    if (i3 == 10) {
-                        BdLog.e("can not find singletaskactivity,Has started 10 remote singletaskactivity");
-                        return null;
-                    }
-                    this.d = i3 + 1;
-                    try {
-                        cls4 = Class.forName("com.baidu.adp.plugin.proxy.activity.ThirdSingleTaskActivityProxy" + this.d);
-                        this.c.put(cls, cls4);
-                        return cls4;
-                    } catch (Exception e3) {
-                        BdLog.e(e3);
-                        return cls4;
-                    }
-                } else if (PluginBaseThirdActivity.class.isAssignableFrom(cls)) {
-                    return ThirdActivityProxy.class;
-                } else {
-                    if (PluginBaseThirdFragmentActivity.class.isAssignableFrom(cls)) {
-                        return ThirdFragmentActivityProxy.class;
-                    }
-                    if (PluginBaseFragmentActivity.class.isAssignableFrom(cls)) {
-                        return FragmentActivityProxy.class;
-                    }
-                    if (PluginBaseActivity.class.isAssignableFrom(cls)) {
-                        return ActivityProxy.class;
-                    }
-                    return null;
-                }
-            }
-        }
-        return (Class) invokeL.objValue;
-    }
+    void proxyCloseContextMenu();
+
+    void proxyCloseOptionsMenu();
+
+    PendingIntent proxyCreatePendingResult(int i, Intent intent, int i2);
+
+    boolean proxyDispatchGenericMotionEvent(MotionEvent motionEvent);
+
+    boolean proxyDispatchKeyEvent(KeyEvent keyEvent);
+
+    boolean proxyDispatchKeyShortcutEvent(KeyEvent keyEvent);
+
+    boolean proxyDispatchPopulateAccessibilityEvent(AccessibilityEvent accessibilityEvent);
+
+    boolean proxyDispatchTouchEvent(MotionEvent motionEvent);
+
+    boolean proxyDispatchTrackballEvent(MotionEvent motionEvent);
+
+    View proxyFindViewById(int i);
+
+    void proxyFinish();
+
+    void proxyFinishActivity(int i);
+
+    void proxyFinishActivityFromChild(Activity activity, int i);
+
+    void proxyFinishFromChild(Activity activity);
+
+    Context proxyGetApplicationContext();
+
+    ComponentName proxyGetCallingActivity();
+
+    String proxyGetCallingPackage();
+
+    int proxyGetChangingConfigurations();
+
+    View proxyGetCurrentFocus();
+
+    Intent proxyGetIntent();
+
+    LayoutInflater proxyGetLayoutInflater();
+
+    String proxyGetLocalClassName();
+
+    MenuInflater proxyGetMenuInflater();
+
+    PackageManager proxyGetPackageManager();
+
+    SharedPreferences proxyGetPreferences(int i);
+
+    int proxyGetRequestedOrientation();
+
+    SharedPreferences proxyGetSharedPreferences(String str, int i);
+
+    Object proxyGetSystemService(String str);
+
+    int proxyGetTaskId();
+
+    int proxyGetWallpaperDesiredMinimumHeight();
+
+    int proxyGetWallpaperDesiredMinimumWidth();
+
+    Window proxyGetWindow();
+
+    WindowManager proxyGetWindowManager();
+
+    boolean proxyHasWindowFocus();
+
+    boolean proxyIsFinishing();
+
+    boolean proxyIsTaskRoot();
+
+    boolean proxyMoveTaskToBack(boolean z);
+
+    void proxyOnActivityResult(int i, int i2, Intent intent);
+
+    void proxyOnApplyThemeResource(Resources.Theme theme, int i, boolean z);
+
+    void proxyOnAttachedToWindow();
+
+    void proxyOnBackPressed();
+
+    void proxyOnChildTitleChanged(Activity activity, CharSequence charSequence);
+
+    void proxyOnConfigurationChanged(Configuration configuration);
+
+    void proxyOnContentChanged();
+
+    boolean proxyOnContextItemSelected(MenuItem menuItem);
+
+    void proxyOnContextMenuClosed(Menu menu);
+
+    void proxyOnCreate(Bundle bundle);
+
+    void proxyOnCreateContextMenu(ContextMenu contextMenu, View view2, ContextMenu.ContextMenuInfo contextMenuInfo);
+
+    boolean proxyOnCreatePanelMenu(int i, Menu menu);
+
+    boolean proxyOnCreateThumbnail(Bitmap bitmap, Canvas canvas);
+
+    View proxyOnCreateView(View view2, String str, Context context, AttributeSet attributeSet);
+
+    View proxyOnCreateView(String str, Context context, AttributeSet attributeSet);
+
+    void proxyOnDestroy();
+
+    void proxyOnDetachedFromWindow();
+
+    boolean proxyOnKeyDown(int i, KeyEvent keyEvent);
+
+    boolean proxyOnKeyLongPress(int i, KeyEvent keyEvent);
+
+    boolean proxyOnKeyMultiple(int i, int i2, KeyEvent keyEvent);
+
+    boolean proxyOnKeyUp(int i, KeyEvent keyEvent);
+
+    void proxyOnLowMemory();
+
+    boolean proxyOnMenuItemSelected(int i, MenuItem menuItem);
+
+    boolean proxyOnMenuOpened(int i, Menu menu);
+
+    boolean proxyOnOptionsItemSelected(MenuItem menuItem);
+
+    void proxyOnOptionsMenuClosed(Menu menu);
+
+    void proxyOnPanelClosed(int i, Menu menu);
+
+    void proxyOnPause();
+
+    void proxyOnPostCreate(Bundle bundle);
+
+    void proxyOnPostResume();
+
+    void proxyOnPrepareDialog(int i, Dialog dialog);
+
+    boolean proxyOnPrepareOptionsMenu(Menu menu);
+
+    boolean proxyOnPreparePanel(int i, View view2, Menu menu);
+
+    void proxyOnRestart();
+
+    void proxyOnRestoreInstanceState(Bundle bundle);
+
+    void proxyOnResume();
+
+    Object proxyOnRetainNonConfigurationInstance();
+
+    void proxyOnSaveInstanceState(Bundle bundle);
+
+    boolean proxyOnSearchRequested();
+
+    void proxyOnStart();
+
+    void proxyOnStop();
+
+    void proxyOnTitleChanged(CharSequence charSequence, int i);
+
+    boolean proxyOnTouchEvent(MotionEvent motionEvent);
+
+    boolean proxyOnTrackballEvent(MotionEvent motionEvent);
+
+    void proxyOnUserInteraction();
+
+    void proxyOnWindowAttributesChanged(WindowManager.LayoutParams layoutParams);
+
+    void proxyOnWindowFocusChanged(boolean z);
+
+    void proxyOpenContextMenu(View view2);
+
+    void proxyOpenOptionsMenu();
+
+    void proxyOverridePendingTransition(int i, int i2);
+
+    void proxyRegisterForContextMenu(View view2);
+
+    void proxySetContentView(int i);
+
+    void proxySetContentView(View view2);
+
+    void proxySetContentView(View view2, ViewGroup.LayoutParams layoutParams);
+
+    void proxySetIntent(Intent intent);
+
+    void proxySetRequestedOrientation(int i);
+
+    void proxySetTitle(int i);
+
+    void proxySetTitle(CharSequence charSequence);
+
+    void proxySetTitleColor(int i);
+
+    void proxySetVisible(boolean z);
+
+    void proxyStartActivity(Intent intent);
+
+    void proxyStartActivityForResult(Intent intent, int i);
+
+    void proxyStartActivityFromChild(Activity activity, Intent intent, int i);
+
+    boolean proxyStartActivityIfNeeded(Intent intent, int i);
+
+    void proxyStartIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3) throws IntentSender.SendIntentException;
+
+    void proxyStartIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) throws IntentSender.SendIntentException;
+
+    void proxyStartManagingCursor(Cursor cursor);
+
+    boolean proxyStartNextMatchingActivity(Intent intent);
+
+    void proxyStartSearch(String str, boolean z, Bundle bundle, boolean z2);
+
+    ComponentName proxyStartService(Intent intent);
+
+    void proxyStopManagingCursor(Cursor cursor);
+
+    boolean proxyStopService(Intent intent);
+
+    void proxyTakeKeyEvents(boolean z);
+
+    void proxyUnregisterForContextMenu(View view2);
+
+    Intent registerReceiver(BroadcastReceiver broadcastReceiver, IntentFilter intentFilter);
+
+    void unregisterReceiver(BroadcastReceiver broadcastReceiver);
 }

@@ -1,26 +1,22 @@
 package com.repackage;
 
-import com.baidu.bdhttpdns.BDHttpDns;
-import com.baidu.bdhttpdns.BDHttpDnsResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.uq;
 /* loaded from: classes7.dex */
-public class qq implements Runnable {
+public final class qq {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ BDHttpDns.a a;
-    public final /* synthetic */ BDHttpDnsResult.ResolveType b;
-    public final /* synthetic */ uq.a c;
+    public final rq a;
 
-    public qq(BDHttpDns bDHttpDns, BDHttpDns.a aVar, BDHttpDnsResult.ResolveType resolveType, uq.a aVar2) {
+    public qq(rq rqVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bDHttpDns, aVar, resolveType, aVar2};
+            Object[] objArr = {rqVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,16 +26,15 @@ public class qq implements Runnable {
                 return;
             }
         }
-        this.a = aVar;
-        this.b = resolveType;
-        this.c = aVar2;
+        this.a = rqVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.a(new BDHttpDnsResult(this.b, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, this.c.d(), this.c.g()));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "curProcess" + this.a;
         }
+        return (String) invokeV.objValue;
     }
 }

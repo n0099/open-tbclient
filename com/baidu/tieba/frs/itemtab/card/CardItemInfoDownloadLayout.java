@@ -30,10 +30,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gz;
-import com.repackage.oi;
-import com.repackage.tu4;
-import com.repackage.vr4;
+import com.repackage.gs4;
+import com.repackage.gv4;
+import com.repackage.mi;
+import com.repackage.py;
 import java.util.HashMap;
 import java.util.List;
 import tbclient.ItemInfo;
@@ -42,7 +42,7 @@ import tbclient.ItemTable;
 import tbclient.Ranking;
 import tbclient.RankingParam;
 /* loaded from: classes3.dex */
-public class CardItemInfoDownloadLayout extends FrameLayout implements gz {
+public class CardItemInfoDownloadLayout extends FrameLayout implements py {
     public static /* synthetic */ Interceptable $ic;
     public static final String q;
     public static final int r;
@@ -158,8 +158,8 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements gz {
                 return;
             }
         }
-        q = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f06bc);
-        r = oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005);
+        q = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f06c5);
+        r = mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -236,23 +236,23 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements gz {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0332, (ViewGroup) null);
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0329, (ViewGroup) null);
             this.a = viewGroup;
             viewGroup.setPadding(r, 0, 0, 0);
-            this.b = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09201c);
-            this.g = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090f82);
+            this.b = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09207a);
+            this.g = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090f8f);
             this.c = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090026);
-            this.h = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090f99);
-            RankStarView rankStarView = (RankStarView) this.a.findViewById(R.id.obfuscated_res_0x7f090f87);
+            this.h = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090fa6);
+            RankStarView rankStarView = (RankStarView) this.a.findViewById(R.id.obfuscated_res_0x7f090f94);
             this.i = rankStarView;
-            rankStarView.setStarSpacing(oi.f(getContext(), R.dimen.M_W_X001));
-            this.d = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090dcb);
-            this.e = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090f74);
-            this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090f89);
+            rankStarView.setStarSpacing(mi.f(getContext(), R.dimen.M_W_X001));
+            this.d = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090dbb);
+            this.e = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090f81);
+            this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090f96);
             this.d.setOnClickListener(this.p);
             addView(this.a, new FrameLayout.LayoutParams(-1, -2));
             ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, -2);
-            marginLayoutParams.topMargin = oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X003);
+            marginLayoutParams.topMargin = mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X003);
             setLayoutParams(marginLayoutParams);
         }
     }
@@ -260,26 +260,26 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements gz {
     public final void o(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            tu4 tu4Var = new tu4(6);
-            tu4Var.o(i);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, tu4Var));
+            gv4 gv4Var = new gv4(6);
+            gv4Var.o(i);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, gv4Var));
         }
     }
 
-    @Override // com.repackage.gz
+    @Override // com.repackage.py
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i) == null) {
-            vr4 d = vr4.d(this.a);
+            gs4 d = gs4.d(this.a);
             d.m(1);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0201);
-            vr4 d2 = vr4.d(this.g);
+            gs4 d2 = gs4.d(this.g);
             d2.A(R.string.F_X02);
             d2.v(R.color.CAM_X0105);
-            vr4.d(this.h).v(R.color.CAM_X0305);
-            vr4.d(this.e).v(R.color.CAM_X0311);
-            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080912, R.color.CAM_X0311, WebPManager.ResourceStateType.NORMAL);
+            gs4.d(this.h).v(R.color.CAM_X0305);
+            gs4.d(this.e).v(R.color.CAM_X0311);
+            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080921, R.color.CAM_X0311, WebPManager.ResourceStateType.NORMAL);
             SkinManager.setBackgroundResource(this.d, R.drawable.pic_bg_gamelistl);
             this.i.e(i);
         }
@@ -289,12 +289,12 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements gz {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             if (z) {
-                vr4 d = vr4.d(this.h);
+                gs4 d = gs4.d(this.h);
                 d.z(R.dimen.T_X06);
                 d.v(R.color.CAM_X0305);
                 return;
             }
-            vr4 d2 = vr4.d(this.h);
+            gs4 d2 = gs4.d(this.h);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0109);
         }

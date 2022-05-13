@@ -1,67 +1,92 @@
 package com.repackage;
 
 import android.graphics.Bitmap;
-import android.graphics.Rect;
-import android.util.Log;
-import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.rl2;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class gr2 extends dr2 {
+public class gr2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public gr2() {
+    public static JSONObject a(er2 er2Var, boolean z, Bitmap bitmap, boolean z2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.repackage.dr2
-    public boolean a(Bitmap bitmap, Rect rect) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, rect)) == null) {
-            if (dr2.c) {
-                Log.d("SolidErrorPageParser", "SolidErrorPageParser: start error page parse");
-            }
-            if (bitmap == null) {
-                return false;
-            }
-            if (!b(bitmap, rect)) {
-                rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            }
-            int i = 0;
-            for (int i2 = rect.left + 1; i2 < rect.right - 1; i2++) {
-                for (int i3 = rect.top + 1; i3 < rect.bottom - 1; i3++) {
-                    int pixel = bitmap.getPixel(i2, i3);
-                    if (i == 0) {
-                        i = pixel;
-                    }
-                    if (i != pixel && pixel != 0) {
-                        if (tg1.a) {
-                            Log.d("SolidErrorPageParser", "非纯色, 图片大小 " + bitmap.getWidth() + " x " + bitmap.getHeight() + "; rect + " + rect.toShortString() + "; (" + i2 + "," + i3 + SmallTailInfo.EMOTION_SUFFIX);
-                        }
-                        return false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{er2Var, Boolean.valueOf(z), bitmap, Boolean.valueOf(z2)})) == null) {
+            JSONObject e = dr2.e();
+            if (er2Var != null) {
+                try {
+                    e.put("page", er2Var.b);
+                } catch (JSONException e2) {
+                    if (u03.v) {
+                        e2.printStackTrace();
                     }
                 }
             }
-            if (dr2.c) {
-                Log.d("SolidErrorPageParser", "color = " + i + "图片大小 " + rect.width() + " x " + rect.height());
+            e.put("firstPage", z2);
+            if (z && bitmap != null) {
+                e.put("image", dr2.c(bitmap));
             }
-            return true;
+            return e;
         }
-        return invokeLL.booleanValue;
+        return (JSONObject) invokeCommon.objValue;
+    }
+
+    public static JSONObject b(er2 er2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, er2Var)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (er2Var != null) {
+                try {
+                    jSONObject.put("isH5Componet", er2Var.g == 0 ? "0" : "1");
+                } catch (JSONException e) {
+                    if (u03.v) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static void c(er2 er2Var, int i, boolean z, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{er2Var, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+            d(er2Var, i, false, null, z, i2);
+        }
+    }
+
+    public static void d(er2 er2Var, int i, boolean z, Bitmap bitmap, boolean z2, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{er2Var, Integer.valueOf(i), Boolean.valueOf(z), bitmap, Boolean.valueOf(z2), Integer.valueOf(i2)}) == null) {
+            nc3 nc3Var = new nc3();
+            nc3Var.k(5L);
+            nc3Var.i(i);
+            if (!i73.d || z2) {
+                nc3Var.f(a(er2Var, z, bitmap, z2).toString());
+            }
+            String valueOf = String.valueOf(i2);
+            v73 v73Var = new v73();
+            v73Var.p(nc3Var);
+            v73Var.q(n73.n(t03.J().l()));
+            v73Var.m(t03.J().getAppId());
+            v73Var.s = er2Var.b;
+            v73Var.n(false);
+            u03 a0 = u03.a0();
+            rl2.a V = a0 == null ? null : a0.V();
+            if (!i73.d || z2) {
+                v73Var.s(valueOf);
+                v73Var.r(V);
+                v73Var.e(b(er2Var));
+                v73Var.e(u63.d().e());
+                v73Var.e(u63.d().g());
+            }
+            n73.R(v73Var);
+        }
     }
 }

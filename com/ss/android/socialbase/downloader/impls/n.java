@@ -12,7 +12,7 @@ import com.ss.android.socialbase.downloader.downloader.IndependentProcessDownloa
 import com.ss.android.socialbase.downloader.downloader.i;
 import com.ss.android.socialbase.downloader.model.DownloadTask;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class n extends com.ss.android.socialbase.downloader.downloader.a implements ServiceConnection {
     public static final String e = n.class.getSimpleName();
     public com.ss.android.socialbase.downloader.downloader.i f;

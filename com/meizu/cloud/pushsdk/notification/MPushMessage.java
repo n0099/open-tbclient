@@ -1,7 +1,7 @@
 package com.meizu.cloud.pushsdk.notification;
 
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.repackage.ym9;
+import com.repackage.tl9;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -64,16 +64,16 @@ public class MPushMessage implements Serializable {
                             mPushMessage.setParams(getParamsMap(jSONObject3));
                         }
                     } catch (JSONException e) {
-                        ym9.d(TAG, "parameter parse error message " + e.getMessage());
+                        tl9.d(TAG, "parameter parse error message " + e.getMessage());
                     }
                     jSONObject.remove(PushConstants.PARAMS);
                 }
                 mPushMessage.setExtra(getParamsMap(jSONObject));
             }
         } catch (JSONException e2) {
-            ym9.d(TAG, "parse push message error " + e2.getMessage());
+            tl9.d(TAG, "parse push message error " + e2.getMessage());
         }
-        ym9.d(TAG, " parsePushMessage " + mPushMessage);
+        tl9.d(TAG, " parsePushMessage " + mPushMessage);
         return mPushMessage;
     }
 

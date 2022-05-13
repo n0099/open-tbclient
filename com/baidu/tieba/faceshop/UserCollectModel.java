@@ -19,9 +19,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.bo7;
-import com.repackage.e96;
-import com.repackage.i35;
-import com.repackage.yl4;
+import com.repackage.jm4;
+import com.repackage.n86;
+import com.repackage.z35;
 import com.tencent.open.SocialConstants;
 import java.util.HashSet;
 import java.util.List;
@@ -61,15 +61,15 @@ public class UserCollectModel extends FaceBaseModel {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                List<CollectEmotionData> n = e96.k().n(TbadkCoreApplication.getCurrentAccountForEmotion());
+                List<CollectEmotionData> m = n86.k().m(TbadkCoreApplication.getCurrentAccountForEmotion());
                 HashSet hashSet = new HashSet();
-                if (n == null) {
+                if (m == null) {
                     return;
                 }
                 JSONArray jSONArray = new JSONArray();
                 try {
-                    for (CollectEmotionData collectEmotionData : n) {
-                        if (!i35.d.equals(collectEmotionData.sharpText) && !hashSet.contains(collectEmotionData.sharpText)) {
+                    for (CollectEmotionData collectEmotionData : m) {
+                        if (!z35.d.equals(collectEmotionData.sharpText) && !hashSet.contains(collectEmotionData.sharpText)) {
                             jSONArray.put(collectEmotionData.toJSON());
                             hashSet.add(collectEmotionData.sharpText);
                         }
@@ -80,7 +80,7 @@ public class UserCollectModel extends FaceBaseModel {
                 long currentTimeMillis = System.currentTimeMillis();
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_UPLOAD_COLLECT_EMOTION_INFO);
                 if (jSONArray.length() > 0) {
-                    httpMessage.addParam(SocialConstants.PARAM_IMAGE, yl4.q(jSONArray.toString()));
+                    httpMessage.addParam(SocialConstants.PARAM_IMAGE, jm4.q(jSONArray.toString()));
                 } else {
                     httpMessage.addParam(SocialConstants.PARAM_IMAGE, UserCollectModel.ALL_DELETE);
                 }

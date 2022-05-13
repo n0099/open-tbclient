@@ -21,8 +21,8 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.MessageLite;
 import com.google.protobuf.MessageLiteOrBuilder;
 import com.google.protobuf.Parser;
-import com.repackage.mj3;
-import com.repackage.nj3;
+import com.repackage.xj3;
+import com.repackage.yj3;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
@@ -280,7 +280,7 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-                Bdtls$ServerHello bdtls$ServerHello = new Bdtls$ServerHello(this, (mj3) null);
+                Bdtls$ServerHello bdtls$ServerHello = new Bdtls$ServerHello(this, (xj3) null);
                 int i = this.a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
                 bdtls$ServerHello.random_ = this.b;
@@ -469,7 +469,7 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
         bdtls$ServerHello.initFields();
     }
 
-    public /* synthetic */ Bdtls$ServerHello(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, mj3 mj3Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bdtls$ServerHello(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, xj3 xj3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -533,13 +533,13 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.extensions_ : (List) invokeV.objValue;
     }
 
-    public nj3 getExtensionsOrBuilder(int i) {
+    public yj3 getExtensionsOrBuilder(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? this.extensions_.get(i) : (nj3) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? this.extensions_.get(i) : (yj3) invokeI.objValue;
     }
 
-    public List<? extends nj3> getExtensionsOrBuilderList() {
+    public List<? extends yj3> getExtensionsOrBuilderList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.extensions_ : (List) invokeV.objValue;
@@ -689,7 +689,7 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
         }
     }
 
-    public /* synthetic */ Bdtls$ServerHello(GeneratedMessageLite.Builder builder, mj3 mj3Var) {
+    public /* synthetic */ Bdtls$ServerHello(GeneratedMessageLite.Builder builder, xj3 xj3Var) {
         this(builder);
     }
 

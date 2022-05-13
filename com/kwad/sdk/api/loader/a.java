@@ -9,7 +9,7 @@ public class a {
 
     /* renamed from: com.kwad.sdk.api.loader.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0284a {
+    public static class C0283a {
         public int a;
         public String b;
         public String c;
@@ -41,7 +41,7 @@ public class a {
     public static class b {
         public long a;
         public String b;
-        public C0284a c;
+        public C0283a c;
 
         public void a(JSONObject jSONObject) {
             if (jSONObject == null) {
@@ -49,9 +49,9 @@ public class a {
             }
             this.a = jSONObject.optLong("result");
             this.b = jSONObject.optString("errorMsg");
-            C0284a c0284a = new C0284a();
-            this.c = c0284a;
-            c0284a.a(jSONObject.optJSONObject("data"));
+            C0283a c0283a = new C0283a();
+            this.c = c0283a;
+            c0283a.a(jSONObject.optJSONObject("data"));
         }
 
         public boolean a() {

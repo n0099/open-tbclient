@@ -28,7 +28,7 @@ import com.repackage.hj0;
 import com.repackage.jp0;
 import com.repackage.mo0;
 import com.repackage.rj0;
-import com.repackage.t01;
+import com.repackage.u01;
 import com.repackage.uj0;
 import com.repackage.uk0;
 import com.repackage.uy0;
@@ -94,16 +94,16 @@ public class LPDownloadManager {
             }
             int i2 = xj0Var.a;
             if (i2 == 1) {
-                LPDownloadManager.d(this.a, this.b).p();
+                LPDownloadManager.d(this.a, this.b).l();
             } else if (i2 != 2 && i2 != 3) {
-                t01.a().b(this.c, R.string.obfuscated_res_0x7f0f0b79);
+                u01.a().b(this.c, R.string.obfuscated_res_0x7f0f0b8d);
             } else if ((this.c instanceof Activity) && (mo0Var = xj0Var.b) != null) {
                 LPDownloadManager.g(this.b, mo0Var);
-                LPDownloadManager.d(this.a, this.b).z(xj0Var, (Activity) this.c);
+                LPDownloadManager.d(this.a, this.b).v(xj0Var, (Activity) this.c);
             }
             ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.s(ClogBuilder.LogType.FREE_SHOW).n(this.b.p.a).q(ClogBuilder.Page.DOWNLOAD_RECTIFY).i(String.valueOf(xj0Var.a)).j(this.d);
-            ez0.b(clogBuilder);
+            clogBuilder.w(ClogBuilder.LogType.FREE_SHOW).n(this.b.p.a).s(ClogBuilder.Page.DOWNLOAD_RECTIFY).i(String.valueOf(xj0Var.a)).j(this.d);
+            ez0.c(clogBuilder);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -204,7 +204,7 @@ public class LPDownloadManager {
         if (interceptable == null || interceptable.invokeLLLL(65541, null, context, relativeLayout, str, rj0Var) == null) {
             for (String str2 : b) {
                 if (rj0Var.g.startsWith(str2) || str.startsWith(str2)) {
-                    d(relativeLayout, rj0Var).p();
+                    d(relativeLayout, rj0Var).l();
                     return;
                 }
                 while (r0.hasNext()) {
@@ -231,9 +231,9 @@ public class LPDownloadManager {
             }
             String optString = uy0.c(str).optString("lp_url", "");
             bk0 bk0Var = (bk0) vy0.b(a, c.d());
-            if (bk0Var != null && !bk0Var.y()) {
+            if (bk0Var != null && !bk0Var.u()) {
                 if (z && c.c != AdDownloadStatus.DOWNLOADING) {
-                    bk0Var.p();
+                    bk0Var.l();
                 }
                 return true;
             }

@@ -1,42 +1,35 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.os.Bundle;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.poly.widget.PayChannelEntity;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.fa1;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ga1 extends BaseAdapter {
+public class ga1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<PayChannelEntity> a;
-    public Context b;
 
     /* loaded from: classes6.dex */
-    public static class a {
+    public static class a extends e81<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public ImageView a;
-        public TextView b;
-        public ImageView c;
+        public final /* synthetic */ fa1 a;
 
-        public a(View view2) {
+        public a(fa1 fa1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
+                Object[] objArr = {fa1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,102 +39,205 @@ public class ga1 extends BaseAdapter {
                     return;
                 }
             }
-            this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091871);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091875);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091876);
+            this.a = fa1Var;
         }
-    }
 
-    public ga1(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        @Override // com.repackage.e81
+        public void a(Throwable th, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+                fa1.a aVar = new fa1.a();
+                aVar.a = 2;
+                aVar.b = aa1.a().getResources().getString(R.string.obfuscated_res_0x7f0f0365);
+                this.a.a(aVar);
             }
         }
-        this.b = context;
-    }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public PayChannelEntity getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i < 0 || i >= this.a.size()) {
-                return null;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.e81
+        /* renamed from: d */
+        public void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                fa1.a aVar = new fa1.a();
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    if (jSONObject.optInt("errno") == 0) {
+                        aVar.a = 0;
+                        aVar.b = jSONObject.optString("msg");
+                        JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                        aVar.c = optJSONObject.optLong("totalAmount");
+                        aVar.d = optJSONObject.optLong("userPayAmount");
+                        aVar.f = optJSONObject.optString("usedHostMarketingDetail");
+                        aVar.h = fa1.a.C0412a.c(optJSONObject.optJSONArray("promotionStatus"));
+                    } else {
+                        aVar.a = jSONObject.optInt("errorLevel", 2);
+                        aVar.b = jSONObject.optString("msg");
+                    }
+                } catch (Exception unused) {
+                    aVar.a = 2;
+                    aVar.b = aa1.a().getResources().getString(R.string.obfuscated_res_0x7f0f0365);
+                }
+                this.a.a(aVar);
             }
-            return this.a.get(i);
-        }
-        return (PayChannelEntity) invokeI.objValue;
-    }
-
-    public void b(List<PayChannelEntity> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a = list;
-            notifyDataSetChanged();
         }
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<PayChannelEntity> list = this.a;
-            if (list == null) {
-                return 0;
-            }
-            return list.size();
-        }
-        return invokeV.intValue;
-    }
+    /* loaded from: classes6.dex */
+    public static class b extends e81<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fa1 a;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-            PayChannelEntity item = getItem(i);
-            if (item == null) {
-                return view2;
-            }
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d023f, (ViewGroup) null, false);
-                view2.setTag(new a(view2));
-            }
-            if (view2.getTag() != null && (view2.getTag() instanceof a)) {
-                a aVar = (a) view2.getTag();
-                g81.b().a(aVar.a, item.getIcon());
-                aVar.b.setText(item.getDisplayName());
-                if (item.getIsSelected() == 1) {
-                    aVar.c.setImageResource(R.drawable.obfuscated_res_0x7f080450);
-                } else {
-                    aVar.c.setImageResource(R.drawable.obfuscated_res_0x7f081223);
+        public b(fa1 fa1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fa1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return view2;
+            this.a = fa1Var;
         }
-        return (View) invokeILL.objValue;
+
+        @Override // com.repackage.e81
+        public void a(Throwable th, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+                fa1.a aVar = new fa1.a();
+                aVar.a = 2;
+                aVar.b = aa1.a().getResources().getString(R.string.obfuscated_res_0x7f0f0365);
+                this.a.a(aVar);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.e81
+        /* renamed from: d */
+        public void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                fa1.a aVar = new fa1.a();
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    if (jSONObject.optInt("errno") == 0) {
+                        aVar.a = 0;
+                        aVar.b = jSONObject.optString("msg");
+                        JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                        aVar.c = optJSONObject.optLong("totalAmount");
+                        aVar.d = optJSONObject.optLong("userPayAmount");
+                        aVar.e = optJSONObject.optLong("reduceAmount");
+                        aVar.g = optJSONObject.optInt("overdueStatus");
+                        aVar.f = optJSONObject.optString("usedHostMarketingDetail");
+                        aVar.h = fa1.a.C0412a.c(optJSONObject.optJSONArray("promotionStatus"));
+                    } else {
+                        aVar.a = jSONObject.optInt("errorLevel", 2);
+                        aVar.b = jSONObject.optString("msg");
+                    }
+                } catch (Exception unused) {
+                    aVar.a = 2;
+                    aVar.b = aa1.a().getResources().getString(R.string.obfuscated_res_0x7f0f0365);
+                }
+                this.a.a(aVar);
+            }
+        }
+    }
+
+    public static void a(Bundle bundle, fa1 fa1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, bundle, fa1Var) == null) {
+            g81 g81Var = new g81();
+            n81.d(g81Var);
+            String string = bundle.getString("bduss");
+            bundle.remove("bduss");
+            c(string, g81Var);
+            String string2 = bundle.getString("openBduss");
+            bundle.remove("openBduss");
+            e(string2, g81Var);
+            String string3 = bundle.getString("clientId");
+            bundle.remove("clientId");
+            d(string3, g81Var);
+            f81 f81Var = new f81();
+            f81Var.d("appKey", bundle.get("appKey").toString());
+            f81Var.d("totalAmount", bundle.get("totalAmount").toString());
+            f81Var.d("hostMarketingDetail", bundle.get("hostMarketingDetail").toString());
+            new k81().a(o81.b(), g81Var, f81Var, new b(fa1Var));
+        }
+    }
+
+    public static void b(String str, String str2, String str3, List<String> list, fa1 fa1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65537, null, str, str2, str3, list, fa1Var) == null) {
+            g81 g81Var = new g81();
+            n81.d(g81Var);
+            if (!TextUtils.isEmpty(str)) {
+                g81Var.d("Cookie", "BDUSS=" + str);
+            }
+            f81 f81Var = new f81();
+            f81Var.d("appKey", str2);
+            f81Var.d("totalAmount", str3);
+            if (list != null && list.size() > 0) {
+                JSONArray jSONArray = new JSONArray();
+                for (String str4 : list) {
+                    if (!TextUtils.isEmpty(str4)) {
+                        try {
+                            jSONArray.put(new JSONObject(str4));
+                        } catch (Exception unused) {
+                        }
+                    }
+                }
+                f81Var.d("hostMarketingDetail", jSONArray.toString());
+            }
+            new k81().a(o81.b(), g81Var, f81Var, new a(fa1Var));
+        }
+    }
+
+    public static void c(String str, g81 g81Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, str, g81Var) == null) || str == null || TextUtils.isEmpty(str)) {
+            return;
+        }
+        String a2 = g81Var.a("Cookie");
+        String str2 = "BDUSS=" + str;
+        if (a2 == null) {
+            g81Var.d("Cookie", str2);
+            return;
+        }
+        g81Var.d("Cookie", a2 + "; " + str2);
+    }
+
+    public static void d(String str, g81 g81Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, g81Var) == null) || str == null || TextUtils.isEmpty(str)) {
+            return;
+        }
+        String a2 = g81Var.a("Cookie");
+        String str2 = "CLIENTID=" + str;
+        if (a2 == null) {
+            g81Var.d("Cookie", str2);
+            return;
+        }
+        g81Var.d("Cookie", a2 + "; " + str2);
+    }
+
+    public static void e(String str, g81 g81Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, g81Var) == null) || str == null || TextUtils.isEmpty(str)) {
+            return;
+        }
+        String a2 = g81Var.a("Cookie");
+        String str2 = "OPENBDUSS=" + str;
+        if (a2 == null) {
+            g81Var.d("Cookie", str2);
+            return;
+        }
+        g81Var.d("Cookie", a2 + "; " + str2);
     }
 }

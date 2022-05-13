@@ -1,178 +1,85 @@
 package com.repackage;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.graphics.Bitmap;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
-import java.io.File;
+import com.baidu.ugc.utils.FileUtils;
 /* loaded from: classes5.dex */
-public class ax8 extends BdAsyncTask<Void, Void, String> {
+public class ax8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String d;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public String b;
-    public b c;
+    public Handler b;
+    public final HandlerThread c;
 
-    /* loaded from: classes5.dex */
-    public class a implements rf {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ax8 a;
-
-        public a(ax8 ax8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ax8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ax8Var;
-        }
-
-        @Override // com.repackage.rf
-        public void onProgress(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) || this.a.c == null) {
-                return;
-            }
-            this.a.c.b(i, i2);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(boolean z, String str, String str2);
-
-        void b(int i, int i2);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755841296, "Lcom/repackage/ax8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755841296, "Lcom/repackage/ax8;");
-                return;
-            }
-        }
-        d = File.separator;
-    }
-
-    public ax8(String str, String str2, b bVar) {
+    public ax8(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, bVar};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = str;
-        this.b = str2;
-        this.c = bVar;
+        HandlerThread handlerThread = new HandlerThread("VideoFrameDiskCacheSaveTask");
+        this.c = handlerThread;
+        handlerThread.start();
     }
 
-    public final void c(File file) {
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, file) == null) || ni.isEmpty(this.a)) {
-            return;
-        }
-        File file2 = new File(this.a);
-        if (!file2.exists() || (listFiles = file2.listFiles()) == null) {
-            return;
-        }
-        for (File file3 : listFiles) {
-            if (file3 != null && !file3.equals(file)) {
-                FileHelper.deleteFileOrDir(file3);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public String doInBackground(Void... voidArr) {
+    public Bitmap a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-            if (!ni.isEmpty(this.a) && !ni.isEmpty(this.b)) {
-                new File(this.a).mkdirs();
-                String str = this.a + d + "annivervideo.temp";
-                File file = new File(str);
-                if (file.exists()) {
-                    file.delete();
-                }
-                of ofVar = new of();
-                ofVar.b().t(this.b);
-                if (new lf(ofVar).c(str, new a(this), 3, 3000, -1, -1, true, true)) {
-                    return e();
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            return "";
+            String c = zw8.c(this.a, str);
+            if (FileUtils.isExists(c)) {
+                Bitmap f = wa9.f(c);
+                if (f != null) {
+                    hx8.f().g().b(str, f);
+                }
+                return f;
+            }
+            return null;
         }
-        return (String) invokeL.objValue;
+        return (Bitmap) invokeL.objValue;
     }
 
-    public final String e() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            File file = new File(this.a + d + "annivervideo.temp");
-            StringBuilder sb = new StringBuilder();
-            sb.append(ui.c(this.b));
-            sb.append(DefaultHlsExtractorFactory.MP4_FILE_EXTENSION);
-            String sb2 = sb.toString();
-            File file2 = new File(this.a + d + sb2);
-            if (file2.exists()) {
-                file2.delete();
-            }
-            if (file.renameTo(file2)) {
-                c(file2);
-                return file2.getAbsolutePath();
-            }
-            return "";
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPostExecute(String str) {
+    public void c(String str, Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.c == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bitmap) == null) {
+            if (this.b == null) {
+                this.b = new Handler(this.c.getLooper());
+            }
+            this.b.post(new ix8(this.a, str, bitmap));
         }
-        if (!ni.isEmpty(str)) {
-            this.c.a(true, str, this.b);
-        } else {
-            this.c.a(false, null, null);
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.a = str;
         }
     }
 }

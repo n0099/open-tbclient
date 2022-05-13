@@ -19,8 +19,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
-import com.repackage.mi;
+import com.repackage.ki;
+import com.repackage.nr4;
 import com.repackage.qj7;
 import com.repackage.tj7;
 import com.repackage.vj7;
@@ -180,11 +180,11 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || view2 == null) {
                 return;
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f090150) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f090146) {
                 MemberCenterStatic.a(this.a.getPageContext(), new String[]{this.a.jumpUrl});
                 this.a.isFromH5 = true;
                 TiebaStatic.log(new StatisticItem("c11747"));
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091ee4 && (view2.getTag() instanceof qj7)) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091f3c && (view2.getTag() instanceof qj7)) {
                 qj7 qj7Var = (qj7) view2.getTag();
                 if (!TbadkCoreApplication.isLogin()) {
                     ViewHelper.skipToLoginActivity(this.a.getPageContext().getPageActivity());
@@ -202,18 +202,18 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
     }
 
     /* loaded from: classes3.dex */
-    public class d implements cr4.e {
+    public class d implements nr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cr4 a;
+        public final /* synthetic */ nr4 a;
         public final /* synthetic */ MemberTaskCenterActivity b;
 
-        public d(MemberTaskCenterActivity memberTaskCenterActivity, cr4 cr4Var) {
+        public d(MemberTaskCenterActivity memberTaskCenterActivity, nr4 nr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {memberTaskCenterActivity, cr4Var};
+                Object[] objArr = {memberTaskCenterActivity, nr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -224,13 +224,13 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
                 }
             }
             this.b = memberTaskCenterActivity;
-            this.a = cr4Var;
+            this.a = nr4Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.nr4.e
+        public void onClick(nr4 nr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, nr4Var) == null) {
                 this.a.dismiss();
                 ViewHelper.skipToLoginActivity(this.b.getPageContext().getPageActivity());
             }
@@ -238,18 +238,18 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
     }
 
     /* loaded from: classes3.dex */
-    public class e implements cr4.e {
+    public class e implements nr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cr4 a;
+        public final /* synthetic */ nr4 a;
         public final /* synthetic */ MemberTaskCenterActivity b;
 
-        public e(MemberTaskCenterActivity memberTaskCenterActivity, cr4 cr4Var) {
+        public e(MemberTaskCenterActivity memberTaskCenterActivity, nr4 nr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {memberTaskCenterActivity, cr4Var};
+                Object[] objArr = {memberTaskCenterActivity, nr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -260,31 +260,31 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
                 }
             }
             this.b = memberTaskCenterActivity;
-            this.a = cr4Var;
+            this.a = nr4Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.nr4.e
+        public void onClick(nr4 nr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, nr4Var) == null) {
                 this.a.dismiss();
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class f implements cr4.e {
+    public class f implements nr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cr4 a;
+        public final /* synthetic */ nr4 a;
         public final /* synthetic */ MemberTaskCenterActivity b;
 
-        public f(MemberTaskCenterActivity memberTaskCenterActivity, cr4 cr4Var) {
+        public f(MemberTaskCenterActivity memberTaskCenterActivity, nr4 nr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {memberTaskCenterActivity, cr4Var};
+                Object[] objArr = {memberTaskCenterActivity, nr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -295,13 +295,13 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
                 }
             }
             this.b = memberTaskCenterActivity;
-            this.a = cr4Var;
+            this.a = nr4Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.nr4.e
+        public void onClick(nr4 nr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, nr4Var) == null) {
                 this.a.dismiss();
                 MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(this.b.getPageContext().getPageActivity(), TbadkCoreApplication.getCurrentMemberType(), "", 0);
                 memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_MISSION_CENTER_NATIVE, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_BUTTON);
@@ -311,18 +311,18 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
     }
 
     /* loaded from: classes3.dex */
-    public class g implements cr4.e {
+    public class g implements nr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cr4 a;
+        public final /* synthetic */ nr4 a;
         public final /* synthetic */ MemberTaskCenterActivity b;
 
-        public g(MemberTaskCenterActivity memberTaskCenterActivity, cr4 cr4Var) {
+        public g(MemberTaskCenterActivity memberTaskCenterActivity, nr4 nr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {memberTaskCenterActivity, cr4Var};
+                Object[] objArr = {memberTaskCenterActivity, nr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -333,13 +333,13 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
                 }
             }
             this.b = memberTaskCenterActivity;
-            this.a = cr4Var;
+            this.a = nr4Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.nr4.e
+        public void onClick(nr4 nr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, nr4Var) == null) {
                 this.a.dismiss();
             }
         }
@@ -371,25 +371,25 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
             return;
         }
         if (!TbadkCoreApplication.isLogin()) {
-            cr4 cr4Var = new cr4(getPageContext().getPageActivity());
-            cr4Var.setTitle(R.string.obfuscated_res_0x7f0f13e9);
-            cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0a4d, new d(this, cr4Var));
-            cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036e, new e(this, cr4Var));
-            cr4Var.create(getPageContext());
-            cr4Var.show();
+            nr4 nr4Var = new nr4(getPageContext().getPageActivity());
+            nr4Var.setTitle(R.string.obfuscated_res_0x7f0f140e);
+            nr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0a53, new d(this, nr4Var));
+            nr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0374, new e(this, nr4Var));
+            nr4Var.create(getPageContext());
+            nr4Var.show();
         } else if (TbadkCoreApplication.getCurrentMemberType() >= 2) {
             tj7 tj7Var = this.mFinishMemberTaskModel;
             if (tj7Var != null) {
                 tj7Var.f(qj7Var.c(), qj7Var.a());
             }
         } else {
-            cr4 cr4Var2 = new cr4(getPageContext().getPageActivity());
-            cr4Var2.setTitle(R.string.obfuscated_res_0x7f0f13ea);
-            cr4Var2.setButtonTextColor(R.color.CAM_X0305);
-            cr4Var2.setPositiveButton(R.string.obfuscated_res_0x7f0f0ccb, new f(this, cr4Var2));
-            cr4Var2.setNegativeButton(R.string.obfuscated_res_0x7f0f036e, new g(this, cr4Var2));
-            cr4Var2.create(getPageContext());
-            cr4Var2.show();
+            nr4 nr4Var2 = new nr4(getPageContext().getPageActivity());
+            nr4Var2.setTitle(R.string.obfuscated_res_0x7f0f140f);
+            nr4Var2.setButtonTextColor(R.color.CAM_X0305);
+            nr4Var2.setPositiveButton(R.string.obfuscated_res_0x7f0f0ce6, new f(this, nr4Var2));
+            nr4Var2.setNegativeButton(R.string.obfuscated_res_0x7f0f0374, new g(this, nr4Var2));
+            nr4Var2.create(getPageContext());
+            nr4Var2.show();
         }
     }
 
@@ -401,9 +401,9 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
         }
         int i2 = this.type;
         if (i2 == 1) {
-            showToast(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f13e8), Integer.valueOf(i)));
+            showToast(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f140d), Integer.valueOf(i)));
         } else if (i2 == 2) {
-            showToast(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f13e7), Integer.valueOf(i)));
+            showToast(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f140c), Integer.valueOf(i)));
         }
     }
 
@@ -464,7 +464,7 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onResume();
-            if (this.isFromH5 && mi.z()) {
+            if (this.isFromH5 && ki.z()) {
                 this.isFromH5 = false;
                 this.mModel.j();
             }

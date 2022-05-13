@@ -1,25 +1,28 @@
 package com.repackage;
 
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
+import com.baidu.android.common.security.RSAUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes7.dex */
-public final class q69 {
+import java.security.KeyFactory;
+import java.security.PublicKey;
+import java.security.spec.X509EncodedKeySpec;
+import javax.crypto.Cipher;
+/* loaded from: classes6.dex */
+public class q69 implements o69 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SQLiteDatabase a;
+    public PublicKey a;
 
-    public q69() {
+    public q69(String str) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,42 +32,32 @@ public final class q69 {
                 return;
             }
         }
-        this.a = n69.a().c();
+        b(str);
     }
 
-    public final List<com.baidu.ubs.analytics.a.l> a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.o69
+    public String a(String str) throws Exception {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Cursor rawQuery = this.a.rawQuery("SELECT * FROM  tb_ab_page_log order by _id ", null);
-            ArrayList arrayList = new ArrayList();
-            while (rawQuery.moveToNext()) {
-                com.baidu.ubs.analytics.a.l lVar = new com.baidu.ubs.analytics.a.l();
-                lVar.t(rawQuery.getString(rawQuery.getColumnIndex("_pagerName")));
-                lVar.setPath(rawQuery.getString(rawQuery.getColumnIndex("_path")));
-                lVar.z(rawQuery.getString(rawQuery.getColumnIndex("_endTime")));
-                lVar.setStartTime(rawQuery.getString(rawQuery.getColumnIndex("_startTime")));
-                lVar.x(rawQuery.getString(rawQuery.getColumnIndex("_sessionId")));
-                lVar.setId(rawQuery.getInt(rawQuery.getColumnIndex("_id")));
-                arrayList.add(lVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (!w69.a(str)) {
+                Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+                cipher.init(1, this.a);
+                return s69.r(cipher.doFinal(str.getBytes()));
             }
-            rawQuery.close();
-            return arrayList;
+            throw new Exception("Plaintext can not be blank.");
         }
-        return (List) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public final void b(int i) {
+    public final void b(String str) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a.execSQL("delete from tb_ab_page_log where _id <= " + i);
-        }
-    }
-
-    public final void c(com.baidu.ubs.analytics.a.l lVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lVar) == null) {
-            this.a.execSQL("INSERT INTO tb_ab_page_log(_startTime,_endTime,_pagerName,_path,_sessionId) VALUES (?,?,?,?,?);", new String[]{lVar.N(), lVar.O(), lVar.E(), lVar.getPath(), lVar.I()});
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            if (!w69.a(str)) {
+                this.a = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(s69.n(str.replaceAll("-----BEGIN PUBLIC KEY-----", "").replaceAll("-----END PUBLIC KEY-----", ""))));
+                return;
+            }
+            throw new Exception("PubKey can not be blank.");
         }
     }
 }

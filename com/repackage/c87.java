@@ -1,12 +1,16 @@
 package com.repackage;
 
+import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tieba.im.pushNotify.ChatSetting;
-import com.baidu.tieba.im.settingcache.OfficialSettingItemData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.model.AddMsgRecordModel;
+import com.baidu.tieba.stampmission.message.StampMissionHttpRequestMessage;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,53 +18,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import java.util.Iterator;
 /* loaded from: classes5.dex */
-public class c87 extends z77 {
+public class c87 {
     public static /* synthetic */ Interceptable $ic;
-    public static c87 b;
+    public static c87 c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public class a extends ad5<Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ OfficialSettingItemData a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ c87 c;
-
-        public a(c87 c87Var, OfficialSettingItemData officialSettingItemData, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c87Var, officialSettingItemData, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = c87Var;
-            this.a = officialSettingItemData;
-            this.b = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ad5
-        /* renamed from: a */
-        public Void doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.c.b().g(this.b, OrmObject.jsonStrWithObject(this.a));
-                return null;
-            }
-            return (Void) invokeV.objValue;
-        }
-    }
+    public HashSet<String> a;
+    public StringBuilder b;
 
     static {
         InterceptResult invokeClinit;
@@ -75,7 +41,7 @@ public class c87 extends z77 {
                 return;
             }
         }
-        b = new c87();
+        c = new c87();
     }
 
     public c87() {
@@ -88,112 +54,106 @@ public class c87 extends z77 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new HashSet<>();
+        this.b = new StringBuilder();
     }
 
-    public static c87 j() {
+    public static c87 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (c87) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c : (c87) invokeV.objValue;
     }
 
-    @Override // com.repackage.z77
-    public qe<String> b() {
-        InterceptResult invokeV;
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            br4.f();
-            return br4.g("tb.im_official_chat_setting");
-        }
-        return (qe) invokeV.objValue;
-    }
-
-    @Override // com.repackage.z77
-    public void h(ChatSetting chatSetting) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatSetting) == null) && chatSetting != null && (chatSetting instanceof OfficialSettingItemData)) {
-            OfficialSettingItemData officialSettingItemData = (OfficialSettingItemData) chatSetting;
-            String myUid = officialSettingItemData.getMyUid();
-            String toUid = officialSettingItemData.getToUid();
-            if (!TextUtils.isEmpty(myUid) && !TextUtils.isEmpty(toUid)) {
-                qe<String> b2 = b();
-                String str = myUid + "@" + toUid;
-                String jsonStrWithObject = OrmObject.jsonStrWithObject(officialSettingItemData);
-                synchronized (this.a) {
-                    this.a.put(str, officialSettingItemData);
-                }
-                b2.g(str, jsonStrWithObject);
-            } else if (TbConfig.getDebugSwitch()) {
-                throw new RuntimeException("key param is null");
-            }
-        }
-    }
-
-    @Override // com.repackage.z77
-    public void i(ChatSetting chatSetting, ic5<Void> ic5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, chatSetting, ic5Var) == null) && chatSetting != null && (chatSetting instanceof OfficialSettingItemData)) {
-            OfficialSettingItemData officialSettingItemData = (OfficialSettingItemData) chatSetting;
-            String myUid = officialSettingItemData.getMyUid();
-            String toUid = officialSettingItemData.getToUid();
-            if (!TextUtils.isEmpty(myUid) && !TextUtils.isEmpty(toUid)) {
-                String str = myUid + "@" + toUid;
-                synchronized (this.a) {
-                    this.a.put(str, officialSettingItemData);
-                }
-                dd5.c(new a(this, officialSettingItemData, str), ic5Var);
-            } else if (TbConfig.getDebugSwitch()) {
-                throw new RuntimeException("key param is null");
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.z77
-    /* renamed from: k */
-    public OfficialSettingItemData a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            OfficialSettingItemData officialSettingItemData = null;
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return null;
-            }
-            String str3 = str + "@" + str2;
-            synchronized (this.a) {
-                ChatSetting chatSetting = this.a.get(str3);
-                if (chatSetting != null && (chatSetting instanceof OfficialSettingItemData)) {
-                    officialSettingItemData = (OfficialSettingItemData) chatSetting;
-                }
-            }
-            if (officialSettingItemData == null) {
-                OfficialSettingItemData officialSettingItemData2 = new OfficialSettingItemData();
-                officialSettingItemData2.setMyUid(str);
-                officialSettingItemData2.setToUid(str2);
-                officialSettingItemData2.setAcceptNotify(true);
-                return officialSettingItemData2;
-            }
-            return officialSettingItemData;
-        }
-        return (OfficialSettingItemData) invokeLL.objValue;
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.e(OfficialSettingItemData.class);
-        }
-    }
-
-    public void m(String str, String str2, UserData userData) {
-        OfficialSettingItemData a2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, userData) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || userData == null || (a2 = a(str, str2)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || str == null || str.length() <= 0) {
             return;
         }
-        a2.setToPortrait(userData.getPortrait());
-        a2.setToName(userData.getUserName());
-        h(a2);
+        StringBuilder sb = this.b;
+        sb.append(str);
+        sb.append(",");
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            StringBuilder sb = this.b;
+            if (sb != null && sb.length() > 0) {
+                StringBuilder sb2 = this.b;
+                sb2.delete(0, sb2.length());
+            }
+            HashSet<String> hashSet = this.a;
+            if (hashSet != null) {
+                hashSet.clear();
+            }
+        }
+    }
+
+    public void d(ChatMessage chatMessage, Context context) {
+        UserData userInfo;
+        p57 m;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, chatMessage, context) == null) || chatMessage == null || StringUtils.isNull(chatMessage.getContent()) || (userInfo = chatMessage.getUserInfo()) == null) {
+            return;
+        }
+        if ((userInfo.getUserType() == 1 || userInfo.getUserType() == 3) && (m = a97.m(chatMessage.getContent())) != null && !TextUtils.isEmpty(m.b) && this.a.add(m.b)) {
+            TiebaStatic.eventStat(context, "message_open", "click", 1, StampMissionHttpRequestMessage.KEY_TASK_TYPE, m.a, "task_id", m.b);
+        }
+    }
+
+    public void e(ChatMessage chatMessage, Context context) {
+        UserData userInfo;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, chatMessage, context) == null) || chatMessage == null || StringUtils.isNull(chatMessage.getContent()) || (userInfo = chatMessage.getUserInfo()) == null || userInfo.getUserType() != 4) {
+            return;
+        }
+        StatisticItem statisticItem = new StatisticItem("c13989");
+        statisticItem.param("service_id", chatMessage.getStatisticsServiceId());
+        statisticItem.param("task_id", chatMessage.getStatTaskId());
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+        TiebaStatic.log(statisticItem);
+    }
+
+    public void f() {
+        String str;
+        StringBuilder sb;
+        StringBuilder sb2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            String str2 = null;
+            if (this.a != null) {
+                StringBuilder sb3 = new StringBuilder();
+                Iterator<String> it = this.a.iterator();
+                while (it.hasNext()) {
+                    String next = it.next();
+                    if (next != null && next.length() > 0) {
+                        sb3.append(next);
+                        sb3.append(",");
+                    }
+                }
+                if (sb3.length() > 0) {
+                    sb3.deleteCharAt(sb3.length() - 1);
+                    if (sb3.length() > 0) {
+                        str = sb3.toString();
+                        sb = this.b;
+                        if (sb != null && sb.length() > 0) {
+                            this.b.deleteCharAt(sb2.length() - 1);
+                            str2 = this.b.toString();
+                        }
+                        new AddMsgRecordModel().reqViewAndClick(str, str2);
+                    }
+                }
+            }
+            str = null;
+            sb = this.b;
+            if (sb != null) {
+                this.b.deleteCharAt(sb2.length() - 1);
+                str2 = this.b.toString();
+            }
+            new AddMsgRecordModel().reqViewAndClick(str, str2);
+        }
     }
 }

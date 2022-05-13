@@ -1,177 +1,52 @@
 package com.repackage;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubs.analytics.SampleResult;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public final class i69 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public String b;
-    public String c;
-    public boolean d;
-    public JSONArray e;
-    public Map<String, com.baidu.ubs.analytics.a.g> f;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final i69 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-345920856, "Lcom/repackage/i69$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-345920856, "Lcom/repackage/i69$a;");
-                    return;
-                }
-            }
-            a = new i69((byte) 0);
-        }
-    }
-
-    public /* synthetic */ i69(byte b) {
-        this();
-    }
-
-    public static i69 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (i69) invokeV.objValue;
-    }
-
-    public final void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.a = context;
-        }
-    }
-
-    public final void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public final synchronized void c(List<com.baidu.ubs.analytics.a.g> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            synchronized (this) {
-                this.f = new HashMap();
-                for (int i = 0; i < list.size(); i++) {
-                    if (list.get(i) != null) {
-                        this.f.put(list.get(i).getId(), list.get(i));
-                    }
-                }
-            }
-        }
-    }
-
-    public final synchronized void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            synchronized (this) {
-                this.d = z;
-            }
-        }
-    }
-
-    public final void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public final SampleResult f(String str) {
+    public static String a(String str) {
         InterceptResult invokeL;
-        Map<String, com.baidu.ubs.analytics.a.g> map;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (this.e == null) {
-                if (str != null && (map = this.f) != null) {
-                    if (map.containsKey(str)) {
-                        return q79.a(this.f.get(str).getGroup());
-                    }
-                    return SampleResult.OTHERE;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (str == null || str.length() == 0) {
+                return str;
+            }
+            char[] charArray = str.toCharArray();
+            StringBuilder sb = new StringBuilder();
+            for (char c : charArray) {
+                String binaryString = Integer.toBinaryString(c);
+                while (binaryString.length() < 8) {
+                    binaryString = "0" + binaryString;
                 }
-                return SampleResult.OTHERE;
+                sb.append(binaryString);
             }
-            for (int i = 0; i < this.e.length(); i++) {
-                JSONObject optJSONObject = this.e.optJSONObject(i);
-                if (optJSONObject != null && str.equals(optJSONObject.optString("exid"))) {
-                    return q79.a(optJSONObject.optString("group"));
-                }
+            while (sb.length() % 6 != 0) {
+                sb.append("0");
             }
-            return SampleResult.OTHERE;
+            String valueOf = String.valueOf(sb);
+            int length = valueOf.length() / 6;
+            char[] cArr = new char[length];
+            for (int i = 0; i < length; i++) {
+                int parseInt = Integer.parseInt(valueOf.substring(0, 6), 2);
+                valueOf = valueOf.substring(6);
+                cArr[i] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt(parseInt);
+            }
+            StringBuilder sb2 = new StringBuilder(String.valueOf(cArr));
+            if (str.length() % 3 == 1) {
+                sb2.append("==");
+            } else if (str.length() % 3 == 2) {
+                sb2.append("=");
+            }
+            for (int i2 = 76; i2 < sb2.length(); i2 += 76) {
+                sb2.insert(i2, "\r\n");
+            }
+            sb2.append("\r\n");
+            return String.valueOf(sb2);
         }
-        return (SampleResult) invokeL.objValue;
-    }
-
-    public final boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
-    public final Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (Context) invokeV.objValue;
-    }
-
-    public final String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public final String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public final Map<String, com.baidu.ubs.analytics.a.g> k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f : (Map) invokeV.objValue;
-    }
-
-    public i69() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.d = true;
+        return (String) invokeL.objValue;
     }
 }

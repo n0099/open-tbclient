@@ -19,11 +19,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cu4;
+import com.repackage.pu4;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class cn7 implements bn7, cu4.g {
+public class cn7 implements bn7, pu4.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NearbyFriendsActivity a;
@@ -32,7 +32,7 @@ public class cn7 implements bn7, cu4.g {
     public FrameLayout d;
     public BdSwipeRefreshLayout e;
     public BdTypeRecyclerView f;
-    public du4 g;
+    public qu4 g;
     public PbListView h;
     public xm7 i;
 
@@ -67,7 +67,7 @@ public class cn7 implements bn7, cu4.g {
                 if (this.a.f != null) {
                     this.a.f.stopScroll();
                 }
-                if (!(this.a.h == null && this.a.a == null && this.a.b == null) && mi.z()) {
+                if (!(this.a.h == null && this.a.a == null && this.a.b == null) && ki.z()) {
                     this.a.h.L(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
                     this.a.h.B(null);
                     if (this.a.b.hasMore()) {
@@ -165,7 +165,7 @@ public class cn7 implements bn7, cu4.g {
     }
 
     @Override // com.repackage.bn7
-    public void e(boolean z, List<uo> list) {
+    public void e(boolean z, List<ro> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeZL(1048579, this, z, list) == null) || this.f == null || list == null) {
             return;
@@ -210,9 +210,9 @@ public class cn7 implements bn7, cu4.g {
         if (navigationBar != null) {
             navigationBar.onChangeSkinType(nearbyFriendsActivity.getPageContext(), i);
         }
-        du4 du4Var = this.g;
-        if (du4Var != null) {
-            du4Var.H(i);
+        qu4 qu4Var = this.g;
+        if (qu4Var != null) {
+            qu4Var.H(i);
         }
         PbListView pbListView = this.h;
         if (pbListView != null) {
@@ -286,10 +286,10 @@ public class cn7 implements bn7, cu4.g {
         if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (nearbyFriendsActivity = this.a) == null) {
             return;
         }
-        this.c = (NavigationBar) nearbyFriendsActivity.findViewById(R.id.obfuscated_res_0x7f091515);
-        this.d = (FrameLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0906d6);
-        this.e = (BdSwipeRefreshLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091a1f);
-        this.f = (BdTypeRecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f09152c);
+        this.c = (NavigationBar) nearbyFriendsActivity.findViewById(R.id.obfuscated_res_0x7f091534);
+        this.d = (FrameLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0906d1);
+        this.e = (BdSwipeRefreshLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091a71);
+        this.f = (BdTypeRecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f09154a);
         w();
         y();
         x();
@@ -301,9 +301,9 @@ public class cn7 implements bn7, cu4.g {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            du4 du4Var = this.g;
-            if (du4Var != null) {
-                du4Var.f(null);
+            qu4 qu4Var = this.g;
+            if (qu4Var != null) {
+                qu4Var.e(null);
             }
             PbListView pbListView = this.h;
             if (pbListView != null) {
@@ -313,7 +313,7 @@ public class cn7 implements bn7, cu4.g {
         }
     }
 
-    @Override // com.repackage.cu4.g
+    @Override // com.repackage.pu4.g
     public void onListPullRefresh(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
@@ -342,7 +342,7 @@ public class cn7 implements bn7, cu4.g {
         this.h = pbListView;
         pbListView.b();
         this.h.p(R.color.transparent);
-        this.h.t(oi.f(this.a, R.dimen.tbds182));
+        this.h.t(mi.f(this.a, R.dimen.tbds182));
         this.h.x();
         this.h.G(R.dimen.tbfontsize36);
         this.h.E(SkinManager.getColor(R.color.CAM_X0107));
@@ -358,7 +358,7 @@ public class cn7 implements bn7, cu4.g {
         if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || (nearbyFriendsActivity = this.a) == null || (navigationBar = this.c) == null) {
             return;
         }
-        navigationBar.setCenterTextTitle(nearbyFriendsActivity.getString(R.string.obfuscated_res_0x7f0f0c0a));
+        navigationBar.setCenterTextTitle(nearbyFriendsActivity.getString(R.string.obfuscated_res_0x7f0f0c1e));
         this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
     }
 
@@ -368,9 +368,9 @@ public class cn7 implements bn7, cu4.g {
         if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || (nearbyFriendsActivity = this.a) == null || this.e == null) {
             return;
         }
-        du4 du4Var = new du4(nearbyFriendsActivity.getPageContext());
-        this.g = du4Var;
-        du4Var.f(this);
+        qu4 qu4Var = new qu4(nearbyFriendsActivity.getPageContext());
+        this.g = qu4Var;
+        qu4Var.e(this);
         this.e.setProgressView(this.g);
     }
 
@@ -386,7 +386,7 @@ public class cn7 implements bn7, cu4.g {
         this.f.setOverScrollMode(2);
         this.f.setOnSrollToBottomListener(u());
         ArrayList arrayList = new ArrayList();
-        xm7 xm7Var = new xm7(this.a, pz4.l, 2);
+        xm7 xm7Var = new xm7(this.a, d05.l, 2);
         this.i = xm7Var;
         arrayList.add(xm7Var);
         this.f.a(arrayList);
@@ -397,7 +397,7 @@ public class cn7 implements bn7, cu4.g {
         if (!(interceptable == null || interceptable.invokeV(1048598, this) == null) || this.h == null || this.b == null || this.a == null) {
             return;
         }
-        if (!mi.z()) {
+        if (!ki.z()) {
             this.f.setNextPage(null);
             return;
         }
@@ -411,7 +411,7 @@ public class cn7 implements bn7, cu4.g {
             return;
         }
         this.h.q(true);
-        this.h.C(this.a.getString(R.string.obfuscated_res_0x7f0f0c0f));
+        this.h.C(this.a.getString(R.string.obfuscated_res_0x7f0f0c23));
         this.h.f();
     }
 }

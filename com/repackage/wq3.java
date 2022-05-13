@@ -1,32 +1,27 @@
 package com.repackage;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class wq3 extends cr3 {
+public class wq3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile vq3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wq3(String str) {
-        super("onFail", 0, str);
+    public static synchronized vq3 a() {
+        InterceptResult invokeV;
+        vq3 vq3Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (wq3.class) {
+                if (a == null) {
+                    a = new vq3();
+                }
+                vq3Var = a;
             }
+            return vq3Var;
         }
+        return (vq3) invokeV.objValue;
     }
 }

@@ -1,216 +1,173 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
+import android.view.View;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.R;
+import com.baidu.tieba.recapp.widget.ApkDownloadView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.protocol.HTTP;
+import com.repackage.yj5;
 /* loaded from: classes7.dex */
-public class wb8 {
+public class wb8 extends bc8 {
     public static /* synthetic */ Interceptable $ic;
-    public static String d;
-    public static String e;
-    public static String f;
-    public static boolean g;
-    public static String h;
     public transient /* synthetic */ FieldHolder $fh;
-    public zb8 a;
-    public vb8 b;
-    public long c;
+    public HeadImageView h;
+    public TextView i;
+    public ApkDownloadView j;
+    public boolean k;
 
-    public wb8() {
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wb8 a;
+
+        public a(wb8 wb8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wb8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wb8Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.j.performClick();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements yj5.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mb8 a;
+        public final /* synthetic */ wb8 b;
+
+        public b(wb8 wb8Var, mb8 mb8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wb8Var, mb8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = wb8Var;
+            this.a = mb8Var;
+        }
+
+        @Override // com.repackage.yj5.a
+        public boolean a(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+                wb8 wb8Var = this.b;
+                if (wb8Var.k) {
+                    nj5.a(this.a.j);
+                } else {
+                    nj5.a(wb8Var.f.getButtonCmdScheme());
+                }
+                kd7.c(this.b.c);
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wb8(View view2, String str) {
+        super(view2, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((View) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        h();
+        l();
     }
 
-    public static void l(String str) {
+    @Override // com.repackage.bc8
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            d = str;
-        }
-    }
-
-    public static void m(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            f = str;
-        }
-    }
-
-    public static void n(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            e = str;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.b();
+            SkinManager.setViewTextColor(this.i, R.color.CAM_X0101, 1);
+            this.j.setTextColorInitSkin(R.color.CAM_X0101);
+            this.j.setBackgroundSkin(R.drawable.obfuscated_res_0x7f0811e5);
+            this.j.c();
         }
     }
 
-    public final void a(zb8 zb8Var) {
+    @Override // com.repackage.bc8
+    public void c(mb8 mb8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, zb8Var) == null) {
-            b(zb8Var, false);
-        }
-    }
-
-    public final void b(zb8 zb8Var, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zb8Var, z) == null) || zb8Var == null) {
-            return;
-        }
-        if (!TextUtils.isEmpty(d)) {
-            zb8Var.a().a("Cookie", d);
-        } else {
-            zb8Var.a().a("Cookie", "");
-        }
-        if (!TextUtils.isEmpty(f)) {
-            zb8Var.a().a("client_user_token", f);
-        }
-        if (!TextUtils.isEmpty(e)) {
-            zb8Var.a().a("User-Agent", e);
-        }
-        if (z) {
-            zb8Var.a().a("Accept-Encoding", "gzip");
-        } else {
-            zb8Var.a().a("Accept-Encoding", "");
-        }
-        if (g) {
-            zb8Var.a().a(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
-        } else {
-            zb8Var.a().a(HTTP.CONN_DIRECTIVE, "close");
-        }
-        zb8Var.a().a("client_logid", String.valueOf(this.c));
-        if (TextUtils.isEmpty(h)) {
-            return;
-        }
-        zb8Var.a().a("cuid", h);
-    }
-
-    public void c() {
-        vb8 vb8Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (vb8Var = this.b) == null) {
-            return;
-        }
-        vb8Var.a();
-    }
-
-    public boolean d(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, cc8 cc8Var, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), linkedList, cc8Var, Boolean.valueOf(z2)})) == null) ? e(str, str2, z, i, i2, i3, i4, linkedList, cc8Var, z2, false) : invokeCommon.booleanValue;
-    }
-
-    public boolean e(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, cc8 cc8Var, boolean z2, boolean z3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), linkedList, cc8Var, Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
-            zb8 zb8Var = new zb8();
-            this.a = zb8Var;
-            a(zb8Var);
-            this.a.a().h(str);
-            vb8 vb8Var = new vb8(this.a);
-            this.b = vb8Var;
-            return vb8Var.b(str2, cc8Var, i, i2, i3, i4, z2, z3);
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public zb8 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : (zb8) invokeV.objValue;
-    }
-
-    public bc8 g(String str, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), linkedList})) == null) {
-            zb8 zb8Var = new zb8();
-            this.a = zb8Var;
-            b(zb8Var, z);
-            this.a.a().h(str);
-            vb8 vb8Var = new vb8(this.a);
-            this.b = vb8Var;
-            vb8Var.c(i, i3, i4);
-            return this.a.b();
-        }
-        return (bc8) invokeCommon.objValue;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            System.setProperty("http.keepAlive", "false");
-            this.c = BdStatisticsManager.getInstance().getClientLogId();
-        }
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            vb8 vb8Var = this.b;
-            if (vb8Var != null) {
-                return vb8Var.d();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mb8Var) == null) {
+            super.c(mb8Var);
+            this.h.K(mb8Var.c, 10, false);
+            this.i.setText(mb8Var.b);
+            this.j.setTextColor(SkinManager.getColor(R.color.CAM_X0901));
+            this.j.setInitText(mb8Var.e);
+            if (this.c != null) {
+                this.b.setOnClickListener(new a(this));
+                this.j.setOnClickInterceptListener(new b(this, mb8Var));
+                new xj5(this.j, nb8.d(this.f));
             }
-            return false;
+            b();
         }
-        return invokeV.booleanValue;
     }
 
-    public bc8 j(String str, List<BasicNameValuePair> list, boolean z, int i, int i2, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        InterceptResult invokeCommon;
+    public final void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, list, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), linkedList})) == null) {
-            zb8 zb8Var = new zb8();
-            this.a = zb8Var;
-            b(zb8Var, z);
-            this.a.a().h(str);
-            if (list != null) {
-                for (BasicNameValuePair basicNameValuePair : list) {
-                    this.a.a().b(basicNameValuePair);
-                }
-            }
-            if (linkedList != null) {
-                Iterator<BasicNameValuePair> it = linkedList.iterator();
-                while (it.hasNext()) {
-                    BasicNameValuePair next = it.next();
-                    this.a.a().a(next.getName(), next.getValue());
-                }
-            }
-            vb8 vb8Var = new vb8(this.a);
-            this.b = vb8Var;
-            vb8Var.f(i, i2, -1);
-            return this.a.b();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            HeadImageView headImageView = (HeadImageView) a(R.id.obfuscated_res_0x7f092300);
+            this.h = headImageView;
+            headImageView.setDefaultResource(R.drawable.icon_default_avatar100);
+            this.h.setDefaultBgResource(R.color.CAM_X0205);
+            this.h.setIsRound(true);
+            this.i = (TextView) a(R.id.obfuscated_res_0x7f0922f3);
+            this.j = (ApkDownloadView) a(R.id.obfuscated_res_0x7f09082a);
         }
-        return (bc8) invokeCommon.objValue;
     }
 
-    public void k() {
-        vb8 vb8Var;
+    public void m(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (vb8Var = this.b) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.k = z;
         }
-        vb8Var.i();
     }
 }

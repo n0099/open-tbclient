@@ -1,7 +1,5 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class ot3 {
+public class ot3 extends zs3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public qu3 a;
 
     static {
         InterceptResult invokeClinit;
@@ -30,10 +28,12 @@ public final class ot3 {
                 return;
             }
         }
-        b = tg1.a;
+        c = eh1.a;
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ot3() {
+        super("getSid");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -41,62 +41,31 @@ public final class ot3 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    public static ot3 d(qs1 qs1Var) {
-        InterceptResult invokeL;
+    @Override // com.repackage.zs3
+    public us1 a(JSONObject jSONObject, yd2 yd2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, qs1Var)) == null) {
-            if (qs1Var == null) {
-                return null;
-            }
-            ot3 ot3Var = new ot3();
-            ot3Var.a = qu3.e(qs1Var);
-            return ot3Var;
-        }
-        return (ot3) invokeL.objValue;
-    }
-
-    public final JSONObject a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, yd2Var)) == null) {
+            String k = bk2.g0().k();
+            JSONObject jSONObject2 = new JSONObject();
             try {
-                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str);
-                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, com.baidu.pass.biometrics.face.liveness.b.a.g0);
-                jSONObject.put("errDes", vp3.a(str));
-            } catch (Exception e) {
-                if (b) {
+                jSONObject2.put("sid", k);
+            } catch (JSONException e) {
+                if (c) {
                     e.printStackTrace();
                 }
             }
-            return jSONObject;
+            yd2Var.a(jSONObject2);
+            return null;
         }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            JSONObject a = a(str);
-            qu3 qu3Var = this.a;
-            if (qu3Var != null) {
-                qu3Var.b(a);
-            }
-        }
-    }
-
-    public void c() {
-        qu3 qu3Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (qu3Var = this.a) == null) {
-            return;
-        }
-        qu3Var.c();
+        return (us1) invokeLL.objValue;
     }
 }

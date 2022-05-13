@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mi;
-import com.repackage.vt4;
+import com.repackage.iu4;
+import com.repackage.ki;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -42,7 +42,7 @@ public class PreLoadVideoSwitchManager {
         this.mSize = 0;
         VideoPreLoadLog.log("PreLoadVideoSwitchManager init ");
         try {
-            parseJson(vt4.k().q("video_sync_switch_json", ""));
+            parseJson(iu4.k().q("video_sync_switch_json", ""));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -100,7 +100,7 @@ public class PreLoadVideoSwitchManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (VideoPreLoadSwitch.isOn()) {
-                return !this.isWifi || mi.H();
+                return !this.isWifi || ki.H();
             }
             VideoPreLoadLog.log("PreLoadVideoSwitchManager isOpen switch close ");
             return false;
@@ -117,7 +117,7 @@ public class PreLoadVideoSwitchManager {
             }
             try {
                 parseJson(str);
-                vt4.k().y("video_sync_switch_json", str);
+                iu4.k().y("video_sync_switch_json", str);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

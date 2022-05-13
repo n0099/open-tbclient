@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
 import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
 import com.baidu.ugc.editvideo.record.entity.GLViewPortLocation;
-import com.repackage.pf0;
+import com.repackage.sf0;
 import javax.microedition.khronos.opengles.GL10;
 /* loaded from: classes4.dex */
 public class MediaBaseRenderer implements IMediaRenderer {
@@ -75,9 +75,9 @@ public class MediaBaseRenderer implements IMediaRenderer {
     }
 
     @Override // com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
-    public void onDrawFrame(pf0 pf0Var, int i, float[] fArr) {
+    public void onDrawFrame(sf0 sf0Var, int i, float[] fArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, pf0Var, i, fArr) == null) {
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, sf0Var, i, fArr) == null) {
             this.mTextureId = i;
             this.mMtx = fArr;
             GLViewPortLocation gLViewPortLocation = this.mGLViewPortLocation;

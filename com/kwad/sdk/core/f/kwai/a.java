@@ -40,7 +40,7 @@ public class a {
             intent.setComponent(new ComponentName("com.asus.msa.SupplementaryDID", "com.asus.msa.SupplementaryDID.SupplementaryDIDService"));
             if (this.a.bindService(intent, this.c, 1)) {
                 try {
-                    str = new a.C0299a(this.b.take()).a();
+                    str = new a.C0298a(this.b.take()).a();
                     com.kwad.sdk.core.d.a.c("ASUSDeviceIDHelper", "getOAID oaid:" + str);
                     context = this.a;
                     serviceConnection = this.c;

@@ -115,11 +115,11 @@ public class ib implements iq<ib, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ibVar)) == null) {
             if (ib.class.equals(ibVar.getClass())) {
-                int compareTo = Boolean.valueOf(m492a()).compareTo(Boolean.valueOf(ibVar.m492a()));
+                int compareTo = Boolean.valueOf(m493a()).compareTo(Boolean.valueOf(ibVar.m493a()));
                 if (compareTo != 0) {
                     return compareTo;
                 }
-                if (!m492a() || (a9 = ir.a(this.f612a, ibVar.f612a)) == 0) {
+                if (!m493a() || (a9 = ir.a(this.f612a, ibVar.f612a)) == 0) {
                     int compareTo2 = Boolean.valueOf(c()).compareTo(Boolean.valueOf(ibVar.c()));
                     if (compareTo2 != 0) {
                         return compareTo2;
@@ -185,7 +185,7 @@ public class ib implements iq<ib, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public hs m488a() {
+    public hs m489a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f613a : (hs) invokeV.objValue;
@@ -246,21 +246,21 @@ public class ib implements iq<ib, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
             this.f618a = z;
-            m491a(true);
+            m492a(true);
             return this;
         }
         return (ib) invokeZ.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m489a() {
+    public String m490a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f615a : (String) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m490a() {
+    public void m491a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             if (this.f612a == null) {
@@ -280,62 +280,62 @@ public class ib implements iq<ib, Object>, Serializable, Cloneable {
         if (interceptable != null && interceptable.invokeL(1048587, this, jbVar) != null) {
             return;
         }
-        jbVar.m562a();
+        jbVar.m563a();
         while (true) {
-            iy m558a = jbVar.m558a();
-            byte b2 = m558a.a;
+            iy m559a = jbVar.m559a();
+            byte b2 = m559a.a;
             if (b2 == 0) {
                 jbVar.f();
                 if (!c()) {
                     throw new jc("Required field 'encryptAction' was not found in serialized data! Struct: " + toString());
                 } else if (d()) {
-                    m490a();
+                    m491a();
                     return;
                 } else {
                     throw new jc("Required field 'isRequest' was not found in serialized data! Struct: " + toString());
                 }
             }
-            switch (m558a.f791a) {
+            switch (m559a.f791a) {
                 case 1:
                     if (b2 == 8) {
-                        this.f612a = hf.a(jbVar.m556a());
+                        this.f612a = hf.a(jbVar.m557a());
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 2:
                     if (b2 == 2) {
-                        this.f618a = jbVar.m567a();
-                        m491a(true);
+                        this.f618a = jbVar.m568a();
+                        m492a(true);
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 3:
                     if (b2 == 2) {
-                        this.f620b = jbVar.m567a();
-                        m495b(true);
+                        this.f620b = jbVar.m568a();
+                        m496b(true);
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 4:
                     if (b2 == 11) {
-                        this.f616a = jbVar.m564a();
+                        this.f616a = jbVar.m565a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 5:
                     if (b2 == 11) {
-                        this.f615a = jbVar.m563a();
+                        this.f615a = jbVar.m564a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 6:
                     if (b2 == 11) {
-                        this.f619b = jbVar.m563a();
+                        this.f619b = jbVar.m564a();
                         continue;
                         jbVar.g();
                     }
@@ -365,7 +365,7 @@ public class ib implements iq<ib, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m491a(boolean z) {
+    public void m492a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
             this.f617a.set(0, z);
@@ -373,23 +373,23 @@ public class ib implements iq<ib, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m492a() {
+    public boolean m493a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f612a != null : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m493a(ib ibVar) {
+    public boolean m494a(ib ibVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, ibVar)) == null) {
             if (ibVar == null) {
                 return false;
             }
-            boolean m492a = m492a();
-            boolean m492a2 = ibVar.m492a();
-            if (((!m492a && !m492a2) || (m492a && m492a2 && this.f612a.equals(ibVar.f612a))) && this.f618a == ibVar.f618a && this.f620b == ibVar.f620b) {
+            boolean m493a = m493a();
+            boolean m493a2 = ibVar.m493a();
+            if (((!m493a && !m493a2) || (m493a && m493a2 && this.f612a.equals(ibVar.f612a))) && this.f618a == ibVar.f618a && this.f620b == ibVar.f620b) {
                 boolean e2 = e();
                 boolean e3 = ibVar.e();
                 if ((e2 || e3) && !(e2 && e3 && this.f616a.equals(ibVar.f616a))) {
@@ -407,13 +407,13 @@ public class ib implements iq<ib, Object>, Serializable, Cloneable {
                 }
                 boolean h2 = h();
                 boolean h3 = ibVar.h();
-                if ((h2 || h3) && !(h2 && h3 && this.f614a.m457a(ibVar.f614a))) {
+                if ((h2 || h3) && !(h2 && h3 && this.f614a.m458a(ibVar.f614a))) {
                     return false;
                 }
                 boolean i = i();
                 boolean i2 = ibVar.i();
                 if (i || i2) {
-                    return i && i2 && this.f613a.m449a(ibVar.f613a);
+                    return i && i2 && this.f613a.m450a(ibVar.f613a);
                 }
                 return true;
             }
@@ -423,7 +423,7 @@ public class ib implements iq<ib, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m494a() {
+    public byte[] m495a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
@@ -448,7 +448,7 @@ public class ib implements iq<ib, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048593, this, z)) == null) {
             this.f620b = z;
-            m495b(true);
+            m496b(true);
             return this;
         }
         return (ib) invokeZ.objValue;
@@ -464,7 +464,7 @@ public class ib implements iq<ib, Object>, Serializable, Cloneable {
     public void b(jb jbVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, jbVar) == null) {
-            m490a();
+            m491a();
             jbVar.a(f611a);
             if (this.f612a != null) {
                 jbVar.a(a);
@@ -503,12 +503,12 @@ public class ib implements iq<ib, Object>, Serializable, Cloneable {
                 jbVar.b();
             }
             jbVar.c();
-            jbVar.m566a();
+            jbVar.m567a();
         }
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m495b(boolean z) {
+    public void m496b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
             this.f617a.set(1, z);
@@ -516,7 +516,7 @@ public class ib implements iq<ib, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m496b() {
+    public boolean m497b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f618a : invokeV.booleanValue;
@@ -545,7 +545,7 @@ public class ib implements iq<ib, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, obj)) == null) {
             if (obj != null && (obj instanceof ib)) {
-                return m493a((ib) obj);
+                return m494a((ib) obj);
             }
             return false;
         }

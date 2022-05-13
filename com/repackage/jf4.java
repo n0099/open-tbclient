@@ -1,131 +1,93 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.android.ddmlib.tools.perflib.vmtrace.utils.Strings;
+import android.content.Context;
+import android.util.AttributeSet;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import androidx.core.view.LayoutInflaterCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bumptech.glide.load.engine.GlideException;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.if4;
+import java.lang.reflect.Field;
 /* loaded from: classes6.dex */
 public class jf4 {
     public static /* synthetic */ Interceptable $ic;
+    public static Field a;
+    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Map<String, Integer> a(Set<String> set) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, set)) == null) {
-            HashMap hashMap = new HashMap();
-            int i = 0;
-            for (String str : set) {
-                hashMap.put(str, Integer.valueOf(i));
-                i++;
-            }
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
-    }
+    /* loaded from: classes6.dex */
+    public static class a extends if4.a implements LayoutInflater.Factory2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static StringBuilder b(StringBuilder... sbArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, sbArr)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (StringBuilder sb2 : sbArr) {
-                sb.append((CharSequence) sb2);
-            }
-            return sb;
-        }
-        return (StringBuilder) invokeL.objValue;
-    }
-
-    public static String c(List<gf4> list, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, list, str)) == null) {
-            Set<String> d = hf4.b().d();
-            int size = d.size();
-            Map<String, Integer> a = a(d);
-            StringBuilder[] sbArr = new StringBuilder[size];
-            for (int i = 0; i < size; i++) {
-                sbArr[i] = new StringBuilder();
-            }
-            for (gf4 gf4Var : list) {
-                Integer num = a.get(gf4Var.f());
-                if (num != null) {
-                    sbArr[num.intValue()].append(Strings.repeat(GlideException.IndentedAppendable.INDENT, gf4Var.d()));
-                    sbArr[num.intValue()].append("- ");
-                    StringBuilder sb = sbArr[num.intValue()];
-                    sb.append(gf4Var.b() / 1000);
-                    sb.append("ms");
-                    sbArr[num.intValue()].append("   ");
-                    sbArr[num.intValue()].append(gf4Var.f());
-                    sbArr[num.intValue()].append("   ");
-                    sbArr[num.intValue()].append(gf4Var.c().getFullName());
-                    sbArr[num.intValue()].append("\n");
-                }
-            }
-            String sb2 = b(sbArr).toString();
-            d(sb2, str);
-            return sb2;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static void d(String str, String str2) {
-        FileWriter fileWriter;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        FileWriter fileWriter2 = null;
-        try {
-            try {
-                try {
-                    File parentFile = new File(str2).getParentFile();
-                    if (parentFile != null && !parentFile.exists()) {
-                        parentFile.mkdirs();
-                    }
-                    fileWriter = new FileWriter(str2);
-                } catch (IOException e) {
-                    e.printStackTrace();
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(lf4 lf4Var) {
+            super(lf4Var);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lf4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((lf4) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-            } catch (IOException e2) {
-                e = e2;
             }
-        } catch (Throwable th) {
-            th = th;
         }
-        try {
-            fileWriter.write(str);
-            fileWriter.flush();
-            fileWriter.close();
-        } catch (IOException e3) {
-            e = e3;
-            fileWriter2 = fileWriter;
-            e.printStackTrace();
-            if (fileWriter2 != null) {
-                fileWriter2.close();
-            }
-        } catch (Throwable th2) {
-            th = th2;
-            fileWriter2 = fileWriter;
-            if (fileWriter2 != null) {
+
+        @Override // android.view.LayoutInflater.Factory2
+        public View onCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
+            InterceptResult invokeLLLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, view2, str, context, attributeSet)) == null) ? this.a.onCreateView(view2, str, context, attributeSet) : (View) invokeLLLL.objValue;
+        }
+    }
+
+    public static void a(LayoutInflater layoutInflater, LayoutInflater.Factory2 factory2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, layoutInflater, factory2) == null) {
+            if (!b) {
                 try {
-                    fileWriter2.close();
-                } catch (IOException e4) {
-                    e4.printStackTrace();
+                    Field declaredField = LayoutInflater.class.getDeclaredField("mFactory2");
+                    a = declaredField;
+                    declaredField.setAccessible(true);
+                } catch (NoSuchFieldException e) {
+                    Log.e(LayoutInflaterCompat.TAG, "forceSetFactory2 Could not find field 'mFactory2' on class " + LayoutInflater.class.getName() + "; inflation may have unexpected results.", e);
+                }
+                b = true;
+            }
+            Field field = a;
+            if (field != null) {
+                try {
+                    field.set(layoutInflater, factory2);
+                } catch (IllegalAccessException e2) {
+                    Log.e(LayoutInflaterCompat.TAG, "forceSetFactory2 could not set the Factory2 on LayoutInflater " + layoutInflater + "; inflation may have unexpected results.", e2);
                 }
             }
-            throw th;
+        }
+    }
+
+    public static void b(LayoutInflater layoutInflater, lf4 lf4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, layoutInflater, lf4Var) == null) {
+            a aVar = lf4Var != null ? new a(lf4Var) : null;
+            layoutInflater.setFactory2(aVar);
+            LayoutInflater.Factory factory = layoutInflater.getFactory();
+            if (factory instanceof LayoutInflater.Factory2) {
+                a(layoutInflater, (LayoutInflater.Factory2) factory);
+            } else {
+                a(layoutInflater, aVar);
+            }
         }
     }
 }

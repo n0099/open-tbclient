@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ni;
+import com.repackage.li;
 /* loaded from: classes3.dex */
 public class MessageCardBottomView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -52,11 +52,11 @@ public class MessageCardBottomView extends LinearLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d054e, (ViewGroup) this, true);
-            this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0913f7);
-            this.b = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f0913f9);
-            this.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0913fa);
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0913f8);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0542, (ViewGroup) this, true);
+            this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09140c);
+            this.b = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f09140e);
+            this.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09140f);
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09140d);
             setClickable(true);
         }
     }
@@ -66,7 +66,7 @@ public class MessageCardBottomView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0109);
             SkinManager.setViewTextColor(this.d, (int) R.drawable.selector_comment_and_prise_item_text_color);
-            WebPManager.setPureDrawable(this.c, R.drawable.obfuscated_res_0x7f0808fc, R.color.CAM_X0107, null);
+            WebPManager.setPureDrawable(this.c, R.drawable.obfuscated_res_0x7f08090a, R.color.CAM_X0107, null);
         }
     }
 
@@ -79,13 +79,13 @@ public class MessageCardBottomView extends LinearLayout {
     public void setData(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048579, this, str, z) == null) {
-            if (!z && ni.isEmpty(str)) {
+            if (!z && li.isEmpty(str)) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
             this.b.setVisibility(z ? 0 : 8);
-            if (ni.isEmpty(str)) {
+            if (li.isEmpty(str)) {
                 this.a.setVisibility(8);
                 return;
             }

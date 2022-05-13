@@ -1,14 +1,10 @@
 package com.repackage;
 
-import android.app.Activity;
 import android.content.Context;
-import android.net.Uri;
-import com.repackage.v13;
+import android.content.DialogInterface;
+import com.repackage.yz2;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public interface vk1 {
-    boolean a(Activity activity, String str, v13.b bVar);
-
-    boolean b(Context context, String str);
-
-    boolean c(Activity activity, Uri uri, String str);
+    yz2.a a(Context context, u03 u03Var, u53 u53Var, JSONObject jSONObject, DialogInterface.OnClickListener onClickListener);
 }

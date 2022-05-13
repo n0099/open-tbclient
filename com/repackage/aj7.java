@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.GetVipInfo.VipBannerItem;
 /* loaded from: classes5.dex */
-public class aj7 implements as4 {
+public class aj7 implements ls4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
@@ -36,14 +36,14 @@ public class aj7 implements as4 {
         this.b = vipBannerItem.link;
     }
 
-    @Override // com.repackage.as4
+    @Override // com.repackage.ls4
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.as4
+    @Override // com.repackage.ls4
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

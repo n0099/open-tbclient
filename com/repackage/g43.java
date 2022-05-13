@@ -4,87 +4,39 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.core.slave.SwanAppSlaveManager;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.o53;
+import com.repackage.d02;
+import java.util.UUID;
+import org.json.JSONException;
+import org.json.JSONObject;
+@Deprecated
 /* loaded from: classes6.dex */
-public class g43 extends i43 {
+public class g43 extends r23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public class a implements cf3<m53<o53.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ h43 b;
-        public final /* synthetic */ pm1 c;
-        public final /* synthetic */ g43 d;
-
-        public a(g43 g43Var, CallbackHandler callbackHandler, h43 h43Var, pm1 pm1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g43Var, callbackHandler, h43Var, pm1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = g43Var;
-            this.a = callbackHandler;
-            this.b = h43Var;
-            this.c = pm1Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.cf3
-        /* renamed from: a */
-        public void onCallback(m53<o53.e> m53Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, m53Var) == null) {
-                if (!h53.h(m53Var)) {
-                    h53.q(m53Var, this.a, this.b.e);
-                    this.b.k = null;
-                } else {
-                    h43 h43Var = this.b;
-                    h43Var.m = false;
-                    this.d.m(this.a, (SwanAppSlaveManager) this.c, h43Var);
-                }
-                if (this.c.Z(this.b)) {
-                    return;
-                }
-                jx1.c("updateWebView", "update webview widget fail");
-                this.a.handleSchemeDispatchCallback(this.b.e, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
-            }
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g43(g13 g13Var) {
-        super(g13Var, "/swanAPI/updateWebView");
+    public g43(r13 r13Var) {
+        super(r13Var, "/swanAPI/navigateBack");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {g13Var};
+            Object[] objArr = {r13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((g13) objArr2[0], (String) objArr2[1]);
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -92,40 +44,82 @@ public class g43 extends i43 {
         }
     }
 
-    @Override // com.repackage.g23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j03 j03Var) {
+    @Override // com.repackage.r23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u03 u03Var) {
         InterceptResult invokeLLLL;
+        int optInt;
+        uq2 uq2Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j03Var)) == null) {
-            if (g23.b) {
-                Log.d("UpdateWebViewAction", "handle entity: " + unitedSchemeEntity.toString());
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, u03Var)) == null) {
+            if (r23.b) {
+                Log.d("NavigateBackAction", "handle entity: " + unitedSchemeEntity.toString());
             }
-            h43 h = h43.h(unitedSchemeEntity);
-            if (!h.isValid()) {
-                jx1.c("updateWebView", "params is invalid");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            } else if (!TextUtils.isEmpty(h.j) && l(h.j, h.n)) {
-                jx1.c("updateWebView", "params is invalid");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
+            String uuid = UUID.randomUUID().toString();
+            au2.b(uuid);
+            String str = unitedSchemeEntity.getParams().get("params");
+            if (TextUtils.isEmpty(str)) {
+                optInt = 1;
             } else {
-                pm1 pm1Var = (pm1) wl2.U().A(h.c);
-                if (pm1Var == null) {
-                    jx1.c("updateWebView", "viewManager is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                try {
+                    optInt = new JSONObject(str).optInt("delta", 1);
+                } catch (JSONException e) {
+                    if (r23.b) {
+                        e.printStackTrace();
+                    }
+                    ux1.c("navigateBack", "params parse fail");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                     return false;
                 }
-                if (TextUtils.equals(h.l, "quickPass")) {
-                    j03Var.d0().g(context, "scope_webview_extra_operation", new a(this, callbackHandler, h, pm1Var));
-                } else if (!pm1Var.Z(h)) {
-                    jx1.c("updateWebView", "update webview widget fail");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                }
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                return true;
             }
+            d02 V = hm2.U().V();
+            if (V == null) {
+                ux1.c("navigateBack", "fragmentManager is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            }
+            int k = V.k();
+            if (r23.b) {
+                Log.d("NavigateBackAction", "back delta: " + optInt);
+            }
+            if (k == 1) {
+                ux1.c("NavigateBackAction", "navigateBack api can only work when slave's count greater than 1");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "navigateBack api can only work when slave's count greater than 1");
+                return false;
+            }
+            if (optInt >= k) {
+                optInt = k - 1;
+            }
+            if (r23.b) {
+                Log.d("NavigateBackAction", "real back delta: " + optInt);
+            }
+            a02 j = V.j((k - optInt) - 1);
+            if (j instanceof c02) {
+                uq2Var = ((c02) j).l3();
+                uq2Var.e = "1";
+                uq2Var.f = uuid;
+            } else {
+                uq2Var = null;
+            }
+            i73.g(uq2Var);
+            au2.c(1, uuid);
+            ed3.a(V, context);
+            d02.b i = V.i("navigateBack");
+            i.n(d02.i, d02.h);
+            i.h(optInt);
+            i.a();
+            c02 o = V.o();
+            uq2 l3 = o != null ? o.l3() : null;
+            zt2.q("route", uuid).F(new UbcFlowEvent("na_push_page_end"));
+            au2.a(uuid, l3);
+            if (!(V.m() instanceof c02)) {
+                ux1.c("navigateBack", "top fragment error");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                i73.i(uq2Var);
+                return false;
+            }
+            c02 c02Var = (c02) V.m();
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(d43.c(c02Var != null ? c02Var.s3() : ""), 0));
+            return true;
         }
         return invokeLLLL.booleanValue;
     }

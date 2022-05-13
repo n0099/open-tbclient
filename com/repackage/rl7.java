@@ -61,11 +61,11 @@ public class rl7 {
                     Integer valueOf = Integer.valueOf(jSONObject2.optInt("type", 0));
                     if (LoginPassV6Switch.KEY.equals(optString)) {
                         SwitchManager.getInstance().turn(optString, valueOf.intValue());
-                        cw4.a();
+                        pw4.a();
                     }
                     if (TextUtils.equals(LowVersionLoginPassV6Switch.KEY, optString)) {
                         SwitchManager.getInstance().turn(optString, valueOf.intValue());
-                        cw4.a();
+                        pw4.a();
                     }
                 }
             }

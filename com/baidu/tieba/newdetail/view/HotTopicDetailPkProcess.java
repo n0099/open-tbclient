@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.mi;
 /* loaded from: classes3.dex */
 public class HotTopicDetailPkProcess extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -87,8 +87,8 @@ public class HotTopicDetailPkProcess extends View {
                 return;
             }
         }
-        k = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds22);
-        l = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+        k = mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds22);
+        l = mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

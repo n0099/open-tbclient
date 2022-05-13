@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.tg1;
+import com.repackage.eh1;
 /* loaded from: classes2.dex */
 public class SwanAppWebPopPullLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -154,7 +154,7 @@ public class SwanAppWebPopPullLayout extends FrameLayout {
                 return;
             }
         }
-        f = tg1.a;
+        f = eh1.a;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

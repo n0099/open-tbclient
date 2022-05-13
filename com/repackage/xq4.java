@@ -1,56 +1,145 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
-import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.VideoInfo;
 /* loaded from: classes7.dex */
-public class xq4 {
+public class xq4 implements fh8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public List<a> b;
 
-    public static VideoInfo a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
-            if (jSONObject != null) {
-                VideoInfo.Builder builder = new VideoInfo.Builder();
-                builder.video_md5 = jSONObject.optString(VideoFinishResult.KEY_VIDEO_MD5);
-                builder.video_url = jSONObject.optString("video_url");
-                builder.video_duration = Integer.valueOf(jSONObject.optInt(AdWebVideoActivityConfig.KEY_VIDEO_DURATION));
-                builder.video_width = Integer.valueOf(jSONObject.optInt("video_width"));
-                builder.video_height = Integer.valueOf(jSONObject.optInt("video_height"));
-                builder.thumbnail_url = jSONObject.optString("thumbnail_url");
-                builder.thumbnail_width = Integer.valueOf(jSONObject.optInt("thumbnail_width"));
-                builder.thumbnail_height = Integer.valueOf(jSONObject.optInt("thumbnail_height"));
-                builder.video_length = Integer.valueOf(jSONObject.optInt("video_length"));
-                builder.play_count = Integer.valueOf(jSONObject.optInt("play_count"));
-                builder.media_subtitle = jSONObject.optString("media_subtitle");
-                builder.video_desc = new ArrayList();
-                JSONArray optJSONArray = jSONObject.optJSONArray("video_desc");
-                if (optJSONArray != null) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        builder.video_desc.add(wq4.a(optJSONArray.optJSONObject(i)));
-                    }
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public int b;
+        public String c;
+        public String d;
+        public int e;
+        public boolean f;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                builder.video_select_flag = Integer.valueOf(jSONObject.optInt("video_select_flag"));
-                builder.video_type = Integer.valueOf(jSONObject.optInt("video_type"));
-                builder.is_vertical = Integer.valueOf(jSONObject.optInt(TiebaStatic.Params.IS_VERTICAL));
-                builder.video_h265 = wq4.a(jSONObject.optJSONObject("video_h265"));
-                builder.mcn_lead_page = jSONObject.optString("mcn_lead_page");
-                builder.mcn_ad_card = kp4.a(jSONObject.optJSONObject("mcn_ad_card"));
-                builder.wth_mid_loc = Double.valueOf(jSONObject.optDouble("wth_mid_loc"));
-                builder.hth_mid_loc = Double.valueOf(jSONObject.optDouble("hth_mid_loc"));
-                return builder.build(true);
             }
-            return null;
         }
-        return (VideoInfo) invokeL.objValue;
+
+        public int a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
+        }
+
+        public String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+        }
+
+        public String c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (String) invokeV.objValue;
+        }
+
+        public String d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (String) invokeV.objValue;
+        }
+
+        public int e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : invokeV.intValue;
+        }
+
+        public boolean f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : invokeV.booleanValue;
+        }
+
+        public void g(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) || jSONObject == null) {
+                return;
+            }
+            this.a = jSONObject.optString("icon_name");
+            this.b = jSONObject.optInt("icon_level");
+            this.c = jSONObject.optString("icon_small_pic");
+            this.d = jSONObject.optString("icon_pic");
+            this.e = jSONObject.optInt("light_up");
+        }
+
+        public void h(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+                this.f = z;
+            }
+        }
+    }
+
+    public xq4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public List<a> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (List) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        this.a = jSONObject.optInt("levelup");
+        JSONArray optJSONArray = jSONObject.optJSONArray("icon_info");
+        if (optJSONArray != null) {
+            this.b = new ArrayList();
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                if (optJSONArray.optJSONObject(i) != null) {
+                    a aVar = new a();
+                    aVar.g(optJSONArray.optJSONObject(i));
+                    this.b.add(aVar);
+                }
+            }
+        }
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.tieba.advert.sdk.data;
 
-import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,7 +36,7 @@ public final class WirelessNetworkType {
             }
         }
         UNKNOWN_NETWORK = new WirelessNetworkType("UNKNOWN_NETWORK", 0, 0);
-        WIFI = new WirelessNetworkType(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 1, 1);
+        WIFI = new WirelessNetworkType("WIFI", 1, 1);
         MOBILE_2G = new WirelessNetworkType("MOBILE_2G", 2, 2);
         MOBILE_3G = new WirelessNetworkType("MOBILE_3G", 3, 3);
         MOBILE_4G = new WirelessNetworkType("MOBILE_4G", 4, 4);

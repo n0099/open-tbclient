@@ -1,29 +1,38 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.n03;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class v23 extends t23 {
+public class v23 extends r23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v23(m03 m03Var) {
-        super(m03Var);
+    public v23(r13 r13Var) {
+        super(r13Var, "/swanAPI/setBackgroundColor");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {m03Var};
+            Object[] objArr = {r13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((m03) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -31,24 +40,49 @@ public class v23 extends t23 {
         }
     }
 
-    @Override // com.repackage.t23
-    public void H(String str) {
+    @Override // com.repackage.r23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u03 u03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            uw2 w = vw2.P("swan_forbidden_kill_on_client").z("mAppId", str).w("ipc_forbidden_flag", this.b);
-            w.J(str);
-            w.call();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, u03Var)) == null) {
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                ux1.c("backgroundColor", "paramsJson is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
+            }
+            if (r23.b) {
+                Log.d("backgroundColor", optParamsAsJo.toString());
+            }
+            d02 V = hm2.U().V();
+            if (V == null) {
+                ux1.c("backgroundColor", "manager is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            }
+            String optString = optParamsAsJo.optString("backgroundColor");
+            if (TextUtils.isEmpty(optString) && (!TextUtils.isEmpty(optParamsAsJo.optString("backgroundColorTop")) || !TextUtils.isEmpty(optParamsAsJo.optString("backgroundColorBottom")))) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(101);
+                return false;
+            }
+            c02 o = V.o();
+            if (o == null) {
+                ux1.c("backgroundColor", "slave container is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else if (TextUtils.equals("7", o.M1().l())) {
+                ux1.c("backgroundColor", "this page is from showModalPage api");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(402);
+                return false;
+            } else if (!o.K2(o.w3(), SwanAppConfigData.t(optString), true)) {
+                ux1.c("backgroundColor", "set window background fail");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                return true;
+            }
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.cf3
-    /* renamed from: L */
-    public void onCallback(n03.a aVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) && vw2.I(aVar.D(), "swan_forbidden_kill_on_server")) {
-            this.b = aVar.j("ipc_forbidden_flag", 1);
-            H(aVar.o("mAppId", i03.J().getAppId()));
-        }
+        return invokeLLLL.booleanValue;
     }
 }

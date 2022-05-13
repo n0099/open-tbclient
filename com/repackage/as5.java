@@ -1,60 +1,195 @@
 package com.repackage;
 
-import android.content.Context;
+import android.graphics.Rect;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ala.frsgamelive.view.AlaFrsLiveListGatherNoDataTitleView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class as5 extends ho<is5, AlaFrsLiveListGatherNoDataTitleView.AlaFrsLiveListNoDataViewHolder> {
+public abstract class as5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> i;
+    public final RecyclerView.LayoutManager a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public as5(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    /* loaded from: classes5.dex */
+    public static class a extends as5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(RecyclerView.LayoutManager layoutManager) {
+            super(layoutManager, null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {layoutManager};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((RecyclerView.LayoutManager) objArr2[0], (a) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // com.repackage.as5
+        public int c(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+                RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view2.getLayoutParams();
+                return this.a.getDecoratedMeasuredWidth(view2) + ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin + ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin;
+            }
+            return invokeL.intValue;
+        }
+
+        @Override // com.repackage.as5
+        public int d(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) ? this.a.getDecoratedLeft(view2) - ((ViewGroup.MarginLayoutParams) ((RecyclerView.LayoutParams) view2.getLayoutParams())).leftMargin : invokeL.intValue;
+        }
+
+        @Override // com.repackage.as5
+        public int e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.getWidth() : invokeV.intValue;
+        }
+
+        @Override // com.repackage.as5
+        public int f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.getPaddingLeft() : invokeV.intValue;
+        }
+
+        @Override // com.repackage.as5
+        public int g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (this.a.getWidth() - this.a.getPaddingLeft()) - this.a.getPaddingRight() : invokeV.intValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b extends as5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(RecyclerView.LayoutManager layoutManager) {
+            super(layoutManager, null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {layoutManager};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((RecyclerView.LayoutManager) objArr2[0], (a) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // com.repackage.as5
+        public int c(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+                RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view2.getLayoutParams();
+                return this.a.getDecoratedMeasuredHeight(view2) + ((ViewGroup.MarginLayoutParams) layoutParams).topMargin + ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin;
+            }
+            return invokeL.intValue;
+        }
+
+        @Override // com.repackage.as5
+        public int d(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) ? this.a.getDecoratedTop(view2) - ((ViewGroup.MarginLayoutParams) ((RecyclerView.LayoutParams) view2.getLayoutParams())).topMargin : invokeL.intValue;
+        }
+
+        @Override // com.repackage.as5
+        public int e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.getHeight() : invokeV.intValue;
+        }
+
+        @Override // com.repackage.as5
+        public int f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.getPaddingTop() : invokeV.intValue;
+        }
+
+        @Override // com.repackage.as5
+        public int g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (this.a.getHeight() - this.a.getPaddingTop()) - this.a.getPaddingBottom() : invokeV.intValue;
+        }
+    }
+
+    public /* synthetic */ as5(RecyclerView.LayoutManager layoutManager, a aVar) {
+        this(layoutManager);
+    }
+
+    public static as5 a(RecyclerView.LayoutManager layoutManager) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, layoutManager)) == null) ? new a(layoutManager) : (as5) invokeL.objValue;
+    }
+
+    public static as5 b(RecyclerView.LayoutManager layoutManager) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, layoutManager)) == null) ? new b(layoutManager) : (as5) invokeL.objValue;
+    }
+
+    public abstract int c(View view2);
+
+    public abstract int d(View view2);
+
+    public abstract int e();
+
+    public abstract int f();
+
+    public abstract int g();
+
+    public as5(RecyclerView.LayoutManager layoutManager) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {layoutManager};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = tbPageContext;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: Z */
-    public AlaFrsLiveListGatherNoDataTitleView.AlaFrsLiveListNoDataViewHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new AlaFrsLiveListGatherNoDataTitleView.AlaFrsLiveListNoDataViewHolder(new AlaFrsLiveListGatherNoDataTitleView(this.i)) : (AlaFrsLiveListGatherNoDataTitleView.AlaFrsLiveListNoDataViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, is5 is5Var, AlaFrsLiveListGatherNoDataTitleView.AlaFrsLiveListNoDataViewHolder alaFrsLiveListNoDataViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, is5Var, alaFrsLiveListNoDataViewHolder})) == null) ? alaFrsLiveListNoDataViewHolder.b() : (View) invokeCommon.objValue;
+        new Rect();
+        this.a = layoutManager;
     }
 }

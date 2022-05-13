@@ -14,9 +14,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b39;
 import com.repackage.b9;
-import com.repackage.t47;
+import com.repackage.t37;
+import com.repackage.w19;
 import com.repackage.wa;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +28,7 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
     public final wa a;
     public b b;
     public boolean c;
-    public List<t47> d;
+    public List<t37> d;
 
     /* loaded from: classes4.dex */
     public class a extends wa {
@@ -63,8 +63,8 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 this.a.c = false;
-                if (responsedMessage != null && (responsedMessage instanceof b39)) {
-                    this.a.B(((b39) responsedMessage).getTopicList());
+                if (responsedMessage != null && (responsedMessage instanceof w19)) {
+                    this.a.B(((w19) responsedMessage).getTopicList());
                 }
             }
         }
@@ -72,7 +72,7 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(@NonNull List<t47> list);
+        void a(@NonNull List<t37> list);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -112,7 +112,7 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
         }
         this.d = new ArrayList();
         for (TopicList topicList : list) {
-            this.d.add(new t47(topicList));
+            this.d.add(new t37(topicList));
         }
         b bVar = this.b;
         if (bVar != null) {

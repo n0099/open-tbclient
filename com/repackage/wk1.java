@@ -1,7 +1,19 @@
 package com.repackage;
 /* loaded from: classes7.dex */
 public interface wk1 {
-    void a();
+    void a(String str, bo2 bo2Var);
 
-    boolean b();
+    int getDuration();
+
+    boolean isPlaying();
+
+    void onRelease();
+
+    void pause();
+
+    void play();
+
+    void seek(int i);
+
+    void stop();
 }

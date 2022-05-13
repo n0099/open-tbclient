@@ -1,76 +1,61 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IStatisticManager;
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
+import dalvik.system.DexClassLoader;
 /* loaded from: classes6.dex */
-public class pl implements IStatisticManager {
+public class pl extends DexClassLoader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ClassLoader a;
 
-    public pl() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pl(String str, String str2, String str3, ClassLoader classLoader, ClassLoader classLoader2) {
+        super(str, str2, str3, classLoader);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3, classLoader, classLoader2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2], (ClassLoader) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = null;
+        this.a = classLoader2;
     }
 
-    @Override // com.baidu.nps.interfa.IStatisticManager
-    public void recordDownloadResult(int i, String str, int i2, String str2) {
+    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
+    public Class<?> findClass(String str) throws ClassNotFoundException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2}) == null) {
-        }
-    }
-
-    @Override // com.baidu.nps.interfa.IStatisticManager
-    public void recordException(int i, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, str2) == null) {
-        }
-    }
-
-    @Override // com.baidu.nps.interfa.IStatisticManager
-    public void recordInstallResult(int i, String str, int i2, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2}) == null) {
-            ol.c(str, i, i2);
-        }
-    }
-
-    @Override // com.baidu.nps.interfa.IStatisticManager
-    public void recordInvokeResult(int i, String str, int i2, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2}) == null) {
-            if (i == 14) {
-                ol.a(str, i2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            try {
+                return super.findClass(str);
+            } catch (Exception unused) {
+                ClassLoader classLoader = this.a;
+                if (classLoader != null) {
+                    Class<?> loadClass = classLoader.loadClass(str);
+                    if (BdBaseApplication.getInst().isDebugMode()) {
+                        BdLog.i("findClass from container. classname is " + str);
+                    }
+                    return loadClass;
+                }
+                return null;
             }
-            ol.d(str, i, i2);
         }
-    }
-
-    @Override // com.baidu.nps.interfa.IStatisticManager
-    public void recordPeriod(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-        }
-    }
-
-    @Override // com.baidu.nps.interfa.IStatisticManager
-    public void recordResult(long j, int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-        }
+        return (Class) invokeL.objValue;
     }
 }

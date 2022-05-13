@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ek0 implements fk0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public WeakReference<ak0> a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -92,31 +92,31 @@ public class ek0 implements fk0 {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, adDownloadStatus) == null) || (ak0Var = this.a.get()) == null) {
             return;
         }
-        rj0 x = ak0Var.x();
+        rj0 t = ak0Var.t();
         switch (a.a[adDownloadStatus.ordinal()]) {
             case 1:
-                ak0Var.A("0", String.valueOf(x.i), "", x.d());
+                ak0Var.w("0", String.valueOf(t.i), "", t.d());
                 return;
             case 2:
-                String valueOf = String.valueOf(x.i);
-                Uri uri = x.k;
-                ak0Var.A("2", valueOf, uri != null ? uri.toString() : "", x.d());
+                String valueOf = String.valueOf(t.i);
+                Uri uri = t.k;
+                ak0Var.w("2", valueOf, uri != null ? uri.toString() : "", t.d());
                 return;
             case 3:
-                String valueOf2 = String.valueOf(x.i);
-                Uri uri2 = x.k;
-                ak0Var.A("1", valueOf2, uri2 != null ? uri2.toString() : "", x.d());
+                String valueOf2 = String.valueOf(t.i);
+                Uri uri2 = t.k;
+                ak0Var.w("1", valueOf2, uri2 != null ? uri2.toString() : "", t.d());
                 return;
             case 4:
-                Uri uri3 = x.k;
-                ak0Var.A("3", "1", uri3 != null ? uri3.toString() : "", x.d());
+                Uri uri3 = t.k;
+                ak0Var.w("3", "1", uri3 != null ? uri3.toString() : "", t.d());
                 return;
             case 5:
-                Uri uri4 = x.k;
-                ak0Var.A("6", "1", uri4 != null ? uri4.toString() : "", x.d());
+                Uri uri4 = t.k;
+                ak0Var.w("6", "1", uri4 != null ? uri4.toString() : "", t.d());
                 return;
             case 6:
-                ak0Var.A("4", "0", "", x.d());
+                ak0Var.w("4", "0", "", t.d());
                 return;
             default:
                 return;
@@ -130,6 +130,6 @@ public class ek0 implements fk0 {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adDownloadCode) == null) || (ak0Var = this.a.get()) == null || adDownloadCode == AdDownloadCode.ERROR_FAST_CLICK) {
             return;
         }
-        ak0Var.A("4", "0", "", ak0Var.x().d());
+        ak0Var.w("4", "0", "", ak0Var.t().d());
     }
 }

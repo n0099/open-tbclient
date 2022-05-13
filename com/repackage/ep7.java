@@ -109,12 +109,12 @@ public class ep7 extends cp7 {
                     return;
                 }
             }
-            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f1e);
-            this.b = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f14);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f22);
-            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091c79);
-            this.e = view2.findViewById(R.id.obfuscated_res_0x7f090f15);
-            int k = oi.k(TbadkCoreApplication.getInst()) / 5;
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f2b);
+            this.b = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f21);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f2f);
+            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091cc5);
+            this.e = view2.findViewById(R.id.obfuscated_res_0x7f090f22);
+            int k = mi.k(TbadkCoreApplication.getInst()) / 5;
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(k, k);
             this.b.setLayoutParams(layoutParams);
             this.e.setLayoutParams(layoutParams);
@@ -123,7 +123,7 @@ public class ep7 extends cp7 {
         public void a(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-                vr4 d = vr4.d(this.c);
+                gs4 d = gs4.d(this.c);
                 d.v(R.color.CAM_X0105);
                 d.z(R.dimen.T_X06);
                 this.b.setConrers(15);
@@ -131,7 +131,7 @@ public class ep7 extends cp7 {
                 this.b.setDrawBorder(true);
                 this.b.setPlaceHolder(3);
                 this.b.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-                this.b.setBorderWidth(oi.f(context, R.dimen.L_X02));
+                this.b.setBorderWidth(mi.f(context, R.dimen.L_X02));
             }
         }
     }
@@ -177,7 +177,7 @@ public class ep7 extends cp7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
-                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d04fd, viewGroup, false);
+                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d04f2, viewGroup, false);
                 bVar = new b(view2);
                 view2.setTag(bVar);
             } else {

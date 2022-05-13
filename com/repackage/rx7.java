@@ -1,33 +1,30 @@
 package com.repackage;
 
 import android.view.View;
-import android.widget.LinearLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.ItemCardView;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qy;
+import com.repackage.zx;
 /* loaded from: classes7.dex */
-public class rx7 extends nx7 {
+public class rx7 extends kx7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinearLayout f;
-    public wz g;
-    public ItemCardView h;
-    public ThreadData i;
-    public pn4 j;
+    public ThreadData f;
+    public zn4 g;
+    public ny h;
+    public View i;
 
     /* loaded from: classes7.dex */
-    public class a extends pn4 {
+    public class a extends zn4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ rx7 a;
@@ -50,24 +47,24 @@ public class rx7 extends nx7 {
             this.a = rx7Var;
         }
 
-        @Override // com.repackage.pn4
-        public lp4 getNegFeedBackData() {
+        @Override // com.repackage.zn4
+        public wp4 getNegFeedBackData() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 return null;
             }
-            return (lp4) invokeV.objValue;
+            return (wp4) invokeV.objValue;
         }
 
-        @Override // com.repackage.pn4
+        @Override // com.repackage.zn4
         public ThreadData getThreadData() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.i : (ThreadData) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.f : (ThreadData) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.uo
+        @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.ro
         public BdUniqueId getType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -105,27 +102,27 @@ public class rx7 extends nx7 {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             rx7 rx7Var;
-            qy.a aVar;
+            zx.a aVar;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (aVar = (rx7Var = this.a).c) == null) {
                 return;
             }
-            aVar.a(rx7Var.j);
+            aVar.a(rx7Var.g);
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rx7(TbPageContext tbPageContext) {
+    public rx7(TbPageContext tbPageContext, int i) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -134,94 +131,81 @@ public class rx7 extends nx7 {
         }
     }
 
-    @Override // com.repackage.nx7
+    @Override // com.repackage.kx7
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f == null) {
-                LinearLayout linearLayout = new LinearLayout(this.a.getPageActivity());
-                this.f = linearLayout;
-                linearLayout.setClipChildren(false);
-                this.f.setClipToPadding(false);
-                SkinManager.setBackgroundColor(this.f, R.color.CAM_X0206);
-                this.f.setOrientation(1);
-                this.f.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-            }
-            this.f.removeAllViews();
-            if (this.g == null) {
-                wz wzVar = new wz(this.a);
-                this.g = wzVar;
-                wzVar.n(Boolean.TRUE);
-            }
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams.topMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005);
-            layoutParams.leftMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-            layoutParams.rightMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-            this.f.addView(this.g.g(), layoutParams);
             if (this.h == null) {
-                this.h = new ItemCardView(this.a.getPageActivity());
+                ny nyVar = new ny(this.a.getPageActivity());
+                this.h = nyVar;
+                nyVar.n(Boolean.TRUE);
+                this.h.x("pb");
+                this.h.z(0);
+                this.h.E(this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007), this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005), this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007), this.a.getResources().getDimensionPixelSize(R.dimen.M_H_X005));
+                this.h.F(false);
+                this.h.D(true);
             }
-            this.h.setBackGroundColor(R.color.CAM_X0205);
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams2.topMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X004);
-            layoutParams2.leftMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-            layoutParams2.rightMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-            layoutParams2.bottomMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005);
-            this.f.addView(this.h, layoutParams2);
-            return this.f;
+            View g = this.h.g();
+            this.i = g;
+            return g;
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.nx7
+    @Override // com.repackage.kx7
     public void b(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) || this.e == i) {
             return;
         }
         this.e = i;
-        SkinManager.setBackgroundColor(this.f, R.color.CAM_X0206);
-        wz wzVar = this.g;
-        if (wzVar != null) {
-            wzVar.onChangeSkinType(tbPageContext, i);
-        }
-        ItemCardView itemCardView = this.h;
-        if (itemCardView != null) {
-            itemCardView.G();
+        SkinManager.setBackgroundColor(this.i, R.color.CAM_X0204);
+        ny nyVar = this.h;
+        if (nyVar != null) {
+            nyVar.onChangeSkinType(tbPageContext, i);
         }
     }
 
-    @Override // com.repackage.nx7
+    @Override // com.repackage.kx7
     public void c(OriginalThreadInfo originalThreadInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, originalThreadInfo) == null) {
             this.d = originalThreadInfo;
-            this.i = originalThreadInfo == null ? null : originalThreadInfo.a();
-            this.j = new a(this);
-            ItemCardView itemCardView = this.h;
-            if (itemCardView != null && originalThreadInfo != null) {
-                itemCardView.setData(originalThreadInfo.D, 17, originalThreadInfo.f);
-            }
-            wz wzVar = this.g;
-            if (wzVar != null) {
-                wzVar.a(this.j);
+            this.f = originalThreadInfo == null ? null : originalThreadInfo.b();
+            a aVar = new a(this);
+            this.g = aVar;
+            ny nyVar = this.h;
+            if (nyVar != null) {
+                nyVar.a(aVar);
             }
         }
     }
 
-    @Override // com.repackage.nx7
-    public void d(qy.a aVar) {
+    @Override // com.repackage.kx7
+    public void d(zx.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
             super.d(aVar);
-            wz wzVar = this.g;
-            if (wzVar != null) {
-                wzVar.w(aVar);
+            ny nyVar = this.h;
+            if (nyVar != null) {
+                nyVar.A(aVar);
             }
-            LinearLayout linearLayout = this.f;
-            if (linearLayout != null) {
-                linearLayout.setOnClickListener(new b(this));
+            View view2 = this.i;
+            if (view2 != null) {
+                view2.setOnClickListener(new b(this));
+            }
+        }
+    }
+
+    @Override // com.repackage.kx7
+    public void e(ux5 ux5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ux5Var) == null) {
+            super.e(ux5Var);
+            ny nyVar = this.h;
+            if (nyVar != null) {
+                nyVar.l(this.b);
             }
         }
     }

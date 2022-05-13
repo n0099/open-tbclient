@@ -13,9 +13,9 @@ public class d implements com.kwad.sdk.core.d<b.a> {
         }
         aVar.b = jSONObject.optBoolean("clickActionButton");
         aVar.c = jSONObject.optInt(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA);
-        b.C0313b c0313b = new b.C0313b();
-        aVar.d = c0313b;
-        c0313b.parseJson(jSONObject.optJSONObject("logParam"));
+        b.C0312b c0312b = new b.C0312b();
+        aVar.d = c0312b;
+        c0312b.parseJson(jSONObject.optJSONObject("logParam"));
         aVar.e = jSONObject.optLong("creativeId", new Long("-1").longValue());
     }
 

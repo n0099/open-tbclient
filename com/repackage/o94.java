@@ -1,16 +1,19 @@
 package com.repackage;
 
-import com.baidu.searchbox.http.callback.StatResponseCallback;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.q94;
-import java.lang.String;
 /* loaded from: classes6.dex */
-public abstract class o94<T extends String> implements StatResponseCallback<T>, q94.a {
+public abstract class o94 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public long b;
+    public long c;
+    public long d;
+    public int e;
+    public long f;
 
     public o94() {
         Interceptable interceptable = $ic;
@@ -22,7 +25,13 @@ public abstract class o94<T extends String> implements StatResponseCallback<T>, 
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = "";
+        this.b = 0L;
+        this.c = 0L;
+        this.d = 0L;
+        this.e = 0;
     }
 }

@@ -1,11 +1,8 @@
 package com.repackage;
 
-import android.app.Activity;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.suspended.SuspendedActivity;
+import com.baidu.tbadk.switchs.PreInitMainTabViewSwitch;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,13 +10,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
 public class g55 {
     public static /* synthetic */ Interceptable $ic;
-    public static g55 a;
-    public static boolean b;
-    public static boolean c;
+    public static g55 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final HashMap<Integer, Object> a;
+    public final iq4 b;
+
+    /* loaded from: classes6.dex */
+    public interface a {
+        Object build();
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -46,121 +49,70 @@ public class g55 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new HashMap<>();
+        this.b = new iq4();
     }
 
-    public static g55 b() {
+    public static g55 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (TbSingleton.class) {
-                    if (a == null) {
-                        a = new g55();
+            if (c == null) {
+                synchronized (g55.class) {
+                    if (c == null) {
+                        c = new g55();
                     }
                 }
             }
-            return a;
+            return c;
         }
         return (g55) invokeV.objValue;
     }
 
-    public void a() {
+    public void a(int i, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, obj) == null) {
+            this.a.put(Integer.valueOf(i), obj);
         }
     }
 
-    public void c() {
+    public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.a();
+            this.a.clear();
         }
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    public Object c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? b : invokeV.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.a.get(Integer.valueOf(i)) : invokeI.objValue;
     }
 
-    public boolean e(String str) {
-        InterceptResult invokeL;
+    public Object d(int i, a aVar) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? f55.a.contains(str) : invokeL.booleanValue;
-    }
-
-    public boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? f55.d.contains(str) : invokeL.booleanValue;
-    }
-
-    public boolean g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? f55.c.contains(str) : invokeL.booleanValue;
-    }
-
-    public boolean h(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, activity)) == null) {
-            if (activity == null) {
-                return false;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, aVar)) == null) {
+            Object obj = this.a.get(Integer.valueOf(i));
+            if ((!PreInitMainTabViewSwitch.getIsOn() || obj == null) && aVar != null) {
+                obj = aVar.build();
             }
-            if (activity instanceof SuspendedActivity) {
-                return true;
+            this.a.remove(Integer.valueOf(i));
+            if (obj == null && TbadkCoreApplication.getInst().isDebugMode()) {
+                throw new RuntimeException("ViewCache must have return value.");
             }
-            return f55.b.contains(activity.getClass().getName());
+            return obj;
         }
-        return invokeL.booleanValue;
+        return invokeIL.objValue;
     }
 
-    public boolean i() {
+    public iq4 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? h(TbadkCoreApplication.getInst().getCurrentActivity()) : invokeV.booleanValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? c : invokeV.booleanValue;
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-        }
-    }
-
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            c = z;
-        }
-    }
-
-    public void n(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            b = z;
-        }
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (iq4) invokeV.objValue;
     }
 }

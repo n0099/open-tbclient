@@ -1,64 +1,59 @@
 package com.repackage;
 
-import android.util.SparseArray;
-import android.util.SparseIntArray;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.lego.card.exception.CardParseException;
-import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public abstract class zc7 {
+public class zc7 implements bl4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final SparseIntArray a;
-    public static final SparseArray<BdUniqueId> b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755116733, "Lcom/repackage/zc7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755116733, "Lcom/repackage/zc7;");
-                return;
-            }
-        }
-        a = new SparseIntArray();
-        b = new SparseArray<>();
-    }
 
     public zc7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        c();
     }
 
-    public abstract <T> sd7 a(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i);
+    @Override // com.repackage.bl4
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TbConfig.LIKE_ADDRESS : (String) invokeV.objValue;
+    }
 
-    public abstract ICardInfo b(JSONObject jSONObject, int i) throws CardParseException;
-
-    public abstract void c();
-
-    public abstract String d();
+    @Override // com.repackage.bl4
+    public void b(HashMap<String, String> hashMap, cl4 cl4Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap, cl4Var) == null) || cl4Var == null || hashMap == null || hashMap.isEmpty()) {
+            return;
+        }
+        String str = hashMap.get("fid");
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        String str2 = hashMap.get(TiebaStatic.Params.H5_FORUM_NAME);
+        if (TextUtils.isEmpty(str2)) {
+            return;
+        }
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001335, Long.valueOf(kg.g(str, 0L))));
+        TbadkCoreApplication.getInst().addLikeForum(str2);
+    }
 }

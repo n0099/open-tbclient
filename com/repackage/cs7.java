@@ -50,7 +50,7 @@ public class cs7 {
                     sb.append(String.valueOf((int) sqrt2));
                 }
                 sb.append("&src=");
-                sb.append(ni.getUrlEncode(E.D()));
+                sb.append(li.getUrlEncode(E.D()));
                 return sb.toString();
             }
             return null;

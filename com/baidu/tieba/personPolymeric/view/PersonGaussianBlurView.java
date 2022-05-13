@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cc5;
+import com.repackage.tc5;
 /* loaded from: classes3.dex */
 public class PersonGaussianBlurView extends PersonExpandImageView {
     public static /* synthetic */ Interceptable $ic;
@@ -66,7 +66,7 @@ public class PersonGaussianBlurView extends PersonExpandImageView {
                                 }
                                 return null;
                             }
-                            return cc5.a(Bitmap.createBitmap(bitmap, 0, (int) (bitmap.getHeight() * 0.2f), bitmap.getWidth(), (int) (bitmap.getHeight() * 0.6f)), 15, false);
+                            return tc5.a(Bitmap.createBitmap(bitmap, 0, (int) (bitmap.getHeight() * 0.2f), bitmap.getWidth(), (int) (bitmap.getHeight() * 0.6f)), 15, false);
                         }
                         return null;
                     } catch (Exception e) {

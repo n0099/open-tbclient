@@ -127,7 +127,7 @@ public class SlideBarView extends View implements View.OnTouchListener {
                 return;
             }
         }
-        this.a = R.drawable.obfuscated_res_0x7f080f7e;
+        this.a = R.drawable.obfuscated_res_0x7f080f94;
         this.e = 12.0f;
         this.m = new Rect();
         this.n = new RectF();
@@ -171,7 +171,7 @@ public class SlideBarView extends View implements View.OnTouchListener {
     public final void a(Context context, AttributeSet attributeSet, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLII(1048576, this, context, attributeSet, i, i2) == null) {
-            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400de}, i, i2);
+            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400e1}, i, i2);
             this.e = obtainStyledAttributes.getDimension(0, 12.0f);
             obtainStyledAttributes.recycle();
             this.o.setAntiAlias(true);
@@ -406,7 +406,7 @@ public class SlideBarView extends View implements View.OnTouchListener {
                 return;
             }
         }
-        this.a = R.drawable.obfuscated_res_0x7f080f7e;
+        this.a = R.drawable.obfuscated_res_0x7f080f94;
         this.e = 12.0f;
         this.m = new Rect();
         this.n = new RectF();
@@ -433,7 +433,7 @@ public class SlideBarView extends View implements View.OnTouchListener {
                 return;
             }
         }
-        this.a = R.drawable.obfuscated_res_0x7f080f7e;
+        this.a = R.drawable.obfuscated_res_0x7f080f94;
         this.e = 12.0f;
         this.m = new Rect();
         this.n = new RectF();

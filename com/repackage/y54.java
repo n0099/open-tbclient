@@ -1,9 +1,14 @@
 package com.repackage;
 
-import android.content.Context;
 import android.text.TextUtils;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.map.location.model.SelectedLocationInfo;
+import com.baidu.mapapi.map.MapPoi;
+import com.baidu.mapapi.map.MapStatus;
+import com.baidu.mapapi.map.Marker;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,30 +16,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j54;
-import com.repackage.t54;
+import com.tachikoma.core.component.anim.AnimationProperty;
+import com.tachikoma.core.event.base.TKBaseEvent;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class y54 extends u44<tm2> implements t54.b {
+public class y54 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public sm2 a;
-    public tm2 b;
 
     /* loaded from: classes7.dex */
-    public class a implements j54.c {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sm2 a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ y54 c;
+        public JSONObject a;
 
-        public a(y54 y54Var, sm2 sm2Var, String str) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y54Var, sm2Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,27 +45,35 @@ public class y54 extends u44<tm2> implements t54.b {
                     return;
                 }
             }
-            this.c = y54Var;
-            this.a = sm2Var;
-            this.b = str;
+            this.a = new JSONObject();
         }
 
-        @Override // com.repackage.j54.c
-        public void onFail() {
+        public static a a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                jx1.o("map", "location permission fail");
-                this.a.b(this.b, 1003, "location permission fail");
-            }
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new a() : (a) invokeV.objValue;
         }
 
-        @Override // com.repackage.j54.c
-        public void onSuccess() {
+        public JSONObject b() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                jx1.o("map", "location permission success");
-                this.c.g();
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (JSONObject) invokeV.objValue;
+        }
+
+        public a c(String str, Object obj) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj)) == null) {
+                if (!TextUtils.isEmpty(str)) {
+                    try {
+                        this.a.put(str, obj);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                return this;
             }
+            return (a) invokeLL.objValue;
         }
     }
 
@@ -81,106 +90,180 @@ public class y54 extends u44<tm2> implements t54.b {
                 return;
             }
         }
-        boolean z = tg1.a;
+        a = eh1.a;
     }
 
-    public y54() {
+    public static void a(d64 d64Var, on2 on2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65537, null, d64Var, on2Var) == null) {
+            a a2 = a.a();
+            a2.c("mapId", d64Var.j);
+            a2.c("markerId", on2Var.a);
+            JSONObject b = a2.b();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("vtype", "callouttap");
+                jSONObject.put("data", b.toString());
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, d64Var.i);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
             }
+            bg3.d(d64Var.i, d64Var.j, "map", "callouttap", jSONObject);
         }
     }
 
-    public static y54 h() {
-        InterceptResult invokeV;
+    public static void b(View view2, d64 d64Var) {
+        mn2 mn2Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new y54() : (y54) invokeV.objValue;
-    }
-
-    @Override // com.repackage.t54.b
-    public void a(SelectedLocationInfo selectedLocationInfo) {
-        sm2 sm2Var;
-        tm2 tm2Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, selectedLocationInfo) == null) || (sm2Var = this.a) == null || (tm2Var = this.b) == null) {
-            return;
-        }
-        sm2Var.c(tm2Var.z, selectedLocationInfo.toJson());
-    }
-
-    public final boolean e(Context context, tm2 tm2Var, sm2 sm2Var, j03 j03Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, tm2Var, sm2Var, j03Var)) == null) {
-            jx1.i("map", "ChooseLocationAction start");
-            if (!tm2Var.isValid()) {
-                jx1.c("map", "model is invalid");
-                return false;
+        if (interceptable == null || interceptable.invokeLL(65538, null, view2, d64Var) == null) {
+            b64 G = d64Var.G(view2);
+            String str = (G == null || (mn2Var = G.a) == null) ? "" : mn2Var.a;
+            a a2 = a.a();
+            a2.c("mapId", d64Var.j);
+            a2.c("controlId", str);
+            JSONObject b = a2.b();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("vtype", "controltap");
+                jSONObject.put("data", b.toString());
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, d64Var.i);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
             }
-            String str = tm2Var.z;
-            if (TextUtils.isEmpty(str)) {
-                jx1.c("map", "cb is empty");
-                return false;
-            }
-            this.a = sm2Var;
-            this.b = tm2Var;
-            j54.b(context, new a(this, sm2Var, str));
-            jx1.i("map", "ChooseLocationAction end");
-            return true;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.u44
-    /* renamed from: f */
-    public boolean b(Context context, tm2 tm2Var, sm2 sm2Var, j03 j03Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, context, tm2Var, sm2Var, j03Var, jSONObject)) == null) ? e(context, tm2Var, sm2Var, j03Var) : invokeLLLLL.booleanValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            t54 a3 = t54.a3(null);
-            a3.f3(this);
-            a3.h3();
+            bg3.d(d64Var.i, d64Var.j, "map", "controltap", jSONObject);
         }
     }
 
-    @Override // com.repackage.t54.b
-    public void onCancel() {
-        tm2 tm2Var;
+    public static void c(d64 d64Var, MapPoi mapPoi) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            jx1.i("map", "choose location cancel");
-            sm2 sm2Var = this.a;
-            if (sm2Var == null || (tm2Var = this.b) == null) {
-                return;
+        if (interceptable == null || interceptable.invokeLL(65539, null, d64Var, mapPoi) == null) {
+            LatLng position = mapPoi.getPosition();
+            a a2 = a.a();
+            a2.c("latitude", Double.valueOf(position.latitude));
+            a2.c("longitude", Double.valueOf(position.longitude));
+            a2.b();
+            a a3 = a.a();
+            a3.c("mapId", d64Var.j);
+            a3.c("name", mapPoi.getName());
+            a3.c("latitude", Double.valueOf(position.latitude));
+            a3.c("longitude", Double.valueOf(position.longitude));
+            JSONObject b = a3.b();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("vtype", "poitap");
+                jSONObject.put("data", b.toString());
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, d64Var.i);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
             }
-            sm2Var.b(tm2Var.z, 1002, "choose location canceled");
+            bg3.d(d64Var.i, d64Var.j, "map", "poitap", jSONObject);
         }
     }
 
-    @Override // com.repackage.t54.b
-    public void onError() {
-        tm2 tm2Var;
+    public static void d(d64 d64Var, LatLng latLng) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            jx1.i("map", "choose location fail");
-            sm2 sm2Var = this.a;
-            if (sm2Var == null || (tm2Var = this.b) == null) {
-                return;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, d64Var, latLng) == null) {
+            a a2 = a.a();
+            a2.c("latitude", Double.valueOf(latLng.latitude));
+            a2.c("longitude", Double.valueOf(latLng.longitude));
+            JSONObject b = a2.b();
+            a a3 = a.a();
+            a3.c("mapId", d64Var.j);
+            a3.c("position", b);
+            JSONObject b2 = a3.b();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("vtype", TKBaseEvent.TK_CLICK_EVENT_NAME);
+                jSONObject.put("data", b2.toString());
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, d64Var.i);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
             }
-            sm2Var.b(tm2Var.z, 1007, "choose location failed");
+            bg3.d(d64Var.i, d64Var.j, "map", TKBaseEvent.TK_CLICK_EVENT_NAME, jSONObject);
+        }
+    }
+
+    public static void e(d64 d64Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, d64Var) == null) {
+            a a2 = a.a();
+            a2.c("mapId", d64Var.j);
+            JSONObject b = a2.b();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("vtype", "updated");
+                jSONObject.put("data", b.toString());
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, d64Var.i);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            bg3.d(d64Var.i, d64Var.j, "map", "updated", jSONObject);
+        }
+    }
+
+    public static void f(Marker marker, d64 d64Var) {
+        on2 on2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, marker, d64Var) == null) {
+            c64 H = d64Var.H(marker);
+            String str = (H == null || (on2Var = H.a) == null) ? "" : on2Var.a;
+            a a2 = a.a();
+            a2.c("mapId", d64Var.j);
+            a2.c("markerId", str);
+            JSONObject b = a2.b();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("vtype", "markertap");
+                jSONObject.put("data", b.toString());
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, d64Var.i);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            bg3.d(d64Var.i, d64Var.j, "map", "markertap", jSONObject);
+        }
+    }
+
+    public static void g(d64 d64Var, MapStatus mapStatus, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65543, null, d64Var, mapStatus, i) == null) {
+            a a2 = a.a();
+            a2.c("latitude", Double.valueOf(mapStatus.bound.northeast.latitude));
+            a2.c("longitude", Double.valueOf(mapStatus.bound.northeast.longitude));
+            JSONObject b = a2.b();
+            a a3 = a.a();
+            a3.c("latitude", Double.valueOf(mapStatus.bound.southwest.latitude));
+            a3.c("longitude", Double.valueOf(mapStatus.bound.southwest.longitude));
+            JSONObject b2 = a3.b();
+            a a4 = a.a();
+            a4.c("mapId", d64Var.j);
+            a4.c("northeast", b);
+            a4.c("southwest", b2);
+            a4.c(AnimationProperty.SCALE, Float.valueOf(mapStatus.zoom));
+            a4.c("reason", Integer.valueOf(i));
+            JSONObject b3 = a4.b();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("vtype", "regionchange");
+                jSONObject.put("data", b3.toString());
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, d64Var.i);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            bg3.d(d64Var.i, d64Var.j, "map", "regionchange", jSONObject);
         }
     }
 }

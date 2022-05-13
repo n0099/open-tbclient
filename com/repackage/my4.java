@@ -1,136 +1,476 @@
 package com.repackage;
 
-import android.net.Uri;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tbadk.TbadkSettings;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class my4 {
     public static /* synthetic */ Interceptable $ic;
+    public static my4 n;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
+    public int a;
+    public boolean b;
+    public boolean c;
+    public boolean d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
+    public boolean h;
+    public boolean i;
+    public boolean j;
+    public boolean k;
+    public String l;
+    public String m;
 
-    /* loaded from: classes6.dex */
-    public class a extends BdAsyncTask<ShareItem, Integer, ShareItem> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ShareItem a;
-        public final /* synthetic */ my4 b;
-
-        public a(my4 my4Var, ShareItem shareItem) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755482967, "Lcom/repackage/my4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {my4Var, shareItem};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = my4Var;
-            this.a = shareItem;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public ShareItem doInBackground(ShareItem... shareItemArr) {
-            InterceptResult invokeL;
-            ShareItem shareItem;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, shareItemArr)) == null) {
-                String str = null;
-                if (shareItemArr == null || shareItemArr.length < 1 || (shareItem = shareItemArr[0]) == null) {
-                    return null;
-                }
-                String str2 = shareItem.K;
-                NetWork netWork = new NetWork();
-                netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.URL_SMART_APP_SHARE_IMAGE);
-                if (shareItem.y == 4) {
-                    netWork.addPostData("forum_id", this.a.J);
-                    netWork.addPostData("type", "2");
-                } else {
-                    netWork.addPostData("thread_id", str2);
-                    netWork.addPostData("type", "3");
-                }
-                String postNetData = netWork.postNetData();
-                if (ni.isEmpty(postNetData)) {
-                    return shareItem;
-                }
-                try {
-                    str = new JSONObject(postNetData).optString(BigdayActivityConfig.IMG_URL);
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                }
-                if (shareItem.y != 4) {
-                    shareItem.k0 = str;
-                    shareItem.v = Uri.parse(str);
-                }
-                return shareItem;
-            }
-            return (ShareItem) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(ShareItem shareItem) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareItem) == null) {
-                super.onPostExecute(shareItem);
-                if (this.b.a != null) {
-                    this.b.a.a(shareItem);
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755482967, "Lcom/repackage/my4;");
+                return;
             }
         }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(ShareItem shareItem);
+        n = new my4();
     }
 
     public my4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = 300;
+        this.b = true;
+        this.c = false;
+        this.d = true;
+        this.e = true;
+        this.f = true;
+        this.g = true;
+        this.h = false;
+        this.i = true;
+        this.j = true;
+        this.k = false;
+        this.l = TbConfig.MSG_DEFAULT_NODISTURB_START_TIME;
+        this.m = TbConfig.MSG_DEFAULT_NODISTURB_END_TIME;
+    }
+
+    public static my4 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? n : (my4) invokeV.objValue;
+    }
+
+    public boolean A() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : invokeV.booleanValue;
+    }
+
+    public boolean B() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.k : invokeV.booleanValue;
+    }
+
+    public boolean C() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? oy4.c().g() : invokeV.booleanValue;
+    }
+
+    public boolean D() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.booleanValue;
+    }
+
+    public final boolean E() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            iu4 k = iu4.k();
+            StringBuilder sb = new StringBuilder();
+            sb.append(TbadkCoreApplication.getCurrentAccount());
+            sb.append("key_friend_type");
+            return k.l(sb.toString(), -1) == 0;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            zk8.r();
+        }
+    }
+
+    public void G(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            TbadkSettings.getInst().saveBoolean("group_notify", z);
+            b();
+        }
+    }
+
+    public void H(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.d = z;
+            b();
+        }
+    }
+
+    public void I(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.b = z;
+            b();
+        }
+    }
+
+    public void J(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            if (i == 0) {
+                this.a = i;
+                ky4.h0().b0(0);
+                ky4.h0().e0(0);
+            } else {
+                this.a = 300;
+            }
+            b();
+        }
+    }
+
+    public void K(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.j = z;
+        }
+    }
+
+    public void L(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.g = z;
+            b();
+        }
+    }
+
+    public void M(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            this.e = z;
+            b();
+        }
+    }
+
+    public void N(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            this.i = z;
+        }
+    }
+
+    public void O(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+            this.h = z;
+        }
+    }
+
+    public void P(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+            this.f = z;
+            b();
+        }
+    }
+
+    public void Q(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            this.m = str;
+        }
+    }
+
+    public void R(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
+            this.k = z;
+        }
+    }
+
+    public void S(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+            this.l = str;
+        }
+    }
+
+    public void T(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
+            TbadkSettings.getInst().saveBoolean(TbadkCoreApplication.getCurrentAccount() + "official_push_switch", z);
+            TbadkSettings.getInst().saveBoolean(TbadkCoreApplication.getCurrentAccount() + "official_push_switch_has_done", true);
+        }
+    }
+
+    public void U(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+            TbadkSettings.getInst().saveBoolean(TbadkCoreApplication.getCurrentAccount() + "remind_forum_broadcast_switch", z);
+        }
+    }
+
+    public void V(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
+            oy4.c().h(z);
+        }
+    }
+
+    public void W(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048598, this, i, i2) == null) {
+            oy4.c().i(i, i2);
+        }
+    }
+
+    public void X(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public void Y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+            oy4.c().m();
+        }
+    }
+
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
+            if (i == 0) {
+                N(false);
+                O(false);
+            } else if (i == 1) {
+                N(true);
+                O(false);
+            } else if (i == 2) {
+                N(false);
+                O(true);
+            } else {
+                N(true);
+                O(true);
             }
         }
     }
 
-    public void b(ShareItem shareItem) {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, shareItem) == null) {
-            new a(this, shareItem).execute(shareItem);
+        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016010));
         }
     }
 
-    public void c(b bVar) {
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.a = bVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            if (this.i || this.h) {
+                if (!this.i || this.h) {
+                    return (this.i || !this.h) ? 3 : 2;
+                }
+                return 1;
+            }
+            return 0;
         }
+        return invokeV.intValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            return TbadkSettings.getInst().loadBoolean(TbadkCoreApplication.getCurrentAccount() + "official_push_switch_has_done", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.m : (String) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.l : (String) invokeV.objValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? iu4.k().h("permit_screen_lock", true) : invokeV.booleanValue;
+    }
+
+    public int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? oy4.c().d() : invokeV.intValue;
+    }
+
+    public int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? oy4.c().e() : invokeV.intValue;
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.e || this.f || this.g || this.d || q() || E() || n() || m() || C() || p() : invokeV.booleanValue;
+    }
+
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
+            return TbadkSettings.getInst().loadBoolean(TbadkCoreApplication.getCurrentAccount() + "official_push_switch", true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
+            return TbadkSettings.getInst().loadBoolean(TbadkCoreApplication.getCurrentAccount() + "remind_forum_broadcast_switch", true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
+            zk8.n();
+        }
+    }
+
+    public boolean p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+            iu4 k = iu4.k();
+            StringBuilder sb = new StringBuilder();
+            sb.append(TbadkCoreApplication.getCurrentAccount());
+            sb.append("key_friend_private_message_type");
+            return k.l(sb.toString(), 1) == 1;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
+            iu4 k = iu4.k();
+            int l = k.l(TbadkCoreApplication.getCurrentAccount() + "key_friend_type", -1);
+            return l == 0 || l == 1;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
+            TbadkCoreApplication.getInst().appResponseToIntentClass(GroupChatActivityConfig.class);
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? this.d : invokeV.booleanValue;
+    }
+
+    public boolean t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? this.b : invokeV.booleanValue;
+    }
+
+    public boolean u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.j : invokeV.booleanValue;
+    }
+
+    public boolean v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) ? this.g : invokeV.booleanValue;
+    }
+
+    public boolean w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? this.a > 0 : invokeV.booleanValue;
+    }
+
+    public boolean x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) ? this.e : invokeV.booleanValue;
+    }
+
+    public boolean y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? this.i : invokeV.booleanValue;
+    }
+
+    public boolean z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.h : invokeV.booleanValue;
     }
 }

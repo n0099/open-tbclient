@@ -14,17 +14,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.od7;
+import com.repackage.ce7;
+import com.repackage.ud7;
 import com.repackage.v68;
 import com.repackage.w68;
-import com.repackage.yd7;
 /* loaded from: classes3.dex */
 public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx> implements w68, v68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup m;
-    public yd7 n;
-    public od7 o;
+    public ce7 n;
+    public ud7 o;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ImmersiveVideoCardViewEx(TbPageContext tbPageContext) {
@@ -46,19 +46,19 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         }
     }
 
-    public void D() {
-        od7 od7Var;
+    public void C() {
+        ud7 ud7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (od7Var = this.o) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (ud7Var = this.o) == null) {
             return;
         }
-        od7Var.n();
+        ud7Var.n();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: E */
-    public void u(ImmersiveVideoCardEx immersiveVideoCardEx, int i) {
+    /* renamed from: D */
+    public void t(ImmersiveVideoCardEx immersiveVideoCardEx, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, immersiveVideoCardEx, i) == null) {
         }
@@ -66,8 +66,8 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: F */
-    public void v(ImmersiveVideoCardEx immersiveVideoCardEx) {
+    /* renamed from: E */
+    public void u(ImmersiveVideoCardEx immersiveVideoCardEx) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, immersiveVideoCardEx) == null) || immersiveVideoCardEx.getVideoInfo() == null) {
             return;
@@ -79,37 +79,37 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         this.n.t(z);
         this.o.u(z);
         setTag(this);
-        D();
+        C();
     }
 
     @Override // com.repackage.v68
     public void a() {
-        od7 od7Var;
+        ud7 ud7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (od7Var = this.o) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (ud7Var = this.o) == null) {
             return;
         }
-        od7Var.j();
+        ud7Var.j();
     }
 
     @Override // com.repackage.v68
     public void c() {
-        od7 od7Var;
+        ud7 ud7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (od7Var = this.o) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (ud7Var = this.o) == null) {
             return;
         }
-        od7Var.k();
+        ud7Var.k();
     }
 
     @Override // com.repackage.v68
     public void d() {
-        od7 od7Var;
+        ud7 ud7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (od7Var = this.o) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (ud7Var = this.o) == null) {
             return;
         }
-        od7Var.m();
+        ud7Var.m();
     }
 
     @Override // com.repackage.w68
@@ -117,9 +117,9 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            yd7 yd7Var = this.n;
-            if (yd7Var != null) {
-                return yd7Var.k();
+            ce7 ce7Var = this.n;
+            if (ce7Var != null) {
+                return ce7Var.k();
             }
             return 0;
         }
@@ -131,9 +131,9 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            yd7 yd7Var = this.n;
-            if (yd7Var != null) {
-                return yd7Var.m();
+            ce7 ce7Var = this.n;
+            if (ce7Var != null) {
+                return ce7Var.m();
             }
             return null;
         }
@@ -145,9 +145,9 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            yd7 yd7Var = this.n;
-            if (yd7Var != null) {
-                return yd7Var.n();
+            ce7 ce7Var = this.n;
+            if (ce7Var != null) {
+                return ce7Var.n();
             }
             return null;
         }
@@ -169,8 +169,8 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            yd7 yd7Var = this.n;
-            return yd7Var != null && yd7Var.p();
+            ce7 ce7Var = this.n;
+            return ce7Var != null && ce7Var.p();
         }
         return invokeV.booleanValue;
     }
@@ -180,23 +180,23 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            yd7 yd7Var = this.n;
-            return yd7Var != null && yd7Var.q();
+            ce7 ce7Var = this.n;
+            return ce7Var != null && ce7Var.q();
         }
         return invokeV.booleanValue;
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    public View r() {
+    public View q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01aa, (ViewGroup) null);
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01a5, (ViewGroup) null);
             this.m = viewGroup;
-            this.n = new yd7(this.i, viewGroup.findViewById(R.id.obfuscated_res_0x7f0911f4));
-            od7 od7Var = new od7(this.i, this.m);
-            this.o = od7Var;
-            this.n.s(od7Var);
+            this.n = new ce7(this.i, viewGroup.findViewById(R.id.obfuscated_res_0x7f091201));
+            ud7 ud7Var = new ud7(this.i, this.m);
+            this.o = ud7Var;
+            this.n.s(ud7Var);
             return this.m;
         }
         return (View) invokeV.objValue;
@@ -204,21 +204,21 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
 
     @Override // com.repackage.w68
     public void startPlay() {
-        yd7 yd7Var;
+        ce7 ce7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (yd7Var = this.n) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (ce7Var = this.n) == null) {
             return;
         }
-        yd7Var.v();
+        ce7Var.v();
     }
 
     @Override // com.repackage.w68
     public void stopPlay() {
-        yd7 yd7Var;
+        ce7 ce7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (yd7Var = this.n) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (ce7Var = this.n) == null) {
             return;
         }
-        yd7Var.w();
+        ce7Var.w();
     }
 }

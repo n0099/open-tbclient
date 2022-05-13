@@ -1,116 +1,154 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Looper;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.core.Info;
-import com.win.opensdk.downloader.WDownLoadService;
+import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONException;
 /* loaded from: classes7.dex */
 public class yq9 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ Info a;
-    public final /* synthetic */ WDownLoadService b;
 
-    public yq9(WDownLoadService wDownLoadService, Info info) {
+    public static boolean a(Context context, Uri uri) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wDownLoadService, info};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, uri)) == null) {
+            try {
+                return c(context, uri);
+            } catch (Exception unused) {
+                return false;
             }
         }
-        this.b = wDownLoadService;
-        this.a = info;
+        return invokeLL.booleanValue;
     }
 
-    public void a() {
+    public static void b(Context context, Uri uri) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            new Handler(Looper.getMainLooper()).post(new vq9(this));
-            zp9.d.c = false;
-            yr9 a = cs9.a(this.b.getApplicationContext());
-            a.p(new gs9(this.a), 2);
-            a.m();
-            Info info = this.a;
-            WDownLoadService wDownLoadService = this.b;
-            wDownLoadService.a(info, info != null ? info.getDl_name() : wDownLoadService.getString(R.string.obfuscated_res_0x7f0f1566), this.b.getString(R.string.obfuscated_res_0x7f0f1567), 0);
-            try {
-                WDownLoadService.a(this.b);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            this.b.stopSelf();
-        }
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            zp9.d.c = true;
-            Info info = this.a;
-            WDownLoadService wDownLoadService = this.b;
-            wDownLoadService.a(info, info != null ? info.getDl_name() : wDownLoadService.getString(R.string.obfuscated_res_0x7f0f156a), this.b.getString(R.string.obfuscated_res_0x7f0f156a), i);
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            zp9.d.c = false;
-            yr9 a = cs9.a(this.b.getApplicationContext());
-            a.p(new gs9(this.a), 200);
-            a.m();
-            Info info = this.a;
-            try {
-                wp9.o(info, 301, "");
-                if (info != null && !TextUtils.isEmpty(info.getVv_downf_urls())) {
-                    wp9.K(info.getVv_downf_urls());
+        if (interceptable == null || interceptable.invokeLL(65537, null, context, uri) == null) {
+            Intent intent = new Intent("android.intent.action.VIEW", uri);
+            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+            uri.getScheme();
+            if (jr9.b(uri)) {
+                str = "com.huawei.appmarket";
+            } else if (!jr9.c(uri)) {
+                intent = null;
+                try {
+                    intent = Intent.parseUri(uri.toString(), 1);
+                } catch (URISyntaxException e) {
+                    e.printStackTrace();
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                context.startActivity(intent);
+            } else {
+                str = "com.android.vending";
             }
-            WDownLoadService.a(this.b, this.a);
-            this.b.stopSelf();
-            yr9 a2 = cs9.a(this.b.getApplicationContext());
-            gs9 gs9Var = new gs9(this.a);
-            String str = this.b.a;
-            try {
-                a2.b = cs9.d("witr", gs9Var);
-                a2.l("msg", cs9.b(str));
-            } catch (JSONException unused) {
-            }
-            a2.m();
-            wp9.z(this.a, this.b.getApplicationContext(), this.b.a);
+            intent.setPackage(str);
+            context.startActivity(intent);
         }
     }
 
-    public void d() {
+    /* JADX WARN: Can't wrap try/catch for region: R(15:3|(3:4|5|(1:7)(1:70))|(7:9|(1:11)|12|13|(2:15|16)|(1:19)|20)|23|24|25|(3:30|(2:33|31)|34)|36|(2:38|(1:40)(6:41|(3:58|59|(3:61|(3:64|65|62)|66))|43|(2:45|(2:46|(2:48|(2:50|51))(1:52)))(0)|53|(1:57)))|(0)|12|13|(0)|(0)|20) */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x00ca  */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x00d3 A[Catch: Exception -> 0x00de, TRY_LEAVE, TryCatch #0 {Exception -> 0x00de, blocks: (B:54:0x00cd, B:56:0x00d3), top: B:67:0x00cd }] */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x00e1  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean c(Context context, Uri uri) {
+        InterceptResult invokeLL;
+        PackageManager packageManager;
+        String w;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            zp9.d.c = false;
-            Info info = this.a;
-            WDownLoadService wDownLoadService = this.b;
-            wDownLoadService.a(info, info != null ? info.getDl_name() : wDownLoadService.getString(R.string.obfuscated_res_0x7f0f1566), this.b.getString(R.string.obfuscated_res_0x7f0f1567), 0);
-            WDownLoadService.a(this.b);
-            this.b.stopSelf();
-            yr9 a = cs9.a(this.b.getApplicationContext());
-            a.p(new gs9(this.a), 1);
-            a.m();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, uri)) == null) {
+            Intent intent = new Intent("android.intent.action.VIEW");
+            intent.setData(uri);
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            String str = null;
+            boolean z = false;
+            try {
+                w = ro9.w(context);
+            } catch (Exception unused) {
+            }
+            if (hq9.y(context) == 1) {
+                str = w;
+                if (str != null) {
+                    intent.setPackage(str);
+                }
+                packageManager = context.getPackageManager();
+                if (packageManager != null) {
+                    z = !packageManager.queryIntentActivities(intent, 0).isEmpty();
+                }
+                if (z) {
+                    context.startActivity(intent);
+                }
+                return z;
+            }
+            LinkedList linkedList = new LinkedList();
+            List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 65536);
+            if (queryIntentActivities != null && queryIntentActivities.size() != 0) {
+                for (ResolveInfo resolveInfo : queryIntentActivities) {
+                    linkedList.add(resolveInfo.activityInfo.packageName);
+                }
+            }
+            if (linkedList.size() != 0) {
+                if (linkedList.size() == 1) {
+                    str = (String) linkedList.get(0);
+                } else {
+                    ArrayList arrayList = new ArrayList();
+                    String j = hq9.j(context);
+                    if (!TextUtils.isEmpty(j)) {
+                        try {
+                            JSONArray jSONArray = new JSONArray(j);
+                            if (jSONArray.length() > 0) {
+                                for (int i = 0; i < jSONArray.length(); i++) {
+                                    arrayList.add(jSONArray.optString(i));
+                                }
+                            }
+                        } catch (JSONException unused2) {
+                        }
+                    }
+                    if (arrayList.size() > 0) {
+                        Iterator it = arrayList.iterator();
+                        while (true) {
+                            if (!it.hasNext()) {
+                                break;
+                            }
+                            String str2 = (String) it.next();
+                            if (linkedList.contains(str2)) {
+                                str = str2;
+                                break;
+                            }
+                        }
+                    }
+                    if (TextUtils.isEmpty(str) && linkedList.size() > 0) {
+                        str = (String) linkedList.get(0);
+                    }
+                }
+            }
+            if (str != null) {
+            }
+            packageManager = context.getPackageManager();
+            if (packageManager != null) {
+            }
+            if (z) {
+            }
+            return z;
         }
+        return invokeLL.booleanValue;
     }
 }

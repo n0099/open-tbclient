@@ -1,60 +1,103 @@
 package com.repackage;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ubs.analytics.SampleResult;
 /* loaded from: classes6.dex */
-public final class l69 extends SQLiteOpenHelper {
+public final class l69 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l69(Context context) {
-        super(context, "BaiDuAb.db", (SQLiteDatabase.CursorFactory) null, 1);
+    public static SampleResult a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (str != null && !str.equals("")) {
+                char c = 65535;
+                int hashCode = str.hashCode();
+                if (hashCode != 79) {
+                    switch (hashCode) {
+                        case 2126:
+                            if (str.equals("C1")) {
+                                c = 5;
+                                break;
+                            }
+                            break;
+                        case 2127:
+                            if (str.equals("C2")) {
+                                c = 6;
+                                break;
+                            }
+                            break;
+                        case 2128:
+                            if (str.equals("C3")) {
+                                c = 7;
+                                break;
+                            }
+                            break;
+                        default:
+                            switch (hashCode) {
+                                case 2653:
+                                    if (str.equals("T1")) {
+                                        c = 0;
+                                        break;
+                                    }
+                                    break;
+                                case 2654:
+                                    if (str.equals("T2")) {
+                                        c = 1;
+                                        break;
+                                    }
+                                    break;
+                                case 2655:
+                                    if (str.equals("T3")) {
+                                        c = 2;
+                                        break;
+                                    }
+                                    break;
+                                case 2656:
+                                    if (str.equals("T4")) {
+                                        c = 3;
+                                        break;
+                                    }
+                                    break;
+                                case 2657:
+                                    if (str.equals("T5")) {
+                                        c = 4;
+                                        break;
+                                    }
+                                    break;
+                            }
+                    }
+                } else if (str.equals("O")) {
+                    c = '\b';
+                }
+                switch (c) {
+                    case 0:
+                        return SampleResult.T1;
+                    case 1:
+                        return SampleResult.T2;
+                    case 2:
+                        return SampleResult.T3;
+                    case 3:
+                        return SampleResult.T4;
+                    case 4:
+                        return SampleResult.T5;
+                    case 5:
+                        return SampleResult.C1;
+                    case 6:
+                        return SampleResult.C2;
+                    case 7:
+                        return SampleResult.C3;
+                    case '\b':
+                        return SampleResult.OTHERE;
+                    default:
+                        return SampleResult.OTHERE;
+                }
             }
+            return SampleResult.OTHERE;
         }
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public final void onCreate(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(1048576, this, sQLiteDatabase) != null) {
-            return;
-        }
-        int i = 0;
-        while (true) {
-            String[] strArr = m69.a;
-            if (i >= strArr.length) {
-                return;
-            }
-            sQLiteDatabase.execSQL(strArr[i]);
-            i++;
-        }
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public final void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
-        }
+        return (SampleResult) invokeL.objValue;
     }
 }

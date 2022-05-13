@@ -13,8 +13,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jq8;
-import com.repackage.kk8;
+import com.repackage.gp8;
+import com.repackage.hj8;
 import com.repackage.wa;
 /* loaded from: classes4.dex */
 public class SetPersonalCardModel extends BdBaseModel<BaseActivity<Object>> {
@@ -82,9 +82,9 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<Object>> {
                         this.a.setType(setPersonalCardSocketResponse.getType());
                     }
                     if (this.a.e != null) {
-                        int i = jq8.b;
-                        if (responsedMessage.getError() == jq8.c) {
-                            i = jq8.a;
+                        int i = gp8.b;
+                        if (responsedMessage.getError() == gp8.c) {
+                            i = gp8.a;
                         }
                         this.a.e.a(this.a.c, this.a.a, this.a.b, responsedMessage.getErrorString(), i);
                     }
@@ -114,8 +114,8 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<Object>> {
         this.c = false;
         this.d = false;
         this.f = new a(this, CmdConfigHttp.CMD_SET_PERSONAL_CARD, 309345);
-        kk8.h(309345, SetPersonalCardSocketResponse.class, false, false);
-        kk8.c(309345, CmdConfigHttp.CMD_SET_PERSONAL_CARD, TbConfig.SET_PERSONAL_CARD, SetPersonalCardHttpResponse.class, false, false, false, false);
+        hj8.h(309345, SetPersonalCardSocketResponse.class, false, false);
+        hj8.c(309345, CmdConfigHttp.CMD_SET_PERSONAL_CARD, TbConfig.SET_PERSONAL_CARD, SetPersonalCardHttpResponse.class, false, false, false, false);
         registerListener(this.f);
     }
 

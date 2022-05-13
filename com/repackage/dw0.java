@@ -64,7 +64,7 @@ public class dw0 extends mv0 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && this.e.getVisibility() == 8) {
             this.e.setVisibility(0);
-            this.e.g(str);
+            this.e.n(str);
         }
     }
 

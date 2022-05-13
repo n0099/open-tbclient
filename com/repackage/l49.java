@@ -1,55 +1,122 @@
 package com.repackage;
 
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.common.param.CommonUrlParamManager;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.config.QuickPersistConfig;
+import com.baidu.searchbox.config.QuickPersistConfigConst;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class l49 {
+public class l49 implements g49 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public boolean c;
 
-    public l49(String str, String str2, String str3, boolean z) {
+    public l49() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = false;
-        this.a = str;
-        this.b = str2;
-        this.c = z;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.g49
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            QuickPersistConfig.getInstance().putInt(QuickPersistConfigConst.KEY_FLOW_HANDLE, i);
+        }
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    @Override // com.repackage.g49
+    public String b(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? z ? "http://bjyz-mco-searchbox201609-m12xi3-044.bjyz.baidu.com:8080/ztbox?action=zubc" : "https://tcbox.baidu.com/ztbox?action=zubc" : (String) invokeZ.objValue;
     }
 
-    public boolean c() {
+    @Override // com.repackage.g49
+    public String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? CommonUrlParamManager.getInstance().processUrl(str) : (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.g49
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? QuickPersistConfig.getInstance().getInt(QuickPersistConfigConst.KEY_FLOW_HANDLE, 0) : invokeV.intValue;
+    }
+
+    @Override // com.repackage.g49
+    public String e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? CommonUrlParamManager.getInstance().spliceNoPrivacyParams(str) : (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.g49
+    public Context getAppContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? AppRuntime.getAppContext() : (Context) invokeV.objValue;
+    }
+
+    @Override // com.repackage.g49
+    public int getInt(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, str, i)) == null) ? f49.d().getInt(str, i) : invokeLI.intValue;
+    }
+
+    @Override // com.repackage.g49
+    public long getLong(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048583, this, str, j)) == null) ? f49.d().getLong(str, j) : invokeLJ.longValue;
+    }
+
+    @Override // com.repackage.g49
+    public boolean isDebug() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? AppConfig.isDebug() : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.g49
+    public void putInt(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048585, this, str, i) == null) {
+            f49.d().putInt(str, i);
+        }
+    }
+
+    @Override // com.repackage.g49
+    public void putLong(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048586, this, str, j) == null) {
+            f49.d().putLong(str, j);
+        }
+    }
+
+    @Override // com.repackage.g49
+    public void putString(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
+            f49.d().putString(str, str2);
+        }
     }
 }

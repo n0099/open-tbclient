@@ -1,50 +1,47 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.collection.ArraySet;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fj2;
 /* loaded from: classes6.dex */
-public class k92 implements i92 {
+public class k92 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String[] a;
 
-    public k92() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755604115, "Lcom/repackage/k92;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755604115, "Lcom/repackage/k92;");
                 return;
             }
         }
-        this.a = new String[]{fj2.i(), fj2.l(), fj2.r(), fj2.b.f(), cy1.f(), cy1.d(), nx1.c(), fj2.f.f(), fj2.f.d(), be2.d};
+        boolean z = eh1.a;
+        a = b("swan_clean_pkg_opt", 0);
     }
 
-    @Override // com.repackage.i92
-    public ArraySet<String> a() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArraySet<String> arraySet = new ArraySet<>();
-            for (String str : this.a) {
-                String K = mg4.K(str);
-                if (!TextUtils.isEmpty(K)) {
-                    arraySet.add(K);
-                }
-            }
-            jx1.k("SwanSandboxFileCollector", "recovery renameAllFiles:" + arraySet.toString());
-            return arraySet;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a : invokeV.booleanValue;
+    }
+
+    public static boolean b(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+            bk2.g0().getSwitch(str, i);
+            ux1.k("CleanPkgSwitcher", str + " value from AB : " + i);
+            return i == 1;
         }
-        return (ArraySet) invokeV.objValue;
+        return invokeLI.booleanValue;
     }
 }

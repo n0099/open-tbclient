@@ -8,9 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jy5;
-import com.repackage.ma8;
-import com.repackage.mg;
+import com.repackage.ja8;
+import com.repackage.kg;
+import com.repackage.ky5;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -29,7 +29,7 @@ public class BannerListData implements Serializable {
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<AdvertAppInfo> advertAppList;
     public ArrayList<FeedForumData> feedForumList;
-    public jy5 recomTopicData;
+    public ky5 recomTopicData;
 
     /* loaded from: classes3.dex */
     public class a implements Comparator<AdvertAppInfo> {
@@ -59,7 +59,7 @@ public class BannerListData implements Serializable {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, advertAppInfo, advertAppInfo2)) == null) {
-                return (advertAppInfo != null ? mg.e(advertAppInfo.g, 0) : 0) - (advertAppInfo2 != null ? mg.e(advertAppInfo2.g, 0) : 0);
+                return (advertAppInfo != null ? kg.e(advertAppInfo.f, 0) : 0) - (advertAppInfo2 != null ? kg.e(advertAppInfo2.f, 0) : 0);
             }
             return invokeLL.intValue;
         }
@@ -117,10 +117,10 @@ public class BannerListData implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    public jy5 getRecomTopicData() {
+    public ky5 getRecomTopicData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.recomTopicData : (jy5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.recomTopicData : (ky5) invokeV.objValue;
     }
 
     public void parserJson(String str) {
@@ -137,9 +137,9 @@ public class BannerListData implements Serializable {
     public void parserProtobuf(BannerList bannerList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bannerList) == null) {
-            List<AdvertAppInfo> h = ma8.q().h();
-            if (h != null) {
-                h.clear();
+            List<AdvertAppInfo> f = ja8.l().f();
+            if (f != null) {
+                f.clear();
             }
             if (bannerList == null) {
                 return;
@@ -151,13 +151,13 @@ public class BannerListData implements Serializable {
                         AdvertAppInfo advertAppInfo = new AdvertAppInfo();
                         advertAppInfo.s(list.get(i));
                         this.advertAppList.add(advertAppInfo);
-                        if (h != null) {
-                            h.add(advertAppInfo);
+                        if (f != null) {
+                            f.add(advertAppInfo);
                         }
                     }
                 }
             }
-            ma8.q().g();
+            ja8.l().e();
             Collections.sort(this.advertAppList, new a(this));
             List<FeedForumInfo> list2 = bannerList.feed_forum;
             if (list2 != null && list2.size() > 0) {

@@ -1,139 +1,101 @@
 package com.repackage;
 
-import android.content.Context;
-import android.database.DatabaseErrorHandler;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
+import android.content.ContentValues;
+import android.database.Cursor;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class x84 extends SQLiteOpenHelper {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static volatile x84 b = null;
-    public static final int c = 12;
+public class x84 extends s84<s94> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<Class<?>, p84> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755217731, "Lcom/repackage/x84;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755217731, "Lcom/repackage/x84;");
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public x84() {
-        this("ai_apps_pms.db", c);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this((String) objArr[0], ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        c();
     }
 
-    public static x84 a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.s84
+    public List<s94> e(Cursor cursor) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b == null) {
-                synchronized (x84.class) {
-                    if (b == null) {
-                        b = new x84();
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
+                return arrayList;
+            }
+            do {
+                arrayList.add(h(cursor));
+            } while (cursor.moveToNext());
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.s84
+    /* renamed from: f */
+    public ContentValues c(s94 s94Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, s94Var)) == null) {
+            ContentValues a = super.a(s94Var);
+            a.put("independent", Integer.valueOf(s94Var.r ? 1 : 0));
+            a.put("sub_pkg_name", s94Var.p);
+            a.put("app_id", s94Var.o);
+            return a;
+        }
+        return (ContentValues) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.s84
+    /* renamed from: g */
+    public s94 d(Cursor cursor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
+            if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
+                return null;
+            }
+            return h(cursor);
+        }
+        return (s94) invokeL.objValue;
+    }
+
+    public final s94 h(Cursor cursor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cursor)) == null) {
+            if (cursor != null) {
+                int columnIndex = cursor.getColumnIndex("independent");
+                int columnIndex2 = cursor.getColumnIndex("sub_pkg_name");
+                int columnIndex3 = cursor.getColumnIndex("app_id");
+                s94 s94Var = new s94();
+                if (b(cursor, s94Var)) {
+                    s94Var.r = cursor.getInt(columnIndex) == 1;
+                    s94Var.p = cursor.getString(columnIndex2);
+                    s94Var.o = cursor.getString(columnIndex3);
+                    return s94Var;
                 }
+                return null;
             }
-            return b;
+            return null;
         }
-        return (x84) invokeV.objValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ConcurrentHashMap<Class<?>, p84> concurrentHashMap = new ConcurrentHashMap<>();
-            this.a = concurrentHashMap;
-            concurrentHashMap.put(g94.class, new t84());
-            this.a.put(h94.class, new u84());
-            this.a.put(PMSAppInfo.class, new q84());
-            this.a.put(e94.class, new s84());
-            this.a.put(c94.class, new r84());
-            this.a.put(i94.class, new v84());
-            this.a.put(j94.class, new w84());
-        }
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase) == null) {
-            for (p84 p84Var : this.a.values()) {
-                p84Var.a(sQLiteDatabase);
-            }
-        }
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, i, i2) == null) {
-            for (p84 p84Var : this.a.values()) {
-                p84Var.onUpgrade(sQLiteDatabase, i, i2);
-            }
-        }
-    }
-
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            b = null;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x84(String str, int i) {
-        super(AppRuntime.getAppContext(), str, null, i, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue(), (DatabaseErrorHandler) objArr2[4]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
+        return (s94) invokeL.objValue;
     }
 }

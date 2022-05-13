@@ -77,7 +77,7 @@ public class NotificationReceiver extends BroadcastReceiver {
                 installApk(str3, str2);
                 str6 = ClogBuilder.LogType.DOWNLOAD_INSTALL.type;
             } else {
-                pk0.g(str2);
+                pk0.f(str2);
                 str6 = ClogBuilder.LogType.OPEN_APP.type;
             }
             collapseStatusBar(context);

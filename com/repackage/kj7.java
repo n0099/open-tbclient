@@ -14,7 +14,7 @@ import tbclient.GetVipInfo.VipInfo;
 import tbclient.GetVipInfo.VipUpgrade;
 import tbclient.GetVipInfo.VipUser;
 /* loaded from: classes6.dex */
-public class kj7 implements uo {
+public class kj7 implements ro {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +84,7 @@ public class kj7 implements uo {
         AutoPayInfo autoPayInfo = dataRes.autopay_info;
     }
 
-    @Override // com.repackage.uo
+    @Override // com.repackage.ro
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.o65;
-import com.repackage.yr6;
-import com.repackage.zr6;
+import com.repackage.e75;
+import com.repackage.yq6;
+import com.repackage.zq6;
 /* loaded from: classes3.dex */
-public class VoiceRoomListNetModel extends NetAutoModel<yr6, zr6, BaseFragment> {
+public class VoiceRoomListNetModel extends NetAutoModel<yq6, zq6, BaseFragment> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,7 +31,7 @@ public class VoiceRoomListNetModel extends NetAutoModel<yr6, zr6, BaseFragment> 
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
-                super((TbPageContext) objArr[0], (o65) objArr[1]);
+                super((TbPageContext) objArr[0], (e75) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -77,17 +77,17 @@ public class VoiceRoomListNetModel extends NetAutoModel<yr6, zr6, BaseFragment> 
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? VoiceRoomListSocketResponseMessage.class : (Class) invokeV.objValue;
     }
 
-    public void b0(yr6 yr6Var) {
+    public void b0(yq6 yq6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, yr6Var) == null) {
-            this.c = yr6Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, yq6Var) == null) {
+            this.c = yq6Var;
         }
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<zr6> getResponseDataClass() {
+    public Class<zq6> getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? zr6.class : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? zq6.class : (Class) invokeV.objValue;
     }
 }

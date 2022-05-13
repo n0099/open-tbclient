@@ -8,10 +8,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.Cif;
-import com.repackage.fc1;
+import com.repackage.jf;
+import com.repackage.qc1;
 /* loaded from: classes2.dex */
-public class NetExperimentFetcher extends fc1<Cif> {
+public class NetExperimentFetcher extends qc1<jf> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -23,7 +23,7 @@ public class NetExperimentFetcher extends fc1<Cif> {
     }
 
     /* loaded from: classes2.dex */
-    public static final class NetExperimentImpl implements Cif {
+    public static final class NetExperimentImpl implements jf {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -41,21 +41,18 @@ public class NetExperimentFetcher extends fc1<Cif> {
             }
         }
 
-        @Override // com.repackage.Cif
+        @Override // com.repackage.jf
         public boolean netABTest() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? UbsABTestHelper.isNetABTest() : invokeV.booleanValue;
         }
 
-        @Override // com.repackage.Cif
+        @Override // com.repackage.jf
         public boolean netBdABTest() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? UbsABTestHelper.isBdNetABTest() : invokeV.booleanValue;
         }
 
         public /* synthetic */ NetExperimentImpl(AnonymousClass1 anonymousClass1) {
@@ -79,10 +76,10 @@ public class NetExperimentFetcher extends fc1<Cif> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.repackage.fc1
-    public Cif createService() throws ServiceNotFoundException {
+    @Override // com.repackage.qc1
+    public jf createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new NetExperimentImpl(null) : (Cif) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new NetExperimentImpl(null) : (jf) invokeV.objValue;
     }
 }

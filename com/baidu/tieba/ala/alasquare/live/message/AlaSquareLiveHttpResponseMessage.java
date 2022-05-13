@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.qe;
-import com.repackage.un5;
-import com.repackage.yn5;
+import com.repackage.vn5;
+import com.repackage.zn5;
 import com.squareup.wire.Wire;
 import java.util.LinkedList;
 import tbclient.LiveSquare.DataRes;
@@ -24,7 +24,7 @@ import tbclient.LiveSquare.LiveSquareResIdl;
 public class AlaSquareLiveHttpResponseMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<yn5> categoryList;
+    public LinkedList<zn5> categoryList;
     public LinkedList<FunctionListInfo> functionList;
     public HeadLiveInfo headLiveInfo;
     public int isSmallFollow;
@@ -50,7 +50,7 @@ public class AlaSquareLiveHttpResponseMessage extends HttpResponsedMessage {
         this.mPn = 0;
     }
 
-    public LinkedList<yn5> getCategoryList() {
+    public LinkedList<zn5> getCategoryList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.categoryList : (LinkedList) invokeV.objValue;
@@ -110,9 +110,9 @@ public class AlaSquareLiveHttpResponseMessage extends HttpResponsedMessage {
                 return;
             }
             this.functionList = new LinkedList<>();
-            LinkedList<yn5> linkedList = new LinkedList<>();
+            LinkedList<zn5> linkedList = new LinkedList<>();
             this.categoryList = linkedList;
-            linkedList.addAll(un5.a(liveSquareResIdl.data.live_with_category));
+            linkedList.addAll(vn5.a(liveSquareResIdl.data.live_with_category));
             this.functionList.addAll(liveSquareResIdl.data.function_list_info);
             DataRes dataRes = liveSquareResIdl.data;
             this.headLiveInfo = dataRes.head_live_info;

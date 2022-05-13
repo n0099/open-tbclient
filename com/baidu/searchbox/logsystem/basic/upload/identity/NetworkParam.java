@@ -11,7 +11,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.connect.ConnectManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -49,7 +48,7 @@ public class NetworkParam {
         TAG = "networkparam";
         HashMap<String, Integer> hashMap = new HashMap<>();
         netType2Id = hashMap;
-        hashMap.put(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 1);
+        hashMap.put("WIFI", 1);
         netType2Id.put("3GNET", 21);
         netType2Id.put("3GWAP", 22);
         netType2Id.put("CMNET", 31);

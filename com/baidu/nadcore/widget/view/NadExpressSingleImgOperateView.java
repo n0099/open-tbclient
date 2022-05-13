@@ -13,8 +13,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c11;
 import com.repackage.lo0;
+import com.repackage.m11;
 import com.repackage.rn0;
 /* loaded from: classes2.dex */
 public class NadExpressSingleImgOperateView extends NadExpressNaBaseView {
@@ -54,13 +54,13 @@ public class NadExpressSingleImgOperateView extends NadExpressNaBaseView {
     public void j(LayoutInflater layoutInflater, lo0 lo0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, layoutInflater, lo0Var) == null) {
-            int i = R.layout.obfuscated_res_0x7f0d05cf;
+            int i = R.layout.obfuscated_res_0x7f0d05c2;
             if (lo0Var != null) {
                 int a = lo0Var.a(AdBaseModel.STYLE.SMALL_IMAGE);
                 if (a != 0) {
                     i = a;
                 } else if (lo0Var.b) {
-                    i = R.layout.obfuscated_res_0x7f0d05d0;
+                    i = R.layout.obfuscated_res_0x7f0d05c3;
                 }
                 lo0.a aVar = lo0Var.j;
                 if (aVar != null) {
@@ -80,15 +80,15 @@ public class NadExpressSingleImgOperateView extends NadExpressNaBaseView {
         int e;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            AdImageView adImageView = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0914bf);
+            AdImageView adImageView = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0914dd);
             this.r = adImageView;
             if (adImageView == null) {
                 return;
             }
             if (this.q > 0) {
-                e = c11.c.a(getContext(), this.q);
+                e = m11.c.a(getContext(), this.q);
             } else {
-                e = (((((c11.c.e(context) - c11.c.a(getContext(), this.m)) - c11.c.a(getContext(), this.n)) - c11.c.a(getContext(), this.o)) - c11.c.a(getContext(), this.p)) - (c11.c.a(getContext(), 6.0f) * 2)) / 3;
+                e = (((((m11.c.e(context) - m11.c.a(getContext(), this.m)) - m11.c.a(getContext(), this.n)) - m11.c.a(getContext(), this.o)) - m11.c.a(getContext(), this.p)) - (m11.c.a(getContext(), 6.0f) * 2)) / 3;
             }
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.r.getLayoutParams();
             layoutParams.width = e;
@@ -112,7 +112,7 @@ public class NadExpressSingleImgOperateView extends NadExpressNaBaseView {
             this.s = rn0Var;
             AdImageView adImageView = this.r;
             if (adImageView != null) {
-                adImageView.g(rn0Var.r.a);
+                adImageView.n(rn0Var.r.a);
             }
         }
     }

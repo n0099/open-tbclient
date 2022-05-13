@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kk8;
+import com.repackage.hj8;
 import com.repackage.wa;
 /* loaded from: classes3.dex */
 public class AddMsgRecordStatic {
@@ -107,8 +107,8 @@ public class AddMsgRecordStatic {
                 return;
             }
         }
-        kk8.f(309265, AddMsgRecordSocketResponse.class, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ADD_MSG_RECORD, kk8.a(TbConfig.ADD_MSG_RECORD, 309265));
+        hj8.f(309265, AddMsgRecordSocketResponse.class, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ADD_MSG_RECORD, hj8.a(TbConfig.ADD_MSG_RECORD, 309265));
         tbHttpMessageTask.setResponsedClass(AddMsgRecordHttpProtoResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
         MessageManager.getInstance().registerListener(new a(CmdConfigHttp.CMD_ADD_MSG_RECORD, 309265));

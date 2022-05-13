@@ -51,7 +51,7 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
         TiebaStatic.log(statisticItem);
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.v75
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.m85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -108,14 +108,14 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0050);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ad);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923fd);
             this.mNavigationBar = navigationBar;
-            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0f8e));
+            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0fa6));
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             ReplyMessageFragment replyMessageFragment = new ReplyMessageFragment();
             this.mReplyMessageFragment = replyMessageFragment;
             replyMessageFragment.setArguments(getIntent().getExtras());
-            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f0906d2, this.mReplyMessageFragment).commitAllowingStateLoss();
+            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f0906cd, this.mReplyMessageFragment).commitAllowingStateLoss();
             adjustResizeForSoftInput();
             VoiceManager voiceManager = getVoiceManager();
             this.mVoiceManager = voiceManager;
@@ -146,9 +146,9 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
                 return;
             }
             replyMessageFragment.setArguments(intent.getExtras());
-            if (this.mReplyMessageFragment.K0() != null) {
-                this.mReplyMessageFragment.Y0();
-                this.mReplyMessageFragment.W0();
+            if (this.mReplyMessageFragment.L0() != null) {
+                this.mReplyMessageFragment.Z0();
+                this.mReplyMessageFragment.X0();
             }
         }
     }

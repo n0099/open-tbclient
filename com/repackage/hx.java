@@ -1,58 +1,38 @@
 package com.repackage;
 
-import com.baidu.bdtask.ctrl.model.TaskStatus;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.browser.core.async.BdRunnable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public final class hx {
+public abstract class hx extends BdRunnable {
     public static /* synthetic */ Interceptable $ic;
-    public static final hx a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964037899, "Lcom/repackage/hx;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1964037899, "Lcom/repackage/hx;");
-                return;
-            }
-        }
-        a = new hx();
-    }
+    public List<BdRunnable> c;
 
     public hx() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = new ArrayList();
     }
 
-    public final TaskStatus a(TaskStatus taskStatus) {
-        InterceptResult invokeL;
+    public List<BdRunnable> d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, taskStatus)) == null) {
-            TaskStatus deepCopy = taskStatus.deepCopy();
-            deepCopy.setCurStatus(22);
-            deepCopy.getTaskStatusRuntime().setDuplicated(true);
-            return deepCopy;
-        }
-        return (TaskStatus) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (List) invokeV.objValue;
     }
 }

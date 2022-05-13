@@ -110,8 +110,8 @@ public class a implements com.kwad.sdk.core.webview.kwai.a {
             public void run() {
                 if (a.this.a.i) {
                     p.a aVar2 = new p.a();
-                    b.C0313b c0313b = aVar.d;
-                    if (c0313b != null && !TextUtils.isEmpty(c0313b.a)) {
+                    b.C0312b c0312b = aVar.d;
+                    if (c0312b != null && !TextUtils.isEmpty(c0312b.a)) {
                         aVar2.h = aVar.d.a;
                     }
                     AdBaseFrameLayout adBaseFrameLayout = a.this.a.b;
@@ -120,7 +120,7 @@ public class a implements com.kwad.sdk.core.webview.kwai.a {
                     }
                     int i = (aVar.e > 0L ? 1 : (aVar.e == 0L ? 0 : -1));
                     com.kwad.sdk.core.webview.a aVar3 = a.this.a;
-                    int a = com.kwad.sdk.core.download.a.a.a(new a.C0296a(a.this.a.d.getContext()).a(i >= 0 ? aVar3.a(aVar.e) : aVar3.a()).a(a.this.a(aVar.e)).a(a.this.a(aVar)).b(a.this.c).a(a.this.a.c).a(aVar.c).c(true).a(aVar2).a(new a.b() { // from class: com.kwad.sdk.core.webview.jshandler.a.1.1
+                    int a = com.kwad.sdk.core.download.a.a.a(new a.C0295a(a.this.a.d.getContext()).a(i >= 0 ? aVar3.a(aVar.e) : aVar3.a()).a(a.this.a(aVar.e)).a(a.this.a(aVar)).b(a.this.c).a(a.this.a.c).a(aVar.c).c(true).a(aVar2).a(new a.b() { // from class: com.kwad.sdk.core.webview.jshandler.a.1.1
                         @Override // com.kwad.sdk.core.download.a.a.b
                         public void a() {
                             if (a.this.e != null) {

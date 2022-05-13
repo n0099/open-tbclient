@@ -1,17 +1,18 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.cloudcontrol.request.CloudControlRequest;
+import com.baidu.tbadk.data.UserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.GetUserInfo.DataRes;
 /* loaded from: classes7.dex */
-public class r35 extends s35 {
+public class r35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public UserData a;
 
     public r35() {
         Interceptable interceptable = $ic;
@@ -27,24 +28,19 @@ public class r35 extends s35 {
         }
     }
 
-    @Override // com.repackage.s35
-    public String a() {
+    public UserData a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? CloudControlRequest.REQUEST_KEY_FILTER : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (UserData) invokeV.objValue;
     }
 
-    @Override // com.repackage.s35
-    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
-        InterceptResult invokeLZ;
+    public void b(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) ? bitmap : (Bitmap) invokeLZ.objValue;
-    }
-
-    @Override // com.repackage.s35
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || str == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) || dataRes == null) {
+            return;
         }
+        UserData userData = new UserData();
+        this.a = userData;
+        userData.parserProtobuf(dataRes.user);
     }
 }

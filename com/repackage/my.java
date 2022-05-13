@@ -1,368 +1,239 @@
 package com.repackage;
 
+import android.content.Context;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.basic.upload.ContentUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.view.ThreadGodReplyLayout;
+import com.baidu.tieba.R;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.codec.binary4util.BaseNCodec;
+import com.repackage.vz;
 /* loaded from: classes6.dex */
-public class my {
+public class my extends gy {
     public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public ThreadGodReplyLayout h;
+    public zn4 i;
+    public StatisticItem j;
 
     /* loaded from: classes6.dex */
-    public static abstract class a {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public byte[] a;
-        public int b;
+        public final /* synthetic */ my a;
 
-        public a() {
+        public a(my myVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {myVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.a = myVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.d() == null) {
+                return;
+            }
+            this.a.d().a(view2, this.a.i);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View.OnClickListener a;
+        public final /* synthetic */ my b;
+
+        public b(my myVar, View.OnClickListener onClickListener) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {myVar, onClickListener};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = myVar;
+            this.a = onClickListener;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                PbActivityConfig pbActivityConfig = new PbActivityConfig(this.b.b);
+                String tid = this.b.i.getThreadData().getTid();
+                PbActivityConfig createNormalCfg = pbActivityConfig.createNormalCfg(tid, this.b.i.getThreadData().getTopAgreePost().I() + "", 1, "other");
+                createNormalCfg.setStartFrom(this.b.a.i());
+                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
+                this.b.a.o(new vz.a(1));
+                this.a.onClick(view2);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class b extends a {
+    public class c implements vz.b {
         public static /* synthetic */ Interceptable $ic;
-        public static final byte[] j;
-        public static final /* synthetic */ boolean k;
         public transient /* synthetic */ FieldHolder $fh;
-        public final byte[] c;
-        public int d;
-        public int e;
-        public final boolean f;
-        public final boolean g;
-        public final boolean h;
-        public final byte[] i;
+        public final /* synthetic */ my a;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1945149605, "Lcom/repackage/my$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-1945149605, "Lcom/repackage/my$b;");
-                    return;
-                }
-            }
-            k = !my.class.desiredAssertionStatus();
-            j = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 45, 95};
-        }
-
-        public b() {
+        public c(my myVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
+                newInitContext.initArgs = r2;
+                Object[] objArr = {myVar};
+                interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = null;
-            this.f = false;
-            this.g = false;
-            this.h = false;
-            this.i = j;
-            this.c = new byte[2];
-            this.d = 0;
-            this.e = 0 != 0 ? 19 : -1;
+            this.a = myVar;
+        }
+
+        @Override // com.repackage.vz.b
+        public boolean a(vz.a aVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+                fx5.l(this.a.h.getGodReplyContent(), this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                return false;
+            }
+            return invokeL.booleanValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964033063, "Lcom/repackage/my;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1964033063, "Lcom/repackage/my;");
-                return;
-            }
-        }
-        a = !my.class.desiredAssertionStatus();
-    }
-
-    public my() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public my(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        r(mi.f(context, R.dimen.M_H_X003));
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().q instanceof ThreadGodReplyLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().q.getParent() == null) {
+            this.h = (ThreadGodReplyLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().q;
+        } else {
+            this.h = new ThreadGodReplyLayout(context);
+        }
+        a aVar = new a(this);
+        this.h.setAfterClickListener(aVar);
+        this.h.setOnClickListener(new b(this, aVar));
+    }
+
+    @Override // com.repackage.zx
+    public View g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.h : (View) invokeV.objValue;
+    }
+
+    @Override // com.repackage.zx
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            i(1, new c(this));
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:49:0x0109, code lost:
-        if (r2.h == false) goto L40;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:50:0x010b, code lost:
-        r5[r11] = 13;
-        r11 = r11 + 1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:51:0x0110, code lost:
-        r5[r11] = 10;
-        r11 = r11 + 1;
-        r13 = r12;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:106:0x0205 A[ADDED_TO_REGION] */
-    /* JADX WARN: Removed duplicated region for block: B:112:0x0216 A[ADDED_TO_REGION] */
-    /* JADX WARN: Removed duplicated region for block: B:99:0x01f6  */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:51:0x0110 -> B:41:0x00bd). Please submit an issue!!! */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static byte[] a(byte[] bArr) {
-        InterceptResult invokeL;
-        int i;
-        int i2;
-        int i3;
-        int i4;
-        byte b2;
-        byte b3;
-        byte b4;
-        int i5;
+    @Override // com.repackage.py
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, bArr)) != null) {
-            return (byte[]) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
+            this.h.k();
         }
-        int length = bArr.length;
-        b bVar = new b();
-        int i6 = (length / 3) * 4;
-        int i7 = 1;
-        if (!bVar.f) {
-            int i8 = length % 3;
-            if (i8 == 1) {
-                i6 += 2;
-            } else if (i8 == 2) {
-                i6 += 3;
-            }
-        } else if (length % 3 > 0) {
-            i6 += 4;
+    }
+
+    public boolean u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            ThreadGodReplyLayout threadGodReplyLayout = this.h;
+            return threadGodReplyLayout == null || threadGodReplyLayout.getVisibility() != 8;
         }
-        if (bVar.g && length > 0) {
-            i6 += (((length - 1) / 57) + 1) * (bVar.h ? 2 : 1);
+        return invokeV.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.oy
+    /* renamed from: v */
+    public void a(zn4 zn4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, zn4Var) == null) {
+            this.i = zn4Var;
+            PostData topAgreePost = zn4Var.getThreadData().getTopAgreePost();
+            if (this.j != null && topAgreePost != null && topAgreePost.s() != null && topAgreePost.s().getUserId() != null) {
+                this.j.param("tid", zn4Var.getThreadData().tid).param("post_id", topAgreePost.I()).param("uid", topAgreePost.s().getUserId());
+                nx5.b().a(this.j);
+            }
+            this.h.setData(zn4Var.getThreadData());
         }
-        byte[] bArr2 = new byte[i6];
-        bVar.a = bArr2;
-        byte[] bArr3 = bVar.i;
-        int i9 = bVar.e;
-        int i10 = length + 0;
-        int i11 = bVar.d;
-        if (i11 != 1) {
-            if (i11 == 2 && i10 > 0) {
-                byte[] bArr4 = bVar.c;
-                i = ((bArr4[1] & 255) << 8) | ((bArr4[0] & 255) << 16) | (bArr[0] & 255);
-                bVar.d = 0;
-                i2 = 1;
-            }
-            i = -1;
-            i2 = 0;
-        } else {
-            if (2 <= i10) {
-                i = ((bVar.c[0] & 255) << 16) | ((bArr[0] & 255) << 8) | (bArr[1] & 255);
-                bVar.d = 0;
-                i2 = 2;
-            }
-            i = -1;
-            i2 = 0;
+    }
+
+    public void w(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.h.setFrom(str);
         }
-        if (i != -1) {
-            bArr2[0] = bArr3[(i >> 18) & 63];
-            bArr2[1] = bArr3[(i >> 12) & 63];
-            bArr2[2] = bArr3[(i >> 6) & 63];
-            bArr2[3] = bArr3[i & 63];
-            i9--;
-            if (i9 == 0) {
-                if (bVar.h) {
-                    i5 = 5;
-                    bArr2[4] = 13;
-                } else {
-                    i5 = 4;
-                }
-                i3 = i5 + 1;
-                bArr2[i5] = 10;
-                i9 = 19;
-            } else {
-                i3 = 4;
-            }
-        } else {
-            i3 = 0;
+    }
+
+    public void x(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.h.setFromCDN(z);
         }
-        while (true) {
-            int i12 = i2 + 3;
-            if (i12 > i10) {
-                int i13 = bVar.d;
-                if (i2 - i13 == i10 - 1) {
-                    if (i13 > 0) {
-                        b4 = bVar.c[0];
-                    } else {
-                        b4 = bArr[i2];
-                        i2++;
-                        i7 = 0;
-                    }
-                    int i14 = (b4 & 255) << 4;
-                    bVar.d -= i7;
-                    int i15 = i3 + 1;
-                    bArr2[i3] = bArr3[(i14 >> 6) & 63];
-                    int i16 = i15 + 1;
-                    bArr2[i15] = bArr3[i14 & 63];
-                    if (bVar.f) {
-                        int i17 = i16 + 1;
-                        bArr2[i16] = BaseNCodec.PAD_DEFAULT;
-                        i16 = i17 + 1;
-                        bArr2[i17] = BaseNCodec.PAD_DEFAULT;
-                    }
-                    if (!bVar.g) {
-                        i3 = i16;
-                        if (b.k) {
-                        }
-                        if (b.k) {
-                        }
-                        bVar.b = i3;
-                        bVar.e = i9;
-                        if (a) {
-                        }
-                        return bVar.a;
-                    }
-                    if (bVar.h) {
-                        bArr2[i16] = 13;
-                        i16++;
-                    }
-                    i4 = i16 + 1;
-                    bArr2[i16] = 10;
-                    i3 = i4;
-                    if (!b.k || bVar.d == 0) {
-                        if (!b.k || i2 == i10) {
-                            bVar.b = i3;
-                            bVar.e = i9;
-                            if (!a || i3 == i6) {
-                                return bVar.a;
-                            }
-                            throw new AssertionError();
-                        }
-                        throw new AssertionError();
-                    }
-                    throw new AssertionError();
-                } else if (i2 - i13 != i10 - 2) {
-                    if (bVar.g && i3 > 0 && i9 != 19) {
-                        if (bVar.h) {
-                            bArr2[i3] = 13;
-                            i3++;
-                        }
-                        i4 = i3 + 1;
-                        bArr2[i3] = 10;
-                        i3 = i4;
-                    }
-                    if (b.k) {
-                    }
-                    if (b.k) {
-                    }
-                    bVar.b = i3;
-                    bVar.e = i9;
-                    if (a) {
-                    }
-                    return bVar.a;
-                } else {
-                    if (i13 > 1) {
-                        b2 = bVar.c[0];
-                    } else {
-                        byte b5 = bArr[i2];
-                        i2++;
-                        b2 = b5;
-                        i7 = 0;
-                    }
-                    int i18 = (b2 & 255) << 10;
-                    if (bVar.d > 0) {
-                        b3 = bVar.c[i7];
-                        i7++;
-                    } else {
-                        b3 = bArr[i2];
-                        i2++;
-                    }
-                    int i19 = ((b3 & 255) << 2) | i18;
-                    bVar.d -= i7;
-                    int i20 = i3 + 1;
-                    bArr2[i3] = bArr3[(i19 >> 12) & 63];
-                    int i21 = i20 + 1;
-                    bArr2[i20] = bArr3[(i19 >> 6) & 63];
-                    int i22 = i21 + 1;
-                    bArr2[i21] = bArr3[i19 & 63];
-                    if (bVar.f) {
-                        bArr2[i22] = BaseNCodec.PAD_DEFAULT;
-                        i22++;
-                    }
-                    if (!bVar.g) {
-                        i3 = i22;
-                        if (b.k) {
-                        }
-                        if (b.k) {
-                        }
-                        bVar.b = i3;
-                        bVar.e = i9;
-                        if (a) {
-                        }
-                        return bVar.a;
-                    }
-                    if (bVar.h) {
-                        bArr2[i22] = 13;
-                        i22++;
-                    }
-                    i4 = i22 + 1;
-                    bArr2[i22] = 10;
-                    i3 = i4;
-                    if (b.k) {
-                    }
-                    if (b.k) {
-                    }
-                    bVar.b = i3;
-                    bVar.e = i9;
-                    if (a) {
-                    }
-                    return bVar.a;
-                }
-            }
-            int i23 = ((bArr[i2 + 1] & 255) << 8) | ((bArr[i2] & 255) << 16) | (bArr[i2 + 2] & 255);
-            bArr2[i3] = bArr3[(i23 >> 18) & 63];
-            bArr2[i3 + 1] = bArr3[(i23 >> 12) & 63];
-            bArr2[i3 + 2] = bArr3[(i23 >> 6) & 63];
-            bArr2[i3 + 3] = bArr3[i23 & 63];
-            i3 += 4;
-            i9--;
-            if (i9 == 0) {
-                break;
-            }
-            i2 = i12;
+    }
+
+    public void y(StatisticItem statisticItem) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, statisticItem) == null) {
+            this.j = statisticItem;
         }
     }
 }

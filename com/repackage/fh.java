@@ -1,40 +1,43 @@
 package com.repackage;
 
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Comparator;
 /* loaded from: classes6.dex */
-public class fh {
+public class fh implements Comparator<eh> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(ArrayList<String> arrayList, boolean z) {
+    public fh() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65536, null, arrayList, z) == null) {
-            xb xbVar = new xb(BdStatisticsManager.getInstance().getTrackLogWriteDir(), null, DiskFileOperate.Action.DELETE_FILES, arrayList);
-            xbVar.setSdCard(z);
-            xbVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
-            rb.f().a(xbVar);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static File[] b(boolean z) {
-        InterceptResult invokeZ;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.Comparator
+    /* renamed from: a */
+    public int compare(eh ehVar, eh ehVar2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65537, null, z)) == null) {
-            DiskFileOperate diskFileOperate = new DiskFileOperate(BdStatisticsManager.getInstance().getTrackLogWriteDir(), null, DiskFileOperate.Action.INFO);
-            diskFileOperate.setSdCard(z);
-            diskFileOperate.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
-            rb.f().call(diskFileOperate);
-            if (diskFileOperate.getFileInfo() == null || diskFileOperate.getFileInfo().listFiles() == null) {
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, ehVar, ehVar2)) == null) {
+            int i = (ehVar.c > ehVar2.c ? 1 : (ehVar.c == ehVar2.c ? 0 : -1));
+            if (i > 0) {
+                return 1;
             }
-            return diskFileOperate.getFileInfo().listFiles();
+            return i == 0 ? 0 : -1;
         }
-        return (File[]) invokeZ.objValue;
+        return invokeLL.intValue;
     }
 }

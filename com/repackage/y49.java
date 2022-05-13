@@ -1,185 +1,134 @@
 package com.repackage;
 
-import android.content.Context;
-import android.os.IBinder;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.google.zxing.client.result.ResultParser;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes7.dex */
 public class y49 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a() {
-        n59 c;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65536, null) == null) || (c = t59.c()) == null) {
-            return;
-        }
-        c.b();
-    }
-
-    public static Context b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            l59 a = t59.a();
-            if (a != null) {
-                return a.getAppContext();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755191629, "Lcom/repackage/y49;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return null;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755191629, "Lcom/repackage/y49;");
+                return;
+            }
         }
-        return (Context) invokeV.objValue;
+        a = t39.m();
     }
 
-    public static String c(String str) {
+    public static byte[] a(InputStream inputStream) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) {
+            if (inputStream == null) {
+                return null;
+            }
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            byte[] bArr = new byte[1024];
+            while (true) {
+                try {
+                    i = inputStream.read(bArr, 0, 1024);
+                } catch (IOException e) {
+                    if (a) {
+                        Log.e("StringUtil", e.toString());
+                    }
+                    i = 0;
+                }
+                if (i == -1) {
+                    break;
+                }
+                byteArrayOutputStream.write(bArr, 0, i);
+            }
+            byte[] byteArray = byteArrayOutputStream.toByteArray();
+            try {
+                byteArrayOutputStream.close();
+            } catch (IOException e2) {
+                if (a) {
+                    Log.e("StringUtil", e2.toString());
+                }
+            }
+            return byteArray;
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, INVOKE, IF, SGET, MOVE_EXCEPTION, INVOKE, INVOKE, INVOKE, IF, SGET, MOVE_EXCEPTION] complete} */
+    public static String b(InputStream inputStream) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            l59 a = t59.a();
-            return a != null ? a.c(str) : str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
+            try {
+                try {
+                    byte[] a2 = a(inputStream);
+                    if (a2 != null) {
+                        String str = new String(a2);
+                        if (str.startsWith(ResultParser.BYTE_ORDER_MARK)) {
+                            str = str.substring(1);
+                        }
+                        return str;
+                    } else if (inputStream != null) {
+                        try {
+                            inputStream.close();
+                            return null;
+                        } catch (Exception e) {
+                            e = e;
+                            if (!a) {
+                                return null;
+                            }
+                            Log.e("StringUtil", e.toString());
+                            return null;
+                        }
+                    } else {
+                        return null;
+                    }
+                } finally {
+                    if (inputStream != null) {
+                        try {
+                            inputStream.close();
+                        } catch (Exception e2) {
+                            if (a) {
+                                Log.e("StringUtil", e2.toString());
+                            }
+                        }
+                    }
+                }
+            } catch (Exception e3) {
+                if (a) {
+                    Log.e("StringUtil", " getStringFromInput exception: ", e3);
+                }
+                if (inputStream != null) {
+                    try {
+                        inputStream.close();
+                        return null;
+                    } catch (Exception e4) {
+                        e = e4;
+                        if (!a) {
+                            return null;
+                        }
+                        Log.e("StringUtil", e.toString());
+                        return null;
+                    }
+                }
+                return null;
+            }
         }
         return (String) invokeL.objValue;
-    }
-
-    public static int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            l59 a = t59.a();
-            if (a != null) {
-                return a.d();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public static IBinder e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            n59 c = t59.c();
-            if (c != null) {
-                return c.a(str);
-            }
-            return null;
-        }
-        return (IBinder) invokeL.objValue;
-    }
-
-    public static int f(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i)) == null) {
-            l59 a = t59.a();
-            return a != null ? a.getInt(str, i) : i;
-        }
-        return invokeLI.intValue;
-    }
-
-    public static long g(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, str, j)) == null) {
-            l59 a = t59.a();
-            return a != null ? a.getLong(str, j) : j;
-        }
-        return invokeLJ.longValue;
-    }
-
-    public static String h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            l59 a = t59.a();
-            return a != null ? a.e(str) : str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static n49 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? t59.e() : (n49) invokeV.objValue;
-    }
-
-    public static r49 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? t59.f() : (r49) invokeV.objValue;
-    }
-
-    public static String k(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65546, null, z)) == null) {
-            l59 a = t59.a();
-            return a != null ? a.b(z) : "";
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public static boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            m59 b = t59.b();
-            if (b != null) {
-                return b.a();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            l59 a = t59.a();
-            if (a != null) {
-                return a.isDebug();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void n(String str, int i) {
-        l59 a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65549, null, str, i) == null) || (a = t59.a()) == null) {
-            return;
-        }
-        a.putInt(str, i);
-    }
-
-    public static void o(String str, long j) {
-        l59 a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(65550, null, str, j) == null) || (a = t59.a()) == null) {
-            return;
-        }
-        a.putLong(str, j);
-    }
-
-    public static void p(String str, String str2) {
-        l59 a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65551, null, str, str2) == null) || (a = t59.a()) == null) {
-            return;
-        }
-        a.putString(str, str2);
-    }
-
-    public static void q(int i) {
-        l59 a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65552, null, i) == null) || (a = t59.a()) == null) {
-            return;
-        }
-        a.a(i);
     }
 }

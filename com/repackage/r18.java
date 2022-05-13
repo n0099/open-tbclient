@@ -1,91 +1,64 @@
 package com.repackage;
 
-import android.os.Bundle;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.R;
-import com.baidu.tieba.person.PersonMoreData;
-import com.baidu.tieba.person.PersonMoreItemData;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class r18 {
+public class r18 extends eo<j28, CardViewHolder<z28>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public s18 a;
-    public TbPageContext b;
-    public List<uo> c;
-    public PersonMoreData d;
+    public TbPageContext<?> i;
 
-    public r18(TbPageContext tbPageContext, Bundle bundle, tx5<l28> tx5Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r18(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bundle, tx5Var};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = tbPageContext;
-        s18 s18Var = new s18(tbPageContext);
-        this.a = s18Var;
-        s18Var.f(tx5Var);
-        if (bundle == null || !(OrmObject.objectWithBundle(bundle, PersonMoreData.class) instanceof PersonMoreData)) {
-            return;
-        }
-        this.d = (PersonMoreData) OrmObject.objectWithBundle(bundle, PersonMoreData.class);
+        this.i = tbPageContext;
     }
 
-    public final void a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.eo
+    /* renamed from: Z */
+    public CardViewHolder<z28> M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c = new ArrayList();
-            PersonMoreData personMoreData = this.d;
-            if (personMoreData == null || ListUtils.isEmpty(personMoreData.mUrlMaps)) {
-                return;
-            }
-            for (PersonMoreItemData personMoreItemData : this.d.mUrlMaps) {
-                if (personMoreItemData != null && !StringUtils.isNull(personMoreItemData.mUrl)) {
-                    l28 l28Var = new l28();
-                    l28Var.e = personMoreItemData.mName;
-                    l28Var.a = 36;
-                    l28Var.g = personMoreItemData.mUrl;
-                    l28Var.k = personMoreItemData.mId;
-                    this.c.add(l28Var);
-                }
-            }
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new CardViewHolder<>(new z28(this.i)) : (CardViewHolder) invokeL.objValue;
     }
 
-    public void b() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.eo
+    /* renamed from: a0 */
+    public View S(int i, View view2, ViewGroup viewGroup, j28 j28Var, CardViewHolder<z28> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b.getPageActivity().setContentView(R.layout.obfuscated_res_0x7f0d06b2);
-            this.a.c(this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f0917ed));
-            a();
-            this.a.e(this.c);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, j28Var, cardViewHolder})) == null) {
+            cardViewHolder.c().l(j28Var);
+            return cardViewHolder.b();
         }
-    }
-
-    public void c() {
-        s18 s18Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (s18Var = this.a) == null) {
-            return;
-        }
-        s18Var.d();
+        return (View) invokeCommon.objValue;
     }
 }

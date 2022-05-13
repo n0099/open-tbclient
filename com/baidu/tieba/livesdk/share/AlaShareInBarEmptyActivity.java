@@ -17,8 +17,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mi;
-import com.repackage.xe7;
+import com.repackage.af7;
+import com.repackage.ki;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyActivity> {
@@ -88,13 +88,13 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
         }
 
         @Override // com.baidu.tieba.livesdk.share.model.AlaShareInBarModel.b
-        public void a(int i, String str, xe7 xe7Var) {
+        public void a(int i, String str, af7 af7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, xe7Var) == null) {
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, af7Var) == null) {
                 this.a.closeLoadingDialog();
                 int i2 = 1;
-                if (i == 0 && xe7Var != null) {
-                    BdToast.h(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f1110), R.drawable.obfuscated_res_0x7f0809ab, 3000, true).q();
+                if (i == 0 && af7Var != null) {
+                    BdToast.h(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f112b), R.drawable.obfuscated_res_0x7f0809c0, 3000, true).q();
                 } else {
                     this.a.showToast(str);
                     i2 = 2;
@@ -146,8 +146,8 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
     private void sendRequest() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            if (!mi.z()) {
-                showToast(R.string.obfuscated_res_0x7f0f0c17);
+            if (!ki.z()) {
+                showToast(R.string.obfuscated_res_0x7f0f0c2d);
                 finish();
             } else if ((StringUtils.isNull(this.mLiveId) && TextUtils.isEmpty(this.mYyAnchorBdUid)) || ListUtils.isEmpty(this.mTransmitForumDataList)) {
                 finish();

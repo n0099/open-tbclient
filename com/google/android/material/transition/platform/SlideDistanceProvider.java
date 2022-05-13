@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 @RequiresApi(21)
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class SlideDistanceProvider implements VisibilityAnimatorProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_DISTANCE = -1;
@@ -34,7 +34,7 @@ public final class SlideDistanceProvider implements VisibilityAnimatorProvider {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public @interface GravityFlag {
     }
 

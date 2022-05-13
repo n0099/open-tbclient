@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c11;
+import com.repackage.m11;
 /* loaded from: classes5.dex */
 public class bs0 extends sr0 {
     public static /* synthetic */ Interceptable $ic;
@@ -148,8 +148,8 @@ public class bs0 extends sr0 {
             VerticalVolumeBar verticalVolumeBar = new VerticalVolumeBar(getContext(), null, 16842872);
             this.b = verticalVolumeBar;
             verticalVolumeBar.setLayoutParams(x(false));
-            this.b.setProgressDrawable(ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080e1c));
-            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080e1d);
+            this.b.setProgressDrawable(ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080e36));
+            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080e37);
             int dimension = (int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f07053f);
             int i = dimension / 2;
             this.b.setPadding(i, dimension, i, dimension);
@@ -309,7 +309,7 @@ public class bs0 extends sr0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
             int dimension3 = (int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f07053f);
-            int min = Math.min(c11.c.e(getContext()), c11.c.c(getContext()));
+            int min = Math.min(m11.c.e(getContext()), m11.c.c(getContext()));
             if (!z) {
                 i = ((min / 16) * 9) / 2;
             } else {

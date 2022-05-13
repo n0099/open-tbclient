@@ -30,12 +30,12 @@ public final class DurationKt {
 
     @ExperimentalTime
     public static final long durationOf(long j, int i) {
-        return Duration.m1973constructorimpl((j << 1) + i);
+        return Duration.m1974constructorimpl((j << 1) + i);
     }
 
     @ExperimentalTime
     public static final long durationOfMillis(long j) {
-        return Duration.m1973constructorimpl((j << 1) + 1);
+        return Duration.m1974constructorimpl((j << 1) + 1);
     }
 
     @ExperimentalTime
@@ -48,7 +48,7 @@ public final class DurationKt {
 
     @ExperimentalTime
     public static final long durationOfNanos(long j) {
-        return Duration.m1973constructorimpl(j << 1);
+        return Duration.m1974constructorimpl(j << 1);
     }
 
     @ExperimentalTime
@@ -231,15 +231,15 @@ public final class DurationKt {
         boolean z2;
         int i;
         String str2;
-        long m2009plusLRDsOJo;
+        long m2010plusLRDsOJo;
         int i2;
         boolean z3;
-        long m2009plusLRDsOJo2;
+        long m2010plusLRDsOJo2;
         boolean z4;
         String str3 = str;
         int length = str.length();
         if (length != 0) {
-            long m2033getZEROUwyO8pc = Duration.Companion.m2033getZEROUwyO8pc();
+            long m2034getZEROUwyO8pc = Duration.Companion.m2034getZEROUwyO8pc();
             char charAt = str3.charAt(0);
             int i3 = (charAt == '+' || charAt == '-') ? 1 : 0;
             boolean z5 = i3 > 0;
@@ -300,21 +300,21 @@ public final class DurationKt {
                                         }
                                         int indexOf$default = StringsKt__StringsKt.indexOf$default((CharSequence) substring, (char) IStringUtil.EXTENSION_SEPARATOR, 0, false, 6, (Object) null);
                                         if (durationUnitByIsoChar != TimeUnit.SECONDS || indexOf$default <= 0) {
-                                            m2009plusLRDsOJo2 = Duration.m2009plusLRDsOJo(m2033getZEROUwyO8pc, toDuration(parseOverLongIsoComponent(substring), durationUnitByIsoChar));
+                                            m2010plusLRDsOJo2 = Duration.m2010plusLRDsOJo(m2034getZEROUwyO8pc, toDuration(parseOverLongIsoComponent(substring), durationUnitByIsoChar));
                                         } else if (substring != null) {
                                             String substring2 = substring.substring(0, indexOf$default);
                                             Intrinsics.checkNotNullExpressionValue(substring2, "(this as java.lang.Strin…ing(startIndex, endIndex)");
-                                            long m2009plusLRDsOJo3 = Duration.m2009plusLRDsOJo(m2033getZEROUwyO8pc, toDuration(parseOverLongIsoComponent(substring2), durationUnitByIsoChar));
+                                            long m2010plusLRDsOJo3 = Duration.m2010plusLRDsOJo(m2034getZEROUwyO8pc, toDuration(parseOverLongIsoComponent(substring2), durationUnitByIsoChar));
                                             if (substring == null) {
                                                 throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
                                             }
                                             String substring3 = substring.substring(indexOf$default);
                                             Intrinsics.checkNotNullExpressionValue(substring3, "(this as java.lang.String).substring(startIndex)");
-                                            m2009plusLRDsOJo2 = Duration.m2009plusLRDsOJo(m2009plusLRDsOJo3, toDuration(Double.parseDouble(substring3), durationUnitByIsoChar));
+                                            m2010plusLRDsOJo2 = Duration.m2010plusLRDsOJo(m2010plusLRDsOJo3, toDuration(Double.parseDouble(substring3), durationUnitByIsoChar));
                                         } else {
                                             throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
                                         }
-                                        m2033getZEROUwyO8pc = m2009plusLRDsOJo2;
+                                        m2034getZEROUwyO8pc = m2010plusLRDsOJo2;
                                         str3 = str;
                                         timeUnit = durationUnitByIsoChar;
                                         z6 = z3;
@@ -342,7 +342,7 @@ public final class DurationKt {
                     if (!z) {
                         String str4 = "(this as java.lang.String).substring(startIndex)";
                         if (StringsKt__StringsJVMKt.regionMatches(str, i3, "Infinity", 0, Math.max(length - i3, 8), true)) {
-                            m2033getZEROUwyO8pc = Duration.Companion.m2031getINFINITEUwyO8pc();
+                            m2034getZEROUwyO8pc = Duration.Companion.m2032getINFINITEUwyO8pc();
                         } else {
                             boolean z8 = !z5;
                             if (z5 && str.charAt(i3) == '(' && StringsKt___StringsKt.last(str) == ')') {
@@ -398,16 +398,16 @@ public final class DurationKt {
                                             int indexOf$default2 = StringsKt__StringsKt.indexOf$default((CharSequence) substring4, (char) IStringUtil.EXTENSION_SEPARATOR, 0, false, 6, (Object) null);
                                             if (indexOf$default2 <= 0) {
                                                 str2 = str4;
-                                                m2009plusLRDsOJo = Duration.m2009plusLRDsOJo(m2033getZEROUwyO8pc, toDuration(Long.parseLong(substring4), durationUnitByShortName));
+                                                m2010plusLRDsOJo = Duration.m2010plusLRDsOJo(m2034getZEROUwyO8pc, toDuration(Long.parseLong(substring4), durationUnitByShortName));
                                             } else if (substring4 != null) {
                                                 String substring6 = substring4.substring(0, indexOf$default2);
                                                 Intrinsics.checkNotNullExpressionValue(substring6, "(this as java.lang.Strin…ing(startIndex, endIndex)");
                                                 str2 = str4;
-                                                long m2009plusLRDsOJo4 = Duration.m2009plusLRDsOJo(m2033getZEROUwyO8pc, toDuration(Long.parseLong(substring6), durationUnitByShortName));
+                                                long m2010plusLRDsOJo4 = Duration.m2010plusLRDsOJo(m2034getZEROUwyO8pc, toDuration(Long.parseLong(substring6), durationUnitByShortName));
                                                 if (substring4 != null) {
                                                     String substring7 = substring4.substring(indexOf$default2);
                                                     Intrinsics.checkNotNullExpressionValue(substring7, str2);
-                                                    m2009plusLRDsOJo = Duration.m2009plusLRDsOJo(m2009plusLRDsOJo4, toDuration(Double.parseDouble(substring7), durationUnitByShortName));
+                                                    m2010plusLRDsOJo = Duration.m2010plusLRDsOJo(m2010plusLRDsOJo4, toDuration(Double.parseDouble(substring7), durationUnitByShortName));
                                                     if (i3 < i) {
                                                         throw new IllegalArgumentException("Fractional component must be last");
                                                     }
@@ -417,7 +417,7 @@ public final class DurationKt {
                                             } else {
                                                 throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
                                             }
-                                            m2033getZEROUwyO8pc = m2009plusLRDsOJo;
+                                            m2034getZEROUwyO8pc = m2010plusLRDsOJo;
                                             timeUnit2 = durationUnitByShortName;
                                             str4 = str2;
                                             z9 = true;
@@ -436,7 +436,7 @@ public final class DurationKt {
                         throw new IllegalArgumentException();
                     }
                 }
-                return z2 ? Duration.m2025unaryMinusUwyO8pc(m2033getZEROUwyO8pc) : m2033getZEROUwyO8pc;
+                return z2 ? Duration.m2026unaryMinusUwyO8pc(m2034getZEROUwyO8pc) : m2034getZEROUwyO8pc;
             }
             throw new IllegalArgumentException("No components");
         }
@@ -502,16 +502,16 @@ public final class DurationKt {
     @InlineOnly
     @ExperimentalTime
     /* renamed from: times-kIfJnKk */
-    public static final long m2056timeskIfJnKk(double d, long j) {
-        return Duration.m2010timesUwyO8pc(j, d);
+    public static final long m2057timeskIfJnKk(double d, long j) {
+        return Duration.m2011timesUwyO8pc(j, d);
     }
 
     @SinceKotlin(version = "1.3")
     @InlineOnly
     @ExperimentalTime
     /* renamed from: times-mvk6XK0 */
-    public static final long m2057timesmvk6XK0(int i, long j) {
-        return Duration.m2011timesUwyO8pc(j, i);
+    public static final long m2058timesmvk6XK0(int i, long j) {
+        return Duration.m2012timesUwyO8pc(j, i);
     }
 
     @SinceKotlin(version = "1.3")

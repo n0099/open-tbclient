@@ -1,106 +1,180 @@
 package com.repackage;
 
-import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
+import android.view.KeyEvent;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.R;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class qn8 implements pt4 {
+import com.repackage.nr4;
+/* loaded from: classes6.dex */
+public class qn8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pn8 a;
+    public final MainTabActivity a;
+    public final tm8 b;
+    public final gn8 c;
+    public long d;
 
-    public qn8() {
+    /* loaded from: classes6.dex */
+    public class a implements nr4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qn8 a;
+
+        public a(qn8 qn8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qn8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qn8Var;
+        }
+
+        @Override // com.repackage.nr4.e
+        public void onClick(nr4 nr4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, nr4Var) == null) {
+                nr4Var.dismiss();
+                if (this.a.c == null || this.a.c.e() == null) {
+                    return;
+                }
+                this.a.c.e().b();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements nr4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qn8 a;
+
+        public b(qn8 qn8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qn8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qn8Var;
+        }
+
+        @Override // com.repackage.nr4.e
+        public void onClick(nr4 nr4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, nr4Var) == null) {
+                try {
+                    this.a.a.startActivity(new Intent("android.settings.APPLICATION_DEVELOPMENT_SETTINGS"));
+                    nr4Var.dismiss();
+                } catch (Exception unused) {
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f07d1);
+                }
+            }
+        }
+    }
+
+    public qn8(MainTabActivity mainTabActivity, tm8 tm8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, tm8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.d = 0L;
+        this.a = mainTabActivity;
+        this.b = tm8Var;
+        this.c = mainTabActivity.mLogicController;
     }
 
-    @Override // com.repackage.pt4
-    public void a(Context context) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount != null && currentAccount.length() > 0) {
-                b(context, 1);
-            } else {
-                b(context, 0);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            new nr4(this.a).setTitle(R.string.obfuscated_res_0x7f0f0430).setCancelable(false).setMessageId(R.string.obfuscated_res_0x7f0f02c4).setPositiveButton(R.string.obfuscated_res_0x7f0f0cb6, new b(this)).setNegativeButton(R.string.obfuscated_res_0x7f0f0c39, new a(this)).create(f9.a(this.a)).show();
+        }
+    }
+
+    public boolean d(KeyEvent keyEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, keyEvent)) == null) {
+            if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
+                return false;
             }
-        }
-    }
-
-    @Override // com.repackage.pt4
-    public void b(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createNormalCfg(i)));
-        }
-    }
-
-    @Override // com.repackage.pt4
-    public void c(Context context, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createNormalCfg(i, z)));
-        }
-    }
-
-    @Override // com.repackage.pt4
-    public Class<?> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? MainTabActivity.class : (Class) invokeV.objValue;
-    }
-
-    @Override // com.repackage.pt4
-    public void e(Context context, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createRefreshCfg(i, z)));
-        }
-    }
-
-    @Override // com.repackage.pt4
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? MainTabActivity.class.getName() : (String) invokeV.objValue;
-    }
-
-    public void g(pn8 pn8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, pn8Var) == null) {
-            this.a = pn8Var;
-        }
-    }
-
-    @Override // com.repackage.pt4
-    public int getCurrentTabType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            pn8 pn8Var = this.a;
-            if (pn8Var != null) {
-                return pn8Var.getCurrentTabType();
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2016322, (Class) null);
+            if (runTask == null || !((Boolean) runTask.getData()).booleanValue()) {
+                CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(2016323, (Class) null);
+                if (runTask2 == null || !((Boolean) runTask2.getData()).booleanValue()) {
+                    ey8 ey8Var = this.a.mWriteTab;
+                    if (ey8Var != null && ey8Var.n()) {
+                        this.a.mWriteTab.m(true);
+                        return true;
+                    } else if (this.b.C()) {
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007010));
+                        return true;
+                    } else {
+                        CustomResponsedMessage runTask3 = MessageManager.getInstance().runTask(2921405, Boolean.class, Boolean.FALSE);
+                        if (runTask3 == null || runTask3.getData() == null || !(runTask3.getData() instanceof Boolean) || !((Boolean) runTask3.getData()).booleanValue()) {
+                            if (TbSingleton.getInstance().isFromFeedVideoClick()) {
+                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921612));
+                                return true;
+                            }
+                            if (System.currentTimeMillis() - this.d > 2000) {
+                                this.a.showToast(R.string.obfuscated_res_0x7f0f04ee);
+                                this.d = System.currentTimeMillis();
+                            } else if (UtilHelper.isBackgroundProcessLimitNone() && Build.VERSION.SDK_INT >= 14) {
+                                c();
+                                return true;
+                            } else {
+                                gn8 gn8Var = this.c;
+                                if (gn8Var != null && gn8Var.e() != null) {
+                                    this.c.e().b();
+                                }
+                            }
+                            return false;
+                        }
+                        return true;
+                    }
+                }
+                return true;
             }
-            return -1;
+            return true;
         }
-        return invokeV.intValue;
+        return invokeL.booleanValue;
     }
 }

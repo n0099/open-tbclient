@@ -1,78 +1,75 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class pk6 extends ho<s26, CardViewHolder<yw5>> {
+public class pk6 extends mt4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> i;
-    public yw5 j;
-    public String k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pk6(TbPageContext tbPageContext, String str) {
-        super(tbPageContext.getPageActivity(), s26.b);
+    public pk6(kt4 kt4Var) {
+        super(kt4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, str};
+            Object[] objArr = {kt4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((kt4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = tbPageContext;
-        this.k = str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: Z */
-    public CardViewHolder<yw5> M(ViewGroup viewGroup) {
+    @nt4(isAsync = false, value = "isGameInstall")
+    private JSONObject isGameInstall(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            yw5 yw5Var = new yw5(this.i);
-            this.j = yw5Var;
-            yw5Var.u(this.k);
-            return new CardViewHolder<>(this.j);
-        }
-        return (CardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, s26 s26Var, CardViewHolder<yw5> cardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, s26Var, cardViewHolder})) == null) {
-            if (cardViewHolder.c() == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, jSONObject)) == null) {
+            if (jSONObject == null) {
                 return null;
             }
-            cardViewHolder.c().l(s26Var);
-            cardViewHolder.c().m(this.i, TbadkCoreApplication.getInst().getSkinType());
-            return cardViewHolder.c().k();
+            JSONObject jSONObject2 = new JSONObject();
+            String optString = jSONObject.optString("packagename");
+            try {
+                PackageInfo packageInfo = getContext().getPackageManager().getPackageInfo(optString, 0);
+                if (packageInfo != null && packageInfo.packageName.equals(optString)) {
+                    jSONObject2.put("isInstall", true);
+                } else {
+                    jSONObject2.put("isInstall", false);
+                }
+            } catch (PackageManager.NameNotFoundException e) {
+                try {
+                    jSONObject2.put("isInstall", false);
+                } catch (JSONException unused) {
+                    BdLog.e(e.getMessage());
+                }
+            } catch (JSONException e2) {
+                BdLog.e(e2.getMessage());
+            }
+            return jSONObject2;
         }
-        return (View) invokeCommon.objValue;
+        return (JSONObject) invokeL.objValue;
+    }
+
+    @Override // com.repackage.mt4
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TBHY_COMMON_IS_GAME_INSTALL" : (String) invokeV.objValue;
     }
 }

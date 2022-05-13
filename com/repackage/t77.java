@@ -1,208 +1,199 @@
 package com.repackage;
 
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoDataView;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.coreExtra.view.SettingTextSwitchView;
-import com.baidu.tieba.R;
-import com.baidu.tieba.im.recommend.detail.RecommendDetailActivity;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tieba.im.pushNotify.ChatSetting;
+import com.baidu.tieba.im.settingcache.PersonalSettingItemData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Bigvip.UserInfoBigVip;
 /* loaded from: classes7.dex */
-public class t77 {
+public class t77 extends p77 {
     public static /* synthetic */ Interceptable $ic;
+    public static t77 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public RecommendDetailActivity a;
-    public View b;
-    public NavigationBar c;
-    public NoNetworkView d;
-    public HeadImageView e;
-    public TextView f;
-    public TextView g;
-    public TextView h;
-    public LinearLayout i;
-    public SettingTextSwitchView j;
-    public NoDataView k;
-    public LinearLayout l;
-    public View m;
 
-    public t77(RecommendDetailActivity recommendDetailActivity) {
+    /* loaded from: classes7.dex */
+    public class a extends sd5<Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ PersonalSettingItemData a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ t77 c;
+
+        public a(t77 t77Var, PersonalSettingItemData personalSettingItemData, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t77Var, personalSettingItemData, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = t77Var;
+            this.a = personalSettingItemData;
+            this.b = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.sd5
+        /* renamed from: a */
+        public Void doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                this.c.b().g(this.b, OrmObject.jsonStrWithObject(this.a));
+                return null;
+            }
+            return (Void) invokeV.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755337763, "Lcom/repackage/t77;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755337763, "Lcom/repackage/t77;");
+                return;
+            }
+        }
+        b = new t77();
+    }
+
+    public t77() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {recommendDetailActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = recommendDetailActivity;
-        c();
-    }
-
-    public void a() {
-        LinearLayout linearLayout;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (linearLayout = this.i) == null) {
-            return;
-        }
-        linearLayout.setVisibility(8);
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            NoDataView noDataView = this.k;
-            if (noDataView != null) {
-                noDataView.setVisibility(8);
-            }
-            this.l.setVisibility(0);
-        }
-    }
-
-    public final void c() {
-        RecommendDetailActivity recommendDetailActivity;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (recommendDetailActivity = this.a) == null) {
-            return;
-        }
-        recommendDetailActivity.setContentView(R.layout.obfuscated_res_0x7f0d0717);
-        this.b = this.a.findViewById(R.id.obfuscated_res_0x7f091ade);
-        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0923ad);
-        this.c = navigationBar;
-        navigationBar.showBottomLine();
-        this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        e(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f46));
-        this.d = (NoNetworkView) this.a.findViewById(R.id.obfuscated_res_0x7f0923af);
-        this.l = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0906f2);
-        HeadImageView headImageView = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092290);
-        this.e = headImageView;
-        headImageView.setIsRound(true);
-        this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09229d);
-        this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0922c0);
-        this.h = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090f44);
-        SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) this.a.findViewById(R.id.obfuscated_res_0x7f091e17);
-        this.j = settingTextSwitchView;
-        settingTextSwitchView.setSwitchStateChangeListener(this.a);
-        this.j.setVisibility(8);
-        this.l.setVisibility(8);
-        this.i = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091e15);
-        this.m = this.a.findViewById(R.id.obfuscated_res_0x7f0907f0);
-    }
-
-    public void d(int i) {
-        RecommendDetailActivity recommendDetailActivity;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || (recommendDetailActivity = this.a) == null || recommendDetailActivity.getPageContext() == null || this.a.getPageContext().getLayoutMode() == null) {
-            return;
-        }
-        NavigationBar navigationBar = this.c;
-        if (navigationBar != null) {
-            navigationBar.onChangeSkinType(this.a.getPageContext(), i);
-        }
-        NoNetworkView noNetworkView = this.d;
-        if (noNetworkView != null) {
-            noNetworkView.c(this.a.getPageContext(), i);
-        }
-        NoDataView noDataView = this.k;
-        if (noDataView != null) {
-            noDataView.f(this.a.getPageContext(), i);
-        }
-        SettingTextSwitchView settingTextSwitchView = this.j;
-        if (settingTextSwitchView != null) {
-            settingTextSwitchView.d(i);
-        }
-        View view2 = this.m;
-        if (view2 != null) {
-            SkinManager.setBackgroundColor(view2, R.color.CAM_X0205);
-        }
-        this.a.getPageContext().getLayoutMode().k(i == 1);
-        this.a.getPageContext().getLayoutMode().j(this.b);
-    }
-
-    public void e(String str) {
-        NavigationBar navigationBar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (navigationBar = this.c) == null) {
-            return;
-        }
-        navigationBar.setCenterTextTitle(str);
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            if (z) {
-                this.j.getSwitchView().l();
-            } else {
-                this.j.getSwitchView().i();
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void g() {
-        LinearLayout linearLayout;
+    public static t77 j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (linearLayout = this.i) == null) {
-            return;
-        }
-        linearLayout.setVisibility(0);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (t77) invokeV.objValue;
     }
 
-    public void h(int i) {
+    @Override // com.repackage.p77
+    public qe<String> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            if (this.k == null) {
-                this.k = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), this.b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0702a1)), NoDataViewFactory.e.a(i), null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            mr4.f();
+            return mr4.g("tb.im_personal_chat_setting");
+        }
+        return (qe) invokeV.objValue;
+    }
+
+    @Override // com.repackage.p77
+    public void h(ChatSetting chatSetting) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatSetting) == null) && chatSetting != null && (chatSetting instanceof PersonalSettingItemData)) {
+            PersonalSettingItemData personalSettingItemData = (PersonalSettingItemData) chatSetting;
+            String myUid = personalSettingItemData.getMyUid();
+            String toUid = personalSettingItemData.getToUid();
+            if (!TextUtils.isEmpty(myUid) && !TextUtils.isEmpty(toUid)) {
+                qe<String> b2 = b();
+                String str = myUid + "@" + toUid;
+                String jsonStrWithObject = OrmObject.jsonStrWithObject(personalSettingItemData);
+                synchronized (this.a) {
+                    this.a.put(str, personalSettingItemData);
+                }
+                b2.g(str, jsonStrWithObject);
+            } else if (TbConfig.getDebugSwitch()) {
+                throw new RuntimeException("key param is null");
             }
-            this.k.setTextOption(NoDataViewFactory.e.a(i));
-            this.k.f(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
-            this.l.setVisibility(8);
-            this.k.setVisibility(0);
         }
     }
 
-    public void i(UserInfoBigVip userInfoBigVip, boolean z) {
+    @Override // com.repackage.p77
+    public void i(ChatSetting chatSetting, zc5<Void> zc5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, userInfoBigVip, z) == null) || userInfoBigVip == null || this.a == null) {
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, chatSetting, zc5Var) == null) && chatSetting != null && (chatSetting instanceof PersonalSettingItemData)) {
+            PersonalSettingItemData personalSettingItemData = (PersonalSettingItemData) chatSetting;
+            String myUid = personalSettingItemData.getMyUid();
+            String toUid = personalSettingItemData.getToUid();
+            if (!TextUtils.isEmpty(myUid) && !TextUtils.isEmpty(toUid)) {
+                String str = myUid + "@" + toUid;
+                synchronized (this.a) {
+                    this.a.put(str, personalSettingItemData);
+                }
+                vd5.c(new a(this, personalSettingItemData, str), zc5Var);
+            } else if (TbConfig.getDebugSwitch()) {
+                throw new RuntimeException("key param is null");
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.p77
+    /* renamed from: k */
+    public PersonalSettingItemData a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+            PersonalSettingItemData personalSettingItemData = null;
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return null;
+            }
+            String str3 = str + "@" + str2;
+            synchronized (this.a) {
+                ChatSetting chatSetting = this.a.get(str3);
+                if (chatSetting != null && (chatSetting instanceof PersonalSettingItemData)) {
+                    personalSettingItemData = (PersonalSettingItemData) chatSetting;
+                }
+            }
+            if (personalSettingItemData == null) {
+                PersonalSettingItemData personalSettingItemData2 = new PersonalSettingItemData();
+                personalSettingItemData2.setMyUid(str);
+                personalSettingItemData2.setToUid(str2);
+                personalSettingItemData2.setAcceptNotify(true);
+                return personalSettingItemData2;
+            }
+            return personalSettingItemData;
+        }
+        return (PersonalSettingItemData) invokeLL.objValue;
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.e(PersonalSettingItemData.class);
+        }
+    }
+
+    public void m(String str, String str2, UserData userData) {
+        PersonalSettingItemData a2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, userData) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || userData == null || (a2 = a(str, str2)) == null) {
             return;
         }
-        this.e.K(userInfoBigVip.portraith, 12, false);
-        this.f.setText(UtilHelper.getFixedText(userInfoBigVip.user_name, 7));
-        this.g.setText(userInfoBigVip.user_type);
-        this.h.setText(userInfoBigVip.user_detail);
-        if (z) {
-            if (userInfoBigVip.message_accept.intValue() == 1) {
-                f(true);
-                TbadkCoreApplication.getInst().setPromotedMessage(String.valueOf(userInfoBigVip.user_id), true);
-            } else {
-                f(false);
-                TbadkCoreApplication.getInst().setPromotedMessage(String.valueOf(userInfoBigVip.user_id), false);
-            }
-        } else if (TbadkCoreApplication.getInst().isPromotedMessageOn(String.valueOf(userInfoBigVip.user_id))) {
-            f(true);
-        } else {
-            f(false);
-        }
-        this.j.setVisibility(0);
+        a2.setToPortrait(userData.getPortrait());
+        a2.setToName(userData.getUserName());
+        h(a2);
     }
 }

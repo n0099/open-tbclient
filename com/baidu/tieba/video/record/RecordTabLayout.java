@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.mi;
 import com.tachikoma.core.component.anim.AnimationProperty;
 /* loaded from: classes4.dex */
 public class RecordTabLayout extends LinearLayout {
@@ -146,14 +146,14 @@ public class RecordTabLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
             TextView textView = new TextView(getContext());
-            textView.setTextSize(0, oi.f(getContext(), R.dimen.obfuscated_res_0x7f0702b5));
+            textView.setTextSize(0, mi.f(getContext(), R.dimen.obfuscated_res_0x7f0702b5));
             textView.setTextColor(getResources().getColor(R.color.CAM_X0101));
             textView.setText(str);
             textView.setTag(Integer.valueOf(i));
             textView.setOnClickListener(new a(this, i));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             if (this.a.getChildCount() != 0) {
-                layoutParams.leftMargin = oi.f(getContext(), R.dimen.obfuscated_res_0x7f0702c6);
+                layoutParams.leftMargin = mi.f(getContext(), R.dimen.obfuscated_res_0x7f0702c6);
             }
             this.a.addView(textView, layoutParams);
         }
@@ -171,8 +171,8 @@ public class RecordTabLayout extends LinearLayout {
             View view2 = new View(getContext());
             this.b = view2;
             view2.setBackgroundColor(getResources().getColor(R.color.CAM_X0101));
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(oi.f(getContext(), R.dimen.obfuscated_res_0x7f0702c6), oi.f(getContext(), R.dimen.obfuscated_res_0x7f070224));
-            layoutParams.topMargin = oi.f(getContext(), R.dimen.obfuscated_res_0x7f070263);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(mi.f(getContext(), R.dimen.obfuscated_res_0x7f0702c6), mi.f(getContext(), R.dimen.obfuscated_res_0x7f070224));
+            layoutParams.topMargin = mi.f(getContext(), R.dimen.obfuscated_res_0x7f070263);
             addView(this.b, layoutParams);
         }
     }

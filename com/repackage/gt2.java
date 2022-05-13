@@ -2,12 +2,9 @@ package com.repackage;
 
 import android.text.TextUtils;
 import android.util.Log;
-import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.poly.widget.PolyActivity;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.pay.panel.PaymentPanelManager;
+import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,12 +12,107 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.InvalidParameterException;
+import java.util.HashMap;
+import java.util.Map;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class gt2 extends us2 {
+public class gt2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
+    public static final String h;
+    public static final MediaType i;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public Map<String, String> b;
+    public Map<String, String> c;
+    public boolean d;
+    public JSONObject e;
+    public b f;
+    public ResponseCallback<JSONObject> g;
+
+    /* loaded from: classes6.dex */
+    public class a extends ResponseCallback<JSONObject> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gt2 a;
+
+        public a(gt2 gt2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gt2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gt2Var;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                if (this.a.f != null) {
+                    this.a.f.onFail(exc.getMessage());
+                    return;
+                }
+                ux1.i("PayCheckRequest", "PayCheckRequestCallback is empty and paycheck request failed : \n" + Log.getStackTraceString(exc));
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(JSONObject jSONObject, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) == null) {
+                if (this.a.f == null) {
+                    ux1.i("PayCheckRequest", "paycheck request success, but PayCheckRequestCallback is empty.");
+                } else if (jSONObject == null) {
+                    this.a.f.onFail("response is empty");
+                } else if (jSONObject.optInt("errno", -1) == 0) {
+                    this.a.f.a(jSONObject.optJSONObject("data"));
+                } else {
+                    String optString = jSONObject.optString("tipmsg", "");
+                    b bVar = this.a.f;
+                    if (TextUtils.isEmpty(optString)) {
+                        optString = "errno is non-zero";
+                    }
+                    bVar.onFail(optString);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public JSONObject parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
+                if (response == null || response.body() == null) {
+                    return null;
+                }
+                return ud3.d(response.body().string());
+            }
+            return (JSONObject) invokeLI.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(JSONObject jSONObject);
+
+        void onFail(String str);
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -35,158 +127,109 @@ public class gt2 extends us2 {
                 return;
             }
         }
-        f = tg1.a;
+        boolean z = eh1.a;
+        h = String.format("%s/ma/pay_check", ox1.b());
+        i = bs2.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gt2(@NonNull ko1 ko1Var) {
-        super(ko1Var);
+    public gt2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ko1Var};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((ko1) newInitContext.callArgs[0]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = h;
+        this.b = new HashMap();
+        this.c = new HashMap();
+        this.d = false;
+        this.e = new JSONObject();
+        this.g = new a(this);
+        e();
+        f();
+        g();
     }
 
-    @Override // com.repackage.mo1
-    public String j() {
-        InterceptResult invokeV;
+    public void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "PaymentPanelApi" : (String) invokeV.objValue;
-    }
-
-    public js1 x(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#chooseCoupon", false);
-            j03 a0 = j03.a0();
-            if (a0 == null) {
-                if (f) {
-                    Log.e("PaymentPanelApi", "failed: swan app is null");
-                }
-                return new js1(1001, "swan app is null");
-            }
-            SwanAppActivity x = a0.x();
-            if (x == null) {
-                if (f) {
-                    Log.e("PaymentPanelApi", "failed: swan activity is null");
-                }
-                return new js1(1001, "swan activity is null");
-            }
-            Pair<js1, JSONObject> s = s(str);
-            js1 js1Var = (js1) s.first;
-            if (js1Var.isSuccess()) {
-                JSONObject jSONObject = (JSONObject) s.second;
-                String optString = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    return new js1(202, "cb is empty");
-                }
-                String optString2 = jSONObject.optString("componentId");
-                if (TextUtils.isEmpty(optString2)) {
-                    return new js1(202, "empty componentId");
-                }
-                String optString3 = jSONObject.optString("appKey");
-                if (TextUtils.isEmpty(optString3)) {
-                    return new js1(202, "empty appKey");
-                }
-                String optString4 = jSONObject.optString("totalAmount");
-                if (TextUtils.isEmpty(optString4)) {
-                    return new js1(202, "empty totalAmount");
-                }
-                PaymentPanelManager.z().s(this, x, optString2, optString3, optString4, optString);
-                return js1.f();
-            }
-            return js1Var;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || TextUtils.isEmpty(str) || str2 == null) {
+            return;
         }
-        return (js1) invokeL.objValue;
+        this.b.put(str, str2);
     }
 
-    public js1 y(String str) {
-        InterceptResult invokeL;
+    public void c(@NonNull ResponseCallback<JSONObject> responseCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            q("#getPaymentInfo", false);
-            if (j03.a0() == null) {
-                if (f) {
-                    Log.e("PaymentPanelApi", "failed: null swan runtime");
-                }
-                return new js1(1001, "swan app is null");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, responseCallback) == null) {
+            if (!this.d) {
+                responseCallback.onFail(new InvalidParameterException("error: invalid url"));
+                return;
             }
-            Pair<js1, JSONObject> s = s(str);
-            js1 js1Var = (js1) s.first;
-            if (js1Var.isSuccess()) {
-                JSONObject jSONObject = (JSONObject) s.second;
-                String optString = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    return new js1(202, "cb is empty");
-                }
-                String optString2 = jSONObject.optString("componentId");
-                if (TextUtils.isEmpty(optString2)) {
-                    return new js1(202, "empty componentId");
-                }
-                String optString3 = jSONObject.optString("dealId");
-                if (TextUtils.isEmpty(optString3)) {
-                    return new js1(202, "empty dealId");
-                }
-                String optString4 = jSONObject.optString("appKey");
-                if (TextUtils.isEmpty(optString4)) {
-                    return new js1(202, "empty appKey");
-                }
-                String optString5 = jSONObject.optString("totalAmount");
-                if (TextUtils.isEmpty(optString5)) {
-                    return new js1(202, "empty totalAmount");
-                }
-                PaymentPanelManager.z().C(this, optString2, optString3, optString4, optString5, optString);
-                return js1.f();
-            }
-            return js1Var;
+            this.a = me3.b(this.a, this.c);
+            v74 v74Var = new v74(this.a, RequestBody.create(i, this.e.toString()), responseCallback);
+            v74Var.c = this.b;
+            v74Var.g = true;
+            ux1.b("PayCheckRequest", "start paycheck request : " + this.e);
+            w74.g().e(v74Var);
         }
-        return (js1) invokeL.objValue;
     }
 
-    public js1 z(String str) {
-        InterceptResult invokeL;
+    public void d(@NonNull b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            q("#setPaymentInfo", false);
-            if (j03.a0() == null) {
-                if (f) {
-                    Log.e("PaymentPanelApi", "failed: swan app is null");
-                }
-                return new js1(1001, "swan app is null");
-            }
-            Pair<js1, JSONObject> s = s(str);
-            js1 js1Var = (js1) s.first;
-            if (js1Var.isSuccess()) {
-                JSONObject jSONObject = (JSONObject) s.second;
-                String optString = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    return new js1(202, "cb is empty");
-                }
-                String optString2 = jSONObject.optString("componentId");
-                if (TextUtils.isEmpty(optString2)) {
-                    return new js1(202, "empty componentId");
-                }
-                String optString3 = jSONObject.optString(PolyActivity.CHOSEN_CHANNEL_KEY);
-                if (TextUtils.isEmpty(optString3)) {
-                    return new js1(202, "empty chosenChannel");
-                }
-                PaymentPanelManager.z().J(this, optString2, optString3, optString);
-                return js1.f();
-            }
-            return js1Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.f = bVar;
+            c(this.g);
         }
-        return (js1) invokeL.objValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            String i2 = aa4.i(h);
+            this.a = i2;
+            this.a = qx1.b(i2);
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            b("Referer", be3.b());
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            String N = t03.J().r().N();
+            try {
+                JSONObject jSONObject = this.e;
+                if (TextUtils.isEmpty(N)) {
+                    N = "";
+                }
+                jSONObject.put("appkey", N);
+            } catch (JSONException e) {
+                ux1.i("PayCheckRequest", "set post data 'appkey' failed: \n" + Log.getStackTraceString(e));
+            }
+        }
+    }
+
+    public void h(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        try {
+            this.e.put("order_info", jSONObject);
+            this.d = true;
+        } catch (JSONException e) {
+            ux1.i("PayCheckRequest", "set order info failed: \n" + Log.getStackTraceString(e));
+        }
     }
 }

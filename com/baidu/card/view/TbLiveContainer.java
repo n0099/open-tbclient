@@ -32,9 +32,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
-import com.repackage.tr4;
-import com.repackage.vr4;
+import com.repackage.es4;
+import com.repackage.gs4;
+import com.repackage.mi;
 import com.repackage.w68;
 /* loaded from: classes.dex */
 public class TbLiveContainer extends FrameLayout implements w68 {
@@ -159,10 +159,10 @@ public class TbLiveContainer extends FrameLayout implements w68 {
             FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.c.getLayoutParams();
             int i = 0;
             if (alaInfoData.isVertialLive()) {
-                layoutParams.height = (((oi.k(getContext()) - ((UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) + UtilHelper.getDimenPixelSize(R.dimen.M_W_X005)) * 2)) * 9) / 16) - (oi.f(getContext(), R.dimen.M_H_X003) * 2);
+                layoutParams.height = (((mi.k(getContext()) - ((UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) + UtilHelper.getDimenPixelSize(R.dimen.M_W_X005)) * 2)) * 9) / 16) - (mi.f(getContext(), R.dimen.M_H_X003) * 2);
                 layoutParams.width = (this.b.getLayoutParams().height * 9) / 16;
-                layoutParams2.rightMargin = oi.f(getContext(), R.dimen.M_W_X004);
-                i = oi.f(getContext(), R.dimen.L_X02);
+                layoutParams2.rightMargin = mi.f(getContext(), R.dimen.M_W_X004);
+                i = mi.f(getContext(), R.dimen.L_X02);
             } else {
                 layoutParams.height = -1;
                 layoutParams.width = -1;
@@ -192,12 +192,12 @@ public class TbLiveContainer extends FrameLayout implements w68 {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0891, (ViewGroup) null);
-            this.a = (TbLiveCyberView) inflate.findViewById(R.id.obfuscated_res_0x7f091ee9);
-            this.b = (RoundRelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090ab2);
-            this.c = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f091da4);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0886, (ViewGroup) null);
+            this.a = (TbLiveCyberView) inflate.findViewById(R.id.obfuscated_res_0x7f091f41);
+            this.b = (RoundRelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090aa0);
+            this.c = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f091dfc);
             addView(inflate, new ViewGroup.LayoutParams(-1, -1));
-            this.b.setRoundLayoutRadius(tr4.y(R.string.J_X05));
+            this.b.setRoundLayoutRadius(es4.y(R.string.J_X05));
             this.b.setVisibility(8);
             this.a.setOuterListener(new b(this));
         }
@@ -206,7 +206,7 @@ public class TbLiveContainer extends FrameLayout implements w68 {
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            vr4 d = vr4.d(this.c);
+            gs4 d = gs4.d(this.c);
             d.n(R.string.J_X05);
             d.f(R.color.CAM_X0201);
         }

@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.iu4;
 import com.repackage.nk5;
-import com.repackage.vt4;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetAddressList.GetAddressListResIdl;
@@ -62,7 +62,7 @@ public class ResponseGetAddressListMessage extends SocketResponsedMessage {
             nk5 nk5Var = new nk5();
             this.mAddressListData = nk5Var;
             if (nk5Var.c(getAddressListResIdl.data)) {
-                vt4 k = vt4.k();
+                iu4 k = iu4.k();
                 k.u("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
             }
         }

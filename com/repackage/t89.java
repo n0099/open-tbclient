@@ -6,78 +6,76 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.io.File;
 /* loaded from: classes7.dex */
 public class t89 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<p89> a;
-    public int[] b;
+    public String a;
+    public File b;
+    public long c;
+    public long d;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public t89(List<p89> list) {
-        this(list, null);
+    public t89(String str, String str2, File file) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {list};
+            Object[] objArr = {str, str2, file};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((List) objArr2[0], (int[]) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = str;
+        this.b = file;
     }
 
-    public t89(List<p89> list, int[] iArr) {
+    public File a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list, iArr};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (File) invokeV.objValue;
+    }
+
+    public long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.longValue;
+    }
+
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.longValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
         }
-        this.a = list;
-        c(iArr);
     }
 
-    public List<p89> a() {
-        InterceptResult invokeV;
+    public void f(long j) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.d = j;
+        }
     }
 
-    public int[] b() {
-        InterceptResult invokeV;
+    public void g(long j) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (int[]) invokeV.objValue;
-    }
-
-    public void c(int[] iArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iArr) == null) {
-            this.b = iArr;
-            if (fc9.e(this.a)) {
-                return;
-            }
-            for (p89 p89Var : this.a) {
-                if (p89Var.b() != null) {
-                    p89Var.b().mSoundTypes = iArr;
-                }
-            }
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.c = j;
         }
     }
 }

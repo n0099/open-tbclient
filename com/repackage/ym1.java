@@ -1,20 +1,26 @@
 package com.repackage;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
+import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.slave.SwanAppSlaveManager;
-import com.baidu.swan.apps.core.slave.SwanWebModeWidget;
-import com.baidu.swan.apps.view.SwanAppSimpleH5Widget;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class ym1 implements km1 {
+public final class ym1 extends xl2<ym1> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes7.dex */
+    public interface a {
+        public static final String a = xl2.r("SwanFileFetcher.Params", "file_url");
+        public static final String b = xl2.r("SwanFileFetcher.Params", "file_save_path");
+        public static final String c = xl2.r("SwanFileFetcher.Params", "file_head_map");
+        public static final String d = xl2.r("SwanFileFetcher.Params", "image_save_gallery");
+        public static final String e = xl2.r("SwanFileFetcher.Params", "file_cancel_tag");
+    }
 
     public ym1() {
         Interceptable interceptable = $ic;
@@ -30,73 +36,54 @@ public class ym1 implements km1 {
         }
     }
 
-    @Override // com.repackage.km1
-    public sm1 a(Context context) {
+    public ym1 E(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? new SwanWebModeWidget(context) : (sm1) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? z(a.e, str) : (ym1) invokeL.objValue;
     }
 
-    @Override // com.repackage.km1
-    public om1 b(Context context) {
+    public ym1 F(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? new gz1(context) : (om1) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            Bundle bundle = new Bundle();
+            if (map != null && !map.isEmpty()) {
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    bundle.putString(entry.getKey(), entry.getValue());
+                }
+            }
+            return u(a.c, bundle);
+        }
+        return (ym1) invokeL.objValue;
     }
 
-    @Override // com.repackage.km1
-    public sm1 c(Context context) {
+    public ym1 G(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) ? new fn1(context) : (sm1) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? z(a.b, str) : (ym1) invokeL.objValue;
     }
 
-    @Override // com.repackage.km1
-    public e22 d() {
+    public ym1 H(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? z(a.a, str) : (ym1) invokeL.objValue;
+    }
+
+    public ym1 I(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) ? t(a.d, z) : (ym1) invokeZ.objValue;
+    }
+
+    public ym1 J() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new e22() : (e22) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this : (ym1) invokeV.objValue;
     }
 
-    @Override // com.repackage.km1
-    public pm1 e(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, context, i)) == null) ? new SwanAppSlaveManager(context) : (pm1) invokeLI.objValue;
-    }
-
-    @Override // com.repackage.km1
-    public sm1 f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) ? new yn1(context) : (sm1) invokeL.objValue;
-    }
-
-    @Override // com.repackage.km1
-    public sm1 g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) ? new co1(context) : (sm1) invokeL.objValue;
-    }
-
-    @Override // com.repackage.km1
-    public f22 h(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, context, i)) == null) ? new g22().a(context, i) : (f22) invokeLI.objValue;
-    }
-
-    @Override // com.repackage.km1
-    public sm1 i(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) ? new SwanAppSimpleH5Widget(context) : (sm1) invokeL.objValue;
-    }
-
-    @Override // com.repackage.km1
-    public boolean j(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) ? i == 0 : invokeI.booleanValue;
+    @Override // com.repackage.qf3
+    public /* bridge */ /* synthetic */ qf3 a() {
+        J();
+        return this;
     }
 }

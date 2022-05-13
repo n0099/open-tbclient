@@ -1,31 +1,36 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.BdLog;
+import android.util.SparseArray;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.data.UserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class wp4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<UserData> a;
-    public ArrayList<UserData> b;
-    public pp4 c;
-    public int d;
-    public int e;
-    public boolean f;
-    public String g;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public long e;
+    public SparseArray<String> f;
+    public SparseArray<String> g;
     public int h;
-    public String i;
-    public int j;
+    public JSONArray i;
+    public JSONArray j;
+    public String k;
+    public String l;
+    public String m;
+    public int n;
+    public int o;
+    public String p;
+    public int q;
+    public boolean r;
 
     public wp4() {
         Interceptable interceptable = $ic;
@@ -40,91 +45,131 @@ public class wp4 {
                 return;
             }
         }
-        this.a = new ArrayList<>();
-        this.b = new ArrayList<>();
-        this.c = new pp4();
+        this.f = null;
+        this.g = null;
     }
 
-    public ArrayList<UserData> a() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.h : invokeV.intValue;
     }
 
-    public ArrayList<UserData> b() {
+    public SparseArray<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (SparseArray) invokeV.objValue;
     }
 
-    public void c(JSONObject jSONObject) {
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public JSONArray d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.j : (JSONArray) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public JSONArray g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.i : (JSONArray) invokeV.objValue;
+    }
+
+    public String getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public long h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.e : invokeV.longValue;
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.h = i;
         }
-        try {
-            boolean z = true;
-            if (jSONObject.optJSONObject("page") != null) {
-                JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
-                JSONArray optJSONArray2 = jSONObject.optJSONArray("common_user_list");
-                if (optJSONArray != null) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        UserData userData = new UserData();
-                        userData.parserJson(optJSONArray.getJSONObject(i));
-                        this.a.add(userData);
-                    }
-                }
-                if (optJSONArray2 != null) {
-                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        UserData userData2 = new UserData();
-                        userData2.parserJson(optJSONArray2.getJSONObject(i2));
-                        userData2.mAttentionType = 1;
-                        this.b.add(userData2);
-                    }
-                }
-                this.c.i(jSONObject.optJSONObject("page"));
-                if (this.c != null) {
-                    this.d = this.c.a();
-                    this.e = this.c.f();
-                    if (this.c.b() != 1) {
-                        z = false;
-                    }
-                    this.f = z;
-                }
-                jSONObject.optInt("tafriendnum", 0);
-                jSONObject.optInt("commonfriendnum", 0);
-            } else {
-                JSONArray optJSONArray3 = jSONObject.optJSONArray("follow_list");
-                JSONArray optJSONArray4 = jSONObject.optJSONArray("common_follow_list");
-                if (optJSONArray3 != null) {
-                    for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
-                        UserData userData3 = new UserData();
-                        userData3.parserJson(optJSONArray3.getJSONObject(i3));
-                        this.a.add(userData3);
-                    }
-                }
-                if (optJSONArray4 != null) {
-                    for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
-                        UserData userData4 = new UserData();
-                        userData4.parserJson(optJSONArray4.getJSONObject(i4));
-                        userData4.mAttentionType = 1;
-                        userData4.setHave_attention(1);
-                        this.b.add(userData4);
-                    }
-                }
-                this.d = jSONObject.optInt(Config.PACKAGE_NAME);
-                this.e = jSONObject.optInt("total_follow_num", 0);
-                if (jSONObject.optInt("has_more", 0) != 1) {
-                    z = false;
-                }
-                this.f = z;
-                this.j = jSONObject.optInt("follow_list_switch", 0);
-            }
-            this.i = jSONObject.optString("tips_text");
-            this.h = jSONObject.optInt("type", 0);
-            this.g = jSONObject.optString("block_text");
-        } catch (Exception e) {
-            BdLog.detailException(e);
+    }
+
+    public void j(SparseArray<String> sparseArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, sparseArray) == null) {
+            this.f = sparseArray;
+        }
+    }
+
+    public void k(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.c = String.valueOf(j);
+        }
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public void m(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, jSONArray) == null) {
+            this.j = jSONArray;
+        }
+    }
+
+    public void n(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+            this.d = str;
+        }
+    }
+
+    public void o(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void p(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, jSONArray) == null) {
+            this.i = jSONArray;
+        }
+    }
+
+    public void q(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
+            this.e = j;
+        }
+    }
+
+    public void r(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+            this.a = str;
         }
     }
 }

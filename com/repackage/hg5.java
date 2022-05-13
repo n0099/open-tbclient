@@ -1,25 +1,24 @@
 package com.repackage;
 
-import android.view.GestureDetector;
-import android.view.MotionEvent;
-import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
-public final class hg5 extends GestureDetector.SimpleOnGestureListener {
+public class hg5<T> implements yg5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final WheelView a;
+    public List<T> a;
 
-    public hg5(WheelView wheelView) {
+    public hg5(List<T> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wheelView};
+            Object[] objArr = {list};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,17 +28,20 @@ public final class hg5 extends GestureDetector.SimpleOnGestureListener {
                 return;
             }
         }
-        this.a = wheelView;
+        this.a = list;
     }
 
-    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-    public final boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        InterceptResult invokeCommon;
+    @Override // com.repackage.yg5
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            this.a.q(f2);
-            return true;
-        }
-        return invokeCommon.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.size() : invokeV.intValue;
+    }
+
+    @Override // com.repackage.yg5
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? (i < 0 || i >= this.a.size()) ? "" : this.a.get(i) : invokeI.objValue;
     }
 }

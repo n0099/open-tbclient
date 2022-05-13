@@ -1,5 +1,9 @@
 package com.repackage;
+
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public interface nh1 {
-    Class<? extends pz1> a();
+    void a(int i);
+
+    void b(JSONObject jSONObject);
 }

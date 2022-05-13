@@ -40,7 +40,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nr4;
+import com.repackage.yr4;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
@@ -59,18 +59,18 @@ public class v48 extends r48 implements View.OnClickListener {
     public CustomMessageListener k;
 
     /* loaded from: classes7.dex */
-    public class a implements nr4.e {
+    public class a implements yr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lr4 a;
+        public final /* synthetic */ wr4 a;
         public final /* synthetic */ v48 b;
 
-        public a(v48 v48Var, lr4 lr4Var) {
+        public a(v48 v48Var, wr4 wr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {v48Var, lr4Var};
+                Object[] objArr = {v48Var, wr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -81,13 +81,13 @@ public class v48 extends r48 implements View.OnClickListener {
                 }
             }
             this.b = v48Var;
-            this.a = lr4Var;
+            this.a = wr4Var;
         }
 
-        @Override // com.repackage.nr4.e
-        public void onItemClick(nr4 nr4Var, int i, View view2) {
+        @Override // com.repackage.yr4.e
+        public void onItemClick(yr4 yr4Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, nr4Var, i, view2) == null) {
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, yr4Var, i, view2) == null) {
                 this.b.d = false;
                 if (i == 0) {
                     this.b.u();
@@ -102,21 +102,21 @@ public class v48 extends r48 implements View.OnClickListener {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements nr4.e {
+    public class b implements yr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xz4 a;
+        public final /* synthetic */ l05 a;
         public final /* synthetic */ List b;
         public final /* synthetic */ int c;
-        public final /* synthetic */ lr4 d;
+        public final /* synthetic */ wr4 d;
         public final /* synthetic */ v48 e;
 
-        public b(v48 v48Var, xz4 xz4Var, List list, int i, lr4 lr4Var) {
+        public b(v48 v48Var, l05 l05Var, List list, int i, wr4 wr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {v48Var, xz4Var, list, Integer.valueOf(i), lr4Var};
+                Object[] objArr = {v48Var, l05Var, list, Integer.valueOf(i), wr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -127,16 +127,16 @@ public class v48 extends r48 implements View.OnClickListener {
                 }
             }
             this.e = v48Var;
-            this.a = xz4Var;
+            this.a = l05Var;
             this.b = list;
             this.c = i;
-            this.d = lr4Var;
+            this.d = wr4Var;
         }
 
-        @Override // com.repackage.nr4.e
-        public void onItemClick(nr4 nr4Var, int i, View view2) {
+        @Override // com.repackage.yr4.e
+        public void onItemClick(yr4 yr4Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, nr4Var, i, view2) == null) {
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, yr4Var, i, view2) == null) {
                 this.e.d = true;
                 if (i == 0) {
                     this.e.x(this.a, this.b, this.c);
@@ -144,9 +144,9 @@ public class v48 extends r48 implements View.OnClickListener {
                     v48 v48Var = this.e;
                     if (v48Var.a && v48Var.e != null && this.e.e.j() != null && !this.e.e.j().canModifyAvatar()) {
                         if (!StringUtils.isNull(this.e.e.j().getCantModifyAvatarDesc())) {
-                            oi.K(TbadkCoreApplication.getInst(), this.e.e.j().getCantModifyAvatarDesc());
+                            mi.K(TbadkCoreApplication.getInst(), this.e.e.j().getCantModifyAvatarDesc());
                         } else {
-                            oi.J(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0de6);
+                            mi.J(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0e00);
                         }
                     } else {
                         this.e.u();
@@ -155,9 +155,9 @@ public class v48 extends r48 implements View.OnClickListener {
                     v48 v48Var2 = this.e;
                     if (v48Var2.a && v48Var2.e != null && this.e.e.j() != null && !this.e.e.j().canModifyAvatar()) {
                         if (!StringUtils.isNull(this.e.e.j().getCantModifyAvatarDesc())) {
-                            oi.K(TbadkCoreApplication.getInst(), this.e.e.j().getCantModifyAvatarDesc());
+                            mi.K(TbadkCoreApplication.getInst(), this.e.e.j().getCantModifyAvatarDesc());
                         } else {
-                            oi.J(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0de6);
+                            mi.J(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0e00);
                         }
                     } else {
                         this.e.w();
@@ -174,21 +174,21 @@ public class v48 extends r48 implements View.OnClickListener {
     }
 
     /* loaded from: classes7.dex */
-    public class c implements nr4.e {
+    public class c implements yr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xz4 a;
+        public final /* synthetic */ l05 a;
         public final /* synthetic */ List b;
         public final /* synthetic */ int c;
-        public final /* synthetic */ lr4 d;
+        public final /* synthetic */ wr4 d;
         public final /* synthetic */ v48 e;
 
-        public c(v48 v48Var, xz4 xz4Var, List list, int i, lr4 lr4Var) {
+        public c(v48 v48Var, l05 l05Var, List list, int i, wr4 wr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {v48Var, xz4Var, list, Integer.valueOf(i), lr4Var};
+                Object[] objArr = {v48Var, l05Var, list, Integer.valueOf(i), wr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -199,16 +199,16 @@ public class v48 extends r48 implements View.OnClickListener {
                 }
             }
             this.e = v48Var;
-            this.a = xz4Var;
+            this.a = l05Var;
             this.b = list;
             this.c = i;
-            this.d = lr4Var;
+            this.d = wr4Var;
         }
 
-        @Override // com.repackage.nr4.e
-        public void onItemClick(nr4 nr4Var, int i, View view2) {
+        @Override // com.repackage.yr4.e
+        public void onItemClick(yr4 yr4Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, nr4Var, i, view2) == null) {
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, yr4Var, i, view2) == null) {
                 if (i == 0) {
                     this.e.x(this.a, this.b, this.c);
                 } else if (i == 1) {
@@ -406,7 +406,7 @@ public class v48 extends r48 implements View.OnClickListener {
     public void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            pg.a().postDelayed(this.j, 300L);
+            ng.a().postDelayed(this.j, 300L);
         }
     }
 
@@ -423,31 +423,31 @@ public class v48 extends r48 implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (tbPageContext = this.b) == null) {
             return;
         }
-        String[] strArr = {tbPageContext.getString(R.string.obfuscated_res_0x7f0f03be), this.b.getString(R.string.obfuscated_res_0x7f0f0395)};
-        lr4 lr4Var = new lr4(this.b);
-        lr4Var.j(null, strArr, new a(this, lr4Var));
-        lr4Var.m();
+        String[] strArr = {tbPageContext.getString(R.string.obfuscated_res_0x7f0f03c3), this.b.getString(R.string.obfuscated_res_0x7f0f0399)};
+        wr4 wr4Var = new wr4(this.b);
+        wr4Var.j(null, strArr, new a(this, wr4Var));
+        wr4Var.m();
     }
 
-    public final void D(xz4 xz4Var, List<uo> list, int i) {
+    public final void D(l05 l05Var, List<ro> list, int i) {
         TbPageContext tbPageContext;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(1048579, this, xz4Var, list, i) == null) || (tbPageContext = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeLLI(1048579, this, l05Var, list, i) == null) || (tbPageContext = this.b) == null) {
             return;
         }
-        String[] strArr = {tbPageContext.getString(R.string.obfuscated_res_0x7f0f0818), this.b.getString(R.string.obfuscated_res_0x7f0f0392), this.b.getString(R.string.obfuscated_res_0x7f0f0395), this.b.getString(R.string.obfuscated_res_0x7f0f03ac)};
-        lr4 lr4Var = new lr4(this.b);
-        lr4Var.j(null, strArr, new b(this, xz4Var, list, i, lr4Var));
-        lr4Var.m();
+        String[] strArr = {tbPageContext.getString(R.string.obfuscated_res_0x7f0f0820), this.b.getString(R.string.obfuscated_res_0x7f0f0396), this.b.getString(R.string.obfuscated_res_0x7f0f0399), this.b.getString(R.string.obfuscated_res_0x7f0f03b1)};
+        wr4 wr4Var = new wr4(this.b);
+        wr4Var.j(null, strArr, new b(this, l05Var, list, i, wr4Var));
+        wr4Var.m();
     }
 
-    public final void E(xz4 xz4Var, List<uo> list, int i) {
+    public final void E(l05 l05Var, List<ro> list, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048580, this, xz4Var, list, i) == null) {
-            String[] strArr = {this.b.getString(R.string.obfuscated_res_0x7f0f0a5d), this.b.getString(R.string.obfuscated_res_0x7f0f10f1), this.b.getString(R.string.obfuscated_res_0x7f0f0495)};
-            lr4 lr4Var = new lr4(this.b);
-            lr4Var.j(null, strArr, new c(this, xz4Var, list, i, lr4Var));
-            lr4Var.m();
+        if (interceptable == null || interceptable.invokeLLI(1048580, this, l05Var, list, i) == null) {
+            String[] strArr = {this.b.getString(R.string.obfuscated_res_0x7f0f0a63), this.b.getString(R.string.obfuscated_res_0x7f0f110b), this.b.getString(R.string.obfuscated_res_0x7f0f049d)};
+            wr4 wr4Var = new wr4(this.b);
+            wr4Var.j(null, strArr, new c(this, l05Var, list, i, wr4Var));
+            wr4Var.m();
         }
     }
 
@@ -457,7 +457,7 @@ public class v48 extends r48 implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (y48Var = this.e) == null || y48Var.j() == null) {
             return;
         }
-        h35.k().g(this.e.j().getPortrait());
+        y35.k().g(this.e.j().getPortrait());
     }
 
     @Override // android.view.View.OnClickListener
@@ -466,20 +466,20 @@ public class v48 extends r48 implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, view2) == null) || view2 == null || r() == null) {
             return;
         }
-        uo uoVar = null;
+        ro roVar = null;
         if (view2.getTag() instanceof PersonInfoUserPicViewHolder) {
-            uoVar = ((PersonInfoUserPicViewHolder) view2.getTag()).d();
+            roVar = ((PersonInfoUserPicViewHolder) view2.getTag()).d();
         } else if (view2.getTag() instanceof PersonInfoAddUserPicViewHolder) {
-            uoVar = ((PersonInfoAddUserPicViewHolder) view2.getTag()).d();
+            roVar = ((PersonInfoAddUserPicViewHolder) view2.getTag()).d();
         }
-        int position = ListUtils.getPosition(r(), uoVar);
+        int position = ListUtils.getPosition(r(), roVar);
         if (position < 0) {
             return;
         }
-        s(uoVar, r(), position);
+        s(roVar, r(), position);
     }
 
-    public void p(Intent intent) {
+    public void q(Intent intent) {
         String stringExtra;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048583, this, intent) == null) || intent == null || (stringExtra = intent.getStringExtra(AlbumActivityConfig.ALBUM_RESULT)) == null) {
@@ -493,7 +493,7 @@ public class v48 extends r48 implements View.OnClickListener {
         this.c.clear();
     }
 
-    public List<uo> r() {
+    public List<ro> r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -506,21 +506,21 @@ public class v48 extends r48 implements View.OnClickListener {
         return (List) invokeV.objValue;
     }
 
-    public void s(uo uoVar, List<uo> list, int i) {
+    public void s(ro roVar, List<ro> list, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048585, this, uoVar, list, i) == null) {
-            t(uoVar, list, i, false);
+        if (interceptable == null || interceptable.invokeLLI(1048585, this, roVar, list, i) == null) {
+            t(roVar, list, i, false);
         }
     }
 
-    public void t(uo uoVar, List<uo> list, int i, boolean z) {
+    public void t(ro roVar, List<ro> list, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{uoVar, list, Integer.valueOf(i), Boolean.valueOf(z)}) == null) || uoVar == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{roVar, list, Integer.valueOf(i), Boolean.valueOf(z)}) == null) || roVar == null) {
             return;
         }
         if (z) {
-            if (uoVar instanceof xz4) {
-                x((xz4) uoVar, list, i);
+            if (roVar instanceof l05) {
+                x((l05) roVar, list, i);
                 return;
             }
             return;
@@ -529,20 +529,20 @@ public class v48 extends r48 implements View.OnClickListener {
         if (y48Var != null) {
             this.a = y48Var.m();
         }
-        if (!oi.C()) {
-            this.b.showToast(R.string.obfuscated_res_0x7f0f0c17);
+        if (!mi.C()) {
+            this.b.showToast(R.string.obfuscated_res_0x7f0f0c2d);
         } else if (!this.a) {
-            if (uoVar instanceof xz4) {
-                x((xz4) uoVar, list, i);
+            if (roVar instanceof l05) {
+                x((l05) roVar, list, i);
             }
-        } else if (uoVar instanceof n18) {
+        } else if (roVar instanceof h18) {
             C();
-        } else if (uoVar instanceof xz4) {
-            xz4 xz4Var = (xz4) uoVar;
-            if (xz4Var.e()) {
-                D(xz4Var, list, i);
+        } else if (roVar instanceof l05) {
+            l05 l05Var = (l05) roVar;
+            if (l05Var.e()) {
+                D(l05Var, list, i);
             } else {
-                E(xz4Var, list, i);
+                E(l05Var, list, i);
             }
         }
     }
@@ -585,19 +585,19 @@ public class v48 extends r48 implements View.OnClickListener {
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChangeSystemPhotoActivityConfig(this.b.getPageActivity(), 12014, this.d)));
     }
 
-    public final void x(xz4 xz4Var, List<uo> list, int i) {
+    public final void x(l05 l05Var, List<ro> list, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(1048590, this, xz4Var, list, i) == null) || this.b == null || xz4Var == null || list == null || StringUtils.isNull(xz4Var.a())) {
+        if (!(interceptable == null || interceptable.invokeLLI(1048590, this, l05Var, list, i) == null) || this.b == null || l05Var == null || list == null || StringUtils.isNull(l05Var.a())) {
             return;
         }
         ArrayList<String> arrayList = new ArrayList<>();
-        for (uo uoVar : list) {
-            if (uoVar instanceof xz4) {
-                xz4 xz4Var2 = (xz4) uoVar;
-                if (xz4Var2.e() && !xz4Var2.a().startsWith("http")) {
-                    arrayList.add(w48.c(this.b, xz4Var2.a()));
+        for (ro roVar : list) {
+            if (roVar instanceof l05) {
+                l05 l05Var2 = (l05) roVar;
+                if (l05Var2.e() && !l05Var2.a().startsWith("http")) {
+                    arrayList.add(w48.c(this.b, l05Var2.a()));
                 } else {
-                    arrayList.add(xz4Var2.a());
+                    arrayList.add(l05Var2.a());
                 }
             }
         }
@@ -631,7 +631,7 @@ public class v48 extends r48 implements View.OnClickListener {
     public void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            pg.a().removeCallbacks(this.j);
+            ng.a().removeCallbacks(this.j);
         }
     }
 }

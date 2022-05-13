@@ -340,7 +340,7 @@ public class SVProgressHUD {
     public void setCancelable(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65541, this, z) == null) {
-            View findViewById = this.rootView.findViewById(R.id.obfuscated_res_0x7f091dd6);
+            View findViewById = this.rootView.findViewById(R.id.obfuscated_res_0x7f091e2f);
             if (z) {
                 findViewById.setOnTouchListener(this.onCancelableTouchListener);
             } else {
@@ -364,10 +364,10 @@ public class SVProgressHUD {
                     configMaskType(17170445, true, true);
                     return;
                 case 4:
-                    configMaskType(R.color.obfuscated_res_0x7f060408, true, false);
+                    configMaskType(R.color.obfuscated_res_0x7f06040b, true, false);
                     return;
                 case 5:
-                    configMaskType(R.color.obfuscated_res_0x7f060408, true, true);
+                    configMaskType(R.color.obfuscated_res_0x7f06040b, true, true);
                     return;
                 case 6:
                     configMaskType(R.drawable.obfuscated_res_0x7f0802b8, true, false);
@@ -487,7 +487,7 @@ public class SVProgressHUD {
         }
         LayoutInflater from = LayoutInflater.from(context);
         this.decorView = (ViewGroup) ((Activity) context).getWindow().getDecorView().findViewById(16908290);
-        ViewGroup viewGroup = (ViewGroup) from.inflate(R.layout.obfuscated_res_0x7f0d04e8, (ViewGroup) null, false);
+        ViewGroup viewGroup = (ViewGroup) from.inflate(R.layout.obfuscated_res_0x7f0d04dd, (ViewGroup) null, false);
         this.rootView = viewGroup;
         viewGroup.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
     }

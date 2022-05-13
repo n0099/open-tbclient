@@ -13,7 +13,7 @@ import java.util.List;
 import tbclient.GetVipInfo.VipSpecialItem;
 import tbclient.GetVipInfo.VipSpecialList;
 /* loaded from: classes6.dex */
-public class mj7 implements uo {
+public class mj7 implements ro {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
@@ -68,7 +68,7 @@ public class mj7 implements uo {
         }
     }
 
-    @Override // com.repackage.uo
+    @Override // com.repackage.ro
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

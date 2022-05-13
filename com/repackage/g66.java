@@ -1,257 +1,178 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import tbclient.RecommendForumInfo;
-import tbclient.Recommforum.DataRes;
-import tbclient.Recommforum.RecommForum;
-import tbclient.Recommforum.TestInfo;
+import com.repackage.kz;
+import com.repackage.vz;
 /* loaded from: classes6.dex */
-public class g66 {
+public class g66 extends eo<br4, ThreadCardViewHolder<ThreadData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<l66> a;
-    public HashMap<String, Integer> b;
-    public LinkedHashMap<String, List<h66>> c;
-    public HashMap<Long, Integer> d;
-    public HashMap<String, List<h66>> e;
+    public BdUniqueId i;
+    public String j;
+    public TbPageContext<?> k;
+    public xo l;
+    public ux5<ThreadData> m;
 
-    public g66() {
+    /* loaded from: classes6.dex */
+    public class a extends ux5<ThreadData> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ g66 b;
+
+        public a(g66 g66Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g66Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = g66Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.ux5
+        /* renamed from: d */
+        public void a(View view2, ThreadData threadData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
+                nx5.b().d(true);
+                h46.a(view2, threadData, this.b.j);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements bp {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ g66 a;
+
+        public b(g66 g66Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g66Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = g66Var;
+        }
+
+        @Override // com.repackage.bp
+        public void b(View view2, ro roVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, roVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (roVar instanceof br4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
+                ThreadData threadData = ((br4) roVar).s;
+                threadData.objType = 1;
+                if (this.a.m != null) {
+                    this.a.m.a(threadCardViewHolder.b(), threadData);
+                }
+                ThreadCardUtils.jumpToPB((zn4) threadData, view2.getContext(), 2, false);
+                threadCardViewHolder.c().o(new vz.a(1));
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g66(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.m = new a(this);
+        this.k = tbPageContext;
+        this.i = bdUniqueId2;
+        this.j = str;
     }
 
-    public List<uo> a(long j, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)})) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (j > 0) {
-                List<uo> c = c(j, z);
-                if (c != null && !ListUtils.isEmpty(c)) {
-                    arrayList.addAll(c);
-                }
-                List<uo> b = b(z);
-                if (b != null && !ListUtils.isEmpty(b)) {
-                    arrayList.addAll(b);
-                }
-            } else {
-                List<uo> b2 = b(z);
-                if (b2 != null && !ListUtils.isEmpty(b2)) {
-                    arrayList.addAll(b2);
-                }
-            }
-            k66 k66Var = new k66();
-            k66Var.a = TbadkCoreApplication.getInst().getMainTabBottomBarHeightId();
-            arrayList.add(k66Var);
-            return arrayList;
-        }
-        return (List) invokeCommon.objValue;
-    }
-
-    public List<uo> b(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-            ArrayList arrayList = new ArrayList();
-            HashMap<String, Integer> hashMap = this.b;
-            if (hashMap != null && hashMap.size() > 0) {
-                for (String str : this.b.keySet()) {
-                    if (!StringUtils.isNull(str)) {
-                        int intValue = this.b.get(str).intValue();
-                        j66 j66Var = new j66();
-                        j66Var.setTitle(str);
-                        j66Var.needTopMargin = !z;
-                        j66Var.s(intValue);
-                        j66Var.r(e(str));
-                        arrayList.add(j66Var);
-                        arrayList.addAll(j66Var.q());
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeZ.objValue;
-    }
-
-    public final List<uo> c(long j, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)})) == null) {
-            if (j <= 0) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            HashMap<String, List<h66>> hashMap = this.e;
-            if (hashMap != null && hashMap.size() > 0) {
-                Iterator<String> it = this.e.keySet().iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    String next = it.next();
-                    if (!StringUtils.isNull(next)) {
-                        String[] split = next.split("[|]");
-                        if (String.valueOf(j).equals(split[0]) && split.length == 2 && !StringUtils.isNull(split[1])) {
-                            String str = split[1];
-                            int intValue = this.d.get(Long.valueOf(j)).intValue();
-                            j66 j66Var = new j66();
-                            j66Var.setTitle(str);
-                            j66Var.needTopMargin = !z;
-                            j66Var.s(intValue);
-                            j66Var.r(g(next));
-                            arrayList.add(j66Var);
-                            arrayList.addAll(j66Var.q());
-                            break;
-                        }
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeCommon.objValue;
-    }
-
-    public List<l66> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (List) invokeV.objValue;
-    }
-
-    public final List<h66> e(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.eo
+    /* renamed from: b0 */
+    public ThreadCardViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            ArrayList arrayList = new ArrayList();
-            LinkedHashMap<String, List<h66>> linkedHashMap = this.c;
-            if (linkedHashMap != null && linkedHashMap.size() > 0) {
-                arrayList.addAll(this.c.get(str));
-            }
-            return arrayList;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            kz.b bVar = new kz.b(this.k.getPageActivity(), false);
+            bVar.h(new jy(this.k.getPageActivity()));
+            kz k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.l);
+            k.r(2);
+            ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
+            threadCardViewHolder.k(this.i);
+            V(new b(this));
+            return threadCardViewHolder;
         }
-        return (List) invokeL.objValue;
+        return (ThreadCardViewHolder) invokeL.objValue;
     }
 
-    public List<l66> f(long j) {
-        InterceptResult invokeJ;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.eo
+    /* renamed from: c0 */
+    public View S(int i, View view2, ViewGroup viewGroup, br4 br4Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
+        InterceptResult invokeCommon;
+        ThreadData threadData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
-            if (ListUtils.isEmpty(this.a)) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, br4Var, threadCardViewHolder})) == null) {
+            if (br4Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null || (threadData = br4Var.s) == null) {
                 return null;
             }
-            ArrayList arrayList = new ArrayList();
-            int size = this.a.size();
-            int i = 0;
-            while (true) {
-                if (i >= size) {
-                    i = 0;
-                    break;
-                } else if (this.a.get(i).a == j) {
-                    break;
-                } else {
-                    i++;
-                }
-            }
-            if (i == 0) {
-                int i2 = size - 1;
-                arrayList.add(this.a.get(i2));
-                arrayList.addAll(this.a.subList(0, i2));
-            } else {
-                int i3 = i - 1;
-                arrayList.addAll(this.a.subList(i3, size));
-                arrayList.addAll(this.a.subList(0, i3));
-            }
-            return arrayList;
+            threadData.statFloor = C(i) + 1;
+            threadCardViewHolder.c().q(i);
+            threadCardViewHolder.g(br4Var.s);
+            threadCardViewHolder.c().onChangeSkinType(this.k, TbadkCoreApplication.getInst().getSkinType());
+            threadCardViewHolder.c().p(this.m);
+            return threadCardViewHolder.b();
         }
-        return (List) invokeJ.objValue;
+        return (View) invokeCommon.objValue;
     }
 
-    public final List<h66> g(String str) {
-        InterceptResult invokeL;
+    public void d0(xo xoVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            ArrayList arrayList = new ArrayList();
-            HashMap<String, List<h66>> hashMap = this.e;
-            if (hashMap != null && hashMap.size() > 0) {
-                arrayList.addAll(this.e.get(str));
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public void h(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, dataRes) == null) || dataRes == null) {
-            return;
-        }
-        if (!ListUtils.isEmpty(dataRes.test_info)) {
-            this.a = new ArrayList();
-            this.d = new HashMap<>();
-            this.e = new HashMap<>();
-            for (TestInfo testInfo : dataRes.test_info) {
-                if (testInfo != null) {
-                    l66 l66Var = new l66();
-                    l66Var.a(testInfo);
-                    this.a.add(l66Var);
-                    RecommForum recommForum = testInfo.recomm_forum;
-                    if (recommForum != null && !ListUtils.isEmpty(recommForum.forums)) {
-                        ArrayList arrayList = new ArrayList();
-                        for (RecommendForumInfo recommendForumInfo : testInfo.recomm_forum.forums) {
-                            if (recommendForumInfo != null) {
-                                h66 h66Var = new h66();
-                                h66Var.a(recommendForumInfo);
-                                h66Var.h = 1;
-                                arrayList.add(h66Var);
-                            }
-                        }
-                        this.d.put(Long.valueOf(l66Var.a), testInfo.recomm_forum.page_size);
-                        HashMap<String, List<h66>> hashMap = this.e;
-                        hashMap.put(String.valueOf(l66Var.a) + "|" + testInfo.recomm_forum.title, arrayList);
-                    }
-                }
-            }
-        }
-        if (ListUtils.isEmpty(dataRes.recomm_forum)) {
-            return;
-        }
-        this.b = new HashMap<>();
-        this.c = new LinkedHashMap<>();
-        for (RecommForum recommForum2 : dataRes.recomm_forum) {
-            if (recommForum2 != null && !ListUtils.isEmpty(recommForum2.forums)) {
-                ArrayList arrayList2 = new ArrayList();
-                for (RecommendForumInfo recommendForumInfo2 : recommForum2.forums) {
-                    if (recommendForumInfo2 != null) {
-                        h66 h66Var2 = new h66();
-                        h66Var2.a(recommendForumInfo2);
-                        h66Var2.h = 2;
-                        arrayList2.add(h66Var2);
-                    }
-                }
-                this.b.put(recommForum2.title, recommForum2.page_size);
-                this.c.put(recommForum2.title, arrayList2);
-            }
+        if (interceptable == null || interceptable.invokeL(1048580, this, xoVar) == null) {
+            this.l = xoVar;
         }
     }
 }

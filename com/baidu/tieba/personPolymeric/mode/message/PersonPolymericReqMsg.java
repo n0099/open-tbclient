@@ -10,10 +10,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bn4;
-import com.repackage.oi;
-import com.repackage.rc5;
-import com.repackage.z08;
+import com.repackage.jd5;
+import com.repackage.ln4;
+import com.repackage.mi;
+import com.repackage.t08;
 import tbclient.Personal.DataReq;
 import tbclient.Personal.PersonalReqIdl;
 /* loaded from: classes3.dex */
@@ -50,12 +50,12 @@ public class PersonPolymericReqMsg extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.uid = Long.valueOf(this.uid);
             builder.pn = Integer.valueOf(this.pn);
-            builder.scr_w = Integer.valueOf(oi.k(TbadkCoreApplication.getInst().getApp()));
-            builder.scr_h = Integer.valueOf(oi.i(TbadkCoreApplication.getInst().getApp()));
-            builder.q_type = Integer.valueOf(bn4.c().e());
-            builder.scr_dip = Double.valueOf(oi.h(TbadkCoreApplication.getInst().getApp()));
+            builder.scr_w = Integer.valueOf(mi.k(TbadkCoreApplication.getInst().getApp()));
+            builder.scr_h = Integer.valueOf(mi.i(TbadkCoreApplication.getInst().getApp()));
+            builder.q_type = Integer.valueOf(ln4.c().e());
+            builder.scr_dip = Double.valueOf(mi.h(TbadkCoreApplication.getInst().getApp()));
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                rc5.a(builder, true);
+                jd5.a(builder, true);
             }
             PersonalReqIdl.Builder builder2 = new PersonalReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -64,13 +64,13 @@ public class PersonPolymericReqMsg extends NetMessage {
         return invokeZ.objValue;
     }
 
-    public z08 getPersonCenterData() {
+    public t08 getPersonCenterData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return null;
         }
-        return (z08) invokeV.objValue;
+        return (t08) invokeV.objValue;
     }
 
     public int getPn() {

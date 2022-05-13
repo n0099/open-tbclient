@@ -1,12 +1,10 @@
 package com.repackage;
 
-import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.pms.PMSDownloadType;
-import com.baidu.swan.apps.core.pms.PkgDownloadError;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,10 +13,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class i32 extends j32 {
+public class i32 implements x22<w22> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean D;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public volatile Boolean a;
+    public volatile x22<w22> b;
 
     static {
         InterceptResult invokeClinit;
@@ -33,145 +33,148 @@ public class i32 extends j32 {
                 return;
             }
         }
-        D = tg1.a;
+        c = eh1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i32(String str) {
-        super(str);
+    public i32() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = null;
     }
 
-    @Override // com.repackage.j32, com.repackage.c84
-    public void D(b94 b94Var) {
+    @Override // com.repackage.x22
+    public void b(String str, PrefetchEvent.c cVar, PMSAppInfo pMSAppInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, b94Var) == null) {
-            super.D(b94Var);
-            if (D) {
-                Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: onFetchError: " + b94Var.toString());
-            }
-            I0("checkForUpdate", false);
-            n0(b94Var.a);
-            if (z32.m(b94Var)) {
-                z32.c(this.o);
-            }
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar, pMSAppInfo) == null) {
+            l().b(str, cVar, pMSAppInfo);
         }
     }
 
-    @Override // com.repackage.c84
-    public void G() {
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: com.repackage.z22<com.repackage.w22> */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.repackage.y22
+    public void c(z22<w22> z22Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.G();
-            if (this.n != null) {
-                v0();
-                I0("checkForUpdate", false);
-                z32.c(this.o);
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, z22Var) == null) {
+            l().c(z22Var);
         }
     }
 
-    @Override // com.repackage.j32, com.repackage.c84
-    public void H(pd4 pd4Var) {
+    @Override // com.repackage.x22
+    public void d(ua2 ua2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pd4Var) == null) {
-            super.H(pd4Var);
-            I0("checkForUpdate", pd4Var != null && pd4Var.f());
+        if (interceptable == null || interceptable.invokeL(1048579, this, ua2Var) == null) {
+            l().d(ua2Var);
         }
     }
 
-    @Override // com.repackage.c84
-    public void I(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
-            super.I(str, i);
-            m94 a = m94.a(str);
-            if (a == null) {
-                return;
-            }
-            boolean b = od4.b(a.c());
-            jx1.i("SwanAppPkgAsyncDownloadCallback", "resetCore: " + b + ";statusCode:" + i);
-            if (b) {
-                zw2 e = zw2.e();
-                bx2 bx2Var = new bx2(129);
-                bx2Var.f(true);
-                e.h(bx2Var);
-            }
-        }
-    }
-
-    public final void I0(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) || TextUtils.isEmpty(this.o)) {
-            return;
-        }
-        l32.f(str, this.o, z);
-    }
-
-    @Override // com.repackage.n32
-    public int L() {
+    @Override // com.repackage.y22
+    public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return 3;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? l().f() : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.j32
-    public PMSDownloadType l0() {
+    @Override // com.repackage.y22
+    public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? PMSDownloadType.ASYNC : (PMSDownloadType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? l().g() : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.j32
-    public void w0() {
+    @Override // com.repackage.y22
+    public boolean h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.w0();
-            this.p.add(new UbcFlowEvent("na_start_update_db"));
-            cc3 G0 = G0();
-            this.p.add(new UbcFlowEvent("na_end_update_db"));
-            if (G0 == null) {
-                if (D) {
-                    Log.d("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: 异步更新-> DB 存储成功");
-                }
-                I0("updateReady", true);
-                B0("main_async_download", "0");
-                z32.c(this.o);
-            } else if (D) {
-                Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: 异步更新-> DB 存储失败");
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? l().h() : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.x22
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? l().i() : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.x22
+    public void j(boolean z, f32 f32Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048585, this, z, f32Var) == null) {
+            l().j(z, f32Var);
         }
     }
 
-    @Override // com.repackage.j32
-    public void x0(Throwable th) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.y22
+    /* renamed from: k */
+    public w22 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, th) == null) {
-            I0("updateFailed", false);
-            if (th instanceof PkgDownloadError) {
-                PkgDownloadError pkgDownloadError = (PkgDownloadError) th;
-                if (D) {
-                    Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: pkg:" + pkgDownloadError.getPackage() + ", message:" + pkgDownloadError.getMessage());
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? (w22) l().a() : (w22) invokeV.objValue;
+    }
+
+    public final x22<w22> l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (this.b == null) {
+                synchronized (this) {
+                    if (this.b == null) {
+                        this.b = m() ? new m32() : new h32();
+                        if (c) {
+                            Log.d("SwanAppMasterProviderWrapper", "provider - " + this.b.getClass().getSimpleName());
+                        }
+                    }
                 }
-            } else if (D) {
-                Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: 未知错误：" + th.getMessage());
+            }
+            return this.b;
+        }
+        return (x22) invokeV.objValue;
+    }
+
+    public final boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (this.a == null) {
+                this.a = Boolean.valueOf(u42.l() > 0 && u42.i());
+            }
+            if (c) {
+                Log.d("SwanAppMasterProviderWrapper", "loaded swan core version - " + o72.U().d0());
+                Log.d("SwanAppMasterProviderWrapper", "use multi preload - " + this.a);
+            }
+            return this.a.booleanValue();
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.y22
+    /* renamed from: n */
+    public w22 e(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, pMSAppInfo)) == null) ? (w22) l().e(pMSAppInfo) : (w22) invokeL.objValue;
+    }
+
+    @Override // com.repackage.y22
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            l().reset();
+            synchronized (this) {
+                this.a = null;
+                this.b = null;
             }
         }
     }

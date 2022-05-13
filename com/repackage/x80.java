@@ -1,24 +1,17 @@
 package com.repackage;
 
-import android.content.Context;
-import android.os.Environment;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 /* loaded from: classes7.dex */
 public class x80 {
     public static /* synthetic */ Interceptable $ic;
-    public static Context a;
-    public static x80 b;
-    public static File c;
+    public static volatile x80 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
     public x80() {
         Interceptable interceptable = $ic;
@@ -30,100 +23,40 @@ public class x80 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = true;
     }
 
-    public static File a() {
+    public static synchronized x80 a() {
         InterceptResult invokeV;
+        x80 x80Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (Environment.getExternalStorageState().equals("mounted")) {
-                File file = new File(a.getExternalFilesDir("Log").getPath() + "/");
-                Log.i("LogToFileUtils", "file path ..." + file.getPath());
-                if (!file.exists()) {
-                    file.mkdirs();
+            synchronized (x80.class) {
+                if (b == null) {
+                    synchronized (x80.class) {
+                        b = new x80();
+                    }
                 }
-                File file2 = new File(file.getPath() + "/logs.txt");
-                if (file2.exists()) {
-                    file2.delete();
-                }
-                try {
-                    file2.createNewFile();
-                } catch (Exception e) {
-                    Log.e("LogToFileUtils", "Create log file failure !!! " + e.toString());
-                }
-                return file2;
+                x80Var = b;
             }
-            Log.e("LogToFileUtils", "sd not mounted");
-            return null;
+            return x80Var;
         }
-        return (File) invokeV.objValue;
+        return (x80) invokeV.objValue;
     }
 
-    public static String b() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            try {
-                Class<?> cls = Class.forName("com.baidu.android.imsdk.internal.IMConfigInternal");
-                String valueOf = String.valueOf(cls.getMethod("getSDKVersionValue", Context.class).invoke(cls.getMethod("getInstance", new Class[0]).invoke(new Object(), new Object[0]), a));
-                return String.format("%s.%s.%s", valueOf.substring(0, 1), valueOf.substring(1, 2), valueOf.substring(2, 3));
-            } catch (Exception e) {
-                Log.i("LogToFileUtils", e.getMessage());
-                e.printStackTrace();
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
     }
 
-    public static x80 c(Context context) {
-        InterceptResult invokeL;
-        File file;
+    public void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            Log.i("LogToFileUtils", "init ...");
-            if (a != null && b != null && (file = c) != null && file.exists()) {
-                Log.i("LogToFileUtils", "LogToFileUtils has been init ...");
-            } else {
-                a = context;
-                b = new x80();
-                c = a();
-                e("imsdkversion:" + b());
-                e("lcpsdkversion:" + d());
-                Log.i("LogToFileUtils", "LogFilePath is: " + c.getPath());
-            }
-            return b;
-        }
-        return (x80) invokeL.objValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? "2280016" : (String) invokeV.objValue;
-    }
-
-    public static void e(Object obj) {
-        File file;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, obj) == null) {
-            if (a != null && b != null && (file = c) != null && file.exists()) {
-                String str = System.currentTimeMillis() + ":" + obj.toString();
-                Log.i("LogToFileUtils", str);
-                try {
-                    BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(c, true));
-                    bufferedWriter.write(str);
-                    bufferedWriter.write("\r\n");
-                    bufferedWriter.flush();
-                    return;
-                } catch (Exception e) {
-                    Log.e("LogToFileUtils", "Write failure !!! " + e.toString());
-                    return;
-                }
-            }
-            Log.e("LogToFileUtils", "Initialization failure !!!");
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.a = z;
         }
     }
 }

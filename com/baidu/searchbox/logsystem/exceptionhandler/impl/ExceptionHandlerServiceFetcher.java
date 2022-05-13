@@ -7,9 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fc1;
+import com.repackage.qc1;
 /* loaded from: classes2.dex */
-public class ExceptionHandlerServiceFetcher extends fc1<ExceptionHandler> {
+public class ExceptionHandlerServiceFetcher extends qc1<ExceptionHandler> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,7 +29,7 @@ public class ExceptionHandlerServiceFetcher extends fc1<ExceptionHandler> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.repackage.fc1
+    @Override // com.repackage.qc1
     public ExceptionHandler createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

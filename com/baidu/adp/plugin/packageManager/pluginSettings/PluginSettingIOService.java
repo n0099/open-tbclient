@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nm;
-import com.repackage.pm;
+import com.repackage.km;
+import com.repackage.mm;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -103,74 +103,74 @@ public class PluginSettingIOService extends Service {
                         this.a.sendUpdateMsg(pluginSettings);
                         return;
                     case 6:
-                        if (nm.b().d() == null || (data = message.getData()) == null) {
+                        if (km.b().d() == null || (data = message.getData()) == null) {
                             return;
                         }
                         boolean z = data.getBoolean(PluginSettingIOService.KEY_FORBIDDEN);
-                        PluginSetting findPluginSetting = nm.b().d().findPluginSetting(data.getString(PluginSettingIOService.KEY_SETTING_NAME));
+                        PluginSetting findPluginSetting = km.b().d().findPluginSetting(data.getString(PluginSettingIOService.KEY_SETTING_NAME));
                         if (findPluginSetting != null) {
                             findPluginSetting.forbidden = z;
-                            this.a.save(nm.b().d(), null);
+                            this.a.save(km.b().d(), null);
                             this.a.sendUpdateMsg(6, data);
                             return;
                         }
                         return;
                     case 7:
-                        if (nm.b().d() == null || (data2 = message.getData()) == null) {
+                        if (km.b().d() == null || (data2 = message.getData()) == null) {
                             return;
                         }
-                        nm.b().d().removePluginSetting(data2.getString(PluginSettingIOService.KEY_SETTING_NAME));
-                        this.a.save(nm.b().d(), null);
+                        km.b().d().removePluginSetting(data2.getString(PluginSettingIOService.KEY_SETTING_NAME));
+                        this.a.save(km.b().d(), null);
                         this.a.sendUpdateMsg(7, data2);
                         return;
                     case 8:
-                        if (nm.b().d() == null || (data3 = message.getData()) == null) {
+                        if (km.b().d() == null || (data3 = message.getData()) == null) {
                             return;
                         }
-                        nm.b().d().setAllPluginEnable(data3.getBoolean(PluginSettingIOService.KEY_ENABLE));
-                        this.a.save(nm.b().d(), null);
+                        km.b().d().setAllPluginEnable(data3.getBoolean(PluginSettingIOService.KEY_ENABLE));
+                        this.a.save(km.b().d(), null);
                         this.a.sendUpdateMsg(8, data3);
                         return;
                     case 9:
-                        if (nm.b().d() == null || (data4 = message.getData()) == null) {
+                        if (km.b().d() == null || (data4 = message.getData()) == null) {
                             return;
                         }
                         boolean z2 = data4.getBoolean(PluginSettingIOService.KEY_ENABLE);
-                        PluginSetting findPluginSetting2 = nm.b().d().findPluginSetting(data4.getString(PluginSettingIOService.KEY_SETTING_NAME));
+                        PluginSetting findPluginSetting2 = km.b().d().findPluginSetting(data4.getString(PluginSettingIOService.KEY_SETTING_NAME));
                         if (findPluginSetting2 != null) {
                             findPluginSetting2.enable = z2;
-                            this.a.save(nm.b().d(), null);
+                            this.a.save(km.b().d(), null);
                             this.a.sendUpdateMsg(9, data4);
                             return;
                         }
                         return;
                     case 10:
-                        if (nm.b().d() == null || (data5 = message.getData()) == null) {
+                        if (km.b().d() == null || (data5 = message.getData()) == null) {
                             return;
                         }
-                        nm.b().d().setContainerSetting(data5.getString("key_version"));
-                        this.a.save(nm.b().d(), null);
+                        km.b().d().setContainerSetting(data5.getString("key_version"));
+                        this.a.save(km.b().d(), null);
                         this.a.sendUpdateMsg(10, data5);
                         return;
                     case 11:
-                        if (nm.b().d() == null || (data6 = message.getData()) == null) {
+                        if (km.b().d() == null || (data6 = message.getData()) == null) {
                             return;
                         }
                         int i = data6.getInt(PluginSettingIOService.KEY_INSTALL_STATUS);
-                        PluginSetting findPluginSetting3 = nm.b().d().findPluginSetting(data6.getString(PluginSettingIOService.KEY_SETTING_NAME));
+                        PluginSetting findPluginSetting3 = km.b().d().findPluginSetting(data6.getString(PluginSettingIOService.KEY_SETTING_NAME));
                         if (findPluginSetting3 != null) {
                             findPluginSetting3.installStatus = i;
-                            this.a.save(nm.b().d(), null);
+                            this.a.save(km.b().d(), null);
                             this.a.sendUpdateMsg(11, data6);
                             return;
                         }
                         return;
                     case 12:
-                        if (nm.b().d() == null || (data7 = message.getData()) == null) {
+                        if (km.b().d() == null || (data7 = message.getData()) == null) {
                             return;
                         }
-                        nm.b().d().setForbiddenFeatures(data7.getString(PluginSettingIOService.KEY_FORBIDDEN_FEATURE));
-                        this.a.save(nm.b().d(), null);
+                        km.b().d().setForbiddenFeatures(data7.getString(PluginSettingIOService.KEY_FORBIDDEN_FEATURE));
+                        this.a.save(km.b().d(), null);
                         this.a.sendUpdateMsg(12, data7);
                         return;
                 }
@@ -196,10 +196,10 @@ public class PluginSettingIOService extends Service {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void save(PluginSettings pluginSettings, pm pmVar) {
+    public void save(PluginSettings pluginSettings, mm mmVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, pluginSettings, pmVar) == null) {
-            nm.b().e(pluginSettings, pmVar);
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, pluginSettings, mmVar) == null) {
+            km.b().e(pluginSettings, mmVar);
         }
     }
 

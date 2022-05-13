@@ -31,7 +31,7 @@ public class ULongProgression implements Iterable<ULong>, KMappedMarker {
         }
 
         /* renamed from: fromClosedRange-7ftBX0g  reason: not valid java name */
-        public final ULongProgression m1901fromClosedRange7ftBX0g(long j, long j2, long j3) {
+        public final ULongProgression m1902fromClosedRange7ftBX0g(long j, long j2, long j3) {
             return new ULongProgression(j, j2, j3, null);
         }
 
@@ -57,12 +57,12 @@ public class ULongProgression implements Iterable<ULong>, KMappedMarker {
     }
 
     /* renamed from: getFirst-s-VKNKU  reason: not valid java name */
-    public final long m1899getFirstsVKNKU() {
+    public final long m1900getFirstsVKNKU() {
         return this.first;
     }
 
     /* renamed from: getLast-s-VKNKU  reason: not valid java name */
-    public final long m1900getLastsVKNKU() {
+    public final long m1901getLastsVKNKU() {
         return this.last;
     }
 
@@ -77,7 +77,7 @@ public class ULongProgression implements Iterable<ULong>, KMappedMarker {
         long j = this.first;
         long j2 = this.last;
         long j3 = this.step;
-        return ((int) (j3 ^ (j3 >>> 32))) + (((((int) ULong.m860constructorimpl(j ^ ULong.m860constructorimpl(j >>> 32))) * 31) + ((int) ULong.m860constructorimpl(j2 ^ ULong.m860constructorimpl(j2 >>> 32)))) * 31);
+        return ((int) (j3 ^ (j3 >>> 32))) + (((((int) ULong.m861constructorimpl(j ^ ULong.m861constructorimpl(j >>> 32))) * 31) + ((int) ULong.m861constructorimpl(j2 ^ ULong.m861constructorimpl(j2 >>> 32)))) * 31);
     }
 
     public boolean isEmpty() {
@@ -103,16 +103,16 @@ public class ULongProgression implements Iterable<ULong>, KMappedMarker {
         long j;
         if (this.step > 0) {
             sb = new StringBuilder();
-            sb.append(ULong.m905toStringimpl(this.first));
+            sb.append(ULong.m906toStringimpl(this.first));
             sb.append(IStringUtil.TOP_PATH);
-            sb.append(ULong.m905toStringimpl(this.last));
+            sb.append(ULong.m906toStringimpl(this.last));
             sb.append(" step ");
             j = this.step;
         } else {
             sb = new StringBuilder();
-            sb.append(ULong.m905toStringimpl(this.first));
+            sb.append(ULong.m906toStringimpl(this.first));
             sb.append(" downTo ");
-            sb.append(ULong.m905toStringimpl(this.last));
+            sb.append(ULong.m906toStringimpl(this.last));
             sb.append(" step ");
             j = -this.step;
         }
@@ -126,7 +126,7 @@ public class ULongProgression implements Iterable<ULong>, KMappedMarker {
         }
         if (j3 != Long.MIN_VALUE) {
             this.first = j;
-            this.last = UProgressionUtilKt.m1878getProgressionLastElement7ftBX0g(j, j2, j3);
+            this.last = UProgressionUtilKt.m1879getProgressionLastElement7ftBX0g(j, j2, j3);
             this.step = j3;
             return;
         }

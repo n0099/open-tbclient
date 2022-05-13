@@ -60,7 +60,7 @@ public final class z extends bk.a {
             ieVar.c(hp.g.f490a);
             ieVar.a(at.a());
             ieVar.a(new HashMap());
-            ieVar.m504a().put("gaid", a2);
+            ieVar.m505a().put("gaid", a2);
             byte[] a3 = ip.a(y.a(this.a.getPackageName(), this.f965a.d, ieVar, hf.i));
             XMPushService xMPushService = this.a;
             xMPushService.a(xMPushService.getPackageName(), a3, true);

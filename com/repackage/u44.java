@@ -1,51 +1,58 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vm2;
-import org.json.JSONObject;
+import com.kwad.v8.NodeJS;
+import com.repackage.r44;
 /* loaded from: classes7.dex */
-public abstract class u44<T extends vm2> {
+public class u44 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public u44() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755310948, "Lcom/repackage/u44;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755310948, "Lcom/repackage/u44;");
+                return;
             }
         }
+        a = eh1.a;
     }
 
-    public abstract boolean b(Context context, T t, sm2 sm2Var, j03 j03Var, JSONObject jSONObject);
-
-    public boolean c(Context context, T t, sm2 sm2Var, j03 j03Var) {
-        InterceptResult invokeLLLL;
+    public static void a(@NonNull u03 u03Var, @NonNull r44.e eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, t, sm2Var, j03Var)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (!b(context, t, sm2Var, j03Var, jSONObject)) {
-                sm2Var.d(1001);
-                jx1.c("map", "doAction fail");
-                return false;
+        if (interceptable == null || interceptable.invokeLL(65537, null, u03Var, eVar) == null) {
+            long l = u03Var.V().l("launch_time", 0L);
+            if (l <= 0) {
+                if (a) {
+                    Log.d("GameWebViewStatistic", "doH5GameLoadingFinishStats: launchTime is invalid.");
+                    return;
+                }
+                return;
             }
-            if (jSONObject.length() <= 0) {
-                jSONObject = null;
-            }
-            sm2Var.e(jSONObject);
-            return true;
+            w73 w73Var = new w73();
+            w73Var.a = n73.n(u03Var.V().G());
+            w73Var.f = u03Var.getAppId();
+            w73Var.c = u03Var.V().T();
+            w73Var.b = NodeJS.STARTUP_SCRIPT_NAME;
+            w73Var.g = eVar.a;
+            w73Var.e = eVar.b;
+            w73Var.a("na_start", Long.valueOf(l));
+            w73Var.a("h5_start", Long.valueOf(eVar.c));
+            w73Var.a("h5_finish", Long.valueOf(eVar.d));
+            n73.x("1235", w73Var);
         }
-        return invokeLLLL.booleanValue;
     }
 }

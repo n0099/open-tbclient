@@ -1,36 +1,50 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.pb.pb.main.PbFragment;
+import com.baidu.tieba.pb.pb.main.SubmitPbShowTipHttpResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class aw7 implements b55 {
+public class aw7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public PbFragment a;
+    public oz5 b;
 
-    public aw7() {
+    public aw7(PbFragment pbFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pbFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = pbFragment;
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SUBMIT_PB_SHOW_TIP, TbConfig.SERVER_ADDRESS + TbConfig.SUBMIT_SHOW_PB_TIPS);
+        tbHttpMessageTask.setResponsedClass(SubmitPbShowTipHttpResponseMessage.class);
+        tbHttpMessageTask.setIsNeedTbs(true);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    @Override // com.repackage.b55
-    @NonNull
-    public a55 b(@NonNull TbPageContext tbPageContext) {
-        InterceptResult invokeL;
+    public void a() {
+        oz5 oz5Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tbPageContext)) == null) ? new ku7(tbPageContext) : (a55) invokeL.objValue;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (oz5Var = this.b) == null) {
+            return;
+        }
+        oz5Var.I();
     }
 }

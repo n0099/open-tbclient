@@ -1,7 +1,25 @@
 package com.repackage;
 
-import org.json.JSONObject;
+import android.content.pm.PackageInfo;
+import com.baidu.nps.utils.ContextHolder;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
 /* loaded from: classes6.dex */
-public interface h71 {
-    void a(boolean z, JSONObject jSONObject);
+public class h71 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static PackageInfo a(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
+            if (new File(str).exists()) {
+                return ContextHolder.getApplicationContext().getPackageManager().getPackageArchiveInfo(str, i);
+            }
+            return null;
+        }
+        return (PackageInfo) invokeLI.objValue;
+    }
 }

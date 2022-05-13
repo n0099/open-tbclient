@@ -1,78 +1,137 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Bitmap;
+import android.os.AsyncTask;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.util.Iterator;
-import java.util.List;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.io.FileOutputStream;
+import java.io.IOException;
 /* loaded from: classes6.dex */
-public class pr9 {
+public final class pr9 extends AsyncTask {
     public static /* synthetic */ Interceptable $ic;
-    public static final ThreadPoolExecutor a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ File a;
+    public final /* synthetic */ Bitmap b;
+    public final /* synthetic */ Bitmap.CompressFormat c;
+    public final /* synthetic */ mt9 d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755400166, "Lcom/repackage/pr9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755400166, "Lcom/repackage/pr9;");
+    public pr9(File file, Bitmap bitmap, Bitmap.CompressFormat compressFormat, mt9 mt9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {file, bitmap, compressFormat, mt9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new ThreadPoolExecutor(1, 5, 1L, TimeUnit.MINUTES, new LinkedBlockingQueue(30));
+        this.a = file;
+        this.b = bitmap;
+        this.c = compressFormat;
+        this.d = mt9Var;
     }
 
-    public static String a(Context context, String str, String str2, List list, ir9 ir9Var) {
-        InterceptResult invokeLLLLL;
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x003b */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x0007 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:9:0x001e */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v10, types: [java.io.FileOutputStream] */
+    /* JADX WARN: Type inference failed for: r0v11 */
+    /* JADX WARN: Type inference failed for: r0v12 */
+    /* JADX WARN: Type inference failed for: r0v13, types: [java.io.OutputStream, java.io.FileOutputStream] */
+    /* JADX WARN: Type inference failed for: r0v16 */
+    /* JADX WARN: Type inference failed for: r0v17 */
+    /* JADX WARN: Type inference failed for: r0v2 */
+    /* JADX WARN: Type inference failed for: r0v3 */
+    /* JADX WARN: Type inference failed for: r0v8 */
+    /* JADX WARN: Type inference failed for: r0v9, types: [java.io.IOException] */
+    /* JADX WARN: Type inference failed for: r1v6, types: [android.graphics.Bitmap] */
+    @Override // android.os.AsyncTask
+    public Object doInBackground(Object[] objArr) {
+        Throwable th;
+        IOException e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65537, null, context, str, str2, list, ir9Var)) == null) {
-            AtomicInteger atomicInteger = new AtomicInteger(0);
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                String str3 = (String) it.next();
-                File file = new File(str2, String.valueOf(str3.hashCode()));
-                if (file.exists()) {
-                    if (file.length() == cr9.b(context).a(str3)) {
-                        str = str.replace(str3, "file://" + file.getAbsolutePath());
-                        atomicInteger.addAndGet(1);
-                    }
-                }
+        InterceptResult e2 = interceptable;
+        if (interceptable != null) {
+            InterceptResult invokeL = interceptable.invokeL(1048576, this, objArr);
+            e2 = invokeL;
+            if (invokeL != null) {
+                return invokeL.objValue;
             }
-            if (ir9Var != null) {
-                if (atomicInteger.get() <= 0) {
-                    ir9Var.a(0);
-                } else if (atomicInteger.get() == list.size()) {
-                    ir9Var.a(2);
-                } else {
-                    ir9Var.a(1);
-                }
-            }
-            return str;
         }
-        return (String) invokeLLLLL.objValue;
+        Void[] voidArr = (Void[]) objArr;
+        FileOutputStream fileOutputStream = null;
+        try {
+        } catch (Throwable th2) {
+            FileOutputStream fileOutputStream2 = e2;
+            th = th2;
+            fileOutputStream = fileOutputStream2;
+        }
+        try {
+            try {
+                e2 = new FileOutputStream(this.a);
+            } catch (IOException e3) {
+                e2 = e3;
+                e2.printStackTrace();
+            }
+            try {
+                this.b.compress(this.c, 100, e2);
+                e2.flush();
+                e2.close();
+                e2 = e2;
+            } catch (IOException e4) {
+                e = e4;
+                new com.win.opensdk.k0(e);
+                cancel(true);
+                if (e2 != 0) {
+                    e2.flush();
+                    e2.close();
+                    e2 = e2;
+                }
+                return null;
+            }
+        } catch (IOException e5) {
+            e = e5;
+            e2 = 0;
+        } catch (Throwable th3) {
+            th = th3;
+            if (fileOutputStream != null) {
+                try {
+                    fileOutputStream.flush();
+                    fileOutputStream.close();
+                } catch (IOException e6) {
+                    e6.printStackTrace();
+                }
+            }
+            throw th;
+        }
+        return null;
     }
 
-    public static void b(Context context, String str, List list, fr9 fr9Var) {
+    @Override // android.os.AsyncTask
+    public void onCancelled() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65538, null, context, str, list, fr9Var) == null) {
-            try {
-                a.execute(new zq9(context, str, list, fr9Var));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.d.a();
+        }
+    }
+
+    @Override // android.os.AsyncTask
+    public void onPostExecute(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            Void r5 = (Void) obj;
+            this.d.b();
         }
     }
 }

@@ -1,440 +1,91 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.net.wifi.SupplicantState;
-import android.net.wifi.WifiConfiguration;
-import android.net.wifi.WifiInfo;
-import android.os.Build;
-import android.os.Handler;
-import android.os.Looper;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.response.TaskResponseData;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import android.provider.Settings;
+import android.util.Log;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class gb3 extends db3 {
+public class gb3 extends r23 {
     public static /* synthetic */ Interceptable $ic;
-    @SuppressLint({"StaticFieldLeak"})
-    public static volatile gb3 i;
     public transient /* synthetic */ FieldHolder $fh;
-    public final eb3 h;
-
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements eb3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public cf3<jb3<ib3>> a;
-        public WifiConfiguration b;
-        public boolean c;
-        public final Handler d;
-        public final Lock e;
-        public final Runnable f;
-        public final ab3 g;
-        public final /* synthetic */ gb3 h;
-
-        /* loaded from: classes6.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.e.lock();
-                    try {
-                        if (this.a.a != null) {
-                            this.a.h.g(12003, "connection timeout", null, this.a.a);
-                        }
-                        this.a.l();
-                    } finally {
-                        this.a.e.unlock();
-                    }
-                }
-            }
-        }
-
-        /* renamed from: com.repackage.gb3$b$b  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class C0420b implements ab3 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public C0420b(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // com.repackage.bb3
-            public void a(WifiInfo wifiInfo) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, wifiInfo) == null) {
-                    if (wifiInfo == null) {
-                        wifiInfo = this.a.h.b.getConnectionInfo();
-                    }
-                    this.a.e.lock();
-                    try {
-                        if (this.a.b != null && this.a.a != null && TextUtils.equals(wifiInfo.getSSID(), this.a.b.SSID)) {
-                            this.a.h.g(0, "success", new ib3(wifiInfo, lb3.a(kb3.b(this.a.h.a, this.a.h.b, wifiInfo))), this.a.a);
-                            this.a.l();
-                        }
-                    } finally {
-                        this.a.e.unlock();
-                    }
-                }
-            }
-
-            @Override // com.repackage.ab3
-            public void onError(int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                    this.a.e.lock();
-                    if (i == 1) {
-                        try {
-                            if (this.a.a != null) {
-                                if (this.a.c) {
-                                    this.a.h.g(TaskResponseData.ERROR_NO_TASK_OFFLINE_03, "password error", null, this.a.a);
-                                } else {
-                                    this.a.h.g(12013, "wifi config unavailable", null, this.a.a);
-                                }
-                                this.a.l();
-                            }
-                        } finally {
-                            this.a.e.unlock();
-                        }
-                    }
-                }
-            }
-        }
-
-        /* loaded from: classes6.dex */
-        public class c implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ cf3 a;
-            public final /* synthetic */ hb3 b;
-            public final /* synthetic */ b c;
-
-            public c(b bVar, cf3 cf3Var, hb3 hb3Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, cf3Var, hb3Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.c = bVar;
-                this.a = cf3Var;
-                this.b = hb3Var;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                int addNetwork;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (Build.VERSION.SDK_INT >= 29) {
-                        this.c.h.g(com.kuaishou.weapon.un.w0.I5, "not support", null, this.a);
-                    } else if (!this.c.h.l()) {
-                        this.c.h.g(com.kuaishou.weapon.un.w0.X3, "not init", null, this.a);
-                    } else if (!this.c.h.b.isWifiEnabled()) {
-                        this.c.h.g(12005, "wifi is not on", null, this.a);
-                    } else if (!de3.K(this.c.h.a)) {
-                        this.c.h.g(12006, "LBS is not on", null, this.a);
-                    } else if (ContextCompat.checkSelfPermission(this.c.h.a, "android.permission.ACCESS_FINE_LOCATION") == 0) {
-                        this.c.e.lock();
-                        try {
-                            if (this.c.a == null) {
-                                this.c.a = this.a;
-                                this.c.e.unlock();
-                                this.c.b = kb3.a(this.b);
-                                if (this.c.b != null) {
-                                    if (!TextUtils.isEmpty(this.c.b.preSharedKey) && kb3.e(this.c.b.preSharedKey).length() < 8) {
-                                        b bVar = this.c;
-                                        bVar.h.g(TaskResponseData.ERROR_NO_TASK_OFFLINE_03, "password error", null, bVar.a);
-                                        this.c.l();
-                                        return;
-                                    }
-                                    WifiInfo connectionInfo = this.c.h.b.getConnectionInfo();
-                                    if (connectionInfo != null && connectionInfo.getSupplicantState() != SupplicantState.COMPLETED) {
-                                        connectionInfo = null;
-                                    }
-                                    boolean z = false;
-                                    if (connectionInfo != null && !TextUtils.equals(connectionInfo.getSSID(), "<unknown ssid>") && TextUtils.equals(this.c.b.SSID, connectionInfo.getSSID()) && (TextUtils.isEmpty(this.c.b.BSSID) || (!TextUtils.isEmpty(this.c.b.BSSID) && TextUtils.equals(this.c.b.BSSID, connectionInfo.getBSSID())))) {
-                                        gb3 gb3Var = this.c.h;
-                                        gb3Var.g(0, "success", new ib3(connectionInfo, lb3.a(kb3.b(gb3Var.a, gb3Var.b, connectionInfo))), this.a);
-                                        this.c.l();
-                                        return;
-                                    }
-                                    gb3 gb3Var2 = this.c.h;
-                                    WifiConfiguration c = kb3.c(gb3Var2.a, gb3Var2.b, this.b);
-                                    if (c != null) {
-                                        this.c.b.networkId = c.networkId;
-                                    }
-                                    if (this.c.b.networkId > -1) {
-                                        b bVar2 = this.c;
-                                        addNetwork = bVar2.h.b.updateNetwork(bVar2.b);
-                                        if (addNetwork < 0 && c != null && !TextUtils.isEmpty(this.c.b.BSSID) && !TextUtils.equals(this.c.b.BSSID, c.BSSID)) {
-                                            this.c.h.g(12013, "wifi config unavailable", null, this.a);
-                                            this.c.l();
-                                            return;
-                                        } else if (connectionInfo != null && addNetwork == connectionInfo.getNetworkId() && !TextUtils.isEmpty(this.c.b.BSSID) && !TextUtils.equals(this.c.b.BSSID, connectionInfo.getBSSID())) {
-                                            this.c.h.g(12013, "wifi config unavailable", null, this.a);
-                                            this.c.l();
-                                            return;
-                                        }
-                                    } else {
-                                        b bVar3 = this.c;
-                                        addNetwork = bVar3.h.b.addNetwork(bVar3.b);
-                                    }
-                                    this.c.c = addNetwork >= 0;
-                                    if (addNetwork < 0 && this.c.b.networkId > -1) {
-                                        addNetwork = this.c.b.networkId;
-                                    }
-                                    if (addNetwork >= 0) {
-                                        this.c.d.postDelayed(this.c.f, 16000L);
-                                        z = this.c.h.b.enableNetwork(addNetwork, true);
-                                        this.c.h.b.saveConfiguration();
-                                    }
-                                    if (z) {
-                                        return;
-                                    }
-                                    this.c.h.g(12013, "wifi config unavailable", null, this.a);
-                                    this.c.l();
-                                    return;
-                                }
-                                this.c.h.g(12008, "invalid ssid", null, this.a);
-                                this.c.l();
-                                return;
-                            }
-                            this.c.h.g(12004, "is connecting", null, this.a);
-                        } finally {
-                            this.c.e.unlock();
-                        }
-                    } else {
-                        this.c.h.g(12012, "no location permission", null, this.a);
-                    }
-                }
-            }
-        }
-
-        public b(gb3 gb3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gb3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.h = gb3Var;
-            this.d = new Handler(Looper.getMainLooper());
-            this.e = new ReentrantLock();
-            this.f = new a(this);
-            C0420b c0420b = new C0420b(this);
-            this.g = c0420b;
-            gb3Var.c.setConnectListener(c0420b);
-        }
-
-        @Override // com.repackage.eb3
-        public void a(hb3 hb3Var, cf3<jb3<ib3>> cf3Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, hb3Var, cf3Var) == null) || cf3Var == null) {
-                return;
-            }
-            dd3.k(new c(this, cf3Var, hb3Var), "connectWifi");
-        }
-
-        public final void l() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.e.lock();
-                try {
-                    this.d.removeCallbacks(this.f);
-                    this.b = null;
-                    this.a = null;
-                } finally {
-                    this.e.unlock();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements eb3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gb3 a;
-
-        public c(gb3 gb3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gb3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gb3Var;
-        }
-
-        @Override // com.repackage.eb3
-        public void a(hb3 hb3Var, cf3<jb3<ib3>> cf3Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, hb3Var, cf3Var) == null) || cf3Var == null) {
-                return;
-            }
-            this.a.g(com.kuaishou.weapon.un.w0.I5, "not support", null, cf3Var);
-        }
-
-        public /* synthetic */ c(gb3 gb3Var, a aVar) {
-            this(gb3Var);
-        }
-    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gb3(Context context) {
-        super(context);
+    public gb3(r13 r13Var) {
+        super(r13Var, "/swanAPI/getAutoRotationSync");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {r13Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((Context) newInitContext.callArgs[0]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (Build.VERSION.SDK_INT < 29) {
-            this.h = new b(this);
-        } else {
-            this.h = new c(this, null);
-        }
     }
 
-    public static gb3 s(@NonNull Context context) {
-        InterceptResult invokeL;
+    @Override // com.repackage.r23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u03 u03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (i == null) {
-                synchronized (gb3.class) {
-                    if (i == null) {
-                        i = new gb3(context);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, u03Var)) == null) {
+            if (u03Var == null) {
+                ux1.c("getAutoRotationSync", "none swanApp");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
+                if (r23.b) {
+                    Log.e("SwanAppAction", "getAutoRotationSync --- illegal swanApp");
+                }
+                return false;
+            } else if (context == null) {
+                ux1.c("getAutoRotationSync", "none context");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
+                if (r23.b) {
+                    Log.e("SwanAppAction", "getAutoRotationSync --- illegal context");
+                }
+                return false;
+            } else {
+                try {
+                    int i = Settings.System.getInt(context.getApplicationContext().getContentResolver(), "accelerometer_rotation");
+                    if (r23.b) {
+                        Log.d("SwanAppAction", "getAutoRotationSync --- isRotateOn: " + i);
                     }
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("isRotateOn", i != 0);
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
+                        return true;
+                    } catch (JSONException unused) {
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "json exception");
+                        if (r23.b) {
+                            Log.e("SwanAppAction", "getAutoRotationSync --- json exception");
+                        }
+                        return false;
+                    }
+                } catch (Exception e) {
+                    if (r23.b) {
+                        e.printStackTrace();
+                        Log.e("SwanAppAction", "getAutoRotationSync --- can't get setting");
+                    }
+                    return false;
                 }
             }
-            return i;
         }
-        return (gb3) invokeL.objValue;
-    }
-
-    public static void u() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || i == null) {
-            return;
-        }
-        i.h();
-        i = null;
-    }
-
-    @Override // com.repackage.eb3
-    public void a(hb3 hb3Var, cf3<jb3<ib3>> cf3Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, hb3Var, cf3Var) == null) || cf3Var == null) {
-            return;
-        }
-        if (hb3Var != null && hb3Var.e) {
-            t();
-            g(0, "success", null, cf3Var);
-            return;
-        }
-        this.h.a(hb3Var, cf3Var);
-    }
-
-    public final void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Intent intent = new Intent();
-            intent.setAction("android.settings.WIFI_SETTINGS");
-            if (!(this.a instanceof Activity)) {
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-            }
-            this.a.startActivity(intent);
-        }
+        return invokeLLLL.booleanValue;
     }
 }

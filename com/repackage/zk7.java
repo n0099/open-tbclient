@@ -45,24 +45,24 @@ public class zk7 {
             }
         }
         this.b = baseActivity;
-        this.d = baseActivity.findViewById(R.id.obfuscated_res_0x7f091ed1);
-        this.a = (BdListView) baseActivity.findViewById(R.id.obfuscated_res_0x7f091ecd);
-        NavigationBar navigationBar = (NavigationBar) baseActivity.findViewById(R.id.obfuscated_res_0x7f091ece);
+        this.d = baseActivity.findViewById(R.id.obfuscated_res_0x7f091f29);
+        this.a = (BdListView) baseActivity.findViewById(R.id.obfuscated_res_0x7f091f25);
+        NavigationBar navigationBar = (NavigationBar) baseActivity.findViewById(R.id.obfuscated_res_0x7f091f26);
         this.c = navigationBar;
-        navigationBar.setCenterTextTitle(baseActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f133b));
-        this.f = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.b.getString(R.string.obfuscated_res_0x7f0f036e), onClickListener);
-        TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, baseActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0513), onClickListener);
+        navigationBar.setCenterTextTitle(baseActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f135d));
+        this.f = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.b.getString(R.string.obfuscated_res_0x7f0f0374), onClickListener);
+        TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, baseActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0519), onClickListener);
         this.g = addTextButton;
         addTextButton.setGravity(17);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f.getLayoutParams();
-        layoutParams.leftMargin = oi.f(this.b, R.dimen.obfuscated_res_0x7f0701be);
+        layoutParams.leftMargin = mi.f(this.b, R.dimen.obfuscated_res_0x7f0701be);
         this.f.setLayoutParams(layoutParams);
         LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.g.getLayoutParams();
-        layoutParams2.rightMargin = oi.f(this.b, R.dimen.obfuscated_res_0x7f0701be);
+        layoutParams2.rightMargin = mi.f(this.b, R.dimen.obfuscated_res_0x7f0701be);
         this.g.setLayoutParams(layoutParams2);
-        int f = oi.f(this.b, R.dimen.tbds27);
+        int f = mi.f(this.b, R.dimen.tbds27);
         this.g.setPadding(f, 0, f, 0);
-        this.e = (NoNetworkView) baseActivity.findViewById(R.id.obfuscated_res_0x7f091eda);
+        this.e = (NoNetworkView) baseActivity.findViewById(R.id.obfuscated_res_0x7f091f32);
         View view2 = new View(baseActivity.getPageContext().getPageActivity());
         view2.setLayoutParams(new AbsListView.LayoutParams(-1, (int) baseActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070266)));
         View view3 = new View(baseActivity.getPageContext().getPageActivity());
@@ -107,10 +107,10 @@ public class zk7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             if (z) {
-                this.g.setText(this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f04e7));
+                this.g.setText(this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f04ed));
                 return;
             }
-            this.g.setText(this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f0513));
+            this.g.setText(this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f0519));
             this.g.setEnabled(!z2);
         }
     }

@@ -24,8 +24,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.mg;
-import com.repackage.oi;
+import com.repackage.kg;
+import com.repackage.mi;
 import com.repackage.rs7;
 import com.repackage.wa;
 /* loaded from: classes3.dex */
@@ -86,7 +86,7 @@ public class PbFakeFloorModel extends DataModel {
             this.a.c = false;
             if (responsedMessage.hasError()) {
                 if (StringUtils.isNull(responsedMessage.getErrorString())) {
-                    errorString = this.a.e.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
+                    errorString = this.a.e.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0c2d);
                 } else {
                     errorString = responsedMessage.getErrorString();
                 }
@@ -261,9 +261,9 @@ public class PbFakeFloorModel extends DataModel {
             if (rs7Var != null && rs7Var.l() != null && this.b.l().getId() != null && this.b.i() != null && this.b.i().I() != null) {
                 this.c = true;
                 float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
-                int k = oi.k(TbadkCoreApplication.getInst().getApp());
-                int i = oi.i(TbadkCoreApplication.getInst().getApp());
-                return new SubPbRequestMessage(this.e.getPageActivity(), mg.g(this.b.l().getId(), 0L), mg.g(this.b.i().I(), 0L), 0L, 1, k, i, f, "", 1);
+                int k = mi.k(TbadkCoreApplication.getInst().getApp());
+                int i = mi.i(TbadkCoreApplication.getInst().getApp());
+                return new SubPbRequestMessage(this.e.getPageActivity(), kg.g(this.b.l().getId(), 0L), kg.g(this.b.i().I(), 0L), 0L, 1, k, i, f, "", 1);
             }
             this.c = false;
             return null;

@@ -38,7 +38,7 @@ public class or7 {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FINE_PB, kk8.a(TbConfig.FINE_PB_PAGE, 309093));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FINE_PB, hj8.a(TbConfig.FINE_PB_PAGE, 309093));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -51,11 +51,11 @@ public class or7 {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            l95 l95Var = new l95(309093);
-            l95Var.setResponsedClass(ChosenPbSocketResponse.class);
-            l95Var.g(true);
-            l95Var.h(false);
-            MessageManager.getInstance().registerTask(l95Var);
+            ca5 ca5Var = new ca5(309093);
+            ca5Var.setResponsedClass(ChosenPbSocketResponse.class);
+            ca5Var.g(true);
+            ca5Var.h(false);
+            MessageManager.getInstance().registerTask(ca5Var);
         }
     }
 
@@ -63,9 +63,9 @@ public class or7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{pbChosenActivity, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             ChosenPbNetMessage chosenPbNetMessage = new ChosenPbNetMessage();
-            int k = oi.k(pbChosenActivity.getPageContext().getPageActivity());
-            int i = oi.i(pbChosenActivity.getPageContext().getPageActivity());
-            float h = oi.h(pbChosenActivity.getPageContext().getPageActivity());
+            int k = mi.k(pbChosenActivity.getPageContext().getPageActivity());
+            int i = mi.i(pbChosenActivity.getPageContext().getPageActivity());
+            float h = mi.h(pbChosenActivity.getPageContext().getPageActivity());
             chosenPbNetMessage.setQ_type(45L);
             chosenPbNetMessage.setScrH(i);
             chosenPbNetMessage.setScrW(k);

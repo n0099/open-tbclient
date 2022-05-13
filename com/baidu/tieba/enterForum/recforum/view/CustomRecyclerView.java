@@ -15,8 +15,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class CustomRecyclerView extends BdTypeRecyclerView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float w;
-    public float x;
+    public float A;
+    public float z;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CustomRecyclerView(Context context) {
@@ -58,11 +58,11 @@ public class CustomRecyclerView extends BdTypeRecyclerView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
             if (motionEvent.getAction() == 0) {
-                this.w = motionEvent.getX();
-                this.x = motionEvent.getY();
+                this.z = motionEvent.getX();
+                this.A = motionEvent.getY();
             } else {
                 if (motionEvent.getAction() == 2) {
-                    getParent().requestDisallowInterceptTouchEvent(Math.abs(motionEvent.getX() - this.w) > Math.abs(motionEvent.getY() - this.x));
+                    getParent().requestDisallowInterceptTouchEvent(Math.abs(motionEvent.getX() - this.z) > Math.abs(motionEvent.getY() - this.A));
                 } else {
                     getParent().requestDisallowInterceptTouchEvent(false);
                 }

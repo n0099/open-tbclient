@@ -47,7 +47,7 @@ public class l extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
     public ViewGroup.MarginLayoutParams A;
     public Handler B;
     public p.b C;
-    public final a.InterfaceC0308a D;
+    public final a.InterfaceC0307a D;
     public RatioFrameLayout a;
     public KsAdWebView f;
     @Nullable
@@ -104,8 +104,8 @@ public class l extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
                 }
             }
         };
-        this.D = new a.InterfaceC0308a() { // from class: com.kwad.sdk.feed.widget.l.5
-            @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC0308a
+        this.D = new a.InterfaceC0307a() { // from class: com.kwad.sdk.feed.widget.l.5
+            @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC0307a
             public void a(int i, z.a aVar) {
                 int i2;
                 int i3 = 2;
@@ -124,7 +124,7 @@ public class l extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
                 p.a aVar2 = new p.a();
                 aVar2.g = aVar;
                 aVar2.b = i2;
-                com.kwad.sdk.core.download.a.a.a(new a.C0296a(bb.a(l.this.m)).a(((com.kwad.sdk.feed.widget.base.a) l.this).b).a(l.this.g).a(i3).a(z).c(true).a(aVar2).e(true).a(new a.b() { // from class: com.kwad.sdk.feed.widget.l.5.1
+                com.kwad.sdk.core.download.a.a.a(new a.C0295a(bb.a(l.this.m)).a(((com.kwad.sdk.feed.widget.base.a) l.this).b).a(l.this.g).a(i3).a(z).c(true).a(aVar2).e(true).a(new a.b() { // from class: com.kwad.sdk.feed.widget.l.5.1
                     @Override // com.kwad.sdk.core.download.a.a.b
                     public void a() {
                         l.this.l();
@@ -160,7 +160,7 @@ public class l extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
             this.n.setAutoRelease(false);
             AdVideoPlayerViewCache.a().a(a2, this.m);
             FeedType fromInt = FeedType.fromInt(((com.kwad.sdk.feed.widget.base.a) this).b.type);
-            a.C0296a a3 = new a.C0296a(bb.a(this)).a(((com.kwad.sdk.feed.widget.base.a) this).b).a(this.g).a(2);
+            a.C0295a a3 = new a.C0295a(bb.a(this)).a(((com.kwad.sdk.feed.widget.base.a) this).b).a(this.g).a(2);
             if ((fromInt == FeedType.FEED_TYPE_TEXT_BELOW || fromInt == FeedType.FEED_TYPE_TEXT_ABOVE) && com.kwad.sdk.core.response.a.a.P(((com.kwad.sdk.feed.widget.base.a) this).c)) {
                 z = true;
             }
@@ -301,11 +301,11 @@ public class l extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
                 }
                 boolean z = com.kwad.sdk.core.response.a.a.P(((com.kwad.sdk.feed.widget.base.a) l.this).c) && (((com.kwad.sdk.feed.widget.base.a) l.this).b.type == FeedType.FEED_TYPE_TEXT_BELOW.getType() || ((com.kwad.sdk.feed.widget.base.a) l.this).b.type == FeedType.FEED_TYPE_TEXT_ABOVE.getType());
                 p.a aVar2 = new p.a();
-                b.C0313b c0313b = aVar.d;
-                if (c0313b != null && !TextUtils.isEmpty(c0313b.a)) {
+                b.C0312b c0312b = aVar.d;
+                if (c0312b != null && !TextUtils.isEmpty(c0312b.a)) {
                     aVar2.h = aVar.d.a;
                 }
-                com.kwad.sdk.core.download.a.a.a(new a.C0296a(bb.a(l.this)).a(((com.kwad.sdk.feed.widget.base.a) l.this).b).a(l.this.g).a(l.this.a(aVar)).a(i).f(aVar.a).e(z).a(aVar2).c(true).a(new a.b() { // from class: com.kwad.sdk.feed.widget.l.11.1
+                com.kwad.sdk.core.download.a.a.a(new a.C0295a(bb.a(l.this)).a(((com.kwad.sdk.feed.widget.base.a) l.this).b).a(l.this.g).a(l.this.a(aVar)).a(i).f(aVar.a).e(z).a(aVar2).c(true).a(new a.b() { // from class: com.kwad.sdk.feed.widget.l.11.1
                     @Override // com.kwad.sdk.core.download.a.a.b
                     public void a() {
                         if (((com.kwad.sdk.feed.widget.base.a) l.this).d != null) {
@@ -557,12 +557,12 @@ public class l extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
 
     @Override // com.kwad.sdk.feed.widget.base.a
     public void c() {
-        KsAdWebView ksAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091185);
+        KsAdWebView ksAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091194);
         this.f = ksAdWebView;
         ksAdWebView.setVisibility(4);
-        this.a = (RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f091053);
-        this.q = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f091158);
-        this.o = (ImageView) findViewById(R.id.obfuscated_res_0x7f091168);
+        this.a = (RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f091062);
+        this.q = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f091167);
+        this.o = (ImageView) findViewById(R.id.obfuscated_res_0x7f091177);
     }
 
     public void d() {
@@ -579,7 +579,7 @@ public class l extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
 
     @Override // com.kwad.sdk.feed.widget.base.a
     public int getLayoutId() {
-        return R.layout.obfuscated_res_0x7f0d043c;
+        return R.layout.obfuscated_res_0x7f0d0430;
     }
 
     public void h() {

@@ -1,158 +1,89 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Bitmap;
+import android.util.LruCache;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.tencent.connect.common.Constants;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class y81 {
+public class y81 {
     public static /* synthetic */ Interceptable $ic;
-    public static long a;
-    public static JSONObject b;
     public transient /* synthetic */ FieldHolder $fh;
+    public LruCache<String, Bitmap> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755188033, "Lcom/repackage/y81;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class a extends LruCache<String, Bitmap> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(y81 y81Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y81Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755188033, "Lcom/repackage/y81;");
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.util.LruCache
+        /* renamed from: a */
+        public int sizeOf(String str, Bitmap bitmap) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bitmap)) == null) ? bitmap.getByteCount() / 1024 : invokeLL.intValue;
+        }
+    }
+
+    public y81() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b = new JSONObject();
+        this.a = new a(this, ((int) (Runtime.getRuntime().maxMemory() / 1024)) / 8);
     }
 
-    public static final void a(String str, long j) {
+    public void a(String str, Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65537, null, str, j) == null) {
-            try {
-                if (b == null) {
-                    b = new JSONObject();
-                }
-                JSONObject jSONObject = b;
-                if (jSONObject != null) {
-                    jSONObject.put(str, j);
-                }
-            } catch (Exception unused) {
-                l91.g("add panelShow json error");
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
+            String b = d91.b(str);
+            if (b(b) == null) {
+                this.a.put(b, bitmap);
             }
         }
     }
 
-    public static final void b(String str, String str2, String str3) {
+    public final Bitmap b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("exceptionCode", 3);
-                if (!TextUtils.isEmpty(str2)) {
-                    jSONObject.put("errno", str2);
-                }
-                if (!TextUtils.isEmpty(str3)) {
-                    jSONObject.put("errmsg", str3);
-                }
-            } catch (Exception unused) {
-            }
-            z81 z81Var = new z81(str);
-            z81Var.c(jSONObject);
-            c91.e(z81Var);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.a.get(str) : (Bitmap) invokeL.objValue;
     }
 
-    public static final void c(String str, HashMap<String, String> hashMap) {
+    public Bitmap c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, hashMap) == null) {
-            if (hashMap != null) {
-                JSONObject jSONObject = new JSONObject();
-                for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-                    jSONObject.put(entry.getKey(), entry.getValue());
-                }
-                z81 z81Var = new z81(str);
-                z81Var.c(jSONObject);
-                c91.e(z81Var);
-                return;
-            }
-            c91.e(new z81(str));
-        }
-    }
-
-    public static final void d() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) || a <= 0) {
-            return;
-        }
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("3", a);
-            jSONObject.put("4", System.currentTimeMillis());
-        } catch (Exception unused) {
-        }
-        z81 z81Var = new z81(Constants.DEFAULT_UIN);
-        z81Var.c(jSONObject);
-        c91.e(z81Var);
-        a = 0L;
-    }
-
-    public static final void e() {
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65541, null) == null) || (jSONObject = b) == null) {
-            return;
-        }
-        if ((jSONObject != null ? jSONObject.length() : 0) > 0) {
-            a("2", System.currentTimeMillis());
-            z81 z81Var = new z81(Constants.DEFAULT_UIN);
-            z81Var.c(b);
-            c91.e(z81Var);
-            b = null;
-        }
-    }
-
-    public static final void f(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65542, null, j) == null) {
-            a = j;
-        }
-    }
-
-    public static final void g(int i, String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i), str, str2, str3, str4}) == null) {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("exceptionType", i);
-            jSONObject.put("payChannel", str2);
-            jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str3);
-            jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, str4);
-            z81 z81Var = new z81(str);
-            z81Var.c(jSONObject);
-            c91.e(z81Var);
-        }
-    }
-
-    public static final void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("exceptionCode", 0);
-            } catch (Exception unused) {
-            }
-            z81 z81Var = new z81(str);
-            z81Var.c(jSONObject);
-            c91.e(z81Var);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? b(d91.b(str)) : (Bitmap) invokeL.objValue;
     }
 }

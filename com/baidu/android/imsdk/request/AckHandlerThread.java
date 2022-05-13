@@ -15,9 +15,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c80;
-import com.repackage.p70;
-import com.repackage.y70;
+import com.repackage.b80;
+import com.repackage.f80;
+import com.repackage.r70;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -126,7 +126,7 @@ public class AckHandlerThread extends HandlerThread {
     /* JADX INFO: Access modifiers changed from: private */
     public void retryAck(Context context, NewAckMessage newAckMessage) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65543, this, context, newAckMessage) == null) && p70.e && newAckMessage != null) {
+        if ((interceptable == null || interceptable.invokeLL(65543, this, context, newAckMessage) == null) && r70.e && newAckMessage != null) {
             BLCPRequest bLCPRequest = new BLCPRequest();
             bLCPRequest.a = 2L;
             bLCPRequest.b = 95L;
@@ -134,7 +134,7 @@ public class AckHandlerThread extends HandlerThread {
             bLCPRequest.d = System.nanoTime();
             String str = TAG;
             LogUtils.d(str, "ackRequest msgid:" + bLCPRequest.d);
-            y70.c(bLCPRequest, new c80(this, newAckMessage, context) { // from class: com.baidu.android.imsdk.request.AckHandlerThread.2
+            b80.c(bLCPRequest, new f80(this, newAckMessage, context) { // from class: com.baidu.android.imsdk.request.AckHandlerThread.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AckHandlerThread this$0;
@@ -161,7 +161,7 @@ public class AckHandlerThread extends HandlerThread {
                     this.val$context = context;
                 }
 
-                @Override // com.repackage.c80
+                @Override // com.repackage.f80
                 public void onResponse(int i, String str2, long j, long j2, long j3, byte[] bArr) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), bArr}) == null) && i == 0) {

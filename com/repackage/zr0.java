@@ -89,11 +89,11 @@ public class zr0 extends sr0 implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.b = new ImageView(getContext());
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(b21.b(42.0f), b21.b(42.0f));
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(l21.b(42.0f), l21.b(42.0f));
             layoutParams.gravity = 17;
             this.c = new PlayDrawable();
             this.b.setLayoutParams(layoutParams);
-            this.b.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e10));
+            this.b.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e2a));
             this.b.setImageDrawable(this.c);
             this.b.setOnClickListener(this);
             this.b.setVisibility(8);

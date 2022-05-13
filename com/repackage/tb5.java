@@ -1,95 +1,57 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.coreExtra.data.ABTestExtraData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.template.state.ViewType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ub5;
 /* loaded from: classes7.dex */
-public class tb5 {
+public class tb5 extends qb5<x45, ub5.d> {
     public static /* synthetic */ Interceptable $ic;
-    public static tb5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public fw4 a;
-    public ABTestExtraData b;
+    public TbPageContext<?> e;
 
-    public tb5() {
+    public tb5(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.e = tbPageContext;
     }
 
-    public static tb5 d() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.qb5
+    /* renamed from: g */
+    public void d(ViewType viewType, x45 x45Var, ub5.d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (tb5.class) {
-                    if (c == null) {
-                        c = new tb5();
-                    }
-                }
-            }
-            return c;
-        }
-        return (tb5) invokeV.objValue;
-    }
-
-    public final void a(fw4 fw4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, fw4Var) == null) {
-            boolean z = fw4Var == null || this.a == null || fw4Var.a() != this.a.a();
-            this.a = fw4Var;
-            if (z) {
-                b("zan_or_cai_smallflow");
-            }
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewType, x45Var, dVar) == null) {
+            x45Var.s(dVar.b);
+            x45Var.k().setText(dVar.a);
+            x45Var.onChangeSkinType();
         }
     }
 
-    public final void b(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.qb5
+    /* renamed from: h */
+    public x45 f(ViewType viewType, ViewGroup viewGroup) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156670, str));
-        }
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.b == null) {
-                ABTestExtraData aBTestExtraData = new ABTestExtraData();
-                this.b = aBTestExtraData;
-                aBTestExtraData.parserABTestExtraFormSharedPref();
-            }
-            return this.b.getABTestResult();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void e(fw4 fw4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, fw4Var) == null) {
-            a(fw4Var);
-        }
-    }
-
-    public void f(ABTestExtraData aBTestExtraData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aBTestExtraData) == null) {
-            this.b = aBTestExtraData;
-        }
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, viewType, viewGroup)) == null) ? new x45(this.e.getPageActivity()) : (x45) invokeLL.objValue;
     }
 }

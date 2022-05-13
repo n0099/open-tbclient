@@ -7,17 +7,17 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ala.gamefrslivetab.video.AlaGameFrsLiveTabVideoFragment;
+import com.baidu.tieba.ala.gamebar.AlaGameFrsLiveTabFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ts5 extends m45 {
+public class ts5 extends d55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlaGameFrsLiveTabVideoFragment c;
+    public AlaGameFrsLiveTabFragment c;
 
     public ts5() {
         Interceptable interceptable = $ic;
@@ -32,30 +32,30 @@ public class ts5 extends m45 {
                 return;
             }
         }
-        this.c = new AlaGameFrsLiveTabVideoFragment();
+        this.c = new AlaGameFrsLiveTabFragment();
         b().a = this.c;
     }
 
-    @Override // com.repackage.m45
-    public n45 a() {
+    @Override // com.repackage.d55
+    public e55 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            n45 n45Var = new n45();
-            n45Var.e = 3;
-            n45Var.b = R.string.obfuscated_res_0x7f0f021c;
-            n45Var.i = n45.l;
-            return n45Var;
+            e55 e55Var = new e55();
+            e55Var.e = 2;
+            e55Var.b = R.string.obfuscated_res_0x7f0f021e;
+            e55Var.i = e55.k;
+            return e55Var;
         }
-        return (n45) invokeV.objValue;
+        return (e55) invokeV.objValue;
     }
 
-    @Override // com.repackage.m45
+    @Override // com.repackage.d55
     public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02f8, (ViewGroup) null);
+            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ef, (ViewGroup) null);
             this.b = fragmentTabIndicator;
             fragmentTabIndicator.setTextSize(2.0f);
             return this.b;
@@ -63,7 +63,7 @@ public class ts5 extends m45 {
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // com.repackage.m45
+    @Override // com.repackage.d55
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -73,30 +73,37 @@ public class ts5 extends m45 {
         return invokeV.booleanValue;
     }
 
-    public void g(String str) {
-        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment;
+    public void g(od6 od6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (alaGameFrsLiveTabVideoFragment = this.c) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, od6Var) == null) && od6Var != null && od6Var.h(2)) {
+            od6Var.a(this);
         }
-        alaGameFrsLiveTabVideoFragment.E0(str);
     }
 
     public void h(String str) {
-        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment;
+        AlaGameFrsLiveTabFragment alaGameFrsLiveTabFragment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (alaGameFrsLiveTabVideoFragment = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (alaGameFrsLiveTabFragment = this.c) == null) {
             return;
         }
-        alaGameFrsLiveTabVideoFragment.F0(str);
+        alaGameFrsLiveTabFragment.M0(str);
     }
 
-    public void i(boolean z) {
-        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment;
+    public void i(String str) {
+        AlaGameFrsLiveTabFragment alaGameFrsLiveTabFragment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (alaGameFrsLiveTabVideoFragment = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (alaGameFrsLiveTabFragment = this.c) == null) {
             return;
         }
-        alaGameFrsLiveTabVideoFragment.G0(z);
+        alaGameFrsLiveTabFragment.N0(str);
+    }
+
+    public void j(String str) {
+        AlaGameFrsLiveTabFragment alaGameFrsLiveTabFragment;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || (alaGameFrsLiveTabFragment = this.c) == null) {
+            return;
+        }
+        alaGameFrsLiveTabFragment.O0(str);
     }
 }

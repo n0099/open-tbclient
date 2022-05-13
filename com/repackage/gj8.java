@@ -1,95 +1,42 @@
 package com.repackage;
 
-import android.graphics.Color;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tbclient.ThemeElement;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.SmartApp;
 /* loaded from: classes6.dex */
 public class gj8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ThemeElement a;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public Integer d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755676004, "Lcom/repackage/gj8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755676004, "Lcom/repackage/gj8;");
-                return;
+    public gj8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        ThemeElement.Builder builder = new ThemeElement.Builder();
-        builder.common_color = "#FF614EC2";
-        builder.dark_color = "#FF614EC2";
-        builder.light_color = "#FF614EC2";
-        builder.pattern_image = "http://imgsrc.baidu.com/forum/pic/item/00a8540828381f3028c4e2d1a6014c086f06f075.jpg";
-        builder.font_color = "#FFFFFFFF";
-        a = builder.build(false);
     }
 
-    public static int a(int i, float f) {
-        InterceptResult invokeCommon;
+    public void a(SmartApp smartApp) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) ? (i & 16777215) | (((int) ((i >>> 24) * f)) << 24) : invokeCommon.intValue;
-    }
-
-    @NonNull
-    public static ThemeElement b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (ThemeElement) invokeV.objValue;
-    }
-
-    public static int c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            float[] fArr = new float[3];
-            Color.colorToHSV(i, fArr);
-            if ((fArr[0] < 0.0f || fArr[0] >= 60.0f) && ((fArr[0] < 120.0f || fArr[0] >= 180.0f) && fArr[0] < 240.0f && fArr[0] >= 300.0f)) {
-                fArr[0] = fArr[0] + 15.0f;
-            } else {
-                fArr[0] = fArr[0] - 15.0f;
-            }
-            return Color.HSVToColor(fArr);
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, smartApp) == null) || smartApp == null) {
+            return;
         }
-        return invokeI.intValue;
-    }
-
-    public static boolean d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? i == Integer.MAX_VALUE : invokeI.booleanValue;
-    }
-
-    public static int e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (str != null) {
-                if (str.length() != 0) {
-                    try {
-                        if (!str.startsWith("#")) {
-                            str = "#" + str;
-                        }
-                    } catch (Exception unused) {
-                        return Integer.MAX_VALUE;
-                    }
-                }
-                return Color.parseColor(str);
-            }
-            return Integer.MAX_VALUE;
-        }
-        return invokeL.intValue;
+        String str = smartApp.avatar;
+        this.a = smartApp.name;
+        this.b = smartApp.id;
+        this.c = smartApp.link;
+        this.d = smartApp.is_game;
     }
 }

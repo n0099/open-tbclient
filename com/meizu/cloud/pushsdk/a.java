@@ -14,7 +14,7 @@ import com.meizu.cloud.pushsdk.platform.message.RegisterStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubAliasStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubTagsStatus;
 import com.meizu.cloud.pushsdk.platform.message.UnRegisterStatus;
-import com.repackage.ym9;
+import com.repackage.tl9;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -28,8 +28,8 @@ public class a {
 
     /* renamed from: com.meizu.cloud.pushsdk.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C0362a extends com.meizu.cloud.pushsdk.handler.a {
-        public C0362a() {
+    public class C0361a extends com.meizu.cloud.pushsdk.handler.a {
+        public C0361a() {
         }
 
         @Override // com.meizu.cloud.pushsdk.handler.a
@@ -199,36 +199,36 @@ public class a {
         }
         this.b = context.getApplicationContext();
         this.d = new HashMap();
-        C0362a c0362a = new C0362a();
+        C0361a c0361a = new C0361a();
         if (list != null) {
             a(list);
             return;
         }
-        a(new com.meizu.cloud.pushsdk.handler.a.c(context, c0362a));
-        a(new b(context, c0362a));
-        a(new e(context, c0362a));
-        a(new com.meizu.cloud.pushsdk.handler.a.c.b(context, c0362a));
-        a(new d(context, c0362a));
-        a(new f(context, c0362a));
-        a(new com.meizu.cloud.pushsdk.handler.a.c.c(context, c0362a));
-        a(new com.meizu.cloud.pushsdk.handler.a.d.a(context, c0362a));
-        a(new com.meizu.cloud.pushsdk.handler.a.d.c(context, c0362a));
-        a(new com.meizu.cloud.pushsdk.handler.a.d.f(context, c0362a));
-        a(new com.meizu.cloud.pushsdk.handler.a.d.d(context, c0362a));
-        a(new com.meizu.cloud.pushsdk.handler.a.d.e(context, c0362a));
-        a(new com.meizu.cloud.pushsdk.handler.a.e.a(context, c0362a));
-        a(new com.meizu.cloud.pushsdk.handler.a.d.b(context, c0362a));
-        a(new com.meizu.cloud.pushsdk.handler.a.c.d(context, c0362a));
-        a(new com.meizu.cloud.pushsdk.handler.a.a.a(context, c0362a));
-        a(new com.meizu.cloud.pushsdk.handler.a.c.a(context, c0362a));
-        a(new com.meizu.cloud.pushsdk.handler.a.c.e(context, c0362a));
+        a(new com.meizu.cloud.pushsdk.handler.a.c(context, c0361a));
+        a(new b(context, c0361a));
+        a(new e(context, c0361a));
+        a(new com.meizu.cloud.pushsdk.handler.a.c.b(context, c0361a));
+        a(new d(context, c0361a));
+        a(new f(context, c0361a));
+        a(new com.meizu.cloud.pushsdk.handler.a.c.c(context, c0361a));
+        a(new com.meizu.cloud.pushsdk.handler.a.d.a(context, c0361a));
+        a(new com.meizu.cloud.pushsdk.handler.a.d.c(context, c0361a));
+        a(new com.meizu.cloud.pushsdk.handler.a.d.f(context, c0361a));
+        a(new com.meizu.cloud.pushsdk.handler.a.d.d(context, c0361a));
+        a(new com.meizu.cloud.pushsdk.handler.a.d.e(context, c0361a));
+        a(new com.meizu.cloud.pushsdk.handler.a.e.a(context, c0361a));
+        a(new com.meizu.cloud.pushsdk.handler.a.d.b(context, c0361a));
+        a(new com.meizu.cloud.pushsdk.handler.a.c.d(context, c0361a));
+        a(new com.meizu.cloud.pushsdk.handler.a.a.a(context, c0361a));
+        a(new com.meizu.cloud.pushsdk.handler.a.c.a(context, c0361a));
+        a(new com.meizu.cloud.pushsdk.handler.a.c.e(context, c0361a));
     }
 
     public static a a(Context context) {
         if (a == null) {
             synchronized (a.class) {
                 if (a == null) {
-                    ym9.d("PushMessageProxy", "PushMessageProxy init");
+                    tl9.d("PushMessageProxy", "PushMessageProxy init");
                     a = new a(context);
                 }
             }
@@ -257,17 +257,17 @@ public class a {
     }
 
     public void a(Intent intent) {
-        ym9.b("PushMessageProxy", "is onMainThread " + a());
+        tl9.b("PushMessageProxy", "is onMainThread " + a());
         try {
             String stringExtra = intent.getStringExtra("method");
-            ym9.d("PushMessageProxy", "receive action " + intent.getAction() + " method " + stringExtra);
+            tl9.d("PushMessageProxy", "receive action " + intent.getAction() + " method " + stringExtra);
             if (intent != null) {
                 Iterator<Map.Entry<Integer, c>> it = this.c.entrySet().iterator();
                 while (it.hasNext() && !it.next().getValue().b(intent)) {
                 }
             }
         } catch (Exception e) {
-            ym9.b("PushMessageProxy", "processMessage error " + e.getMessage());
+            tl9.b("PushMessageProxy", "processMessage error " + e.getMessage());
         }
     }
 

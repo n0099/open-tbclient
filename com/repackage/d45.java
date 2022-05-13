@@ -1,7 +1,7 @@
 package com.repackage;
 
-import android.view.View;
+import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes5.dex */
 public interface d45 {
-    void a(View view2, View view3, boolean z);
+    String a(ImageFileInfo imageFileInfo);
 }

@@ -1,103 +1,95 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes6.dex */
-public class me7 extends pv4<rv4, a> {
+public class me7 implements le7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final AtomicReference<le7> a;
+    public static final le7 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context d;
 
-    /* loaded from: classes6.dex */
-    public class a extends BdBaseViewPagerAdapter.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TbImageView d;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(me7 me7Var, View view2) {
-            super(view2);
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755502094, "Lcom/repackage/me7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {me7Var, view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((View) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            if (view2 instanceof TbImageView) {
-                TbImageView tbImageView = (TbImageView) view2;
-                this.d = tbImageView;
-                tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public me7(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755502094, "Lcom/repackage/me7;");
                 return;
             }
         }
-        this.d = context;
+        a = new AtomicReference<>(null);
+        b = new me7();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.pv4
-    /* renamed from: f */
-    public a b(ViewGroup viewGroup) {
+    public me7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static le7 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            le7 le7Var = a.get();
+            return le7Var == null ? b : le7Var;
+        }
+        return (le7) invokeV.objValue;
+    }
+
+    @Override // com.repackage.le7
+    public de7 a(he7 he7Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            TbImageView tbImageView = new TbImageView(this.d);
-            tbImageView.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            return new a(this, tbImageView);
-        }
-        return (a) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.pv4
-    /* renamed from: g */
-    public View d(ViewGroup viewGroup, a aVar, rv4 rv4Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, viewGroup, aVar, rv4Var)) == null) {
-            aVar.d.K(rv4Var.a(), 17, false);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, he7Var)) == null) {
+            BdLog.e("Card project loaded failed.");
             return null;
         }
-        return (View) invokeLLL.objValue;
+        return (de7) invokeL.objValue;
+    }
+
+    @Override // com.repackage.le7
+    public hd7 b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, bdUniqueId, i)) == null) {
+            BdLog.e("Card project loaded failed.");
+            return null;
+        }
+        return (hd7) invokeLLI.objValue;
+    }
+
+    @Override // com.repackage.le7
+    public ne7 c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, bdUniqueId)) == null) {
+            BdLog.e("Card project loaded failed.");
+            return null;
+        }
+        return (ne7) invokeLL.objValue;
     }
 }

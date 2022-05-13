@@ -1,314 +1,145 @@
 package com.repackage;
 
-import android.app.Dialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.os.Bundle;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.ImageView;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.util.TiePlusHelper;
-import com.baidu.tbadk.widget.ProgressButton;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.yoga.YogaNodeJNIBase;
+import java.io.File;
 /* loaded from: classes6.dex */
-public class mf5 extends Dialog {
+public class mf5 extends BdAsyncTask<Void, Void, String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public View b;
-    public TbImageView c;
-    public TextView d;
-    public TextView e;
-    public TextView f;
-    public TextView g;
-    public TextView h;
-    public TextView i;
-    public ImageView j;
-    public ProgressButton k;
-    public final TiePlusHelper l;
-    public final boolean m;
-    public String n;
-    public String o;
-    public String p;
-    public String q;
-    public c r;
+    public String a;
+    public String b;
+    public NetWork c;
+    public a d;
 
     /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mf5 a;
-
-        public a(mf5 mf5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mf5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mf5Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.l.onClick(view2);
-                if (this.a.r != null) {
-                    this.a.r.a();
-                }
-            }
-        }
+    public interface a {
+        void a(boolean z, String str);
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mf5 a;
-
-        public b(mf5 mf5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mf5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mf5Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface c {
-        void a();
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mf5(@NonNull Context context, TiePlusHelper tiePlusHelper, boolean z) {
-        super(context, true, null);
+    public mf5(String str, String str2, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, tiePlusHelper, Boolean.valueOf(z)};
+            Object[] objArr = {str, str2, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), (DialogInterface.OnCancelListener) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.l = tiePlusHelper;
-        this.m = z;
+        this.a = str;
+        this.b = str2;
+        this.d = aVar;
     }
 
-    public final int c() {
-        InterceptResult invokeV;
+    public static boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int k = oi.k(getContext());
-            if (k < 975.0d) {
-                return 759;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            File file = new File(str);
+            if (file.exists()) {
+                return true;
             }
-            return (k * 322) / 414;
+            try {
+                return file.mkdirs();
+            } catch (Exception e) {
+                TiebaStatic.file(e, li.join("FileHelper", ".", "CheckTempDir", " ", str));
+                return false;
+            }
         }
-        return invokeV.intValue;
+        return invokeL.booleanValue;
     }
 
-    public final void d() {
+    public final void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = findViewById(R.id.obfuscated_res_0x7f0907ea);
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090290);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09029b);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09029c);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09028b);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090296);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f090297);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090823);
-            this.k = (ProgressButton) findViewById(R.id.obfuscated_res_0x7f090820);
-            this.j = (ImageView) findViewById(R.id.obfuscated_res_0x7f092469);
-            this.c.setPlaceHolder(2);
-            this.c.setConrers(15);
-            e();
-            this.h.setTag(Byte.valueOf((byte) YogaNodeJNIBase.HAS_NEW_LAYOUT));
-            this.g.setTag((byte) 17);
-            this.i.setTag((byte) 18);
-            if (!StringUtils.isNull(this.n)) {
-                this.d.setText(this.n);
-            }
-            if (!StringUtils.isNull(this.q)) {
-                this.c.K(this.q, 10, false);
-            }
-            if (!StringUtils.isNull(this.o)) {
-                this.e.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0291), this.o));
-            }
-            if (!StringUtils.isNull(this.p)) {
-                this.f.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f04d6), this.p));
-            }
-            this.g.setOnClickListener(this.l);
-            this.h.setOnClickListener(this.l);
-            this.i.setOnClickListener(this.l);
-            this.k.setOnClickListener(new a(this));
-            this.k.setUseLongText(true);
-            this.j.setOnClickListener(new b(this));
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || li.isEmpty(str)) {
+            return;
         }
+        FileHelper.deleteFileOrDir(new File(str));
     }
 
-    public void e() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public String doInBackground(Void... voidArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            vr4 d = vr4.d(this.a);
-            d.n(R.string.J_X06);
-            d.f(R.color.CAM_X0201);
-            vr4 d2 = vr4.d(this.d);
-            d2.A(R.string.F_X02);
-            d2.v(R.color.CAM_X0105);
-            vr4.d(this.e).v(R.color.CAM_X0108);
-            vr4.d(this.f).v(R.color.CAM_X0108);
-            vr4.d(this.g).v(R.color.CAM_X0304);
-            vr4.d(this.h).v(R.color.CAM_X0304);
-            vr4.d(this.i).v(R.color.CAM_X0107);
-            vr4.d(this.b).f(R.color.CAM_X0107);
-            WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f080901, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL);
-            this.k.i();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
+            if (li.isEmpty(this.a) || li.isEmpty(this.b) || !b(this.a)) {
+                return null;
+            }
+            String c = si.c(this.b);
+            String str = this.a + c + "/";
+            if (e(str)) {
+                return c;
+            }
+            NetWork netWork = new NetWork();
+            this.c = netWork;
+            netWork.setUrl(this.b);
+            String str2 = this.a + c + ".zip";
+            if (this.c.downloadFile(str2, null, 0, 3, 0, true) && f(str2, str)) {
+                c(str2);
+                return c;
+            }
+            c(str2);
+            return null;
         }
+        return (String) invokeL.objValue;
     }
 
-    public mf5 f(String str) {
+    public final boolean e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.p = str;
-            return this;
-        }
-        return (mf5) invokeL.objValue;
-    }
-
-    public mf5 g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.q = str;
-            return this;
-        }
-        return (mf5) invokeL.objValue;
-    }
-
-    public mf5 h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            this.n = str;
-            return this;
-        }
-        return (mf5) invokeL.objValue;
-    }
-
-    public mf5 i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            this.o = str;
-            return this;
-        }
-        return (mf5) invokeL.objValue;
-    }
-
-    public void j(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, cVar) == null) {
-            this.r = cVar;
-        }
-    }
-
-    @Override // android.app.Dialog, android.view.Window.Callback
-    public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            super.onAttachedToWindow();
-            this.l.f(this.k);
-            if (this.m) {
-                MessageManager.getInstance().registerListener(this.l);
+            if (li.isEmpty(str)) {
+                return false;
             }
-            if (StringUtils.isNull(this.l.p()) || StringUtils.isNull(this.l.m())) {
-                return;
+            File file = new File(str);
+            if (!file.exists() || !file.isDirectory() || file.list() == null || file.list().length <= 0) {
+                file.delete();
+                return false;
             }
-            TiePlusHelper tiePlusHelper = this.l;
-            tiePlusHelper.Z(tiePlusHelper.p(), this.l.m(), getContext(), this.k);
-            TiePlusHelper tiePlusHelper2 = this.l;
-            tiePlusHelper2.Y(tiePlusHelper2.p(), getContext(), this.i);
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    @Override // android.app.Dialog
-    public void onCreate(Bundle bundle) {
+    public final boolean f(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
-            super.onCreate(bundle);
-            getWindow().setBackgroundDrawableResource(R.color.transparent);
-            View inflate = getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0831, (ViewGroup) null);
-            this.a = inflate;
-            setContentView(inflate);
-            WindowManager.LayoutParams attributes = getWindow().getAttributes();
-            attributes.width = c();
-            getWindow().setAttributes(attributes);
-            d();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+            if (li.isEmpty(str) || li.isEmpty(str2)) {
+                return false;
+            }
+            return qt4.b(str, str2);
         }
+        return invokeLL.booleanValue;
     }
 
-    @Override // android.app.Dialog, android.view.Window.Callback
-    public void onDetachedFromWindow() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPostExecute(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            super.onDetachedFromWindow();
-            this.l.C(this.k);
-            if (this.m) {
-                MessageManager.getInstance().unRegisterListener(this.l);
-            }
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || this.d == null) {
+            return;
+        }
+        if (!li.isEmpty(str)) {
+            this.d.a(true, str);
+        } else {
+            this.d.a(false, null);
         }
     }
 }

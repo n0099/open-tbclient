@@ -14,9 +14,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.d87;
-import com.repackage.i57;
+import com.repackage.s47;
+import com.repackage.t77;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.ListIterator;
 /* loaded from: classes3.dex */
 public class StrangerListModel extends ImBaseMessageCenterModel {
@@ -43,11 +44,28 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
         }
     }
 
+    public void deleteSelectedDatas(s47 s47Var) {
+        LinkedList<ImMessageCenterShowItemData> linkedList;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, s47Var) == null) || (linkedList = this.mList) == null) {
+            return;
+        }
+        ListIterator<ImMessageCenterShowItemData> listIterator = linkedList.listIterator();
+        ArrayList arrayList = new ArrayList();
+        while (listIterator.hasNext()) {
+            ImMessageCenterShowItemData next = listIterator.next();
+            if (next != null && next.isSelected()) {
+                arrayList.add(next);
+            }
+        }
+        asyncDeleteMsgList(arrayList, 2, s47Var);
+    }
+
     @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel
     public int getCustomGroupType(ImMessageCenterShowItemData imMessageCenterShowItemData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imMessageCenterShowItemData)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imMessageCenterShowItemData)) == null) {
             return 2;
         }
         return invokeL.intValue;
@@ -57,7 +75,7 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
     public boolean isAccept(ImMessageCenterPojo imMessageCenterPojo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imMessageCenterPojo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, imMessageCenterPojo)) == null) {
             if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == 2) {
                 return (TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) && TextUtils.isEmpty(imMessageCenterPojo.getNameShow())) ? false : true;
             }
@@ -70,8 +88,8 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
     public boolean isToShow(ImMessageCenterPojo imMessageCenterPojo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, imMessageCenterPojo)) == null) {
-            if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == 2 && imMessageCenterPojo.getIsFriend() == 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, imMessageCenterPojo)) == null) {
+            if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == 2 && ((imMessageCenterPojo.getIsFriend() == 0 || imMessageCenterPojo.getIsFriend() == 3) && imMessageCenterPojo.getShowOutOfStranger() != 1)) {
                 return (TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) && TextUtils.isEmpty(imMessageCenterPojo.getNameShow())) ? false : true;
             }
             return false;
@@ -82,14 +100,23 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
     @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel
     public void processMsg(ImMessageCenterPojo imMessageCenterPojo, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, imMessageCenterPojo, imMessageCenterShowItemData) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048580, this, imMessageCenterPojo, imMessageCenterShowItemData) == null) {
             z(imMessageCenterPojo, imMessageCenterShowItemData);
         }
     }
 
-    public void y(i57 i57Var) {
+    public void updateEditStatus(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, i57Var) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            for (int i = 0; i != this.mList.size(); i++) {
+                this.mList.get(i).setSelected(z);
+            }
+        }
+    }
+
+    public void y(s47 s47Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, s47Var) == null) {
             ListIterator<ImMessageCenterShowItemData> listIterator = this.mList.listIterator();
             ArrayList arrayList = new ArrayList();
             while (listIterator.hasNext()) {
@@ -98,19 +125,19 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
                     arrayList.add(next);
                 }
             }
-            asyncDeleteMsgList(arrayList, 2, i57Var);
+            asyncDeleteMsgList(arrayList, 2, s47Var);
         }
     }
 
     public final void z(ImMessageCenterPojo imMessageCenterPojo, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         ImMessageCenterShowItemData buildNormalItem;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048581, this, imMessageCenterPojo, imMessageCenterShowItemData) == null) || (buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData)) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048583, this, imMessageCenterPojo, imMessageCenterShowItemData) == null) || (buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData)) == null) {
             return;
         }
         buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
         buildNormalItem.setOwnerName(String.valueOf(7));
-        PersonalSettingItemData a = d87.j().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+        PersonalSettingItemData a = t77.j().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
         if (a != null) {
             buildNormalItem.setGroupSetting(a);
         }

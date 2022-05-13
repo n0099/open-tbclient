@@ -13,14 +13,14 @@ import com.google.ar.core.exceptions.FatalException;
 import com.repackage.y;
 import com.repackage.z;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ArImage extends y {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Session a;
     public long b;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends z {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

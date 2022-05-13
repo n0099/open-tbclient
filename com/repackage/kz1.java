@@ -1,9 +1,13 @@
 package com.repackage;
 
+import android.net.Uri;
+import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.browser.sailor.BdSailor;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.favordata.SwanFavorItemData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,36 +15,36 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
-import com.baidu.webkit.sdk.WebKitFactory;
+import com.repackage.mb4;
+import com.repackage.tb4;
+import com.repackage.wb4;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public class kz1 implements vm1 {
+public final class kz1 implements oa2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<lz1> a;
-    public final Lock b;
-    public volatile boolean c;
-    public volatile boolean d;
-    public c e;
-    public WebKitFactory.IForceInitZeusListener f;
 
     /* loaded from: classes6.dex */
-    public class a implements c {
+    public static class a extends o32 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kz1 a;
+        public boolean a;
+        public final /* synthetic */ b b;
+        public final /* synthetic */ Map c;
 
-        public a(kz1 kz1Var) {
+        public a(b bVar, Map map) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {kz1Var};
+                Object[] objArr = {bVar, map};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -50,101 +54,117 @@ public class kz1 implements vm1 {
                     return;
                 }
             }
-            this.a = kz1Var;
+            this.b = bVar;
+            this.c = map;
+            this.a = false;
         }
 
-        @Override // com.repackage.kz1.c
+        @Override // com.repackage.o32
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.a.b.lock();
-                    this.a.d = true;
-                    this.a.j();
-                    this.a.p();
-                } finally {
-                    this.a.b.unlock();
+                super.a();
+                b bVar = this.b;
+                if (bVar != null) {
+                    bVar.a();
                 }
             }
         }
-    }
 
-    /* loaded from: classes6.dex */
-    public class b implements WebKitFactory.IForceInitZeusListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kz1 a;
-
-        public b(kz1 kz1Var) {
+        @Override // com.repackage.o32
+        public void b(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kz1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                super.b(i);
+                b bVar = this.b;
+                if (bVar != null) {
+                    if (i == 1010) {
+                        bVar.a();
+                    } else {
+                        bVar.b(3);
+                    }
+                }
+            }
+        }
+
+        @Override // com.repackage.o32
+        public void c(@NonNull mb4.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+                super.c(aVar);
+                j(aVar.b);
+                k42.c(aVar.b);
+            }
+        }
+
+        @Override // com.repackage.o32
+        public void d() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                i();
+                b bVar = this.b;
+                if (bVar == null || this.a) {
                     return;
                 }
+                bVar.a();
             }
-            this.a = kz1Var;
         }
 
-        @Override // com.baidu.webkit.sdk.WebKitFactory.IForceInitZeusListener
-        public void onForceInitZeusFinish(boolean z) {
+        @Override // com.repackage.o32
+        public void f(m94 m94Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                try {
-                    this.a.b.lock();
-                    this.a.c = true;
-                    this.a.p();
-                    this.a.b.unlock();
-                    BdSailor.getInstance().removeForceInitListener(this.a.f);
-                } catch (Throwable th) {
-                    this.a.b.unlock();
-                    throw th;
+            if (interceptable == null || interceptable.invokeL(1048580, this, m94Var) == null) {
+                super.f(m94Var);
+                if (m94Var.a != 1010) {
+                    this.a = true;
+                    b bVar = this.b;
+                    if (bVar != null) {
+                        bVar.b(3);
+                    }
                 }
             }
         }
 
-        @Override // com.baidu.webkit.sdk.WebKitFactory.IForceInitZeusListener
-        public void onForceInitZeusStart() {
+        @Override // com.repackage.o32
+        public void g(@NonNull s94 s94Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && kz1.g) {
-                Log.d("NgWebViewInitHelper", "onForceInitZeusStart");
+            if (interceptable == null || interceptable.invokeL(1048581, this, s94Var) == null) {
+                super.g(s94Var);
+                j(s94Var.o);
+            }
+        }
+
+        public final void i() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+                for (String str : this.c.keySet()) {
+                    j(str);
+                }
+            }
+        }
+
+        public final void j(@NonNull String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && this.c.containsKey(str)) {
+                Set<String> set = (Set) this.c.get(str);
+                if (set != null && !set.isEmpty()) {
+                    for (String str2 : set) {
+                        k42.d(str, str2);
+                    }
+                    return;
+                }
+                k42.c(str);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public interface c {
+    public interface b {
         void a();
-    }
 
-    /* loaded from: classes6.dex */
-    public static class d {
-        public static /* synthetic */ Interceptable $ic;
-        public static final kz1 a;
-        public transient /* synthetic */ FieldHolder $fh;
+        void b(int i);
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-226101361, "Lcom/repackage/kz1$d;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-226101361, "Lcom/repackage/kz1$d;");
-                    return;
-                }
-            }
-            a = new kz1(null);
-        }
+        void c();
     }
 
     static {
@@ -160,167 +180,202 @@ public class kz1 implements vm1 {
                 return;
             }
         }
-        g = tg1.a;
+        a = eh1.a;
     }
 
-    public /* synthetic */ kz1(a aVar) {
-        this();
-    }
-
-    public static kz1 k() {
-        InterceptResult invokeV;
+    public static void a(@NonNull List<wb4.b> list, @Nullable String str, b bVar) {
+        String[] i;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? d.a : (kz1) invokeV.objValue;
-    }
-
-    @Override // com.repackage.vm1
-    public void a(lz1 lz1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, lz1Var) == null) {
-            try {
-                this.b.lock();
-                if (lz1Var != null && this.a.contains(lz1Var)) {
-                    this.a.remove(lz1Var);
+        if (interceptable == null || interceptable.invokeLLL(65537, null, list, str, bVar) == null) {
+            if (!c(i93.a().getString("predownload_network_switch", "1"))) {
+                if (a) {
+                    Log.e("SwanPreDownload", "pre download net invalid");
                 }
-            } finally {
-                this.b.unlock();
-            }
-        }
-    }
-
-    @Override // com.repackage.vm1
-    public void b(lz1 lz1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lz1Var) == null) {
-            try {
-                this.b.lock();
-                if (lz1Var == null) {
+                if (bVar != null) {
+                    bVar.b(6);
                     return;
                 }
-                if (!this.a.contains(lz1Var)) {
-                    this.a.add(lz1Var);
-                }
-                if (n()) {
-                    p();
-                }
-            } finally {
-                this.b.unlock();
+                return;
             }
-        }
-    }
-
-    public final synchronized void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                if (!ProcessUtils.isMainProcess()) {
-                    WebSettingsGlobalBlink.setFileInIOEnabled(true);
+            HashMap hashMap = new HashMap();
+            ArrayList arrayList = new ArrayList();
+            for (wb4.b bVar2 : list) {
+                if (bVar2 != null) {
+                    if (bVar2.i() != null && bVar2.i().length != 0) {
+                        Set set = (Set) hashMap.get(bVar2.b());
+                        if (set == null) {
+                            set = new HashSet();
+                        }
+                        boolean z = false;
+                        for (String str2 : bVar2.i()) {
+                            if (k42.f(bVar2.b(), str2) && !z) {
+                                arrayList.add(bVar2);
+                                z = true;
+                            }
+                            set.add(str2);
+                        }
+                        hashMap.put(bVar2.b(), set);
+                    } else if (k42.e(bVar2.b())) {
+                        arrayList.add(bVar2);
+                        hashMap.put(bVar2.b(), null);
+                    }
                 }
             }
+            if (arrayList.isEmpty()) {
+                if (a) {
+                    Log.i("SwanPreDownload", "preDownload list empty");
+                }
+                if (bVar != null) {
+                    bVar.a();
+                    return;
+                }
+                return;
+            }
+            wb4 wb4Var = new wb4(arrayList, se3.b());
+            wb4Var.e(str);
+            wb4Var.d("1");
+            r32 r32Var = new r32(new a(bVar, hashMap));
+            r32Var.M(a42.a(str));
+            c84.f(wb4Var, r32Var);
         }
     }
 
-    public void l() {
+    public static void b(@NonNull List<tb4.a> list, @NonNull String str, @NonNull o32 o32Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            m(false);
+        if (interceptable == null || interceptable.invokeLLL(65538, null, list, str, o32Var) == null) {
+            if (!c(i93.a().getString("predownload_network_switch", "1"))) {
+                o32Var.b(6);
+                return;
+            }
+            List<tb4.a> i = k42.i(list);
+            if (i.isEmpty()) {
+                o32Var.d();
+                return;
+            }
+            tb4 tb4Var = new tb4((List<? extends tb4.a>) i, (vd4) se3.b());
+            tb4Var.d("1");
+            tb4Var.e(str);
+            r32 r32Var = new r32(o32Var);
+            r32Var.M(a42.a(str));
+            c84.f(tb4Var, r32Var);
         }
     }
 
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            qj2.g().d(z);
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x0053, code lost:
-        if (o() != false) goto L15;
+    /* JADX WARN: Code restructure failed: missing block: B:7:0x0016, code lost:
+        if (com.baidu.swan.apps.network.SwanAppNetworkUtils.j(com.baidu.searchbox.common.runtime.AppRuntime.getAppContext()) != false) goto L8;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean n() {
-        InterceptResult invokeV;
-        boolean z;
+    public static boolean c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            try {
-                this.b.lock();
-                if (g) {
-                    Log.d("NgWebViewInitHelper", "isLoaded() mIsBlinkInited: " + this.d);
-                    Log.d("NgWebViewInitHelper", "isLoaded() mIsZeusForceInited: " + this.c + " ,isZeusForceInited: " + o());
-                }
-                if (this.d) {
-                    if (!this.c) {
-                    }
-                    z = true;
-                    return z;
-                }
+        if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, str)) != null) {
+            return invokeL.booleanValue;
+        }
+        boolean z = true;
+        if (!TextUtils.equals(str, "0")) {
+            if (!TextUtils.equals(str, "1")) {
+                TextUtils.equals(str, "2");
                 z = false;
-                return z;
-            } finally {
-                this.b.unlock();
             }
+            if (a) {
+                Log.d("SwanPreDownload", "SwanPredownload: current net suits for net config = " + z);
+            }
+            return z;
         }
-        return invokeV.booleanValue;
     }
 
-    public final boolean o() {
-        InterceptResult invokeV;
+    public static boolean d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (g) {
-                Log.d("NgWebViewInitHelper", "checkZeusForceInit: " + BdSailor.getInstance().checkZeusForceInit());
-                Log.d("NgWebViewInitHelper", "isZeusForceInited: " + BdSailor.getInstance().isZeusForceInited());
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (TextUtils.equals(SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME, str)) {
+                bk2.g0().getSwitch("swan_game_feed_predownload", 0);
+                return false;
             }
-            return !BdSailor.getInstance().checkZeusForceInit() || (BdSailor.getInstance().checkZeusForceInit() && BdSailor.getInstance().isZeusForceInited());
+            return true;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public final void p() {
+    public static void e(@NonNull String str, @Nullable String str2, @Nullable String str3, b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            try {
-                this.b.lock();
-                if (n()) {
-                    Iterator<lz1> it = this.a.iterator();
-                    while (it.hasNext()) {
-                        lz1 next = it.next();
-                        if (next != null) {
-                            next.a();
+        if (interceptable == null || interceptable.invokeLLLL(65541, null, str, str2, str3, bVar) == null) {
+            wb4.b bVar2 = new wb4.b(str);
+            if (!TextUtils.isEmpty(str2)) {
+                bVar2.l(new String[]{str2});
+            }
+            a(Collections.singletonList(bVar2), str3, bVar);
+        }
+    }
+
+    public static void f(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65542, null, str, str2, str3) == null) {
+            if (TextUtils.isEmpty(str)) {
+                if (a) {
+                    Log.e("SwanPreDownload", "pre download swanAppId invalid");
+                }
+            } else if (!c(i93.a().getString("predownload_network_switch", "1"))) {
+                if (a) {
+                    Log.e("SwanPreDownload", "pre download net invalid");
+                }
+            } else {
+                ArrayList arrayList = new ArrayList();
+                arrayList.add(new tb4.a(str));
+                List<tb4.a> i = k42.i(arrayList);
+                if (i.isEmpty()) {
+                    if (a) {
+                        Log.e("SwanPreDownload", "pre download has record");
+                        return;
+                    }
+                    return;
+                }
+                tb4 tb4Var = new tb4((List<? extends tb4.a>) i, (vd4) se3.b());
+                tb4Var.e(str2);
+                tb4Var.d("1");
+                r32 r32Var = new r32();
+                r32Var.M(a42.a(str2));
+                c84.f(tb4Var, r32Var);
+            }
+        }
+    }
+
+    public static void g(@Nullable String str, @Nullable String str2, @Nullable String str3, boolean z, @Nullable String str4, b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, str2, str3, Boolean.valueOf(z), str4, bVar}) == null) {
+            if (a) {
+                Log.d("SwanPreDownload", "preDownloadSwanAppByFeed appId: " + str + " ,appType: " + str2 + " ,isClick: " + z + ", scheme=" + str4);
+            }
+            if (z) {
+                if (bVar != null) {
+                    bVar.a();
+                }
+            } else if (TextUtils.isEmpty(str)) {
+                if (bVar != null) {
+                    bVar.c();
+                }
+            } else if (!d(str2)) {
+                if (bVar != null) {
+                    bVar.b(6);
+                }
+            } else {
+                String str5 = null;
+                if (!TextUtils.isEmpty(str4)) {
+                    try {
+                        Uri parse = Uri.parse(str4);
+                        if (parse != null) {
+                            str5 = me3.n(str, parse, false);
+                        }
+                    } catch (Exception e) {
+                        if (a) {
+                            e.printStackTrace();
                         }
                     }
-                    this.a.clear();
                 }
-            } finally {
-                this.b.unlock();
+                e(str, str5, str3, bVar);
             }
         }
-    }
-
-    public kz1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayList<>();
-        this.b = new ReentrantLock();
-        this.c = false;
-        this.d = false;
-        this.e = new a(this);
-        b bVar = new b(this);
-        this.f = bVar;
-        BdSailor.addForceInitListener(bVar);
-        qj2.g().h(this.e);
     }
 }

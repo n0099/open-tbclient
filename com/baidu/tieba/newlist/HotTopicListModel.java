@@ -17,9 +17,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
 import com.repackage.cq7;
-import com.repackage.f47;
+import com.repackage.f37;
 import com.repackage.gq7;
-import com.repackage.mi;
+import com.repackage.ki;
 import com.repackage.wa;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
@@ -64,7 +64,7 @@ public class HotTopicListModel extends BdBaseModel {
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            f47 f47Var;
+            f37 f37Var;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 int i = 0;
@@ -77,19 +77,19 @@ public class HotTopicListModel extends BdBaseModel {
                     if (z) {
                         ResponseHttpHotRanklistMessage responseHttpHotRanklistMessage = (ResponseHttpHotRanklistMessage) responsedMessage;
                         if (responseHttpHotRanklistMessage.getHotRanklistData() != null) {
-                            f47Var = responseHttpHotRanklistMessage.getHotRanklistData();
+                            f37Var = responseHttpHotRanklistMessage.getHotRanklistData();
                             if (responsedMessage instanceof ResponseSocketHotRanklistMessage) {
                                 ResponseSocketHotRanklistMessage responseSocketHotRanklistMessage = (ResponseSocketHotRanklistMessage) responsedMessage;
                                 if (responseSocketHotRanklistMessage.getHotRanklistData() != null) {
-                                    f47Var = responseSocketHotRanklistMessage.getHotRanklistData();
+                                    f37Var = responseSocketHotRanklistMessage.getHotRanklistData();
                                 }
                             }
-                            if (f47Var != null) {
-                                if (!ListUtils.isEmpty(f47Var.g)) {
+                            if (f37Var != null) {
+                                if (!ListUtils.isEmpty(f37Var.g)) {
                                     LinkedList linkedList = new LinkedList();
-                                    int size = f47Var.g.size();
+                                    int size = f37Var.g.size();
                                     while (i < size) {
-                                        linkedList.add(new gq7(f47Var.g.get(i), i));
+                                        linkedList.add(new gq7(f37Var.g.get(i), i));
                                         i++;
                                     }
                                     this.a.a.netCallback(responsedMessage.getError(), linkedList);
@@ -102,10 +102,10 @@ public class HotTopicListModel extends BdBaseModel {
                             this.a.a.netCallback(-1, null);
                         }
                     }
-                    f47Var = null;
+                    f37Var = null;
                     if (responsedMessage instanceof ResponseSocketHotRanklistMessage) {
                     }
-                    if (f47Var != null) {
+                    if (f37Var != null) {
                     }
                     this.a.a.netCallback(-1, null);
                 }
@@ -158,7 +158,7 @@ public class HotTopicListModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!mi.A() || this.b) {
+            if (!ki.A() || this.b) {
                 return false;
             }
             cancelLoadData();

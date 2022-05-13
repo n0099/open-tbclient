@@ -1,57 +1,96 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.views.CloseParentView;
+import java.lang.ref.SoftReference;
 /* loaded from: classes6.dex */
-public class iu9 extends Handler {
+public final class iu9 {
     public static /* synthetic */ Interceptable $ic;
+    public static SoftReference<iu9> d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ CloseParentView a;
+    public ju9 a;
+    public String b;
+    public Context c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public iu9(CloseParentView closeParentView, Looper looper) {
-        super(looper);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755605820, "Lcom/repackage/iu9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755605820, "Lcom/repackage/iu9;");
+        }
+    }
+
+    public iu9(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {closeParentView, looper};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = closeParentView;
+        nu9.b();
+        this.a = new ju9(context, str);
+        this.b = str;
+        this.c = context;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    public static iu9 b(Context context, String str) {
+        InterceptResult invokeLL;
+        iu9 iu9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 10) {
-            CloseParentView closeParentView = this.a;
-            closeParentView.a.setText(String.valueOf(closeParentView.h));
-            CloseParentView closeParentView2 = this.a;
-            if (closeParentView2.h <= 0) {
-                closeParentView2.a.setVisibility(8);
-                this.a.a.setClickable(false);
-                this.a.i.removeMessages(10);
-            } else {
-                closeParentView2.a.setVisibility(0);
-                this.a.a.setClickable(true);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
+            if (context != null && str != null) {
+                SoftReference<iu9> softReference = d;
+                iu9 iu9Var2 = softReference == null ? null : softReference.get();
+                if (iu9Var2 == null || !str.equals(iu9Var2.b)) {
+                    synchronized (iu9.class) {
+                        iu9Var = new iu9(context, str);
+                        d = new SoftReference<>(iu9Var);
+                    }
+                    return iu9Var;
+                }
+                return iu9Var2;
             }
-            this.a.i.sendEmptyMessageDelayed(10, 1000L);
-            this.a.h--;
+            throw new IllegalArgumentException("YYOpenSDK createInstance failed, Make sure context or appid is not null!");
+        }
+        return (iu9) invokeLL.objValue;
+    }
+
+    public final void a(Activity activity, gu9 gu9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, gu9Var) == null) {
+            this.a.c(activity, TbEnum.SystemMessage.EVENT_ID_GROUP_ACTIVITYS_IN_CHAT, gu9Var);
+        }
+    }
+
+    public final void c(int i, int i2, Intent intent, gu9 gu9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), intent, gu9Var}) == null) {
+            this.a.d(i, i2, intent, gu9Var);
         }
     }
 }

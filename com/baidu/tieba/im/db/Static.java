@@ -10,10 +10,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ad5;
-import com.repackage.dd5;
-import com.repackage.ic5;
-import com.repackage.j67;
+import com.repackage.sd5;
+import com.repackage.vd5;
+import com.repackage.w57;
+import com.repackage.zc5;
 /* loaded from: classes3.dex */
 public class Static {
     public static /* synthetic */ Interceptable $ic;
@@ -26,12 +26,12 @@ public class Static {
 
         /* renamed from: com.baidu.tieba.im.db.Static$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0200a extends ad5<Void> {
+        public class C0199a extends sd5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomResponsedMessage a;
 
-            public C0200a(a aVar, CustomResponsedMessage customResponsedMessage) {
+            public C0199a(a aVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,14 +50,14 @@ public class Static {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.ad5
+            @Override // com.repackage.sd5
             /* renamed from: a */
             public Void doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                     if (this.a.getData() instanceof String) {
-                        j67.a((String) this.a.getData());
+                        w57.a((String) this.a.getData());
                         return null;
                     }
                     return null;
@@ -67,7 +67,7 @@ public class Static {
         }
 
         /* loaded from: classes3.dex */
-        public class b implements ic5<Void> {
+        public class b implements zc5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -88,7 +88,7 @@ public class Static {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.ic5
+            @Override // com.repackage.zc5
             /* renamed from: a */
             public void onReturnDataInUI(Void r5) {
                 Interceptable interceptable = $ic;
@@ -125,7 +125,7 @@ public class Static {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2008015 || customResponsedMessage.getData() == null) {
                 return;
             }
-            dd5.c(new C0200a(this, customResponsedMessage), new b(this));
+            vd5.c(new C0199a(this, customResponsedMessage), new b(this));
         }
     }
 

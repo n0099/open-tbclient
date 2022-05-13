@@ -23,9 +23,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ql8;
-import com.repackage.rl8;
-import com.repackage.sl8;
+import com.repackage.nk8;
+import com.repackage.ok8;
+import com.repackage.pk8;
 @SuppressLint({"SetJavaScriptEnabled"})
 /* loaded from: classes3.dex */
 public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity> {
@@ -34,15 +34,15 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
     public static final String JS_PROMPT_INTERFACE_NAME = "AccountJsBridge";
     public static final String PAGE_TYPE = "page_type";
     public transient /* synthetic */ FieldHolder $fh;
-    public ql8 jsBridge;
-    public sl8 jsCallback;
-    public rl8 jsPromptInterface;
+    public nk8 jsBridge;
+    public pk8 jsCallback;
+    public ok8 jsPromptInterface;
     public NavigationBar mNavigationBar;
     public String mPageType;
     public BaseWebView mWebView;
 
     /* loaded from: classes3.dex */
-    public class a implements sl8 {
+    public class a implements pk8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AccountRestoreActivity a;
@@ -65,7 +65,7 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
             this.a = accountRestoreActivity;
         }
 
-        @Override // com.repackage.sl8
+        @Override // com.repackage.pk8
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -92,7 +92,7 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
                 return;
             }
         }
-        this.jsPromptInterface = new rl8(this) { // from class: com.baidu.tieba.account.AccountRestoreActivity.1
+        this.jsPromptInterface = new ok8(this) { // from class: com.baidu.tieba.account.AccountRestoreActivity.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AccountRestoreActivity this$0;
@@ -115,7 +115,7 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
                 this.this$0 = this;
             }
 
-            @Override // com.repackage.rl8
+            @Override // com.repackage.ok8
             public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
                 InterceptResult invokeLLLL;
                 Interceptable interceptable2 = $ic;
@@ -161,16 +161,16 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0024);
-            ql8 ql8Var = new ql8();
-            this.jsBridge = ql8Var;
-            ql8Var.a(this.jsPromptInterface);
+            nk8 nk8Var = new nk8();
+            this.jsBridge = nk8Var;
+            nk8Var.a(this.jsPromptInterface);
             this.mPageType = getIntent().getStringExtra("page_type");
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ad);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923fd);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.mNavigationBar.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f027c));
-            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f0920b7)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
-            BaseWebView baseWebView = (BaseWebView) findViewById(R.id.obfuscated_res_0x7f092428);
+            this.mNavigationBar.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f027e));
+            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f092112)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+            BaseWebView baseWebView = (BaseWebView) findViewById(R.id.obfuscated_res_0x7f092478);
             this.mWebView = baseWebView;
             baseWebView.setOnJsPromptCallback(this.jsCallback);
             BaseWebView baseWebView2 = this.mWebView;

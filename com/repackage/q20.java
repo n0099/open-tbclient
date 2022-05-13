@@ -1,27 +1,27 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 /* loaded from: classes6.dex */
 public class q20 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, String str2) {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, str, str2) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            try {
+                return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                return str;
+            }
         }
-    }
-
-    public static void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-        }
-    }
-
-    public static void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-        }
+        return (String) invokeL.objValue;
     }
 }

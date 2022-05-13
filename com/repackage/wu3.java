@@ -1,75 +1,301 @@
 package com.repackage;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import android.media.MediaMetadataRetriever;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.v8engine.JsArrayBuffer;
+import com.baidu.swan.nalib.audio.SwanAudioPlayer;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import com.repackage.vu3;
+import java.net.MalformedURLException;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class wu3 extends JSEvent {
+public class wu3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean g;
+    public static volatile wu3 h;
     public transient /* synthetic */ FieldHolder $fh;
+    public tu3 a;
+    public HashMap<String, Long> b;
+    public String c;
+    public HandlerThread d;
+    public Handler e;
+    public SwanAudioPlayer f;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @V8JavascriptField
-        public String cmd;
-        @V8JavascriptField
-        public String type;
+        public final /* synthetic */ wu3 a;
 
-        public a() {
+        public a(wu3 wu3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wu3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.a = wu3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.f = SwanAudioPlayer.getInstance();
+                SwanAudioPlayer.settingNativeAudioParameters(AppRuntime.getApplication());
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wu3(Object obj) {
-        super("sconsoleCmdMessage", obj);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {obj};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wu3 a;
+
+        public b(wu3 wu3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wu3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wu3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.f.pauseAll();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wu3 a;
+
+        public c(wu3 wu3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wu3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wu3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.f.resume();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755188932, "Lcom/repackage/wu3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755188932, "Lcom/repackage/wu3;");
                 return;
             }
         }
+        g = eh1.a;
+        n63.b();
     }
 
-    public static wu3 a(JSONObject jSONObject) {
+    public wu3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = new HashMap<>();
+        this.c = pu3.g();
+        this.a = new tu3(this.c);
+        c();
+        e().post(new a(this));
+    }
+
+    public static wu3 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (h == null) {
+                synchronized (wu3.class) {
+                    if (h == null) {
+                        h = new wu3();
+                    }
+                }
+            }
+            return h;
+        }
+        return (wu3) invokeV.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.d == null) {
+            HandlerThread handlerThread = new HandlerThread("audio_thread");
+            this.d = handlerThread;
+            handlerThread.start();
+            this.e = new Handler(this.d.getLooper());
+        }
+    }
+
+    public synchronized xu3 d(String str, boolean z) {
+        InterceptResult invokeLZ;
+        yu3 yu3Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) {
+            synchronized (this) {
+                if (g) {
+                    Log.e("AudioPlayerManager", "create media player src = " + str);
+                }
+                yu3Var = new yu3();
+            }
+            return yu3Var;
+        }
+        return (xu3) invokeLZ.objValue;
+    }
+
+    public Handler e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (Handler) invokeV.objValue;
+    }
+
+    public long f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            a aVar = new a();
-            if (jSONObject == null) {
-                jSONObject = new JSONObject();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (this.b.containsKey(str)) {
+                return this.b.get(str).longValue();
             }
-            aVar.type = jSONObject.optString("type");
-            aVar.cmd = jSONObject.optString("cmd");
-            return new wu3(aVar);
+            MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
+            try {
+                try {
+                    mediaMetadataRetriever.setDataSource(str);
+                    long parseLong = Long.parseLong(mediaMetadataRetriever.extractMetadata(9));
+                    mediaMetadataRetriever.release();
+                    this.b.put(str, Long.valueOf(parseLong));
+                    return parseLong;
+                } catch (Exception e) {
+                    if (g) {
+                        e.printStackTrace();
+                    }
+                    mediaMetadataRetriever.release();
+                    return 0L;
+                }
+            } finally {
+                mediaMetadataRetriever.release();
+            }
         }
-        return (wu3) invokeL.objValue;
+        return invokeL.longValue;
+    }
+
+    public String g(String str) throws MalformedURLException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return this.c + pu3.d(str);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            SwanAudioPlayer swanAudioPlayer = this.f;
+            if (swanAudioPlayer != null) {
+                swanAudioPlayer.isAudioPlayer();
+                return false;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void j(String str, su3 su3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, su3Var) == null) {
+            this.a.e(str, su3Var);
+        }
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.f == null) {
+            return;
+        }
+        e().post(new c(this));
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f == null) {
+            return;
+        }
+        e().postDelayed(new b(this), 50L);
+    }
+
+    public void m(JsArrayBuffer jsArrayBuffer, vu3.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, jsArrayBuffer, bVar) == null) {
+            vu3.f().h(jsArrayBuffer, bVar);
+        }
     }
 }

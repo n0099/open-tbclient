@@ -1,28 +1,36 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.app.Activity;
+import android.content.Context;
+import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class v64 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public byte[] a;
-    public long b;
-    public long c;
+public interface v64 {
 
-    public v64() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a(int i);
     }
+
+    boolean a();
+
+    void b(Activity activity, a74 a74Var);
+
+    void c(int i, List<a74> list);
+
+    void d(int i, List<a74> list);
+
+    void e(int i, List<a74> list);
+
+    void f(int i, List<a74> list, a aVar);
+
+    void g(Activity activity, a74 a74Var);
+
+    void h(Context context, JSONObject jSONObject);
+
+    void i(JSONObject jSONObject);
+
+    boolean j(a74 a74Var);
+
+    boolean k(boolean z, int i);
 }

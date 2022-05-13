@@ -78,7 +78,7 @@ public class a implements Application.ActivityLifecycleCallbacks {
         Intent intent;
         el a;
         String packageName;
-        String m324a;
+        String m325a;
         int i;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, activity) == null) || (intent = activity.getIntent()) == null) {
@@ -93,17 +93,17 @@ public class a implements Application.ActivityLifecycleCallbacks {
         if (intExtra == 3000) {
             a = el.a(activity.getApplicationContext());
             packageName = activity.getPackageName();
-            m324a = ek.m324a(intExtra);
+            m325a = ek.m325a(intExtra);
             i = 3008;
         } else if (intExtra != 1000) {
             return;
         } else {
             a = el.a(activity.getApplicationContext());
             packageName = activity.getPackageName();
-            m324a = ek.m324a(intExtra);
+            m325a = ek.m325a(intExtra);
             i = 1008;
         }
-        a.a(packageName, m324a, stringExtra, i, null);
+        a.a(packageName, m325a, stringExtra, i, null);
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks

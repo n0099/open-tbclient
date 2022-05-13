@@ -6,7 +6,6 @@ import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -75,7 +74,7 @@ public class ExternalCache {
                     return;
                 }
             }
-            WIFI = new NetType(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 0, CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 100);
+            WIFI = new NetType("WIFI", 0, "WIFI", 100);
             MOBILE_CTL = new NetType("MOBILE_CTL", 1, "CTL", 1);
             MOBILE_CNC = new NetType("MOBILE_CNC", 2, "CNC", 2);
             MOBILE_CMC = new NetType("MOBILE_CMC", 3, "CMC", 3);

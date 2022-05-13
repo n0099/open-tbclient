@@ -19,8 +19,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ni;
-import com.repackage.z05;
+import com.repackage.li;
+import com.repackage.o15;
 import java.util.List;
 import tbclient.PbContent;
 import tbclient.RecommendForumInfo;
@@ -55,9 +55,9 @@ public class ItemInfoView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02b2, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02aa, (ViewGroup) this, true);
             setVisibility(8);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090ef2);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090eff);
         }
     }
 
@@ -74,14 +74,14 @@ public class ItemInfoView extends LinearLayout {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, str)) == null) {
-            z05 z05Var = new z05();
+            o15 o15Var = new o15();
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str + "\n");
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 PbContent pbContent = list.get(i);
                 if (pbContent != null) {
                     if (pbContent.type.intValue() == 2) {
-                        Bitmap cashBitmap = BitmapHelper.getCashBitmap(z05Var.d(pbContent.text));
+                        Bitmap cashBitmap = BitmapHelper.getCashBitmap(o15Var.d(pbContent.text));
                         if (cashBitmap != null) {
                             BitmapDrawable bitmapDrawable = new BitmapDrawable(cashBitmap);
                             bitmapDrawable.setBounds(0, 0, cashBitmap.getWidth(), cashBitmap.getHeight());
@@ -103,10 +103,10 @@ public class ItemInfoView extends LinearLayout {
         List<PbContent> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, recommendForumInfo) == null) {
-            if ((recommendForumInfo != null && (list = recommendForumInfo.content) != null && list.size() > 0) || (recommendForumInfo != null && !ni.isEmpty(recommendForumInfo.slogan))) {
+            if ((recommendForumInfo != null && (list = recommendForumInfo.content) != null && list.size() > 0) || (recommendForumInfo != null && !li.isEmpty(recommendForumInfo.slogan))) {
                 this.a.setText(c(recommendForumInfo.content, recommendForumInfo.slogan));
             } else {
-                this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0653));
+                this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f065b));
             }
             setVisibility(0);
         }

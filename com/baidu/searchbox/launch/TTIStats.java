@@ -227,7 +227,7 @@ public class TTIStats {
 
     public void stats() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && SpeedStatsManager.getInstance().getStatsFlag() && this.mUbcManager != null) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && SpeedStatsManager.getInstance().getStatsFlag() == 0 && this.mUbcManager != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("device_score", ScheduleStrategy.getDeviceScore());

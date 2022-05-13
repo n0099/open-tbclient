@@ -15,10 +15,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nc7;
+import com.repackage.uc7;
 import com.tachikoma.core.component.anim.AnimationProperty;
 /* loaded from: classes3.dex */
-public class LegoBottomView extends RelativeLayout implements nc7 {
+public class LegoBottomView extends RelativeLayout implements uc7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ObjectAnimator a;
@@ -175,7 +175,7 @@ public class LegoBottomView extends RelativeLayout implements nc7 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.nc7
+    @Override // com.repackage.uc7
     public void onScrollStateChanged(AbsListView absListView, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, absListView, i) == null) {

@@ -11,8 +11,7 @@ import org.json.JSONObject;
 public class sw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public tw4 b;
+    public boolean a;
 
     public sw4() {
         Interceptable interceptable = $ic;
@@ -24,34 +23,47 @@ public class sw4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = false;
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
+    }
+
+    public void b(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        try {
+            JSONObject optJSONObject = jSONObject.optJSONObject("zan_or_cai_smallflow");
+            c(optJSONObject);
+            d(optJSONObject);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public final void c(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        this.a = true;
     }
 
-    public tw4 b() {
-        InterceptResult invokeV;
+    public void d(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (tw4) invokeV.objValue;
-    }
-
-    public void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            JSONObject optJSONObject = jSONObject.optJSONObject("common");
-            if (optJSONObject != null) {
-                this.a = optJSONObject.optInt("version");
-            }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("special");
-            if (optJSONObject2 != null) {
-                tw4 tw4Var = new tw4();
-                this.b = tw4Var;
-                tw4Var.f(optJSONObject2);
+        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
+            if (jSONObject != null) {
+                iu4.k().y("praise_abtest_switch_json", jSONObject.toString());
+            } else {
+                iu4.k().y("praise_abtest_switch_json", "");
             }
         }
     }

@@ -146,7 +146,7 @@ public class iv0 extends dv0 {
         if (interceptable == null || interceptable.invokeL(1048585, this, rs0Var) == null) {
             super.k(rs0Var);
             if (LayerEvent.ACTION_SWITCH_FULL.equals(rs0Var.c()) || LayerEvent.ACTION_SWITCH_HALF.equals(rs0Var.c())) {
-                zi0.a("AdLayer", "screen mode: " + rs0Var.c());
+                cj0.a("AdLayer", "screen mode: " + rs0Var.c());
             }
             jt0 jt0Var = this.f;
             if (jt0Var != null) {

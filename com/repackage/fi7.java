@@ -49,7 +49,7 @@ public class fi7 implements RouterService {
         sb.append(WebViewBroadcastReceiver.INTENT_LOCALE_RECEV_CLOSE);
         sb.append("=1");
         sb.append("&page_from=live");
-        Activity b = x8.f().b();
+        Activity b = x8.g().b();
         if (b != null) {
             UrlManager.getInstance().dealOneLink((TbPageContext) f9.a(b), new String[]{sb.toString()}, true);
         }
@@ -71,7 +71,7 @@ public class fi7 implements RouterService {
         sb.append(WebViewBroadcastReceiver.INTENT_LOCALE_RECEV_CLOSE);
         sb.append("=1");
         sb.append("&page_from=live");
-        Activity b = x8.f().b();
+        Activity b = x8.g().b();
         if (b != null) {
             UrlManager.getInstance().dealOneLink((TbPageContext) f9.a(b), new String[]{sb.toString()}, true);
         }
@@ -103,7 +103,7 @@ public class fi7 implements RouterService {
         sb.append(WebViewBroadcastReceiver.INTENT_LOCALE_RECEV_CLOSE);
         sb.append("=1");
         sb.append("&page_from=live");
-        Activity b = x8.f().b();
+        Activity b = x8.g().b();
         if (b != null) {
             UrlManager.getInstance().dealOneLink((TbPageContext) f9.a(b), new String[]{sb.toString()}, true);
         }

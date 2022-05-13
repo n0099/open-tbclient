@@ -1,11 +1,13 @@
 package com.repackage;
 
-import com.baidu.tieba.video.VideoItemModel;
+import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
 /* loaded from: classes6.dex */
 public interface nw8 {
-    void M(int i);
+    void displayLoading(boolean z);
 
-    VideoItemModel W();
+    void displayNoDataView(boolean z);
 
-    int k();
+    void setPresenter(mw8 mw8Var);
+
+    void showCloudMusicWithTagData(CloudMusicData cloudMusicData);
 }

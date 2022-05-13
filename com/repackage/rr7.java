@@ -94,11 +94,11 @@ public class rr7 {
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.e == null) {
             View inflate = this.d.inflate();
             this.e = inflate;
-            this.a = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090634);
-            this.b = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f090636);
-            this.c = (TbRichTextView) this.e.findViewById(R.id.obfuscated_res_0x7f090633);
-            this.f = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f090637);
-            this.g = this.e.findViewById(R.id.obfuscated_res_0x7f090635);
+            this.a = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09062c);
+            this.b = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f09062e);
+            this.c = (TbRichTextView) this.e.findViewById(R.id.obfuscated_res_0x7f09062b);
+            this.f = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f09062f);
+            this.g = this.e.findViewById(R.id.obfuscated_res_0x7f09062d);
             this.c.setTextSize(TbConfig.getContentSize());
             c();
         }

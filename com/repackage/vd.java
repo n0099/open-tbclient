@@ -67,7 +67,7 @@ public class vd implements id {
                                             }
                                             if (a == byte[].class) {
                                                 try {
-                                                    return fi.e(this.a, 0);
+                                                    return di.e(this.a, 0);
                                                 } catch (IOException e2) {
                                                     e2.printStackTrace();
                                                     return null;

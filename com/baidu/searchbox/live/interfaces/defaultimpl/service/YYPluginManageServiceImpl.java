@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebChromeClient;
-import com.repackage.f61;
+import com.repackage.q61;
 import java.io.File;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
@@ -93,7 +93,7 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
     public void downloadBundle(final String str, final YYPluginDownloadCallback yYPluginDownloadCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, yYPluginDownloadCallback) == null) {
-            NPSPackageManager.getInstance().downloadUpdatePackage(str, new f61(yYPluginDownloadCallback, str) { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.YYPluginManageServiceImpl$downloadBundle$1
+            NPSPackageManager.getInstance().downloadUpdatePackage(str, new q61(yYPluginDownloadCallback, str) { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.YYPluginManageServiceImpl$downloadBundle$1
                 public static /* synthetic */ Interceptable $ic;
                 public final /* synthetic */ YYPluginDownloadCallback $callback;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -118,7 +118,7 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
                     this.$pluginPackageName = str;
                 }
 
-                @Override // com.repackage.f61
+                @Override // com.repackage.q61
                 public void onProgress(long j, long j2) {
                     YYPluginDownloadCallback yYPluginDownloadCallback2;
                     Interceptable interceptable2 = $ic;
@@ -128,7 +128,7 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
                     yYPluginDownloadCallback2.onProgress(this.$pluginPackageName, j, j2);
                 }
 
-                @Override // com.repackage.f61
+                @Override // com.repackage.q61
                 public void onResult(int i, String str2) {
                     YYPluginDownloadCallback yYPluginDownloadCallback2;
                     Interceptable interceptable2 = $ic;

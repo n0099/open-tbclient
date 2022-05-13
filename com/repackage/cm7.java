@@ -78,7 +78,7 @@ public class cm7 {
             long j = this.b - this.a;
             long j2 = elapsedRealtime - this.c;
             long j3 = j2 + j;
-            if ((mi.I() == 2 || j <= 17500) && y68Var != null) {
+            if ((ki.I() == 2 || j <= 17500) && y68Var != null) {
                 y68Var.a(j, j2, j3);
             }
         }

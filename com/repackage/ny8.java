@@ -1,105 +1,250 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.text.TextUtils;
-import android.util.LruCache;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.database.ContentObserver;
+import android.os.Handler;
+import android.os.Looper;
+import android.provider.MediaStore;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes6.dex */
 public class ny8 {
     public static /* synthetic */ Interceptable $ic;
+    public static ny8 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public LruCache<String, Bitmap> a;
+    public Handler a;
+    public BroadcastReceiver b;
+    public ContentObserver c;
+    public ArrayList<d> d;
+    public Handler e;
+    public Runnable f;
 
     /* loaded from: classes6.dex */
-    public class a extends LruCache<String, Bitmap> {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ny8 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ny8 ny8Var, int i) {
-            super(i);
+        public a(ny8 ny8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ny8Var, Integer.valueOf(i)};
+                Object[] objArr = {ny8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.a = ny8Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.util.LruCache
-        /* renamed from: a */
-        public void entryRemoved(boolean z, String str, Bitmap bitmap, Bitmap bitmap2) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, bitmap, bitmap2}) == null) || bitmap == null || bitmap.isRecycled()) {
-                return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.h(false);
             }
-            bitmap.recycle();
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.util.LruCache
-        /* renamed from: b */
-        public int sizeOf(String str, Bitmap bitmap) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bitmap)) == null) ? (bitmap.getRowBytes() * bitmap.getHeight()) / 1024 : invokeLL.intValue;
         }
     }
 
-    public ny8(int i) {
+    /* loaded from: classes6.dex */
+    public class b extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ny8 this$0;
+
+        public b(ny8 ny8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ny8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = ny8Var;
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+                this.this$0.i(intent);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c extends ContentObserver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ny8 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(ny8 ny8Var, Handler handler) {
+            super(handler);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ny8Var, handler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Handler) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ny8Var;
+        }
+
+        @Override // android.database.ContentObserver
+        public void onChange(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                this.a.e.removeCallbacks(this.a.f);
+                this.a.e.postDelayed(this.a.f, 2000L);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface d {
+        void n(boolean z);
+    }
+
+    public ny8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (i > 0) {
-            this.a = new a(this, i);
-            return;
-        }
-        throw new IllegalArgumentException("maxSize <= 0");
+        this.a = new Handler(Looper.getMainLooper());
+        this.d = new ArrayList<>();
+        this.e = new Handler();
+        this.f = new a(this);
     }
 
-    public Bitmap a(String str) {
-        InterceptResult invokeL;
+    public static ny8 f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (g == null) {
+                synchronized (ny8.class) {
+                    if (g == null) {
+                        ny8 ny8Var = new ny8();
+                        g = ny8Var;
+                        ny8Var.g(TbadkCoreApplication.getInst());
+                    }
+                }
             }
-            return this.a.get(str);
+            return g;
         }
-        return (Bitmap) invokeL.objValue;
+        return (ny8) invokeV.objValue;
     }
 
-    public void b(String str, Bitmap bitmap) {
+    public void d(d dVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bitmap) == null) || TextUtils.isEmpty(str) || bitmap == null || bitmap.isRecycled()) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) || dVar == null || this.d.contains(dVar)) {
             return;
         }
-        this.a.put(str, bitmap);
+        this.d.add(dVar);
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            j();
+            TbadkCoreApplication inst = TbadkCoreApplication.getInst();
+            inst.unregisterReceiver(this.b);
+            inst.getContentResolver().unregisterContentObserver(this.c);
+            this.e.removeCallbacks(this.f);
+            g = null;
+        }
+    }
+
+    public final void g(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            this.b = new b(this);
+            this.c = new c(this, this.a);
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction("android.intent.action.MEDIA_MOUNTED");
+            intentFilter.addAction("android.intent.action.MEDIA_UNMOUNTED");
+            intentFilter.addAction("android.intent.action.MEDIA_SCANNER_STARTED");
+            intentFilter.addAction("android.intent.action.MEDIA_SCANNER_FINISHED");
+            intentFilter.addAction("android.intent.action.MEDIA_EJECT");
+            intentFilter.addDataScheme("file");
+            context.registerReceiver(this.b, intentFilter);
+            context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.c);
+        }
+    }
+
+    public void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            Iterator<d> it = this.d.iterator();
+            while (it.hasNext()) {
+                it.next().n(z);
+            }
+        }
+    }
+
+    public final void i(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, intent) == null) {
+            if (intent.getAction().equals("android.intent.action.MEDIA_UNMOUNTED")) {
+                h(true);
+                return;
+            }
+            this.e.removeCallbacks(this.f);
+            this.e.postDelayed(this.f, 2000L);
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.d.clear();
+        }
+    }
+
+    public void k(d dVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, dVar) == null) && this.d.contains(dVar)) {
+            this.d.remove(dVar);
+        }
     }
 }

@@ -9,9 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.at;
-import com.repackage.dv;
-import com.repackage.xt;
+import com.repackage.gt;
+import com.repackage.js;
+import com.repackage.mu;
 import java.nio.charset.Charset;
 import kotlin.Metadata;
 import kotlin.TypeCastException;
@@ -170,7 +170,7 @@ public final class TaskCacheManager$cacheTasks$3 extends Lambda implements Funct
             if (m != null) {
                 byte[] bytes = m.getBytes(charset);
                 Intrinsics.checkExpressionValueIsNotNull(bytes, "(this as java.lang.String).getBytes(charset)");
-                String newFingerprint = dv.b(bytes, false);
+                String newFingerprint = mu.b(bytes, false);
                 str = this.this$0.c;
                 if (Intrinsics.areEqual(newFingerprint, str)) {
                     DebugTrace.a.c(AnonymousClass1.INSTANCE);
@@ -180,7 +180,7 @@ public final class TaskCacheManager$cacheTasks$3 extends Lambda implements Funct
                 Intrinsics.checkExpressionValueIsNotNull(newFingerprint, "newFingerprint");
                 bVar.c = newFingerprint;
                 DebugTrace.a.c(new AnonymousClass2(this, m));
-                xt c = at.c.c();
+                gt c = js.c.c();
                 str2 = this.this$0.a;
                 c.a(m, str2);
                 return;

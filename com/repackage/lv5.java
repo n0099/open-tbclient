@@ -1,12 +1,13 @@
 package com.repackage;
 
-import android.text.TextUtils;
 import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ProgressBar;
+import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,15 +15,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class lv5 extends tw5<gu5> {
+public class lv5 extends uw5<du5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView i;
-    public ProgressBar j;
-    public FrameLayout k;
-    public TextView l;
-    public TextView m;
-    public TextView n;
+    public View i;
+    public TextView j;
+    public TextView k;
+    public HeadImageView l;
+    public HeadImageView m;
+    public HeadImageView n;
+    public ImageView o;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public lv5(TbPageContext<?> tbPageContext) {
@@ -42,20 +44,28 @@ public class lv5 extends tw5<gu5> {
                 return;
             }
         }
-        s(k());
+        t(k());
     }
 
-    @Override // com.repackage.tw5
+    @Override // com.repackage.uw5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0108 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0105 : invokeV.intValue;
     }
 
-    @Override // com.repackage.tw5
+    @Override // com.repackage.uw5
     public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            if (i == 1) {
+                this.o.setAlpha(0.7f);
+            } else {
+                this.o.setAlpha(1);
+            }
+            this.i.setBackgroundColor(SkinManager.getColor(i, (int) R.color.CAM_X0204));
+            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0106);
+            SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0109);
         }
     }
 
@@ -66,56 +76,74 @@ public class lv5 extends tw5<gu5> {
         }
     }
 
-    public final void s(View view2) {
+    public TextView s() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09020a);
-            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091230);
-            this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091231);
-            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090221);
-            this.j = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f09020b);
-            this.k = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091234);
-            k().setOnClickListener(this);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            TextView textView = this.k;
+            if (textView != null) {
+                return textView;
+            }
+            return null;
+        }
+        return (TextView) invokeV.objValue;
+    }
+
+    public final void t(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
+            this.i = view2.findViewById(R.id.obfuscated_res_0x7f090207);
+            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090208);
+            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090206);
+            this.o = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090202);
+            this.l = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090203);
+            this.m = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090204);
+            this.n = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090205);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.tw5
-    /* renamed from: t */
-    public void l(gu5 gu5Var) {
-        du5 e;
+    @Override // com.repackage.uw5
+    /* renamed from: u */
+    public void l(du5 du5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, gu5Var) == null) || (e = gu5Var.e()) == null || e.b() == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, du5Var) == null) {
+        }
+    }
+
+    public void v(String str) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || (textView = this.k) == null) {
             return;
         }
-        String str = "LV." + e.b().yy_level_id;
-        if (!TextUtils.isEmpty(e.b().yy_level_name)) {
-            str = e.b().yy_level_name + str;
-            this.m.setText(e.b().yy_level_name);
-        }
-        this.i.setText(str);
-        if (e.b().yy_levelup_exp <= e.b().yy_level_exp) {
-            this.m.setVisibility(8);
-            this.n.setVisibility(8);
-            this.l.setVisibility(8);
-            this.j.setVisibility(8);
+        textView.setText(str);
+    }
+
+    public void w(int i) {
+        ImageView imageView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) || (imageView = this.o) == null) {
             return;
         }
-        if (!TextUtils.isEmpty(e.b().yy_level_next_name)) {
-            this.n.setText(e.b().yy_level_next_name);
-        }
-        long j = e.b().yy_levelup_exp;
-        long j2 = e.b().yy_level_exp;
-        this.j.setMax((int) j);
-        this.j.setProgress((int) j2);
-        if (TextUtils.isEmpty(e.b().yy_level_next_name) || e.b().yy_levelup_exp <= e.b().yy_level_exp) {
+        imageView.setVisibility(i);
+    }
+
+    public void x(int i) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048585, this, i) == null) || (view2 = this.i) == null) {
             return;
         }
-        String string = this.b.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f021a);
-        int i = (int) ((((float) (e.b().yy_levelup_exp - e.b().yy_level_exp)) * 100.0f) / ((float) e.b().yy_levelup_exp));
-        if (i <= 0) {
-            i = 1;
+        view2.setVisibility(i);
+    }
+
+    public void y(String str) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, str) == null) || (textView = this.j) == null) {
+            return;
         }
-        this.l.setText(String.format(string, e.b().yy_level_next_name, i + "%"));
+        textView.setText(str);
     }
 }

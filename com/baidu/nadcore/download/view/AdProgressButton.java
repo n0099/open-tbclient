@@ -23,8 +23,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c11;
 import com.repackage.hk0;
+import com.repackage.m11;
 import com.repackage.rj0;
 /* loaded from: classes2.dex */
 public class AdProgressButton extends View implements hk0<AdProgressButton> {
@@ -66,12 +66,23 @@ public class AdProgressButton extends View implements hk0<AdProgressButton> {
         this.h = 100;
         this.i = 0;
         this.j = 0;
-        b(context, null);
+        d(context, null);
     }
 
-    public void a(Canvas canvas) {
+    @Override // com.repackage.hk0
+    public void b(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || this.a <= 0) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && (viewGroup instanceof RelativeLayout)) {
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
+            layoutParams.addRule(13, -1);
+            viewGroup.addView(this, layoutParams);
+            viewGroup.setVisibility(0);
+        }
+    }
+
+    public void c(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) || this.a <= 0) {
             return;
         }
         int i = this.j;
@@ -85,14 +96,14 @@ public class AdProgressButton extends View implements hk0<AdProgressButton> {
         canvas.drawRoundRect(rectF, i2, i2, this.c);
     }
 
-    public final void b(Context context, AttributeSet attributeSet) {
+    public final void d(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040474, R.attr.obfuscated_res_0x7f040475, R.attr.obfuscated_res_0x7f040476, R.attr.obfuscated_res_0x7f040477, R.attr.obfuscated_res_0x7f040478, R.attr.obfuscated_res_0x7f040479, R.attr.obfuscated_res_0x7f04047a, R.attr.obfuscated_res_0x7f04047b, R.attr.obfuscated_res_0x7f04047c, R.attr.obfuscated_res_0x7f04047d, R.attr.obfuscated_res_0x7f04047e, R.attr.obfuscated_res_0x7f04047f, R.attr.obfuscated_res_0x7f040480});
-            int color = getResources().getColor(R.color.obfuscated_res_0x7f060838);
-            int color2 = getResources().getColor(R.color.obfuscated_res_0x7f060837);
-            int a = c11.c.a(getContext(), 11.0f);
-            int a2 = c11.c.a(getContext(), 12.0f);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet) == null) {
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040479, R.attr.obfuscated_res_0x7f04047a, R.attr.obfuscated_res_0x7f04047b, R.attr.obfuscated_res_0x7f04047c, R.attr.obfuscated_res_0x7f04047d, R.attr.obfuscated_res_0x7f04047e, R.attr.obfuscated_res_0x7f04047f, R.attr.obfuscated_res_0x7f040480, R.attr.obfuscated_res_0x7f040481, R.attr.obfuscated_res_0x7f040482, R.attr.obfuscated_res_0x7f040483, R.attr.obfuscated_res_0x7f040484, R.attr.obfuscated_res_0x7f040485});
+            int color = getResources().getColor(R.color.obfuscated_res_0x7f060841);
+            int color2 = getResources().getColor(R.color.obfuscated_res_0x7f060840);
+            int a = m11.c.a(getContext(), 11.0f);
+            int a2 = m11.c.a(getContext(), 12.0f);
             this.j = 1;
             this.f = obtainStyledAttributes.getInteger(0, color2);
             this.b = obtainStyledAttributes.getColor(8, color);
@@ -103,23 +114,12 @@ public class AdProgressButton extends View implements hk0<AdProgressButton> {
             this.i = obtainStyledAttributes.getDimensionPixelSize(5, a2);
             obtainStyledAttributes.recycle();
             this.k = Typeface.defaultFromStyle(1);
-            setBackgroundDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080daf));
-            d();
+            setBackgroundDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dc9));
+            e();
         }
     }
 
-    @Override // com.repackage.hk0
-    public void c(@NonNull ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) && (viewGroup instanceof RelativeLayout)) {
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-            layoutParams.addRule(13, -1);
-            viewGroup.addView(this, layoutParams);
-            viewGroup.setVisibility(0);
-        }
-    }
-
-    public void d() {
+    public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.c = new Paint();
@@ -154,7 +154,7 @@ public class AdProgressButton extends View implements hk0<AdProgressButton> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, canvas) == null) {
             super.onDraw(canvas);
-            a(canvas);
+            c(canvas);
             if (TextUtils.isEmpty(this.g)) {
                 return;
             }
@@ -168,7 +168,7 @@ public class AdProgressButton extends View implements hk0<AdProgressButton> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             this.f = i;
-            d();
+            e();
             postInvalidate();
         }
     }
@@ -219,7 +219,7 @@ public class AdProgressButton extends View implements hk0<AdProgressButton> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
             this.b = i;
-            d();
+            e();
             postInvalidate();
         }
     }
@@ -228,7 +228,7 @@ public class AdProgressButton extends View implements hk0<AdProgressButton> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
             this.e = i;
-            d();
+            e();
             postInvalidate();
         }
     }
@@ -271,7 +271,7 @@ public class AdProgressButton extends View implements hk0<AdProgressButton> {
         this.h = 100;
         this.i = 0;
         this.j = 0;
-        b(context, attributeSet);
+        d(context, attributeSet);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -299,6 +299,6 @@ public class AdProgressButton extends View implements hk0<AdProgressButton> {
         this.h = 100;
         this.i = 0;
         this.j = 0;
-        b(context, attributeSet);
+        d(context, attributeSet);
     }
 }

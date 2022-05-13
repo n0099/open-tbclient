@@ -75,7 +75,7 @@ public class ap implements ar {
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
                 try {
                     this.a.f103a = b.a(iBinder);
-                    this.a.f104b = b.m188a(iBinder);
+                    this.a.f104b = b.m189a(iBinder);
                     this.a.b();
                     this.a.f99a = 2;
                     synchronized (this.a.f102a) {
@@ -140,7 +140,7 @@ public class ap implements ar {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public static boolean m188a(IBinder iBinder) {
+        public static boolean m189a(IBinder iBinder) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iBinder)) == null) {
@@ -241,7 +241,7 @@ public class ap implements ar {
         if ((interceptable == null || interceptable.invokeL(65543, this, str) == null) && this.f99a == 1 && Looper.myLooper() != Looper.getMainLooper()) {
             synchronized (this.f102a) {
                 try {
-                    com.xiaomi.channel.commonutils.logger.b.m108a("huawei's " + str + " wait...");
+                    com.xiaomi.channel.commonutils.logger.b.m109a("huawei's " + str + " wait...");
                     this.f102a.wait(3000L);
                 } catch (Exception unused) {
                 }
@@ -250,7 +250,7 @@ public class ap implements ar {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m186a(Context context) {
+    public static boolean m187a(Context context) {
         InterceptResult invokeL;
         boolean z;
         Interceptable interceptable = $ic;
@@ -298,7 +298,7 @@ public class ap implements ar {
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b  reason: collision with other method in class */
-    public String mo187b() {
+    public String mo188b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

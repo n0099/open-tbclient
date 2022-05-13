@@ -1,18 +1,19 @@
 package com.repackage;
 
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.mutiprocess.soloader.SoLoaderEvent;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentHashMap;
+import com.repackage.x55;
 /* loaded from: classes6.dex */
-public class f65 implements i55<SoLoaderEvent> {
+public abstract class f65<T extends x55> extends q9 implements y55<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public BdUniqueId b;
 
     public f65() {
         Interceptable interceptable = $ic;
@@ -24,28 +25,29 @@ public class f65 implements i55<SoLoaderEvent> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = false;
+        this.b = null;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.i55
-    /* renamed from: a */
-    public boolean onEvent(SoLoaderEvent soLoaderEvent) {
-        InterceptResult invokeL;
+    public BdUniqueId getTag() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, soLoaderEvent)) == null) {
-            if (soLoaderEvent == null || StringUtils.isNull(soLoaderEvent.name)) {
-                return false;
-            }
-            if (nn.a(BdBaseApplication.getInst().getContext(), ln.a(soLoaderEvent.name))) {
-                ConcurrentHashMap<String, String> resHashMap = BdBaseApplication.getInst().getResHashMap();
-                String str = soLoaderEvent.name;
-                resHashMap.put(str, ln.a(str));
-                return true;
-            }
-            return true;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (BdUniqueId) invokeV.objValue;
+    }
+
+    public boolean isSelfListener() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.booleanValue;
+    }
+
+    public void setTag(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
+            this.b = bdUniqueId;
         }
-        return invokeL.booleanValue;
     }
 }

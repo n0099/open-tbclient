@@ -2,43 +2,40 @@ package com.repackage;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Build;
-import android.util.Log;
-import androidx.core.app.NotificationManagerCompat;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nz2;
-import java.util.Arrays;
+import com.repackage.z53;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ki3 {
+public class ki3 extends r23 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a implements DialogInterface.OnClickListener {
+    public class a implements nf3<x53<z53.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ Context c;
+        public final /* synthetic */ boolean d;
+        public final /* synthetic */ ki3 e;
 
-        public a(b bVar) {
+        public a(ki3 ki3Var, CallbackHandler callbackHandler, String str, Context context, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bVar};
+                Object[] objArr = {ki3Var, callbackHandler, str, context, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,123 +45,126 @@ public class ki3 {
                     return;
                 }
             }
-            this.a = bVar;
+            this.e = ki3Var;
+            this.a = callbackHandler;
+            this.b = str;
+            this.c = context;
+            this.d = z;
         }
 
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
-            b bVar;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.nf3
+        /* renamed from: a */
+        public void onCallback(x53<z53.e> x53Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) || (bVar = this.a) == null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, x53Var) == null) {
+                if (s53.h(x53Var)) {
+                    this.e.k((Activity) this.c, this.d, this.a, this.b);
+                } else {
+                    s53.q(x53Var, this.a, this.b);
+                }
             }
-            bVar.onResult(i == -1);
         }
     }
 
     /* loaded from: classes6.dex */
-    public interface b {
-        void onResult(boolean z);
+    public class b implements nf3<g63> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ String b;
+
+        public b(ki3 ki3Var, CallbackHandler callbackHandler, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ki3Var, callbackHandler, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = callbackHandler;
+            this.b = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.nf3
+        /* renamed from: a */
+        public void onCallback(g63 g63Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, g63Var) == null) {
+                ux1.i("OpenData", "onOpenDataCallback:: " + g63Var.toString());
+                if (!g63Var.E()) {
+                    s53.n(g63Var, this.a, this.b);
+                } else {
+                    this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(g63Var.g, 0).toString());
+                }
+            }
+        }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755557956, "Lcom/repackage/ki3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755557956, "Lcom/repackage/ki3;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ki3(r13 r13Var) {
+        super(r13Var, "/swanAPI/getRealNameInfo");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {r13Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = tg1.a;
-        b = new String[]{"BLA-AL00", "R7Plus"};
     }
 
-    public static DialogInterface.OnClickListener a(b bVar) {
-        InterceptResult invokeL;
+    @Override // com.repackage.r23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u03 u03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bVar)) == null) ? new a(bVar) : (DialogInterface.OnClickListener) invokeL.objValue;
-    }
-
-    public static boolean b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 19) {
-                return NotificationManagerCompat.from(context).areNotificationsEnabled();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, u03Var)) == null) {
+            if (u03Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "runtime exception");
+                return false;
             }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void c(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
-            String packageName = context.getPackageName();
-            Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
-            intent.setData(Uri.fromParts("package", packageName, null));
-            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            context.startActivity(intent);
-        }
-    }
-
-    public static void d(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
-            if (!Arrays.asList(b).contains(Build.MODEL)) {
-                Intent intent = new Intent();
-                intent.setAction("android.settings.APP_NOTIFICATION_SETTINGS");
-                int i = Build.VERSION.SDK_INT;
-                if (i >= 26) {
-                    intent.putExtra("android.provider.extra.APP_PACKAGE", context.getPackageName());
-                    intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-                } else if (i >= 21) {
-                    intent.putExtra("app_package", context.getPackageName());
-                    intent.putExtra("app_uid", context.getApplicationInfo().uid);
-                }
-                try {
-                    context.startActivity(intent);
-                    return;
-                } catch (Exception e) {
-                    if (a) {
-                        Log.e("GuideHelper", "openNotificationSettingPages() Exception:" + e);
-                    }
-                    c(context);
-                    return;
-                }
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "params is empty");
+                return false;
             }
-            c(context);
-        }
-    }
-
-    public static void e(Context context, b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, context, bVar) == null) {
-            if (!(context instanceof Activity)) {
-                if (a) {
-                    throw new IllegalArgumentException("context must be activity.");
-                }
-            } else if (bVar == null) {
+            String optString = optParamsAsJo.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "callback is empty");
+                return false;
+            } else if (!(context instanceof Activity)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
+                return false;
             } else {
-                DialogInterface.OnClickListener a2 = a(bVar);
-                nz2.a aVar = new nz2.a(context);
-                aVar.n(new rf3());
-                nz2 c = aVar.c();
-                aVar.U(R.string.obfuscated_res_0x7f0f1214);
-                aVar.x(context.getString(R.string.obfuscated_res_0x7f0f1213));
-                aVar.y();
-                aVar.J(qj2.M().a());
-                aVar.O(R.string.obfuscated_res_0x7f0f1215, a2);
-                aVar.B(R.string.obfuscated_res_0x7f0f1212, a2);
-                aVar.a();
-                c.setCancelable(false);
-                c.show();
+                boolean j = s53.j(optParamsAsJo);
+                u03Var.d0().h(context, "ppcert", j, new a(this, callbackHandler, optString, context, j));
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
             }
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public final void k(Activity activity, boolean z, CallbackHandler callbackHandler, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, Boolean.valueOf(z), callbackHandler, str}) == null) {
+            g63.B(activity, "ppcert", null, z, "GetRealNameInfo", new b(this, callbackHandler, str));
         }
     }
 }

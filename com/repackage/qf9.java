@@ -1,44 +1,32 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Base64;
-import androidx.annotation.VisibleForTesting;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.TTNativeAd;
+import com.fun.ad.sdk.FunAdInteractionListener;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.NumberUtils;
-import com.repackage.tf9;
-import com.repackage.vf9;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public final class qf9 {
+/* loaded from: classes6.dex */
+public class qf9 implements TTNativeAd.AdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public int b;
-    public int c;
-    public final Set<Ssp> d;
-    public final Set<vf9> e;
-    public final Set<tf9> f;
+    public boolean a;
+    public boolean b;
+    public final /* synthetic */ FunAdInteractionListener c;
+    public final /* synthetic */ String d;
+    public final /* synthetic */ TTNativeAd e;
+    public final /* synthetic */ of9 f;
 
-    public qf9() {
+    public qf9(of9 of9Var, FunAdInteractionListener funAdInteractionListener, String str, TTNativeAd tTNativeAd) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {of9Var, funAdInteractionListener, str, tTNativeAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -48,158 +36,69 @@ public final class qf9 {
                 return;
             }
         }
-        this.d = new HashSet();
-        this.e = new HashSet();
-        this.f = new HashSet();
+        this.f = of9Var;
+        this.c = funAdInteractionListener;
+        this.d = str;
+        this.e = tTNativeAd;
     }
 
-    public final void a() {
-        byte[] bArr;
+    @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
+    public void onAdClicked(View view2, TTNativeAd tTNativeAd) {
+        Ssp.Pid pid;
+        Ssp.Pid pid2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j = this.a;
-            int i = this.b;
-            int i2 = this.c;
-            kf9 kf9Var = new kf9(this.d, this.e, this.f);
-            Object obj = wf9.a;
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            try {
-                ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
-                kf9Var.srzable(objectOutputStream);
-                objectOutputStream.flush();
-                bArr = byteArrayOutputStream.toByteArray();
-            } catch (IOException unused) {
-                bArr = null;
-            }
-            String encodeToString = bArr != null ? Base64.encodeToString(bArr, 0) : null;
-            Object[] objArr = new Object[1];
-            objArr[0] = Integer.valueOf(encodeToString == null ? -1 : encodeToString.length());
-            LogPrinter.v("sspsUTF len:%d", objArr);
-            wf9.b.edit().putLong("key_config_v", j).putInt("key_config_interval", i).putInt("key_V", i2).putString("key_adcfg", encodeToString).apply();
-        }
-    }
-
-    public boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            try {
-                c(str);
-                LogPrinter.v("Config cfgv:%d parsed over.", Long.valueOf(this.a));
-                if (d()) {
-                    a();
-                    LogPrinter.v("Config cfgv:%d persisted over.", Long.valueOf(this.a));
-                    return true;
-                }
-            } catch (JSONException e) {
-                LogPrinter.e(e);
-            }
-            this.d.clear();
-            this.e.clear();
-            this.f.clear();
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @VisibleForTesting
-    public void c(String str) {
-        JSONArray optJSONArray;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            JSONObject jSONObject = new JSONObject(str);
-            JSONObject jSONObject2 = jSONObject.getJSONObject(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME);
-            this.a = NumberUtils.adjustLong(jSONObject2.getLong("ver"), 0L);
-            this.b = NumberUtils.adjustInt(jSONObject2.getInt("interval"), 1, 1440);
-            this.c = NumberUtils.adjustInt(jSONObject2.optInt("V", 1), 1);
-            JSONObject jSONObject3 = jSONObject.getJSONObject("adConfig");
-            JSONArray jSONArray = jSONObject3.getJSONArray("ssps");
-            HashMap hashMap = new HashMap();
-            for (int i = 0; i < jSONArray.length(); i++) {
-                Ssp ssp = new Ssp(jSONArray.getJSONObject(i));
-                for (Ssp.Pid pid : ssp.pids) {
-                    hashMap.put(Long.valueOf(pid.id), pid);
-                }
-                this.d.add(ssp);
-            }
-            JSONArray jSONArray2 = jSONObject3.getJSONArray("sids");
-            for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
-                this.e.add(new vf9(jSONArray2.getJSONObject(i2), hashMap));
-            }
-            if (this.c < 2 || (optJSONArray = jSONObject3.optJSONArray("serialSids")) == null) {
-                return;
-            }
-            for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                this.f.add(new tf9(optJSONArray.getJSONObject(i3), hashMap));
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, tTNativeAd) == null) {
+            LogPrinter.d();
+            this.f.onAdClicked(this.b, new String[0]);
+            this.b = true;
+            FunAdInteractionListener funAdInteractionListener = this.c;
+            if (funAdInteractionListener != null) {
+                String str = this.d;
+                pid = this.f.mPid;
+                String str2 = pid.ssp.type;
+                pid2 = this.f.mPid;
+                funAdInteractionListener.onAdClicked(str, str2, pid2.pid);
             }
         }
     }
 
-    @VisibleForTesting
-    public boolean d() {
-        InterceptResult invokeV;
+    @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
+    public void onAdCreativeClick(View view2, TTNativeAd tTNativeAd) {
+        Ssp.Pid pid;
+        Ssp.Pid pid2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            HashSet hashSet = new HashSet();
-            HashSet hashSet2 = new HashSet();
-            for (Ssp ssp : this.d) {
-                if (hashSet.contains(ssp.type)) {
-                    LogPrinter.e("Duplicate ssp:type(%s) found.", ssp.type);
-                    return false;
-                }
-                hashSet.add(ssp.type);
-                for (Ssp.Pid pid : ssp.pids) {
-                    if (hashSet2.contains(Long.valueOf(pid.id))) {
-                        LogPrinter.e("Duplicate pid(%d) found.", Long.valueOf(pid.id));
-                        return false;
-                    }
-                    hashSet2.add(Long.valueOf(pid.id));
-                }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, tTNativeAd) == null) {
+            LogPrinter.d();
+            this.f.onAdClicked(this.b, new String[0]);
+            this.b = true;
+            FunAdInteractionListener funAdInteractionListener = this.c;
+            if (funAdInteractionListener != null) {
+                String str = this.d;
+                pid = this.f.mPid;
+                String str2 = pid.ssp.type;
+                pid2 = this.f.mPid;
+                funAdInteractionListener.onAdClicked(str, str2, pid2.pid);
             }
-            HashSet hashSet3 = new HashSet();
-            for (vf9 vf9Var : this.e) {
-                if (hashSet3.contains(vf9Var.a)) {
-                    LogPrinter.e("Duplicate sid(%s) found in SlotId", vf9Var.a);
-                    return false;
-                }
-                hashSet3.add(vf9Var.a);
-                for (vf9.c cVar : vf9Var.e) {
-                    HashSet hashSet4 = new HashSet();
-                    for (vf9.b bVar : cVar.b) {
-                        if (!hashSet2.contains(Long.valueOf(bVar.a))) {
-                            LogPrinter.e("Unregistered adId:(%d) in SlotId", Long.valueOf(bVar.a));
-                            return false;
-                        } else if (hashSet4.contains(Long.valueOf(bVar.a))) {
-                            LogPrinter.e("Duplicate adId:(%d) found in one sid:(%s) in SlotId", Long.valueOf(bVar.a), vf9Var.a);
-                            return false;
-                        } else {
-                            hashSet4.add(Long.valueOf(bVar.a));
-                        }
-                    }
-                }
-            }
-            if (this.c == 2) {
-                for (tf9 tf9Var : this.f) {
-                    if (hashSet3.contains(tf9Var.a)) {
-                        LogPrinter.e("Duplicate sid(%s) found in SerialSlotId.", tf9Var.a);
-                        return false;
-                    }
-                    hashSet3.add(tf9Var.a);
-                    for (tf9.b bVar2 : tf9Var.b) {
-                        for (tf9.a aVar : bVar2.b) {
-                            if (!hashSet2.contains(Long.valueOf(aVar.a))) {
-                                LogPrinter.e("Unregistered adId:(%d) in SerialSlotId", Long.valueOf(aVar.a));
-                                return false;
-                            }
-                        }
-                    }
-                }
-            }
-            return true;
         }
-        return invokeV.booleanValue;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
+    public void onAdShow(TTNativeAd tTNativeAd) {
+        Ssp.Pid pid;
+        Ssp.Pid pid2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tTNativeAd) == null) {
+            LogPrinter.d();
+            this.f.onAdShow(this.e, this.a, new String[0]);
+            this.a = true;
+            FunAdInteractionListener funAdInteractionListener = this.c;
+            if (funAdInteractionListener != null) {
+                String str = this.d;
+                pid = this.f.mPid;
+                String str2 = pid.ssp.type;
+                pid2 = this.f.mPid;
+                funAdInteractionListener.onAdShow(str, str2, pid2.pid);
+            }
+        }
     }
 }

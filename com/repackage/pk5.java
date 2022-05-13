@@ -39,12 +39,12 @@ public class pk5 implements CustomMessageTask.CustomRunnable<String> {
             if (customMessage == null || !(customMessage instanceof GetContactListRequestMessage)) {
                 return null;
             }
-            List<iy4> e = sk5.f().e();
+            List<wy4> e = sk5.f().e();
             if (e != null) {
-                Iterator<iy4> it = e.iterator();
+                Iterator<wy4> it = e.iterator();
                 while (it.hasNext()) {
-                    iy4 next = it.next();
-                    if ((ni.isEmpty(next.f()) && ni.isEmpty(next.g())) || next.i() == 1) {
+                    wy4 next = it.next();
+                    if ((li.isEmpty(next.f()) && li.isEmpty(next.g())) || next.i() == 1) {
                         it.remove();
                     }
                 }

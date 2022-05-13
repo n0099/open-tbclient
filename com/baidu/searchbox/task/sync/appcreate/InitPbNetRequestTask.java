@@ -2,18 +2,21 @@ package com.baidu.searchbox.task.sync.appcreate;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
+import com.baidu.tieba.yunpush.YunPushProxyActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ks4;
+import com.repackage.lt7;
+import com.repackage.mt7;
 import com.repackage.nt7;
+import com.repackage.xs4;
+import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class InitPbNetRequestTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final nt7 schemeStartPbMessageSender;
 
     public InitPbNetRequestTask() {
         Interceptable interceptable = $ic;
@@ -25,17 +28,25 @@ public class InitPbNetRequestTask extends LaunchTask {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.schemeStartPbMessageSender = new nt7();
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.schemeStartPbMessageSender.i(ks4.a().c);
+            if (lt7.a().c() && xs4.a().c == 1) {
+                new nt7().i(xs4.a().d);
+            }
+            if (lt7.a().c() && xs4.a().c == 2) {
+                try {
+                    String str = xs4.a().d;
+                    mt7.l(new String[]{new JSONObject(str.substring(str.indexOf(YunPushProxyActivity.PUSH_BODY) + 20)).getString(YunPushProxyActivity.JUME_SCHEME)});
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 

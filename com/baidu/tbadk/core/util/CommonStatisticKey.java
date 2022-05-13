@@ -35,6 +35,7 @@ public class CommonStatisticKey {
     public static final String KEY_ACCELERATOR_PAGE_STOP_BTN_SHOW = "c14546";
     public static final String KEY_AT_PANEL_COMMIT = "c14377";
     public static final String KEY_AT_PANEL_SHOW = "c14376";
+    public static final String KEY_BATCH_DELETE_MESSAGE = "c14663";
     public static final String KEY_BAWU_FRS_MUSK_CLICK = "c14324";
     public static final String KEY_BAWU_MULTI_MUSK_CLICK = "c14325";
     public static final String KEY_BAWU_TIP_DIALOG_CANCEL = "c14323";
@@ -140,6 +141,7 @@ public class CommonStatisticKey {
     public static final String KEY_LOGIN_DIALOG_SUCCESS = "c14060";
     public static final String KEY_MINE_PAGE_LOGIN_DIALOG_SUCCESS = "c14468";
     public static final String KEY_NEW_SCHEME_PULL_UP = "c13321";
+    public static final String KEY_ONE_KEY_READ = "c14662";
     public static final String KEY_PB_FOLD_FLOOR_COMPLAINT = "c14439";
     public static final String KEY_PB_FOLD_FLOOR_COMPLAINT_CLICK = "c14438";
     public static final String KEY_PB_FOLD_FLOOR_COMPLAINT_SHOW = "c14437";
@@ -168,6 +170,9 @@ public class CommonStatisticKey {
     public static final String KEY_REPORT_PRIVATE_MSG_CHANGE = "c14577";
     public static final String KEY_SCORE_POST_ENTRY_CLICK = "c13722";
     public static final String KEY_SCREEN_SHOT = "c13848";
+    public static final String KEY_SEND_EASTER_EGG_EMOJI = "c14659";
+    public static final String KEY_SHARE_FRIEND_BTN = "c14644";
+    public static final String KEY_SHARE_NEARLY_PERSON = "c14643";
     public static final String KEY_SHOW_BIGDAY_AT_WRITE = "c13113";
     public static final String KEY_SHOW_PB_HEAD_NOTICE_BAR = "c14340";
     public static final String KEY_SITE_SERVICE = "c14050";

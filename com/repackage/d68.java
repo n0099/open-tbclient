@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class d68 extends tw5<z48> {
+public class d68 extends uw5<z48> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View i;
@@ -78,18 +78,18 @@ public class d68 extends tw5<z48> {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (data instanceof cn8) {
-                cn8 cn8Var = (cn8) data;
-                if (cn8Var.a == this.a.r.f) {
-                    if (cn8Var.b) {
+            if (data instanceof zl8) {
+                zl8 zl8Var = (zl8) data;
+                if (zl8Var.a == this.a.r.f) {
+                    if (zl8Var.b) {
                         this.a.r.i = true;
                         this.a.q.setVisibility(0);
                         this.a.z(true);
-                        oi.M(this.a.c, R.string.obfuscated_res_0x7f0f02ac);
-                    } else if (StringUtils.isNull(cn8Var.c)) {
-                        oi.M(this.a.c, R.string.obfuscated_res_0x7f0f02a6);
+                        mi.M(this.a.c, R.string.obfuscated_res_0x7f0f02b1);
+                    } else if (StringUtils.isNull(zl8Var.c)) {
+                        mi.M(this.a.c, R.string.obfuscated_res_0x7f0f02ab);
                     } else {
-                        oi.N(this.a.c, cn8Var.c);
+                        mi.N(this.a.c, zl8Var.c);
                     }
                 }
             }
@@ -131,18 +131,18 @@ public class d68 extends tw5<z48> {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (data instanceof cn8) {
-                cn8 cn8Var = (cn8) data;
-                if (cn8Var.a == this.a.r.f) {
-                    if (cn8Var.b) {
+            if (data instanceof zl8) {
+                zl8 zl8Var = (zl8) data;
+                if (zl8Var.a == this.a.r.f) {
+                    if (zl8Var.b) {
                         this.a.r.i = false;
                         this.a.q.setVisibility(0);
                         d68 d68Var = this.a;
                         d68Var.z(d68Var.r.i);
-                        oi.M(this.a.c, R.string.obfuscated_res_0x7f0f1487);
+                        mi.M(this.a.c, R.string.obfuscated_res_0x7f0f14b2);
                         return;
                     }
-                    oi.M(this.a.c, R.string.obfuscated_res_0x7f0f1486);
+                    mi.M(this.a.c, R.string.obfuscated_res_0x7f0f14b1);
                 }
             }
         }
@@ -171,14 +171,14 @@ public class d68 extends tw5<z48> {
         w(k());
     }
 
-    @Override // com.repackage.tw5
+    @Override // com.repackage.uw5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01b7 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01b2 : invokeV.intValue;
     }
 
-    @Override // com.repackage.tw5
+    @Override // com.repackage.uw5
     public void m(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
@@ -212,7 +212,7 @@ public class d68 extends tw5<z48> {
                 TiebaStatic.log(new StatisticItem("c11596"));
                 if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
                     ViewHelper.skipToLoginActivity(this.c);
-                } else if (ni.isForumName(this.r.h)) {
+                } else if (li.isForumName(this.r.h)) {
                     z48 z48Var = this.r;
                     if (z48Var.i) {
                         return;
@@ -226,15 +226,15 @@ public class d68 extends tw5<z48> {
     public final void w(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.i = view2.findViewById(R.id.obfuscated_res_0x7f090572);
-            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09056e);
-            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090570);
-            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090576);
-            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09056f);
-            this.n = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090574);
-            this.o = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090571);
-            this.p = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090575);
-            this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090573);
+            this.i = view2.findViewById(R.id.obfuscated_res_0x7f09056f);
+            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09056b);
+            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09056d);
+            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090573);
+            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09056c);
+            this.n = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090571);
+            this.o = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09056e);
+            this.p = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090572);
+            this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090570);
             this.i.setOnClickListener(this);
             this.q.setOnClickListener(this);
             this.b.registerListener(this.u);
@@ -243,7 +243,7 @@ public class d68 extends tw5<z48> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.tw5
+    @Override // com.repackage.uw5
     /* renamed from: x */
     public void l(z48 z48Var) {
         Context context;
@@ -266,26 +266,26 @@ public class d68 extends tw5<z48> {
             this.k.setText(z48Var.d);
             TextView textView = this.l;
             if (z48Var.a) {
-                string = this.c.getString(R.string.obfuscated_res_0x7f0f0a99);
+                string = this.c.getString(R.string.obfuscated_res_0x7f0f0aa0);
             } else {
                 if (z48Var.b == 2) {
                     context = this.c;
-                    i = R.string.obfuscated_res_0x7f0f1157;
+                    i = R.string.obfuscated_res_0x7f0f1173;
                 } else {
                     context = this.c;
-                    i = R.string.obfuscated_res_0x7f0f0819;
+                    i = R.string.obfuscated_res_0x7f0f0821;
                 }
                 string = context.getString(i);
             }
             textView.setText(string);
             this.n.K(z48Var.g, 10, false);
             String str = z48Var.h;
-            if (fd5.b(str) > 10) {
-                str = fd5.k(str, 0, 10) + StringHelper.STRING_MORE;
+            if (xd5.b(str) > 10) {
+                str = xd5.k(str, 0, 10) + StringHelper.STRING_MORE;
             }
-            this.o.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f0e28), str));
+            this.o.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f0e46), str));
             String numFormatOverWanNa = StringHelper.numFormatOverWanNa(z48Var.j);
-            this.p.setText(z48Var.a ? String.format(this.c.getString(R.string.obfuscated_res_0x7f0f0e27), numFormatOverWanNa, StringHelper.numFormatOverWanNa(z48Var.k)) : String.format(this.c.getString(R.string.obfuscated_res_0x7f0f0e26), numFormatOverWanNa));
+            this.p.setText(z48Var.a ? String.format(this.c.getString(R.string.obfuscated_res_0x7f0f0e45), numFormatOverWanNa, StringHelper.numFormatOverWanNa(z48Var.k)) : String.format(this.c.getString(R.string.obfuscated_res_0x7f0f0e44), numFormatOverWanNa));
             if (!z48Var.i && !z48Var.a) {
                 this.q.setVisibility(0);
                 z(z48Var.i);
@@ -306,15 +306,15 @@ public class d68 extends tw5<z48> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             if (z) {
-                this.q.setText(this.c.getString(R.string.obfuscated_res_0x7f0f0f6c));
+                this.q.setText(this.c.getString(R.string.obfuscated_res_0x7f0f0f87));
                 SkinManager.setViewTextColor(this.q, (int) R.color.CAM_X0110);
                 SkinManager.setBackgroundResource(this.q, R.color.transparent);
                 this.q.setClickable(false);
                 return;
             }
-            this.q.setText(this.c.getString(R.string.obfuscated_res_0x7f0f0626));
+            this.q.setText(this.c.getString(R.string.obfuscated_res_0x7f0f062c));
             SkinManager.setViewTextColor(this.q, R.color.CAM_X0302, 1);
-            SkinManager.setBackgroundResource(this.q, R.drawable.obfuscated_res_0x7f080f8c);
+            SkinManager.setBackgroundResource(this.q, R.drawable.obfuscated_res_0x7f080fa2);
             this.q.setClickable(true);
         }
     }

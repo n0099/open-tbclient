@@ -14,12 +14,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ex2;
-import com.repackage.hr3;
-import com.repackage.i03;
+import com.repackage.ds3;
+import com.repackage.eh1;
+import com.repackage.gs3;
+import com.repackage.px2;
 import com.repackage.sr3;
-import com.repackage.tg1;
-import com.repackage.vr3;
+import com.repackage.t03;
 /* loaded from: classes2.dex */
 public class AppDownloadNetworkStateReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
@@ -40,7 +40,7 @@ public class AppDownloadNetworkStateReceiver extends BroadcastReceiver {
                 return;
             }
         }
-        DEBUG = tg1.a;
+        DEBUG = eh1.a;
     }
 
     public AppDownloadNetworkStateReceiver() {
@@ -66,25 +66,25 @@ public class AppDownloadNetworkStateReceiver extends BroadcastReceiver {
         if (DEBUG) {
             Log.d("NetworkBroadcast", "——> onReceive: ");
         }
-        if (SwanAppNetworkUtils.NetType.WIFI == SwanAppNetworkUtils.f() && sr3.a().b()) {
+        if (SwanAppNetworkUtils.NetType.WIFI == SwanAppNetworkUtils.f() && ds3.a().b()) {
             if (ProcessUtils.isMainProcess()) {
-                hr3.n().D();
+                sr3.n().D();
                 return;
             }
-            ex2 z = i03.J().z();
+            px2 z = t03.J().z();
             if (z != null) {
                 Bundle bundle = new Bundle();
                 bundle.putString("operation", "resumeAllDownload");
-                z.V(bundle, vr3.class);
+                z.V(bundle, gs3.class);
             }
         } else if (ProcessUtils.isMainProcess()) {
-            hr3.n().u();
+            sr3.n().u();
         } else {
-            ex2 z2 = i03.J().z();
+            px2 z2 = t03.J().z();
             if (z2 != null) {
                 Bundle bundle2 = new Bundle();
                 bundle2.putString("operation", "pauseAllDownload");
-                z2.V(bundle2, vr3.class);
+                z2.V(bundle2, gs3.class);
             }
         }
     }

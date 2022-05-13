@@ -8,13 +8,54 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.internal.util.atomic.LinkedQueueNode;
+import rx.exceptions.OnErrorNotImplementedException;
 /* loaded from: classes7.dex */
-public abstract class v1a<E> extends x1a<E> {
+public final class v1a {
     public static /* synthetic */ Interceptable $ic;
-    public static final long b;
+    public static final xx9<Object> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedQueueNode<E> consumerNode;
+
+    /* loaded from: classes7.dex */
+    public static class a implements xx9<Object> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.xx9
+        public final void onCompleted() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
+
+        @Override // com.repackage.xx9
+        public final void onError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                throw new OnErrorNotImplementedException(th);
+            }
+        }
+
+        @Override // com.repackage.xx9
+        public final void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -29,33 +70,12 @@ public abstract class v1a<E> extends x1a<E> {
                 return;
             }
         }
-        b = z2a.a(v1a.class, "consumerNode");
+        a = new a();
     }
 
-    public v1a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public final LinkedQueueNode<E> d() {
+    public static <T> xx9<T> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (LinkedQueueNode) z2a.a.f(this, b) : (LinkedQueueNode) invokeV.objValue;
-    }
-
-    public final void e(LinkedQueueNode<E> linkedQueueNode) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linkedQueueNode) == null) {
-            this.consumerNode = linkedQueueNode;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? (xx9<T>) a : (xx9) invokeV.objValue;
     }
 }

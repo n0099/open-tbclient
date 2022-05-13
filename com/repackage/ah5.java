@@ -1,168 +1,45 @@
 package com.repackage;
 
-import android.util.SparseArray;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
+import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class ah5 implements uo, dh5, dp4 {
+public final class ah5 extends GestureDetector.SimpleOnGestureListener {
     public static /* synthetic */ Interceptable $ic;
-    public static SparseArray<BdUniqueId> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Object a;
-    public int b;
+    public final WheelView a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755856765, "Lcom/repackage/ah5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755856765, "Lcom/repackage/ah5;");
-                return;
-            }
-        }
-        c = new SparseArray<>();
-    }
-
-    public ah5() {
+    public ah5(WheelView wheelView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {wheelView};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = wheelView;
     }
 
-    public static void b(List<Integer> list) {
+    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+    public final boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, list) == null) || c.size() > 0 || list == null) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            this.a.q(f2);
+            return true;
         }
-        for (Integer num : list) {
-            c.put(num.intValue(), BdUniqueId.gen());
-        }
-    }
-
-    public static List<BdUniqueId> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < c.size(); i++) {
-                arrayList.add(c.valueAt(i));
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public static int g(BdUniqueId bdUniqueId) {
-        InterceptResult invokeL;
-        int indexOfValue;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bdUniqueId)) == null) {
-            if (c.size() == 0 || (indexOfValue = c.indexOfValue(bdUniqueId)) == -1 || c.size() <= indexOfValue) {
-                return -1;
-            }
-            return c.keyAt(indexOfValue);
-        }
-        return invokeL.intValue;
-    }
-
-    @Override // com.repackage.dh5
-    public Object a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.objValue;
-    }
-
-    @Override // com.repackage.dp4
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    @Override // com.repackage.uo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? c.get(this.b) : (BdUniqueId) invokeV.objValue;
-    }
-
-    @Override // com.repackage.dp4
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (a() instanceof AdvertAppInfo) {
-                return ((dp4) a()).h();
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    public void i(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
-            this.a = obj;
-        }
-    }
-
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    @Override // com.repackage.dp4
-    public AdvertAppInfo o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (a() instanceof dp4) {
-                return (AdvertAppInfo) a();
-            }
-            return null;
-        }
-        return (AdvertAppInfo) invokeV.objValue;
-    }
-
-    @Override // com.repackage.dp4
-    public void setPosition(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (a() instanceof dp4)) {
-            ((dp4) a()).setPosition(i);
-        }
+        return invokeCommon.booleanValue;
     }
 }

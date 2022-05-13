@@ -19,19 +19,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a27;
+import com.repackage.a17;
 import com.repackage.b9;
-import com.repackage.e27;
-import com.repackage.mi;
-import com.repackage.uo;
+import com.repackage.e17;
+import com.repackage.ki;
+import com.repackage.ro;
 import com.repackage.wa;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class TopicDetailModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a27 a;
-    public e27 b;
+    public a17 a;
+    public e17 b;
     public wa c;
 
     /* loaded from: classes3.dex */
@@ -170,17 +170,17 @@ public class TopicDetailModel extends BdBaseModel {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || responsedMessage.getOrginalMessage() == null || this.a.unique_id != responsedMessage.getOrginalMessage().getTag() || this.a.a == null) {
                 return;
             }
-            List<uo> list = null;
+            List<ro> list = null;
             boolean z = false;
             if (responsedMessage instanceof ResponseHttpGetTopicThreadMessage) {
                 ResponseHttpGetTopicThreadMessage responseHttpGetTopicThreadMessage = (ResponseHttpGetTopicThreadMessage) responsedMessage;
-                List<uo> dataList = responseHttpGetTopicThreadMessage.getDataList();
+                List<ro> dataList = responseHttpGetTopicThreadMessage.getDataList();
                 z = responseHttpGetTopicThreadMessage.getHasMore();
                 list = dataList;
             }
             if (responsedMessage instanceof ResponseSocketGetTopicThreadMessage) {
                 ResponseSocketGetTopicThreadMessage responseSocketGetTopicThreadMessage = (ResponseSocketGetTopicThreadMessage) responsedMessage;
-                List<uo> dataList2 = responseSocketGetTopicThreadMessage.getDataList();
+                List<ro> dataList2 = responseSocketGetTopicThreadMessage.getDataList();
                 z = responseSocketGetTopicThreadMessage.getHasMore();
                 list = dataList2;
             }
@@ -215,10 +215,10 @@ public class TopicDetailModel extends BdBaseModel {
     public void D(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            if (!mi.A()) {
-                a27 a27Var = this.a;
-                if (a27Var != null) {
-                    a27Var.netCallback(-1, null);
+            if (!ki.A()) {
+                a17 a17Var = this.a;
+                if (a17Var != null) {
+                    a17Var.netCallback(-1, null);
                     return;
                 }
                 return;
@@ -234,10 +234,10 @@ public class TopicDetailModel extends BdBaseModel {
     public void E(long j, long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            if (!mi.A()) {
-                a27 a27Var = this.a;
-                if (a27Var != null) {
-                    a27Var.netThreadCallback(-1, false, null);
+            if (!ki.A()) {
+                a17 a17Var = this.a;
+                if (a17Var != null) {
+                    a17Var.netThreadCallback(-1, false, null);
                     return;
                 }
                 return;
@@ -252,10 +252,10 @@ public class TopicDetailModel extends BdBaseModel {
         }
     }
 
-    public void F(a27 a27Var) {
+    public void F(a17 a17Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, a27Var) == null) {
-            this.a = a27Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, a17Var) == null) {
+            this.a = a17Var;
         }
     }
 

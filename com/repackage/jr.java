@@ -1,48 +1,80 @@
 package com.repackage;
 
-import com.baidu.bdtask.ctrl.model.TaskStatus;
-import com.baidu.bdtask.model.response.TaskProcessData;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes6.dex */
-public final class jr {
+public final class jr extends rr {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TaskStatus a;
-    public final gr b;
-    public final TaskProcessData c;
     public final String d;
+    public final String e;
+    public final String f;
 
-    public jr(TaskStatus taskStatus, gr grVar, TaskProcessData taskProcessData, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jr(String str, String str2, String str3, Integer num, String str4) {
+        super(str, num, str4);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {taskStatus, grVar, taskProcessData, str};
+            Object[] objArr = {str, str2, str3, num, str4};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (Integer) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = taskStatus;
-        this.b = grVar;
-        this.c = taskProcessData;
         this.d = str;
+        this.e = str2;
+        this.f = str3;
     }
 
-    public String toString() {
+    @Override // com.repackage.fs
+    public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "taskStatus:" + this.a + "\n uiConfig:" + this.b + "\n totalProcess:" + this.c + "\n extra:" + this.d;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TaskExecClickAction" : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.rr
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (String) invokeV.objValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 8;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
+    }
+
+    public final String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (String) invokeV.objValue;
+    }
+
+    public final String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : (String) invokeV.objValue;
+    }
+
+    public /* synthetic */ jr(String str, String str2, String str3, Integer num, String str4, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(str, (i & 2) != 0 ? "" : str2, (i & 4) != 0 ? "" : str3, (i & 8) != 0 ? null : num, (i & 16) != 0 ? null : str4);
     }
 }

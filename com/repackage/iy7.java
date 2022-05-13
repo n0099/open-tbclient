@@ -1,137 +1,85 @@
 package com.repackage;
 
+import android.content.Context;
 import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
-import com.baidu.tieba.pb.pb.sub.adapter.SubPbReplyAdapter;
-import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class iy7 {
+public abstract class iy7<T, V extends TypeAdapter.ViewHolder> extends eo<T, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public my7 a;
-    public SubPbReplyAdapter b;
-    public NewSubPbActivity c;
-    public BdTypeListView d;
-    public List<ho> e;
-    public View.OnClickListener f;
-    public dp g;
-    public boolean h;
-    public boolean i;
+    public ot7 i;
+    public boolean j;
 
-    public iy7(NewSubPbActivity newSubPbActivity, BdTypeListView bdTypeListView) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public iy7(ot7 ot7Var, BdUniqueId bdUniqueId) {
+        this(ot7Var, bdUniqueId, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {newSubPbActivity, bdTypeListView};
+            Object[] objArr = {ot7Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((ot7) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new ArrayList();
-        this.f = null;
-        this.h = false;
-        this.i = true;
-        this.c = newSubPbActivity;
-        this.d = bdTypeListView;
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.eo
+    public View S(int i, View view2, ViewGroup viewGroup, T t, V v) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.h : invokeV.booleanValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t, v})) == null) {
+            TbadkCoreApplication.getInst().getSkinType();
+            to toVar = (to) viewGroup;
+            return null;
+        }
+        return (View) invokeCommon.objValue;
     }
 
-    public void b() {
+    public void setFromCDN(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            my7 my7Var = new my7(this.c, PostData.x0);
-            this.a = my7Var;
-            my7Var.e(this.f);
-            this.a.V(this.g);
-            this.a.setFromCDN(this.i);
-            this.e.add(this.a);
-            SubPbReplyAdapter subPbReplyAdapter = new SubPbReplyAdapter(this.c, py7.b);
-            this.b = subPbReplyAdapter;
-            this.e.add(subPbReplyAdapter);
-            this.e.add(new ny7(this.c, oy7.a));
-            this.d.a(this.e);
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.j = z;
         }
     }
 
-    public void c() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public iy7(ot7 ot7Var, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(ot7Var.getPageContext().getPageActivity(), bdUniqueId, bdUniqueId2);
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.d.getAdapter2() == null) {
-            return;
-        }
-        this.d.getAdapter2().notifyDataSetChanged();
-    }
-
-    public void d(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.f = onClickListener;
-        }
-    }
-
-    public void e(ThreadData threadData, List<uo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, threadData, list) == null) {
-            this.a.m0(threadData);
-            if (!ni.isEmpty(this.c.getSubPbModel().r0())) {
-                this.a.l0(this.c.getSubPbModel().r0());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ot7Var, bdUniqueId, bdUniqueId2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            NewSubPbActivity newSubPbActivity = this.c;
-            if (newSubPbActivity != null && newSubPbActivity.getSubPbModel() != null) {
-                this.a.k0(this.c.getSubPbModel().M0());
-            }
-            this.d.setData(list);
-            this.d.getAdapter2().notifyDataSetChanged();
         }
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.i = z;
-        }
-    }
-
-    public void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.h = z;
-        }
-    }
-
-    public void h(View.OnLongClickListener onLongClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, onLongClickListener) == null) {
-            this.a.d(onLongClickListener);
-        }
-    }
-
-    public void i(TbRichTextView.y yVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, yVar) == null) {
-            this.a.o(yVar);
-        }
+        this.j = false;
+        this.i = ot7Var;
     }
 }

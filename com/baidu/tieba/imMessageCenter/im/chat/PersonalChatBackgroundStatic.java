@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ha7;
+import com.repackage.oa7;
 /* loaded from: classes3.dex */
 public class PersonalChatBackgroundStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -49,9 +49,9 @@ public class PersonalChatBackgroundStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
                 if (TbadkCoreApplication.isLogin()) {
-                    ha7.e().i();
+                    oa7.e().i();
                 } else {
-                    ha7.e().d();
+                    oa7.e().d();
                 }
             }
         }

@@ -1,9 +1,11 @@
 package com.repackage;
 /* loaded from: classes5.dex */
 public interface ca8 {
-    void onDestroy();
+    int d(String str, boolean z);
 
-    void onPause();
+    int e(String str, boolean z);
 
-    void onResume();
+    void f();
+
+    void g(String str, int i, boolean z);
 }

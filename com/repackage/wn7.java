@@ -15,7 +15,7 @@ import java.util.Iterator;
 import tbclient.ThreadInfo;
 import tbclient.VideoInfo;
 /* loaded from: classes7.dex */
-public class wn7 implements uo {
+public class wn7 implements ro {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
@@ -98,7 +98,7 @@ public class wn7 implements uo {
         }
     }
 
-    @Override // com.repackage.uo
+    @Override // com.repackage.ro
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

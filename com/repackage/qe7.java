@@ -1,142 +1,103 @@
 package com.repackage;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.likedForum.GetBottleForumListHttpResMessage;
-import com.baidu.tieba.likedForum.GetBottleForumListReqMessage;
-import com.baidu.tieba.likedForum.GetBottleForumListSocketResMessage;
+import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.RecommendForumListForBottle.ForumInfo;
-/* loaded from: classes7.dex */
-public class qe7 {
+/* loaded from: classes6.dex */
+public class qe7 extends cw4<ew4, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public List<ForumInfo> b;
-    public b c;
-    public BdUniqueId d;
-    public wa e;
+    public Context d;
 
-    /* loaded from: classes7.dex */
-    public class a extends wa {
+    /* loaded from: classes6.dex */
+    public class a extends BdBaseViewPagerAdapter.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qe7 a;
+        public TbImageView d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(qe7 qe7Var, int i, int i2) {
-            super(i, i2);
+        public a(qe7 qe7Var, View view2) {
+            super(view2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {qe7Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                Object[] objArr = {qe7Var, view2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((View) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = qe7Var;
-        }
-
-        @Override // com.repackage.wa
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
-                return;
-            }
-            boolean z = responsedMessage instanceof GetBottleForumListHttpResMessage;
-            if (z || (responsedMessage instanceof GetBottleForumListSocketResMessage)) {
-                if (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof GetBottleForumListReqMessage) || this.a.d == ((GetBottleForumListReqMessage) responsedMessage.getOrginalMessage().getExtra()).getRequestId()) {
-                    if (responsedMessage.hasError()) {
-                        if (this.a.c != null) {
-                            this.a.c.a(false, responsedMessage.getError(), responsedMessage.getErrorString(), null);
-                            return;
-                        }
-                        return;
-                    }
-                    if (z) {
-                        this.a.b = ((GetBottleForumListHttpResMessage) responsedMessage).getBottleForumList();
-                    }
-                    if (responsedMessage instanceof GetBottleForumListSocketResMessage) {
-                        this.a.b = ((GetBottleForumListSocketResMessage) responsedMessage).getBottleForumList();
-                    }
-                    if (this.a.c != null) {
-                        this.a.c.a(true, responsedMessage.getError(), responsedMessage.getErrorString(), this.a.b);
-                    }
-                }
+            if (view2 instanceof TbImageView) {
+                TbImageView tbImageView = (TbImageView) view2;
+                this.d = tbImageView;
+                tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(boolean z, int i, String str, List<ForumInfo> list);
-    }
-
-    public qe7(BdUniqueId bdUniqueId) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qe7(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
+            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = null;
-        a aVar = new a(this, CmdConfigHttp.CMD_GET_BOTTLE_FORUM_LIST, 309440);
-        this.e = aVar;
-        this.a = bdUniqueId;
-        aVar.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.e);
-        this.e.getHttpMessageListener().setSelfListener(true);
-        this.e.getSocketMessageListener().setSelfListener(true);
+        this.d = context;
     }
 
-    public void e() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.cw4
+    /* renamed from: f */
+    public a b(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.e);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            TbImageView tbImageView = new TbImageView(this.d);
+            tbImageView.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+            return new a(this, tbImageView);
         }
+        return (a) invokeL.objValue;
     }
 
-    public boolean f() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.cw4
+    /* renamed from: g */
+    public View d(ViewGroup viewGroup, a aVar, ew4 ew4Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            GetBottleForumListReqMessage getBottleForumListReqMessage = new GetBottleForumListReqMessage();
-            getBottleForumListReqMessage.setTag(this.a);
-            getBottleForumListReqMessage.setRequestId(this.d);
-            MessageManager.getInstance().sendMessage(getBottleForumListReqMessage);
-            return false;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, viewGroup, aVar, ew4Var)) == null) {
+            aVar.d.K(ew4Var.a(), 17, false);
+            return null;
         }
-        return invokeV.booleanValue;
-    }
-
-    public void g(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.c = bVar;
-        }
+        return (View) invokeLLL.objValue;
     }
 }

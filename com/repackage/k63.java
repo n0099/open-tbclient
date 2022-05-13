@@ -1,12 +1,14 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class k63 {
+public final class k63 implements l63 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,9 +26,27 @@ public final class k63 {
         }
     }
 
-    public static ka2 a(k63 k63Var) {
-        InterceptResult invokeL;
+    public static k63 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, k63Var)) == null) ? new ka2("CollectTraceError", null) : (ka2) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new k63() : (k63) invokeV.objValue;
+    }
+
+    @Override // com.repackage.l63
+    @SuppressLint({"BDSoLoader", "UnsafeDynamicallyLoadedCode"})
+    public void load(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            System.load(str);
+        }
+    }
+
+    @Override // com.repackage.l63
+    @SuppressLint({"BDSoLoader"})
+    public void loadLibrary(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            System.loadLibrary(str);
+        }
     }
 }

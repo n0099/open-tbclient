@@ -1,39 +1,52 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.data.AdvertAppInfo;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.tbadk.switchs.VideoCardLazyInitSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.App;
 /* loaded from: classes6.dex */
-public class kz6 extends zx5 {
+public class kz6 extends fy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public r78 z;
 
-    public kz6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kz6(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public void g(App app) {
+    @Override // com.repackage.fy, com.repackage.sz
+    public r78 p() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, app) == null) || app == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.isEmpty(this.k) && this.k.equals("index") && VideoCardLazyInitSwitch.getIsOn()) {
+                this.z = new mz6(this.b, this.i);
+            } else {
+                this.z = new lz6(this.b, this.i);
+            }
+            this.z.setStageType("2001");
+            return this.z;
         }
-        if (this.a == null) {
-            this.a = new AdvertAppInfo();
-        }
-        this.a.s(app);
-        this.position = this.a.position;
+        return (r78) invokeV.objValue;
     }
 }

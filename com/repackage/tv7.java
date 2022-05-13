@@ -1,83 +1,77 @@
 package com.repackage;
 
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
-import com.baidu.tieba.view.NavigationBarCoverTip;
+import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class tv7 {
+public class tv7 extends PostData {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId I0;
     public transient /* synthetic */ FieldHolder $fh;
-    public b9 a;
-    public NavigationBarCoverTip b;
-    public TextView c;
-    public int d;
+    public dq4 F0;
+    public dq4 G0;
+    public dq4 H0;
 
-    public tv7(b9 b9Var, NavigationBarCoverTip navigationBarCoverTip) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755277220, "Lcom/repackage/tv7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755277220, "Lcom/repackage/tv7;");
+                return;
+            }
+        }
+        I0 = BdUniqueId.gen();
+    }
+
+    public tv7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {b9Var, navigationBarCoverTip};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = b9Var;
-        this.b = navigationBarCoverTip;
-        b();
     }
 
-    public void a(String str) {
+    public boolean M0() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.b == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            dq4 dq4Var = this.F0;
+            if (dq4Var == null || StringUtils.isNull(dq4Var.b)) {
+                dq4 dq4Var2 = this.G0;
+                if (dq4Var2 == null || StringUtils.isNull(dq4Var2.b)) {
+                    dq4 dq4Var3 = this.H0;
+                    return (dq4Var3 == null || StringUtils.isNull(dq4Var3.b)) ? false : true;
+                }
+                return true;
+            }
+            return true;
         }
-        if (!ni.isEmpty(str) && this.d <= 0) {
-            this.b.setVisibility(0);
-            this.d++;
-            this.c.setText(str);
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0101);
-            this.b.removeAllViews();
-            this.b.addView(this.c);
-            this.b.k(this.a.getPageActivity(), 5000);
-            return;
-        }
-        c();
-        this.b.setVisibility(8);
+        return invokeV.booleanValue;
     }
 
-    public final void b() {
+    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.repackage.ro
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = new TextView(this.a.getPageActivity());
-            this.c.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-            this.c.setMinHeight(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds112));
-            this.c.setPadding(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), 0, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), 0);
-            this.c.setGravity(19);
-            this.c.setTextSize(0, this.a.getResources().getDimensionPixelSize(R.dimen.tbfontsize42));
-            this.c.setLineSpacing(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d4), 1.0f);
-        }
-    }
-
-    public void c() {
-        NavigationBarCoverTip navigationBarCoverTip;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (navigationBarCoverTip = this.b) == null) {
-            return;
-        }
-        navigationBarCoverTip.i();
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? I0 : (BdUniqueId) invokeV.objValue;
     }
 }

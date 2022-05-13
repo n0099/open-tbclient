@@ -1,14 +1,8 @@
 package com.repackage;
 
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.mapapi.map.MapPoi;
-import com.baidu.mapapi.map.MapStatus;
-import com.baidu.mapapi.map.Marker;
-import com.baidu.mapapi.model.LatLng;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,12 +10,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tachikoma.core.component.anim.AnimationProperty;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class o54 implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMapClickListener, BaiduMap.OnMapRenderCallback, BaiduMap.OnMarkerClickListener, View.OnClickListener, BaiduMap.OnMapStatusChangeListener, BaiduMap.OnMyLocationClickListener {
+public class o54 extends f54<in2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public s54 b;
 
     static {
         InterceptResult invokeClinit;
@@ -36,131 +30,68 @@ public class o54 implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMapClickLis
                 return;
             }
         }
-        boolean z = tg1.a;
+        boolean z = eh1.a;
     }
 
-    public o54(@NonNull s54 s54Var) {
+    public o54() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {s54Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = 0;
-        this.b = s54Var;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            n54.b(view2, this.b);
-            jx1.i("map", "Control View click");
-        }
-    }
-
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMapClickListener
-    public void onMapClick(LatLng latLng) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, latLng) == null) {
-            n54.d(this.b, latLng);
-            jx1.i("map", "onMapClick LatLng " + latLng);
-        }
-    }
-
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMapLoadedCallback
-    public void onMapLoaded() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            jx1.i("map", "onMapLoaded");
-        }
-    }
-
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMapClickListener
-    public boolean onMapPoiClick(MapPoi mapPoi) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, mapPoi)) == null) {
-            n54.c(this.b, mapPoi);
-            jx1.i("map", "onMapPoiClick MapPoi " + mapPoi.getPosition());
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMapRenderCallback
-    public void onMapRenderFinished() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            n54.e(this.b);
-            jx1.i("map", "onMapRenderFinished");
-        }
-    }
-
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
-    public void onMapStatusChange(MapStatus mapStatus) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, mapStatus) == null) {
-            jx1.i("map", "onMapStatusChange");
-        }
-    }
-
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
-    public void onMapStatusChangeFinish(MapStatus mapStatus) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, mapStatus) == null) {
-            n54.g(this.b, mapStatus, this.a);
-            jx1.i("map", "onMapStatusChangeFinish");
-        }
-    }
-
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
-    public void onMapStatusChangeStart(MapStatus mapStatus) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, mapStatus) == null) {
-        }
-    }
-
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
-    public void onMapStatusChangeStart(MapStatus mapStatus, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, mapStatus, i) == null) {
-            this.a = i;
-        }
-    }
-
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMarkerClickListener
-    public boolean onMarkerClick(Marker marker) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, marker)) == null) {
-            r54 H = this.b.H(marker);
-            if (H != null) {
-                n54.f(marker, this.b);
-                H.b(this.b);
-                jx1.i("map", "onMarkerClick marker id " + marker.getId());
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMyLocationClickListener
-    public boolean onMyLocationClick() {
+    public static o54 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return false;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new o54() : (o54) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.f54
+    /* renamed from: d */
+    public boolean b(Context context, in2 in2Var, dn2 dn2Var, u03 u03Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, in2Var, dn2Var, u03Var, jSONObject)) == null) ? g(context, in2Var, dn2Var, u03Var) : invokeLLLLL.booleanValue;
+    }
+
+    public final Bundle f(in2 in2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, in2Var)) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("slaveId", in2Var.c);
+            bundle.putDouble("latitude", in2Var.j.a);
+            bundle.putDouble("longitude", in2Var.j.b);
+            bundle.putDouble(AnimationProperty.SCALE, in2Var.k);
+            bundle.putString("name", in2Var.z);
+            bundle.putString("address", in2Var.A);
+            bundle.putStringArrayList("ignoredApps", in2Var.B);
+            return bundle;
         }
-        return invokeV.booleanValue;
+        return (Bundle) invokeL.objValue;
+    }
+
+    public final boolean g(Context context, in2 in2Var, dn2 dn2Var, u03 u03Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, context, in2Var, dn2Var, u03Var)) == null) {
+            ux1.i("map", "OpenLocationAction start");
+            if (!in2Var.isValid()) {
+                ux1.c("map", "model is invalid");
+                return false;
+            }
+            a64.q3(f(in2Var)).u3();
+            ux1.i("map", "OpenLocationAction end");
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

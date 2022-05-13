@@ -98,7 +98,7 @@ public class bm7 implements am7 {
             if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) != null) {
                 return (Void) invokeL.objValue;
             }
-            int b = hy4.b();
+            int b = vy4.b();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("baseInfo", this.a.s());
@@ -110,7 +110,7 @@ public class bm7 implements am7 {
                 if (b == 2) {
                     jSONObject.put("debugInfo", this.a.t());
                 }
-                zr8.h().k(jSONObject, !this.a.s);
+                wq8.h().k(jSONObject, !this.a.s);
                 if (this.a.y == null) {
                     this.a.y.clear();
                     return null;
@@ -120,7 +120,7 @@ public class bm7 implements am7 {
             JSONObject t = this.a.t();
             t.put("running", this.a.w());
             jSONObject.put("debugInfo", t);
-            zr8.h().k(jSONObject, !this.a.s);
+            wq8.h().k(jSONObject, !this.a.s);
             if (this.a.y == null) {
             }
         }
@@ -167,8 +167,8 @@ public class bm7 implements am7 {
             return;
         }
         x();
-        int b = hy4.b();
-        if ((hy4.c() || !this.s) && b != 3) {
+        int b = vy4.b();
+        if ((vy4.c() || !this.s) && b != 3) {
             this.w = true;
             new a(this).execute(new Void[0]);
         }
@@ -503,7 +503,7 @@ public class bm7 implements am7 {
     public final void x() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && PerformanceLoggerHelper.getInstance().isSmallFlow() && this.k != null) {
-            ug a2 = r85.a();
+            sg a2 = i95.a();
             a2.b("action", "video_monitor");
             a2.c("play_time", this.k.get("playDuration"));
             a2.c("caton_time", this.k.get("stallDuration"));
@@ -515,7 +515,7 @@ public class bm7 implements am7 {
             a2.c("hit_cache", Boolean.valueOf(this.r));
             a2.c("direct_play", Integer.valueOf(this.t ? 1 : 0));
             a2.b("page_code", this.f);
-            a2.b(FpsTracer.UBC_KEY_NET_TYPE, yg.a(BdBaseApplication.getInst()));
+            a2.b(FpsTracer.UBC_KEY_NET_TYPE, wg.a(BdBaseApplication.getInst()));
             BdStatisticsManager.getInstance().performance("video", a2);
         }
     }

@@ -62,7 +62,7 @@ public class ChildrenAlphaProperty extends Property<ViewGroup, Float> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            Float f = (Float) viewGroup.getTag(R.id.obfuscated_res_0x7f091465);
+            Float f = (Float) viewGroup.getTag(R.id.obfuscated_res_0x7f09147f);
             return f != null ? f : Float.valueOf(1.0f);
         }
         return (Float) invokeL.objValue;
@@ -74,7 +74,7 @@ public class ChildrenAlphaProperty extends Property<ViewGroup, Float> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, f) == null) {
             float floatValue = f.floatValue();
-            viewGroup.setTag(R.id.obfuscated_res_0x7f091465, Float.valueOf(floatValue));
+            viewGroup.setTag(R.id.obfuscated_res_0x7f09147f, Float.valueOf(floatValue));
             int childCount = viewGroup.getChildCount();
             for (int i = 0; i < childCount; i++) {
                 viewGroup.getChildAt(i).setAlpha(floatValue);

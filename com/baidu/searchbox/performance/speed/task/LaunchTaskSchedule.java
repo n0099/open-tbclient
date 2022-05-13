@@ -196,4 +196,17 @@ public class LaunchTaskSchedule {
             }
         }
     }
+
+    public void startTaskInSingleThread(int i) {
+        List<LaunchTask> taskList;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || (taskList = this.mTaskPool.getTaskList(i, 2)) == null) {
+            return;
+        }
+        for (LaunchTask launchTask : taskList) {
+            if ((launchTask.getProcess() & this.mProcessType) != 0) {
+                new Thread(launchTask).start();
+            }
+        }
+    }
 }

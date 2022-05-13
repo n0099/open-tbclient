@@ -1,33 +1,25 @@
 package com.repackage;
 
-import com.baidu.tbadk.img.WriteImagesInfo;
+import android.content.Context;
+import com.baidu.tbadk.editortools.BLauncher;
+import com.baidu.tbadk.editortools.DLauncher;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class c15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WriteImagesInfo a;
-    public boolean b;
 
-    public c15(WriteImagesInfo writeImagesInfo, boolean z) {
+    public static d15 a(Context context, i15 i15Var, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {writeImagesInfo, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, context, i15Var, i)) == null) {
+            if (i != 1) {
+                return new DLauncher(context, i15Var);
             }
+            return new BLauncher(context, i15Var);
         }
-        this.a = writeImagesInfo;
-        this.b = z;
+        return (d15) invokeLLI.objValue;
     }
 }

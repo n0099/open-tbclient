@@ -1,92 +1,100 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.pm.ResolveInfo;
+import android.app.Activity;
+import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.DisplayMetrics;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class yg4 implements wg4<String> {
+public class yg4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final List<String> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
 
-    public yg4(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755142773, "Lcom/repackage/yg4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755142773, "Lcom/repackage/yg4;");
                 return;
             }
         }
-        this.a = context.getApplicationContext();
+        a = Arrays.asList("TAH-AN00", "TET-AN00");
     }
 
-    @Override // com.repackage.wg4
-    public boolean a() {
+    public static int a(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
+            double b = b(activity) * 0.5199999809265137d;
+            if (b < 1148.0d) {
+                return 1148;
+            }
+            return (int) b;
+        }
+        return invokeL.intValue;
+    }
+
+    public static double b(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
+            if (c(activity)) {
+                DisplayMetrics displayMetrics = new DisplayMetrics();
+                activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+                return displayMetrics.widthPixels;
+            }
+            return 0.0d;
+        }
+        return invokeL.doubleValue;
+    }
+
+    public static boolean c(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) ? (activity == null || activity.isDestroyed() || activity.isFinishing()) ? false : true : invokeL.booleanValue;
+    }
+
+    public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            String str = Build.MANUFACTURER;
+            String str2 = Build.MODEL;
+            if (TextUtils.equals("HUAWEI", str) && !TextUtils.isEmpty(str2)) {
+                for (String str3 : a) {
+                    if (str2.contains(str3)) {
+                        return true;
+                    }
+                }
+            }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.wg4
-    /* renamed from: b */
-    public String get() {
-        InterceptResult invokeV;
+    public static boolean e(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? d() : (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.wg4
-    /* renamed from: c */
-    public void put(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, activity)) == null) {
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+            double d = displayMetrics.widthPixels;
+            double d2 = displayMetrics.heightPixels;
+            return (d == 0.0d || d2 == 0.0d || d2 / d >= 1.5d) ? false : true;
         }
-    }
-
-    public final String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<ResolveInfo> queryBroadcastReceivers = this.a.getPackageManager().queryBroadcastReceivers(new Intent("com.baidu.intent.action.UUID"), 0);
-            String str = null;
-            if (queryBroadcastReceivers != null && queryBroadcastReceivers.size() > 0) {
-                for (ResolveInfo resolveInfo : queryBroadcastReceivers) {
-                    ActivityInfo activityInfo = resolveInfo.activityInfo;
-                    if (activityInfo != null && activityInfo.applicationInfo != null && !this.a.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
-                        File file = new File(new File(resolveInfo.activityInfo.applicationInfo.dataDir, "files"), "libuuid.so");
-                        if (file.exists()) {
-                            str = ch4.c(file);
-                        }
-                        if (!TextUtils.isEmpty(str)) {
-                            break;
-                        }
-                    }
-                }
-            }
-            return str;
-        }
-        return (String) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 }

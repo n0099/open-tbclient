@@ -1,192 +1,21 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.ComponentName;
-import android.content.Intent;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes6.dex */
 public class je3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
-    public static c g;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final Application a;
-    @Nullable
-    public rl2 b;
-    public boolean c;
-    public boolean d;
-    public int e;
-
-    /* loaded from: classes6.dex */
-    public class a extends rl2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ je3 a;
-
-        /* renamed from: com.repackage.je3$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class RunnableC0454a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Activity a;
-            public final /* synthetic */ a b;
-
-            public RunnableC0454a(a aVar, Activity activity) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, activity};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = activity;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                boolean u;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    Intent intent = this.a.getIntent();
-                    tk1 o = qj2.o();
-                    ComponentName component = intent.getComponent();
-                    if (this.b.a.c && intent.hasCategory("android.intent.category.LAUNCHER") && "android.intent.action.MAIN".equals(intent.getAction()) && o != null && component != null && TextUtils.equals(o.A(), component.getClassName())) {
-                        if (this.b.a.d) {
-                            if (je3.f) {
-                                Log.w("SwanHomeScreenLaunch", "SwanApp is Foreground Now");
-                                return;
-                            }
-                            return;
-                        }
-                        pc3 m = pc3.m();
-                        if (qc3.a() && pc3.k()) {
-                            u = m.w(this.a, this.b.a.e, false);
-                        } else {
-                            u = m.u(this.b.a.e, false, false);
-                        }
-                        if (je3.f) {
-                            Log.d("SwanHomeScreenLaunch", "moveTaskToFront " + u + ", taskId=" + this.b.a.e);
-                        }
-                        m.i();
-                    }
-                    if (je3.f) {
-                        Log.d("SwanHomeScreenLaunch", "class=" + this.a + ", swanAppForeground=" + this.b.a.c + ", flag=" + intent.getFlags() + ", ComponentName=" + component);
-                    }
-                }
-            }
-        }
-
-        public a(je3 je3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {je3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = je3Var;
-        }
-
-        @Override // com.repackage.rl2, android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityCreated(Activity activity, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) && pc3.j()) {
-                super.onActivityCreated(activity, bundle);
-                if (activity == null || activity.getIntent() == null) {
-                    return;
-                }
-                RunnableC0454a runnableC0454a = new RunnableC0454a(this, activity);
-                if (qc3.a()) {
-                    runnableC0454a.run();
-                } else {
-                    dd3.j(runnableC0454a, "moveTaskToFront");
-                }
-            }
-        }
-
-        @Override // com.repackage.rl2, android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStarted(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-                super.onActivityStarted(activity);
-                je3 je3Var = this.a;
-                je3Var.c = je3Var.c && activity != null && activity.getTaskId() == this.a.e;
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ je3 a;
-
-        public b(je3 je3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {je3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = je3Var;
-        }
-
-        @Override // com.repackage.je3.c
-        public void a(boolean z, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-                if (z) {
-                    this.a.c = true;
-                    this.a.e = i;
-                } else if (this.a.c && i == 1) {
-                    this.a.c = false;
-                }
-                this.a.d = z;
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface c {
-        void a(boolean z, int i);
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -201,44 +30,132 @@ public class je3 {
                 return;
             }
         }
-        f = tg1.a;
+        a = eh1.a;
     }
 
-    public je3(@NonNull Application application) {
+    public static boolean a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {application};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) ? b(str) > b(str2) : invokeLL.booleanValue;
+    }
+
+    public static long b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            String[] g = g(str);
+            if (g == null) {
+                return 0L;
             }
+            long j = 0;
+            for (int i = 0; i < g.length; i++) {
+                try {
+                    j += Integer.parseInt(g[i]) * ((long) Math.pow(1000.0d, (g.length - i) - 1));
+                } catch (NumberFormatException e) {
+                    ux1.l("SwanAppSwanCoreUtils", "getVersionCode exception", e);
+                    return 0L;
+                }
+            }
+            ux1.b("SwanAppSwanCoreUtils", "getVersion version: ", str, " ,versionCode: ", Long.valueOf(j));
+            return j;
         }
-        this.a = application;
-        this.b = new a(this);
-        g = new b(this);
-        application.registerActivityLifecycleCallbacks(this.b);
+        return invokeL.longValue;
     }
 
-    public static void h(boolean z, int i) {
-        c cVar;
+    public static long c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) || (cVar = g) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            String[] g = g(str);
+            if (g == null) {
+                return 0L;
+            }
+            int i = 0;
+            long j = 0;
+            while (i < 3) {
+                try {
+                    j = (j << 16) | (i < g.length ? Integer.parseInt(g[i]) : 0L);
+                    i++;
+                } catch (NumberFormatException e) {
+                    if (a) {
+                        throw e;
+                    }
+                    return 0L;
+                }
+            }
+            if (a) {
+                Log.d("SwanAppSwanCoreUtils", "getVersion version: " + str + " ,versionCode: " + j);
+            }
+            return j;
         }
-        cVar.a(z, i);
+        return invokeL.longValue;
     }
 
-    public void i() {
+    public static String d(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            g = null;
-            this.a.unregisterActivityLifecycleCallbacks(this.b);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j)) == null) {
+            if (j < 0) {
+                ux1.k("SwanAppSwanCoreUtils", "versionCode < 0, versionCode = " + j);
+                return "0";
+            }
+            StringBuilder sb = new StringBuilder();
+            long j2 = j;
+            for (int i = 2; i >= 0; i--) {
+                if (i > 0) {
+                    long pow = (long) Math.pow(1000.0d, i);
+                    sb.append(j2 / pow);
+                    sb.append(".");
+                    j2 %= pow;
+                } else {
+                    sb.append(j2);
+                }
+            }
+            String sb2 = sb.toString();
+            ux1.b("SwanAppSwanCoreUtils", "getVersionName version code: ", Long.valueOf(j), " ,version name: ", sb2);
+            return sb2;
         }
+        return (String) invokeJ.objValue;
+    }
+
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        String[] list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            File file = new File(str);
+            return file.isDirectory() && (list = file.list()) != null && list.length > 0;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            long b = b(str);
+            SwanCoreVersion d0 = o72.U().d0();
+            return (d0 != null ? b(d0.swanCoreVersionName) : 0L) < b;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static String[] g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+            if (split.length != 3) {
+                return null;
+            }
+            return split;
+        }
+        return (String[]) invokeL.objValue;
     }
 }

@@ -21,21 +21,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a65;
-import com.repackage.b65;
-import com.repackage.c65;
-import com.repackage.d65;
-import com.repackage.f65;
-import com.repackage.g65;
-import com.repackage.o55;
-import com.repackage.s55;
-import com.repackage.t55;
-import com.repackage.u55;
-import com.repackage.v55;
-import com.repackage.w55;
-import com.repackage.x55;
-import com.repackage.y55;
-import com.repackage.z55;
+import com.repackage.e65;
+import com.repackage.i65;
+import com.repackage.j65;
+import com.repackage.k65;
+import com.repackage.l65;
+import com.repackage.m65;
+import com.repackage.n65;
+import com.repackage.o65;
+import com.repackage.p65;
+import com.repackage.q65;
+import com.repackage.r65;
+import com.repackage.s65;
+import com.repackage.t65;
+import com.repackage.v65;
+import com.repackage.w65;
 /* loaded from: classes3.dex */
 public class MutiProcessStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -75,21 +75,21 @@ public class MutiProcessStatic {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
             try {
-                o55 f = o55.f();
-                f.l(AgreeEvent.class, new s55());
-                f.l(MissionEvent.class, new z55());
-                f.l(CompeteTaskEvent.class, new u55());
-                f.l(ShareEvent.class, new c65());
-                f.l(HistoryEvent.class, new x55());
-                f.l(BackBaiduBoxViewEvent.class, new t55());
-                f.l(SyncDataEvent.class, new g65());
-                f.l(ShowReplyInPbEvent.class, new d65());
-                f.l(LocationEvent.class, new y55());
-                f.l(PrePageKeyEvent.class, new a65());
-                f.l(CurrentPageTypeEvent.class, new v55());
-                f.l(ImageFpsEvent.class, new w55());
-                f.l(SoLoaderEvent.class, new f65());
-                f.l(ReplayEvent.class, new b65());
+                e65 f = e65.f();
+                f.l(AgreeEvent.class, new i65());
+                f.l(MissionEvent.class, new p65());
+                f.l(CompeteTaskEvent.class, new k65());
+                f.l(ShareEvent.class, new s65());
+                f.l(HistoryEvent.class, new n65());
+                f.l(BackBaiduBoxViewEvent.class, new j65());
+                f.l(SyncDataEvent.class, new w65());
+                f.l(ShowReplyInPbEvent.class, new t65());
+                f.l(LocationEvent.class, new o65());
+                f.l(PrePageKeyEvent.class, new q65());
+                f.l(CurrentPageTypeEvent.class, new l65());
+                f.l(ImageFpsEvent.class, new m65());
+                f.l(SoLoaderEvent.class, new v65());
+                f.l(ReplayEvent.class, new r65());
             } catch (Exception e) {
                 e.printStackTrace();
             }

@@ -25,7 +25,7 @@ import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.tachikoma.core.component.text.FontManager;
 import java.lang.reflect.Field;
 import java.util.LinkedList;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class InputProperty {
     public static /* synthetic */ Interceptable $ic;
     public static final InputFilter[] EMPTY_FILTERS;
@@ -36,7 +36,7 @@ public class InputProperty {
     public final EditText mView;
     public MaxLinesTextWatcher maxLinesTextWatcher;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class MaxLinesTextWatcher implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -20,10 +20,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ok3;
-import com.repackage.om3;
-import com.repackage.tg1;
-import com.repackage.um3;
+import com.repackage.eh1;
+import com.repackage.fn3;
+import com.repackage.zk3;
+import com.repackage.zm3;
 import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes2.dex */
@@ -51,7 +51,7 @@ public class SwanContentProvider extends ContentProvider {
                 return;
             }
         }
-        DEBUG = tg1.a;
+        DEBUG = eh1.a;
         AUTHORITY = AppRuntime.getAppContext().getPackageName() + ".provider";
         sUriMatcher = new UriMatcher(-1);
         sAccreditedSet = new HashSet<>();
@@ -88,8 +88,8 @@ public class SwanContentProvider extends ContentProvider {
             if (sAccreditedSet.contains(callingPackage)) {
                 return true;
             }
-            String a = um3.a(callingPackage);
-            Set<String> a2 = ok3.e().a();
+            String a = fn3.a(callingPackage);
+            Set<String> a2 = zk3.e().a();
             z = (a2 == null || !a2.contains(a)) ? false : false;
             if (z) {
                 sAccreditedSet.add(callingPackage);
@@ -111,11 +111,11 @@ public class SwanContentProvider extends ContentProvider {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? checkPermission() : invokeV.booleanValue;
     }
 
-    private om3 getProcessor(int i) {
+    private zm3 getProcessor(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i)) == null) {
-            Class<? extends om3> processorClass = ProcessorInfo.getProcessorClass(i);
+            Class<? extends zm3> processorClass = ProcessorInfo.getProcessorClass(i);
             if (processorClass != null) {
                 try {
                     return processorClass.newInstance();
@@ -129,7 +129,7 @@ public class SwanContentProvider extends ContentProvider {
             }
             return null;
         }
-        return (om3) invokeI.objValue;
+        return (zm3) invokeI.objValue;
     }
 
     public static boolean isSameApp(int i, int i2) {
@@ -141,7 +141,7 @@ public class SwanContentProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
         InterceptResult invokeLLL;
-        om3 processor;
+        zm3 processor;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, uri, str, strArr)) == null) {
             if (!checkWritePermission() || (processor = getProcessor(sUriMatcher.match(uri))) == null) {
@@ -167,7 +167,7 @@ public class SwanContentProvider extends ContentProvider {
     @Nullable
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
         InterceptResult invokeLL;
-        om3 processor;
+        zm3 processor;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, uri, contentValues)) == null) {
             if (!checkWritePermission() || (processor = getProcessor(sUriMatcher.match(uri))) == null) {
@@ -192,7 +192,7 @@ public class SwanContentProvider extends ContentProvider {
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
         InterceptResult invokeLLLLL;
-        om3 processor;
+        zm3 processor;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048580, this, uri, strArr, str, strArr2, str2)) == null) {
             if (!checkReadPermission() || (processor = getProcessor(sUriMatcher.match(uri))) == null) {
@@ -206,7 +206,7 @@ public class SwanContentProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
         InterceptResult invokeLLLL;
-        om3 processor;
+        zm3 processor;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, uri, contentValues, str, strArr)) == null) {
             if (!checkWritePermission() || (processor = getProcessor(sUriMatcher.match(uri))) == null) {

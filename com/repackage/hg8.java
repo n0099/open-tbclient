@@ -1,8 +1,8 @@
 package com.repackage;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.PerfSampleManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,28 +10,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.UBCManager;
-@Service
 /* loaded from: classes6.dex */
-public class hg8 implements PerfSampleManager.IPerfSampleCallback {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "2301";
-    public static String b = "1";
+public class hg8 extends en4 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755649096, "Lcom/repackage/hg8;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755649096, "Lcom/repackage/hg8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755649096, "Lcom/repackage/hg8;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755649096, "Lcom/repackage/hg8;");
-        }
+        c = TbConfig.SERVER_ADDRESS + TbConfig.FORUM_SQUARE;
     }
 
     public hg8() {
@@ -48,13 +46,38 @@ public class hg8 implements PerfSampleManager.IPerfSampleCallback {
         }
     }
 
-    @Override // com.baidu.searchbox.PerfSampleManager.IPerfSampleCallback
-    public String getSampleFlag() {
+    public long g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            return uBCManager != null ? b.equals(uBCManager.getUploadType(a)) ? a : "" : "";
+            NetWork netWork = this.a;
+            if (netWork != null) {
+                return netWork.getNetContext().getStat().stat.c;
+            }
+            return 0L;
+        }
+        return invokeV.longValue;
+    }
+
+    public long h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            NetWork netWork = this.a;
+            if (netWork != null) {
+                return netWork.getNetContext().getStat().stat.d;
+            }
+            return 0L;
+        }
+        return invokeV.longValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            f(c);
+            return d();
         }
         return (String) invokeV.objValue;
     }

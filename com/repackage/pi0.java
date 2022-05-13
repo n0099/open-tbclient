@@ -1,6 +1,8 @@
 package com.repackage;
 
+import androidx.annotation.NonNull;
 import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,8 +10,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public interface pi0 {
-    public static final ServiceReference b = new ServiceReference("nad.core", "deviceInfoInner");
-    public static final pi0 c = new a();
+    public static final ServiceReference a = new ServiceReference("nad.core", UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME);
+    public static final pi0 b = new a();
 
     /* loaded from: classes6.dex */
     public static class a implements pi0 {
@@ -31,12 +33,14 @@ public interface pi0 {
         }
 
         @Override // com.repackage.pi0
-        public String f() {
+        @NonNull
+        public qi0 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? qi0.a : (qi0) invokeV.objValue;
         }
     }
 
-    String f();
+    @NonNull
+    qi0 a();
 }

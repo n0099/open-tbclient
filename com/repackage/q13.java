@@ -1,93 +1,93 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.storage.PathType;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
+@Service
 /* loaded from: classes6.dex */
-public class q13 extends g23 {
+public class q13 extends r13 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q13(g13 g13Var) {
-        super(g13Var, "/swanAPI/getLocalImgData");
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755433026, "Lcom/repackage/q13;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755433026, "Lcom/repackage/q13;");
+                return;
+            }
+        }
+        b = eh1.a;
+    }
+
+    public q13() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {g13Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.repackage.g23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j03 j03Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.repackage.r13
+    public void a() {
+        List<r23> b2;
+        List<r23> a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j03Var)) == null) {
-            if (j03Var == null) {
-                jx1.c("GetLocalImgDataAction", "illegal swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
-                return false;
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                jx1.c("SwanAppAction", "illegal params");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            }
-            String optString = optParamsAsJo.optString("filePath");
-            if (TextUtils.isEmpty(optString)) {
-                jx1.c("GetLocalImgDataAction", "GetLocalImgDataAction bdfile path null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            } else if (r73.s(optString) != PathType.BD_FILE) {
-                jx1.c("GetLocalImgDataAction", "invalid path : " + optString);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(null, 2006, d13.a(2006));
-                return false;
-            } else {
-                String M = r73.M(optString, j03Var.b);
-                if (TextUtils.isEmpty(M)) {
-                    jx1.c("GetLocalImgDataAction", "GetLocalImgDataAction realPath null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.clear();
+            b(new kl2(this));
+            b(new hy1(this));
+            b(new my1(this));
+            b(new ay1(this));
+            b(new n23(this));
+            b(new y13(this));
+            b(new z33(this));
+            b(new ob2(this));
+            b(new xb2(this));
+            b(new pb2(this));
+            b(new tb2(this));
+            b(new ub2(this));
+            b(new sb2(this));
+            b(new yb2(this));
+            b(new rb2(this));
+            b(new wb2(this));
+            b(new lg3(this));
+            b(new vb2(this));
+            b(new qb2(this));
+            zh1 d = ck2.d();
+            if (d != null && (a = d.a(this)) != null && !a.isEmpty()) {
+                for (r23 r23Var : a) {
+                    b(r23Var);
                 }
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("filePath", M);
-                    jx1.i("GetLocalImgDataAction", "getLocalImgData success");
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                    return true;
-                } catch (JSONException e) {
-                    jx1.c("GetLocalImgDataAction", "getLocalImgData failed");
-                    if (g23.b) {
-                        e.printStackTrace();
-                    }
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
+            }
+            if (b) {
+                b(new zb2(this));
+                b(new s13(this));
+                if (d == null || (b2 = d.b(this)) == null || b2.isEmpty()) {
+                    return;
+                }
+                for (r23 r23Var2 : b2) {
+                    b(r23Var2);
                 }
             }
         }
-        return invokeLLLL.booleanValue;
     }
 }

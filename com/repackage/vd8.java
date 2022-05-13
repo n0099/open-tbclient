@@ -1,143 +1,329 @@
 package com.repackage;
 
-import android.net.Uri;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pass.biometrics.base.utils.PassBioEnv;
+import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tieba.sharesdk.bean.ShareEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.sina.weibo.sdk.WbSdk;
+import com.sina.weibo.sdk.api.ImageObject;
+import com.sina.weibo.sdk.api.TextObject;
+import com.sina.weibo.sdk.api.WebpageObject;
+import com.sina.weibo.sdk.api.WeiboMultiMessage;
+import com.sina.weibo.sdk.auth.AuthInfo;
+import com.sina.weibo.sdk.share.WbShareCallback;
+import com.sina.weibo.sdk.share.WbShareHandler;
+import com.sina.weibo.sdk.utils.Utility;
 /* loaded from: classes7.dex */
-public class vd8 {
+public class vd8 extends rd8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public String c;
-    public yd8 d;
+    public yd8 i;
+    public WbShareHandler j;
+    public WbShareCallback k;
+    public final fg<co> l;
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
+    public class a extends fg<co> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ vd8 a;
 
-    /* loaded from: classes7.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final vd8 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(68710313, "Lcom/repackage/vd8$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(68710313, "Lcom/repackage/vd8$b;");
+        public a(vd8 vd8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vd8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new vd8(null);
+            this.a = vd8Var;
         }
-    }
 
-    public /* synthetic */ vd8(a aVar) {
-        this();
-    }
-
-    public static vd8 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (vd8) invokeV.objValue;
-    }
-
-    public void a(Uri uri) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, uri) == null) && uri != null && b(uri)) {
-            this.c = null;
-        }
-    }
-
-    public final boolean b(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) {
-            if (this.d == null) {
-                this.d = new yd8();
+        @Override // com.repackage.fg
+        public void onCancelled(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                super.onCancelled(str);
+                if (this.a.i != null) {
+                    this.a.i.onShare(6, 3);
+                }
+                this.a.s(3, 6);
             }
-            return this.d.a(uri);
         }
-        return invokeL.booleanValue;
-    }
 
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String str = this.c;
-            return str == null ? "" : str;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a && this.b : invokeV.booleanValue;
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.b = true;
-            this.c = str;
-        }
-    }
-
-    public void g(Uri uri, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, uri, str) == null) && b(uri)) {
-            this.b = true;
-            if (!TextUtils.isEmpty(str)) {
-                this.c = xd8.a(str);
-            } else {
-                this.c = null;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.fg
+        public void onLoaded(co coVar, String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, coVar, str, i) == null) {
+                super.onLoaded((a) coVar, str, i);
+                if (coVar != null) {
+                    Bitmap p = coVar.p();
+                    vd8 vd8Var = this.a;
+                    vd8Var.L(vd8Var.e, p);
+                    return;
+                }
+                vd8 vd8Var2 = this.a;
+                vd8Var2.L(vd8Var2.e, null);
             }
         }
     }
 
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.b = z;
-        }
-    }
-
-    public vd8() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vd8(Activity activity, yd8 yd8Var, WbShareCallback wbShareCallback) {
+        super(activity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, yd8Var, wbShareCallback};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.l = new a(this);
+        try {
+            WbSdk.install(activity, new AuthInfo(activity, "1511099634", PassBioEnv.PASSPORT_DOMAIN, "invitation_write"));
+        } catch (Exception e) {
+            BdLog.e(e);
+        }
+        this.b = activity;
+        this.i = yd8Var;
+        this.k = wbShareCallback;
+        WbShareHandler wbShareHandler = new WbShareHandler(activity);
+        this.j = wbShareHandler;
+        if (wbShareHandler != null) {
+            wbShareHandler.registerApp();
+        }
+    }
+
+    public final String C(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? str == null ? "" : str : (String) invokeL.objValue;
+    }
+
+    public final ImageObject D(Bitmap bitmap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap)) == null) {
+            ImageObject imageObject = new ImageObject();
+            imageObject.setThumbImage(j(bitmap, 120));
+            imageObject.setImageObject(bitmap);
+            return imageObject;
+        }
+        return (ImageObject) invokeL.objValue;
+    }
+
+    public final WebpageObject E(Bitmap bitmap, String str, String str2, String str3) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, bitmap, str, str2, str3)) == null) {
+            if (bitmap == null) {
+                return null;
+            }
+            WebpageObject webpageObject = new WebpageObject();
+            webpageObject.setThumbImage(bitmap);
+            webpageObject.identify = Utility.generateGUID();
+            webpageObject.title = C(str);
+            webpageObject.description = C(str2);
+            webpageObject.actionUrl = C(str3);
+            return webpageObject;
+        }
+        return (WebpageObject) invokeLLLL.objValue;
+    }
+
+    public final WebpageObject F(byte[] bArr, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, bArr, str)) == null) {
+            if (bArr == null) {
+                return null;
+            }
+            WebpageObject webpageObject = new WebpageObject();
+            webpageObject.thumbData = bArr;
+            webpageObject.identify = Utility.generateGUID();
+            webpageObject.title = "";
+            webpageObject.description = "";
+            webpageObject.actionUrl = C(str);
+            return webpageObject;
+        }
+        return (WebpageObject) invokeLL.objValue;
+    }
+
+    public final TextObject G() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.e == null) {
+                return null;
+            }
+            TextObject textObject = new TextObject();
+            textObject.title = C(this.e.getTitle());
+            textObject.text = C(this.e.topic) + C(this.e.getContent());
+            return textObject;
+        }
+        return (TextObject) invokeV.objValue;
+    }
+
+    public final WebpageObject H(WeiboMultiMessage weiboMultiMessage, ShareEntity shareEntity, Bitmap bitmap) {
+        InterceptResult invokeLLL;
+        byte[] bArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, weiboMultiMessage, shareEntity, bitmap)) == null) {
+            byte[] bArr2 = null;
+            if (weiboMultiMessage != null && shareEntity != null) {
+                String linkUrl = shareEntity.getLinkUrl();
+                if (TextUtils.isEmpty(linkUrl)) {
+                    return null;
+                }
+                if (weiboMultiMessage.textObject != null) {
+                    ImageObject imageObject = weiboMultiMessage.imageObject;
+                    if (imageObject != null && (bArr = imageObject.thumbData) != null) {
+                        bArr2 = bArr;
+                    } else if (bitmap != null) {
+                        bArr2 = BitmapHelper.Bitmap2Bytes(j(bitmap, 120), 100);
+                    }
+                    return F(bArr2, linkUrl);
+                } else if (bitmap != null) {
+                    return E(j(bitmap, 120), shareEntity.getTitle(), shareEntity.getContent(), linkUrl);
+                }
+            }
+            return null;
+        }
+        return (WebpageObject) invokeLLL.objValue;
+    }
+
+    public void I() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            yd8 yd8Var = this.i;
+            if (yd8Var != null) {
+                yd8Var.onShare(6, 3);
+            }
+            s(3, 6);
+        }
+    }
+
+    public void J() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            yd8 yd8Var = this.i;
+            if (yd8Var != null) {
+                yd8Var.onShare(6, 2);
+            }
+            s(2, 6);
+        }
+    }
+
+    public void K() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            yd8 yd8Var = this.i;
+            if (yd8Var != null) {
+                yd8Var.onShare(6, 1);
+            }
+            s(1, 6);
+        }
+    }
+
+    public final void L(ShareEntity shareEntity, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, shareEntity, bitmap) == null) {
+            if (this.e != null && this.j != null && (this.b instanceof Activity)) {
+                WeiboMultiMessage weiboMultiMessage = new WeiboMultiMessage();
+                if (!TextUtils.isEmpty(shareEntity.getContent()) || !TextUtils.isEmpty(shareEntity.topic)) {
+                    weiboMultiMessage.textObject = G();
+                }
+                if (bitmap != null) {
+                    weiboMultiMessage.imageObject = D(bitmap);
+                }
+                WebpageObject H = H(weiboMultiMessage, shareEntity, bitmap);
+                if (H != null) {
+                    weiboMultiMessage.mediaObject = H;
+                }
+                this.j.shareMessage(weiboMultiMessage, false);
+                return;
+            }
+            yd8 yd8Var = this.i;
+            if (yd8Var != null) {
+                yd8Var.onShare(6, 2);
+            }
+            s(2, 6);
+        }
+    }
+
+    @Override // com.repackage.xd8
+    public void a(ShareEntity shareEntity, yd8 yd8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, shareEntity, yd8Var) == null) {
+            if (shareEntity != null && this.j != null) {
+                this.e = shareEntity;
+                this.i = yd8Var;
+                co p = p(shareEntity);
+                if (p != null && p.p() != null) {
+                    L(this.e, p.p());
+                    return;
+                }
+                String imgUrl = shareEntity.getImgUrl();
+                if (o(shareEntity.getLocalFile())) {
+                    L(this.e, h(shareEntity.getLocalFile()));
+                    return;
+                } else if (!TextUtils.isEmpty(imgUrl) && (imgUrl.startsWith("http://") || imgUrl.startsWith("https://"))) {
+                    gg.h().k(imgUrl, 10, this.l, 0, 0, i(), new Object[0]);
+                    return;
+                } else if (n(shareEntity.getImageUri())) {
+                    L(this.e, g(shareEntity.getImageUri()));
+                    return;
+                } else {
+                    L(this.e, e());
+                    return;
+                }
+            }
+            s(2, 6);
+            if (yd8Var != null) {
+                yd8Var.onShare(6, 2);
+            }
+        }
+    }
+
+    @Override // com.repackage.rd8
+    public void m(Intent intent) {
+        WbShareHandler wbShareHandler;
+        WbShareCallback wbShareCallback;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, intent) == null) || (wbShareHandler = this.j) == null || (wbShareCallback = this.k) == null) {
+            return;
+        }
+        wbShareHandler.doResultIntent(intent, wbShareCallback);
+        if (intent == null || intent.getExtras() != null) {
+            return;
+        }
+        this.k.onWbShareSuccess();
     }
 }

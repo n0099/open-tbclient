@@ -1,111 +1,68 @@
 package com.repackage;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.net.Uri;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONObject;
+import org.json.JSONException;
 /* loaded from: classes5.dex */
-public class cr9 {
+public class cr9 extends Handler {
     public static /* synthetic */ Interceptable $ic;
-    public static final cr9 a;
-    public static ConcurrentHashMap b;
-    public static Context c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ jr9 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755787449, "Lcom/repackage/cr9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755787449, "Lcom/repackage/cr9;");
-                return;
-            }
-        }
-        a = new cr9();
-        b = new ConcurrentHashMap();
-    }
-
-    public cr9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cr9(jr9 jr9Var, Looper looper) {
+        super(looper);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jr9Var, looper};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = jr9Var;
     }
 
-    public static cr9 b(Context context) {
-        InterceptResult invokeL;
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        String str;
+        Context context;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            c = context.getApplicationContext();
-            return a;
-        }
-        return (cr9) invokeL.objValue;
-    }
-
-    public long a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Long l = (Long) b.get(str);
-            if (l == null || l.longValue() <= 0) {
-                try {
-                    String C = mr9.C(c);
-                    if (!TextUtils.isEmpty(C)) {
-                        JSONObject jSONObject = new JSONObject(C);
-                        Iterator<String> keys = jSONObject.keys();
-                        while (keys.hasNext()) {
-                            String next = keys.next();
-                            if (TextUtils.equals(str, next)) {
-                                return jSONObject.optLong(next, 0L);
-                            }
-                        }
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return 0L;
-            }
-            return l.longValue();
-        }
-        return invokeL.longValue;
-    }
-
-    public void c(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
-            b.put(str, Long.valueOf(j));
+        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+            int i = message.what;
             try {
-                String C = mr9.C(c);
-                JSONObject jSONObject = !TextUtils.isEmpty(C) ? new JSONObject(C) : new JSONObject();
-                jSONObject.put(str, j);
-                Context context = c;
-                String jSONObject2 = jSONObject.toString();
-                SharedPreferences.Editor edit = context.getSharedPreferences("res_prefs", 0).edit();
-                edit.putString("key_local_res", jSONObject2);
-                edit.apply();
-            } catch (Exception e) {
-                e.printStackTrace();
+                if (i != 11) {
+                    if (i == 12) {
+                        str = (String) message.obj;
+                        context = this.a.a;
+                    }
+                }
+                str = (String) message.obj;
+                tq9 a = xq9.a(this.a.a);
+                try {
+                    a.b = xq9.d("ps", new br9(this.a.b));
+                    a.k("co", 2002);
+                    a.l("msg", str);
+                } catch (JSONException unused) {
+                }
+                a.m();
+                context = this.a.a;
+                yq9.a(context, Uri.parse(str));
+            } catch (Exception unused2) {
             }
         }
     }

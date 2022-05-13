@@ -1,12 +1,6 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.BDPTask;
-import com.baidu.bdtask.TaskState;
-import com.baidu.bdtask.component.buoy.TaskBuoyViewModel;
-import com.baidu.bdtask.ctrl.model.TaskProcess;
-import com.baidu.bdtask.ctrl.model.TaskStatus;
 import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,244 +9,97 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes6.dex */
-public class nr extends TaskBuoyViewModel {
+public final class nr extends rr {
     public static /* synthetic */ Interceptable $ic;
+    public static final a e;
     public transient /* synthetic */ FieldHolder $fh;
-    public int g;
-    public tr h;
-    public final long i;
-    public sr j;
+    public final String d;
 
     /* loaded from: classes6.dex */
-    public static final class a implements sr {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nr a;
 
-        /* JADX DEBUG: Incorrect args count in method signature: ()V */
-        public a(nr nrVar) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nrVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = nrVar;
         }
 
-        @Override // com.repackage.sr
-        public void a(long j, long j2) {
-            sr h;
+        public final nr a(TaskInfo taskInfo, int i) {
+            InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (h = this.a.h()) == null) {
-                return;
-            }
-            h.a(j, j2);
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, taskInfo, i)) == null) ? new nr(taskInfo, null, i, null, null, 26, null) : (nr) invokeLI.objValue;
         }
 
-        @Override // com.repackage.sr
-        public void onCancel() {
-            sr h;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (h = this.a.h()) == null) {
-                return;
-            }
-            h.onCancel();
-        }
-
-        @Override // com.repackage.sr
-        public void onFinish() {
-            sr h;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (h = this.a.h()) == null) {
-                return;
-            }
-            h.onFinish();
-        }
-
-        @Override // com.repackage.sr
-        public void onPause() {
-            sr h;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (h = this.a.h()) == null) {
-                return;
-            }
-            h.onPause();
-        }
-
-        @Override // com.repackage.sr
-        public void onResume() {
-            sr h;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (h = this.a.h()) == null) {
-                return;
-            }
-            h.onResume();
-        }
-
-        @Override // com.repackage.sr
-        public void onStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                if (this.a.k()) {
-                    sr h = this.a.h();
-                    if (h != null) {
-                        h.onResume();
-                        return;
-                    }
-                    return;
-                }
-                sr h2 = this.a.h();
-                if (h2 != null) {
-                    h2.onStart();
-                }
-            }
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
         }
     }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1964032319, "Lcom/repackage/nr;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964032319, "Lcom/repackage/nr;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1964032319, "Lcom/repackage/nr;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1964032319, "Lcom/repackage/nr;");
-        }
+        e = new a(null);
+    }
+
+    public /* synthetic */ nr(TaskInfo taskInfo, String str, int i, Integer num, String str2, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(taskInfo, (i2 & 2) != 0 ? taskInfo.getSingleKey() : str, (i2 & 4) != 0 ? 8 : i, (i2 & 8) != 0 ? null : num, (i2 & 16) != 0 ? null : str2);
+    }
+
+    @Override // com.repackage.fs
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "CleanTaskNoClickTimesAction" : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.rr
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nr(TaskInfo taskInfo) {
-        super(taskInfo);
+    public nr(TaskInfo taskInfo, String str, int i, Integer num, String str2) {
+        super(str, num, str2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {taskInfo};
+            Object[] objArr = {taskInfo, str, Integer.valueOf(i), num, str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((TaskInfo) newInitContext.callArgs[0]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (Integer) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.g = 8;
-        this.i = taskInfo.getTaskRule().getStay();
-    }
-
-    public final sr h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.j : (sr) invokeV.objValue;
-    }
-
-    public final long i() {
-        InterceptResult invokeV;
-        TaskStatus taskStatus;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            TaskState m = BDPTask.m.m(c().getActionId());
-            TaskProcess process = (m == null || (taskStatus = m.getTaskStatus()) == null) ? null : taskStatus.getProcess();
-            long stayDurTimeMs = this.i - (process != null ? process.getStayDurTimeMs() : 0L);
-            if (stayDurTimeMs < 0) {
-                return 0L;
-            }
-            return stayDurTimeMs;
-        }
-        return invokeV.longValue;
-    }
-
-    public final boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.g & 4) == 4 : invokeV.booleanValue;
-    }
-
-    public final boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.g & 2) == 2 : invokeV.booleanValue;
-    }
-
-    public final boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (this.g & 1) == 1 : invokeV.booleanValue;
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && l()) {
-            this.g |= 4;
-            tr trVar = this.h;
-            if (trVar != null) {
-                trVar.e();
-            }
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && j()) {
-            this.g |= 2;
-            r();
-        }
-    }
-
-    public final void o(sr srVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, srVar) == null) {
-            this.j = srVar;
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.g = 1;
-            r();
-        }
-    }
-
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.g = 8;
-            tr trVar = this.h;
-            if (trVar != null) {
-                trVar.h();
-            }
-        }
-    }
-
-    public final void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            tr trVar = this.h;
-            if (trVar != null) {
-                trVar.j();
-            }
-            tr trVar2 = new tr(i(), 200L, new a(this));
-            this.h = trVar2;
-            if (trVar2 != null) {
-                trVar2.b();
-            }
-        }
+        this.d = str;
     }
 }

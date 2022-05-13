@@ -1,209 +1,63 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
-import android.util.ArrayMap;
-import android.util.Log;
+import android.webkit.ValueCallback;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.http.request.PostFormRequest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.v8engine.JSExceptionType;
+import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import okhttp3.Response;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public abstract class q82 implements s82 {
+/* loaded from: classes6.dex */
+public class q82 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public V8Engine a;
 
-    /* loaded from: classes7.dex */
-    public class a extends ResponseCallback<JSONObject> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(q82 q82Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q82Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, exc) == null) && q82.a) {
-                Log.e("AbsDefaultPurger", "onFail: " + exc);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(JSONObject jSONObject, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) == null) && q82.a) {
-                Log.e("AbsDefaultPurger", "onSuccess: ");
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public JSONObject parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
-                if (q82.a) {
-                    Log.d("AbsDefaultPurger", "parseResponse");
-                }
-                if (response == null || response.body() == null) {
-                    return null;
-                }
-                String string = response.body().string();
-                if (TextUtils.isEmpty(string)) {
-                    return null;
-                }
-                return new JSONObject(string);
-            }
-            return (JSONObject) invokeLI.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755426330, "Lcom/repackage/q82;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755426330, "Lcom/repackage/q82;");
-                return;
-            }
-        }
-        a = tg1.a;
-    }
-
-    public q82() {
+    public q82(V8Engine v8Engine) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {v8Engine};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = v8Engine;
+    }
+
+    public void a(@NonNull Object obj, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, obj, str) == null) {
+            this.a.addJavascriptInterface(obj, str);
         }
     }
 
-    @NonNull
-    public final ResponseCallback<JSONObject> c() {
-        InterceptResult invokeV;
+    public void b(String str, ValueCallback<String> valueCallback) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (ResponseCallback) invokeV.objValue;
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            e84.i().c(str);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, valueCallback) == null) {
+            this.a.evaluateJavascript(str, valueCallback, "mainContextEvaluate");
         }
     }
 
-    public void e(List<String> list) {
+    public void c(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || list == null || list.isEmpty()) {
-            return;
-        }
-        if (a) {
-            Log.d("AbsDefaultPurger", "clearData");
-        }
-        Set<String> d = u82.d(list);
-        HashSet<String> hashSet = new HashSet(list);
-        if (d != null) {
-            hashSet.removeAll(d);
-        }
-        b93.j().g("aiapp_setting_", hashSet, false);
-        b93.j().g("aiapp_", hashSet, false);
-        for (String str : hashSet) {
-            if (a) {
-                Log.d("AbsDefaultPurger", "clear storage files: " + str);
-            }
-            String v = r73.v(str);
-            if (!TextUtils.isEmpty(v)) {
-                mg4.M(v);
-            }
-            String x = r73.x(str);
-            if (!TextUtils.isEmpty(x)) {
-                mg4.M(x);
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
+            this.a.requireJSFile(str, str2);
         }
     }
 
-    public void f(String str) {
+    public void d(JSExceptionType jSExceptionType, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            e84.i().h(str);
-            e84.i().e(g94.class, str);
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public void g(@Nullable List<String> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, list) == null) || list == null || list.isEmpty()) {
-            return;
-        }
-        if (a) {
-            Log.d("AbsDefaultPurger", "resetAccredit");
-        }
-        ArrayMap arrayMap = new ArrayMap();
-        arrayMap.put("ma_ids", list);
-        JSONObject jSONObject = new JSONObject();
-        try {
-            l53 a2 = qj2.q().a();
-            jSONObject.put("accredit", new JSONObject(arrayMap));
-            String v = qj2.o().v();
-            y64 b = z64.b();
-            if (b == null) {
-                if (!a) {
-                    jx1.c("AbsDefaultPurger", "get network obj failed on resetAccredit");
-                } else {
-                    throw new RuntimeException("SwanNetworkRuntime.getSwanNetwork return null , check inject");
-                }
-            }
-            l74 g = l74.g();
-            if (!g.c()) {
-                b = null;
-            }
-            ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) g.postFormRequest().url(v)).addParam("data", jSONObject.toString()).userAgent(b != null ? b.a() : "")).cookieManager(a2)).build().executeAsyncOnUIBack(c());
-        } catch (JSONException e) {
-            e.printStackTrace();
-            if (a) {
-                Log.d("AbsDefaultPurger", "resetAccredit with JSONException: ", e);
-            }
+        if (interceptable == null || interceptable.invokeLL(1048579, this, jSExceptionType, str) == null) {
+            this.a.throwJSException(jSExceptionType, str);
         }
     }
 }

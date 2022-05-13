@@ -1,19 +1,26 @@
 package com.repackage;
 
-import android.graphics.drawable.BitmapDrawable;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
+import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class sk {
+public class sk extends vk {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BitmapDrawable a;
-    public fo b;
-    public volatile boolean c;
+    public final Paint v;
+    public final Paint w;
+    public final Rect x;
+    public final Rect y;
 
     public sk() {
         Interceptable interceptable = $ic;
@@ -28,70 +35,56 @@ public class sk {
                 return;
             }
         }
-        this.c = true;
+        this.v = new Paint();
+        this.w = new Paint();
+        this.x = new Rect(0, 0, 0, 0);
+        this.y = new Rect(0, 0, 0, 0);
+        this.v.setColor(-16777216);
+        this.v.setStyle(Paint.Style.FILL);
+        this.v.setAntiAlias(true);
+        this.w.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.ok, com.repackage.mk
+    public void h(Canvas canvas, pk pkVar, ImageView imageView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (e()) {
-                return this.a.getIntrinsicHeight();
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, canvas, pkVar, imageView) == null) {
+            Matrix matrix = this.e;
+            if (matrix != null) {
+                canvas.concat(matrix);
             }
-            if (d()) {
-                return this.b.m();
+            if (pkVar.e()) {
+                Bitmap bitmap = pkVar.a.getBitmap();
+                if (this.u) {
+                    v(canvas, bitmap);
+                    return;
+                }
+                this.y.set(0, 0, pkVar.b(), pkVar.a());
+                pkVar.b.g(canvas, this.y, this.f, this.b);
+            } else if (pkVar.d()) {
+                if (this.u) {
+                    v(canvas, pkVar.b.p());
+                    return;
+                }
+                this.y.set(0, 0, pkVar.b(), pkVar.a());
+                pkVar.b.g(canvas, this.y, this.f, this.b);
+            } else {
+                this.y.set(0, 0, pkVar.b(), pkVar.a());
+                pkVar.b.g(canvas, this.y, this.f, this.b);
             }
-            return 0;
         }
-        return invokeV.intValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    public void v(Canvas canvas, Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (e()) {
-                return this.a.getIntrinsicWidth();
-            }
-            if (d()) {
-                return this.b.r();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? e() || d() : invokeV.booleanValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            fo foVar = this.b;
-            return foVar != null && foVar.w();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            BitmapDrawable bitmapDrawable = this.a;
-            return (bitmapDrawable == null || bitmapDrawable.getBitmap() == null || this.a.getBitmap().isRecycled()) ? false : true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.b = null;
-            this.a = null;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, bitmap) == null) {
+            this.y.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
+            this.x.set(0, 0, (int) this.f.width(), (int) this.f.height());
+            canvas.save();
+            canvas.drawARGB(0, 0, 0, 0);
+            canvas.drawPath(this.r, this.v);
+            canvas.drawBitmap(bitmap, this.y, this.f, this.w);
+            canvas.restore();
         }
     }
 }

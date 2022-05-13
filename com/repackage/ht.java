@@ -1,89 +1,20 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import org.json.JSONArray;
+import android.app.Activity;
+import android.content.Context;
 /* loaded from: classes6.dex */
-public final class ht {
-    public static /* synthetic */ Interceptable $ic;
-    public static final a a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ht {
+    Activity a();
 
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    it b();
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+    void c(Activity activity);
 
-        public final <T extends kt> JSONArray a(List<T> list) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-                JSONArray jSONArray = new JSONArray();
-                if (list != null) {
-                    for (T t : list) {
-                        jSONArray.put(t.c());
-                    }
-                }
-                return jSONArray;
-            }
-            return (JSONArray) invokeL.objValue;
-        }
+    boolean d();
 
-        public final JSONArray b(List<byte[]> list) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
-                JSONArray jSONArray = new JSONArray();
-                if (list != null) {
-                    for (byte[] bArr : list) {
-                        jSONArray.put(fv.a(bArr));
-                    }
-                }
-                return jSONArray;
-            }
-            return (JSONArray) invokeL.objValue;
-        }
+    Context getAppContext();
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-    }
+    String getAppVersion();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964038023, "Lcom/repackage/ht;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1964038023, "Lcom/repackage/ht;");
-                return;
-            }
-        }
-        a = new a(null);
-    }
+    String getSdkVersion();
 }

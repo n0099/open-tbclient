@@ -1,102 +1,21 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.os.Handler;
-import android.text.TextUtils;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.Map;
+@Service
 /* loaded from: classes6.dex */
-public final class jg0 extends im0 {
+public class jg0 extends uh0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public static final class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ long c;
-        public final /* synthetic */ String d;
-
-        public a(long j, long j2, long j3, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = j;
-            this.b = j2;
-            this.c = j3;
-            this.d = str;
-        }
-
-        @Override // java.lang.Runnable
-        public final void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a < lg0.c()) {
-                    lg0.z();
-                } else if (lg0.f()) {
-                    return;
-                } else {
-                    lg0.h(this.b, this.c, this.d);
-                }
-                lg0.g(this.b, "boot_from_cold", this.c, this.d);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ String c;
-
-        public b(long j, long j2, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = j;
-            this.b = j2;
-            this.c = str;
-        }
-
-        @Override // java.lang.Runnable
-        public final void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                lg0.g(this.a, "boot_from_background", this.b, this.c);
-            }
-        }
-    }
 
     public jg0() {
         Interceptable interceptable = $ic;
@@ -112,57 +31,22 @@ public final class jg0 extends im0 {
         }
     }
 
-    @Override // com.repackage.im0, com.repackage.lm0
-    public void onActivityCreated(Activity activity, Bundle bundle) {
-        long j;
+    @Override // com.repackage.uh0
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
-            Intrinsics.checkNotNullParameter(activity, "activity");
-            if (TextUtils.equals(activity.getLocalClassName(), "MainActivity")) {
-                if (!lg0.d()) {
-                    lg0.l();
-                    return;
-                }
-                String i = lg0.i();
-                long j2 = lg0.j();
-                a aVar = new a(System.currentTimeMillis() - j2, j2, System.currentTimeMillis(), i);
-                Handler handler = new Handler();
-                j = kg0.a;
-                handler.postDelayed(aVar, j);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "pcharge" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.im0, com.repackage.lm0
-    public void onBackgroundToForeground(Activity activity) {
-        long j;
+    @Override // com.repackage.uh0
+    public boolean b(@NonNull Context context, @NonNull yh0 yh0Var, @Nullable Map<String, Object> map, @Nullable ci0 ci0Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-            Intrinsics.checkNotNullParameter(activity, "activity");
-            if (!lg0.d()) {
-                lg0.l();
-            } else if (TextUtils.equals(activity.getLocalClassName(), lg0.k())) {
-                String i = lg0.i();
-                long j2 = lg0.j();
-                long currentTimeMillis = System.currentTimeMillis();
-                if (System.currentTimeMillis() - j2 < lg0.c()) {
-                    lg0.z();
-                    lg0.y();
-                }
-                b bVar = new b(j2, currentTimeMillis, i);
-                Handler handler = new Handler();
-                j = kg0.a;
-                handler.postDelayed(bVar, j);
-            }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, yh0Var, map, ci0Var)) == null) {
+            super.b(context, yh0Var, map, ci0Var);
+            th0.e((String) vy0.b(yh0Var.d(), "lp_cmd"), context, map, ci0Var);
+            return true;
         }
-    }
-
-    @Override // com.repackage.im0, com.repackage.lm0
-    public void onForegroundToBackground(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-            Intrinsics.checkNotNullParameter(activity, "activity");
-            lg0.w(activity);
-        }
+        return invokeLLLL.booleanValue;
     }
 }

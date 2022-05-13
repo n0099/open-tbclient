@@ -1,183 +1,65 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tieba.R;
-import com.baidu.tieba.card.OriginalThreadCardView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.logsystem.basic.upload.ContentUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m00;
+import com.google.android.exoplayer2.text.cea.Cea608Decoder;
+import com.kwad.yoga.YogaNodeJNIBase;
+import kotlin.jvm.internal.ByteCompanionObject;
+import org.apache.commons.codec.binary4util.BaseNCodec;
 /* loaded from: classes6.dex */
-public class g00 extends qy<pn4> {
+public final class g00 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int m;
     public transient /* synthetic */ FieldHolder $fh;
-    public View f;
-    public TextView g;
-    public TextView h;
-    public OriginalThreadCardView i;
-    public pn4 j;
-    public boolean k;
-    public OriginalThreadCardView.b l;
 
-    /* loaded from: classes6.dex */
-    public class a implements OriginalThreadCardView.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g00 a;
-
-        public a(g00 g00Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g00Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = g00Var;
-        }
-
-        @Override // com.baidu.tieba.card.OriginalThreadCardView.b
-        public void a(OriginalThreadInfo originalThreadInfo) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, originalThreadInfo) == null) || this.a.j == null || this.a.j.getThreadData() == null) {
-                return;
-            }
-            if (this.a.d() != null) {
-                this.a.d().a(this.a.i, this.a.j);
-            }
-            String id = this.a.j.getThreadData().getId();
-            ex5.a(id);
-            this.a.s(id);
-            this.a.a.o(new m00.a(1));
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755731990, "Lcom/repackage/g00;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755731990, "Lcom/repackage/g00;");
-                return;
-            }
-        }
-        m = oi.k(TbadkCoreApplication.getInst()) - ((oi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + oi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g00(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.k = false;
-        this.l = new a(this);
-        if (TbadkCoreApplication.getInst().getPersonalizeViewData().p != null && TbadkCoreApplication.getInst().getPersonalizeViewData().p.getParent() == null) {
-            this.f = TbadkCoreApplication.getInst().getPersonalizeViewData().p;
-        } else {
-            this.f = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01c6, (ViewGroup) null, false);
-        }
-        this.g = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f091f88);
-        this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f091f7a);
-        OriginalThreadCardView originalThreadCardView = (OriginalThreadCardView) this.f.findViewById(R.id.obfuscated_res_0x7f09161d);
-        this.i = originalThreadCardView;
-        originalThreadCardView.setSubClickListener(this.l);
-    }
-
-    @Override // com.repackage.qy
-    public View g() {
+    public static byte[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new byte[]{121, -75, -64, -117, -32, 4, -8, -19, -11, 84, -123, -65, -29, -73, 23, ByteCompanionObject.MAX_VALUE, 52, -54, 124, 29, 10, -105, -19, 73, 56, 100, 42, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, -13, 25, -76, -71} : (byte[]) invokeV.objValue;
     }
 
-    @Override // com.repackage.qy
-    public void l(tx5<pn4> tx5Var) {
+    public static byte[] b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tx5Var) == null) {
-            super.l(tx5Var);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new byte[]{-8, 55, 15, 115, 74, -108, -56, -37, -56, -80, -90, 107, 115, -78, 65, 82, -59, 2, -104, 65, 10, 21, 19, -71, -74, 114, -100, 1, 29, -66, 72, 72} : (byte[]) invokeV.objValue;
     }
 
-    @Override // com.repackage.gz
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+    public static byte[] c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
-            this.i.q();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new byte[]{-40, -59, -7, 54, -86, 73, -69, 120, 54, -124, -45, -125, 120, -95, 68, 70} : (byte[]) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fz
-    /* renamed from: r */
-    public void a(pn4 pn4Var) {
+    public static byte[] d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, pn4Var) == null) || pn4Var == null || pn4Var.getThreadData() == null) {
-            return;
-        }
-        this.j = pn4Var;
-        ThreadCardUtils.setTitle(this.g, pn4Var.getThreadData(), this.k);
-        ThreadCardUtils.setAbstract(this.h, this.g, pn4Var.getThreadData(), m, this.k);
-        this.i.g(pn4Var.getThreadData().originalThreadData);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new byte[]{10, 28, -53, -126, Constants.GZIP_CAST_TYPE, -111, 68, -11, -28, Constants.SHORT_PING_CMD_TYPE, 81, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 59, -1, 98, -58, -25, -60, -55, 70, 66, 51, -63, -79, -96, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, 70, 7, 108, 59, -79, -65} : (byte[]) invokeV.objValue;
     }
 
-    public final void s(String str) {
+    public static byte[] e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            ex5.l(this.g, str, R.color.CAM_X0105, R.color.CAM_X0109);
-            ex5.l(this.h, str, R.color.CAM_X0105, R.color.CAM_X0109);
-            this.i.setReadState(ex5.k(str));
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new byte[]{-101, -5, -82, -122, -10, 77, -50, -88, 27, -103, -100, 67, 98, 89, -44, -92, -125, 65, -82, -74, 1, 92, -103, -116, 74, -60, 73, 78, 77, -42, 107, -109} : (byte[]) invokeV.objValue;
     }
 
-    public void t(boolean z) {
+    public static byte[] f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.k = z;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? new byte[]{-71, 92, 64, -96, ContentUtil.GZIP_HEAD_2, 89, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 119, -7, 115, 0, 56, 80, 20, YogaNodeJNIBase.HAS_NEW_LAYOUT, -64, -23, -79, -32, -55, 2, 124, -48, -16, YogaNodeJNIBase.LAYOUT_BORDER_START_INDEX, -95, -96, -96, -56, -88, -55, 63} : (byte[]) invokeV.objValue;
     }
 
-    public void u(int i) {
+    public static byte[] g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.i.m = i;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? new byte[]{-14, -21, -20, -77, 32, 107, -63, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, -44, -86, 57, -31, 102, 90, 4, 13, 91, 22, 84, 30, -86, 4, -106, -62, 49, 108, BaseNCodec.PAD_DEFAULT, 48, -101, 90, -110, 88} : (byte[]) invokeV.objValue;
+    }
+
+    public static byte[] h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? new byte[]{-102, 65, -58, 79, -27, -122, 9, -80, 45, 79, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, -12, 70, -80, -110, 30} : (byte[]) invokeV.objValue;
     }
 }

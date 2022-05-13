@@ -1,139 +1,19 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import androidx.collection.ArraySet;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gd4;
+import com.repackage.qj2;
 /* loaded from: classes7.dex */
-public final class w92 implements gd4 {
+public class w92 implements t92 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public boolean b;
-    public gd4 c;
-
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public w92 a;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public w92 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                w92 w92Var = this.a;
-                this.a = null;
-                return w92Var;
-            }
-            return (w92) invokeV.objValue;
-        }
-
-        public b b(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                c().b = z;
-                return this;
-            }
-            return (b) invokeZ.objValue;
-        }
-
-        public final w92 c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                if (this.a == null) {
-                    this.a = new w92(null);
-                }
-                return this.a;
-            }
-            return (w92) invokeV.objValue;
-        }
-
-        public b d(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                c().a = str;
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-
-        public b e(gd4 gd4Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, gd4Var)) == null) {
-                c().c = gd4Var;
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-    }
-
-    public /* synthetic */ w92(a aVar) {
-        this();
-    }
-
-    @Override // com.repackage.gd4
-    public void a(String str, gd4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) {
-            gd4 gd4Var = this.c;
-            if (gd4Var != null) {
-                gd4Var.a(str, aVar);
-            } else if (aVar != null) {
-                aVar.a(true);
-            }
-        }
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "SoLib:: libName=" + this.a + " buildin=" + this.b;
-        }
-        return (String) invokeV.objValue;
-    }
+    public final String[] a;
 
     public w92() {
         Interceptable interceptable = $ic;
@@ -145,6 +25,43 @@ public final class w92 implements gd4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new String[]{c83.w(), c83.y(), z42.c()};
+    }
+
+    @Override // com.repackage.t92
+    public ArraySet<String> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArraySet<String> arraySet = new ArraySet<>();
+            for (String str : this.a) {
+                String K = xg4.K(str);
+                if (!TextUtils.isEmpty(K)) {
+                    arraySet.add(K);
+                }
+            }
+            if (eh1.a) {
+                b(arraySet);
+            }
+            ux1.k("SwanSdcardFileCollector", "recovery renameAllFiles:" + arraySet.toString());
+            return arraySet;
+        }
+        return (ArraySet) invokeV.objValue;
+    }
+
+    public final void b(ArraySet<String> arraySet) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arraySet) == null) || arraySet == null) {
+            return;
+        }
+        String[] strArr = {lb2.b().getAbsolutePath(), ba3.c().getAbsolutePath(), qj2.b.d(), jd3.b(), tj2.k(), ru2.b()};
+        for (int i = 0; i < 6; i++) {
+            String K = xg4.K(strArr[i]);
+            if (!TextUtils.isEmpty(K)) {
+                arraySet.add(K);
             }
         }
     }

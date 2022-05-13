@@ -49,7 +49,7 @@ public class MaterialAlertDialogBuilder extends AlertDialog.Builder {
     /* renamed from: DEF_STYLE_RES */
     public static final int obfuscated_res_0x7f100121 = 2131755297;
     @AttrRes
-    public static final int MATERIAL_ALERT_DIALOG_THEME_OVERLAY = 2130969667;
+    public static final int MATERIAL_ALERT_DIALOG_THEME_OVERLAY = 2130969672;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public Drawable background;
@@ -235,7 +235,7 @@ public class MaterialAlertDialogBuilder extends AlertDialog.Builder {
         Context context2 = getContext();
         Resources.Theme theme = context2.getTheme();
         this.backgroundInsets = MaterialDialogs.getDialogBackgroundInsets(context2, DEF_STYLE_ATTR, obfuscated_res_0x7f100121);
-        int color = MaterialColors.getColor(context2, (int) R.attr.obfuscated_res_0x7f04016e, MaterialAlertDialogBuilder.class.getCanonicalName());
+        int color = MaterialColors.getColor(context2, (int) R.attr.obfuscated_res_0x7f040171, MaterialAlertDialogBuilder.class.getCanonicalName());
         MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(context2, null, DEF_STYLE_ATTR, obfuscated_res_0x7f100121);
         materialShapeDrawable.initializeElevationOverlay(context2);
         materialShapeDrawable.setFillColor(ColorStateList.valueOf(color));

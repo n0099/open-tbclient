@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.tb1;
+import com.repackage.ec1;
 @Autowired
 /* loaded from: classes2.dex */
 public class PerfFrameContext {
@@ -62,7 +62,7 @@ public class PerfFrameContext {
                     if (AppConfig.isDebug()) {
                         Log.d("PerfFrame", "onPerfFrameCallBack");
                     }
-                    tb1<IPerfFrameRegister> perfFrameRegister = PerfFrameRuntime.getInstance().getPerfFrameRegister();
+                    ec1<IPerfFrameRegister> perfFrameRegister = PerfFrameRuntime.getInstance().getPerfFrameRegister();
                     if (perfFrameRegister == null || perfFrameRegister.getList() == null || perfExpInfo == null) {
                         return;
                     }

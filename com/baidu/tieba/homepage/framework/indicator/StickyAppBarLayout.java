@@ -129,10 +129,10 @@ public class StickyAppBarLayout extends AppBarLayout {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d039d, (ViewGroup) this, true);
-            this.c = (NestedScrollHeader) findViewById(R.id.obfuscated_res_0x7f090d88);
-            this.d = (HomeTabBarView) findViewById(R.id.obfuscated_res_0x7f090d90);
-            this.e = findViewById(R.id.obfuscated_res_0x7f0907fd);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0394, (ViewGroup) this, true);
+            this.c = (NestedScrollHeader) findViewById(R.id.obfuscated_res_0x7f090d78);
+            this.d = (HomeTabBarView) findViewById(R.id.obfuscated_res_0x7f090d80);
+            this.e = findViewById(R.id.obfuscated_res_0x7f0907f4);
             CoordinatorLayout.LayoutParams layoutParams = new CoordinatorLayout.LayoutParams(-1, -2);
             layoutParams.setBehavior(new StickyAppBarLayoutBehavior());
             setOrientation(1);

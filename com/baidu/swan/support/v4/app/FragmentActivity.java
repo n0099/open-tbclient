@@ -31,23 +31,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import com.repackage.be4;
 import com.repackage.ce4;
-import com.repackage.de4;
-import com.repackage.he4;
-import com.repackage.ke4;
-import com.repackage.rd4;
-import com.repackage.td4;
-import com.repackage.ud4;
-import com.repackage.ue4;
-import com.repackage.yd4;
+import com.repackage.ee4;
+import com.repackage.fe4;
+import com.repackage.ff4;
+import com.repackage.je4;
+import com.repackage.me4;
+import com.repackage.ne4;
+import com.repackage.oe4;
+import com.repackage.se4;
+import com.repackage.ve4;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import org.aspectj.runtime.reflect.SignatureImpl;
 /* loaded from: classes2.dex */
-public class FragmentActivity extends yd4 implements rd4.b, td4.a {
+public class FragmentActivity extends je4 implements ce4.b, ee4.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FRAGMENTS_TAG = "android:support:fragments";
     public static final int HONEYCOMB = 11;
@@ -56,7 +56,7 @@ public class FragmentActivity extends yd4 implements rd4.b, td4.a {
     public static final String TAG = "FragmentActivity";
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mCreated;
-    public final be4 mFragments;
+    public final me4 mFragments;
     public final Handler mHandler;
     public boolean mOptionsMenuInvalidated;
     public boolean mReallyStopped;
@@ -110,7 +110,7 @@ public class FragmentActivity extends yd4 implements rd4.b, td4.a {
     }
 
     /* loaded from: classes2.dex */
-    public class b extends ce4<FragmentActivity> {
+    public class b extends ne4<FragmentActivity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FragmentActivity j;
@@ -136,7 +136,7 @@ public class FragmentActivity extends yd4 implements rd4.b, td4.a {
             this.j = fragmentActivity;
         }
 
-        @Override // com.repackage.ce4, com.repackage.ae4
+        @Override // com.repackage.ne4, com.repackage.le4
         @Nullable
         public View a(int i) {
             InterceptResult invokeI;
@@ -144,7 +144,7 @@ public class FragmentActivity extends yd4 implements rd4.b, td4.a {
             return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.j.findViewById(i) : (View) invokeI.objValue;
         }
 
-        @Override // com.repackage.ce4, com.repackage.ae4
+        @Override // com.repackage.ne4, com.repackage.le4
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -155,7 +155,7 @@ public class FragmentActivity extends yd4 implements rd4.b, td4.a {
             return invokeV.booleanValue;
         }
 
-        @Override // com.repackage.ce4
+        @Override // com.repackage.ne4
         public void l(Fragment fragment) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fragment) == null) {
@@ -163,7 +163,7 @@ public class FragmentActivity extends yd4 implements rd4.b, td4.a {
             }
         }
 
-        @Override // com.repackage.ce4
+        @Override // com.repackage.ne4
         public void m(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLLL(1048579, this, str, fileDescriptor, printWriter, strArr) == null) {
@@ -171,14 +171,14 @@ public class FragmentActivity extends yd4 implements rd4.b, td4.a {
             }
         }
 
-        @Override // com.repackage.ce4
+        @Override // com.repackage.ne4
         public LayoutInflater n() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.j.getLayoutInflater().cloneInContext(this.j) : (LayoutInflater) invokeV.objValue;
         }
 
-        @Override // com.repackage.ce4
+        @Override // com.repackage.ne4
         public int o() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -192,14 +192,14 @@ public class FragmentActivity extends yd4 implements rd4.b, td4.a {
             return invokeV.intValue;
         }
 
-        @Override // com.repackage.ce4
+        @Override // com.repackage.ne4
         public boolean p() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.j.getWindow() != null : invokeV.booleanValue;
         }
 
-        @Override // com.repackage.ce4
+        @Override // com.repackage.ne4
         public void q(@NonNull Fragment fragment, @NonNull String[] strArr, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048583, this, fragment, strArr, i) == null) {
@@ -207,14 +207,14 @@ public class FragmentActivity extends yd4 implements rd4.b, td4.a {
             }
         }
 
-        @Override // com.repackage.ce4
+        @Override // com.repackage.ne4
         public boolean r(Fragment fragment) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fragment)) == null) ? !this.j.isFinishing() : invokeL.booleanValue;
         }
 
-        @Override // com.repackage.ce4
+        @Override // com.repackage.ne4
         public void s(Fragment fragment, Intent intent, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048585, this, fragment, intent, i) == null) {
@@ -222,7 +222,7 @@ public class FragmentActivity extends yd4 implements rd4.b, td4.a {
             }
         }
 
-        @Override // com.repackage.ce4
+        @Override // com.repackage.ne4
         public void t() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -237,7 +237,7 @@ public class FragmentActivity extends yd4 implements rd4.b, td4.a {
         public transient /* synthetic */ FieldHolder $fh;
         public Object a;
         public List<Fragment> b;
-        public ue4<String, he4> c;
+        public ff4<String, se4> c;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -268,7 +268,7 @@ public class FragmentActivity extends yd4 implements rd4.b, td4.a {
             }
         }
         this.mHandler = new a(this);
-        this.mFragments = be4.b(new b(this));
+        this.mFragments = me4.b(new b(this));
     }
 
     private void dumpViewHierarchy(String str, PrintWriter printWriter, View view2) {
@@ -296,10 +296,10 @@ public class FragmentActivity extends yd4 implements rd4.b, td4.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65539, this, fragment, strArr, i) == null) {
             if (i == -1) {
-                rd4.requestPermissions(this, strArr, i);
+                ce4.requestPermissions(this, strArr, i);
             } else if ((i & (-256)) == 0) {
                 this.mRequestedPermissionsFromFragment = true;
-                rd4.requestPermissions(this, strArr, ((fragment.f + 1) << 8) + (i & 255));
+                ce4.requestPermissions(this, strArr, ((fragment.f + 1) << 8) + (i & 255));
             } else {
                 throw new IllegalArgumentException("Can only use lower 8 bits for requestCode");
             }
@@ -382,7 +382,7 @@ public class FragmentActivity extends yd4 implements rd4.b, td4.a {
         return (String) invokeL.objValue;
     }
 
-    @Override // com.repackage.xd4
+    @Override // com.repackage.ie4
     public final View dispatchFragmentsOnCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -439,16 +439,16 @@ public class FragmentActivity extends yd4 implements rd4.b, td4.a {
         return invokeV.objValue;
     }
 
-    public de4 getSupportFragmentManager() {
+    public oe4 getSupportFragmentManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mFragments.y() : (de4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mFragments.y() : (oe4) invokeV.objValue;
     }
 
-    public he4 getSupportLoaderManager() {
+    public se4 getSupportLoaderManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mFragments.z() : (he4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mFragments.z() : (se4) invokeV.objValue;
     }
 
     @Override // android.app.Activity
@@ -500,7 +500,7 @@ public class FragmentActivity extends yd4 implements rd4.b, td4.a {
         }
     }
 
-    @Override // com.repackage.xd4, android.app.Activity
+    @Override // com.repackage.ie4, android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
@@ -534,7 +534,7 @@ public class FragmentActivity extends yd4 implements rd4.b, td4.a {
         return invokeIL.booleanValue;
     }
 
-    @Override // com.repackage.yd4, android.app.Activity, android.view.LayoutInflater.Factory2
+    @Override // com.repackage.je4, android.app.Activity, android.view.LayoutInflater.Factory2
     public /* bridge */ /* synthetic */ View onCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
         return super.onCreateView(view2, str, context, attributeSet);
     }
@@ -669,7 +669,7 @@ public class FragmentActivity extends yd4 implements rd4.b, td4.a {
         }
     }
 
-    @Override // android.app.Activity, com.repackage.rd4.b
+    @Override // android.app.Activity, com.repackage.ce4.b
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         int i2;
         Interceptable interceptable = $ic;
@@ -727,7 +727,7 @@ public class FragmentActivity extends yd4 implements rd4.b, td4.a {
             }
             Object onRetainCustomNonConfigurationInstance = onRetainCustomNonConfigurationInstance();
             List<Fragment> G = this.mFragments.G();
-            ue4<String, he4> F = this.mFragments.F();
+            ff4<String, se4> F = this.mFragments.F();
             if (G == null && F == null && onRetainCustomNonConfigurationInstance == null) {
                 return null;
             }
@@ -791,17 +791,17 @@ public class FragmentActivity extends yd4 implements rd4.b, td4.a {
         }
     }
 
-    public void setEnterSharedElementCallback(ke4 ke4Var) {
+    public void setEnterSharedElementCallback(ve4 ve4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048610, this, ke4Var) == null) {
-            rd4.h(this, ke4Var);
+        if (interceptable == null || interceptable.invokeL(1048610, this, ve4Var) == null) {
+            ce4.h(this, ve4Var);
         }
     }
 
-    public void setExitSharedElementCallback(ke4 ke4Var) {
+    public void setExitSharedElementCallback(ve4 ve4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, ke4Var) == null) {
-            rd4.i(this, ke4Var);
+        if (interceptable == null || interceptable.invokeL(1048611, this, ve4Var) == null) {
+            ce4.i(this, ve4Var);
         }
     }
 
@@ -832,7 +832,7 @@ public class FragmentActivity extends yd4 implements rd4.b, td4.a {
     public void supportFinishAfterTransition() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
-            rd4.f(this);
+            ce4.f(this);
         }
     }
 
@@ -840,7 +840,7 @@ public class FragmentActivity extends yd4 implements rd4.b, td4.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
             if (Build.VERSION.SDK_INT >= 11) {
-                ud4.a(this);
+                fe4.a(this);
             } else {
                 this.mOptionsMenuInvalidated = true;
             }
@@ -850,18 +850,18 @@ public class FragmentActivity extends yd4 implements rd4.b, td4.a {
     public void supportPostponeEnterTransition() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048616, this) == null) {
-            rd4.g(this);
+            ce4.g(this);
         }
     }
 
     public void supportStartPostponedEnterTransition() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
-            rd4.k(this);
+            ce4.k(this);
         }
     }
 
-    @Override // com.repackage.td4.a
+    @Override // com.repackage.ee4.a
     public final void validateRequestPermissionsRequestCode(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048618, this, i) == null) {
@@ -873,7 +873,7 @@ public class FragmentActivity extends yd4 implements rd4.b, td4.a {
         }
     }
 
-    @Override // com.repackage.xd4, android.app.Activity, android.view.LayoutInflater.Factory
+    @Override // com.repackage.ie4, android.app.Activity, android.view.LayoutInflater.Factory
     public /* bridge */ /* synthetic */ View onCreateView(String str, Context context, AttributeSet attributeSet) {
         return super.onCreateView(str, context, attributeSet);
     }

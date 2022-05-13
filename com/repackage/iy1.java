@@ -1,164 +1,100 @@
 package com.repackage;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
-import android.os.Process;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class iy1 {
+public class iy1 extends r23 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755602224, "Lcom/repackage/iy1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755602224, "Lcom/repackage/iy1;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public iy1(r13 r13Var) {
+        super(r13Var, "/swanAPI/remoteDebug");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {r13Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = tg1.a;
     }
 
-    public static synchronized String a() {
-        InterceptResult invokeV;
-        BufferedReader bufferedReader;
-        Throwable th;
-        IOException e;
+    @Override // com.repackage.r23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u03 u03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65537, null)) != null) {
-            return (String) invokeV.objValue;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, u03Var)) == null) {
+            ux1.i("RemoteDebugAction", "handle entity: " + unitedSchemeEntity.toString());
+            return false;
         }
-        synchronized (iy1.class) {
-            if (a) {
-                Log.d("SwanCpuProperty", "start cpu monitor thread");
-            }
-            try {
-                bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec(new String[]{"sh", "-c", "top -n 1 | grep " + Process.myPid()}).getInputStream()));
-                try {
-                    try {
-                        String c = c(bufferedReader);
-                        if (a) {
-                            Log.d("SwanCpuProperty", "stop cpu monitor thread , cpu rate is : " + c);
-                        }
-                        mg4.d(bufferedReader);
-                        return c;
-                    } catch (IOException e2) {
-                        e = e2;
-                        if (a) {
-                            Log.e("SwanCpuProperty", "error in cpu monitor", e);
-                        }
-                        mg4.d(bufferedReader);
-                        return "";
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    mg4.d(bufferedReader);
-                    throw th;
-                }
-            } catch (IOException e3) {
-                bufferedReader = null;
-                e = e3;
-            } catch (Throwable th3) {
-                bufferedReader = null;
-                th = th3;
-                mg4.d(bufferedReader);
-                throw th;
-            }
-        }
+        return invokeLLLL.booleanValue;
     }
 
-    public static float b() {
-        InterceptResult invokeV;
+    @Override // com.repackage.r23
+    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, u03 u03Var) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String a2 = a();
-            try {
-                if (a2.contains("%")) {
-                    return Float.parseFloat(a2.replace("%", "").trim());
-                }
-                return Float.parseFloat(a2);
-            } catch (Exception e) {
-                if (a) {
-                    Log.d("SwanCpuProperty", "解析cpu使用率错误", e);
-                    return 0.0f;
-                }
-                return 0.0f;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, u03Var)) == null) {
+            ux1.i("RemoteDebugAction", "handleSubAction subAction: " + str);
+            if (!ly1.d()) {
+                ux1.c("RemoteDebugAction", "Can't invoke this action outside Remote Debug mode");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                return false;
             }
-        }
-        return invokeV.floatValue;
-    }
-
-    /* JADX WARN: Can't wrap try/catch for region: R(10:6|(1:9)|10|(6:12|(1:15)|16|17|18|19)|(1:27)(1:32)|(1:31)|16|17|18|19) */
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x0053, code lost:
-        r11 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x0056, code lost:
-        if (com.repackage.iy1.a != false) goto L25;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x0058, code lost:
-        android.util.Log.e("SwanCpuProperty", "get CPU Fail : " + r11.getMessage());
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String c(BufferedReader bufferedReader) throws IOException {
-        InterceptResult invokeL;
-        char read;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bufferedReader)) == null) {
-            char[] cArr = new char[4];
-            int i = 0;
-            if (Build.VERSION.SDK_INT < 26) {
-                int i2 = 0;
-                do {
-                    read = (char) bufferedReader.read();
-                    if (read == ' ' || i2 == 4) {
-                        i2 = 0;
+            SwanAppActivity x = t03.J().x();
+            char c = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != -279631955) {
+                if (hashCode == 1013845168 && str.equals("/swanAPI/remoteDebug/reload")) {
+                    c = 0;
+                }
+            } else if (str.equals("/swanAPI/remoteDebug/shutdown")) {
+                c = 1;
+            }
+            if (c == 0) {
+                ux1.i("RemoteDebugAction", "Remote Debug reload");
+                if (x != null) {
+                    Intent intent = x.getIntent();
+                    ly1.f();
+                    t03.J().o(new String[0]);
+                    t03.J().m(intent.getExtras(), "update_tag_by_remote_debug");
+                }
+                return true;
+            } else if (c != 1) {
+                return super.i(context, unitedSchemeEntity, callbackHandler, str, u03Var);
+            } else {
+                if (x != null) {
+                    if (Build.VERSION.SDK_INT >= 21) {
+                        x.finishAndRemoveTask();
                     } else {
-                        cArr[i2] = read;
-                        i2++;
+                        x.finish();
                     }
-                    if (read == '%') {
-                        break;
-                    }
-                } while (read != 65535);
-                return String.valueOf(cArr, 0, i2);
-            }
-            int i3 = 0;
-            int i4 = 0;
-            while (true) {
-                char read2 = (char) bufferedReader.read();
-                if (z && read2 != ' ') {
-                    i3++;
+                    System.exit(0);
                 }
-                if (i3 == 9) {
-                    if (read2 != '.' && read2 != ' ') {
-                        cArr[i4] = read2;
-                        i4++;
-                    }
-                    i = Integer.parseInt(String.valueOf(cArr, 0, i4)) / Runtime.getRuntime().availableProcessors();
-                    return i + "%";
-                }
-                z = (i3 <= 9 && read2 != 65535 && i4 < 4) ? read2 == ' ' : true;
-                i = Integer.parseInt(String.valueOf(cArr, 0, i4)) / Runtime.getRuntime().availableProcessors();
-                return i + "%";
+                return true;
             }
         }
-        return (String) invokeL.objValue;
+        return invokeLLLLL.booleanValue;
     }
 }

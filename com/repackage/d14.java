@@ -1,17 +1,16 @@
 package com.repackage;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes5.dex */
-public class d14 implements zh1 {
+public class d14 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public z64 a;
+    public boolean b;
 
     public d14() {
         Interceptable interceptable = $ic;
@@ -23,15 +22,47 @@ public class d14 implements zh1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = true;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            c(false);
+        }
+    }
+
+    public void b(z64 z64Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z64Var) == null) {
+            this.a = z64Var;
+            c(this.b);
+        }
+    }
+
+    public final void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.b = z;
+            z64 z64Var = this.a;
+            if (z64Var == null) {
+                return;
+            }
+            if (z) {
+                z64Var.d(4, 1);
+            } else {
+                z64Var.m(4);
             }
         }
     }
 
-    @Override // com.repackage.zh1
-    public void a(String str) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            f14.a(str);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            c(true);
         }
     }
 }

@@ -1,85 +1,74 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.ListView;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.graphics.Rect;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tbadk.switchs.ThreadCardImgClickToPBSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vd5;
 /* loaded from: classes7.dex */
-public class zd5 implements vd5.j {
+public class zd5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bitmap a;
-    public ImageView b;
-    public int c;
-    public ListView d;
 
-    public zd5(ListView listView) {
+    public static boolean a(Context context, String str, zn4 zn4Var) {
+        InterceptResult invokeLLL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {listView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, str, zn4Var)) == null) {
+            if (context == null || zn4Var == null) {
+                return false;
             }
+            if ("index".equals(str)) {
+                i = 2;
+            } else if (ImageViewerConfig.FROM_CONCERN.equals(str)) {
+                i = 1;
+            } else if ("hot_topic".equals(str)) {
+                i = 0;
+            } else {
+                i = "frs".equals(str) ? 3 : -1;
+            }
+            if (i == -1) {
+                return false;
+            }
+            ThreadCardUtils.jumpToPB(zn4Var.getThreadData().originalThreadData, context, i, (Rect) null, zn4Var.getThreadData().getForum_name());
+            return true;
         }
-        this.c = -16777216;
-        this.d = listView;
+        return invokeLLL.booleanValue;
     }
 
-    @Override // com.repackage.vd5.j
-    public void a(View view2) {
+    public static boolean b(Context context, String str, zn4 zn4Var) {
+        InterceptResult invokeLLL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            ((ImageView) view2).setImageDrawable(null);
-            this.a.recycle();
-            this.a = null;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, str, zn4Var)) == null) {
+            if (context == null || zn4Var == null) {
+                return false;
+            }
+            if ("index".equals(str)) {
+                i = 2;
+            } else if (ImageViewerConfig.FROM_CONCERN.equals(str)) {
+                i = 1;
+            } else if ("hot_topic".equals(str)) {
+                i = 0;
+            } else {
+                i = "frs".equals(str) ? 3 : -1;
+            }
+            if (i == -1) {
+                return false;
+            }
+            ThreadCardUtils.jumpToPB(zn4Var, context, i, false);
+            return true;
         }
+        return invokeLLL.booleanValue;
     }
 
-    @Override // com.repackage.vd5.j
-    public View b(int i) {
-        InterceptResult invokeI;
+    public static boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            ListView listView = this.d;
-            View childAt = listView.getChildAt((i + listView.getHeaderViewsCount()) - this.d.getFirstVisiblePosition());
-            if (childAt == null) {
-                return null;
-            }
-            childAt.setPressed(false);
-            childAt.setDrawingCacheEnabled(true);
-            this.a = Bitmap.createBitmap(childAt.getDrawingCache());
-            childAt.setDrawingCacheEnabled(false);
-            if (this.b == null) {
-                this.b = new ImageView(this.d.getContext());
-            }
-            this.b.setBackgroundColor(this.c);
-            this.b.setPadding(0, 0, 0, 0);
-            this.b.setImageBitmap(this.a);
-            this.b.setLayoutParams(new ViewGroup.LayoutParams(childAt.getWidth(), childAt.getHeight()));
-            return this.b;
-        }
-        return (View) invokeI.objValue;
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.c = i;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? ThreadCardImgClickToPBSwitch.getIsOn() && UbsABTestHelper.isImgClickToPb() : invokeV.booleanValue;
     }
 }

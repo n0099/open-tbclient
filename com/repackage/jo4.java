@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.FrsPage.CarrierEnter;
+import tbclient.AwardInfo;
 /* loaded from: classes6.dex */
 public class jo4 {
     public static /* synthetic */ Interceptable $ic;
@@ -24,15 +24,14 @@ public class jo4 {
         }
     }
 
-    public void a(CarrierEnter carrierEnter) {
+    public void a(AwardInfo awardInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, carrierEnter) == null) || carrierEnter == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, awardInfo) == null) || awardInfo == null) {
             return;
         }
-        String str = carrierEnter.title;
-        String str2 = carrierEnter.text;
-        String str3 = carrierEnter.headline_cover;
-        String str4 = carrierEnter.url;
-        String str5 = carrierEnter.obj_id;
+        awardInfo.award_id.longValue();
+        awardInfo.award_act_id.longValue();
+        String str = awardInfo.award_name;
+        String str2 = awardInfo.award_imgsrc;
     }
 }

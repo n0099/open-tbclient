@@ -1,43 +1,26 @@
 package com.repackage;
 
-import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class l90 {
+public class l90 extends i90 {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
     public transient /* synthetic */ FieldHolder $fh;
+    public t90 b;
 
-    public static String a() {
-        InterceptResult invokeV;
-        String str;
+    public l90() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if ((a & 1) != 0) {
-                str = "banner,";
-            } else {
-                str = "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if ((a & 2) != 0) {
-                str = str + "follow,";
-            }
-            if ((a & 4) != 0) {
-                str = str + "tab,";
-            }
-            if ((a & 8) != 0) {
-                str = str + "feed,";
-            }
-            return TextUtils.isEmpty(str) ? "" : str.substring(0, str.length() - 1);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65537, null, i) == null) {
-            a = i;
         }
     }
 }

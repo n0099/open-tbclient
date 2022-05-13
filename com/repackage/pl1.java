@@ -1,14 +1,15 @@
 package com.repackage;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import java.io.File;
-import org.json.JSONArray;
+import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
 /* loaded from: classes6.dex */
 public interface pl1 {
-    void a(@NonNull JSONArray jSONArray);
+    fh2 a(ZeusPluginFactory.Invoker invoker, String str);
 
-    m42 b(Context context, File file, long j);
+    fj2 b(ZeusPluginFactory.Invoker invoker, String str);
 
-    void c(@NonNull JSONArray jSONArray);
+    fj2 c(ZeusPluginFactory.Invoker invoker, String str);
+
+    eh2 d(ZeusPluginFactory.Invoker invoker, String str);
+
+    cf2 e(ZeusPluginFactory.Invoker invoker, String str);
 }

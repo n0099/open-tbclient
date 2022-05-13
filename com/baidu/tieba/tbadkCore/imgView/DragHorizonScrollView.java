@@ -20,12 +20,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ml8;
-import com.repackage.ol8;
-import com.repackage.pl8;
+import com.repackage.jk8;
+import com.repackage.lk8;
+import com.repackage.mk8;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class DragHorizonScrollView extends ViewGroup implements pl8, ol8, View.OnLongClickListener {
+public class DragHorizonScrollView extends ViewGroup implements mk8, lk8, View.OnLongClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<View> A;
@@ -38,7 +38,7 @@ public class DragHorizonScrollView extends ViewGroup implements pl8, ol8, View.O
     public BaseAdapter a;
     public View b;
     public int c;
-    public ml8 d;
+    public jk8 d;
     public int e;
     public int f;
     public int g;
@@ -197,7 +197,7 @@ public class DragHorizonScrollView extends ViewGroup implements pl8, ol8, View.O
         q(context);
     }
 
-    @Override // com.repackage.pl8
+    @Override // com.repackage.mk8
     public void a(Rect rect) {
         View childAt;
         Interceptable interceptable = $ic;
@@ -218,7 +218,7 @@ public class DragHorizonScrollView extends ViewGroup implements pl8, ol8, View.O
         }
     }
 
-    @Override // com.repackage.pl8
+    @Override // com.repackage.mk8
     public void b() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.q) {
@@ -230,7 +230,7 @@ public class DragHorizonScrollView extends ViewGroup implements pl8, ol8, View.O
         invalidate();
     }
 
-    @Override // com.repackage.pl8
+    @Override // com.repackage.mk8
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -244,14 +244,14 @@ public class DragHorizonScrollView extends ViewGroup implements pl8, ol8, View.O
 
     @Override // android.view.View
     public void computeScroll() {
-        ml8 ml8Var;
+        jk8 jk8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (this.k.computeScrollOffset()) {
                 scrollTo(this.k.getCurrX(), 0);
                 postInvalidateDelayed(16L);
-                if ((this.q || this.r) && (ml8Var = this.d) != null) {
-                    ml8Var.i();
+                if ((this.q || this.r) && (jk8Var = this.d) != null) {
+                    jk8Var.i();
                     return;
                 }
                 return;
@@ -261,7 +261,7 @@ public class DragHorizonScrollView extends ViewGroup implements pl8, ol8, View.O
         }
     }
 
-    @Override // com.repackage.pl8
+    @Override // com.repackage.mk8
     public void d() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.r) {
@@ -327,7 +327,7 @@ public class DragHorizonScrollView extends ViewGroup implements pl8, ol8, View.O
         return invokeL.intValue;
     }
 
-    @Override // com.repackage.pl8
+    @Override // com.repackage.mk8
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
@@ -682,11 +682,11 @@ public class DragHorizonScrollView extends ViewGroup implements pl8, ol8, View.O
         }
     }
 
-    @Override // com.repackage.ol8
-    public void setDragController(ml8 ml8Var) {
+    @Override // com.repackage.lk8
+    public void setDragController(jk8 jk8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, ml8Var) == null) {
-            this.d = ml8Var;
+        if (interceptable == null || interceptable.invokeL(1048599, this, jk8Var) == null) {
+            this.d = jk8Var;
         }
     }
 

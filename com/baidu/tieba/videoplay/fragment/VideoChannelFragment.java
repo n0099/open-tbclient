@@ -18,9 +18,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.n45;
-import com.repackage.ni4;
-import com.repackage.oi4;
+import com.repackage.e55;
+import com.repackage.yi4;
+import com.repackage.zi4;
 /* loaded from: classes4.dex */
 public class VideoChannelFragment extends AbsVideoChannelFragment {
     public static /* synthetic */ Interceptable $ic;
@@ -164,9 +164,9 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
                     return;
                 }
                 VideoChannelFragment videoChannelFragment2 = this.a;
-                if (((n45) ListUtils.getItem(videoChannelFragment2.h, videoChannelFragment2.b.getCurrentItem())).a instanceof BaseFragment) {
+                if (((e55) ListUtils.getItem(videoChannelFragment2.h, videoChannelFragment2.b.getCurrentItem())).a instanceof BaseFragment) {
                     VideoChannelFragment videoChannelFragment3 = this.a;
-                    videoChannelFragment3.c.f(((BaseFragment) ((n45) ListUtils.getItem(videoChannelFragment3.h, videoChannelFragment3.b.getCurrentItem())).a).getUniqueId());
+                    videoChannelFragment3.c.f(((BaseFragment) ((e55) ListUtils.getItem(videoChannelFragment3.h, videoChannelFragment3.b.getCurrentItem())).a).getUniqueId());
                 }
             }
         }
@@ -189,7 +189,7 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
     }
 
     @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment
-    public int P0() {
+    public int Q0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -199,21 +199,21 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
     }
 
     @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment
-    public Fragment R0() {
+    public Fragment S0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new VideoAttentionPageFragment(this.a, new b(this), 0, 4) : (Fragment) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment
-    public Fragment S0() {
+    public Fragment T0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new VideoVerticalPageFragment(this.a, new c(this), 1, 3) : (Fragment) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment
-    public void Z0() {
+    public void a1() {
         VideoChannelHeaderLayout videoChannelHeaderLayout;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (videoChannelHeaderLayout = this.c) == null) {
@@ -245,8 +245,8 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onPause();
-            if (oi4.y().A(ni4.c0)) {
-                oi4.y().G();
+            if (zi4.y().A(yi4.c0)) {
+                zi4.y().G();
             }
         }
     }
@@ -258,8 +258,8 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
             super.onPrimary();
             if (isPrimary()) {
                 startBrowseTimeMission();
-            } else if (oi4.y().A(ni4.c0)) {
-                oi4.y().G();
+            } else if (zi4.y().A(yi4.c0)) {
+                zi4.y().G();
             }
         }
     }
@@ -276,7 +276,7 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
     public final void startBrowseTimeMission() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            oi4.y().P(ni4.c0);
+            zi4.y().P(yi4.c0);
         }
     }
 

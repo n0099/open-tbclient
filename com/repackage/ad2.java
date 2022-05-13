@@ -1,5 +1,8 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
+import android.webkit.JavascriptInterface;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,12 +13,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ad2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public boolean a;
+    public boolean b;
     @V8JavascriptField
-    public String errMsg;
+    public long lastAccessedTime;
     @V8JavascriptField
-    public String savedFilePath;
+    public long lastModifiedTime;
+    @V8JavascriptField
+    public long mode;
+    @V8JavascriptField
+    public long size;
 
     public ad2() {
         Interceptable interceptable = $ic;
@@ -27,20 +34,37 @@ public class ad2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0;
-        this.a = 0 + 1;
-        this.b = 0;
     }
 
-    public String toString() {
+    @SuppressLint({"KotlinPropertyAccess"})
+    public void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    @SuppressLint({"KotlinPropertyAccess"})
+    public void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.b = z;
+        }
+    }
+
+    @JavascriptInterface
+    public boolean isDirectory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SaveFileCallBack" + this.b;
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.booleanValue;
+    }
+
+    @JavascriptInterface
+    public boolean isFile() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.booleanValue;
     }
 }

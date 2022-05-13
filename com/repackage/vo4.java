@@ -1,46 +1,21 @@
 package com.repackage;
 
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import tbclient.ForumPresentInfo;
-import tbclient.UserRankPresentInfo;
+import java.util.List;
+import tbclient.FrsPage.ColorEgg;
 /* loaded from: classes7.dex */
 public class vo4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<a> a;
-
-    /* loaded from: classes7.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(vo4 vo4Var, UserRankPresentInfo userRankPresentInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vo4Var, userRankPresentInfo};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            if (userRankPresentInfo == null) {
-                return;
-            }
-            Integer num = userRankPresentInfo.user_id;
-            String str = userRankPresentInfo.user_name;
-            String str2 = userRankPresentInfo.portrait;
-        }
-    }
+    public ArrayList<String> a;
+    public int b;
 
     public vo4() {
         Interceptable interceptable = $ic;
@@ -52,19 +27,44 @@ public class vo4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList<>();
     }
 
-    public void a(ForumPresentInfo forumPresentInfo) {
+    public ArrayList<String> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, forumPresentInfo) == null) || forumPresentInfo == null) {
-            return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public boolean c(ColorEgg colorEgg) {
+        InterceptResult invokeL;
+        List<String> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, colorEgg)) == null) {
+            this.b = 0;
+            if (colorEgg == null || (list = colorEgg.holiday_words) == null || list.size() <= 0) {
+                return false;
+            }
+            for (String str : colorEgg.holiday_words) {
+                if (!StringUtils.isNull(str)) {
+                    this.a.add(str);
+                }
+            }
+            if (this.a.size() <= 0) {
+                return false;
+            }
+            this.b = colorEgg.style_flag.intValue();
+            return true;
         }
-        String str = forumPresentInfo.content;
-        this.a = new ArrayList<>();
-        for (int i = 0; i < forumPresentInfo.user_list.size(); i++) {
-            this.a.add(new a(this, forumPresentInfo.user_list.get(i)));
-        }
+        return invokeL.booleanValue;
     }
 }

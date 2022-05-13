@@ -13,14 +13,14 @@ public class m38 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(View view2, pn4 pn4Var, int i) {
+    public static void a(View view2, zn4 zn4Var, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65536, null, view2, pn4Var, i) == null) || view2 == null || pn4Var == null || pn4Var.getThreadData() == null || StringUtils.isNull(pn4Var.getThreadData().getTid())) {
+        if (!(interceptable == null || interceptable.invokeLLI(65536, null, view2, zn4Var, i) == null) || view2 == null || zn4Var == null || zn4Var.getThreadData() == null || StringUtils.isNull(zn4Var.getThreadData().getTid())) {
             return;
         }
         StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_DYNAMIC_CARD_CLICK);
         statisticItem.param("obj_source", 3);
-        ThreadData threadData = pn4Var.getThreadData();
+        ThreadData threadData = zn4Var.getThreadData();
         if (threadData.isBJHArticleThreadType()) {
             statisticItem.param("obj_type", 1);
         } else if (threadData.isBJHVideoThreadType()) {
@@ -34,8 +34,8 @@ public class m38 {
         } else if (threadData.isVideoThreadType()) {
             statisticItem.param("obj_type", 6);
         }
-        if (pn4Var.getThreadData().getAuthor() != null) {
-            statisticItem.param("uid", pn4Var.getThreadData().getAuthor().getUserId());
+        if (zn4Var.getThreadData().getAuthor() != null) {
+            statisticItem.param("uid", zn4Var.getThreadData().getAuthor().getUserId());
         }
         if (threadData.getBaijiahaoData() != null) {
             statisticItem.param("obj_id", threadData.getBaijiahaoData().oriUgcNid);
@@ -46,11 +46,11 @@ public class m38 {
         TiebaStatic.log(statisticItem);
     }
 
-    public static void b(pn4 pn4Var) {
+    public static void b(zn4 zn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, pn4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(65537, null, zn4Var) == null) {
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_DYNAMIC_CARD_SHOW);
-            ThreadData threadData = pn4Var.getThreadData();
+            ThreadData threadData = zn4Var.getThreadData();
             if (threadData.isBJHArticleThreadType()) {
                 statisticItem.param("obj_type", 1);
             } else if (threadData.isBJHVideoThreadType()) {

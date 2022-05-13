@@ -1,48 +1,98 @@
 package com.repackage;
 
+import android.graphics.Bitmap;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.img.effect.ImageOperation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class l45 {
+public class l45 extends j45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public int a;
+    public int b;
 
-    public l45(boolean z) {
+    public l45() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = z;
     }
 
-    public l45(boolean z, int i) {
+    public static ImageOperation g(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
+            ImageOperation imageOperation = new ImageOperation();
+            imageOperation.actionName = "resize";
+            imageOperation.actionParam = i + "," + i2;
+            return imageOperation;
         }
-        this.a = z;
+        return (ImageOperation) invokeII.objValue;
+    }
+
+    @Override // com.repackage.j45
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "resize" : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.j45
+    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) {
+            if (bitmap == null) {
+                return null;
+            }
+            y35.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
+            return BitmapHelper.resizeBitmap(bitmap, this.a, this.b, z);
+        }
+        return (Bitmap) invokeLZ.objValue;
+    }
+
+    @Override // com.repackage.j45
+    public Bitmap c(String str) throws Exception {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? b(BitmapHelper.loadResizedBitmap(str, this.a, this.b), true) : (Bitmap) invokeL.objValue;
+    }
+
+    @Override // com.repackage.j45
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || str == null) {
+            return;
+        }
+        String[] split = str.split(",");
+        if (split.length != 2) {
+            return;
+        }
+        this.a = kg.e(split[0], 0);
+        this.b = kg.e(split[1], 0);
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : invokeV.intValue;
     }
 }

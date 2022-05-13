@@ -1,119 +1,177 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.MotionEvent;
-import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.videoplayer.SwanVideoView;
-import com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout;
-import com.baidu.swan.videoplayer.media.video.view.MediaGestureMode;
+import com.baidu.sapi2.stat.ShareLoginStat;
+import com.baidu.searchbox.player.ubc.VideoPlayerUbcConstants;
+import com.baidu.swan.apps.favordata.SwanFavorItemData;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
+import com.repackage.rl2;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class ai4 implements MediaGestureLayout.b {
+public class ai4 extends yh4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public MediaGestureLayout b;
-    public MediaGestureLayout.c c;
 
-    public ai4(Context context) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ai4(ZeusPluginFactory.Invoker invoker, String str) {
+        super(invoker, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {invoker, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((ZeusPluginFactory.Invoker) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
-        g(context);
     }
 
-    @Override // com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout.b
-    public void a(MotionEvent motionEvent) {
-        MediaGestureLayout.c cVar;
+    @Override // com.repackage.yh4, com.repackage.fj2
+    public void C() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, motionEvent) == null) || (cVar = this.c) == null) {
-            return;
-        }
-        cVar.a(motionEvent);
-    }
-
-    @Override // com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout.b
-    public void b(MotionEvent motionEvent, MediaGestureMode mediaGestureMode) {
-        MediaGestureLayout.c cVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent, mediaGestureMode) == null) || (cVar = this.c) == null) {
-            return;
-        }
-        cVar.b(motionEvent, mediaGestureMode);
-    }
-
-    @Override // com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout.b
-    public void c(int i) {
-        MediaGestureLayout.c cVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (cVar = this.c) == null) {
-            return;
-        }
-        cVar.c(i);
-    }
-
-    public void d(SwanVideoView swanVideoView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, swanVideoView) == null) {
-            this.b.h(swanVideoView);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    public void e(xh4 xh4Var) {
+    @Override // com.repackage.yh4
+    public void C0(int i, int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, xh4Var) == null) {
-            this.b.g(xh4Var);
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, str) == null) {
+            try {
+                JSONObject J0 = J0();
+                JSONObject K0 = K0();
+                K0.put(ShareLoginStat.MakeShareLoginStat.KEY_ERRNO, i);
+                K0.put("sub_errorNo", i2);
+                K0.put("errorInfo", str);
+                J0.put("ext", K0.toString());
+                zf4.l(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR, J0);
+            } catch (Exception e) {
+                if (yh4.x) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 
-    public ViewGroup f() {
+    @Override // com.repackage.yh4
+    public void D0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            try {
+                JSONObject J0 = J0();
+                J0.put("type", "first_frame");
+                J0.put("ext", K0().toString());
+                zf4.l(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_SUCCESS, J0);
+            } catch (Exception e) {
+                if (yh4.x) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @Override // com.repackage.yh4, com.repackage.fj2
+    public void H() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    @NonNull
+    public final JSONObject J0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (ViewGroup) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("from", "video");
+                jSONObject.put("network", SwanAppNetworkUtils.e());
+            } catch (Exception e) {
+                if (yh4.x) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 
-    public final void g(Context context) {
+    @NonNull
+    public final JSONObject K0() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
-            this.a = context;
-            MediaGestureLayout mediaGestureLayout = new MediaGestureLayout(context);
-            this.b = mediaGestureLayout;
-            mediaGestureLayout.setMediaGestureListener(this);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("ext_from", "aiapp");
+                jSONObject.put("appid", u03.f0());
+                jSONObject.put("url", this.b);
+                jSONObject.put(TiebaStatic.Params.VID, this.b);
+                jSONObject.put("isInline", true);
+                String str = "";
+                u03 L = u03.L();
+                if (L != null) {
+                    str = L.v0() ? SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME : "swan";
+                    rl2.a X = L.X();
+                    if (X != null && X.u1() > 0) {
+                        jSONObject.put("ext_start", X.u1());
+                    }
+                }
+                jSONObject.put("ext_page", str);
+            } catch (Exception e) {
+                if (yh4.x) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    @Override // com.repackage.fj2
+    public void N(ZeusPluginFactory.Invoker invoker) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, invoker) == null) {
         }
     }
 
-    public void h(MediaGestureLayout.c cVar) {
+    @Override // com.repackage.yh4, com.repackage.fj2
+    public void U() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, cVar) == null) {
-            this.c = cVar;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
         }
     }
 
-    @Override // com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout.b
-    public void onDoubleTap(MotionEvent motionEvent) {
-        MediaGestureLayout.c cVar;
+    @Override // com.repackage.fj2
+    public ZeusPluginFactory.Invoker f0() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent) == null) || (cVar = this.c) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return null;
         }
-        cVar.onDoubleTap(motionEvent);
+        return (ZeusPluginFactory.Invoker) invokeV.objValue;
+    }
+
+    @Override // com.repackage.yh4, com.repackage.fj2
+    public void n0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        }
     }
 }

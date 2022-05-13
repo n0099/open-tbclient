@@ -49,7 +49,7 @@ public class lq7 extends iq7 {
             if (interceptable == null || interceptable.invokeL(1048576, this, oneKeyLoginResult) == null) {
                 this.a.b.closeLoadingDialog();
                 BaseActivity baseActivity = this.a.b;
-                baseActivity.showToast(String.format(baseActivity.getString(R.string.obfuscated_res_0x7f0f0cc2), Integer.valueOf(oneKeyLoginResult.getResultCode()), oneKeyLoginResult.getResultMsg()));
+                baseActivity.showToast(String.format(baseActivity.getString(R.string.obfuscated_res_0x7f0f0cdd), Integer.valueOf(oneKeyLoginResult.getResultCode()), oneKeyLoginResult.getResultMsg()));
             }
         }
 
@@ -104,13 +104,13 @@ public class lq7 extends iq7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
             super.n(view2);
-            if (view2.getId() == R.id.obfuscated_res_0x7f09132b) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f09133a) {
                 s();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091608) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09161f) {
                 t();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f09016f) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f090165) {
                 r();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0918eb) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091943) {
                 u();
             }
         }
@@ -120,7 +120,7 @@ public class lq7 extends iq7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             BaseActivity baseActivity = this.b;
-            new TbWebViewActivityConfig(baseActivity, baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0cb9), "https://passport.baidu.com/static/passpc-account/html/protocal.html", false).start();
+            new TbWebViewActivityConfig(baseActivity, baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0cd4), "https://passport.baidu.com/static/passpc-account/html/protocal.html", false).start();
         }
     }
 
@@ -143,14 +143,14 @@ public class lq7 extends iq7 {
         int a2 = kq7Var.a();
         if (a2 == 1) {
             BaseActivity baseActivity = this.b;
-            new TbWebViewActivityConfig(baseActivity, baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0cba), "https://ms.zzx9.cn/html/oauth/protocol2.html", false).start();
+            new TbWebViewActivityConfig(baseActivity, baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0cd5), "https://ms.zzx9.cn/html/oauth/protocol2.html", false).start();
         } else if (a2 == 2) {
             BaseActivity baseActivity2 = this.b;
-            new TbWebViewActivityConfig(baseActivity2, baseActivity2.getResources().getString(R.string.obfuscated_res_0x7f0f0cbb), "https://e.189.cn/sdk/agreement/detail.do?hidetop=true", false).start();
+            new TbWebViewActivityConfig(baseActivity2, baseActivity2.getResources().getString(R.string.obfuscated_res_0x7f0f0cd6), "https://e.189.cn/sdk/agreement/detail.do?hidetop=true", false).start();
         } else if (a2 != 3) {
         } else {
             BaseActivity baseActivity3 = this.b;
-            new TbWebViewActivityConfig(baseActivity3, baseActivity3.getResources().getString(R.string.obfuscated_res_0x7f0f0cbc), "https://wap.cmpassport.com/resources/html/contract.html", false).start();
+            new TbWebViewActivityConfig(baseActivity3, baseActivity3.getResources().getString(R.string.obfuscated_res_0x7f0f0cd7), "https://wap.cmpassport.com/resources/html/contract.html", false).start();
         }
     }
 
@@ -158,7 +158,7 @@ public class lq7 extends iq7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             BaseActivity baseActivity = this.b;
-            new TbWebViewActivityConfig(baseActivity, baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0cbd), "http://privacy.baidu.com/mdetail?id=288", false).start();
+            new TbWebViewActivityConfig(baseActivity, baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0cd8), "http://privacy.baidu.com/mdetail?id=288", false).start();
         }
     }
 }

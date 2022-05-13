@@ -21,13 +21,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fc5;
-import com.repackage.pz5;
+import com.repackage.qz5;
+import com.repackage.wc5;
 /* loaded from: classes.dex */
 public class UnfollowedDecorView extends AppCompatImageView implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pz5 a;
+    public qz5 a;
     public int b;
     public int c;
 
@@ -52,7 +52,7 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
         }
     }
 
-    public void f(ThreadData threadData) {
+    public void m(ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
             this.a.h(threadData);
@@ -64,7 +64,7 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
         }
     }
 
-    public final TbPageContext g(Activity activity) {
+    public final TbPageContext n(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
@@ -79,7 +79,7 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
         return (TbPageContext) invokeL.objValue;
     }
 
-    public void k() {
+    public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             setImageDrawable(WebPManager.getPureDrawable(this.b, SkinManager.getColor(this.c), WebPManager.ResourceStateType.NORMAL_PRESS));
@@ -89,7 +89,7 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || fc5.a()) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || wc5.a()) {
             return;
         }
         this.a.n();
@@ -144,11 +144,11 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
                 return;
             }
         }
-        this.b = R.drawable.obfuscated_res_0x7f0808f3;
+        this.b = R.drawable.obfuscated_res_0x7f080901;
         this.c = R.color.CAM_X0111;
-        this.a = new pz5(g((Activity) context), this);
+        this.a = new qz5(n((Activity) context), this);
         setOnClickListener(this);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0808f3, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
+        setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080901, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
     }
 }

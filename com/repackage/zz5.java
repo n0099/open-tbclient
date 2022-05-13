@@ -1,60 +1,64 @@
 package com.repackage;
 
+import android.graphics.SurfaceTexture;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.cloudcontrol.request.CloudControlRequest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.ar.DuMixErrorType;
+import com.baidu.ar.DuMixInput;
+import com.baidu.ar.DuMixOutput;
+import com.baidu.ar.capture.ICaptureResult;
+import com.baidu.minivideo.arface.bean.Filter;
+import com.baidu.minivideo.arface.bean.Sticker;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.data.QmFilterItem;
+import com.baidu.tieba.external.sticker.data.QmStickerItem;
+import com.baidu.tieba.view.capture.camera.AspectGLSurfaceView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer;
+import com.repackage.cb9;
+import com.repackage.v99;
+import com.repackage.yz5;
+import java.io.File;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public final class zz5 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final a x;
-    public static int y = 52428800;
+public class zz5 implements yz5 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public long b;
-    public long c;
-    public long d;
-    public float e;
-    public float f;
-    public float g;
-    public float h;
-    public boolean i;
-    public int j;
-    public boolean k;
-    public boolean l;
-    public int m;
-    public int n;
-    public int o;
-    public int p;
-    public int q;
-    public int r;
-    public int s;
-    public int t;
-    public List<? extends w06> u;
-    public List<? extends Object> v;
-    public int w;
+    public boolean b;
+    public boolean c;
+    public boolean d;
+    public TbPageContext e;
+    public v99 f;
+    public AspectGLSurfaceView g;
+    public yz5.b h;
+    public yz5.a i;
+    public boolean j;
+    public ke0 k;
+    public v99.e l;
+    public cb9.a m;
+    public v99.d n;
+    public pw5 o;
+    public mw5 p;
 
     /* loaded from: classes7.dex */
-    public static final class a {
+    public class a extends ke0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public a() {
+        public a(zz5 zz5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zz5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -65,403 +69,798 @@ public final class zz5 {
             }
         }
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+        @Override // com.repackage.ke0, com.baidu.ar.DuMixCallback
+        public void onCaseCreate(boolean z, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, str2}) == null) {
+                super.onCaseCreate(z, str, str2);
+            }
         }
 
-        public final int b() {
+        @Override // com.baidu.ar.DuMixCallback
+        public void onError(DuMixErrorType duMixErrorType, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, duMixErrorType, str, str2) == null) {
+            }
+        }
+
+        @Override // com.baidu.ar.DuMixCallback
+        public void onSetup(boolean z, DuMixInput duMixInput, DuMixOutput duMixOutput) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), duMixInput, duMixOutput}) == null) {
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements v99.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zz5 a;
+
+        public b(zz5 zz5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zz5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zz5Var;
+        }
+
+        @Override // com.repackage.v99.e
+        public void a(ICaptureResult iCaptureResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, iCaptureResult) == null) {
+            }
+        }
+
+        @Override // com.repackage.ga9.b
+        public void b(long j) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) || this.a.i == null) {
+                return;
+            }
+            this.a.i.b(j);
+        }
+
+        @Override // com.repackage.v99.e
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            }
+        }
+
+        @Override // com.repackage.v99.e
+        public void d(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            }
+        }
+
+        @Override // com.repackage.v99.e
+        public void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            }
+        }
+
+        @Override // com.repackage.v99.e
+        public void f() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            }
+        }
+
+        @Override // com.repackage.v99.e
+        public void g(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) || i <= 0 || i2 <= 0) {
+                return;
+            }
+            this.a.g.setAspectRatio(i / i2, 1);
+        }
+
+        @Override // com.repackage.v99.e
+        public void h(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            }
+        }
+
+        @Override // com.repackage.ga9.b
+        public void onError(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, str) == null) {
+            }
+        }
+
+        @Override // com.repackage.ga9.b
+        public void onStartSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+                this.a.d = true;
+                if (this.a.h != null) {
+                    this.a.h.b();
+                }
+            }
+        }
+
+        @Override // com.repackage.ga9.b
+        public void onStopSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+                if (this.a.f != null && this.a.h != null) {
+                    this.a.h.a(this.a.f.b());
+                }
+                this.a.d = false;
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements cb9.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zz5 a;
+
+        public c(zz5 zz5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zz5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zz5Var;
+        }
+
+        @Override // com.repackage.cb9.a
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            }
+        }
+
+        @Override // com.repackage.cb9.a
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a.f == null) {
+                return;
+            }
+            this.a.f.n();
+        }
+
+        @Override // com.repackage.cb9.a
+        public void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            }
+        }
+
+        @Override // com.repackage.cb9.a
+        public void d() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            }
+        }
+
+        @Override // com.repackage.cb9.a
+        public void e(boolean z) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || this.a.f == null) {
+                return;
+            }
+            this.a.f.o(z);
+        }
+
+        @Override // com.repackage.cb9.a
+        public void f(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            }
+        }
+
+        @Override // com.repackage.cb9.a
+        public void g(int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeI(1048582, this, i) != null) || i < 3000) {
+            }
+        }
+
+        @Override // com.repackage.cb9.a
+        public void h() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.a.f == null) {
+                return;
+            }
+            this.a.f.j();
+        }
+
+        @Override // com.repackage.cb9.a
+        public void i() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.a.f == null) {
+                return;
+            }
+            this.a.f.h();
+        }
+
+        @Override // com.repackage.cb9.a
+        public void j(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            }
+        }
+
+        @Override // com.repackage.cb9.a
+        public void k(int i) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeI(1048586, this, i) == null) || this.a.f == null) {
+                return;
+            }
+            this.a.f.D(i);
+        }
+
+        @Override // com.repackage.cb9.a
+        public void onRecordEnd() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d implements v99.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zz5 a;
+
+        /* loaded from: classes7.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ HashMap a;
+            public final /* synthetic */ d b;
+
+            public a(d dVar, HashMap hashMap) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {dVar, hashMap};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = dVar;
+                this.a = hashMap;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    cb9.j(this.a, this.b.a.m);
+                }
+            }
+        }
+
+        public d(zz5 zz5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zz5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zz5Var;
+        }
+
+        @Override // com.repackage.v99.d
+        public void onBeautyEnableChanged(me0 me0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, me0Var) == null) {
+            }
+        }
+
+        @Override // com.repackage.v99.d
+        public void onChangeGender(boolean z) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) != null) || this.a.f == null || this.a.f.d()) {
+            }
+        }
+
+        @Override // com.repackage.v99.d
+        public void onLuaMessage(HashMap<String, Object> hashMap) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) {
+                ng.a().post(new a(this, hashMap));
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class e implements pw5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zz5 a;
+
+        public e(zz5 zz5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zz5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zz5Var;
+        }
+
+        @Override // com.repackage.pw5
+        public boolean a(float f) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
+                if (this.a.f != null) {
+                    this.a.f.x(f);
+                    return true;
+                }
+                return false;
+            }
+            return invokeF.booleanValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class f implements mw5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zz5 a;
+
+        public f(zz5 zz5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zz5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zz5Var;
+        }
+
+        @Override // com.repackage.mw5
+        public boolean a(float f) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
+                if (this.a.f != null) {
+                    this.a.f.z(f);
+                    return true;
+                }
+                return false;
+            }
+            return invokeF.booleanValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class g implements z69 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zz5 a;
+
+        public g(zz5 zz5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zz5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zz5Var;
+        }
+
+        @Override // com.repackage.z69
+        public IMediaPlayer a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? zz5.y : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new vw8(this.a.e.getPageActivity()) : (IMediaPlayer) invokeV.objValue;
         }
 
-        public final void c(String str, int i) {
+        @Override // com.repackage.z69
+        public String b() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i) == null) {
-                BdLog.d("DanmakuEngine Generation[" + str + "] update to " + i);
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? sr8.d : (String) invokeV.objValue;
+        }
+
+        @Override // com.repackage.z69
+        public g89 c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return null;
             }
+            return (g89) invokeV.objValue;
+        }
+
+        @Override // com.repackage.z69
+        public String e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "tieba_unknown" : (String) invokeV.objValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755094692, "Lcom/repackage/zz5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class h implements SurfaceTexture.OnFrameAvailableListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zz5 a;
+
+        public h(zz5 zz5Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zz5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755094692, "Lcom/repackage/zz5;");
-                return;
-            }
+            this.a = zz5Var;
         }
-        x = new a(null);
-    }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public zz5() {
-        this(0, 0L, 0L, 0L, 0.0f, 0.0f, 0.0f, 0.0f, false, 0, false, false, 0, 0, 0, 0, 0, 0, 0, 0, null, null, 4194303, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this(((Integer) objArr[0]).intValue(), ((Long) objArr[1]).longValue(), ((Long) objArr[2]).longValue(), ((Long) objArr[3]).longValue(), ((Float) objArr[4]).floatValue(), ((Float) objArr[5]).floatValue(), ((Float) objArr[6]).floatValue(), ((Float) objArr[7]).floatValue(), ((Boolean) objArr[8]).booleanValue(), ((Integer) objArr[9]).intValue(), ((Boolean) objArr[10]).booleanValue(), ((Boolean) objArr[11]).booleanValue(), ((Integer) objArr[12]).intValue(), ((Integer) objArr[13]).intValue(), ((Integer) objArr[14]).intValue(), ((Integer) objArr[15]).intValue(), ((Integer) objArr[16]).intValue(), ((Integer) objArr[17]).intValue(), ((Integer) objArr[18]).intValue(), ((Integer) objArr[19]).intValue(), (List) objArr[20], (List) objArr[21], ((Integer) objArr[22]).intValue(), (DefaultConstructorMarker) objArr[23]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
+        public void onFrameAvailable(SurfaceTexture surfaceTexture) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, surfaceTexture) == null) && this.a.b) {
+                this.a.b = false;
             }
         }
     }
 
-    public zz5(int i, long j, long j2, long j3, float f, float f2, float f3, float f4, boolean z, int i2, boolean z2, boolean z3, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10, List<? extends w06> dataFilter, List<? extends Object> layoutFilter) {
+    /* loaded from: classes7.dex */
+    public class i implements v99.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zz5 a;
+
+        public i(zz5 zz5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zz5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zz5Var;
+        }
+
+        @Override // com.repackage.v99.c
+        public void a(boolean z) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && this.a.f != null && z) {
+                this.a.f.g();
+            }
+        }
+    }
+
+    public zz5(TbPageContext tbPageContext, AspectGLSurfaceView aspectGLSurfaceView, boolean z, yz5.b bVar, yz5.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Boolean.valueOf(z), Integer.valueOf(i2), Boolean.valueOf(z2), Boolean.valueOf(z3), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9), Integer.valueOf(i10), dataFilter, layoutFilter};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i11 = newInitContext.flag;
-            if ((i11 & 1) != 0) {
-                int i12 = i11 & 2;
+            Object[] objArr = {tbPageContext, aspectGLSurfaceView, Boolean.valueOf(z), bVar, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(dataFilter, "dataFilter");
-        Intrinsics.checkNotNullParameter(layoutFilter, "layoutFilter");
-        this.a = i;
-        this.b = j;
-        this.c = j2;
-        this.d = j3;
-        this.e = f;
-        this.f = f2;
-        this.g = f3;
-        this.h = f4;
-        this.i = z;
-        this.j = i2;
-        this.k = z2;
-        this.l = z3;
-        this.m = i3;
-        this.n = i4;
-        this.o = i5;
-        this.p = i6;
-        this.q = i7;
-        this.r = i8;
-        this.s = i9;
-        this.t = i10;
-        this.u = dataFilter;
-        this.v = layoutFilter;
-        this.w = i3 + i4 + i5 + i6 + i7 + i8 + i9;
+        this.a = 0;
+        this.b = true;
+        this.c = false;
+        this.d = false;
+        this.k = new a(this);
+        this.l = new b(this);
+        this.m = new c(this);
+        this.n = new d(this);
+        this.o = new e(this);
+        this.p = new f(this);
+        this.e = tbPageContext;
+        this.g = aspectGLSurfaceView;
+        this.j = z;
+        this.h = bVar;
+        this.i = aVar;
+        p();
     }
 
-    public final void A(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            this.d = j;
-        }
-    }
-
-    public final void B(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
-            this.e = f;
-        }
-    }
-
-    public final void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int i = this.o + 1;
-            this.o = i;
-            this.w++;
-            x.c("cache", i);
-        }
-    }
-
-    public final void D() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            int i = this.q + 1;
-            this.q = i;
-            this.w++;
-            x.c(CloudControlRequest.REQUEST_KEY_FILTER, i);
-        }
-    }
-
-    public final void E() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.t++;
-        }
-    }
-
-    public final void F() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            int i = this.n + 1;
-            this.n = i;
-            this.w++;
-            x.c(TtmlNode.TAG_LAYOUT, i);
-        }
-    }
-
-    public final void G() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            int i = this.p + 1;
-            this.p = i;
-            this.w++;
-            x.c("measure", i);
-        }
-    }
-
-    public final void H() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.s++;
-            this.w++;
-        }
-    }
-
-    public final void I() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            int i = this.r + 1;
-            this.r = i;
-            this.w++;
-            x.c("retainer", i);
-        }
-    }
-
-    public final void J() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            int i = this.m + 1;
-            this.m = i;
-            this.w++;
-            x.c("visibility", i);
-        }
-    }
-
-    public final zz5 b(int i, long j, long j2, long j3, float f, float f2, float f3, float f4, boolean z, int i2, boolean z2, boolean z3, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10, List<? extends w06> dataFilter, List<? extends Object> layoutFilter) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Boolean.valueOf(z), Integer.valueOf(i2), Boolean.valueOf(z2), Boolean.valueOf(z3), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9), Integer.valueOf(i10), dataFilter, layoutFilter})) == null) {
-            Intrinsics.checkNotNullParameter(dataFilter, "dataFilter");
-            Intrinsics.checkNotNullParameter(layoutFilter, "layoutFilter");
-            return new zz5(i, j, j2, j3, f, f2, f3, f4, z, i2, z2, z3, i3, i4, i5, i6, i7, i8, i9, i10, dataFilter, layoutFilter);
-        }
-        return (zz5) invokeCommon.objValue;
-    }
-
-    public final int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.w : invokeV.intValue;
-    }
-
-    public final boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.l : invokeV.booleanValue;
-    }
-
-    public boolean equals(Object obj) {
+    @Override // com.repackage.yz5
+    public boolean a(QmFilterItem qmFilterItem) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, obj)) == null) {
-            if (this == obj) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, qmFilterItem)) == null) {
+            if (qmFilterItem == null) {
+                this.f.l(null);
                 return true;
+            } else if (this.f != null) {
+                if (!StringUtils.isNull(qmFilterItem.localPath) && !"origin".equals(qmFilterItem.localPath)) {
+                    Filter filter = new Filter();
+                    filter.setDataType(1);
+                    filter.setLevel((kg.d(qmFilterItem.effect, 100.0f) * 1.0f) / 100.0f);
+                    filter.setFile(new File(qmFilterItem.localPath));
+                    this.f.l(filter);
+                } else {
+                    this.f.l(null);
+                }
+                return true;
+            } else {
+                return false;
             }
-            if (obj instanceof zz5) {
-                zz5 zz5Var = (zz5) obj;
-                return this.a == zz5Var.a && this.b == zz5Var.b && this.c == zz5Var.c && this.d == zz5Var.d && Intrinsics.areEqual((Object) Float.valueOf(this.e), (Object) Float.valueOf(zz5Var.e)) && Intrinsics.areEqual((Object) Float.valueOf(this.f), (Object) Float.valueOf(zz5Var.f)) && Intrinsics.areEqual((Object) Float.valueOf(this.g), (Object) Float.valueOf(zz5Var.g)) && Intrinsics.areEqual((Object) Float.valueOf(this.h), (Object) Float.valueOf(zz5Var.h)) && this.i == zz5Var.i && this.j == zz5Var.j && this.k == zz5Var.k && this.l == zz5Var.l && this.m == zz5Var.m && this.n == zz5Var.n && this.o == zz5Var.o && this.p == zz5Var.p && this.q == zz5Var.q && this.r == zz5Var.r && this.s == zz5Var.s && this.t == zz5Var.t && Intrinsics.areEqual(this.u, zz5Var.u) && Intrinsics.areEqual(this.v, zz5Var.v);
-            }
-            return false;
         }
         return invokeL.booleanValue;
     }
 
-    public final float f() {
-        InterceptResult invokeV;
+    @Override // com.repackage.yz5
+    public boolean b(QmStickerItem qmStickerItem) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.h : invokeV.floatValue;
-    }
-
-    public final boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.i : invokeV.booleanValue;
-    }
-
-    public final int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.o : invokeV.intValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r1v15, resolved type: boolean */
-    /* JADX DEBUG: Multi-variable search result rejected for r1v18, resolved type: boolean */
-    /* JADX WARN: Multi-variable type inference failed */
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            int a2 = ((((((((((((((this.a * 31) + com.repackage.a.a(this.b)) * 31) + com.repackage.a.a(this.c)) * 31) + com.repackage.a.a(this.d)) * 31) + Float.floatToIntBits(this.e)) * 31) + Float.floatToIntBits(this.f)) * 31) + Float.floatToIntBits(this.g)) * 31) + Float.floatToIntBits(this.h)) * 31;
-            boolean z = this.i;
-            int i = z;
-            if (z != 0) {
-                i = 1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qmStickerItem)) == null) {
+            if (qmStickerItem == null) {
+                this.f.y(null, "");
+                return true;
+            } else if (this.f != null) {
+                if ("nosticker".equals(qmStickerItem.localPath)) {
+                    this.f.y(null, "");
+                } else {
+                    Sticker sticker = new Sticker();
+                    sticker.setMaxVersion(qmStickerItem.sdkVersionMax);
+                    sticker.setMiniVersion(qmStickerItem.sdkVersionMin);
+                    sticker.setFile(new File(qmStickerItem.localPath));
+                    this.f.y(sticker, "");
+                }
+                return true;
+            } else {
+                return false;
             }
-            int i2 = (((a2 + i) * 31) + this.j) * 31;
-            boolean z2 = this.k;
-            int i3 = z2;
-            if (z2 != 0) {
-                i3 = 1;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.yz5
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.yz5
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            v99 v99Var = this.f;
+            if (v99Var != null) {
+                v99Var.C();
+                return true;
             }
-            int i4 = (i2 + i3) * 31;
-            boolean z3 = this.l;
-            return ((((((((((((((((((((i4 + (z3 ? 1 : z3 ? 1 : 0)) * 31) + this.m) * 31) + this.n) * 31) + this.o) * 31) + this.p) * 31) + this.q) * 31) + this.r) * 31) + this.s) * 31) + this.t) * 31) + this.u.hashCode()) * 31) + this.v.hashCode();
+            return false;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: java.util.List<? extends com.repackage.w06>, java.util.List<com.repackage.w06> */
-    public final List<w06> i() {
+    @Override // com.repackage.yz5
+    public pw5 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.u : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.o : (pw5) invokeV.objValue;
     }
 
-    public final int j() {
+    @Override // com.repackage.yz5
+    public mw5 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.p : (mw5) invokeV.objValue;
     }
 
-    public final long k() {
+    @Override // com.repackage.yz5
+    public boolean onDestroy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.c : invokeV.longValue;
-    }
-
-    public final int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.q : invokeV.intValue;
-    }
-
-    public final int m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.t : invokeV.intValue;
-    }
-
-    public final List<Object> n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.v : (List) invokeV.objValue;
-    }
-
-    public final int o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.n : invokeV.intValue;
-    }
-
-    public final int p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.p : invokeV.intValue;
-    }
-
-    public final long q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.b : invokeV.longValue;
-    }
-
-    public final int r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.r : invokeV.intValue;
-    }
-
-    public final int s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public final long t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.d : invokeV.longValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            return "DanmakuConfig(retainerPolicy=" + this.a + ", preCacheTimeMs=" + this.b + ", durationMs=" + this.c + ", rollingDurationMs=" + this.d + ", textSizeScale=" + this.e + ", timeFactor=" + this.f + ", screenPart=" + this.g + ", alpha=" + this.h + ", bold=" + this.i + ", density=" + this.j + ", visibility=" + this.k + ", allowOverlap=" + this.l + ", visibilityGeneration=" + this.m + ", layoutGeneration=" + this.n + ", cacheGeneration=" + this.o + ", measureGeneration=" + this.p + ", filterGeneration=" + this.q + ", retainerGeneration=" + this.r + ", renderGeneration=" + this.s + ", firstShownGeneration=" + this.t + ", dataFilter=" + this.u + ", layoutFilter=" + this.v + ')';
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            v99 v99Var = this.f;
+            if (v99Var != null) {
+                v99Var.a();
+                return true;
+            }
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final float u() {
+    @Override // com.repackage.yz5
+    public boolean onPause() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.g : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            v99 v99Var = this.f;
+            if (v99Var != null) {
+                v99Var.f();
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
-    public final float v() {
+    @Override // com.repackage.yz5
+    public boolean onResume() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.e : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (!this.c) {
+                q();
+                this.c = true;
+                return true;
+            }
+            v99 v99Var = this.f;
+            if (v99Var != null) {
+                v99Var.g();
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
-    public final boolean w() {
+    public boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.k : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (gr8.a() && this.g != null) {
+                r();
+                this.g.b(2, 0);
+                return true;
+            }
+            this.e.getPageActivity().finish();
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
-    public final int x() {
-        InterceptResult invokeV;
+    public final void q() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.m : invokeV.intValue;
-    }
-
-    public final void y(List<? extends w06> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, list) == null) {
-            Intrinsics.checkNotNullParameter(list, "<set-?>");
-            this.u = list;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            v99 v99Var = new v99(this.e.getPageActivity());
+            this.f = v99Var;
+            v99Var.k(this.k);
+            this.f.m(this.g);
+            this.f.r(this.l);
+            this.f.q(this.n);
+            int i2 = 720;
+            int i3 = 1280;
+            if (this.a == 1) {
+                i2 = 1280;
+                i3 = 720;
+            }
+            this.f.i(i2, i3);
+            gw8 D = gw8.D(this.e);
+            D.h(true);
+            D.m(true);
+            D.j(true);
+            D.u(this.e.getPageActivity().getWindowManager().getDefaultDisplay().getRotation());
+            this.f.c(D, 30, 5000000, this.j, FileHelper.getVideoTmpDir());
+            this.f.t(false);
+            this.f.w(true);
+            this.f.v(true);
+            this.f.s(false);
+            this.f.u(false);
+            this.f.p(new h(this));
+            this.f.e(new i(this));
         }
     }
 
-    public final void z(List<? extends Object> list) {
+    public final void r() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048612, this, list) == null) {
-            Intrinsics.checkNotNullParameter(list, "<set-?>");
-            this.v = list;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            y69.c().h(TbadkCoreApplication.getInst());
+            y69.c().j(FileHelper.getCacheDir());
+            y69.c().k(new g(this));
         }
     }
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public /* synthetic */ zz5(int i, long j, long j2, long j3, float f, float f2, float f3, float f4, boolean z, int i2, boolean z2, boolean z3, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10, List list, List list2, int i11, DefaultConstructorMarker defaultConstructorMarker) {
-        this(r1, r3, r5, (i11 & 8) != 0 ? r5 : j3, (i11 & 16) != 0 ? 1.0f : f, (i11 & 32) != 0 ? 1.0f : f2, (i11 & 64) != 0 ? 1.0f : f3, (i11 & 128) == 0 ? f4 : 1.0f, (i11 & 256) != 0 ? false : z, (i11 & 512) != 0 ? 160 : i2, (i11 & 1024) != 0 ? true : z2, (i11 & 2048) != 0 ? false : z3, (i11 & 4096) != 0 ? 0 : i3, (i11 & 8192) != 0 ? 0 : i4, (i11 & 16384) != 0 ? 0 : i5, (i11 & 32768) != 0 ? 0 : i6, (i11 & 65536) != 0 ? 0 : i7, (i11 & 131072) != 0 ? 0 : i8, (i11 & 262144) != 0 ? 0 : i9, (i11 & 524288) != 0 ? 0 : i10, (i11 & 1048576) != 0 ? CollectionsKt__CollectionsKt.emptyList() : list, (i11 & 2097152) != 0 ? CollectionsKt__CollectionsKt.emptyList() : list2);
-        int i12 = (i11 & 1) != 0 ? 1 : i;
-        long j4 = (i11 & 2) != 0 ? 100L : j;
-        long j5 = (i11 & 4) != 0 ? 13000L : j2;
+    @Override // com.repackage.yz5
+    public boolean startRecord() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            v99 v99Var = this.f;
+            if (v99Var != null) {
+                v99Var.A();
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.yz5
+    public boolean stopRecord() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            v99 v99Var = this.f;
+            if (v99Var != null) {
+                v99Var.B();
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

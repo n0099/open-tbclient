@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.mi;
 /* loaded from: classes4.dex */
 public class SettingTextFunctionIntroView extends TbSettingTextTipView {
     public static /* synthetic */ Interceptable $ic = null;
@@ -52,7 +52,7 @@ public class SettingTextFunctionIntroView extends TbSettingTextTipView {
             }
         }
         c();
-        h(0, 0, oi.f(context, R.dimen.obfuscated_res_0x7f070201), 0);
+        h(0, 0, mi.f(context, R.dimen.obfuscated_res_0x7f070201), 0);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -75,6 +75,6 @@ public class SettingTextFunctionIntroView extends TbSettingTextTipView {
             }
         }
         c();
-        h(0, 0, oi.f(context, R.dimen.obfuscated_res_0x7f070201), 0);
+        h(0, 0, mi.f(context, R.dimen.obfuscated_res_0x7f070201), 0);
     }
 }

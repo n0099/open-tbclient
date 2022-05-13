@@ -828,7 +828,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
-    public static final Double m1953maxOfOrNull(CharSequence charSequence, Function1<? super Character, Double> function1) {
+    public static final Double m1954maxOfOrNull(CharSequence charSequence, Function1<? super Character, Double> function1) {
         int i = 1;
         if (charSequence.length() == 0) {
             return null;
@@ -1056,7 +1056,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
-    public static final Double m1957minOfOrNull(CharSequence charSequence, Function1<? super Character, Double> function1) {
+    public static final Double m1958minOfOrNull(CharSequence charSequence, Function1<? super Character, Double> function1) {
         int i = 1;
         if (charSequence.length() == 0) {
             return null;
@@ -1599,11 +1599,11 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
     @OverloadResolutionByLambdaReturnType
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final int sumOfUInt(CharSequence charSequence, Function1<? super Character, UInt> function1) {
-        int m782constructorimpl = UInt.m782constructorimpl(0);
+        int m783constructorimpl = UInt.m783constructorimpl(0);
         for (int i = 0; i < charSequence.length(); i++) {
-            m782constructorimpl = UInt.m782constructorimpl(m782constructorimpl + function1.invoke(Character.valueOf(charSequence.charAt(i))).m833unboximpl());
+            m783constructorimpl = UInt.m783constructorimpl(m783constructorimpl + function1.invoke(Character.valueOf(charSequence.charAt(i))).m834unboximpl());
         }
-        return m782constructorimpl;
+        return m783constructorimpl;
     }
 
     @SinceKotlin(version = "1.5")
@@ -1612,11 +1612,11 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
     @OverloadResolutionByLambdaReturnType
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final long sumOfULong(CharSequence charSequence, Function1<? super Character, ULong> function1) {
-        long m860constructorimpl = ULong.m860constructorimpl(0);
+        long m861constructorimpl = ULong.m861constructorimpl(0);
         for (int i = 0; i < charSequence.length(); i++) {
-            m860constructorimpl = ULong.m860constructorimpl(m860constructorimpl + function1.invoke(Character.valueOf(charSequence.charAt(i))).m911unboximpl());
+            m861constructorimpl = ULong.m861constructorimpl(m861constructorimpl + function1.invoke(Character.valueOf(charSequence.charAt(i))).m912unboximpl());
         }
-        return m860constructorimpl;
+        return m861constructorimpl;
     }
 
     public static final CharSequence take(CharSequence take, int i) {
@@ -2216,7 +2216,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
-    public static final float m1951maxOf(CharSequence charSequence, Function1<? super Character, Float> function1) {
+    public static final float m1952maxOf(CharSequence charSequence, Function1<? super Character, Float> function1) {
         int i = 1;
         if (!(charSequence.length() == 0)) {
             float floatValue = function1.invoke(Character.valueOf(charSequence.charAt(0))).floatValue();
@@ -2239,7 +2239,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
-    public static final Float m1954maxOfOrNull(CharSequence charSequence, Function1<? super Character, Float> function1) {
+    public static final Float m1955maxOfOrNull(CharSequence charSequence, Function1<? super Character, Float> function1) {
         int i = 1;
         if (charSequence.length() == 0) {
             return null;
@@ -2262,7 +2262,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
-    public static final float m1955minOf(CharSequence charSequence, Function1<? super Character, Float> function1) {
+    public static final float m1956minOf(CharSequence charSequence, Function1<? super Character, Float> function1) {
         int i = 1;
         if (!(charSequence.length() == 0)) {
             float floatValue = function1.invoke(Character.valueOf(charSequence.charAt(0))).floatValue();
@@ -2285,7 +2285,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
-    public static final Float m1958minOfOrNull(CharSequence charSequence, Function1<? super Character, Float> function1) {
+    public static final Float m1959minOfOrNull(CharSequence charSequence, Function1<? super Character, Float> function1) {
         int i = 1;
         if (charSequence.length() == 0) {
             return null;
@@ -2375,7 +2375,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
-    public static final <R extends Comparable<? super R>> R m1952maxOf(CharSequence charSequence, Function1<? super Character, ? extends R> function1) {
+    public static final <R extends Comparable<? super R>> R m1953maxOf(CharSequence charSequence, Function1<? super Character, ? extends R> function1) {
         int i = 1;
         if (!(charSequence.length() == 0)) {
             R invoke = function1.invoke(Character.valueOf(charSequence.charAt(0)));
@@ -2426,7 +2426,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
-    public static final <R extends Comparable<? super R>> R m1956minOf(CharSequence charSequence, Function1<? super Character, ? extends R> function1) {
+    public static final <R extends Comparable<? super R>> R m1957minOf(CharSequence charSequence, Function1<? super Character, ? extends R> function1) {
         int i = 1;
         if (!(charSequence.length() == 0)) {
             R invoke = function1.invoke(Character.valueOf(charSequence.charAt(0)));

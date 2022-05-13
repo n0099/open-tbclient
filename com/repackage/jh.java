@@ -1,32 +1,81 @@
 package com.repackage;
 
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.searchbox.fluency.tracer.FpsTracer;
+import android.text.TextUtils;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class jh {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public String b;
 
-    public static void a(String str, int i, String str2, boolean z, boolean z2, long j, long j2, long j3, long j4, long j5, int i2) {
+    public jh() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z), Boolean.valueOf(z2), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Integer.valueOf(i2)}) == null) && BdBaseApplication.getInst().isSmallFlow()) {
-            ug statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
-            statsItem.b("action", "network_monitor_a");
-            statsItem.b("cmd", String.valueOf(i));
-            statsItem.b("url", str2);
-            statsItem.b("issuccess", z ? "1" : "0");
-            statsItem.b("ishttp", z2 ? "1" : "0");
-            statsItem.b(FpsTracer.UBC_KEY_NET_TYPE, mi.m());
-            statsItem.b("connt", String.valueOf(j));
-            statsItem.b("rwt", String.valueOf(j2));
-            statsItem.b("parset", String.valueOf(j3));
-            statsItem.b("fbt", String.valueOf(j4));
-            statsItem.b("abt", String.valueOf(j5));
-            statsItem.b("salno", String.valueOf(i2));
-            BdStatisticsManager.getInstance().performance(str, statsItem);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = 0L;
+        this.b = null;
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            wb wbVar = new wb("statisticConfig", "switchsConfig", DiskFileOperate.Action.READ);
+            wbVar.setSdCard(false);
+            wbVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+            rb.f().call(wbVar);
+            String a = wbVar.isSuccess() ? wbVar.a() : null;
+            if (TextUtils.isEmpty(a)) {
+                return false;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(a);
+                this.a = jSONObject.getLong("time");
+                this.b = jSONObject.getString("data");
+                return true;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return true;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("time", currentTimeMillis);
+            jSONObject.put("data", str);
+            wb wbVar = new wb("statisticConfig", "switchsConfig", DiskFileOperate.Action.WRITE_FORCE);
+            wbVar.setSdCard(false);
+            wbVar.b(jSONObject.toString());
+            wbVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+            rb.f().call(wbVar);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 }

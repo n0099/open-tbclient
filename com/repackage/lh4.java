@@ -1,150 +1,188 @@
 package com.repackage;
 
-import android.view.Surface;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.os.Build;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.inlinewidget.rtcroom.model.RtcStatus;
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ge2;
-import com.repackage.tg2;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.lang.reflect.Method;
+import java.nio.charset.StandardCharsets;
+import java.util.UUID;
 /* loaded from: classes6.dex */
-public class lh4 implements tg2 {
+public class lh4 implements hh4<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
 
-    public lh4() {
+    public lh4(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = context.getApplicationContext();
     }
 
-    @Override // com.repackage.ge2
-    public void A(@NonNull ge2.a aVar) {
+    public static byte[] g(byte[]... bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            int i = 0;
+            for (byte[] bArr2 : bArr) {
+                i += bArr2.length;
+            }
+            byte[] bArr3 = new byte[i];
+            int i2 = 0;
+            for (byte[] bArr4 : bArr) {
+                System.arraycopy(bArr4, 0, bArr3, i2, bArr4.length);
+                i2 += bArr4.length;
+            }
+            return bArr3;
         }
+        return (byte[]) invokeL.objValue;
     }
 
-    @Override // com.repackage.tg2
-    public void R(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-        }
-    }
-
-    @Override // com.repackage.tg2
-    public void X(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-        }
-    }
-
-    @Override // com.repackage.vg2
-    public RtcStatus a() {
+    @Override // com.repackage.hh4
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? RtcStatus.UNKNOWN : (RtcStatus) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ge2
-    @Nullable
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.tg2
-    public int getVideoHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.repackage.tg2
-    public int getVideoWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.repackage.ge2
-    @Nullable
-    public String k0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.tg2
-    public void m(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-        }
-    }
-
-    @Override // com.repackage.tg2
-    public void o(@NonNull tg2.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
-        }
-    }
-
-    @Override // com.repackage.vg2
-    public void onRelease() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-        }
-    }
-
-    @Override // com.repackage.vg2
-    public boolean q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.tg2
-    public void s(int i, int i2, int i3, int i4) {
+    public final String b() {
+        InterceptResult invokeV;
+        byte[] g;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048588, this, i, i2, i3, i4) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            byte[] bytes = d().getBytes(StandardCharsets.UTF_8);
+            byte[] bytes2 = "com.baidu.swan".getBytes(StandardCharsets.UTF_8);
+            if (Build.VERSION.SDK_INT < 23) {
+                g = g(bytes2, UUID.randomUUID().toString().getBytes(StandardCharsets.UTF_8), String.valueOf(System.nanoTime()).getBytes(StandardCharsets.UTF_8), bytes);
+            } else {
+                g = g(bytes2, bytes);
+            }
+            return oh4.b(g, true);
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.tg2
-    public void setSurface(Surface surface) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.hh4
+    /* renamed from: c */
+    public String get() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, surface) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? b() : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.tg2
-    public void z(int i) {
+    @SuppressLint({"HardwareIds"})
+    public final String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            String a = yl3.b.a(this.a);
+            if (TextUtils.isEmpty(a)) {
+                a = e();
+            }
+            if (TextUtils.isEmpty(a)) {
+                a = UUID.randomUUID().toString();
+            }
+            return a == null ? "" : a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @SuppressLint({"DiscouragedPrivateApi"})
+    public final String e() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            try {
+                str = (String) Build.class.getField("SERIAL").get(null);
+                try {
+                    if (TextUtils.isEmpty(str) || TextUtils.equals(str, "unknown")) {
+                        Method declaredMethod = Build.class.getDeclaredMethod(SharedPreferenceManager.OPERATION_GET_STRING, String.class);
+                        declaredMethod.setAccessible(true);
+                        str = (String) declaredMethod.invoke(null, "ro.serialno");
+                    }
+                    if (TextUtils.isEmpty(str) || TextUtils.equals(str, "unknown")) {
+                        str = f("ro.serialno");
+                    }
+                } catch (Exception unused) {
+                }
+            } catch (Exception unused2) {
+                str = null;
+            }
+            if (TextUtils.isEmpty(str) || TextUtils.equals(str, "unknown")) {
+                return null;
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String f(String str) {
+        InterceptResult invokeL;
+        BufferedReader bufferedReader;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            BufferedReader bufferedReader2 = null;
+            try {
+                try {
+                    Runtime runtime = Runtime.getRuntime();
+                    bufferedReader = new BufferedReader(new InputStreamReader(runtime.exec("getprop " + str).getInputStream()), 256);
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (IOException unused) {
+            }
+            try {
+                String readLine = bufferedReader.readLine();
+                nh4.a(bufferedReader);
+                return readLine == null ? "" : readLine;
+            } catch (IOException unused2) {
+                bufferedReader2 = bufferedReader;
+                nh4.a(bufferedReader2);
+                nh4.a(bufferedReader2);
+                return "";
+            } catch (Throwable th2) {
+                th = th2;
+                bufferedReader2 = bufferedReader;
+                nh4.a(bufferedReader2);
+                throw th;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.hh4
+    /* renamed from: h */
+    public void put(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
         }
     }
 }

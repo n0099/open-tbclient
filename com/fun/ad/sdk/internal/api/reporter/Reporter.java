@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.eg9;
+import com.repackage.ze9;
 import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -37,7 +37,7 @@ public interface Reporter {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 if (this.a != null) {
-                    return new eg9(this.a, false);
+                    return new ze9(this.a, false);
                 }
                 throw new RuntimeException("Call setUrl(String url) first.");
             }

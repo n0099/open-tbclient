@@ -1,40 +1,45 @@
 package com.repackage;
 
-import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sw1;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.repackage.rl2;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class yi2 extends g23 {
+public class yi2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public final HashMap<String, Long> a;
+    public final HashMap<String, String> b;
+    public boolean c;
+    public boolean d;
 
     /* loaded from: classes7.dex */
-    public class a implements sw1.g {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ rl2.a a;
         public final /* synthetic */ yi2 b;
 
-        public a(yi2 yi2Var, CallbackHandler callbackHandler) {
+        public a(yi2 yi2Var, rl2.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yi2Var, callbackHandler};
+                Object[] objArr = {yi2Var, aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -45,96 +50,206 @@ public class yi2 extends g23 {
                 }
             }
             this.b = yi2Var;
-            this.a = callbackHandler;
+            this.a = aVar;
         }
 
-        @Override // com.repackage.sw1.g
-        public void a(String str, JSONObject jSONObject) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
-                this.b.k(this.a, 0, str, jSONObject);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.j(this.a);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yi2(g13 g13Var) {
-        super(g13Var, "/swanAPI/openInput");
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755140913, "Lcom/repackage/yi2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755140913, "Lcom/repackage/yi2;");
+                return;
+            }
+        }
+        e = eh1.a;
+    }
+
+    public yi2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {g13Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
+            }
+        }
+        this.a = new HashMap<>();
+        this.b = new HashMap<>();
+        this.c = false;
+        this.d = false;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.clear();
+            this.b.clear();
+        }
+    }
+
+    public synchronized void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                this.d = true;
             }
         }
     }
 
-    @Override // com.repackage.g23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j03 j03Var) {
-        InterceptResult invokeLLLL;
+    public synchronized boolean d(@NonNull String str) {
+        InterceptResult invokeL;
+        boolean containsKey;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j03Var)) == null) {
-            if (g23.b) {
-                Log.d("OpenInputAction", "handle entity: " + unitedSchemeEntity.toString());
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            synchronized (this) {
+                containsKey = this.a.containsKey(str);
             }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            wl2 U = wl2.U();
-            if (optParamsAsJo == null) {
-                jx1.c("openInput", "paramsJson is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-            sz1 V = U.V();
-            if (V == null) {
-                jx1.c("openInput", "fragmentManager is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragmentManager is null");
-                return false;
-            }
-            SwanAppActivity activity = wl2.U().getActivity();
-            if (activity == null) {
-                jx1.c("openInput", "activity is null when add input");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "activity is null when add input");
-                return false;
-            }
-            rz1 o = V.o();
-            if (o == null) {
-                jx1.c("openInput", "fragment is null when add input");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment is null when add input");
-                return false;
-            }
-            tw1 tw1Var = new tw1();
-            try {
-                tw1Var.a(optParamsAsJo);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                jx1.d("OpenInputAction", "model parse exception:", e);
-            }
-            boolean a2 = new sw1(context, tw1Var, activity, o, new a(this, callbackHandler)).insert().a();
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a2 ? 0 : 1001));
-            return a2;
+            return containsKey;
         }
-        return invokeLLLL.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public final void k(CallbackHandler callbackHandler, int i, String str, JSONObject jSONObject) {
+    public synchronized boolean e(@NonNull String str) {
+        InterceptResult invokeL;
+        boolean containsKey;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, callbackHandler, i, str, jSONObject) == null) {
-            if (g23.b) {
-                Log.d("OpenInputAction", "sendAsyncCallback, arg0: " + i + ", arg1: " + jSONObject);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            synchronized (this) {
+                containsKey = this.b.containsKey(str);
             }
-            if (TextUtils.isEmpty(str)) {
-                return;
+            return containsKey;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized boolean f() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this) {
+                z = this.d;
             }
-            callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public synchronized void g(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
+            synchronized (this) {
+                if (!this.d) {
+                    this.b.put(str, str2);
+                }
+            }
+        }
+    }
+
+    public synchronized void h(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            synchronized (this) {
+                if (e) {
+                    Log.i("VideoStaticRecorder", "inline video record: action " + str);
+                }
+                if (!this.d && !this.a.containsKey(str)) {
+                    this.a.put(str, Long.valueOf(System.currentTimeMillis()));
+                }
+            }
+        }
+    }
+
+    public synchronized void i(@NonNull String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048583, this, str, j) == null) {
+            synchronized (this) {
+                if (e) {
+                    Log.i("VideoStaticRecorder", "inline video record: action " + str);
+                }
+                if (!this.a.containsKey(str)) {
+                    this.a.put(str, Long.valueOf(j));
+                }
+            }
+        }
+    }
+
+    public final synchronized void j(rl2.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
+            synchronized (this) {
+                if (this.c) {
+                    return;
+                }
+                this.c = true;
+                boolean equals = TextUtils.equals("1", this.b.get("autoPlay"));
+                boolean equals2 = TextUtils.equals("1", this.b.get("playMethod"));
+                if (e) {
+                    Log.d("VideoStaticRecorder", "submit: autoPlay:" + equals + ",apiPlay:" + equals2);
+                }
+                if (!equals && !equals2) {
+                    b();
+                    return;
+                }
+                zt2.r("video");
+                HybridUbcFlow p = zt2.p("video");
+                for (Map.Entry<String, Long> entry : this.a.entrySet()) {
+                    ux1.i("VideoStaticRecorder", "submit: event key: " + entry.getKey() + " value " + entry.getValue());
+                    UbcFlowEvent ubcFlowEvent = new UbcFlowEvent(entry.getKey());
+                    ubcFlowEvent.h(entry.getValue().longValue());
+                    p.F(ubcFlowEvent);
+                }
+                for (Map.Entry<String, String> entry2 : this.b.entrySet()) {
+                    ux1.i("VideoStaticRecorder", "submit: ext key: " + entry2.getKey() + " value " + entry2.getValue());
+                    p.D(entry2.getKey(), entry2.getValue());
+                }
+                String h = p.h("fmpArrived");
+                if (TextUtils.isEmpty(h)) {
+                    h = "0";
+                }
+                p.D("fmpArrived", h);
+                long l = aVar.l("launch_time", 0L);
+                UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("na_start");
+                ubcFlowEvent2.h(l);
+                p.F(ubcFlowEvent2);
+                p.D("launchID", aVar.V());
+                p.D("scheme", aVar.W());
+                p.D("appid", aVar.H());
+                p.D("page", aVar.e0());
+                long j = aVar.s0().getLong("click_time", 0L);
+                if (j > 0) {
+                    UbcFlowEvent ubcFlowEvent3 = new UbcFlowEvent("user_action");
+                    ubcFlowEvent3.h(j);
+                    p.F(ubcFlowEvent3);
+                }
+                p.A();
+                b();
+            }
+        }
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            od3.k(new a(this, t03.J().r().V()), "VideoStaticRecorder");
         }
     }
 }

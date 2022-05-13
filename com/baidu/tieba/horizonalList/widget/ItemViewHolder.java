@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.r37;
+import com.repackage.r27;
 /* loaded from: classes3.dex */
 public abstract class ItemViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
@@ -33,7 +33,7 @@ public abstract class ItemViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public abstract void c(r37 r37Var);
+    public abstract void c(r27 r27Var);
 
     public abstract ItemViewHolder d(View view2);
 

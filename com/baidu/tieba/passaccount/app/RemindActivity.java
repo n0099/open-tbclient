@@ -187,11 +187,11 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d072f);
-            ((NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ad)).addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            ((Button) findViewById(R.id.obfuscated_res_0x7f091a2b)).setOnClickListener(new a(this));
-            findViewById(R.id.obfuscated_res_0x7f09098c).setVisibility(FaceFeedbackEnableSwitch.isOn() ? 0 : 8);
-            ((TextView) findViewById(R.id.obfuscated_res_0x7f09098d)).setOnClickListener(new b(this));
+            setContentView(R.layout.obfuscated_res_0x7f0d0722);
+            ((NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923fd)).addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            ((Button) findViewById(R.id.obfuscated_res_0x7f091a7d)).setOnClickListener(new a(this));
+            findViewById(R.id.obfuscated_res_0x7f090985).setVisibility(FaceFeedbackEnableSwitch.isOn() ? 0 : 8);
+            ((TextView) findViewById(R.id.obfuscated_res_0x7f090986)).setOnClickListener(new b(this));
         }
     }
 }

@@ -19,8 +19,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
-import com.repackage.yi;
+import com.repackage.mi;
+import com.repackage.wi;
 import java.lang.ref.SoftReference;
 import java.util.HashMap;
 @SuppressLint({"ResourceAsColor"})
@@ -121,8 +121,8 @@ public class BdToast {
         }
         HashMap<DefaultIcon, Integer> hashMap = new HashMap<>(2);
         o = hashMap;
-        hashMap.put(DefaultIcon.SUCCESS, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f0809ab));
-        o.put(DefaultIcon.FAILURE, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f0809a9));
+        hashMap.put(DefaultIcon.SUCCESS, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f0809c0));
+        o.put(DefaultIcon.FAILURE, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f0809be));
         o.put(DefaultIcon.NOT, 0);
     }
 
@@ -149,10 +149,10 @@ public class BdToast {
         this.l = 0;
         this.m = 0;
         this.a = context;
-        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0230, (ViewGroup) null);
+        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0229, (ViewGroup) null);
         this.c = viewGroup;
-        this.d = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092071);
-        this.e = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092074);
+        this.d = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0920cd);
+        this.e = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0920d0);
     }
 
     public static BdToast c(Context context, CharSequence charSequence) {
@@ -255,7 +255,7 @@ public class BdToast {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Toast toast = new Toast(this.a);
             this.b = toast;
-            yi.a(toast);
+            wi.a(toast);
             s();
             int i = this.g;
             if (i != -1) {
@@ -268,7 +268,7 @@ public class BdToast {
             } else {
                 this.d.setVisibility(8);
             }
-            this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(oi.f(this.a, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
+            this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(mi.f(this.a, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0101, 1);
             this.e.setText(this.f);
             this.b.setGravity(this.i, this.k, this.l);

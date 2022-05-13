@@ -124,10 +124,10 @@ public class mk0 implements IAdDownloader {
                 } else {
                     this.d.onError();
                 }
-                if (!yf0.a || exc == null) {
+                if (!bg0.a || exc == null) {
                     return;
                 }
-                Context b = hi0.b();
+                Context b = ki0.b();
                 Toast.makeText(b, "下载失败！原因：" + exc, 0).show();
             }
         }
@@ -154,7 +154,7 @@ public class mk0 implements IAdDownloader {
             }
         }
         this.a = new HashMap<>();
-        AppRuntimeInit.onApplicationattachBaseContext((Application) hi0.b());
+        AppRuntimeInit.onApplicationattachBaseContext((Application) ki0.b());
     }
 
     @Override // com.baidu.nadcore.download.proxy.IAdDownloader
@@ -162,7 +162,7 @@ public class mk0 implements IAdDownloader {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, lk0Var)) == null) {
-            DownloadTask build = new DownloadTask.Builder(str, rk0.a(hi0.b())).setPassIfAlreadyCompleted(false).build();
+            DownloadTask build = new DownloadTask.Builder(str, rk0.a(ki0.b())).setPassIfAlreadyCompleted(false).build();
             a aVar = new a(lk0Var);
             if (build.getTag() != null) {
                 build.cancel();

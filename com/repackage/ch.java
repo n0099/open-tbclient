@@ -1,76 +1,76 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pyramid.runtime.service.ServiceManager;
+import android.text.TextUtils;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ubc.UBCManager;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.File;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class ch {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(ug ugVar) {
+    public static void a(ArrayList<String> arrayList, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, ugVar) == null) && d() && ugVar != null) {
-            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("ext", ugVar.h());
-                uBCManager.onEvent("3102", jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+        if (interceptable == null || interceptable.invokeLZ(65536, null, arrayList, z) == null) {
+            xb xbVar = new xb(BdStatisticsManager.getInstance().getWriteDir(), null, DiskFileOperate.Action.DELETE_FILES, arrayList);
+            xbVar.setSdCard(z);
+            xbVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+            rb.f().a(xbVar);
         }
     }
 
-    public static void b(ug ugVar) {
+    public static File[] b(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        File[] listFiles;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, ugVar) == null) && d() && ugVar != null) {
-            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("ext", ugVar.h());
-                uBCManager.onEvent("3052", jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            DiskFileOperate diskFileOperate = new DiskFileOperate(BdStatisticsManager.getInstance().getWriteDir(), null, DiskFileOperate.Action.INFO);
+            diskFileOperate.setSdCard(z);
+            diskFileOperate.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+            rb.f().call(diskFileOperate);
+            File[] listFiles2 = (diskFileOperate.getFileInfo() == null || diskFileOperate.getFileInfo().listFiles() == null) ? null : diskFileOperate.getFileInfo().listFiles();
+            if (z2) {
+                DiskFileOperate diskFileOperate2 = new DiskFileOperate(BdStatisticsManager.getInstance().getNotUploadWriteDir(), null, DiskFileOperate.Action.INFO);
+                diskFileOperate2.setSdCard(z);
+                diskFileOperate2.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+                rb.f().call(diskFileOperate2);
+                if (diskFileOperate2.getFileInfo() != null && (listFiles = diskFileOperate2.getFileInfo().listFiles()) != null && listFiles.length != 0) {
+                    if (listFiles2 == null || listFiles2.length == 0) {
+                        return listFiles;
+                    }
+                    File[] fileArr = new File[listFiles.length + listFiles2.length];
+                    System.arraycopy(listFiles2, 0, fileArr, 0, listFiles2.length);
+                    System.arraycopy(listFiles, 0, fileArr, listFiles2.length, listFiles.length);
+                    return fileArr;
+                }
             }
+            return listFiles2;
         }
+        return (File[]) invokeCommon.objValue;
     }
 
-    public static void c(ug ugVar) {
+    public static ArrayList<eh> c(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, ugVar) == null) && d() && ugVar != null) {
-            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("ext", ugVar.h());
-                uBCManager.onEvent("3103", jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
+            ArrayList<eh> arrayList = new ArrayList<>();
+            File[] b = b(z, true);
+            if (b != null) {
+                for (File file : b) {
+                    if (file.isFile()) {
+                        String name = file.getName();
+                        if (!TextUtils.isEmpty(name)) {
+                            arrayList.add(new eh(name, file.length(), file.lastModified()));
+                        }
+                    }
+                }
             }
+            return arrayList;
         }
-    }
-
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? wg.isOn() : invokeV.booleanValue;
-    }
-
-    public static void e(dh dhVar, ug ugVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, dhVar, ugVar) == null) {
-            if (dhVar instanceof sh) {
-                c(ugVar);
-            } else if (dhVar instanceof rh) {
-                b(ugVar);
-            } else if (dhVar instanceof qh) {
-                a(ugVar);
-            }
-        }
+        return (ArrayList) invokeZ.objValue;
     }
 }

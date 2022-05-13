@@ -14,8 +14,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
-import com.repackage.vr4;
+import com.repackage.gs4;
+import com.repackage.mi;
 /* loaded from: classes3.dex */
 public class TextLineView extends TextView {
     public static /* synthetic */ Interceptable $ic;
@@ -56,12 +56,12 @@ public class TextLineView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65538, this, z) == null) {
             if (z) {
-                vr4 d = vr4.d(this);
+                gs4 d = gs4.d(this);
                 d.v(R.color.CAM_X0105);
                 d.A(R.string.F_X02);
                 return;
             }
-            vr4 d2 = vr4.d(this);
+            gs4 d2 = gs4.d(this);
             d2.v(R.color.CAM_X0108);
             d2.A(R.string.F_X01);
         }
@@ -152,7 +152,7 @@ public class TextLineView extends TextView {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400ea, R.attr.obfuscated_res_0x7f0400eb, R.attr.obfuscated_res_0x7f0400ec, R.attr.obfuscated_res_0x7f0400ed, R.attr.obfuscated_res_0x7f04065f, R.attr.obfuscated_res_0x7f040661});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400ed, R.attr.obfuscated_res_0x7f0400ee, R.attr.obfuscated_res_0x7f0400ef, R.attr.obfuscated_res_0x7f0400f0, R.attr.obfuscated_res_0x7f040667, R.attr.obfuscated_res_0x7f040669});
         this.b = obtainStyledAttributes.getDimensionPixelSize(2, 0);
         this.c = obtainStyledAttributes.getDimensionPixelSize(3, 0);
         this.d = obtainStyledAttributes.getDimensionPixelSize(0, 0);
@@ -160,9 +160,9 @@ public class TextLineView extends TextView {
         obtainStyledAttributes.getColor(5, SkinManager.getColor(R.color.CAM_X0108));
         setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.c + this.b + this.d);
         setTextColor(this.e);
-        this.f = oi.f(context, R.dimen.obfuscated_res_0x7f0702e0);
+        this.f = mi.f(context, R.dimen.obfuscated_res_0x7f0702e0);
         this.g = new RectF();
-        this.k = oi.f(getContext(), R.dimen.obfuscated_res_0x7f070224);
+        this.k = mi.f(getContext(), R.dimen.obfuscated_res_0x7f070224);
         obtainStyledAttributes.recycle();
     }
 }

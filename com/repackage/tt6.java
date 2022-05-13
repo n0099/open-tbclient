@@ -1,45 +1,62 @@
 package com.repackage;
 
-import android.content.Context;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
-import com.baidu.tbadk.core.view.FollowUserButton;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class tt6<T, V extends TypeAdapter.ViewHolder> extends ho<T, V> {
+public class tt6 extends et6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FollowUserButton.a i;
+    public BdUniqueId q;
+    public BdUniqueId r;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tt6(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    public tt6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, BdUniqueId bdUniqueId3) {
+        super(tbPageContext, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2, bdUniqueId3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.q = bdUniqueId2;
+        this.r = bdUniqueId3;
     }
 
-    public void Z(FollowUserButton.a aVar) {
+    @Override // com.repackage.et6, com.repackage.eo
+    public BdUniqueId w() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.i = aVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            BdUniqueId bdUniqueId = this.r;
+            return bdUniqueId == null ? super.w() : bdUniqueId;
         }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    @Override // com.repackage.et6, com.repackage.eo
+    public BdUniqueId y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            BdUniqueId bdUniqueId = this.q;
+            return bdUniqueId == null ? super.y() : bdUniqueId;
+        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

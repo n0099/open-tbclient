@@ -62,7 +62,7 @@ public class n88 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.e.hasFocus()) {
-                    oi.w(this.a.a.getPageContext().getPageActivity(), this.a.e);
+                    mi.w(this.a.a.getPageContext().getPageActivity(), this.a.e);
                 }
                 this.a.a.finish();
             }
@@ -98,7 +98,7 @@ public class n88 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, view2, z) == null) {
                 if (!z) {
-                    oi.w(this.a.a.getPageContext().getPageActivity(), view2);
+                    mi.w(this.a.a.getPageContext().getPageActivity(), view2);
                     return;
                 }
                 this.a.n();
@@ -302,7 +302,7 @@ public class n88 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                oi.L(this.a.a.getPageContext().getPageActivity(), this.a.e);
+                mi.L(this.a.a.getPageContext().getPageActivity(), this.a.e);
             }
         }
     }
@@ -349,20 +349,20 @@ public class n88 {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            oi.w(this.a.getPageContext().getPageActivity(), this.e);
+            mi.w(this.a.getPageContext().getPageActivity(), this.e);
         }
     }
 
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f0923ad);
+            NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f0923fd);
             this.c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            View addCustomView = this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d06f7, (View.OnClickListener) null);
+            View addCustomView = this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d06ef, (View.OnClickListener) null);
             this.d = addCustomView;
-            this.e = (EditText) addCustomView.findViewById(R.id.obfuscated_res_0x7f091c3b);
-            ImageView imageView = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f091c14);
+            this.e = (EditText) addCustomView.findViewById(R.id.obfuscated_res_0x7f091c88);
+            ImageView imageView = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f091c61);
             this.f = imageView;
             imageView.setVisibility(8);
             this.e.requestFocus();
@@ -372,7 +372,7 @@ public class n88 {
             this.f.setOnClickListener(new e(this));
             this.e.addTextChangedListener(new f(this));
             this.g = new g(this);
-            pg.a().postDelayed(this.g, 500L);
+            ng.a().postDelayed(this.g, 500L);
         }
     }
 
@@ -380,8 +380,8 @@ public class n88 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             this.c.onChangeSkinType(this.a.getPageContext(), i);
-            f95.a(this.a.getPageContext(), this.d);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f080989, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            w95.a(this.a.getPageContext(), this.d);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f08099e, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }
 
@@ -390,7 +390,7 @@ public class n88 {
         if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.g == null) {
             return;
         }
-        pg.a().removeCallbacks(this.g);
+        ng.a().removeCallbacks(this.g);
     }
 
     public void l(String str) {
@@ -418,6 +418,6 @@ public class n88 {
             return;
         }
         this.e.requestFocus();
-        oi.L(this.a.getPageContext().getPageActivity(), this.e);
+        mi.L(this.a.getPageContext().getPageActivity(), this.e);
     }
 }

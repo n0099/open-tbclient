@@ -1,6 +1,8 @@
 package com.repackage;
 
 import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,9 +10,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class av1 extends pt1 {
+public class av1 extends au1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Paint.Cap a;
 
     public av1() {
         Interceptable interceptable = $ic;
@@ -26,21 +29,29 @@ public class av1 extends pt1 {
         }
     }
 
-    @Override // com.repackage.pt1
-    public void a(qt1 qt1Var, Canvas canvas) {
+    @Override // com.repackage.au1
+    public void a(bu1 bu1Var, Canvas canvas) {
+        Paint.Cap cap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, qt1Var, canvas) == null) {
-            int alpha = qt1Var.c.getAlpha();
-            qt1Var.c(qt1Var.c);
-            canvas.drawPath(qt1Var.f, qt1Var.c);
-            qt1Var.c.setAlpha(alpha);
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bu1Var, canvas) == null) || (cap = this.a) == null) {
+            return;
         }
+        bu1Var.c.setStrokeCap(cap);
     }
 
-    @Override // com.repackage.pt1
+    @Override // com.repackage.au1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 0) {
+            return;
+        }
+        String optString = jSONArray.optString(0);
+        if (TextUtils.equals(optString, "butt")) {
+            this.a = Paint.Cap.BUTT;
+        } else if (TextUtils.equals(optString, "round")) {
+            this.a = Paint.Cap.ROUND;
+        } else if (TextUtils.equals(optString, "square")) {
+            this.a = Paint.Cap.SQUARE;
         }
     }
 }

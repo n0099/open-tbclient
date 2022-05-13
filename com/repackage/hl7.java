@@ -40,11 +40,11 @@ public class hl7 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0809, (ViewGroup) null);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0802, (ViewGroup) null);
             this.a = inflate;
             inflate.setTag(this);
-            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091ed8);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091ed9);
+            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091f30);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091f31);
             return this.a;
         }
         return (View) invokeL.objValue;

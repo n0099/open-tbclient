@@ -1,185 +1,205 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.util.Base64;
+import androidx.annotation.VisibleForTesting;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.NumberUtils;
+import com.repackage.oe9;
+import com.repackage.qe9;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.util.List;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipOutputStream;
+import java.io.ObjectOutputStream;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class le9 {
+public final class le9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public int b;
+    public int c;
+    public final Set<Ssp> d;
+    public final Set<qe9> e;
+    public final Set<oe9> f;
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:38:0x007d */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:56:0x009c */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r2v0, types: [com.baidu.titan.sdk.runtime.Interceptable] */
-    /* JADX WARN: Type inference failed for: r2v2, types: [java.util.zip.ZipOutputStream] */
-    /* JADX WARN: Type inference failed for: r2v3 */
-    /* JADX WARN: Type inference failed for: r2v4 */
-    /* JADX WARN: Type inference failed for: r2v5, types: [java.util.zip.ZipOutputStream] */
-    /* JADX WARN: Type inference failed for: r2v6, types: [java.util.zip.ZipOutputStream] */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:54:0x0098 -> B:72:0x009b). Please submit an issue!!! */
-    public static void a(File file, List<a> list) throws IOException {
-        ?? r2;
+    public le9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
-            r2 = interceptable;
-            if (r2.invokeLL(65536, null, file, list) != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (file == null || !file.exists() || list == null || list.size() == 0) {
-            return;
-        }
-        FileInputStream fileInputStream = null;
-        try {
+        this.d = new HashSet();
+        this.e = new HashSet();
+        this.f = new HashSet();
+    }
+
+    public final void a() {
+        byte[] bArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            long j = this.a;
+            int i = this.b;
+            int i2 = this.c;
+            fe9 fe9Var = new fe9(this.d, this.e, this.f);
+            Object obj = re9.a;
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             try {
-                try {
-                    byte[] bArr = new byte[8192];
-                    r2 = new ZipOutputStream(new FileOutputStream(file));
-                    try {
-                        r2.setComment(file.getName());
-                        for (a aVar : list) {
-                            File file2 = aVar.a;
-                            if (file2.canRead()) {
-                                FileInputStream fileInputStream2 = new FileInputStream(file2);
-                                try {
-                                    r2.putNextEntry(new ZipEntry(aVar.b));
-                                    while (true) {
-                                        int read = fileInputStream2.read(bArr);
-                                        if (read == -1) {
-                                            break;
-                                        }
-                                        r2.write(bArr, 0, read);
-                                    }
-                                    fileInputStream2.close();
-                                    fileInputStream = fileInputStream2;
-                                } catch (FileNotFoundException e) {
-                                    e = e;
-                                    fileInputStream = fileInputStream2;
-                                    e.printStackTrace();
-                                    if (fileInputStream != null) {
-                                        try {
-                                            fileInputStream.close();
-                                        } catch (IOException e2) {
-                                            e2.printStackTrace();
-                                        }
-                                    }
-                                    if (r2 != 0) {
-                                        r2.close();
-                                    }
-                                    return;
-                                } catch (Throwable th) {
-                                    th = th;
-                                    fileInputStream = fileInputStream2;
-                                    if (fileInputStream != null) {
-                                        try {
-                                            fileInputStream.close();
-                                        } catch (IOException e3) {
-                                            e3.printStackTrace();
-                                        }
-                                    }
-                                    if (r2 != 0) {
-                                        try {
-                                            r2.close();
-                                        } catch (IOException e4) {
-                                            e4.printStackTrace();
-                                        }
-                                    }
-                                    throw th;
-                                }
-                            }
-                        }
-                        r2.flush();
-                        if (fileInputStream != null) {
-                            try {
-                                fileInputStream.close();
-                            } catch (IOException e5) {
-                                e5.printStackTrace();
-                            }
-                        }
-                        r2.close();
-                    } catch (FileNotFoundException e6) {
-                        e = e6;
-                    }
-                } catch (IOException e7) {
-                    e7.printStackTrace();
-                }
-            } catch (FileNotFoundException e8) {
-                e = e8;
-                r2 = 0;
-            } catch (Throwable th2) {
-                th = th2;
-                r2 = 0;
+                ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+                fe9Var.srzable(objectOutputStream);
+                objectOutputStream.flush();
+                bArr = byteArrayOutputStream.toByteArray();
+            } catch (IOException unused) {
+                bArr = null;
             }
-        } catch (Throwable th3) {
-            th = th3;
+            String encodeToString = bArr != null ? Base64.encodeToString(bArr, 0) : null;
+            Object[] objArr = new Object[1];
+            objArr[0] = Integer.valueOf(encodeToString == null ? -1 : encodeToString.length());
+            LogPrinter.v("sspsUTF len:%d", objArr);
+            re9.b.edit().putLong("key_config_v", j).putInt("key_config_interval", i).putInt("key_V", i2).putString("key_adcfg", encodeToString).apply();
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        @NonNull
-        public File a;
-        @NonNull
-        public String b;
-
-        public a(@NonNull File file, @NonNull String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {file, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = file;
+    public boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                this.b = this.a.getName();
-            } else {
-                this.b = str;
+                return false;
+            }
+            try {
+                c(str);
+                LogPrinter.v("Config cfgv:%d parsed over.", Long.valueOf(this.a));
+                if (d()) {
+                    a();
+                    LogPrinter.v("Config cfgv:%d persisted over.", Long.valueOf(this.a));
+                    return true;
+                }
+            } catch (JSONException e) {
+                LogPrinter.e(e);
+            }
+            this.d.clear();
+            this.e.clear();
+            this.f.clear();
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @VisibleForTesting
+    public void c(String str) {
+        JSONArray optJSONArray;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            JSONObject jSONObject = new JSONObject(str);
+            JSONObject jSONObject2 = jSONObject.getJSONObject(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME);
+            this.a = NumberUtils.adjustLong(jSONObject2.getLong("ver"), 0L);
+            this.b = NumberUtils.adjustInt(jSONObject2.getInt("interval"), 1, 1440);
+            this.c = NumberUtils.adjustInt(jSONObject2.optInt("V", 1), 1);
+            JSONObject jSONObject3 = jSONObject.getJSONObject("adConfig");
+            JSONArray jSONArray = jSONObject3.getJSONArray("ssps");
+            HashMap hashMap = new HashMap();
+            for (int i = 0; i < jSONArray.length(); i++) {
+                Ssp ssp = new Ssp(jSONArray.getJSONObject(i));
+                for (Ssp.Pid pid : ssp.pids) {
+                    hashMap.put(Long.valueOf(pid.id), pid);
+                }
+                this.d.add(ssp);
+            }
+            JSONArray jSONArray2 = jSONObject3.getJSONArray("sids");
+            for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
+                this.e.add(new qe9(jSONArray2.getJSONObject(i2), hashMap));
+            }
+            if (this.c < 2 || (optJSONArray = jSONObject3.optJSONArray("serialSids")) == null) {
+                return;
+            }
+            for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                this.f.add(new oe9(optJSONArray.getJSONObject(i3), hashMap));
             }
         }
+    }
 
-        public a(@NonNull File file, @NonNull String str, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {file, str, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
+    @VisibleForTesting
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            HashSet hashSet = new HashSet();
+            HashSet hashSet2 = new HashSet();
+            for (Ssp ssp : this.d) {
+                if (hashSet.contains(ssp.type)) {
+                    LogPrinter.e("Duplicate ssp:type(%s) found.", ssp.type);
+                    return false;
+                }
+                hashSet.add(ssp.type);
+                for (Ssp.Pid pid : ssp.pids) {
+                    if (hashSet2.contains(Long.valueOf(pid.id))) {
+                        LogPrinter.e("Duplicate pid(%d) found.", Long.valueOf(pid.id));
+                        return false;
+                    }
+                    hashSet2.add(Long.valueOf(pid.id));
                 }
             }
-            this.a = file;
-            if (TextUtils.isEmpty(str)) {
-                this.b = this.a.getName();
-            } else {
-                this.b = str;
+            HashSet hashSet3 = new HashSet();
+            for (qe9 qe9Var : this.e) {
+                if (hashSet3.contains(qe9Var.a)) {
+                    LogPrinter.e("Duplicate sid(%s) found in SlotId", qe9Var.a);
+                    return false;
+                }
+                hashSet3.add(qe9Var.a);
+                for (qe9.c cVar : qe9Var.e) {
+                    HashSet hashSet4 = new HashSet();
+                    for (qe9.b bVar : cVar.b) {
+                        if (!hashSet2.contains(Long.valueOf(bVar.a))) {
+                            LogPrinter.e("Unregistered adId:(%d) in SlotId", Long.valueOf(bVar.a));
+                            return false;
+                        } else if (hashSet4.contains(Long.valueOf(bVar.a))) {
+                            LogPrinter.e("Duplicate adId:(%d) found in one sid:(%s) in SlotId", Long.valueOf(bVar.a), qe9Var.a);
+                            return false;
+                        } else {
+                            hashSet4.add(Long.valueOf(bVar.a));
+                        }
+                    }
+                }
             }
+            if (this.c == 2) {
+                for (oe9 oe9Var : this.f) {
+                    if (hashSet3.contains(oe9Var.a)) {
+                        LogPrinter.e("Duplicate sid(%s) found in SerialSlotId.", oe9Var.a);
+                        return false;
+                    }
+                    hashSet3.add(oe9Var.a);
+                    for (oe9.b bVar2 : oe9Var.b) {
+                        for (oe9.a aVar : bVar2.b) {
+                            if (!hashSet2.contains(Long.valueOf(aVar.a))) {
+                                LogPrinter.e("Unregistered adId:(%d) in SerialSlotId", Long.valueOf(aVar.a));
+                                return false;
+                            }
+                        }
+                    }
+                }
+            }
+            return true;
         }
+        return invokeV.booleanValue;
     }
 }

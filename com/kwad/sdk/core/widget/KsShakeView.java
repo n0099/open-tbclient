@@ -91,14 +91,14 @@ public class KsShakeView extends FrameLayout {
 
     @SuppressLint({"CustomViewStyleable"})
     private void a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04035d, R.attr.obfuscated_res_0x7f040362, R.attr.obfuscated_res_0x7f040363, R.attr.obfuscated_res_0x7f040368, R.attr.obfuscated_res_0x7f040369, R.attr.obfuscated_res_0x7f04036f, R.attr.obfuscated_res_0x7f040370, R.attr.obfuscated_res_0x7f040372}, i, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040365, R.attr.obfuscated_res_0x7f040366, R.attr.obfuscated_res_0x7f040367, R.attr.obfuscated_res_0x7f04036c, R.attr.obfuscated_res_0x7f04036d, R.attr.obfuscated_res_0x7f040373, R.attr.obfuscated_res_0x7f040374, R.attr.obfuscated_res_0x7f040376}, i, 0);
         this.d = obtainStyledAttributes.getDimension(4, 1.0f);
         this.e = obtainStyledAttributes.getColor(3, Color.parseColor("#4DFFFFFF"));
         this.f = obtainStyledAttributes.getColor(7, Color.parseColor("#66000000"));
         this.b = obtainStyledAttributes.getInteger(6, 1);
         this.g = obtainStyledAttributes.getColor(1, Color.parseColor("#B3FFFFFF"));
         this.h = obtainStyledAttributes.getDimension(2, 1.0f);
-        this.j = obtainStyledAttributes.getResourceId(5, R.drawable.obfuscated_res_0x7f080bb4);
+        this.j = obtainStyledAttributes.getResourceId(5, R.drawable.obfuscated_res_0x7f080bcf);
         this.i = obtainStyledAttributes.getDimension(0, a.a(context, 10.0f));
         obtainStyledAttributes.recycle();
         this.a = new ImageView(getContext());
@@ -187,7 +187,7 @@ public class KsShakeView extends FrameLayout {
 
     public void a(int i) {
         this.b = i;
-        setIconDrawableRes(i != 2 ? R.drawable.obfuscated_res_0x7f080bb4 : R.drawable.obfuscated_res_0x7f080bb5);
+        setIconDrawableRes(i != 2 ? R.drawable.obfuscated_res_0x7f080bcf : R.drawable.obfuscated_res_0x7f080bd0);
     }
 
     public void a(AnimatorListenerAdapter animatorListenerAdapter) {

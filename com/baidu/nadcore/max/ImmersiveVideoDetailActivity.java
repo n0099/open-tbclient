@@ -148,8 +148,8 @@ public final class ImmersiveVideoDetailActivity extends BaseActivity {
                 setSlideCancelActivityTransparent(true);
             }
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d05b8);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091adf);
+            setContentView(R.layout.obfuscated_res_0x7f0d05ab);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091b2d);
             Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.rootview)");
             this.rootView = (FrameLayout) findViewById;
             getWindow().setFormat(-3);

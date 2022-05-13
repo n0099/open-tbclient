@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b implements Parcelable {
     public int b;
     public long c;
@@ -43,7 +43,7 @@ public class b implements Parcelable {
         }
     };
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public int a;
         public long b;

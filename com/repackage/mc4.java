@@ -1,6 +1,7 @@
 package com.repackage;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,8 +14,32 @@ public class mc4 {
     public static /* synthetic */ Interceptable $ic;
     public static volatile mc4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public int b;
+    public final a a;
+    public lc4 b;
+
+    /* loaded from: classes6.dex */
+    public static class a extends dh4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a() {
+            super("swan_clean_stratey");
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
 
     public mc4() {
         Interceptable interceptable = $ic;
@@ -29,11 +54,10 @@ public class mc4 {
                 return;
             }
         }
-        this.b = 0;
-        this.a = s74.b().i().getInt("max_emit_app_close_num", 1);
+        this.a = new a();
     }
 
-    public static mc4 a() {
+    public static mc4 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
@@ -49,54 +73,42 @@ public class mc4 {
         return (mc4) invokeV.objValue;
     }
 
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || c == null) {
-            return;
-        }
-        c = null;
-    }
-
-    public String b() {
+    @NonNull
+    public lc4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? s74.b().i().getString("simple_control_item_version", "0") : (String) invokeV.objValue;
-    }
-
-    public synchronized void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                this.b++;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.b == null) {
+                synchronized (mc4.class) {
+                    if (this.b == null) {
+                        this.b = lc4.b(this.a.getString("data", ""));
+                    }
+                }
             }
+            return this.b;
         }
+        return (lc4) invokeV.objValue;
     }
 
-    public synchronized boolean d() {
+    public String c() {
         InterceptResult invokeV;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                z = this.b < this.a;
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.getString("version", "0") : (String) invokeV.objValue;
     }
 
-    public void e(JSONObject jSONObject) {
-        JSONObject optJSONObject;
+    public void d(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         String optString = jSONObject.optString("version");
-        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || !optJSONObject.has("max_emit_app_close_num")) {
+        if (TextUtils.isEmpty(optString)) {
             return;
         }
-        int optInt = optJSONObject.optInt("max_emit_app_close_num", 1);
-        s74.b().i().putString("simple_control_item_version", optString);
-        s74.b().i().putInt("max_emit_app_close_num", optInt);
+        String optString2 = jSONObject.optString("data");
+        if (TextUtils.isEmpty(optString2)) {
+            return;
+        }
+        this.a.edit().putString("version", optString).putString("data", optString2).apply();
     }
 }

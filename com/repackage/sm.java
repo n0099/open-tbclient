@@ -1,123 +1,30 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.ContextWrapper;
-import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.plugin.util.Util;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import dalvik.system.DexClassLoader;
-import dalvik.system.PathClassLoader;
-import java.io.File;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class sm {
     public static /* synthetic */ Interceptable $ic;
-    public static Object a;
+    public static final HashMap<Class<?>, Class<?>> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a implements Comparator<Object> {
+    public static class a<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.util.Comparator
-        public int compare(Object obj, Object obj2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) {
-                if ((obj instanceof String) && (obj2 instanceof String)) {
-                    return sm.d((String) obj, (String) obj2);
-                }
-                return 0;
-            }
-            return invokeLL.intValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b implements Comparator<File> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(File file, File file2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, file2)) == null) {
-                if (file == null || file2 == null) {
-                    return 0;
-                }
-                return sm.d(file.getAbsolutePath(), file2.getAbsolutePath());
-            }
-            return invokeLL.intValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public String b;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+        public final Class<? extends T> a;
+        public final T b;
     }
 
     static {
@@ -133,27 +40,52 @@ public class sm {
                 return;
             }
         }
-        a = new Object();
+        HashMap<Class<?>, Class<?>> hashMap = new HashMap<>();
+        a = hashMap;
+        hashMap.put(Boolean.class, Boolean.TYPE);
+        a.put(Byte.class, Byte.TYPE);
+        a.put(Character.class, Character.TYPE);
+        a.put(Short.class, Short.TYPE);
+        a.put(Integer.class, Integer.TYPE);
+        a.put(Float.class, Float.TYPE);
+        a.put(Long.class, Long.TYPE);
+        a.put(Double.class, Double.TYPE);
+        HashMap<Class<?>, Class<?>> hashMap2 = a;
+        Class<?> cls = Boolean.TYPE;
+        hashMap2.put(cls, cls);
+        HashMap<Class<?>, Class<?>> hashMap3 = a;
+        Class<?> cls2 = Byte.TYPE;
+        hashMap3.put(cls2, cls2);
+        HashMap<Class<?>, Class<?>> hashMap4 = a;
+        Class<?> cls3 = Character.TYPE;
+        hashMap4.put(cls3, cls3);
+        HashMap<Class<?>, Class<?>> hashMap5 = a;
+        Class<?> cls4 = Short.TYPE;
+        hashMap5.put(cls4, cls4);
+        HashMap<Class<?>, Class<?>> hashMap6 = a;
+        Class<?> cls5 = Integer.TYPE;
+        hashMap6.put(cls5, cls5);
+        HashMap<Class<?>, Class<?>> hashMap7 = a;
+        Class<?> cls6 = Float.TYPE;
+        hashMap7.put(cls6, cls6);
+        HashMap<Class<?>, Class<?>> hashMap8 = a;
+        Class<?> cls7 = Long.TYPE;
+        hashMap8.put(cls7, cls7);
+        HashMap<Class<?>, Class<?>> hashMap9 = a;
+        Class<?> cls8 = Double.TYPE;
+        hashMap9.put(cls8, cls8);
     }
 
-    public static Object b(Object obj, Object obj2) {
-        InterceptResult invokeLL;
+    public static <T> T a(Object obj, String str, Object[] objArr) throws SecurityException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, obj, obj2)) == null) {
-            Class<?> componentType = obj.getClass().getComponentType();
-            int length = Array.getLength(obj);
-            int i = length + 1;
-            Object newInstance = Array.newInstance(componentType, i);
-            for (int i2 = 0; i2 < i; i2++) {
-                if (i2 < length) {
-                    Array.set(newInstance, i2, Array.get(obj, i2));
-                } else {
-                    Array.set(newInstance, i2, obj2);
-                }
-            }
-            return newInstance;
-        }
-        return invokeLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, obj, str, objArr)) == null) ? (T) b(obj, str, objArr) : (T) invokeLLL.objValue;
+    }
+
+    public static <T> T b(Object obj, String str, Object[] objArr) throws SecurityException, NoSuchMethodException, IllegalArgumentException, IllegalAccessException, InvocationTargetException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, obj, str, objArr)) == null) ? (T) f(obj.getClass(), str, i(objArr)).invoke(obj, j(objArr)) : (T) invokeLLL.objValue;
     }
 
     public static Object c(Object obj, Object obj2) {
@@ -193,28 +125,79 @@ public class sm {
         return invokeLL.objValue;
     }
 
-    public static final int d(String str, String str2) {
+    public static boolean d(Class<?>[] clsArr, Class<?>[] clsArr2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            if (str == null || str2 == null) {
-                return 0;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, clsArr, clsArr2)) == null) {
+            if (clsArr == null) {
+                return clsArr2 == null || clsArr2.length == 0;
             }
-            return (str.contains("com.baidu.tieba") ? -1 : 0) - (str2.contains("com.baidu.tieba") ? -1 : 0);
+            int length = clsArr.length;
+            if (clsArr2 == null) {
+                return length == 0;
+            } else if (length != clsArr2.length) {
+                return false;
+            } else {
+                for (int i = length - 1; i >= 0; i--) {
+                    if (clsArr[i].isAssignableFrom(clsArr2[i]) || (a.containsKey(clsArr[i]) && a.get(clsArr[i]).equals(a.get(clsArr2[i])))) {
+                        return true;
+                    }
+                }
+                return false;
+            }
         }
-        return invokeLL.intValue;
+        return invokeLL.booleanValue;
     }
 
-    public static Object e(Object obj) throws IllegalArgumentException, NoSuchFieldException, NoSuchFieldError, IllegalAccessException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) ? f(obj, obj.getClass(), "dexElements") : invokeL.objValue;
-    }
-
-    public static Object f(Object obj, Class<?> cls, String str) throws NoSuchFieldException, NoSuchFieldError, IllegalArgumentException, IllegalAccessException {
+    public static Method e(Method[] methodArr, String str, Class<?>[] clsArr) throws NoSuchMethodException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, obj, cls, str)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, methodArr, str, clsArr)) == null) {
+            if (str != null) {
+                for (Method method : methodArr) {
+                    if (method.getName().equals(str) && d(method.getParameterTypes(), clsArr)) {
+                        return method;
+                    }
+                }
+                throw new NoSuchMethodException(str);
+            }
+            throw new NullPointerException("Method name must not be null.");
+        }
+        return (Method) invokeLLL.objValue;
+    }
+
+    public static Method f(Class<?> cls, String str, Class<?>[] clsArr) throws NoSuchMethodException, SecurityException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, cls, str, clsArr)) == null) {
+            Method e = e(cls.getDeclaredMethods(), str, clsArr);
+            if (e != null) {
+                e.setAccessible(true);
+            }
+            return e;
+        }
+        return (Method) invokeLLL.objValue;
+    }
+
+    public static Method g(Object obj, String str, Class<?>[] clsArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, obj, str, clsArr)) == null) {
+            for (Class<?> cls = obj.getClass(); cls != Object.class; cls = cls.getSuperclass()) {
+                try {
+                    return cls.getDeclaredMethod(str, clsArr);
+                } catch (Exception unused) {
+                }
+            }
+            return null;
+        }
+        return (Method) invokeLLL.objValue;
+    }
+
+    public static Object h(Object obj, Class<?> cls, String str) throws NoSuchFieldException, NoSuchFieldError, IllegalArgumentException, IllegalAccessException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, obj, cls, str)) == null) {
             Field declaredField = cls.getDeclaredField(str);
             declaredField.setAccessible(true);
             return declaredField.get(obj);
@@ -222,270 +205,76 @@ public class sm {
         return invokeLLL.objValue;
     }
 
-    public static Object g(Object obj) throws IllegalArgumentException, NoSuchFieldException, NoSuchFieldError, IllegalAccessException {
+    public static Class<?>[] i(Object[] objArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, obj)) == null) ? f(obj, obj.getClass(), "nativeLibraryDirectories") : invokeL.objValue;
-    }
-
-    public static Object h(Object obj) throws IllegalArgumentException, NoSuchFieldException, NoSuchFieldError, IllegalAccessException, ClassNotFoundException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, obj)) == null) ? f(obj, Class.forName("dalvik.system.BaseDexClassLoader"), "pathList") : invokeL.objValue;
-    }
-
-    public static final Comparator<File> i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? new b() : (Comparator) invokeV.objValue;
-    }
-
-    public static c j(ClassLoader classLoader, ClassLoader classLoader2, String str, boolean z, String str2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{classLoader, classLoader2, str, Boolean.valueOf(z), str2})) == null) {
-            if (classLoader == null || classLoader2 == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, objArr)) == null) {
+            if (objArr == null || objArr.length <= 0) {
                 return null;
             }
-            synchronized (a) {
-                boolean z2 = true;
-                try {
-                    Class.forName("dalvik.system.BaseDexClassLoader");
-                } catch (ClassNotFoundException unused) {
-                    z2 = false;
-                }
-                if (!z2) {
-                    return m(classLoader, classLoader2, str, z);
-                }
-                return l(classLoader, classLoader2, str, z, str2);
-            }
-        }
-        return (c) invokeCommon.objValue;
-    }
-
-    public static c k(Context context, ClassLoader classLoader, String str) {
-        InterceptResult invokeLLL;
-        Object f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, context, classLoader, str)) == null) {
-            try {
-                classLoader.loadClass(str);
-                if (Build.VERSION.SDK_INT <= 7) {
-                    f = f(context.getApplicationContext(), Class.forName("android.app.ApplicationContext"), "mPackageInfo");
+            Class<?>[] clsArr = new Class[objArr.length];
+            for (int i = 0; i < objArr.length; i++) {
+                Object obj = objArr[i];
+                if (obj != null && (obj instanceof a)) {
+                    clsArr[i] = ((a) obj).a;
                 } else {
-                    f = f(f(context.getApplicationContext(), ContextWrapper.class, "mBase"), Class.forName("android.app.ContextImpl"), "mPackageInfo");
+                    clsArr[i] = obj == null ? null : obj.getClass();
                 }
-                o(f, f.getClass(), "mClassLoader", classLoader);
-                return n(true, null);
-            } catch (IllegalAccessException e) {
-                return n(false, e);
-            } catch (IllegalArgumentException e2) {
-                return n(false, e2);
-            } catch (Throwable th) {
-                return n(false, th);
             }
+            return clsArr;
         }
-        return (c) invokeLLL.objValue;
+        return (Class[]) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:65:0x0201  */
-    /* JADX WARN: Removed duplicated region for block: B:73:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static c l(ClassLoader classLoader, ClassLoader classLoader2, String str, boolean z, String str2) {
-        InterceptResult invokeCommon;
-        c n;
-        Object h;
-        Object h2;
-        List list;
-        Object c2;
-        List list2;
-        Object c3;
-        List list3;
+    public static Object[] j(Object[] objArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{classLoader, classLoader2, str, Boolean.valueOf(z), str2})) != null) {
-            return (c) invokeCommon.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, objArr)) == null) {
+            if (objArr == null || objArr.length <= 0) {
+                return null;
+            }
+            Object[] objArr2 = new Object[objArr.length];
+            for (int i = 0; i < objArr.length; i++) {
+                Object obj = objArr[i];
+                if (obj != null && (obj instanceof a)) {
+                    objArr2[i] = ((a) obj).b;
+                } else {
+                    objArr2[i] = obj;
+                }
+            }
+            return objArr2;
         }
-        if (classLoader == null || classLoader2 == null) {
+        return (Object[]) invokeL.objValue;
+    }
+
+    public static Object k(Object obj, String str, Class<?>[] clsArr, Object[] objArr) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65547, null, obj, str, clsArr, objArr)) == null) {
+            Method g = g(obj, str, clsArr);
+            if (g != null) {
+                try {
+                    g.setAccessible(true);
+                    return g.invoke(obj, objArr);
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                    return null;
+                } catch (IllegalArgumentException e2) {
+                    e2.printStackTrace();
+                    return null;
+                } catch (InvocationTargetException e3) {
+                    e3.printStackTrace();
+                    return null;
+                }
+            }
             return null;
         }
-        try {
-            DexClassLoader dexClassLoader = (DexClassLoader) classLoader2;
-            dexClassLoader.loadClass(str);
-            h = h((PathClassLoader) classLoader);
-            h2 = h(dexClassLoader);
-        } catch (ClassNotFoundException e) {
-            n = n(false, e);
-            BdLog.e(e);
-        } catch (IllegalAccessException e2) {
-            n = n(false, e2);
-            BdLog.e(e2);
-        } catch (IllegalArgumentException e3) {
-            n = n(false, e3);
-            BdLog.e(e3);
-        } catch (NoSuchFieldError e4) {
-            n = n(false, e4);
-            BdLog.e(e4);
-        } catch (NoSuchFieldException e5) {
-            n = n(false, e5);
-            BdLog.e(e5);
-        } catch (NoSuchMethodException e6) {
-            n = n(false, e6);
-            BdLog.e(e6);
-        } catch (SecurityException e7) {
-            n = n(false, e7);
-            BdLog.e(e7);
-        } catch (Throwable th) {
-            n = n(false, th);
-            BdLog.e(th);
-        }
-        if (Build.VERSION.SDK_INT <= 25 && (Build.VERSION.SDK_INT != 25 || !Util.n())) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                if (z) {
-                    c3 = c(e(h), e(h2));
-                } else {
-                    c3 = c(e(h2), e(h));
-                }
-                o(h, h.getClass(), "dexElements", c3);
-                Object c4 = c(g(h), g(h2));
-                if (c4 instanceof File[]) {
-                    Arrays.sort((File[]) c4, i());
-                    list3 = c4;
-                } else {
-                    boolean z2 = c4 instanceof List;
-                    list3 = c4;
-                    if (z2) {
-                        List list4 = (List) c4;
-                        Collections.sort(list4, i());
-                        list3 = list4;
-                    }
-                }
-                o(h, h.getClass(), "nativeLibraryDirectories", list3);
-                ArrayList arrayList = new ArrayList((List) list3);
-                arrayList.addAll((List) f(h, h.getClass(), "systemNativeLibraryDirectories"));
-                Method declaredMethod = h.getClass().getDeclaredMethod("makePathElements", List.class, File.class, List.class);
-                declaredMethod.setAccessible(true);
-                o(h, h.getClass(), "nativeLibraryPathElements", declaredMethod.invoke(h.getClass(), arrayList, null, new ArrayList()));
-            } else {
-                if (z) {
-                    c2 = c(e(h), e(h2));
-                } else {
-                    c2 = c(e(h2), e(h));
-                }
-                o(h, h.getClass(), "dexElements", c2);
-                Object c5 = c(g(h), g(h2));
-                if (c5 instanceof File[]) {
-                    Arrays.sort((File[]) c5, i());
-                    list2 = c5;
-                } else {
-                    boolean z3 = c5 instanceof List;
-                    list2 = c5;
-                    if (z3) {
-                        List list5 = (List) c5;
-                        Collections.sort(list5, i());
-                        list2 = list5;
-                    }
-                }
-                o(h, h.getClass(), "nativeLibraryDirectories", list2);
-            }
-            n = null;
-            return n != null ? n(true, null) : n;
-        }
-        Method declaredMethod2 = h.getClass().getDeclaredMethod("addDexPath", String.class, File.class);
-        declaredMethod2.setAccessible(true);
-        declaredMethod2.invoke(h, str2, null);
-        Object c6 = c(g(h), g(h2));
-        if (c6 instanceof File[]) {
-            Arrays.sort((File[]) c6, i());
-            list = c6;
-        } else {
-            boolean z4 = c6 instanceof List;
-            list = c6;
-            if (z4) {
-                List list6 = (List) c6;
-                Collections.sort(list6, i());
-                list = list6;
-            }
-        }
-        o(h, h.getClass(), "nativeLibraryDirectories", list);
-        ArrayList arrayList2 = new ArrayList((List) list);
-        arrayList2.addAll((List) f(h, h.getClass(), "systemNativeLibraryDirectories"));
-        Method declaredMethod3 = h.getClass().getDeclaredMethod("makePathElements", List.class);
-        declaredMethod3.setAccessible(true);
-        o(h, h.getClass(), "nativeLibraryPathElements", declaredMethod3.invoke(h.getClass(), arrayList2));
-        n = null;
-        if (n != null) {
-        }
+        return invokeLLLL.objValue;
     }
 
-    public static c m(ClassLoader classLoader, ClassLoader classLoader2, String str, boolean z) {
-        InterceptResult invokeCommon;
-        c n;
+    public static void l(Object obj, Class<?> cls, String str, Object obj2) throws NoSuchFieldException, NoSuchFieldError, IllegalArgumentException, IllegalAccessException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{classLoader, classLoader2, str, Boolean.valueOf(z)})) == null) {
-            if (classLoader == null || classLoader2 == null) {
-                return null;
-            }
-            try {
-                try {
-                    PathClassLoader pathClassLoader = (PathClassLoader) classLoader;
-                    DexClassLoader dexClassLoader = (DexClassLoader) classLoader2;
-                    dexClassLoader.loadClass(str);
-                    o(pathClassLoader, PathClassLoader.class, "mPaths", b(f(pathClassLoader, PathClassLoader.class, "mPaths"), f(dexClassLoader, DexClassLoader.class, "mRawDexPath")));
-                    if (z) {
-                        o(pathClassLoader, PathClassLoader.class, "mDexs", c(f(pathClassLoader, PathClassLoader.class, "mDexs"), f(dexClassLoader, DexClassLoader.class, "mDexs")));
-                        o(pathClassLoader, PathClassLoader.class, "mFiles", c(f(pathClassLoader, PathClassLoader.class, "mFiles"), f(dexClassLoader, DexClassLoader.class, "mFiles")));
-                        o(pathClassLoader, PathClassLoader.class, "mZips", c(f(pathClassLoader, PathClassLoader.class, "mZips"), f(dexClassLoader, DexClassLoader.class, "mZips")));
-                    } else {
-                        o(pathClassLoader, PathClassLoader.class, "mDexs", c(f(dexClassLoader, DexClassLoader.class, "mDexs"), f(pathClassLoader, PathClassLoader.class, "mDexs")));
-                        o(pathClassLoader, PathClassLoader.class, "mFiles", c(f(dexClassLoader, DexClassLoader.class, "mFiles"), f(pathClassLoader, PathClassLoader.class, "mFiles")));
-                        o(pathClassLoader, PathClassLoader.class, "mZips", c(f(dexClassLoader, DexClassLoader.class, "mZips"), f(pathClassLoader, PathClassLoader.class, "mZips")));
-                    }
-                    try {
-                        ArrayList arrayList = (ArrayList) f(pathClassLoader, PathClassLoader.class, "libraryPathElements");
-                        for (String str2 : (String[]) f(dexClassLoader, DexClassLoader.class, "mLibPaths")) {
-                            arrayList.add(str2);
-                        }
-                        Collections.sort(arrayList, new a());
-                    } catch (Exception unused) {
-                        o(pathClassLoader, PathClassLoader.class, "mLibPaths", c(f(pathClassLoader, PathClassLoader.class, "mLibPaths"), f(dexClassLoader, DexClassLoader.class, "mLibPaths")));
-                    }
-                    n = null;
-                } catch (NoSuchFieldError e) {
-                    n = n(false, e);
-                    BdLog.e(e);
-                } catch (Throwable th) {
-                    n = n(false, th);
-                    BdLog.e(th);
-                }
-            } catch (IllegalAccessException e2) {
-                n = n(false, e2);
-                BdLog.e(e2);
-            } catch (NoSuchFieldException e3) {
-                n = n(false, e3);
-                BdLog.e(e3);
-            }
-            return n == null ? n(true, null) : n;
-        }
-        return (c) invokeCommon.objValue;
-    }
-
-    public static c n(boolean z, Throwable th) {
-        InterceptResult invokeZL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZL = interceptable.invokeZL(65550, null, z, th)) == null) {
-            c cVar = new c();
-            cVar.a = z;
-            cVar.b = th != null ? th.getLocalizedMessage() : null;
-            return cVar;
-        }
-        return (c) invokeZL.objValue;
-    }
-
-    public static void o(Object obj, Class<?> cls, String str, Object obj2) throws NoSuchFieldException, NoSuchFieldError, IllegalArgumentException, IllegalAccessException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65551, null, obj, cls, str, obj2) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(65548, null, obj, cls, str, obj2) == null) {
             Field declaredField = cls.getDeclaredField(str);
             declaredField.setAccessible(true);
             declaredField.set(obj, obj2);

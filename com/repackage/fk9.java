@@ -1,102 +1,21 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.kwad.sdk.api.KsInterstitialAd;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
 /* loaded from: classes6.dex */
-public class fk9 implements KsInterstitialAd.AdInteractionListener {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ KsInterstitialAd a;
-    public final /* synthetic */ ek9 b;
+public interface fk9 {
+    void a();
 
-    public fk9(ek9 ek9Var, KsInterstitialAd ksInterstitialAd) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ek9Var, ksInterstitialAd};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = ek9Var;
-        this.a = ksInterstitialAd;
-    }
+    void a(int i, String str);
 
-    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
-    public void onAdClicked() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LogPrinter.d();
-            this.b.onAdClicked(false, new String[0]);
-        }
-    }
+    void a(boolean z, String... strArr);
 
-    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
-    public void onAdClosed() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
+    void b();
 
-    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
-    public void onAdShow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LogPrinter.d();
-            this.b.onAdShow(this.a, false, new String[0]);
-        }
-    }
+    void b(int i, String str);
 
-    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
-    public void onPageDismiss() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LogPrinter.d();
-            this.b.onAdClose();
-        }
-    }
+    void b(RippedAd rippedAd, String... strArr);
 
-    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
-    public void onSkippedAd() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            LogPrinter.d();
-        }
-    }
+    void c();
 
-    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
-    public void onVideoPlayEnd() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
-    public void onVideoPlayError(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) {
-            LogPrinter.e("onVideoPlayError code:%d extra:%d", Integer.valueOf(i), Integer.valueOf(i2));
-            this.b.onAdError(i, String.valueOf(i2));
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
-    public void onVideoPlayStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            LogPrinter.d();
-        }
-    }
+    void c(RippedAd rippedAd, String... strArr);
 }

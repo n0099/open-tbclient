@@ -6,6 +6,7 @@ import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.atomData.MissonDetailsActivityConfig;
+import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
@@ -155,7 +156,7 @@ public class JsonTransHelper {
             GoodsInfo.Builder builder = new GoodsInfo.Builder();
             builder.id = Integer.valueOf(jSONObject.optInt("id"));
             builder.user_name = jSONObject.optString("user_name");
-            builder.user_portrait = jSONObject.optString("user_portrait");
+            builder.user_portrait = jSONObject.optString(RecommendDetailActivityConfig.USER_PORTRAIT);
             builder.thread_title = jSONObject.optString(MissonDetailsActivityConfig.THREAD_TITLE);
             builder.thread_pic = jSONObject.optString("thread_pic");
             builder.pop_window_text = jSONObject.optString("pop_window_text");
@@ -398,7 +399,7 @@ public class JsonTransHelper {
             try {
                 jSONObject.put("id", goodsInfo.id);
                 jSONObject.put("user_name", goodsInfo.user_name);
-                jSONObject.put("user_portrait", goodsInfo.user_portrait);
+                jSONObject.put(RecommendDetailActivityConfig.USER_PORTRAIT, goodsInfo.user_portrait);
                 jSONObject.put(MissonDetailsActivityConfig.THREAD_TITLE, goodsInfo.thread_title);
                 jSONObject.put("thread_pic", goodsInfo.thread_pic);
                 jSONObject.put("pop_window_text", goodsInfo.pop_window_text);

@@ -1,22 +1,9 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.util.NetWorkChangedMessage;
+import android.content.Context;
+import android.util.SparseArray;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.devices.RomUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tbadk.util.CheckBaiduSimResponseMessage;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,90 +14,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class il4 {
     public static /* synthetic */ Interceptable $ic;
-    public static il4 d;
+    public static il4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public CustomMessageListener a;
-    public boolean b;
-    public HttpMessageListener c;
-
-    /* loaded from: classes6.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ il4 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(il4 il4Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {il4Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = il4Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && oi.C() && mi.x()) {
-                this.a.c();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ il4 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(il4 il4Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {il4Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = il4Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003392 && (httpResponsedMessage instanceof CheckBaiduSimResponseMessage)) {
-                this.a.b = false;
-                CheckBaiduSimResponseMessage checkBaiduSimResponseMessage = (CheckBaiduSimResponseMessage) httpResponsedMessage;
-                if (checkBaiduSimResponseMessage.isSuc) {
-                    vt4.k().y("key_baidu_sim_card_writting_tip", checkBaiduSimResponseMessage.isBaiduSim ? TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f02c5) : "");
-                    MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_CHECK_BAIDU_SIM);
-                }
-            }
-        }
-    }
+    public SparseArray<kl4> a;
 
     static {
         InterceptResult invokeClinit;
@@ -140,57 +46,41 @@ public class il4 {
                 return;
             }
         }
-        this.a = new a(this, 2000994);
-        this.b = false;
-        this.c = new b(this, CmdConfigHttp.CMD_CHECK_BAIDU_SIM);
+        this.a = new SparseArray<>();
     }
 
-    public static il4 d() {
+    public static il4 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (d == null) {
-                d = new il4();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (il4.class) {
+                    if (b == null) {
+                        b = new il4();
+                    }
+                }
             }
-            return d;
+            return b;
         }
         return (il4) invokeV.objValue;
     }
 
-    public final void c() {
+    public View a(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && !this.b) {
-            this.b = true;
-            if (System.currentTimeMillis() >= vt4.k().m("key_next_check_baidu_sim_time", 0L)) {
-                vt4.k().x("key_next_check_baidu_sim_time", System.currentTimeMillis() + 86400000);
-                TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHECK_BAIDU_SIM, TbConfig.SERVER_ADDRESS + "c/s/holycard");
-                tbHttpMessageTask.setResponsedClass(CheckBaiduSimResponseMessage.class);
-                MessageManager.getInstance().registerTask(tbHttpMessageTask);
-                MessageManager.getInstance().registerListener(this.c);
-                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHECK_BAIDU_SIM);
-                httpMessage.addParam("localip", UtilHelper.getGprsIpv4Address());
-                httpMessage.addParam("network", e());
-                MessageManager.getInstance().sendMessage(httpMessage);
-                return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, context, i)) == null) {
+            if (this.a.get(i) != null) {
+                return this.a.get(i).a(context);
             }
-            this.b = false;
+            return null;
         }
+        return (View) invokeLI.objValue;
     }
 
-    public final String e() {
-        InterceptResult invokeV;
+    public void c(int i, kl4 kl4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int f = mi.f();
-            return f != 1 ? f != 2 ? f != 3 ? RomUtils.UNKNOWN : "TELECOM" : "UNICOM" : "MOBILE";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().registerListener(this.a);
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, kl4Var) == null) {
+            this.a.put(i, kl4Var);
         }
     }
 }

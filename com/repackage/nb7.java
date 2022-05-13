@@ -1,51 +1,38 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.content.Intent;
+import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.coreExtra.view.ImagePagerAdapter;
-import com.baidu.tbadk.coreExtra.view.ImageUrlData;
-import com.baidu.tbadk.widget.DragImageView;
-import com.baidu.tieba.image.ImageViewerActivity;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.im.chat.AbsMsgImageActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes6.dex */
-public class nb7 implements IAdBaseAsyncController.a, ImagePagerAdapter.a {
+public class nb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public List<String> c;
-    public cb8 d;
-    public List<AdvertAppInfo> e;
-    public boolean f;
-    public q98 g;
-    public boolean h;
-    public long i;
-    public int j;
-    public boolean k;
-    public Map<String, ImageUrlData> l;
-    public TbPageContext<ImageViewerActivity> m;
+    public HashMap<String, Boolean> a;
+    public long b;
+    public String c;
+    public int d;
+    public int e;
+    public int f;
 
-    public nb7(List<String> list, String str, String str2, boolean z, boolean z2, TbPageContext<ImageViewerActivity> tbPageContext, DragImageView.h hVar, @Nullable Map<String, ImageUrlData> map) {
+    public nb7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), tbPageContext, hVar, map};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -55,243 +42,180 @@ public class nb7 implements IAdBaseAsyncController.a, ImagePagerAdapter.a {
                 return;
             }
         }
-        this.k = false;
-        this.c = list;
-        this.a = str;
-        this.b = str2;
-        this.f = z2;
-        this.m = tbPageContext;
-        try {
-            cb8 cb8Var = (cb8) ma8.q().k(IAdBaseAsyncController.Type.PIC_PAGE, this);
-            this.d = cb8Var;
-            cb8Var.j(tbPageContext, hVar, z);
-        } catch (ClassCastException e) {
-            if (um4.e()) {
-                throw new RuntimeException(e);
-            }
-        }
-        this.l = map;
+        this.b = 0L;
+        this.a = new HashMap<>();
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.ImagePagerAdapter.a
-    public View a(ViewGroup viewGroup, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) {
-            if (i >= this.c.size()) {
-                return null;
-            }
-            String str = (String) jd7.d(this.c, i);
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            boolean z = i == this.c.size() - 1;
-            this.k = z;
-            View b = this.d.b(str, z);
-            if (b == null) {
-                return null;
-            }
-            if (b.getParent() != null && (b.getParent() instanceof ViewGroup)) {
-                ((ViewGroup) b.getParent()).removeView(b);
-            }
-            viewGroup.addView(b);
-            AdvertAppInfo e = this.d.e(str);
-            if (e != null && (this.m.getPageActivity() instanceof lh0)) {
-                e.u = nh0.b(e.u, (lh0) this.m.getPageActivity(), b);
-            }
-            return b;
-        }
-        return (View) invokeLI.objValue;
-    }
-
-    @Override // com.baidu.tieba.recapp.async.IAdBaseAsyncController.a
-    public void b(@Nullable List<AdvertAppInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.e = list;
-            if (this.h) {
-                f(list);
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.coreExtra.view.ImagePagerAdapter.a
-    public void c(ViewGroup viewGroup, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i) == null) || i >= this.c.size()) {
-            return;
-        }
-        String str = (String) jd7.d(this.c, i);
-        if (TextUtils.isEmpty(str)) {
-            return;
-        }
-        this.d.q(str);
-    }
-
-    public int d() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d.getAdCount() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : invokeV.intValue;
     }
 
-    public final void e(@NonNull AdvertAppInfo advertAppInfo, int i, boolean z) {
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{advertAppInfo, Integer.valueOf(i), Boolean.valueOf(z)}) == null) && this.f) {
-            if (i < 0) {
-                this.d.m(advertAppInfo);
-                return;
-            }
-            boolean z2 = false;
-            int k = jd7.k(this.c);
-            String f = n98.f(advertAppInfo);
-            if (i >= k) {
-                if (!n98.l((String) jd7.d(this.c, k - 1)) && (z || !this.d.p())) {
-                    this.k = true;
-                    i = k;
-                    z2 = true;
-                } else {
-                    this.d.m(advertAppInfo);
-                    return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : invokeV.intValue;
+    }
+
+    public void c(List<String> list, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, list, i, i2) == null) {
+            synchronized (this.a) {
+                if (System.nanoTime() - this.b > AbsMsgImageActivity.INV_TIME && list != null && i < list.size()) {
+                    this.a.put(list.get(i), Boolean.TRUE);
+                }
+                this.b = System.nanoTime();
+                if (list != null && i2 < list.size() && this.a.get(list.get(i2)) == null) {
+                    this.a.put(list.get(i2), Boolean.FALSE);
                 }
             }
-            advertAppInfo.position = z2 ? this.j + d() : (int) (i + this.i);
-            if (n98.n(advertAppInfo)) {
-                if (i >= k) {
-                    this.d.m(advertAppInfo);
-                }
-                String str = (String) jd7.d(this.c, i);
-                if (TextUtils.isEmpty(str)) {
-                    return;
-                }
-                this.d.f(str, advertAppInfo);
-                return;
+            if (this.a.size() >= 100) {
+                g();
             }
-            jd7.b(this.c, f, i);
-            String str2 = (String) jd7.d(this.c, i);
-            if (TextUtils.isEmpty(str2)) {
-                return;
-            }
-            this.d.f(str2, advertAppInfo);
         }
     }
 
-    public final void f(List<AdvertAppInfo> list) {
+    public void d(Bundle bundle, Intent intent) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, list) == null) || jd7.e(list) || jd7.e(this.c)) {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, bundle, intent) == null) {
+            if (bundle != null) {
+                this.c = bundle.getString(ImageViewerConfig.PV_TYPE);
+            } else if (intent != null) {
+                this.c = intent.getStringExtra(ImageViewerConfig.PV_TYPE);
+                int intExtra = intent.getIntExtra("index", -1);
+                this.d = intExtra;
+                this.e = intExtra;
+                this.f = intExtra;
+            }
+        }
+    }
+
+    public void e(int i, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) && i == 1 && System.nanoTime() - this.b > AbsMsgImageActivity.INV_TIME) {
+            this.a.put(str, Boolean.TRUE);
+        }
+    }
+
+    public void f(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) || bundle == null) {
             return;
         }
-        Iterator<AdvertAppInfo> it = list.iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                break;
+        bundle.putString(ImageViewerConfig.PV_TYPE, this.c);
+    }
+
+    public void g() {
+        HashMap<String, Boolean> hashMap;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (hashMap = this.a) == null) {
+            return;
+        }
+        synchronized (hashMap) {
+            if (this.a.size() <= 0) {
+                return;
             }
-            AdvertAppInfo next = it.next();
-            if (next != null) {
-                if (d() == rg5.h().j() - 1 && rg5.h().v()) {
-                    if (!i()) {
-                        break;
-                    } else if (mg.e(next.g, -1) - 1 <= jd7.k(this.c)) {
-                        g(next);
+            int i = 0;
+            for (Map.Entry<String, Boolean> entry : this.a.entrySet()) {
+                if (entry.getValue().booleanValue()) {
+                    i++;
+                }
+            }
+            TbadkCoreApplication.getInst().sendImagePv(i, this.a.size(), this.c, this.d + 1, this.e + 1);
+            this.a.clear();
+        }
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.f = i;
+        }
+    }
+
+    public void j(int i, String str, String str2, String str3, String str4, String str5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), str, str2, str3, str4, str5}) == null) {
+            StringBuilder sb = new StringBuilder();
+            StringBuilder sb2 = new StringBuilder();
+            int i2 = this.f;
+            if (i2 != this.e) {
+                while (true) {
+                    int i3 = this.e;
+                    if (i2 > i3) {
                         break;
                     }
+                    if (i2 == i3) {
+                        sb.append(i2 + 1);
+                        if (this.e == i - 1) {
+                            sb2.append(1);
+                        } else {
+                            sb2.append(0);
+                        }
+                    } else {
+                        sb.append(i2 + 1);
+                        sb.append("|");
+                        sb2.append(0);
+                        sb2.append("|");
+                    }
+                    i2++;
                 }
-                e(next, mg.e(next.g, -1) - 1, false);
-                it.remove();
+            } else {
+                sb.append(i2 + 1);
+                if (this.e == i - 1) {
+                    sb2.append(1);
+                } else {
+                    sb2.append(0);
+                }
             }
-        }
-        q98 q98Var = this.g;
-        if (q98Var != null) {
-            q98Var.onCallback(null);
-        }
-    }
-
-    public void g(@NonNull AdvertAppInfo advertAppInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, advertAppInfo) == null) {
-            e(advertAppInfo, jd7.k(this.c), true);
-            q98 q98Var = this.g;
-            if (q98Var != null) {
-                q98Var.onCallback(null);
+            StatisticItem statisticItem = new StatisticItem("common_exp");
+            statisticItem.param("page_type", "a008");
+            if (!li.isEmpty(str2)) {
+                statisticItem.param("fid", str2);
             }
-        }
-    }
-
-    public boolean h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            String str = (String) jd7.d(this.c, i);
-            if (TextUtils.isEmpty(str)) {
-                return false;
+            if (!li.isEmpty(str3)) {
+                statisticItem.param("tid", str3);
             }
-            return this.d.g(str);
-        }
-        return invokeI.booleanValue;
-    }
-
-    public final boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            List<String> list = this.c;
-            String str = (String) jd7.d(list, list.size() - 1);
-            Map<String, ImageUrlData> map = this.l;
-            ImageUrlData imageUrlData = (map == null || str == null) ? null : map.get(str);
-            return imageUrlData != null && imageUrlData.overAllIndex == ((long) this.j);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.k : invokeV.booleanValue;
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.d.onDestroy();
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.h = true;
-            f(this.e);
-        }
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            String str = (String) jd7.d(this.c, i);
-            if (TextUtils.isEmpty(str)) {
-                return;
+            if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
+                statisticItem.param("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().k);
             }
-            this.d.l(str);
-        }
-    }
-
-    public void n(@Nullable q98 q98Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048589, this, q98Var) == null) && this.f) {
-            this.h = false;
-            this.g = q98Var;
-            this.d.n();
-            vb5 vb5Var = new vb5();
-            vb5Var.l = this.a;
-            vb5Var.m = this.b;
-            this.d.h(vb5Var);
-        }
-    }
-
-    public void o(long j, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
-            this.i = j - 1;
-            this.j = i;
+            statisticItem.param("pic_count", i);
+            statisticItem.param(TiebaStatic.Params.OBJ_FLOOR_MERGE, sb.toString());
+            statisticItem.param(TiebaStatic.Params.OBJ_ISAD_MERGE, sb2.toString());
+            int i4 = this.e;
+            int i5 = (i4 - this.f) + 1;
+            if (i5 == 1) {
+                if (i4 == i - 1) {
+                    statisticItem.param("obj_id", str);
+                } else {
+                    statisticItem.param("obj_id", "");
+                }
+            }
+            if (i5 > 1) {
+                StringBuilder sb3 = new StringBuilder();
+                for (int i6 = 0; i6 < i5 - 1; i6++) {
+                    sb3.append("|");
+                }
+                if (this.e == i - 1) {
+                    sb3.append(str);
+                }
+                statisticItem.param(TiebaStatic.Params.OBJ_ID_MERGE, str);
+            }
+            if (!StringUtils.isNull(str4)) {
+                statisticItem.param(TiebaStatic.Params.FIRST_DIR, str4);
+            }
+            if (!StringUtils.isNull(str5)) {
+                statisticItem.param(TiebaStatic.Params.SECOND_DIR, str5);
+            }
+            TiebaStatic.log(statisticItem);
         }
     }
 }

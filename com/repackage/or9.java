@@ -1,23 +1,21 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class or9 implements wo9 {
+public class or9 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ ur9 a;
+    public final /* synthetic */ vr9 a;
 
-    public or9(ur9 ur9Var) {
+    public or9(vr9 vr9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ur9Var};
+            Object[] objArr = {vr9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,39 +25,18 @@ public class or9 implements wo9 {
                 return;
             }
         }
-        this.a = ur9Var;
+        this.a = vr9Var;
     }
 
-    @Override // com.repackage.wo9
-    public void a(String str) {
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            tq9 a = xq9.a(this.a.a.c.a);
+            a.e(new br9(this.a.a.c.b.b()), 200, System.currentTimeMillis() - this.a.a.a);
+            a.m();
+            this.a.a.c.c.onLoaded();
+            this.a.a.c.d = true;
         }
-    }
-
-    @Override // com.repackage.wo9
-    public boolean a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            ur9 ur9Var = this.a;
-            if (ar9.d(ur9Var.c, ur9Var.h)) {
-                this.a.h = System.currentTimeMillis();
-                ur9 ur9Var2 = this.a;
-                ar9.a(ur9Var2.a, str, ur9Var2.c, ur9Var2.g, str2);
-                yr9 a = cs9.a(this.a.a);
-                a.h(new gs9(this.a.c), str);
-                a.l("desc", str2);
-                a.m();
-                is9 is9Var = this.a.f;
-                if (is9Var != null) {
-                    is9Var.onClicked();
-                }
-                wp9.p(this.a.c, str2);
-                return true;
-            }
-            return true;
-        }
-        return invokeLL.booleanValue;
     }
 }

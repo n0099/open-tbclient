@@ -1,28 +1,74 @@
 package com.repackage;
 
-import android.util.Log;
+import android.widget.RelativeLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.view.CardForumHeadLayout;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Method;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class ey {
+public class ey extends by implements oy<ThreadData>, py {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final CardForumHeadLayout e;
+    public int f;
+    public int g;
+    public int h;
 
-    public static Object a(Class cls, Object obj, String str, Class[] clsArr, Object[] objArr, Object obj2) {
-        InterceptResult invokeCommon;
+    public ey(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{cls, obj, str, clsArr, objArr, obj2})) == null) {
-            try {
-                Method declaredMethod = cls.getDeclaredMethod(str, clsArr);
-                declaredMethod.setAccessible(true);
-                return declaredMethod.invoke(obj, objArr);
-            } catch (Throwable th) {
-                Log.e("BdReflectUtils", th.getMessage(), th);
-                return obj2;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeCommon.objValue;
+        this.f = mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+        this.g = mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds44);
+        this.h = mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds60);
+        this.e = new CardForumHeadLayout(tbPageContext.getPageActivity());
+        h(-1);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+        layoutParams.leftMargin = this.g;
+        layoutParams.topMargin = this.f;
+        layoutParams.bottomMargin = this.h;
+        i(layoutParams);
+        g(this.e);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.oy
+    /* renamed from: k */
+    public void a(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) == null) {
+            if (threadData != null && threadData.getAuthor() != null) {
+                this.e.setVisibility(0);
+                this.e.setData(threadData);
+                this.e.setTag(threadData);
+                return;
+            }
+            this.e.setVisibility(8);
+        }
+    }
+
+    @Override // com.repackage.py
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            this.e.d();
+        }
     }
 }

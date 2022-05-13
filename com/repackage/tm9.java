@@ -1,63 +1,115 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.RemoteException;
-import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.concurrent.atomic.AtomicBoolean;
+import com.repackage.vm9;
+import com.squareup.wire2.FieldEncoding;
+import com.squareup.wire2.ProtoAdapter;
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 /* loaded from: classes7.dex */
-public final class tm9 implements Runnable {
+public final class tm9<E extends vm9> extends ProtoAdapter<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ Activity a;
-    public final /* synthetic */ pm9 b;
-    public final /* synthetic */ om9 c;
+    public final Class<E> a;
+    public Method b;
 
-    public tm9(om9 om9Var, Activity activity, pm9 pm9Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tm9(Class<E> cls) {
+        super(FieldEncoding.VARINT, cls);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {om9Var, activity, pm9Var};
+            Object[] objArr = {cls};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FieldEncoding) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = om9Var;
-        this.a = activity;
-        this.b = pm9Var;
+        this.a = cls;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        com.google.a.b.a.a.a.a aVar;
-        Bundle l;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: a */
+    public E decode(rm9 rm9Var) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, rm9Var)) == null) {
+            int l = rm9Var.l();
             try {
-                AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-                aVar = this.c.d;
-                String str = this.a.getApplicationInfo().packageName;
-                om9 om9Var = this.c;
-                l = om9.l();
-                aVar.a(str, Collections.singletonList(l), new Bundle(), new com.google.ar.core.x(this, atomicBoolean));
-                new Handler().postDelayed(new um9(this, atomicBoolean), 3000L);
-            } catch (RemoteException e) {
-                Log.w("ARCore-InstallService", "requestInstall threw, launching fullscreen.", e);
-                om9 om9Var2 = this.c;
-                om9.n(this.a, this.b);
+                E e = (E) d().invoke(null, Integer.valueOf(l));
+                if (e != null) {
+                    return e;
+                }
+                throw new ProtoAdapter.EnumConstantNotFoundException(l, this.a);
+            } catch (IllegalAccessException | InvocationTargetException e2) {
+                throw new AssertionError(e2);
             }
         }
+        return (E) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: b */
+    public void encode(sm9 sm9Var, E e) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sm9Var, e) == null) {
+            sm9Var.q(e.getValue());
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: c */
+    public int encodedSize(E e) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e)) == null) ? sm9.i(e.getValue()) : invokeL.intValue;
+    }
+
+    public final Method d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Method method = this.b;
+            if (method != null) {
+                return method;
+            }
+            try {
+                Method method2 = this.a.getMethod("fromValue", Integer.TYPE);
+                this.b = method2;
+                return method2;
+            } catch (NoSuchMethodException e) {
+                throw new AssertionError(e);
+            }
+        }
+        return (Method) invokeV.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) ? (obj instanceof tm9) && ((tm9) obj).a == this.a : invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a.hashCode() : invokeV.intValue;
     }
 }

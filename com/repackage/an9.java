@@ -1,96 +1,89 @@
 package com.repackage;
 
 import android.content.Context;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.MotionEvent;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Method;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.win.opensdk.PBNativeListener;
+import com.win.opensdk.core.Info;
 /* loaded from: classes5.dex */
-public class an9 {
+public class an9 implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ ln9 a;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static Object a;
-        public static Class<?> b;
-        public static Method c;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-523236888, "Lcom/repackage/an9$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-523236888, "Lcom/repackage/an9$a;");
-                    return;
-                }
-            }
-            try {
-                Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-                b = cls;
-                a = cls.newInstance();
-                b.getMethod("getUDID", Context.class);
-                c = b.getMethod("getOAID", Context.class);
-                b.getMethod("getVAID", Context.class);
-                b.getMethod("getAAID", Context.class);
-            } catch (Throwable th) {
-                Log.e("XiaomiId", "xiaomi init error", th);
+    public an9(ln9 ln9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ln9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = ln9Var;
+    }
 
-        public static String a(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? b(context, c) : (String) invokeL.objValue;
-        }
-
-        public static String b(Context context, Method method) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, method)) == null) {
-                Object obj = a;
-                if (obj == null || method == null) {
-                    return null;
-                }
-                try {
-                    Object invoke = method.invoke(obj, context);
-                    if (invoke != null) {
-                        return (String) invoke;
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
+        InterceptResult invokeLL;
+        Info info;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            if (action == 0) {
+                this.a.j = true;
+                this.a.k = System.currentTimeMillis();
+                this.a.l = motionEvent.getX();
+                this.a.m = motionEvent.getY();
+                this.a.n = (int) motionEvent.getRawX();
+                this.a.o = (int) motionEvent.getRawY();
+                this.a.p = (int) motionEvent.getX();
+                this.a.q = (int) motionEvent.getY();
+                this.a.v = System.currentTimeMillis();
+                ln9.e(this.a, view2);
+            } else if (action == 1) {
+                this.a.w = (int) motionEvent.getRawX();
+                this.a.x = (int) motionEvent.getRawY();
+                this.a.r = (int) motionEvent.getX();
+                this.a.s = (int) motionEvent.getY();
+                this.a.y = System.currentTimeMillis();
+                Math.abs(motionEvent.getX() - this.a.l);
+                Math.abs(motionEvent.getY() - this.a.m);
+                if (System.currentTimeMillis() - this.a.k < 2000) {
+                    ln9 ln9Var = this.a;
+                    if (ln9Var.j && (info = ln9Var.c) != null && vp9.d(info, ln9Var.h)) {
+                        this.a.h = System.currentTimeMillis();
+                        ln9 ln9Var2 = this.a;
+                        Context context = ln9Var2.a;
+                        String open = ln9Var2.c.getOpen();
+                        ln9 ln9Var3 = this.a;
+                        vp9.a(context, open, ln9Var3.c, ln9Var3.g, ln9Var3.i().toString());
+                        tq9 a = xq9.a(this.a.a);
+                        a.h(new br9(this.a.c), null);
+                        a.l("desc", this.a.i().toString());
+                        a.m();
+                        ln9 ln9Var4 = this.a;
+                        ro9.p(ln9Var4.c, ln9Var4.i().toString());
+                        PBNativeListener pBNativeListener = this.a.f;
+                        if (pBNativeListener != null) {
+                            pBNativeListener.onClicked();
+                        }
                     }
-                    return null;
-                } catch (Exception e) {
-                    Log.e("XiaomiId", "invoke method error", e);
-                    return null;
                 }
             }
-            return (String) invokeLL.objValue;
+            return true;
         }
-
-        public static boolean c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b == null || a == null) ? false : true : invokeV.booleanValue;
-        }
-    }
-
-    public static String a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? a.a(context.getApplicationContext()) : (String) invokeL.objValue;
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.c() : invokeV.booleanValue;
+        return invokeLL.booleanValue;
     }
 }

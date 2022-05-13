@@ -13,10 +13,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface e extends IInterface {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a implements e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,7 +80,7 @@ public interface e extends IInterface {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static abstract class b extends Binder implements e {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String a = "com.baidu.helios.bridge.multiprocess.IMultiProcessBridge";
@@ -90,7 +90,7 @@ public interface e extends IInterface {
         public static final int e = 4;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes.dex */
         public static class a implements e {
             public static /* synthetic */ Interceptable $ic;
             public static e b;

@@ -1,116 +1,62 @@
 package com.repackage;
 
-import android.graphics.Color;
-import android.text.TextPaint;
+import android.content.Context;
 import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.FloatRange;
-import androidx.core.content.ContextCompat;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bumptech.glide.load.engine.GlideException;
-import com.repackage.mo0;
-/* loaded from: classes6.dex */
-public class eh0 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebChromeClient;
+import java.util.HashMap;
+import java.util.Map;
+@Service
+/* loaded from: classes5.dex */
+public class eh0 extends uh0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(mo0 mo0Var) {
-        InterceptResult invokeL;
-        mo0.b bVar;
-        mo0.a aVar;
+    public eh0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, mo0Var)) == null) {
-            if (mo0Var == null) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return (TextUtils.isEmpty(mo0Var.f) && TextUtils.isEmpty(mo0Var.d) && ((bVar = mo0Var.g) == null || TextUtils.isEmpty(bVar.a)) && ((aVar = mo0Var.h) == null || TextUtils.isEmpty(aVar.a))) ? false : true;
         }
-        return invokeL.booleanValue;
     }
 
-    public static String b(String str, String str2, float f, TextPaint textPaint, float f2) {
-        InterceptResult invokeCommon;
+    @Override // com.repackage.uh0
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, Float.valueOf(f), textPaint, Float.valueOf(f2)})) == null) {
-            if (TextUtils.isEmpty(str2)) {
-                str2 = "";
-            }
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            if (textPaint == null) {
-                textPaint = new TextPaint();
-            }
-            CharSequence ellipsize = TextUtils.ellipsize(str, textPaint, f - (textPaint.measureText(GlideException.IndentedAppendable.INDENT) + f2), TextUtils.TruncateAt.END);
-            if (ellipsize != null) {
-                return ellipsize.toString() + GlideException.IndentedAppendable.INDENT + str2;
-            }
-            return str2;
-        }
-        return (String) invokeCommon.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "loadCache" : (String) invokeV.objValue;
     }
 
-    public static int c(float f, int i, int i2) {
-        InterceptResult invokeCommon;
+    @Override // com.repackage.uh0
+    public boolean b(@NonNull Context context, @NonNull yh0 yh0Var, @Nullable Map<String, Object> map, @Nullable ci0 ci0Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            if (i != i2 && f > 0.0f) {
-                if (f >= 1.0f) {
-                    return i2;
-                }
-                int red = Color.red(i);
-                int blue = Color.blue(i);
-                int green = Color.green(i);
-                int alpha = Color.alpha(i);
-                return Color.argb((int) (alpha + (f * (Color.alpha(i2) - alpha))), (int) (red + ((Color.red(i2) - red) * f)), (int) (green + ((Color.green(i2) - green) * f)), (int) (blue + ((Color.blue(i2) - blue) * f)));
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, yh0Var, map, ci0Var)) == null) {
+            super.b(context, yh0Var, map, ci0Var);
+            HashMap<String, String> d = yh0Var.d();
+            String str = d.get("key");
+            String str2 = d.get(WebChromeClient.KEY_ARG_CALLBACK);
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                d(ci0Var, yh0Var, fh0.a().b(str), 0, true);
+                return true;
             }
-            return i;
+            c(ci0Var, yh0Var, 202, false);
+            return true;
         }
-        return invokeCommon.intValue;
-    }
-
-    public static String d(@FloatRange(from = 0.0d, to = 1.0d) float f, String str) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Float.valueOf(f), str})) == null) {
-            String hexString = Integer.toHexString(Math.round(f * 255.0f));
-            if (hexString.length() < 2) {
-                hexString = "0" + hexString;
-            }
-            if (hexString.length() != 2) {
-                return "";
-            }
-            return "#" + hexString + str;
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static int e(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return ContextCompat.getColor(hi0.b(), i);
-            }
-            try {
-                return Color.parseColor(str);
-            } catch (IllegalArgumentException unused) {
-                return ContextCompat.getColor(hi0.b(), i);
-            }
-        }
-        return invokeLI.intValue;
-    }
-
-    public static void f(View view2) {
-        ViewGroup viewGroup;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, null, view2) == null) || view2 == null || (viewGroup = (ViewGroup) view2.getParent()) == null) {
-            return;
-        }
-        viewGroup.removeView(view2);
+        return invokeLLLL.booleanValue;
     }
 }

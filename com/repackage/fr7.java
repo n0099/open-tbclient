@@ -89,7 +89,7 @@ public class fr7 {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements g05 {
+    public class b implements u05 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ View a;
@@ -118,7 +118,7 @@ public class fr7 {
             this.c = i2;
         }
 
-        @Override // com.repackage.g05
+        @Override // com.repackage.u05
         public void a(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
@@ -130,7 +130,7 @@ public class fr7 {
             }
         }
 
-        @Override // com.repackage.g05
+        @Override // com.repackage.u05
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -141,7 +141,7 @@ public class fr7 {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements g05 {
+    public class c implements u05 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ View a;
@@ -170,7 +170,7 @@ public class fr7 {
             this.c = i2;
         }
 
-        @Override // com.repackage.g05
+        @Override // com.repackage.u05
         public void a(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
@@ -189,7 +189,7 @@ public class fr7 {
             }
         }
 
-        @Override // com.repackage.g05
+        @Override // com.repackage.u05
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -264,7 +264,7 @@ public class fr7 {
 
     public final void g(View view2, int i, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(1048579, this, view2, i, i2) == null) && rg.m(this.i, view2, this.f, i - this.c, i2 - this.d)) {
+        if ((interceptable == null || interceptable.invokeLII(1048579, this, view2, i, i2) == null) && pg.m(this.i, view2, this.f, i - this.c, i2 - this.d)) {
             this.h.playAnimation();
         }
     }
@@ -299,7 +299,7 @@ public class fr7 {
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), str, str2}) == null) {
             this.c = this.b / 2;
             this.d = this.a / 2;
-            h05.g().b(str, str2, new b(this, view2, i, i2));
+            v05.g().b(str, str2, new b(this, view2, i, i2));
         }
     }
 
@@ -308,7 +308,7 @@ public class fr7 {
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), view2, Integer.valueOf(i), Integer.valueOf(i2), str, str2}) == null) {
             this.c = 0;
             this.d = this.a;
-            h05.g().e(new Random().nextBoolean() ? "/duang1" : "/duang2", str, str2, z, new c(this, view2, i, i2));
+            v05.g().e(new Random().nextBoolean() ? "/duang1" : "/duang2", str, str2, z, new c(this, view2, i, i2));
         }
     }
 }

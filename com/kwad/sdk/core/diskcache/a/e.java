@@ -49,7 +49,7 @@ public class e {
         OutputStream outputStream = null;
         try {
             try {
-                a.C0294a b = aVar.b(str);
+                a.C0293a b = aVar.b(str);
                 if (b != null) {
                     outputStream = b.a(0);
                     if (d.a(outputStream, obj)) {

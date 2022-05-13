@@ -13,19 +13,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ij8;
-import com.repackage.mg;
-import com.repackage.rj8;
+import com.repackage.fi8;
+import com.repackage.kg;
+import com.repackage.oi8;
 import tbclient.Error;
 import tbclient.FrsPage.FrsPageResIdl;
 /* loaded from: classes4.dex */
-public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<rj8, FrsPageResIdl> {
+public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<oi8, FrsPageResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int mCategoryId;
     public int mIsGood;
     public boolean needCache;
-    public rj8 responseData;
+    public oi8 responseData;
     public int updateType;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -54,10 +54,10 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<rj8
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? FrsPageResIdl.class : (Class) invokeV.objValue;
     }
 
-    public rj8 getResponseData() {
+    public oi8 getResponseData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.responseData : (rj8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.responseData : (oi8) invokeV.objValue;
     }
 
     public int getUpdateType() {
@@ -89,10 +89,10 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<rj8
         }
     }
 
-    public void setResponseData(rj8 rj8Var) {
+    public void setResponseData(oi8 oi8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, rj8Var) == null) {
-            this.responseData = rj8Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, oi8Var) == null) {
+            this.responseData = oi8Var;
         }
     }
 
@@ -106,18 +106,18 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<rj8
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        rj8 rj8Var;
+        oi8 oi8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || hasError() || (rj8Var = this.responseData) == null || !this.needCache || rj8Var.getForum() == null) {
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || hasError() || (oi8Var = this.responseData) == null || !this.needCache || oi8Var.getForum() == null) {
             return;
         }
         int sortType = this.responseData.getSortType();
-        ij8 i2 = ij8.i();
+        fi8 i2 = fi8.i();
         String g = i2.g("1~" + this.responseData.getForum().getName(), sortType, this.mIsGood, this.mCategoryId);
         if (sortType == 3) {
-            ij8.i().m(g, bArr);
+            fi8.i().m(g, bArr);
         } else {
-            ij8.i().a(g, bArr, true);
+            fi8.i().a(g, bArr, true);
         }
     }
 
@@ -129,7 +129,7 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<rj8
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) {
             super.beforeDispatchInBackGround(i, (int) bArr);
-            if (this.responseData.getBookInfo() == null || StringUtils.isNull(this.responseData.getBookInfo().a(), true) || this.responseData.getBookInfo().a().equals("0") || this.responseData.getBookInfo().b() != 3 || (e = mg.e(this.responseData.getBookInfo().a(), -1)) <= 0 || (runTask = MessageManager.getInstance().runTask(2001423, Integer.class, Long.valueOf(e))) == null) {
+            if (this.responseData.getBookInfo() == null || StringUtils.isNull(this.responseData.getBookInfo().a(), true) || this.responseData.getBookInfo().a().equals("0") || this.responseData.getBookInfo().b() != 3 || (e = kg.e(this.responseData.getBookInfo().a(), -1)) <= 0 || (runTask = MessageManager.getInstance().runTask(2001423, Integer.class, Long.valueOf(e))) == null) {
                 return;
             }
             this.responseData.setMangaReadRecordChapterId(Integer.valueOf(((Integer) runTask.getData()).intValue()));
@@ -142,9 +142,9 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<rj8
         Error error;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048581, this, i, bArr) == null) {
-            rj8 rj8Var = new rj8();
-            this.responseData = rj8Var;
-            FrsPageResIdl parserProtobuf = rj8Var.parserProtobuf(bArr, true);
+            oi8 oi8Var = new oi8();
+            this.responseData = oi8Var;
+            FrsPageResIdl parserProtobuf = oi8Var.parserProtobuf(bArr, true);
             if (parserProtobuf != null && (error = parserProtobuf.error) != null) {
                 Integer num = error.errorno;
                 if (num != null) {
@@ -153,9 +153,9 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<rj8
                 }
                 setErrorString(parserProtobuf.error.usermsg);
             }
-            rj8 rj8Var2 = this.responseData;
-            rj8Var2.isFromCache = false;
-            setData(rj8Var2);
+            oi8 oi8Var2 = this.responseData;
+            oi8Var2.isFromCache = false;
+            setData(oi8Var2);
         }
     }
 }

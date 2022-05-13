@@ -1,243 +1,167 @@
 package com.repackage;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
-import com.baidu.tieba.R;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tbadk.abtest.group.AbsGroupUbsABTest;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire.Message;
+import com.squareup.wire.Wire;
+import java.util.ArrayList;
+import java.util.HashMap;
+import org.json.JSONObject;
+import tbclient.StarTrends.DataRes;
+import tbclient.StarTrends.StarTrendsResIdl;
+import tbclient.ThreadInfo;
+import tbclient.User;
 /* loaded from: classes5.dex */
-public class eg6 extends kd6<dg6, CardViewHolder<cg6>> {
+public class eg6 implements z65, f75 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Wire e;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> t;
-    public cg6 u;
-    public dg<ConstrainImageLayout> v;
-    public dg<TbImageView> w;
+    public ArrayList<ro> a;
+    public HashMap<String, MetaData> b;
+    public boolean c;
+    public int d;
 
-    /* loaded from: classes5.dex */
-    public class a implements eg<ConstrainImageLayout> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ eg6 a;
-
-        public a(eg6 eg6Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755738531, "Lcom/repackage/eg6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eg6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = eg6Var;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.eg
-        public /* bridge */ /* synthetic */ ConstrainImageLayout a(ConstrainImageLayout constrainImageLayout) {
-            ConstrainImageLayout constrainImageLayout2 = constrainImageLayout;
-            e(constrainImageLayout2);
-            return constrainImageLayout2;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.eg
-        public /* bridge */ /* synthetic */ ConstrainImageLayout c(ConstrainImageLayout constrainImageLayout) {
-            ConstrainImageLayout constrainImageLayout2 = constrainImageLayout;
-            h(constrainImageLayout2);
-            return constrainImageLayout2;
-        }
-
-        public ConstrainImageLayout e(ConstrainImageLayout constrainImageLayout) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, constrainImageLayout)) == null) ? constrainImageLayout : (ConstrainImageLayout) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.eg
-        /* renamed from: f */
-        public void b(ConstrainImageLayout constrainImageLayout) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, constrainImageLayout) == null) {
-                constrainImageLayout.removeAllViews();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.eg
-        /* renamed from: g */
-        public ConstrainImageLayout d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new ConstrainImageLayout(this.a.t.getPageActivity()) : (ConstrainImageLayout) invokeV.objValue;
-        }
-
-        public ConstrainImageLayout h(ConstrainImageLayout constrainImageLayout) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, constrainImageLayout)) == null) ? constrainImageLayout : (ConstrainImageLayout) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements eg<TbImageView> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ eg6 a;
-
-        public b(eg6 eg6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eg6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eg6Var;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.eg
-        public /* bridge */ /* synthetic */ TbImageView a(TbImageView tbImageView) {
-            TbImageView tbImageView2 = tbImageView;
-            e(tbImageView2);
-            return tbImageView2;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.eg
-        public /* bridge */ /* synthetic */ TbImageView c(TbImageView tbImageView) {
-            TbImageView tbImageView2 = tbImageView;
-            h(tbImageView2);
-            return tbImageView2;
-        }
-
-        public TbImageView e(TbImageView tbImageView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, tbImageView)) == null) ? tbImageView : (TbImageView) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.eg
-        /* renamed from: f */
-        public void b(TbImageView tbImageView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, tbImageView) == null) {
-                tbImageView.setOnClickListener(null);
-                tbImageView.setForegroundColor(0);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.eg
-        /* renamed from: g */
-        public TbImageView d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                TbImageView tbImageView = new TbImageView(this.a.t.getPageActivity());
-                tbImageView.setDrawBorder(true);
-                tbImageView.setBorderColor(SkinManager.getColor(R.color.common_color_10264));
-                tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070198));
-                return tbImageView;
-            }
-            return (TbImageView) invokeV.objValue;
-        }
-
-        public TbImageView h(TbImageView tbImageView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, tbImageView)) == null) {
-                tbImageView.setOnClickListener(null);
-                tbImageView.setForegroundColor(0);
-                return tbImageView;
-            }
-            return (TbImageView) invokeL.objValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public eg6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId, bdUniqueId2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755738531, "Lcom/repackage/eg6;");
                 return;
             }
         }
-        this.v = new dg<>(new a(this), 6, 0);
-        this.w = new dg<>(new b(this), 12, 0);
-        this.t = tbPageContext;
+        e = new Wire(new Class[0]);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: m0 */
-    public CardViewHolder<cg6> M(ViewGroup viewGroup) {
+    public eg6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new ArrayList<>();
+        this.b = new HashMap<>();
+    }
+
+    public StarTrendsResIdl a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            cg6 cg6Var = new cg6(this.t);
-            this.u = cg6Var;
-            cg6Var.v(0.75d);
-            this.u.u(this.v);
-            this.u.t(this.w);
-            return new CardViewHolder<>(this.u);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
+            if (bArr == null) {
+                return null;
+            }
+            try {
+                StarTrendsResIdl starTrendsResIdl = (StarTrendsResIdl) e.parseFrom(bArr, StarTrendsResIdl.class);
+                if (starTrendsResIdl != null && starTrendsResIdl.data != null) {
+                    b(starTrendsResIdl.data);
+                }
+                return starTrendsResIdl;
+            } catch (Exception e2) {
+                BdLog.detailException(e2);
+                return null;
+            }
         }
-        return (CardViewHolder) invokeL.objValue;
+        return (StarTrendsResIdl) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.kd6, com.repackage.ho
-    /* renamed from: n0 */
-    public View S(int i, View view2, ViewGroup viewGroup, dg6 dg6Var, CardViewHolder<cg6> cardViewHolder) {
-        InterceptResult invokeCommon;
+    public final void b(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, dg6Var, cardViewHolder})) == null) {
-            super.S(i, view2, viewGroup, dg6Var, cardViewHolder);
-            cardViewHolder.c().l(dg6Var);
-            return cardViewHolder.b();
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) || dataRes == null) {
+            return;
         }
-        return (View) invokeCommon.objValue;
+        if (!ListUtils.isEmpty(dataRes.user_list)) {
+            for (User user : dataRes.user_list) {
+                if (user != null) {
+                    MetaData metaData = new MetaData();
+                    metaData.parserProtobuf(user);
+                    String userId = metaData.getUserId();
+                    if (userId != null && !"0".equals(userId)) {
+                        this.b.put(userId, metaData);
+                    }
+                }
+            }
+        }
+        if (!ListUtils.isEmpty(dataRes.thread_list)) {
+            for (ThreadInfo threadInfo : dataRes.thread_list) {
+                if (threadInfo != null) {
+                    ThreadData threadData = new ThreadData();
+                    threadData.setUserMap(this.b);
+                    threadData.parserProtobuf(threadInfo);
+                    threadData.parser_title();
+                    threadData.insertItemToTitleOrAbstractText();
+                    if (threadData.getType() == ThreadData.TYPE_NORMAL || threadData.getType() == ThreadData.TYPE_GOD_NORMAL || threadData.getType() == ThreadData.TYPE_SHARE_THREAD || threadData.getType() == ThreadData.TYPE_VIDEO || threadData.getType() == ThreadData.TYPE_VIDEO_GOD || threadData.getType() == ThreadData.TYPE_FRS_HOTTOPIC) {
+                        this.a.add(threadData);
+                    }
+                }
+            }
+        }
+        AbsGroupUbsABTest.setCardInfoUbsABTest(this.a);
+        this.c = dataRes.has_more.intValue() == 1;
+    }
+
+    @Override // com.repackage.a75
+    public String getCacheKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.z65
+    public boolean initByByteArray(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bArr)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.f75
+    public void initByJson(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
+        }
+    }
+
+    @Override // com.repackage.f75
+    public void initByProtobuf(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, message) == null) {
+        }
+    }
+
+    @Override // com.repackage.z65
+    public byte[] toCacheByteArray() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return null;
+        }
+        return (byte[]) invokeV.objValue;
     }
 }

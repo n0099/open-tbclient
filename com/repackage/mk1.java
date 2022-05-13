@@ -1,22 +1,7 @@
 package com.repackage;
 
-import com.baidu.webkit.sdk.VideoPlayerFactory;
-import com.repackage.kz1;
+import android.content.Context;
 /* loaded from: classes6.dex */
 public interface mk1 {
-    int a();
-
-    VideoPlayerFactory b();
-
-    int c();
-
-    void d(boolean z);
-
-    boolean e();
-
-    boolean f();
-
-    void g(int i);
-
-    void h(kz1.c cVar);
+    nc3 a(Context context, String str, String str2, String str3, String str4, String str5);
 }

@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ni;
-import com.repackage.u35;
+import com.repackage.l45;
+import com.repackage.li;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -255,7 +255,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
 
     public void parseJson(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048594, this, str) == null) || ni.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048594, this, str) == null) || li.isEmpty(str)) {
             return;
         }
         try {
@@ -393,7 +393,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
         while (descendingIterator.hasNext()) {
             ImageFileInfo next = descendingIterator.next();
             if (next != null && !next.isHasAddPostQualityAction()) {
-                next.addPersistAction(u35.g(TbImageHelper.getInstance().getPostImageSize(), TbImageHelper.getInstance().getPostImageHeightLimit()));
+                next.addPersistAction(l45.g(TbImageHelper.getInstance().getPostImageSize(), TbImageHelper.getInstance().getPostImageHeightLimit()));
                 next.setHasAddPostQualityAction(true);
             }
         }

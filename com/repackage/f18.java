@@ -1,86 +1,58 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
-import com.baidu.tieba.person.holder.PersonCenterIntervalHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.BookInfo;
+import tbclient.TbBookrack;
 /* loaded from: classes6.dex */
-public class f18 extends ho<b18, PersonCenterIntervalHolder> {
+public class f18 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public int b;
+    public List<g18> c;
+    public String d;
+    public String e;
+    public String f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f18(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    public f18() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.repackage.ho
-    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, b18 b18Var, PersonCenterIntervalHolder personCenterIntervalHolder) {
-        a0(i, view2, viewGroup, b18Var, personCenterIntervalHolder);
-        return view2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: Z */
-    public PersonCenterIntervalHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void a(TbBookrack tbBookrack) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PersonCenterIntervalHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d040a, viewGroup, false)) : (PersonCenterIntervalHolder) invokeL.objValue;
-    }
-
-    public View a0(int i, View view2, ViewGroup viewGroup, b18 b18Var, PersonCenterIntervalHolder personCenterIntervalHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, b18Var, personCenterIntervalHolder})) == null) {
-            if (b18Var != null && personCenterIntervalHolder != null) {
-                int skinType = TbadkCoreApplication.getInst().getSkinType();
-                if (personCenterIntervalHolder.a != skinType) {
-                    personCenterIntervalHolder.a = skinType;
-                    SkinManager.setBackgroundResource(personCenterIntervalHolder.b, b18Var.c);
-                }
-                ViewGroup.LayoutParams layoutParams = personCenterIntervalHolder.b.getLayoutParams();
-                int i2 = b18Var.a;
-                if (i2 > 0) {
-                    layoutParams.height = i2;
-                }
-                int i3 = b18Var.b;
-                if (i3 > 0) {
-                    layoutParams.width = i3;
-                }
-                personCenterIntervalHolder.b.setLayoutParams(layoutParams);
-                personCenterIntervalHolder.b.setOnClickListener(null);
-            }
-            return view2;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, tbBookrack) == null) || tbBookrack == null) {
+            return;
         }
-        return (View) invokeCommon.objValue;
+        this.a = tbBookrack.booktown;
+        this.b = tbBookrack.num.intValue();
+        this.d = tbBookrack.title;
+        this.e = tbBookrack.icon;
+        this.f = tbBookrack.tip;
+        this.c = new ArrayList();
+        List<BookInfo> list = tbBookrack.book_list;
+        if (list != null) {
+            for (BookInfo bookInfo : list) {
+                if (bookInfo != null) {
+                    g18 g18Var = new g18();
+                    g18Var.a(bookInfo);
+                    this.c.add(g18Var);
+                }
+            }
+        }
     }
 }

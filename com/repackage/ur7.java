@@ -136,12 +136,12 @@ public class ur7 {
         this.i = 0L;
         this.k = false;
         this.a = context;
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01e4, (ViewGroup) null);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01dd, (ViewGroup) null);
         this.b = inflate;
-        this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09064e);
-        this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090650);
-        this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090651);
-        this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09064f);
+        this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090646);
+        this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090648);
+        this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090649);
+        this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090647);
     }
 
     public final Animation g() {
@@ -196,7 +196,7 @@ public class ur7 {
         TextView textView = this.e;
         if (textView != null) {
             textView.setVisibility(0);
-            this.e.setText(this.a.getString(R.string.obfuscated_res_0x7f0f03ca, StringHelper.numFormatOver10000(j)));
+            this.e.setText(this.a.getString(R.string.obfuscated_res_0x7f0f03cf, StringHelper.numFormatOver10000(j)));
         }
         TextView textView2 = this.e;
         if (textView2 == null || textView2.getVisibility() != 8) {
@@ -230,9 +230,9 @@ public class ur7 {
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             this.h = z;
             if (z) {
-                SkinManager.setImageResource(this.d, R.drawable.obfuscated_res_0x7f080420);
+                SkinManager.setImageResource(this.d, R.drawable.obfuscated_res_0x7f080417);
             } else {
-                SkinManager.setImageResource(this.d, R.drawable.obfuscated_res_0x7f08041f);
+                SkinManager.setImageResource(this.d, R.drawable.obfuscated_res_0x7f080416);
             }
             this.d.setVisibility(0);
         }
@@ -243,7 +243,7 @@ public class ur7 {
         if (!(interceptable == null || interceptable.invokeL(1048585, this, excellentPbThreadInfo) == null) || excellentPbThreadInfo == null) {
             return;
         }
-        j(R.string.obfuscated_res_0x7f0f03c6);
+        j(R.string.obfuscated_res_0x7f0f03cb);
         l(excellentPbThreadInfo.zan.zansum.longValue());
         o(excellentPbThreadInfo.zan.is_zan.booleanValue());
         this.d.setOnClickListener(new a(this));

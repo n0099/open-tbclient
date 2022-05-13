@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.JvmField;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class qs7 implements uo {
+public final class qs7 implements ro {
     public static /* synthetic */ Interceptable $ic;
     @JvmField
     public static final BdUniqueId a;
@@ -49,7 +49,7 @@ public final class qs7 implements uo {
         }
     }
 
-    @Override // com.repackage.uo
+    @Override // com.repackage.ro
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

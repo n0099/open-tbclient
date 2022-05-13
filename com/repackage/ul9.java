@@ -1,148 +1,207 @@
 package com.repackage;
 
-import android.util.Log;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.Handler;
+import android.os.IBinder;
+import android.os.Looper;
+import android.os.Message;
+import android.os.RemoteException;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.OutputStreamWriter;
-import java.text.SimpleDateFormat;
-import java.util.Locale;
+import com.uodis.opendevice.aidl.OpenDeviceIdentifierService;
 /* loaded from: classes7.dex */
 public class ul9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Object a;
-    public static final SimpleDateFormat b;
-    public static final SimpleDateFormat c;
     public transient /* synthetic */ FieldHolder $fh;
+    public Handler a;
+    public Context b;
+    public c c;
+    public ServiceConnection d;
 
     /* loaded from: classes7.dex */
-    public static class a implements Runnable {
+    public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ul9 a;
 
-        public a() {
+        public a(ul9 ul9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ul9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.a = ul9Var;
+        }
+
+        @Override // android.content.ServiceConnection
+        public void onBindingDied(ComponentName componentName) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, componentName) == null) {
             }
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.content.ServiceConnection
+        public void onNullBinding(ComponentName componentName) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                long currentTimeMillis = System.currentTimeMillis();
-                File[] f = rl9.f();
-                if (f == null || f.length <= 0) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
+            }
+        }
+
+        @Override // android.content.ServiceConnection
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, componentName, iBinder) == null) {
+                this.a.a.obtainMessage(1, OpenDeviceIdentifierService.Stub.asInterface(iBinder)).sendToTarget();
+                this.a.a.removeMessages(2);
+            }
+        }
+
+        @Override // android.content.ServiceConnection
+        public void onServiceDisconnected(ComponentName componentName) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, componentName) == null) {
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ul9 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(ul9 ul9Var, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ul9Var, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                synchronized (ul9.a) {
-                    for (File file : f) {
-                        if (currentTimeMillis - file.lastModified() > 172800000) {
-                            file.delete();
+            }
+            this.a = ul9Var;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                int i = message.what;
+                if (i == 0) {
+                    this.a.c.a(-1, null);
+                } else if (i != 1) {
+                    if (i != 2) {
+                        return;
+                    }
+                    this.a.c.a(-2, null);
+                } else {
+                    OpenDeviceIdentifierService openDeviceIdentifierService = (OpenDeviceIdentifierService) message.obj;
+                    try {
+                        try {
+                            this.a.c.b(openDeviceIdentifierService.getOaid(), openDeviceIdentifierService.isOaidTrackLimited());
+                            try {
+                                this.a.b.unbindService(this.a.d);
+                            } catch (Exception e) {
+                                this.a.c.a(-4, e);
+                            }
+                        } catch (RemoteException e2) {
+                            this.a.c.a(-3, e2);
+                            try {
+                                this.a.b.unbindService(this.a.d);
+                            } catch (Exception unused) {
+                            }
                         }
+                    } catch (Throwable th) {
+                        try {
+                            this.a.b.unbindService(this.a.d);
+                        } catch (Exception e3) {
+                            this.a.c.a(-4, e3);
+                        }
+                        throw th;
                     }
                 }
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755256977, "Lcom/repackage/ul9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755256977, "Lcom/repackage/ul9;");
+    /* loaded from: classes7.dex */
+    public interface c {
+        void a(int i, Exception exc);
+
+        void b(String str, boolean z);
+    }
+
+    public ul9(Context context, c cVar, Handler handler) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, cVar, handler};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new Object();
-        b = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss.SSS", Locale.US);
-        c = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
+        this.d = new a(this);
+        this.b = context;
+        this.c = cVar;
+        this.a = new b(this, handler == null ? Looper.getMainLooper() : handler.getLooper());
     }
 
-    public static void b() {
+    public static void d(Context context, c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            tl9.b().post(new a());
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, cVar) == null) {
+            e(context, cVar, null);
         }
     }
 
-    public static String c(String str) {
-        InterceptResult invokeL;
-        String d;
+    public static void e(Context context, c cVar, Handler handler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            synchronized (a) {
-                d = d("looper", str);
+        if (interceptable == null || interceptable.invokeLLL(65541, null, context, cVar, handler) == null) {
+            new ul9(context.getApplicationContext(), cVar, handler).f();
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
+            intent.setPackage("com.huawei.hwid");
+            if (this.b.bindService(intent, this.d, 1)) {
+                Handler handler = this.a;
+                handler.sendMessageDelayed(handler.obtainMessage(2), 10000L);
+                return;
             }
-            return d;
+            this.a.sendEmptyMessage(0);
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            String str3 = "";
-            BufferedWriter bufferedWriter = null;
-            try {
-                File c2 = rl9.c();
-                long currentTimeMillis = System.currentTimeMillis();
-                str3 = c2.getAbsolutePath() + "/" + str + "-" + b.format(Long.valueOf(currentTimeMillis)) + ".log";
-                BufferedWriter bufferedWriter2 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(str3, true), "UTF-8"));
-                try {
-                    bufferedWriter2.write("\r\n");
-                    bufferedWriter2.write("**********************");
-                    bufferedWriter2.write("\r\n");
-                    bufferedWriter2.write(c.format(Long.valueOf(currentTimeMillis)) + "(write log time)");
-                    bufferedWriter2.write("\r\n");
-                    bufferedWriter2.write("\r\n");
-                    bufferedWriter2.write(str2);
-                    bufferedWriter2.write("\r\n");
-                    bufferedWriter2.flush();
-                    bufferedWriter2.close();
-                } catch (Throwable th) {
-                    th = th;
-                    bufferedWriter = bufferedWriter2;
-                    try {
-                        Log.e("LogWriter", "save: ", th);
-                        return str3;
-                    } finally {
-                        if (bufferedWriter != null) {
-                            try {
-                                bufferedWriter.close();
-                            } catch (Exception e) {
-                                Log.e("LogWriter", "save: ", e);
-                            }
-                        }
-                    }
-                }
-            } catch (Throwable th2) {
-                th = th2;
-            }
-            return str3;
-        }
-        return (String) invokeLL.objValue;
     }
 }

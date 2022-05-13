@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.um4;
+import com.repackage.fn4;
 import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmProxyCallback;
 import java.util.Map;
 import kotlin.jvm.functions.Function1;
@@ -607,7 +607,7 @@ public class WalletPluginManager {
     public void invokePlugin(IInvokeCallback iInvokeCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, iInvokeCallback) == null) {
-            if (um4.c().contains("Host") && um4.c().contains("-Wallet")) {
+            if (fn4.c().contains("Host") && fn4.c().contains("-Wallet")) {
                 if (NPSPackageManager.getInstance().getBundleStatus(PLUGIN_PKG_NAME) == 43) {
                     NPSManager.getInstance().loadClazz(PLUGIN_PKG_NAME, PLUGIN_IMPL_CLASS, IWalletPlugin.class, iInvokeCallback);
                     return;

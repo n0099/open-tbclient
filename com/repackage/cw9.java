@@ -1,74 +1,23 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
-import org.brotli.dec.BrotliRuntimeException;
 /* loaded from: classes5.dex */
-public final class cw9 {
+public class cw9 implements bw9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] A;
-    public int B;
-    public int C;
-    public int D;
-    public int E;
-    public int F;
-    public int G;
-    public byte[] H;
-    public int I;
-    public int J;
-    public int K;
-    public int L;
-    public int M;
-    public int N;
-    public int O;
-    public int P;
-    public int Q;
-    public long R;
-    public byte[] S;
-    public int T;
-    public int U;
-    public int V;
-    public int W;
-    public int X;
-    public int Y;
-    public byte[] Z;
-    public int a;
-    public int b;
-    public final tv9 c;
-    public byte[] d;
-    public final int[] e;
-    public final int[] f;
-    public int g;
-    public boolean h;
-    public boolean i;
-    public boolean j;
-    public final zv9 k;
-    public final zv9 l;
-    public final zv9 m;
-    public final int[] n;
-    public final int[] o;
-    public final int[] p;
-    public final int[] q;
-    public int r;
-    public int s;
-    public int t;
-    public boolean u;
-    public int v;
-    public int w;
-    public int x;
-    public int y;
-    public byte[] z;
+    public final String a;
 
-    public cw9() {
+    public cw9(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -78,79 +27,67 @@ public final class cw9 {
                 return;
             }
         }
-        this.a = 0;
-        this.c = new tv9();
-        this.e = new int[3240];
-        this.f = new int[3240];
-        this.k = new zv9();
-        this.l = new zv9();
-        this.m = new zv9();
-        this.n = new int[3];
-        this.o = new int[3];
-        this.p = new int[6];
-        this.q = new int[]{16, 15, 11, 4};
-        this.r = 0;
-        this.s = 0;
-        this.t = 0;
-        this.u = false;
-        this.v = 0;
-        this.Q = 0;
-        this.R = 0L;
-        this.S = new byte[0];
-        this.T = 0;
-    }
-
-    public static void a(cw9 cw9Var) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, cw9Var) == null) {
-            int i = cw9Var.a;
-            if (i == 0) {
-                throw new IllegalStateException("State MUST be initialized");
-            }
-            if (i == 11) {
-                return;
-            }
-            cw9Var.a = 11;
-            tv9.b(cw9Var.c);
+        if (str != null) {
+            this.a = str;
+            return;
         }
+        throw new IllegalArgumentException();
     }
 
-    public static int b(tv9 tv9Var) {
+    @Override // com.repackage.bw9
+    public bw9 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new cw9(c()) : (bw9) invokeV.objValue;
+    }
+
+    @Override // com.repackage.bw9
+    public boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, tv9Var)) == null) {
-            if (tv9.i(tv9Var, 1) == 0) {
-                return 16;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            for (String str2 : str.replaceAll(" ", "").split(",")) {
+                if (this.a.equals(str2)) {
+                    return true;
+                }
             }
-            int i = tv9.i(tv9Var, 3);
-            if (i != 0) {
-                return i + 17;
-            }
-            int i2 = tv9.i(tv9Var, 3);
-            if (i2 != 0) {
-                return i2 + 8;
-            }
-            return 17;
+            return false;
         }
-        return invokeL.intValue;
+        return invokeL.booleanValue;
     }
 
-    public static void c(cw9 cw9Var, InputStream inputStream) {
+    @Override // com.repackage.bw9
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, cw9Var, inputStream) == null) {
-            if (cw9Var.a == 0) {
-                tv9.e(cw9Var.c, inputStream);
-                int b = b(cw9Var.c);
-                if (b != 9) {
-                    int i = 1 << b;
-                    cw9Var.P = i;
-                    cw9Var.O = i - 16;
-                    cw9Var.a = 1;
-                    return;
-                }
-                throw new BrotliRuntimeException("Invalid 'windowBits' code");
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            throw new IllegalStateException("State MUST be uninitialized");
+            if (obj == null || cw9.class != obj.getClass()) {
+                return false;
+            }
+            return this.a.equals(((cw9) obj).a);
         }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.hashCode() : invokeV.intValue;
+    }
+
+    @Override // com.repackage.bw9
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? c() : (String) invokeV.objValue;
     }
 }

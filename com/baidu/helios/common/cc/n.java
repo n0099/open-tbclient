@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j50;
+import com.repackage.s40;
 import java.lang.reflect.Method;
 /* loaded from: classes2.dex */
 public class n {
@@ -82,7 +82,7 @@ public class n {
     public static String a(byte[] bArr) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) ? new String(new j50().a(bArr), "UTF-8") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) ? new String(new s40().a(bArr), "UTF-8") : (String) invokeL.objValue;
     }
 
     public static Method b(Class<?> cls, String str, Class<?>[] clsArr) throws NoSuchMethodException {

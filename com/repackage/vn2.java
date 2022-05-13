@@ -1,159 +1,105 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.net.Uri;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.media.chooser.model.MediaModel;
-import com.baidu.tieba.R;
+import com.baidu.searchbox.retrieve.log.bean.FetchLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.facebook.imagepipeline.common.ResizeOptions;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import java.io.File;
-import java.util.ArrayList;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class vn2 extends BaseAdapter {
+public class vn2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
+    public String a;
     public String b;
-    public ArrayList<jo2> c;
+    public String c;
     public int d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
+    public int h;
+    public float i;
+    public String j;
 
-    /* loaded from: classes7.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public SimpleDraweeView a;
-        public TextView b;
-        public TextView c;
-
-        public a(vn2 vn2Var, View view2) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755225481, "Lcom/repackage/vn2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vn2Var, view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090248);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09024b);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09024a);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755225481, "Lcom/repackage/vn2;");
+                return;
+            }
         }
+        boolean z = eh1.a;
     }
 
-    public vn2(Activity activity, String str, ArrayList<jo2> arrayList) {
+    public vn2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, str, arrayList};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = activity;
-        this.b = str;
-        this.c = arrayList;
-        this.d = (int) (ae3.f(activity, 50.0f) / 2.0f);
+        this.a = "";
+        this.b = "";
+        this.c = "";
+        this.d = 0;
+        this.e = false;
+        this.f = false;
+        this.g = true;
+        this.h = 0;
+        this.i = 1.0f;
     }
 
-    public final String a(int i) {
-        InterceptResult invokeI;
+    public static vn2 a(JSONObject jSONObject, vn2 vn2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? TextUtils.equals(this.b, "Image") ? this.a.getString(R.string.obfuscated_res_0x7f0f129a, new Object[]{Integer.valueOf(i)}) : this.a.getString(R.string.obfuscated_res_0x7f0f1269, new Object[]{Integer.valueOf(i)}) : (String) invokeI.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, vn2Var)) == null) {
+            vn2 vn2Var2 = new vn2();
+            if (jSONObject != null) {
+                vn2Var2.a = jSONObject.optString("audioId", vn2Var.a);
+                vn2Var2.b = jSONObject.optString("slaveId", vn2Var.b);
+                vn2Var2.e = jSONObject.optBoolean("autoplay", vn2Var.e);
+                vn2Var2.f = jSONObject.optBoolean("loop", vn2Var.f);
+                vn2Var2.c = jSONObject.optString("src", vn2Var.c);
+                vn2Var2.d = jSONObject.optInt(FetchLog.START_TIME, vn2Var.d);
+                vn2Var2.g = jSONObject.optBoolean("obeyMuteSwitch", vn2Var.g);
+                vn2Var2.h = jSONObject.optInt("position", vn2Var.h);
+                vn2Var2.i = (float) jSONObject.optDouble("volume", vn2Var.i);
+                vn2Var2.j = jSONObject.optString("cb", vn2Var.j);
+            }
+            return vn2Var2;
+        }
+        return (vn2) invokeLL.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.a) : invokeV.booleanValue;
+    }
+
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<jo2> arrayList = this.c;
-            if (arrayList == null) {
-                return 0;
-            }
-            return arrayList.size();
+            return "playerId : " + this.a + "; slaveId : " + this.b + "; url : " + this.c + "; AutoPlay : " + this.e + "; Loop : " + this.f + "; startTime : " + this.d + "; ObeyMute : " + this.g + "; pos : " + this.h;
         }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            if (i < 0 || i > this.c.size()) {
-                return null;
-            }
-            return this.c.get(i);
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07cc, (ViewGroup) null);
-                aVar = new a(this, view2);
-                view2.setTag(aVar);
-            } else {
-                aVar = (a) view2.getTag();
-            }
-            view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081151));
-            jo2 jo2Var = this.c.get(i);
-            if (jo2Var == null) {
-                return view2;
-            }
-            aVar.b.setText(jo2Var.c());
-            ArrayList<MediaModel> arrayList = jo2Var.d;
-            if (arrayList == null) {
-                return view2;
-            }
-            aVar.c.setText(a(arrayList.size()));
-            if (jo2Var.d.get(0) != null && !TextUtils.isEmpty(jo2Var.d.get(0).getPath())) {
-                ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(Uri.fromFile(new File(jo2Var.d.get(0).getPath())));
-                int i2 = this.d;
-                newBuilderWithSource.setResizeOptions(new ResizeOptions(i2, i2));
-                newBuilderWithSource.setLocalThumbnailPreviewsEnabled(true);
-                aVar.a.setController(Fresco.newDraweeControllerBuilder().setAutoPlayAnimations(false).setImageRequest(newBuilderWithSource.build()).setOldController(aVar.a.getController()).build());
-            }
-            return view2;
-        }
-        return (View) invokeILL.objValue;
+        return (String) invokeV.objValue;
     }
 }

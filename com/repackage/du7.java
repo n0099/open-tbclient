@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.l36;
+import com.repackage.m36;
 /* loaded from: classes5.dex */
 public class du7 {
     public static /* synthetic */ Interceptable $ic;
@@ -21,24 +21,24 @@ public class du7 {
     public boolean a;
     public boolean b;
     public final bu7 c;
-    public final m36 d;
-    public l36.b e;
+    public final n36 d;
+    public m36.b e;
     public View.OnTouchListener f;
 
     /* loaded from: classes5.dex */
-    public class a implements l36.b {
+    public class a implements m36.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ du7 a;
 
         /* renamed from: com.repackage.du7$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0406a implements Runnable {
+        public class RunnableC0402a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0406a(a aVar) {
+            public RunnableC0402a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -116,7 +116,7 @@ public class du7 {
             this.a = du7Var;
         }
 
-        @Override // com.repackage.l36.b
+        @Override // com.repackage.m36.b
         public void a(int i, int i2) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) || !this.a.c.l() || this.a.e() || this.a.f()) {
@@ -124,10 +124,10 @@ public class du7 {
             }
             this.a.g(true);
             this.a.h(true);
-            this.a.c.k().t(new RunnableC0406a(this));
+            this.a.c.k().t(new RunnableC0402a(this));
         }
 
-        @Override // com.repackage.l36.b
+        @Override // com.repackage.m36.b
         public void b(int i, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) && this.a.c.l() && !this.a.e() && this.a.c.k().h() && Math.abs(i2) > du7.g) {
@@ -137,14 +137,14 @@ public class du7 {
             }
         }
 
-        @Override // com.repackage.l36.b
+        @Override // com.repackage.m36.b
         public void c(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
             }
         }
 
-        @Override // com.repackage.l36.b
+        @Override // com.repackage.m36.b
         public void d(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
@@ -201,7 +201,7 @@ public class du7 {
                 return;
             }
         }
-        g = oi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0701d5);
+        g = mi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0701d5);
     }
 
     public du7(bu7 bu7Var) {
@@ -222,9 +222,9 @@ public class du7 {
         this.e = new a(this);
         this.f = new b(this);
         this.c = bu7Var;
-        m36 m36Var = new m36(bu7Var.b.getPageContext().getPageActivity());
-        this.d = m36Var;
-        m36Var.d(this.e);
+        n36 n36Var = new n36(bu7Var.b.getPageContext().getPageActivity());
+        this.d = n36Var;
+        n36Var.d(this.e);
     }
 
     public void d() {

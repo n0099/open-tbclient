@@ -2,6 +2,7 @@ package com.repackage;
 
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.consts.AdDownloadAction;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
@@ -19,7 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ej0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +28,7 @@ public class ej0 {
     public final ReentrantReadWriteLock b;
     public final IAdDownloader c;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -83,7 +84,7 @@ public class ej0 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static final ej0 a;
@@ -116,10 +117,20 @@ public class ej0 {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (ej0) invokeV.objValue;
     }
 
-    public static void c(@NonNull AdDownloadAction adDownloadAction, @NonNull rj0 rj0Var) {
+    public static void c(@NonNull rj0 rj0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, rj0Var) == null) {
+            if (TextUtils.isEmpty(rj0Var.p.c) || !th0.b(rj0Var.p.c)) {
+                pk0.f(rj0Var.d);
+                d(AdDownloadAction.OPEN, rj0Var);
+            }
+        }
+    }
+
+    public static void d(@NonNull AdDownloadAction adDownloadAction, @NonNull rj0 rj0Var) {
         ClogBuilder.LogType logType;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, adDownloadAction, rj0Var) == null) || TextUtils.isEmpty(rj0Var.p.a)) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, adDownloadAction, rj0Var) == null) || TextUtils.isEmpty(rj0Var.p.a)) {
             return;
         }
         switch (a.a[adDownloadAction.ordinal()]) {
@@ -142,7 +153,7 @@ public class ej0 {
                 logType = ClogBuilder.LogType.INSTALL_COMPLETE;
                 break;
             case 7:
-                logType = ClogBuilder.LogType.OPEN_APP;
+                logType = ClogBuilder.LogType.DEEP_LINK;
                 break;
             case 8:
                 logType = ClogBuilder.LogType.DOWNLOAD_FAILED;
@@ -151,7 +162,7 @@ public class ej0 {
                 return;
         }
         ClogBuilder clogBuilder = new ClogBuilder();
-        clogBuilder.s(logType).n(rj0Var.p.a).h(rj0Var.q.i).i(rj0Var.d).j(rj0Var.q.a).k(rj0Var.q.b).l(rj0Var.g);
+        clogBuilder.w(logType).n(rj0Var.p.a).h(rj0Var.q.i).i(rj0Var.d).j(rj0Var.q.a).k(rj0Var.q.b).l(rj0Var.g);
         JSONObject jSONObject = new JSONObject();
         if (!TextUtils.isEmpty(rj0Var.q.c)) {
             uy0.f(jSONObject, "ad_download_content_type", rj0Var.q.c);
@@ -170,7 +181,7 @@ public class ej0 {
         if (jSONObject.length() > 0) {
             clogBuilder.m(jSONObject.toString());
         }
-        ez0.b(clogBuilder);
+        ez0.c(clogBuilder);
     }
 
     public void a(@NonNull rj0 rj0Var) {
@@ -180,13 +191,13 @@ public class ej0 {
         }
         this.c.d(rj0Var.b);
         rj0Var.c = AdDownloadStatus.NONE;
-        d(AdDownloadAction.FAIL, rj0Var);
+        e(AdDownloadAction.FAIL, rj0Var);
     }
 
-    public void d(@NonNull AdDownloadAction adDownloadAction, @NonNull rj0 rj0Var) {
+    public void e(@NonNull AdDownloadAction adDownloadAction, @NonNull rj0 rj0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adDownloadAction, rj0Var) == null) {
-            c(adDownloadAction, rj0Var);
+            d(adDownloadAction, rj0Var);
             this.b.readLock().lock();
             try {
                 List list = (List) vy0.b(this.a, rj0Var.d());
@@ -197,7 +208,7 @@ public class ej0 {
                     gk0 gk0Var = (gk0) ty0.d(list, i);
                     if (gk0Var != null && gk0Var.getData() != null) {
                         gk0Var.getData().h(rj0Var);
-                        gk0Var.c(adDownloadAction, gk0Var.getData());
+                        gk0Var.a(adDownloadAction, gk0Var.getData());
                     }
                 }
             } finally {
@@ -206,14 +217,14 @@ public class ej0 {
         }
     }
 
-    public void e(@NonNull rj0 rj0Var) {
+    public void f(@NonNull rj0 rj0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rj0Var) == null) {
             this.c.b(rj0Var.b);
         }
     }
 
-    public void f(String str, gk0 gk0Var) {
+    public void g(String str, gk0 gk0Var) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, gk0Var) == null) || TextUtils.isEmpty(str) || gk0Var == null) {
             return;
@@ -231,24 +242,24 @@ public class ej0 {
         }
     }
 
-    public void g(@NonNull rj0 rj0Var) {
+    public void h(@NonNull rj0 rj0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, rj0Var) == null) {
-            d(AdDownloadAction.PROGRESS_UPDATE, rj0Var);
+            e(AdDownloadAction.PROGRESS_UPDATE, rj0Var);
             this.c.c(rj0Var.b, rj0Var.g, new fj0(rj0Var));
         }
     }
 
-    public void h(@NonNull rj0 rj0Var) {
+    public void i(@NonNull rj0 rj0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, rj0Var) == null) {
-            d(AdDownloadAction.PROGRESS_UPDATE, rj0Var);
+            e(AdDownloadAction.PROGRESS_UPDATE, rj0Var);
             rj0Var.b = this.c.a(rj0Var.g, new fj0(rj0Var));
             rj0Var.c = AdDownloadStatus.DOWNLOADING;
         }
     }
 
-    public void i(String str, gk0 gk0Var) {
+    public void j(String str, gk0 gk0Var) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, gk0Var) == null) || TextUtils.isEmpty(str) || gk0Var == null) {
             return;

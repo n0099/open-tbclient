@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qe5;
+import com.repackage.jf5;
 /* loaded from: classes3.dex */
 public class ObservedChangeLinearLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qe5 a;
+    public jf5 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ObservedChangeLinearLayout(Context context) {
@@ -36,10 +36,10 @@ public class ObservedChangeLinearLayout extends LinearLayout {
         }
     }
 
-    public qe5 getOnSizeChangeListener() {
+    public jf5 getOnSizeChangeListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (qe5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (jf5) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -47,17 +47,17 @@ public class ObservedChangeLinearLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) {
             super.onSizeChanged(i, i2, i3, i4);
-            qe5 qe5Var = this.a;
-            if (qe5Var != null) {
-                qe5Var.a(this, i, i2, i3, i4);
+            jf5 jf5Var = this.a;
+            if (jf5Var != null) {
+                jf5Var.a(this, i, i2, i3, i4);
             }
         }
     }
 
-    public void setOnSizeChangeListener(qe5 qe5Var) {
+    public void setOnSizeChangeListener(jf5 jf5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qe5Var) == null) {
-            this.a = qe5Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jf5Var) == null) {
+            this.a = jf5Var;
         }
     }
 

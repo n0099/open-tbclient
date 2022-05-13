@@ -1,10 +1,7 @@
 package com.repackage;
 
-import android.view.View;
-import androidx.annotation.RequiresApi;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import android.os.Build;
+import android.view.LayoutInflater;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,42 +9,98 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 /* loaded from: classes6.dex */
 public class hf4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Set<String> a;
-    public if4<List<gf4>> b;
 
     /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public interface a {
+        void a(LayoutInflater layoutInflater, lf4 lf4Var);
     }
 
     /* loaded from: classes6.dex */
-    public static class b {
+    public static class b implements a {
         public static /* synthetic */ Interceptable $ic;
-        public static final hf4 a;
         public transient /* synthetic */ FieldHolder $fh;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-330369923, "Lcom/repackage/hf4$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-330369923, "Lcom/repackage/hf4$b;");
-                    return;
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            a = new hf4(null);
+        }
+
+        @Override // com.repackage.hf4.a
+        public void a(LayoutInflater layoutInflater, lf4 lf4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, layoutInflater, lf4Var) == null) {
+                if4.a(layoutInflater, lf4Var);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c extends b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.hf4.b, com.repackage.hf4.a
+        public void a(LayoutInflater layoutInflater, lf4 lf4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, layoutInflater, lf4Var) == null) {
+                jf4.b(layoutInflater, lf4Var);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class d extends c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.hf4.c, com.repackage.hf4.b, com.repackage.hf4.a
+        public void a(LayoutInflater layoutInflater, lf4 lf4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, layoutInflater, lf4Var) == null) {
+                kf4.a(layoutInflater, lf4Var);
+            }
         }
     }
 
@@ -64,73 +117,20 @@ public class hf4 {
                 return;
             }
         }
-        String str = ProcessUtils.getCurProcessName() + ".trace";
-        AppRuntime.getAppContext().getExternalFilesDir(null);
-    }
-
-    public /* synthetic */ hf4(a aVar) {
-        this();
-    }
-
-    public static hf4 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (hf4) invokeV.objValue;
-    }
-
-    public void a(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+        int i = Build.VERSION.SDK_INT;
+        if (i >= 21) {
+            a = new d();
+        } else if (i >= 11) {
+            a = new c();
+        } else {
+            a = new b();
         }
     }
 
-    public if4<List<gf4>> c() {
-        InterceptResult invokeV;
+    public static void a(LayoutInflater layoutInflater, lf4 lf4Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (if4) invokeV.objValue;
-    }
-
-    public Set<String> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Set<String> set = this.a;
-            if (set != null) {
-                return set;
-            }
-            HashSet hashSet = new HashSet();
-            this.a = hashSet;
-            hashSet.add("V8JavaScriptContext");
-            this.a.add("main");
-            return this.a;
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    @RequiresApi(api = 21)
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    public hf4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeLL(65537, null, layoutInflater, lf4Var) == null) {
+            a.a(layoutInflater, lf4Var);
         }
     }
 }

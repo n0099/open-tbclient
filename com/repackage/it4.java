@@ -1,5 +1,7 @@
 package com.repackage;
+
+import java.util.List;
 /* loaded from: classes6.dex */
 public interface it4 {
-    void onKeyboardHeightChanged(int i, int i2);
+    void a(List<Long> list);
 }

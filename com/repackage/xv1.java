@@ -1,153 +1,165 @@
 package com.repackage;
 
-import android.graphics.Color;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.http.request.PostBodyRequest;
+import com.baidu.swan.apps.commonsync.CommonSyncServerData;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import java.util.Map;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class xv1 extends zv1 {
+public class xv1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public JSONObject j;
-    public int k;
-    public int l;
-    public int m;
-    public int n;
-    public JSONArray o;
-    public float p;
-    @Nullable
-    public JSONObject q;
-    public long r;
-    public String s;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xv1(String str, @NonNull String str2) {
-        super(str, str2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public static class a extends ResponseCallback<CommonSyncServerData> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zv1 a;
+
+        public a(zv1 zv1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zv1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zv1Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(CommonSyncServerData commonSyncServerData, int i) {
+            zv1 zv1Var;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, commonSyncServerData, i) == null) || (zv1Var = this.a) == null) {
+                return;
+            }
+            zv1Var.a(commonSyncServerData);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: b */
+        public CommonSyncServerData parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i)) == null) {
+                if (response != null && response.body() != null) {
+                    String string = response.body().string();
+                    if (TextUtils.isEmpty(string)) {
+                        return null;
+                    }
+                    JSONObject jSONObject = new JSONObject(string);
+                    int optInt = jSONObject.optInt("errno");
+                    JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                    if (optInt == xv1.b && optJSONObject != null) {
+                        return CommonSyncServerData.parseFromJson(optJSONObject);
+                    }
+                }
+                return null;
+            }
+            return (CommonSyncServerData) invokeLI.objValue;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            zv1 zv1Var;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) || (zv1Var = this.a) == null) {
+                return;
+            }
+            zv1Var.onFail();
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755158242, "Lcom/repackage/xv1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755158242, "Lcom/repackage/xv1;");
                 return;
             }
         }
-        this.k = 0;
-        this.m = 0;
-        this.p = -1.0f;
-        this.s = "";
+        a = eh1.a;
+        b = 0;
     }
 
-    @Override // com.repackage.zv1, com.repackage.iq2
-    public void a(JSONObject jSONObject) throws JSONException {
+    public static void b(zv1 zv1Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(65538, null, zv1Var) == null) {
+            if (!SwanAppNetworkUtils.h()) {
+                if (zv1Var != null) {
+                    zv1Var.onFail();
+                    return;
+                }
+                return;
+            }
+            w74.g().getRequest().cookieManager(bk2.q().a()).url(bk2.m().processUrl(yv1.a())).build().executeAsync(new a(zv1Var));
         }
-        super.a(jSONObject);
-        this.j = jSONObject.optJSONObject("style");
-        this.q = jSONObject.optJSONObject(AnimatedStateListDrawableCompat.ELEMENT_TRANSITION);
-        i();
-        h();
     }
 
-    @Override // com.repackage.zv1
-    public Object clone() throws CloneNotSupportedException {
-        InterceptResult invokeV;
+    public static RequestBody c(Map<String, Object> map) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            xv1 xv1Var = (xv1) super.clone();
-            if (this.j != null) {
-                try {
-                    xv1Var.j = new JSONObject(this.j.toString());
-                } catch (JSONException e) {
-                    e.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (map != null && map.size() > 0) {
+                for (String str : map.keySet()) {
+                    try {
+                        jSONObject.put(str, map.get(str));
+                    } catch (JSONException e) {
+                        if (a) {
+                            e.printStackTrace();
+                        }
+                    }
                 }
             }
-            if (this.o != null) {
-                try {
-                    xv1Var.o = new JSONArray(this.o.toString());
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                }
-            }
-            if (this.q != null) {
-                try {
-                    xv1Var.q = new JSONObject(this.q.toString());
-                } catch (JSONException e3) {
-                    e3.printStackTrace();
-                }
-            }
-            return xv1Var;
+            return RequestBody.create(bs2.a, jSONObject.toString());
         }
-        return invokeV.objValue;
+        return (RequestBody) invokeL.objValue;
     }
 
-    @Override // com.repackage.zv1
-    public void g(JSONObject jSONObject) {
+    public static void d(Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            super.g(jSONObject);
-            i();
-            h();
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, map) == null) && SwanAppNetworkUtils.h()) {
+            ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) w74.g().postRequest().cookieManager(bk2.q().a())).url(bk2.m().processUrl(yv1.b()))).requestBody(c(map)).build().executeAsync(null);
         }
     }
 
-    public final void h() {
-        JSONObject jSONObject;
+    public static void e(Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (jSONObject = this.q) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(65541, null, map) == null) && SwanAppNetworkUtils.h()) {
+            ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) w74.g().postRequest().cookieManager(bk2.q().a())).url(bk2.m().processUrl(yv1.c()))).requestBody(c(map)).build().executeAsync(null);
         }
-        try {
-            this.r = Long.parseLong(jSONObject.optString("duration"));
-        } catch (Exception unused) {
-            jx1.b("Component-Model-View", "duration occurs exception");
-            this.r = 0L;
-        }
-        this.s = this.q.optString("easing");
-    }
-
-    public final void i() {
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (jSONObject = this.j) == null) {
-            return;
-        }
-        try {
-            this.k = Color.parseColor(jSONObject.optString("bgColor"));
-        } catch (Exception unused) {
-            jx1.b("Component-Model-View", "backgroundColor occurs exception");
-            this.k = 0;
-        }
-        this.l = this.j.optInt("borderWidth");
-        try {
-            this.m = Color.parseColor(this.j.optString("borderColor"));
-        } catch (Exception unused2) {
-            jx1.b("Component-Model-View", "borderColor occurs exception");
-            this.m = 0;
-        }
-        this.n = ae3.g(this.j.optInt("borderRadius"));
-        this.p = jd3.b(this.j, NativeConstants.OPACITY, -1.0f);
-        this.o = this.j.optJSONArray(CriusAttrConstants.PADDING);
     }
 }

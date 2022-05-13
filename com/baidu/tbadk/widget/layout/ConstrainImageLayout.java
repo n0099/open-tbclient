@@ -32,25 +32,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.Cdo;
-import com.repackage.dg;
-import com.repackage.fo;
-import com.repackage.h35;
-import com.repackage.ig;
-import com.repackage.pe5;
-import com.repackage.tr4;
-import com.repackage.wr4;
+import com.repackage.ao;
+import com.repackage.bg;
+import com.repackage.co;
+import com.repackage.es4;
+import com.repackage.gg;
+import com.repackage.hs4;
+import com.repackage.if5;
+import com.repackage.y35;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class ConstrainImageLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId a;
-    public dg<TbImageView> b;
+    public bg<TbImageView> b;
     public int c;
     public int d;
     public boolean e;
-    public pe5 f;
+    public if5 f;
     public String g;
     public Paint h;
     public Paint i;
@@ -58,7 +58,7 @@ public class ConstrainImageLayout extends ViewGroup {
     public double k;
     public int l;
     public boolean m;
-    public Cdo n;
+    public ao n;
     public Bitmap o;
     public boolean p;
     public int q;
@@ -157,7 +157,7 @@ public class ConstrainImageLayout extends ViewGroup {
             if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbImageView, canvas) == null) || tbImageView == null || tbImageView.getImageMatrix() == null) {
                 return;
             }
-            fo m = h35.k().m(ig.h().g(tbImageView.getUrl(), this.a.e ? 13 : 14));
+            co m = y35.k().m(gg.h().g(tbImageView.getUrl(), this.a.e ? 13 : 14));
             int i2 = 0;
             if (m != null) {
                 i2 = m.r();
@@ -361,14 +361,14 @@ public class ConstrainImageLayout extends ViewGroup {
                 i2 = Integer.MIN_VALUE;
             }
             this.i.setShader(new LinearGradient(0.0f, 0.0f, 0.0f, f, i, i2, Shader.TileMode.CLAMP));
-            canvas2.drawPath(wr4.a(rectF2, fArr), this.i);
+            canvas2.drawPath(hs4.a(rectF2, fArr), this.i);
         }
         canvas.drawBitmap(this.o, rectF.left, rectF.top, this.h);
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_H_X004);
         int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X006);
         int i5 = ((int) rectF.bottom) - dimenPixelSize;
         int measureText = (((int) rectF.right) - dimenPixelSize2) - ((int) this.j.measureText(this.g));
-        float[] B = tr4.B(R.array.S_O_X001);
+        float[] B = es4.B(R.array.S_O_X001);
         this.j.setShadowLayer(B[1], B[2], B[3], (int) B[0]);
         canvas.drawText(this.g, measureText, i5, this.j);
     }
@@ -399,7 +399,7 @@ public class ConstrainImageLayout extends ViewGroup {
             if (e == null) {
                 return;
             }
-            d(canvas, e, tr4.y(R.string.J_X11));
+            d(canvas, e, es4.y(R.string.J_X11));
         }
     }
 
@@ -494,7 +494,7 @@ public class ConstrainImageLayout extends ViewGroup {
                 int abs = Math.abs(childCount);
                 for (int i2 = 0; i2 < abs; i2++) {
                     TbImageView b2 = this.b.b();
-                    b2.setContentDescription(getResources().getString(R.string.obfuscated_res_0x7f0f0522));
+                    b2.setContentDescription(getResources().getString(R.string.obfuscated_res_0x7f0f0528));
                     b2.setScaleType(ImageView.ScaleType.CENTER_CROP);
                     b2.setDefaultBg(SkinManager.getDrawable(R.color.common_color_10220));
                     b2.setPageId(this.a);
@@ -711,13 +711,13 @@ public class ConstrainImageLayout extends ViewGroup {
         }
     }
 
-    public void setImageClickListener(pe5 pe5Var) {
+    public void setImageClickListener(if5 if5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, pe5Var) == null) {
-            if (pe5Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, if5Var) == null) {
+            if (if5Var == null) {
                 setClickable(false);
             } else {
-                this.f = pe5Var;
+                this.f = if5Var;
             }
         }
     }
@@ -740,10 +740,10 @@ public class ConstrainImageLayout extends ViewGroup {
         }
     }
 
-    public void setImageViewObjectPool(dg<TbImageView> dgVar) {
+    public void setImageViewObjectPool(bg<TbImageView> bgVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, dgVar) == null) {
-            this.b = dgVar;
+        if (interceptable == null || interceptable.invokeL(1048597, this, bgVar) == null) {
+            this.b = bgVar;
         }
     }
 
@@ -754,10 +754,10 @@ public class ConstrainImageLayout extends ViewGroup {
         }
     }
 
-    public void setPreloadSizeReadyCallback(Cdo cdo) {
+    public void setPreloadSizeReadyCallback(ao aoVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, cdo) == null) {
-            this.n = cdo;
+        if (interceptable == null || interceptable.invokeL(1048599, this, aoVar) == null) {
+            this.n = aoVar;
         }
     }
 

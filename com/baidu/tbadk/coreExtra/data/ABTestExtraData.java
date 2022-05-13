@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vt4;
+import com.repackage.iu4;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -35,7 +35,7 @@ public class ABTestExtraData implements Serializable {
     private void saveABTestExtraToSharedPref(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, jSONObject) == null) {
-            vt4.k().y("abtest_extra_info_json", jSONObject != null ? jSONObject.toString() : "");
+            iu4.k().y("abtest_extra_info_json", jSONObject != null ? jSONObject.toString() : "");
         }
     }
 
@@ -66,7 +66,7 @@ public class ABTestExtraData implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
-                String q = vt4.k().q("abtest_extra_info_json", null);
+                String q = iu4.k().q("abtest_extra_info_json", null);
                 if (TextUtils.isEmpty(q)) {
                     return;
                 }

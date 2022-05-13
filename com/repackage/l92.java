@@ -1,19 +1,17 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.collection.ArraySet;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.swan.apps.lifecycle.process.LifecycleProcessType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fj2;
+@Service
 /* loaded from: classes6.dex */
-public class l92 implements i92 {
+public class l92 extends i92 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String[] a;
 
     public l92() {
         Interceptable interceptable = $ic;
@@ -25,44 +23,14 @@ public class l92 implements i92 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new String[]{r73.w(), r73.y(), o42.c()};
     }
 
-    @Override // com.repackage.i92
-    public ArraySet<String> a() {
+    @Override // com.repackage.tm2
+    public LifecycleProcessType b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArraySet<String> arraySet = new ArraySet<>();
-            for (String str : this.a) {
-                String K = mg4.K(str);
-                if (!TextUtils.isEmpty(K)) {
-                    arraySet.add(K);
-                }
-            }
-            if (tg1.a) {
-                b(arraySet);
-            }
-            jx1.k("SwanSdcardFileCollector", "recovery renameAllFiles:" + arraySet.toString());
-            return arraySet;
-        }
-        return (ArraySet) invokeV.objValue;
-    }
-
-    public final void b(ArraySet<String> arraySet) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arraySet) == null) || arraySet == null) {
-            return;
-        }
-        String[] strArr = {ab2.b().getAbsolutePath(), q93.c().getAbsolutePath(), fj2.b.d(), yc3.b(), ij2.k(), gu2.b()};
-        for (int i = 0; i < 6; i++) {
-            String K = mg4.K(strArr[i]);
-            if (!TextUtils.isEmpty(K)) {
-                arraySet.add(K);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? LifecycleProcessType.MAIN : (LifecycleProcessType) invokeV.objValue;
     }
 }

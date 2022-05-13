@@ -1,55 +1,53 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class xn8 extends yn8 {
+public class xn8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Runnable b;
+    public final MainTabActivity a;
+    public final tm8 b;
 
-    public xn8(Runnable runnable, int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xn8(MainTabActivity mainTabActivity, tm8 tm8Var) {
+        super(2010045);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {runnable, Integer.valueOf(i)};
+            Object[] objArr = {mainTabActivity, tm8Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = runnable;
-        this.a = i;
+        this.a = mainTabActivity;
+        this.b = tm8Var;
+        setTag(mainTabActivity.getUniqueId());
     }
 
-    @Override // com.repackage.yn8
-    public void b() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.run();
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || this.b == null || TbadkCoreApplication.getInst().getCurrentActivity() != this.a) {
+            return;
         }
-    }
-
-    @Override // com.repackage.yn8
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            sn8.a = Math.max(sn8.a, this.a + 1);
-        }
-    }
-
-    @Override // com.repackage.yn8
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
+        boolean z = false;
+        this.b.t = kg.b(customResponsedMessage.getData().toString(), false);
+        tm8 tm8Var = this.b;
+        this.b.F((tm8Var.t || tm8Var.u) ? true : true);
     }
 }

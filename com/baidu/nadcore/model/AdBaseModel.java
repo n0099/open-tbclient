@@ -19,9 +19,9 @@ import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import com.repackage.bo0;
 import com.repackage.do0;
 import com.repackage.io0;
-import com.repackage.kh0;
 import com.repackage.lo0;
 import com.repackage.mo0;
+import com.repackage.nh0;
 import com.repackage.sn0;
 import com.repackage.tn0;
 import com.repackage.ty0;
@@ -63,7 +63,7 @@ public class AdBaseModel {
     @NonNull
     public List<String> o;
     public lo0 p;
-    public kh0 q;
+    public nh0 q;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */

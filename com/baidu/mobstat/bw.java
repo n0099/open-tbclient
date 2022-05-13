@@ -29,7 +29,6 @@ import com.baidu.android.util.devices.RomUtils;
 import com.baidu.mobstat.bm;
 import com.baidu.mobstat.bt;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -489,7 +488,7 @@ public class bw {
                 NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
                 if (activeNetworkInfo != null) {
                     String typeName = activeNetworkInfo.getTypeName();
-                    return (typeName.equals(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING) || activeNetworkInfo.getSubtypeName() == null) ? typeName : activeNetworkInfo.getSubtypeName();
+                    return (typeName.equals("WIFI") || activeNetworkInfo.getSubtypeName() == null) ? typeName : activeNetworkInfo.getSubtypeName();
                 }
                 return "";
             } catch (Exception unused) {

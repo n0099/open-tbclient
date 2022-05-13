@@ -161,7 +161,7 @@ public class b68 {
                     this.a.q();
                 } else if (view2 == this.a.w) {
                     if (StringUtils.isNull(this.a.F)) {
-                        BdToast.c(this.a.a.getPageActivity(), this.a.a.getPageActivity().getText(R.string.obfuscated_res_0x7f0f07bc)).q();
+                        BdToast.c(this.a.a.getPageActivity(), this.a.a.getPageActivity().getText(R.string.obfuscated_res_0x7f0f07c5)).q();
                     } else {
                         HotUserRankActivityConfig hotUserRankActivityConfig = new HotUserRankActivityConfig(this.a.a.getPageActivity());
                         hotUserRankActivityConfig.setCategory(this.a.F);
@@ -219,18 +219,18 @@ public class b68 {
             this.h.setVisibility(8);
         }
         String tb_age = this.B.getTb_age();
-        if (ni.isEmpty(tb_age)) {
+        if (li.isEmpty(tb_age)) {
             tb_age = "0";
         }
-        this.j.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e08, tb_age));
-        uq4 birthdayInfo = this.B.getBirthdayInfo();
-        if (birthdayInfo != null && !ni.isEmpty(birthdayInfo.b)) {
+        this.j.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e26, tb_age));
+        fr4 birthdayInfo = this.B.getBirthdayInfo();
+        if (birthdayInfo != null && !li.isEmpty(birthdayInfo.b)) {
             if (birthdayInfo.c < 0) {
                 birthdayInfo.c = 0;
             }
             if (birthdayInfo.d == 2) {
                 this.e.setVisibility(0);
-                this.e.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e19, Integer.valueOf(birthdayInfo.c)));
+                this.e.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e37, Integer.valueOf(birthdayInfo.c)));
             } else {
                 this.e.setVisibility(8);
             }
@@ -249,12 +249,12 @@ public class b68 {
         }
         String intro = this.B.getIntro();
         BaijiahaoInfo baijiahaoInfo = this.B.getBaijiahaoInfo();
-        if (baijiahaoInfo != null && !ni.isEmpty(baijiahaoInfo.auth_desc)) {
-            if (!ni.isEmpty(intro)) {
+        if (baijiahaoInfo != null && !li.isEmpty(baijiahaoInfo.auth_desc)) {
+            if (!li.isEmpty(intro)) {
                 SpannableString spannableString = new SpannableString(intro);
                 spannableString.setSpan(new LeadingMarginSpan.Standard(this.j.getLeft(), 0), 0, spannableString.length(), 18);
                 this.m.setText(spannableString);
-                pg.a().post(new a(this));
+                ng.a().post(new a(this));
                 this.p.setVisibility(8);
                 this.t.setVisibility(0);
             } else {
@@ -268,7 +268,7 @@ public class b68 {
                     this.t.setVisibility(0);
                 }
             }
-        } else if (ni.isEmpty(intro)) {
+        } else if (li.isEmpty(intro)) {
             this.o.setVisibility(8);
             if (this.D) {
                 this.p.setVisibility(0);
@@ -290,16 +290,16 @@ public class b68 {
             if (TextUtils.isEmpty(str)) {
                 this.F = "";
             }
-            this.x.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f07ba), this.F));
+            this.x.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f07c3), this.F));
             if (y48Var.E.is_in_rank.booleanValue()) {
                 Integer num = y48Var.E.today_rank;
                 if (num != null && num.intValue() > 0 && y48Var.E.today_rank.intValue() <= 500) {
-                    this.y.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f07b9), y48Var.E.today_rank));
+                    this.y.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f07c2), y48Var.E.today_rank));
                 } else {
-                    this.y.setText(this.a.getString(R.string.obfuscated_res_0x7f0f07b8));
+                    this.y.setText(this.a.getString(R.string.obfuscated_res_0x7f0f07c1));
                 }
             } else {
-                this.y.setText(this.a.getString(R.string.obfuscated_res_0x7f0f07b8));
+                this.y.setText(this.a.getString(R.string.obfuscated_res_0x7f0f07c1));
             }
             TiebaStatic.log(new StatisticItem("c13898").param("uid", this.B.getUserId()));
             return;
@@ -327,51 +327,51 @@ public class b68 {
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06c4, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06bc, (ViewGroup) null);
             this.b = inflate;
             inflate.setVisibility(8);
-            this.s = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0917e8);
-            this.c = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0917da);
-            AlignTextView alignTextView = (AlignTextView) this.b.findViewById(R.id.obfuscated_res_0x7f0917db);
+            this.s = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09183d);
+            this.c = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09182f);
+            AlignTextView alignTextView = (AlignTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091830);
             this.d = alignTextView;
             alignTextView.setTextColor(SkinManager.getColor(R.color.CAM_X0108));
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0917d6);
-            this.f = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0917dc);
-            this.t = this.b.findViewById(R.id.obfuscated_res_0x7f091d38);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0917d8);
-            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0917d7);
-            this.i = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0917d9);
-            AlignTextView alignTextView2 = (AlignTextView) this.b.findViewById(R.id.obfuscated_res_0x7f0917df);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09182b);
+            this.f = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091831);
+            this.t = this.b.findViewById(R.id.obfuscated_res_0x7f091d91);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09182d);
+            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09182c);
+            this.i = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09182e);
+            AlignTextView alignTextView2 = (AlignTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091834);
             this.k = alignTextView2;
             alignTextView2.setTextColor(SkinManager.getColor(R.color.CAM_X0108));
-            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0917de);
-            AlignTextView alignTextView3 = (AlignTextView) this.b.findViewById(R.id.obfuscated_res_0x7f0917e1);
+            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091833);
+            AlignTextView alignTextView3 = (AlignTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091836);
             this.l = alignTextView3;
             alignTextView3.setTextColor(SkinManager.getColor(R.color.CAM_X0108));
-            this.m = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0917e0);
-            ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0917e3);
+            this.m = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091835);
+            ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091838);
             this.n = imageView;
             imageView.setOnClickListener(this.G);
-            RelativeLayout relativeLayout = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0917e2);
+            RelativeLayout relativeLayout = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091837);
             this.o = relativeLayout;
             relativeLayout.setOnClickListener(this.G);
-            this.p = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0917e4);
-            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0917e5);
+            this.p = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091839);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09183a);
             this.q = textView;
             textView.setOnClickListener(this.G);
-            this.u = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0917e6);
-            this.v = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0917e7);
-            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090cd2);
+            this.u = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09183b);
+            this.v = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09183c);
+            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090cbe);
             this.w = roundRelativeLayout;
             roundRelativeLayout.setOnClickListener(this.G);
-            this.A = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090cd0);
-            this.z = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090cd3);
-            this.y = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090cd4);
-            this.x = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090cdc);
-            ImageView imageView2 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0917dd);
+            this.A = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090cbc);
+            this.z = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090cbf);
+            this.y = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090cc0);
+            this.x = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090cc8);
+            ImageView imageView2 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091832);
             this.r = imageView2;
             imageView2.setOnClickListener(this.G);
-            int measureText = (int) this.g.getPaint().measureText(this.a.getString(R.string.obfuscated_res_0x7f0f0ddd));
+            int measureText = (int) this.g.getPaint().measureText(this.a.getString(R.string.obfuscated_res_0x7f0f0df7));
             ViewGroup.LayoutParams layoutParams = this.d.getLayoutParams();
             if (layoutParams != null) {
                 layoutParams.width = measureText;
@@ -387,7 +387,7 @@ public class b68 {
                 layoutParams3.width = measureText;
                 this.l.setLayoutParams(layoutParams3);
             }
-            NoDataView a2 = NoDataViewFactory.a(this.a.getPageActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.SINGALL, oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070234)), NoDataViewFactory.e.d(null, this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c2e)), null);
+            NoDataView a2 = NoDataViewFactory.a(this.a.getPageActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.SINGALL, mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070234)), NoDataViewFactory.e.d(null, this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c44)), null);
             this.E = a2;
             View view2 = this.b;
             if (view2 instanceof ViewGroup) {
@@ -451,7 +451,7 @@ public class b68 {
             SkinManager.setBackgroundColor(this.w, R.color.CAM_X0206);
             SkinManager.setViewTextColor(this.x, (int) R.color.CAM_X0311);
             SkinManager.setViewTextColor(this.y, (int) R.color.CAM_X0311);
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.z, R.drawable.obfuscated_res_0x7f0805ea, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.z, R.drawable.obfuscated_res_0x7f0805da, SvgManager.SvgResourceStateType.NORMAL);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.A, R.drawable.ic_icon_pure_common_arrow16_n_svg, R.color.CAM_X0311, SvgManager.SvgResourceStateType.NORMAL);
             NoDataView noDataView = this.E;
             if (noDataView != null) {

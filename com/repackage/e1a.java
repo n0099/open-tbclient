@@ -1,57 +1,47 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ez9;
 /* loaded from: classes5.dex */
-public class e1a implements oz9 {
+public abstract class e1a<E> extends c1a<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final oz9 a;
-    public final ez9.a b;
-    public final long c;
+    public volatile long h;
 
-    public e1a(oz9 oz9Var, ez9.a aVar, long j) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e1a(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {oz9Var, aVar, Long.valueOf(j)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = oz9Var;
-        this.b = aVar;
-        this.c = j;
     }
 
-    @Override // com.repackage.oz9
-    public void call() {
+    public final long l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b.isUnsubscribed()) {
-            return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.h : invokeV.longValue;
+    }
+
+    public final void m(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            this.h = j;
         }
-        long a = this.c - this.b.a();
-        if (a > 0) {
-            try {
-                Thread.sleep(a);
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-                nz9.c(e);
-                throw null;
-            }
-        }
-        if (this.b.isUnsubscribed()) {
-            return;
-        }
-        this.a.call();
     }
 }

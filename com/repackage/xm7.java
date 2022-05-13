@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class xm7 extends ho<pz4, NearbyForumFriendItemViewHolder> {
+public class xm7 extends eo<d05, NearbyForumFriendItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context i;
@@ -35,7 +35,7 @@ public class xm7 extends ho<pz4, NearbyForumFriendItemViewHolder> {
     public boolean k;
 
     /* loaded from: classes7.dex */
-    public class a implements dp {
+    public class a implements bp {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ xm7 a;
@@ -58,15 +58,15 @@ public class xm7 extends ho<pz4, NearbyForumFriendItemViewHolder> {
             this.a = xm7Var;
         }
 
-        @Override // com.repackage.dp
-        public void b(View view2, uo uoVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+        @Override // com.repackage.bp
+        public void b(View view2, ro roVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, uoVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (uoVar instanceof pz4)) {
-                pz4 pz4Var = (pz4) uoVar;
-                String str = pz4Var.a;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, roVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (roVar instanceof d05)) {
+                d05 d05Var = (d05) roVar;
+                String str = d05Var.a;
                 boolean z = !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.getCurrentAccount().equals(str);
-                r07.h(i + 1, this.a.j, 2, pz4Var.a);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.a.i).createNormalConfig(mg.g(str, 0L), z, false)));
+                rz6.h(i + 1, this.a.j, 2, d05Var.a);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.a.i).createNormalConfig(kg.g(str, 0L), z, false)));
             }
         }
     }
@@ -76,16 +76,16 @@ public class xm7 extends ho<pz4, NearbyForumFriendItemViewHolder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ViewGroup a;
-        public final /* synthetic */ pz4 b;
+        public final /* synthetic */ d05 b;
         public final /* synthetic */ int c;
         public final /* synthetic */ xm7 d;
 
-        public b(xm7 xm7Var, ViewGroup viewGroup, pz4 pz4Var, int i) {
+        public b(xm7 xm7Var, ViewGroup viewGroup, d05 d05Var, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {xm7Var, viewGroup, pz4Var, Integer.valueOf(i)};
+                Object[] objArr = {xm7Var, viewGroup, d05Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -97,7 +97,7 @@ public class xm7 extends ho<pz4, NearbyForumFriendItemViewHolder> {
             }
             this.d = xm7Var;
             this.a = viewGroup;
-            this.b = pz4Var;
+            this.b = d05Var;
             this.c = i;
         }
 
@@ -110,11 +110,11 @@ public class xm7 extends ho<pz4, NearbyForumFriendItemViewHolder> {
                     personChangeActivityConfig.setIsCompleteLocalInfo(true);
                     personChangeActivityConfig.start();
                 } else {
-                    pz4 pz4Var = this.b;
+                    d05 d05Var = this.b;
                     xm7 xm7Var = this.d;
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921654, new o15(pz4Var, xm7Var.d0(xm7Var.j))));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921654, new d25(d05Var, xm7Var.d0(xm7Var.j))));
                 }
-                r07.h(this.c + 1, this.d.j, 1, this.b.a);
+                rz6.h(this.c + 1, this.d.j, 1, this.b.a);
             }
         }
     }
@@ -144,9 +144,9 @@ public class xm7 extends ho<pz4, NearbyForumFriendItemViewHolder> {
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.repackage.ho
-    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, pz4 pz4Var, NearbyForumFriendItemViewHolder nearbyForumFriendItemViewHolder) {
-        f0(i, view2, viewGroup, pz4Var, nearbyForumFriendItemViewHolder);
+    @Override // com.repackage.eo
+    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, d05 d05Var, NearbyForumFriendItemViewHolder nearbyForumFriendItemViewHolder) {
+        f0(i, view2, viewGroup, d05Var, nearbyForumFriendItemViewHolder);
         return view2;
     }
 
@@ -163,23 +163,23 @@ public class xm7 extends ho<pz4, NearbyForumFriendItemViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
+    @Override // com.repackage.eo
     /* renamed from: e0 */
     public NearbyForumFriendItemViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new NearbyForumFriendItemViewHolder(LayoutInflater.from(this.i).inflate(R.layout.obfuscated_res_0x7f0d05eb, viewGroup, false), this.i) : (NearbyForumFriendItemViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new NearbyForumFriendItemViewHolder(LayoutInflater.from(this.i).inflate(R.layout.obfuscated_res_0x7f0d05df, viewGroup, false), this.i) : (NearbyForumFriendItemViewHolder) invokeL.objValue;
     }
 
-    public View f0(int i, View view2, ViewGroup viewGroup, pz4 pz4Var, NearbyForumFriendItemViewHolder nearbyForumFriendItemViewHolder) {
+    public View f0(int i, View view2, ViewGroup viewGroup, d05 d05Var, NearbyForumFriendItemViewHolder nearbyForumFriendItemViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, pz4Var, nearbyForumFriendItemViewHolder})) == null) {
-            if (pz4Var != null && nearbyForumFriendItemViewHolder != null) {
-                j0(pz4Var, nearbyForumFriendItemViewHolder);
-                h0(pz4Var, nearbyForumFriendItemViewHolder);
-                r07.n(i + 1, this.j);
-                nearbyForumFriendItemViewHolder.k.setOnClickListener(new b(this, viewGroup, pz4Var, i));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, d05Var, nearbyForumFriendItemViewHolder})) == null) {
+            if (d05Var != null && nearbyForumFriendItemViewHolder != null) {
+                j0(d05Var, nearbyForumFriendItemViewHolder);
+                h0(d05Var, nearbyForumFriendItemViewHolder);
+                rz6.n(i + 1, this.j);
+                nearbyForumFriendItemViewHolder.k.setOnClickListener(new b(this, viewGroup, d05Var, i));
             }
             return view2;
         }
@@ -191,71 +191,71 @@ public class xm7 extends ho<pz4, NearbyForumFriendItemViewHolder> {
         if (interceptable == null || interceptable.invokeLI(1048581, this, nearbyForumFriendItemViewHolder, i) == null) {
             nearbyForumFriendItemViewHolder.p.setVisibility(0);
             if (i == 1) {
-                nearbyForumFriendItemViewHolder.p.setText(this.i.getString(R.string.obfuscated_res_0x7f0f0c0d));
+                nearbyForumFriendItemViewHolder.p.setText(this.i.getString(R.string.obfuscated_res_0x7f0f0c21));
                 nearbyForumFriendItemViewHolder.c.setShowActiveStatus(true);
             } else if (i == 2) {
-                nearbyForumFriendItemViewHolder.p.setText(this.i.getString(R.string.obfuscated_res_0x7f0f0c0b));
+                nearbyForumFriendItemViewHolder.p.setText(this.i.getString(R.string.obfuscated_res_0x7f0f0c1f));
                 nearbyForumFriendItemViewHolder.c.setShowActiveStatus(true);
             } else if (i != 3) {
                 nearbyForumFriendItemViewHolder.p.setVisibility(8);
                 nearbyForumFriendItemViewHolder.c.setShowActiveStatus(false);
             } else {
-                nearbyForumFriendItemViewHolder.p.setText(this.i.getString(R.string.obfuscated_res_0x7f0f0c0c));
+                nearbyForumFriendItemViewHolder.p.setText(this.i.getString(R.string.obfuscated_res_0x7f0f0c20));
                 nearbyForumFriendItemViewHolder.c.setShowActiveStatus(false);
             }
         }
     }
 
-    public final void h0(pz4 pz4Var, NearbyForumFriendItemViewHolder nearbyForumFriendItemViewHolder) {
+    public final void h0(d05 d05Var, NearbyForumFriendItemViewHolder nearbyForumFriendItemViewHolder) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, pz4Var, nearbyForumFriendItemViewHolder) == null) {
-            nearbyForumFriendItemViewHolder.c.K(pz4Var.c, 25, false);
-            nearbyForumFriendItemViewHolder.d.setText(pz4Var.b);
-            int i = pz4Var.d;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, d05Var, nearbyForumFriendItemViewHolder) == null) {
+            nearbyForumFriendItemViewHolder.c.K(d05Var.c, 25, false);
+            nearbyForumFriendItemViewHolder.d.setText(d05Var.b);
+            int i = d05Var.d;
             boolean z2 = true;
-            if ((i != 1 && i != 2) || pz4Var.e <= 0) {
+            if ((i != 1 && i != 2) || d05Var.e <= 0) {
                 nearbyForumFriendItemViewHolder.e.setVisibility(8);
                 z = false;
             } else {
                 nearbyForumFriendItemViewHolder.e.setVisibility(0);
-                nearbyForumFriendItemViewHolder.g.setText(String.valueOf(pz4Var.e));
+                nearbyForumFriendItemViewHolder.g.setText(String.valueOf(d05Var.e));
                 z = true;
             }
-            if (StringUtils.isNull(pz4Var.f)) {
+            if (StringUtils.isNull(d05Var.f)) {
                 nearbyForumFriendItemViewHolder.h.setVisibility(8);
             } else {
                 nearbyForumFriendItemViewHolder.h.setVisibility(0);
-                nearbyForumFriendItemViewHolder.h.setText(pz4Var.f);
+                nearbyForumFriendItemViewHolder.h.setText(d05Var.f);
                 z = true;
             }
-            if (StringUtils.isNull(pz4Var.g)) {
+            if (StringUtils.isNull(d05Var.g)) {
                 nearbyForumFriendItemViewHolder.i.setVisibility(8);
                 z2 = z;
             } else {
                 nearbyForumFriendItemViewHolder.i.setVisibility(0);
-                nearbyForumFriendItemViewHolder.i.setText(pz4Var.g);
+                nearbyForumFriendItemViewHolder.i.setText(d05Var.g);
             }
-            g0(nearbyForumFriendItemViewHolder, pz4Var.k);
+            g0(nearbyForumFriendItemViewHolder, d05Var.k);
             if (z2 && nearbyForumFriendItemViewHolder.p.getVisibility() == 0) {
                 nearbyForumFriendItemViewHolder.o.setVisibility(0);
             } else {
                 nearbyForumFriendItemViewHolder.o.setVisibility(8);
             }
             StringBuilder sb = new StringBuilder();
-            sb.append(this.i.getResources().getString(R.string.obfuscated_res_0x7f0f0663));
-            if (!ListUtils.isEmpty(pz4Var.h)) {
-                List<oz4> list = pz4Var.h;
+            sb.append(this.i.getResources().getString(R.string.obfuscated_res_0x7f0f066b));
+            if (!ListUtils.isEmpty(d05Var.h)) {
+                List<c05> list = d05Var.h;
                 for (int i2 = 0; i2 < list.size(); i2++) {
                     if (i2 > 0) {
                         sb.append("/");
                     }
                     sb.append(list.get(i2).a);
-                    sb.append(this.i.getResources().getString(R.string.obfuscated_res_0x7f0f0643));
+                    sb.append(this.i.getResources().getString(R.string.obfuscated_res_0x7f0f064b));
                 }
             }
             nearbyForumFriendItemViewHolder.j.setText(sb);
-            nearbyForumFriendItemViewHolder.n.setText(pz4Var.i);
+            nearbyForumFriendItemViewHolder.n.setText(d05Var.i);
         }
     }
 
@@ -266,41 +266,41 @@ public class xm7 extends ho<pz4, NearbyForumFriendItemViewHolder> {
         }
     }
 
-    public final void j0(pz4 pz4Var, NearbyForumFriendItemViewHolder nearbyForumFriendItemViewHolder) {
+    public final void j0(d05 d05Var, NearbyForumFriendItemViewHolder nearbyForumFriendItemViewHolder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, pz4Var, nearbyForumFriendItemViewHolder) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, d05Var, nearbyForumFriendItemViewHolder) == null) {
             nearbyForumFriendItemViewHolder.c.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-            vr4.d(nearbyForumFriendItemViewHolder.d).v(R.color.CAM_X0105);
-            int i = pz4Var.d;
+            gs4.d(nearbyForumFriendItemViewHolder.d).v(R.color.CAM_X0105);
+            int i = d05Var.d;
             if (i == 1) {
-                WebPManager.setPureDrawable(nearbyForumFriendItemViewHolder.f, R.drawable.obfuscated_res_0x7f0807c9, R.color.CAM_X0330, null);
-                vr4.d(nearbyForumFriendItemViewHolder.g).v(R.color.CAM_X0330);
-                vr4 d = vr4.d(nearbyForumFriendItemViewHolder.e);
+                WebPManager.setPureDrawable(nearbyForumFriendItemViewHolder.f, R.drawable.obfuscated_res_0x7f0807b2, R.color.CAM_X0330, null);
+                gs4.d(nearbyForumFriendItemViewHolder.g).v(R.color.CAM_X0330);
+                gs4 d = gs4.d(nearbyForumFriendItemViewHolder.e);
                 d.e(R.string.A_X11);
                 d.n(R.string.J_X01);
                 d.f(R.color.CAM_X0330);
             } else if (i == 2) {
-                WebPManager.setPureDrawable(nearbyForumFriendItemViewHolder.f, R.drawable.obfuscated_res_0x7f0807e3, R.color.CAM_X0308, null);
-                vr4.d(nearbyForumFriendItemViewHolder.g).v(R.color.CAM_X0308);
-                vr4 d2 = vr4.d(nearbyForumFriendItemViewHolder.e);
+                WebPManager.setPureDrawable(nearbyForumFriendItemViewHolder.f, R.drawable.obfuscated_res_0x7f0807ce, R.color.CAM_X0308, null);
+                gs4.d(nearbyForumFriendItemViewHolder.g).v(R.color.CAM_X0308);
+                gs4 d2 = gs4.d(nearbyForumFriendItemViewHolder.e);
                 d2.e(R.string.A_X11);
                 d2.n(R.string.J_X01);
                 d2.f(R.color.CAM_X0308);
             }
-            vr4 d3 = vr4.d(nearbyForumFriendItemViewHolder.h);
+            gs4 d3 = gs4.d(nearbyForumFriendItemViewHolder.h);
             d3.n(R.string.J_X01);
             d3.v(R.color.CAM_X0107);
             d3.f(R.color.CAM_X0202);
-            vr4.d(nearbyForumFriendItemViewHolder.i).v(R.color.CAM_X0109);
-            vr4.d(nearbyForumFriendItemViewHolder.o).v(R.color.CAM_X0109);
-            vr4.d(nearbyForumFriendItemViewHolder.p).v(R.color.CAM_X0109);
-            WebPManager.setPureDrawable(nearbyForumFriendItemViewHolder.l, R.drawable.obfuscated_res_0x7f080987, R.color.CAM_X0302, null);
-            vr4.d(nearbyForumFriendItemViewHolder.m).v(R.color.CAM_X0302);
-            vr4 d4 = vr4.d(nearbyForumFriendItemViewHolder.k);
+            gs4.d(nearbyForumFriendItemViewHolder.i).v(R.color.CAM_X0109);
+            gs4.d(nearbyForumFriendItemViewHolder.o).v(R.color.CAM_X0109);
+            gs4.d(nearbyForumFriendItemViewHolder.p).v(R.color.CAM_X0109);
+            WebPManager.setPureDrawable(nearbyForumFriendItemViewHolder.l, R.drawable.obfuscated_res_0x7f08099c, R.color.CAM_X0302, null);
+            gs4.d(nearbyForumFriendItemViewHolder.m).v(R.color.CAM_X0302);
+            gs4 d4 = gs4.d(nearbyForumFriendItemViewHolder.k);
             d4.n(R.string.J_X01);
             d4.f(R.color.CAM_X0905);
-            vr4.d(nearbyForumFriendItemViewHolder.j).v(R.color.CAM_X0109);
-            vr4.d(nearbyForumFriendItemViewHolder.n).v(R.color.CAM_X0107);
+            gs4.d(nearbyForumFriendItemViewHolder.j).v(R.color.CAM_X0109);
+            gs4.d(nearbyForumFriendItemViewHolder.n).v(R.color.CAM_X0107);
         }
     }
 }

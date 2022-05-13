@@ -1,22 +1,26 @@
 package com.repackage;
 
-import android.view.View;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import android.widget.ProgressBar;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.win.opensdk.activitys.H5OpenActivity;
 /* loaded from: classes6.dex */
-public class go9 implements Runnable {
+public class go9 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ jo9 a;
+    public final /* synthetic */ H5OpenActivity a;
 
-    public go9(jo9 jo9Var) {
+    public go9(H5OpenActivity h5OpenActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jo9Var};
+            Object[] objArr = {h5OpenActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -26,24 +30,30 @@ public class go9 implements Runnable {
                 return;
             }
         }
-        this.a = jo9Var;
+        this.a = h5OpenActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    @Override // android.webkit.WebChromeClient
+    public void onProgressChanged(WebView webView, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                View rootView = this.a.a.getRootView();
-                if (rootView != null && rootView.getVisibility() == 0 && rootView.isShown()) {
-                    yr9 a = cs9.a(this.a.b.a);
-                    a.d(new gs9(this.a.b.c), this.a.a.getWidth(), this.a.a.getHeight());
-                    a.m();
-                    wp9.n(this.a.b.c);
+        if (interceptable == null || interceptable.invokeLI(1048576, this, webView, i) == null) {
+            ProgressBar progressBar = this.a.c;
+            if (progressBar != null) {
+                progressBar.setVisibility(0);
+                this.a.c.setProgress(i);
+                if (i == 100) {
+                    this.a.c.setVisibility(8);
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
             }
+            super.onProgressChanged(webView, i);
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onReceivedTitle(WebView webView, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
+            super.onReceivedTitle(webView, str);
         }
     }
 }

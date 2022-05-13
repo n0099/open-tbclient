@@ -38,29 +38,31 @@ public class MsgPageData extends OrmObject implements Serializable {
         this.mChatMessages = new ArrayList();
     }
 
+    public void clear() {
+        List<ChatMessage> list;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (list = this.mChatMessages) == null) {
+            return;
+        }
+        list.clear();
+    }
+
     public List<ChatMessage> getChatMessages() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mChatMessages : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mChatMessages : (List) invokeV.objValue;
     }
 
     public boolean getIsNewAdd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.isNewAdd : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.isNewAdd : invokeV.booleanValue;
     }
 
     public int getNewAddNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.newAddNum : invokeV.intValue;
-    }
-
-    public void setChatMessages(List<ChatMessage> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.mChatMessages = list;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.newAddNum : invokeV.intValue;
     }
 
     public void setIsNewAdd(boolean z) {
@@ -75,5 +77,18 @@ public class MsgPageData extends OrmObject implements Serializable {
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             this.newAddNum = i;
         }
+    }
+
+    public int size() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            List<ChatMessage> list = this.mChatMessages;
+            if (list != null) {
+                return list.size();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
     }
 }

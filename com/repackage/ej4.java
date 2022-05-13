@@ -1,29 +1,26 @@
 package com.repackage;
 
-import android.os.Build;
-import android.webkit.CookieManager;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.tbadk.BdToken.NewUserGetMoneyResMsg;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.TbPatternsCompat;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class ej4 {
+/* loaded from: classes5.dex */
+public abstract class ej4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public yi4 a;
+    public volatile long b;
+    public volatile boolean c;
+    public int d;
 
-    public ej4() {
+    public ej4(yi4 yi4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {yi4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,26 +30,65 @@ public class ej4 {
                 return;
             }
         }
-        MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_NEW_USER_GET_MONEY, TbConfig.NEW_USER_GET_MONEY_URL);
-        tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
-        tbHttpMessageTask.setResponsedClass(NewUserGetMoneyResMsg.class);
-        tbHttpMessageTask.setIsNeedTbs(true);
-        messageManager.registerTask(tbHttpMessageTask);
+        this.b = 0L;
+        this.c = false;
+        this.d = 0;
+        this.a = yi4Var;
     }
 
-    public void a() {
+    public synchronized void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_NEW_USER_GET_MONEY);
-            httpMessage.addParam("brand", Build.BRAND);
-            httpMessage.addParam("cuid", TbadkCoreApplication.getInst().getCuid());
-            httpMessage.addParam("client_version", TbConfig.getVersion());
-            httpMessage.addParam("client_type", "Android");
-            httpMessage.addParam("shoubai_cuid", TbadkCoreApplication.getInst().getCuidGalaxy2());
-            httpMessage.addParam("ua", nd5.e());
-            httpMessage.addHeader("Cookie", CookieManager.getInstance().getCookie(TbPatternsCompat.TB_DOMAIN_NAME));
-            MessageManager.getInstance().sendMessage(httpMessage);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            synchronized (this) {
+                this.b += i;
+            }
+        }
+    }
+
+    public long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.longValue;
+    }
+
+    public yi4 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (yi4) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : invokeV.intValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : invokeV.booleanValue;
+    }
+
+    public synchronized void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            synchronized (this) {
+                this.c = z;
+            }
+        }
+    }
+
+    public void g(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.b = j;
+        }
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.d = i;
         }
     }
 }

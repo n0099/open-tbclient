@@ -1,11 +1,7 @@
 package com.repackage;
+
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public interface le0 {
-    void a(long j, long j2, int i);
-
-    void b(String str);
-
-    void onFailed(Exception exc);
-
-    void onStarted();
+    void report(String str, JSONObject jSONObject);
 }

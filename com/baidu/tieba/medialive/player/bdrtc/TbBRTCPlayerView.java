@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dz5;
+import com.repackage.ez5;
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
@@ -126,7 +126,7 @@ public class TbBRTCPlayerView extends FrameLayout {
                 }
                 if (this.a.i != null) {
                     if (TbBRTCPlayerView.o) {
-                        dz5.b(new RunnableC0205a(this, i, str));
+                        ez5.b(new RunnableC0205a(this, i, str));
                     }
                     this.a.i.onError(i, str);
                 }

@@ -1,179 +1,34 @@
 package com.repackage;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
+import android.view.View;
+import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.p34;
 /* loaded from: classes6.dex */
-public class f44 implements q34 {
+public class f44 extends a44 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public q34 a;
+    public int j;
+    public g44 k;
+    public g44 l;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ s34 b;
-        public final /* synthetic */ p34.b c;
-        public final /* synthetic */ f44 d;
-
-        public a(f44 f44Var, int i, s34 s34Var, p34.b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f44Var, Integer.valueOf(i), s34Var, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = f44Var;
-            this.a = i;
-            this.b = s34Var;
-            this.c = bVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Context b = c34.b();
-                if (b == null) {
-                    jx1.c("RecommendButton", "context is null.");
-                    return;
-                }
-                this.d.a = p34.c(this.a, b, this.b);
-                this.d.a.u(this.c);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x34 a;
-        public final /* synthetic */ f44 b;
-
-        public b(f44 f44Var, x34 x34Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f44Var, x34Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = f44Var;
-            this.a = x34Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b.a == null) {
-                return;
-            }
-            this.b.a.e(this.a);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ p34.b a;
-        public final /* synthetic */ f44 b;
-
-        public c(f44 f44Var, p34.b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f44Var, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = f44Var;
-            this.a = bVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b.a == null) {
-                return;
-            }
-            this.b.a.u(this.a);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ f44 b;
-
-        public d(f44 f44Var, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f44Var, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = f44Var;
-            this.a = z;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b.a == null) {
-                return;
-            }
-            this.b.a.m(this.a);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class e implements Runnable {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ f44 a;
 
-        public e(f44 f44Var) {
+        public a(f44 f44Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -191,23 +46,27 @@ public class f44 implements q34 {
             this.a = f44Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.a == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.c == null || this.a.j < -1) {
                 return;
             }
-            this.a.a.show();
+            if (this.a.j == -1) {
+                this.a.c.p();
+            } else {
+                this.a.c.v(this.a.j);
+            }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class f implements Runnable {
+    public class b extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ f44 a;
 
-        public f(f44 f44Var) {
+        public b(f44 f44Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -225,155 +84,122 @@ public class f44 implements q34 {
             this.a = f44Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.a == null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                f44 f44Var = this.a;
+                RecommendItemModel y = f44Var.y(f44Var.j);
+                this.a.k.b.setImageURI(y.iconUrl);
+                this.a.k.c.setText(y.appName);
+                this.a.k.a.setAlpha(1.0f);
+                f44 f44Var2 = this.a;
+                RecommendItemModel y2 = this.a.y(f44Var2.x(f44Var2.j));
+                this.a.l.b.setImageURI(y2.iconUrl);
+                this.a.l.c.setText(y2.appName);
+                this.a.l.a.setAlpha(0.0f);
+                f44.super.k();
             }
-            this.a.a.hide();
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class g implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f44 a;
-
-        public g(f44 f44Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f44Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = f44Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.a == null) {
-                return;
-            }
-            this.a.a.destroy();
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class h implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f44 a;
-
-        public h(f44 f44Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f44Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = f44Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.a == null) {
-                return;
-            }
-            this.a.a.update();
-        }
-    }
-
-    public f44(int i, @NonNull s34 s34Var, p34.b bVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f44(@NonNull Context context, @NonNull d44 d44Var) {
+        super(context, d44Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), s34Var, bVar};
+            Object[] objArr = {context, d44Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (d44) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        de3.e0(new a(this, i, s34Var, bVar));
+        this.j = -2;
     }
 
-    @Override // com.repackage.o34
-    public void destroy() {
+    @Override // com.repackage.a44, com.repackage.b44
+    public void e(i44 i44Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            de3.e0(new g(this));
+        if (interceptable == null || interceptable.invokeL(1048576, this, i44Var) == null) {
+            super.e(i44Var);
+            if (z(i44Var)) {
+                return;
+            }
+            this.j = -2;
+            this.l.b.setImageURI(i44Var.a.iconUrl);
+            this.l.c.setText(i44Var.a.appName);
         }
     }
 
-    @Override // com.repackage.q34
-    public void e(x34 x34Var) {
+    @Override // com.repackage.a44
+    public View i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x34Var) == null) {
-            de3.e0(new b(this, x34Var));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            FrameLayout frameLayout = new FrameLayout(this.a);
+            g44 g44Var = new g44(this.a);
+            this.l = g44Var;
+            g44Var.a.setAlpha(0.0f);
+            frameLayout.addView(this.l.a);
+            g44 g44Var2 = new g44(this.a);
+            this.k = g44Var2;
+            g44Var2.a.setAlpha(0.0f);
+            this.k.b.setActualImageResource(17170445);
+            this.k.c.setText((CharSequence) null);
+            frameLayout.addView(this.k.a);
+            this.k.a.setOnClickListener(new a(this));
+            return frameLayout;
         }
+        return (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.o34
-    public void hide() {
+    @Override // com.repackage.a44
+    public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            de3.e0(new f(this));
+            if (z(this.b)) {
+                this.k.a.setAlpha(1.0f);
+                this.k.b.setActualImageResource(R.drawable.obfuscated_res_0x7f080169);
+                this.k.c.setText(R.string.obfuscated_res_0x7f0f1332);
+                super.k();
+                return;
+            }
+            this.j = x(this.j);
+            this.l.a.animate().setDuration(160L).alpha(1.0f);
+            this.k.a.animate().setDuration(160L).alpha(0.0f).setListener(new b(this));
         }
     }
 
-    @Override // com.repackage.q34
-    public void m(boolean z) {
+    public final int x(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            de3.e0(new d(this, z));
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            int i2 = i + 1;
+            if (i2 == this.b.b.size()) {
+                return -1;
+            }
+            return i2;
         }
+        return invokeI.intValue;
     }
 
-    @Override // com.repackage.o34
-    public void show() {
+    public final RecommendItemModel y(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            de3.e0(new e(this));
-        }
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i == -1 ? this.b.a : this.b.b.get(i) : (RecommendItemModel) invokeI.objValue;
     }
 
-    @Override // com.repackage.q34
-    public void u(p34.b bVar) {
+    public final boolean z(i44 i44Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            de3.e0(new c(this, bVar));
-        }
-    }
-
-    @Override // com.repackage.q34
-    public void update() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            de3.e0(new h(this));
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, i44Var)) == null) ? i44Var == null || i44Var.b == null || i44Var.a == null : invokeL.booleanValue;
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rc5;
+import com.repackage.jd5;
 import tbclient.GetGiftCommonList.DataReq;
 import tbclient.GetGiftCommonList.GetGiftCommonListReqIdl;
 @Deprecated
@@ -46,7 +46,7 @@ public class GetGiftCommonListRequestMessage extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.timestamp = 0;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                rc5.a(builder, true);
+                jd5.a(builder, true);
             }
             GetGiftCommonListReqIdl.Builder builder2 = new GetGiftCommonListReqIdl.Builder();
             builder2.data = builder.build(false);

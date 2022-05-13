@@ -1,11 +1,16 @@
 package com.repackage;
+
+import android.view.ViewGroup;
+import java.util.List;
 /* loaded from: classes7.dex */
-public interface xo {
-    void cancelRefresh();
+public interface xo<V extends ViewGroup> {
+    void a(List<eo> list);
 
-    vo getAdapter();
+    List<ro> getData();
 
-    int getFirstVisiblePosition();
+    so getListAdapter();
 
-    int getLastVisiblePosition();
+    V getListView();
+
+    void setData(List<? extends ro> list);
 }

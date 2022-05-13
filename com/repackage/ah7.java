@@ -75,7 +75,7 @@ public class ah7 implements EventDispatcherService {
 
     public void d(String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, map) == null) || ni.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, map) == null) || li.isEmpty(str)) {
             return;
         }
         StatisticItem statisticItem = new StatisticItem(str);
@@ -114,7 +114,7 @@ public class ah7 implements EventDispatcherService {
                 return;
             }
             try {
-                re7.o(new JSONObject(str));
+                ue7.o(new JSONObject(str));
             } catch (JSONException unused) {
             }
         }

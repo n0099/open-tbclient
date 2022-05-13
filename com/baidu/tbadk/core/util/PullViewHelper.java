@@ -9,6 +9,7 @@ import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,20 +20,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mg;
-import com.repackage.pi;
-import com.repackage.sg;
-import com.repackage.ui;
-import com.repackage.vt4;
+import com.repackage.iu4;
+import com.repackage.qg;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
 /* loaded from: classes3.dex */
 public class PullViewHelper {
     public static /* synthetic */ Interceptable $ic = null;
@@ -42,8 +32,6 @@ public class PullViewHelper {
     public static final int PULLVIEW_BGCOLOR_DAY_DEFAULT = -1315344;
     public static final int PULLVIEW_BGCOLOR_NIGHT_DEFAULT = -14670029;
     public static final String PULL_FILE_DIR = "pullImages";
-    public static final String ZIP_DIR = "download";
-    public static final String ZIP_FILE_NAME = "pullFile.zip";
     public static PullViewHelper sInstance;
     public transient /* synthetic */ FieldHolder $fh;
     public PullViewDrawable[] defaultDrawables;
@@ -55,11 +43,6 @@ public class PullViewHelper {
     public PorterDuffColorFilter nightColorSkin;
     public int pullview_backgroundColor_day;
     public int pullview_backgroundColor_night;
-
-    /* loaded from: classes3.dex */
-    public interface CallBack {
-        void result(boolean z);
-    }
 
     /* loaded from: classes3.dex */
     public static class PullViewDrawable {
@@ -101,14 +84,14 @@ public class PullViewHelper {
         this.pullview_backgroundColor_night = PULLVIEW_BGCOLOR_NIGHT_DEFAULT;
         this.nightColorSkin = new PorterDuffColorFilter(IMAGE_COLORFILTER_NIGHT, PorterDuff.Mode.MULTIPLY);
         this.defaultResources = new int[]{R.drawable.listview_pull_refresh01, R.drawable.listview_pull_refresh02};
-        setShouldShowLoadingView(vt4.k().h("pullview_should_show_3d_loading", this.defaultShouldShowLoadingView));
+        setShouldShowLoadingView(iu4.k().h("pullview_should_show_3d_loading", this.defaultShouldShowLoadingView));
     }
 
     private Drawable buildDrawable(File[] fileArr, String str) {
         InterceptResult invokeLL;
         File file;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, this, fileArr, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, fileArr, str)) == null) {
             if (fileArr == null || fileArr.length == 0 || TextUtils.isEmpty(str)) {
                 return null;
             }
@@ -142,12 +125,12 @@ public class PullViewHelper {
     /* JADX INFO: Access modifiers changed from: private */
     public void buildDrawables() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            String q = vt4.k().q("pull_image_url", "");
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            String q = iu4.k().q("pull_image_url", "");
             boolean z = false;
-            int l = vt4.k().l("pull_image_num", 0);
-            this.pullview_backgroundColor_day = vt4.k().l("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
-            this.pullview_backgroundColor_night = vt4.k().l("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
+            int l = iu4.k().l("pull_image_num", 0);
+            this.pullview_backgroundColor_day = iu4.k().l("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
+            this.pullview_backgroundColor_night = iu4.k().l("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
             if (!TextUtils.isEmpty(q)) {
                 if (l > 0 && isImagesExist(l)) {
                     this.drawables = new Drawable[l];
@@ -184,55 +167,10 @@ public class PullViewHelper {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean checkFileMd5(File file, String str) {
-        InterceptResult invokeLL;
-        FileInputStream fileInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, this, file, str)) == null) {
-            if (file == null) {
-                return false;
-            }
-            FileInputStream fileInputStream2 = null;
-            try {
-                try {
-                    fileInputStream = new FileInputStream(file);
-                } catch (Exception e) {
-                    e = e;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                String b = ui.b(fileInputStream);
-                if (!TextUtils.isEmpty(b)) {
-                    if (b.equalsIgnoreCase(str)) {
-                        pi.e(fileInputStream);
-                        return true;
-                    }
-                }
-                pi.e(fileInputStream);
-            } catch (Exception e2) {
-                e = e2;
-                fileInputStream2 = fileInputStream;
-                e.printStackTrace();
-                pi.e(fileInputStream2);
-                return false;
-            } catch (Throwable th2) {
-                th = th2;
-                fileInputStream2 = fileInputStream;
-                pi.e(fileInputStream2);
-                throw th;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
     private File createFileDir(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, this, file)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, file)) == null) {
             if ((file.exists() && file.isDirectory()) || file.mkdirs()) {
                 return file;
             }
@@ -241,54 +179,9 @@ public class PullViewHelper {
         return (File) invokeL.objValue;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void decompressZipFile(File file) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65549, this, file) == null) || file == null) {
-            return;
-        }
-        ZipInputStream zipInputStream = null;
-        try {
-            try {
-                ZipInputStream zipInputStream2 = new ZipInputStream(new FileInputStream(file));
-                while (true) {
-                    try {
-                        ZipEntry nextEntry = zipInputStream2.getNextEntry();
-                        if (nextEntry != null) {
-                            if (!nextEntry.isDirectory()) {
-                                String name = nextEntry.getName();
-                                if (!TextUtils.isEmpty(name) && name.contains(File.separator)) {
-                                    saveImage(name.substring(name.lastIndexOf(File.separator)), zipInputStream2);
-                                }
-                            }
-                        } else {
-                            pi.e(zipInputStream2);
-                            return;
-                        }
-                    } catch (Exception e) {
-                        e = e;
-                        zipInputStream = zipInputStream2;
-                        e.printStackTrace();
-                        pi.e(zipInputStream);
-                        return;
-                    } catch (Throwable th) {
-                        th = th;
-                        zipInputStream = zipInputStream2;
-                        pi.e(zipInputStream);
-                        throw th;
-                    }
-                }
-            } catch (Exception e2) {
-                e = e2;
-            }
-        } catch (Throwable th2) {
-            th = th2;
-        }
-    }
-
     private void deleteDir(File file) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65550, this, file) == null) || file == null) {
+        if (!(interceptable == null || interceptable.invokeL(65542, this, file) == null) || file == null) {
             return;
         }
         if (file.isFile()) {
@@ -304,43 +197,15 @@ public class PullViewHelper {
     /* JADX INFO: Access modifiers changed from: private */
     public void deletePullDir() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65551, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             deleteDir(new File(TbadkCoreApplication.getInst().getFilesDir(), PULL_FILE_DIR));
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void deleteZipFile() {
-        File zipFile;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65552, this) == null) && (zipFile = getZipFile()) != null && zipFile.isFile() && zipFile.exists()) {
-            zipFile.delete();
-        }
-    }
-
-    private void downloadZipFile(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65553, this, str) == null) {
-            DefaultHttpClient defaultHttpClient = new DefaultHttpClient();
-            try {
-                try {
-                    HttpResponse execute = defaultHttpClient.execute(new HttpGet(str));
-                    if (execute.getStatusLine().getStatusCode() == 200) {
-                        saveZip(execute.getEntity().getContent());
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            } finally {
-                defaultHttpClient.getConnectionManager().shutdown();
-            }
         }
     }
 
     private File getImageFileDir() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65554, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
             File filesDir = TbadkCoreApplication.getInst().getFilesDir();
             return createFileDir(new File(filesDir, PULL_FILE_DIR + File.separator + "images"));
         }
@@ -350,7 +215,7 @@ public class PullViewHelper {
     public static PullViewHelper getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             synchronized (PullViewHelper.class) {
                 if (sInstance == null) {
                     sInstance = new PullViewHelper();
@@ -361,27 +226,11 @@ public class PullViewHelper {
         return (PullViewHelper) invokeV.objValue;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public File getZipFile() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65556, this)) == null) {
-            File filesDir = TbadkCoreApplication.getInst().getFilesDir();
-            File file = new File(filesDir, PULL_FILE_DIR + File.separator + "download");
-            createFileDir(file);
-            if (file.exists() && file.isDirectory()) {
-                return new File(file, ZIP_FILE_NAME);
-            }
-            return null;
-        }
-        return (File) invokeV.objValue;
-    }
-
     private boolean hasFileName(File file, String str) {
         InterceptResult invokeLL;
         File[] listFiles;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65557, this, file, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, this, file, str)) == null) {
             for (File file2 : file.listFiles()) {
                 if (file2.exists() && file2.isFile() && !TextUtils.isEmpty(file2.getName()) && file2.getName().startsWith(str) && file2.length() > 0) {
                     return true;
@@ -392,12 +241,11 @@ public class PullViewHelper {
         return invokeLL.booleanValue;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean isImagesExist(int i) {
+    private boolean isImagesExist(int i) {
         InterceptResult invokeI;
         File[] listFiles;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65558, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65547, this, i)) == null) {
             File imageFileDir = getImageFileDir();
             if (imageFileDir != null && (listFiles = imageFileDir.listFiles()) != null && listFiles.length >= i) {
                 int i2 = 0;
@@ -415,179 +263,11 @@ public class PullViewHelper {
         return invokeI.booleanValue;
     }
 
-    private boolean isZipFileExist() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65559, this)) == null) {
-            File zipFile = getZipFile();
-            return zipFile != null && zipFile.exists() && zipFile.isFile() && zipFile.length() > 0;
-        }
-        return invokeV.booleanValue;
-    }
-
-    private void saveFile(InputStream inputStream, File file) {
-        FileOutputStream fileOutputStream;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65560, this, inputStream, file) == null) || file == null || inputStream == null) {
-            return;
-        }
-        FileOutputStream fileOutputStream2 = null;
-        try {
-            try {
-                fileOutputStream = new FileOutputStream(file);
-            } catch (Exception e) {
-                e = e;
-            }
-        } catch (Throwable th) {
-            th = th;
-        }
-        try {
-            byte[] bArr = new byte[512];
-            while (true) {
-                int read = inputStream.read(bArr);
-                if (read != -1) {
-                    fileOutputStream.write(bArr, 0, read);
-                } else {
-                    pi.f(fileOutputStream);
-                    return;
-                }
-            }
-        } catch (Exception e2) {
-            e = e2;
-            fileOutputStream2 = fileOutputStream;
-            e.printStackTrace();
-            pi.f(fileOutputStream2);
-        } catch (Throwable th2) {
-            th = th2;
-            fileOutputStream2 = fileOutputStream;
-            pi.f(fileOutputStream2);
-            throw th;
-        }
-    }
-
-    private void saveImage(String str, InputStream inputStream) {
-        File imageFileDir;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65561, this, str, inputStream) == null) || (imageFileDir = getImageFileDir()) == null || inputStream == null) {
-            return;
-        }
-        saveFile(inputStream, new File(imageFileDir, str));
-    }
-
-    private void saveZip(InputStream inputStream) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65562, this, inputStream) == null) {
-            saveFile(inputStream, getZipFile());
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void startDownload(String str, String str2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65563, this, str, str2, i) == null) {
-            deletePullDir();
-            vt4.k().D("pull_image_url");
-            vt4.k().D("pull_image_num");
-            vt4.k().D("pullview_background_color_day");
-            vt4.k().D("pullview_background_color_night");
-            downloadZipFile(str);
-            File zipFile = getZipFile();
-            if (checkFileMd5(zipFile, str2)) {
-                vt4.k().y("pull_image_url", str);
-                vt4.k().w("pull_image_num", i);
-                decompressZipFile(zipFile);
-                buildDrawables();
-                return;
-            }
-            deleteDir(zipFile);
-        }
-    }
-
-    private void startDownloadAsync(String str, String str2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65564, this, str, str2, i) == null) {
-            sg.a().c(new Runnable(this, str, str2, i) { // from class: com.baidu.tbadk.core.util.PullViewHelper.4
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ PullViewHelper this$0;
-                public final /* synthetic */ String val$downloadUrl;
-                public final /* synthetic */ String val$md5;
-                public final /* synthetic */ int val$num;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, str, str2, Integer.valueOf(i)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$downloadUrl = str;
-                    this.val$md5 = str2;
-                    this.val$num = i;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.this$0.startDownload(this.val$downloadUrl, this.val$md5, this.val$num);
-                    }
-                }
-            });
-        }
-    }
-
-    public void buildDrawablesAsync() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            sg.a().c(new Runnable(this) { // from class: com.baidu.tbadk.core.util.PullViewHelper.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ PullViewHelper this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.this$0.buildDrawables();
-                    }
-                }
-            });
-        }
-    }
-
     public AnimationDrawable getAnimationDrawable(int i) {
         InterceptResult invokeI;
         Drawable[] drawableArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
             if (this.drawables != null) {
                 boolean z = true;
                 if (i != 1 && i != 4) {
@@ -611,7 +291,7 @@ public class PullViewHelper {
         InterceptResult invokeI;
         PullViewDrawable[] pullViewDrawableArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             if (this.defaultDrawables == null) {
                 this.defaultDrawables = new PullViewDrawable[this.defaultResources.length];
                 for (int i2 = 0; i2 < this.defaultResources.length; i2++) {
@@ -645,16 +325,10 @@ public class PullViewHelper {
         return (AnimationDrawable) invokeI.objValue;
     }
 
-    public boolean getDefaultShowShow3DLoading() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.defaultShouldShowLoadingView : invokeV.booleanValue;
-    }
-
     public int getPullViewBackgroundColor(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
             boolean z = true;
             if (i != 1 && i != 4) {
                 z = false;
@@ -670,18 +344,18 @@ public class PullViewHelper {
     public boolean isShouldShowLoadingView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.defaultShouldShowLoadingView : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.defaultShouldShowLoadingView : invokeV.booleanValue;
     }
 
     public void saveOrUpdateImages(String str, String str2, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048582, this, str, str2, str3, str4, str5) == null) {
+        if (interceptable == null || interceptable.invokeLLLLL(1048580, this, str, str2, str3, str4, str5) == null) {
             boolean isEmpty = TextUtils.isEmpty(str4);
             int i = PULLVIEW_BGCOLOR_NIGHT_DEFAULT;
             int i2 = PULLVIEW_BGCOLOR_DAY_DEFAULT;
             if (!isEmpty && !TextUtils.isEmpty(str5)) {
-                int l = vt4.k().l("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
-                int l2 = vt4.k().l("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
+                int l = iu4.k().l("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
+                int l2 = iu4.k().l("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
                 try {
                     i2 = Color.parseColor(str4);
                 } catch (Exception unused) {
@@ -691,125 +365,60 @@ public class PullViewHelper {
                 } catch (Exception unused2) {
                 }
                 if (l != i2 || i != l2) {
-                    vt4.k().w("pullview_background_color_day", i2);
-                    vt4.k().w("pullview_background_color_night", i);
+                    iu4.k().w("pullview_background_color_day", i2);
+                    iu4.k().w("pullview_background_color_night", i);
                     this.pullview_backgroundColor_day = i2;
                     this.pullview_backgroundColor_night = i;
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2016204));
                 }
             } else {
-                vt4.k().w("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
-                vt4.k().w("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
+                iu4.k().w("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
+                iu4.k().w("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
             }
-            if (TextUtils.isEmpty(str)) {
-                vt4.k().u("pullview_should_show_3d_loading", true);
-                setShouldShowLoadingView(true);
-                sg.a().c(new Runnable(this) { // from class: com.baidu.tbadk.core.util.PullViewHelper.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ PullViewHelper this$0;
+            iu4.k().u("pullview_should_show_3d_loading", true);
+            setShouldShowLoadingView(true);
+            qg.a().c(new Runnable(this) { // from class: com.baidu.tbadk.core.util.PullViewHelper.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ PullViewHelper this$0;
 
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            vt4.k().D("pull_image_url");
-                            vt4.k().D("pull_image_num");
-                            vt4.k().D("pullview_background_color_day");
-                            vt4.k().D("pullview_background_color_night");
-                            this.this$0.deletePullDir();
-                            this.this$0.buildDrawables();
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
                         }
                     }
-                });
-                return;
-            }
-            vt4.k().u("pullview_should_show_3d_loading", false);
-            setShouldShowLoadingView(false);
-            String q = vt4.k().q("pull_image_url", "");
-            int e = mg.e(str3, 0);
-            if (str.equals(q)) {
-                if (isImagesExist(e)) {
-                    buildDrawablesAsync();
-                    return;
-                } else if (isZipFileExist()) {
-                    sg.a().c(new Runnable(this, str2, e, str) { // from class: com.baidu.tbadk.core.util.PullViewHelper.2
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ PullViewHelper this$0;
-                        public final /* synthetic */ String val$md5;
-                        public final /* synthetic */ int val$picNumInteger;
-                        public final /* synthetic */ String val$pullImageUrl;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, str2, Integer.valueOf(e), str};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                            this.val$md5 = str2;
-                            this.val$picNumInteger = e;
-                            this.val$pullImageUrl = str;
-                        }
-
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                File zipFile = this.this$0.getZipFile();
-                                if (this.this$0.checkFileMd5(zipFile, this.val$md5)) {
-                                    this.this$0.decompressZipFile(zipFile);
-                                    if (this.this$0.isImagesExist(this.val$picNumInteger)) {
-                                        this.this$0.buildDrawables();
-                                        return;
-                                    }
-                                }
-                                this.this$0.deleteZipFile();
-                                this.this$0.startDownload(this.val$pullImageUrl, this.val$md5, this.val$picNumInteger);
-                            }
-                        }
-                    });
-                    return;
-                } else {
-                    startDownloadAsync(str, str2, e);
-                    return;
+                    this.this$0 = this;
                 }
-            }
-            startDownloadAsync(str, str2, mg.e(str3, 0));
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        iu4.k().D("pull_image_url");
+                        iu4.k().D("pull_image_num");
+                        iu4.k().D("pullview_background_color_day");
+                        iu4.k().D("pullview_background_color_night");
+                        this.this$0.deletePullDir();
+                        this.this$0.buildDrawables();
+                    }
+                }
+            });
         }
     }
 
     public void setShouldShowLoadingView(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             this.defaultShouldShowLoadingView = z;
         }
     }

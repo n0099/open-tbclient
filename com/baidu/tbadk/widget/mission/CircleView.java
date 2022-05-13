@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.mi;
 /* loaded from: classes3.dex */
 public class CircleView extends View {
     public static /* synthetic */ Interceptable $ic = null;
@@ -41,7 +41,7 @@ public class CircleView extends View {
                 return;
             }
         }
-        g = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds3);
+        g = mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds3);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -68,8 +68,8 @@ public class CircleView extends View {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            e = oi.f(context, R.dimen.tbds94);
-            f = oi.f(context, R.dimen.tbds94);
+            e = mi.f(context, R.dimen.tbds94);
+            f = mi.f(context, R.dimen.tbds94);
             Paint paint = new Paint();
             this.d = paint;
             paint.setColor(context.getResources().getColor(R.color.CAM_X0314));

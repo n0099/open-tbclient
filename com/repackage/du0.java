@@ -47,7 +47,7 @@ public class du0 implements mt0 {
         }
         ClogBuilder clogBuilder = new ClogBuilder();
         if (!TextUtils.isEmpty(fw0Var.f)) {
-            clogBuilder.r(fw0Var.f);
+            clogBuilder.t(fw0Var.f);
         }
         clogBuilder.n(fw0Var.g);
         String c = fw0Var.a.c();
@@ -91,22 +91,22 @@ public class du0 implements mt0 {
                 break;
         }
         if (c2 == 0) {
-            clogBuilder.s(ClogBuilder.LogType.VIDEO_START).i(fw0Var.b).k(fw0Var.d);
+            clogBuilder.w(ClogBuilder.LogType.VIDEO_START).i(fw0Var.b).k(fw0Var.d);
             this.b = 0;
             this.a++;
-            ez0.b(clogBuilder);
+            ez0.c(clogBuilder);
         } else if (c2 == 1) {
             boolean d = fw0Var.a.d(7);
             clogBuilder.j(fw0Var.c).k(fw0Var.d).l(fw0Var.e);
             if (d) {
-                clogBuilder.s(ClogBuilder.LogType.VIDEO_PAUSE);
+                clogBuilder.w(ClogBuilder.LogType.VIDEO_PAUSE);
             } else {
-                clogBuilder.s(ClogBuilder.LogType.VIDEO_COMPLETED).m("1");
+                clogBuilder.w(ClogBuilder.LogType.VIDEO_COMPLETED).m("1");
             }
-            ez0.b(clogBuilder);
+            ez0.c(clogBuilder);
         } else if (c2 == 2) {
-            clogBuilder.s(ClogBuilder.LogType.VIDEO_RESUME).i(fw0Var.b).k(fw0Var.d);
-            ez0.b(clogBuilder);
+            clogBuilder.w(ClogBuilder.LogType.VIDEO_RESUME).i(fw0Var.b).k(fw0Var.d);
+            ez0.c(clogBuilder);
         } else if (c2 == 3 || c2 == 4) {
             if (this.a < 1) {
                 return;
@@ -120,21 +120,21 @@ public class du0 implements mt0 {
             } catch (NumberFormatException unused) {
                 clogBuilder.j(fw0Var.c);
             }
-            clogBuilder.s(ClogBuilder.LogType.VIDEO_COMPLETED).k(fw0Var.d).l(fw0Var.e).m("0");
+            clogBuilder.w(ClogBuilder.LogType.VIDEO_COMPLETED).k(fw0Var.d).l(fw0Var.e).m("0");
             this.a--;
-            ez0.b(clogBuilder);
+            ez0.c(clogBuilder);
         } else if (c2 != 5) {
         } else {
             int g = fw0Var.a.g(1);
             int g2 = fw0Var.a.g(2);
             if (g == 0 && g2 != 0 && (i = this.b) != 0 && i >= g2 - 2) {
-                clogBuilder.s(ClogBuilder.LogType.VIDEO_COMPLETED).j(String.valueOf(g2)).k(String.valueOf(g2)).l(fw0Var.e);
-                ez0.b(clogBuilder);
-                ClogBuilder n = new ClogBuilder().s(ClogBuilder.LogType.VIDEO_START).i(fw0Var.b).k(fw0Var.d).n(fw0Var.g);
+                clogBuilder.w(ClogBuilder.LogType.VIDEO_COMPLETED).j(String.valueOf(g2)).k(String.valueOf(g2)).l(fw0Var.e);
+                ez0.c(clogBuilder);
+                ClogBuilder n = new ClogBuilder().w(ClogBuilder.LogType.VIDEO_START).i(fw0Var.b).k(fw0Var.d).n(fw0Var.g);
                 if (!TextUtils.isEmpty(fw0Var.f)) {
-                    n.r(fw0Var.f);
+                    n.t(fw0Var.f);
                 }
-                ez0.b(n);
+                ez0.c(n);
             }
             this.b = g;
         }

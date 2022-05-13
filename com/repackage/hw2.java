@@ -1,297 +1,180 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class hw2 {
+public abstract class hw2 extends iw2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755633906, "Lcom/repackage/hw2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements gh1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ew2 a;
+        public final /* synthetic */ g22 b;
+        public final /* synthetic */ hw2 c;
+
+        public a(hw2 hw2Var, ew2 ew2Var, g22 g22Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755633906, "Lcom/repackage/hw2;");
-                return;
-            }
-        }
-        a = tg1.a;
-    }
-
-    public static void a(Map<String, String> map, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, map, str) == null) || map == null) {
-            return;
-        }
-        String b = b(map, "dynamicLibPath", 3);
-        String b2 = b(map, "dynamicLibConfig", 3);
-        String b3 = b(map, "pluginPath", 4);
-        String b4 = b(map, "dependenciesPath", 6);
-        String b5 = b(map, "dependenciesConfig", 6);
-        if (TextUtils.isEmpty(str) || !a) {
-            return;
-        }
-        bw2.b(str + ", dynamicLibPath = " + b + "; dynamicLibConfig = " + b2 + "; pluginPath = " + b3 + "; dependenciesPath = " + b4 + "; dependenciesConfig = " + b5);
-    }
-
-    public static String b(Map<String, String> map, String str, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, map, str, i)) == null) {
-            if (map == null || TextUtils.isEmpty(str)) {
-                return null;
-            }
-            j03 L = j03.L();
-            String e = L != null ? L.T().e(str, null) : null;
-            if (!TextUtils.isEmpty(e)) {
-                map.put(str, e);
-                return e;
-            }
-            SwanAppConfigData P = L != null ? L.P() : null;
-            if (i == 3) {
-                qv2.m(P, false);
-                e = i(str, null);
-            } else if (i == 4) {
-                e = l(P);
-            } else if (i == 6) {
-                ov2.a(P);
-                e = i(str, null);
-            }
-            map.put(str, e);
-            return e;
-        }
-        return (String) invokeLLI.objValue;
-    }
-
-    public static void c(String str, String str2) {
-        j03 L;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || TextUtils.isEmpty(str) || (L = j03.L()) == null) {
-            return;
-        }
-        L.T().j(str, str2);
-    }
-
-    public static String d(List<fw2> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
-            int size = list.size();
-            StringBuilder sb = new StringBuilder();
-            sb.append("select * from (SELECT * from ");
-            sb.append("swan_plugin");
-            sb.append(" ORDER BY update_time) group by bundle_id having bundle_id in ");
-            sb.append("(");
-            for (int i = 0; i < size; i++) {
-                sb.append("'");
-                sb.append(list.get(i).a);
-                sb.append("'");
-                if (i == size - 1) {
-                    sb.append(SmallTailInfo.EMOTION_SUFFIX);
-                } else {
-                    sb.append(",");
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hw2Var, ew2Var, g22Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            sb.append(";");
-            return sb.toString();
+            this.c = hw2Var;
+            this.a = ew2Var;
+            this.b = g22Var;
         }
-        return (String) invokeL.objValue;
+
+        @Override // com.repackage.gh1
+        public void onResult(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (i != 0) {
+                    fw2 fw2Var = new fw2(this.a.f);
+                    fw2Var.a = this.a.e;
+                    this.b.a(fw2Var);
+                    return;
+                }
+                this.c.o(this.a, this.b);
+            }
+        }
     }
 
-    public static String e(String str, String str2) {
+    /* loaded from: classes6.dex */
+    public class b implements nf3<g63> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ u03 a;
+        public final /* synthetic */ SwanAppActivity b;
+        public final /* synthetic */ ew2 c;
+        public final /* synthetic */ g22 d;
+        public final /* synthetic */ hw2 e;
+
+        public b(hw2 hw2Var, u03 u03Var, SwanAppActivity swanAppActivity, ew2 ew2Var, g22 g22Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hw2Var, u03Var, swanAppActivity, ew2Var, g22Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = hw2Var;
+            this.a = u03Var;
+            this.b = swanAppActivity;
+            this.c = ew2Var;
+            this.d = g22Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.nf3
+        /* renamed from: a */
+        public void onCallback(g63 g63Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, g63Var) == null) {
+                this.e.p(this.b, this.a.N(), this.c, g63Var, this.d);
+            }
+        }
+    }
+
+    public hw2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.repackage.iw2
+    public dw2 f(ew2 ew2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ew2Var)) == null) {
+            return null;
+        }
+        return (dw2) invokeL.objValue;
+    }
+
+    @Override // com.repackage.iw2
+    public us1 j(String str, ew2 ew2Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return null;
-            }
-            SwanAppConfigData b = v03.b(str);
-            if (b == null) {
-                bw2.b("getDownloadKey, app.json is null");
-                return null;
-            }
-            SwanAppConfigData.m mVar = b.d;
-            if (mVar == null) {
-                bw2.b("getDownloadKey, sub pkg obj is null");
-                return null;
-            }
-            Map<String, String> map = mVar.a;
-            if (map == null) {
-                bw2.b("getDownloadKey, sub pkg map is null");
-                return null;
-            }
-            return map.get(str2);
-        }
-        return (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, ew2Var)) == null) ? new us1(0) : (us1) invokeLL.objValue;
     }
 
-    public static String f(String str) {
-        InterceptResult invokeL;
+    @Override // com.repackage.iw2
+    public boolean k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            i94 g = g(str);
-            if ((g == null || TextUtils.isEmpty(g.r)) ? false : true) {
-                return g.r;
-            }
-            bw2.b("get plugin appKey form db, but empty, plugin appId = " + str);
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
         }
-        return (String) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static i94 g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            return qv2.p(str, com.kuaishou.weapon.un.d.S, 0L);
-        }
-        return (i94) invokeL.objValue;
-    }
-
-    public static i94 h(String str) {
-        InterceptResult invokeL;
-        SwanAppConfigData P;
-        List<i94> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            if (!ay1.d() && !iw2.H() && !iw2.D()) {
-                return g(str);
-            }
-            j03 L = j03.L();
-            if (L != null && (P = L.P()) != null && (list = P.l) != null) {
-                for (i94 i94Var : list) {
-                    if (TextUtils.equals(str, i94Var.g)) {
-                        return i94Var;
-                    }
-                }
-            }
-            return null;
-        }
-        return (i94) invokeL.objValue;
-    }
-
-    public static String i(String str, String str2) {
+    @Override // com.repackage.iw2
+    public us1 m(ew2 ew2Var, g22<fw2> g22Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, str2)) == null) {
-            j03 L = j03.L();
-            if (L == null || TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, ew2Var, g22Var)) == null) {
+            if (ew2Var == null || TextUtils.isEmpty(ew2Var.a)) {
+                return new us1(1001, "get fun page info, provider appKey is empty");
             }
-            return L.T().e(str, str2);
+            if (g22Var == null) {
+                return new us1(1001, "get fun page info, cb is null");
+            }
+            u03 r = t03.J().r();
+            SwanAppActivity x = r.x();
+            if (x != null && !x.isFinishing()) {
+                if (!r.M().e(r)) {
+                    r.M().f(x, null, new a(this, ew2Var, g22Var));
+                    return new us1(1001, "not login");
+                }
+                o(ew2Var, g22Var);
+                return new us1(0);
+            }
+            return new us1(1001, "get fun page info, master has dead");
         }
-        return (String) invokeLL.objValue;
+        return (us1) invokeLL.objValue;
     }
 
-    public static void j() {
-        sz1 V;
+    public final void o(ew2 ew2Var, g22<fw2> g22Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65546, null) == null) && (V = wl2.U().V()) != null && (V.m() instanceof tz1)) {
-            wl2.U().getActivity().onBackPressed();
+        if (interceptable == null || interceptable.invokeLL(1048580, this, ew2Var, g22Var) == null) {
+            mw2.b("start get open data");
+            u03 r = t03.J().r();
+            SwanAppActivity x = r.x();
+            g63.B(x, g(), ew2Var.a, true, h(), new b(this, r, x, ew2Var, g22Var));
         }
     }
 
-    public static List<i94> k(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65547, null, str, z)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                int length = jSONArray.length();
-                if (length == 0) {
-                    return null;
-                }
-                ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    if (optJSONObject != null) {
-                        String optString = optJSONObject.optString("plugin_id");
-                        if (!TextUtils.isEmpty(optString)) {
-                            i94 i94Var = new i94();
-                            i94Var.g = optString;
-                            i94Var.i = optJSONObject.optLong("version_code", 0L);
-                            i94Var.j = optJSONObject.optString("version_name", com.kuaishou.weapon.un.d.S);
-                            i94Var.p = optJSONObject.optString("token");
-                            i94Var.q = optJSONObject.optString("domains");
-                            i94Var.h = 4;
-                            i94Var.r = optJSONObject.optString(GameGuideConfigInfo.KEY_APP_KEY);
-                            i94Var.s = optJSONObject.optString("app_name");
-                            i94Var.l = "";
-                            i94Var.m = "";
-                            i94Var.n = "";
-                            arrayList.add(i94Var);
-                            if (z) {
-                                e84.i().m(i94Var);
-                            }
-                        }
-                    }
-                }
-                return arrayList;
-            } catch (JSONException e) {
-                bw2.b(Log.getStackTraceString(e));
-                return null;
-            }
-        }
-        return (List) invokeLZ.objValue;
-    }
-
-    public static String l(SwanAppConfigData swanAppConfigData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, swanAppConfigData)) == null) {
-            if (swanAppConfigData == null) {
-                bw2.b("parse app.json is null");
-                return null;
-            }
-            List<fw2> i = swanAppConfigData.i(4);
-            if (i != null && !i.isEmpty()) {
-                JSONObject jSONObject = new JSONObject();
-                for (fw2 fw2Var : i) {
-                    if (fw2Var != null && fw2Var.a()) {
-                        jd3.f(jSONObject, fw2Var.a, fw2Var.e);
-                    }
-                }
-                String jSONObject2 = jSONObject.toString();
-                c("pluginPath", jSONObject2);
-                return jSONObject2;
-            }
-            c("pluginPath", null);
-            bw2.b("this swan app not apply on someone plugin");
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
+    public abstract void p(SwanAppActivity swanAppActivity, String str, ew2 ew2Var, g63 g63Var, g22<fw2> g22Var);
 }

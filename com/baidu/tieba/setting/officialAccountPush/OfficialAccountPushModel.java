@@ -1,10 +1,8 @@
 package com.baidu.tieba.setting.officialAccountPush;
 
 import com.baidu.adp.base.BdBaseModel;
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,7 +11,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kk8;
 import com.repackage.wa;
 import java.util.ArrayList;
 import java.util.List;
@@ -116,8 +113,6 @@ public class OfficialAccountPushModel extends BdBaseModel {
         this.b = aVar;
         this.a = bVar;
         registerListener(aVar);
-        kk8.f(309620, OfficialAccountPushSocketResponseMessage.class, false);
-        kk8.c(309620, CmdConfigHttp.CMD_OFFICIAL_ACCOUNT_PUSH, TbConfig.CHECK_OFFICIAL_SWITCH_URL, OfficialAccountPushHttpResponseMessage.class, true, false, true, false);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -141,16 +136,9 @@ public class OfficialAccountPushModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.b);
-        }
-    }
-
     public void z() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             sendMessage(new OfficialAccountPushRequestMessage());
         }
     }

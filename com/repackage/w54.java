@@ -1,170 +1,120 @@
 package com.repackage;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.MapStatusUpdateFactory;
+import com.baidu.mapapi.map.UiSettings;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.anim.AnimationProperty;
+import com.repackage.u54;
 /* loaded from: classes7.dex */
 public class w54 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int f;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public View b;
-    public View c;
-    public boolean d;
-    public b e;
 
     /* loaded from: classes7.dex */
-    public class a extends AnimatorListenerAdapter {
+    public static class a implements u54.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ w54 c;
+        public final /* synthetic */ b54 a;
 
-        public a(w54 w54Var, boolean z, int i) {
+        public a(b54 b54Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {w54Var, Boolean.valueOf(z), Integer.valueOf(i)};
+                Object[] objArr = {b54Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.c = w54Var;
-            this.a = z;
-            this.b = i;
+            this.a = b54Var;
         }
 
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
+        @Override // com.repackage.u54.c
+        public void onFail() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                super.onAnimationEnd(animator);
-                animator.removeAllListeners();
-                if (!this.a) {
-                    this.c.c(this.b);
-                }
-                if (this.c.e != null) {
-                    this.c.e.a(this.a);
-                }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ux1.i("map", "location permission fail");
+            }
+        }
+
+        @Override // com.repackage.u54.c
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.p(true);
+                ux1.i("map", "location permission success");
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(boolean z);
-
-        void b(boolean z);
+    public static void a(Context context, d64 d64Var, gn2 gn2Var, b54 b54Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65536, null, context, d64Var, gn2Var, b54Var) == null) {
+            b(context, d64Var, gn2Var, b54Var, false);
+        }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755250405, "Lcom/repackage/w54;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755250405, "Lcom/repackage/w54;");
+    public static void b(Context context, d64 d64Var, gn2 gn2Var, b54 b54Var, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, d64Var, gn2Var, b54Var, Boolean.valueOf(z)}) == null) {
+            if (d64Var != null && gn2Var != null && gn2Var.isValid()) {
+                BaiduMap map = d64Var.l.getMap();
+                z54 z54Var = new z54(d64Var);
+                map.setOnMapClickListener(z54Var);
+                map.setOnMarkerClickListener(z54Var);
+                map.setOnMapLoadedCallback(z54Var);
+                map.setOnMapRenderCallbadk(z54Var);
+                map.setOnMapStatusChangeListener(z54Var);
+                map.setOnMyLocationClickListener(z54Var);
+                UiSettings uiSettings = map.getUiSettings();
+                uiSettings.setScrollGesturesEnabled(gn2Var.t);
+                uiSettings.setRotateGesturesEnabled(gn2Var.u);
+                uiSettings.setZoomGesturesEnabled(gn2Var.s);
+                d64Var.l.showZoomControls(false);
+                d64Var.l.showScaleControl(false);
+                map.setBuildingsEnabled(gn2Var.x);
+                uiSettings.setOverlookingGesturesEnabled(gn2Var.w);
+                nn2 nn2Var = gn2Var.j;
+                if (nn2Var != null && nn2Var.isValid()) {
+                    ux1.i("map", "initMapView coordinate is " + gn2Var.j);
+                    nn2 nn2Var2 = gn2Var.j;
+                    map.setMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(nn2Var2.a, nn2Var2.b)));
+                }
+                map.animateMapStatus(MapStatusUpdateFactory.zoomTo((float) gn2Var.k));
+                ux1.i("map", "initMapView scale is " + gn2Var.k);
+                boolean z2 = gn2Var.r;
+                d64Var.k = z2;
+                if (z2) {
+                    c(context, b54Var);
+                } else {
+                    b54Var.p(false);
+                    map.setMyLocationEnabled(false);
+                }
+                uiSettings.setCompassEnabled(gn2Var.v);
+                x54.e(AppRuntime.getAppContext(), gn2Var, d64Var);
+                x54.d(gn2Var, d64Var, z54Var);
                 return;
             }
-        }
-        f = ae3.g(58.0f);
-    }
-
-    public w54(View view2, FrameLayout frameLayout, View view3) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, frameLayout, view3};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = view2;
-        this.b = frameLayout;
-        this.c = view3;
-    }
-
-    public final void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
-            layoutParams.height = this.a.getHeight() - (i * 2);
-            this.a.setLayoutParams(layoutParams);
+            ux1.c("map", "initMapView model is invalid");
         }
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    public static void c(Context context, b54 b54Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            b bVar = this.e;
-            if (bVar != null) {
-                bVar.b(z);
-            }
-            this.d = z;
-            int i = f;
-            if (z) {
-                i = -i;
-            }
-            float[] fArr = new float[2];
-            if (z) {
-                fArr[0] = 0.0f;
-                fArr[1] = i;
-            } else {
-                fArr[0] = -i;
-                fArr[1] = 0.0f;
-            }
-            float[] fArr2 = new float[2];
-            if (z) {
-                fArr2[0] = 0.0f;
-                fArr2[1] = i * 2;
-            } else {
-                fArr2[0] = (-i) * 2;
-                fArr2[1] = 0.0f;
-            }
-            AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.playTogether(ObjectAnimator.ofFloat(this.b, AnimationProperty.TRANSLATE_Y, fArr), ObjectAnimator.ofFloat(this.a, AnimationProperty.TRANSLATE_Y, fArr2), ObjectAnimator.ofFloat(this.c, AnimationProperty.TRANSLATE_Y, fArr2));
-            animatorSet.setDuration(200L);
-            animatorSet.start();
-            animatorSet.addListener(new a(this, z, i));
-            if (z) {
-                c(i);
-            }
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, b54Var) == null) {
+            u54.b(context, new a(b54Var));
         }
     }
 }

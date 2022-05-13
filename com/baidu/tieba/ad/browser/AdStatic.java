@@ -3,7 +3,6 @@ package com.baidu.tieba.ad.browser;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -18,7 +17,6 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AdWebViewActivityConfig;
 import com.baidu.tbadk.core.atomData.ForumRankActivityConfig;
@@ -33,7 +31,6 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ad.browser.newstyle.AdWebViewActivity;
-import com.baidu.tieba.ad.download.broadcast.AppNotificationReceiver;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,10 +38,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bj5;
-import com.repackage.nd5;
-import com.repackage.wi5;
-import com.repackage.y98;
+import com.repackage.ge5;
+import com.repackage.oj5;
+import com.repackage.tj5;
+import com.repackage.x98;
 import com.repackage.ye;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -86,12 +83,12 @@ public class AdStatic {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2005016 || customResponsedMessage.getData() == null) {
                 return;
             }
-            bj5.c(TbadkCoreApplication.getInst());
+            tj5.c(TbadkCoreApplication.getInst());
         }
     }
 
     /* loaded from: classes3.dex */
-    public static class b implements y98.c {
+    public static class b implements x98.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -109,8 +106,8 @@ public class AdStatic {
             }
         }
 
-        @Override // com.repackage.y98.c
-        public int a(Context context, String str, String str2, boolean z, y98.d dVar, boolean z2, Bundle bundle) {
+        @Override // com.repackage.x98.c
+        public int a(Context context, String str, String str2, boolean z, x98.d dVar, boolean z2, Bundle bundle) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle})) == null) {
@@ -126,7 +123,7 @@ public class AdStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class c implements y98.a {
+    public static class c implements x98.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -144,7 +141,7 @@ public class AdStatic {
             }
         }
 
-        @Override // com.repackage.y98.a
+        @Override // com.repackage.x98.a
         public int a(Context context, String[] strArr) {
             InterceptResult invokeLL;
             Bundle i;
@@ -155,7 +152,6 @@ public class AdStatic {
                     if (StringUtils.isNull(str)) {
                         return 3;
                     }
-                    str.toLowerCase();
                     String str2 = strArr.length > 2 ? strArr[2] : null;
                     String str3 = strArr.length > 1 ? strArr[1] : null;
                     if (str.startsWith("tel:")) {
@@ -166,19 +162,19 @@ public class AdStatic {
                     if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_SMS)) {
                         String substring = str.substring(4);
                         if (str.contains("body=")) {
-                            str4 = nd5.c(str, "body=");
+                            str4 = ge5.c(str, "body=");
                             substring = substring.substring(0, substring.indexOf("?") - 1);
                         }
                         UtilHelper.smsTo(context, substring, str4);
                         return 0;
                     } else if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_JUMP_OUTER)) {
-                        bj5.f(context, str);
+                        tj5.f(context, str);
                         return 1;
                     } else if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_FINISH_THIS_PAGE) && (context instanceof Activity)) {
                         ((Activity) context).finish();
                         return 1;
                     } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains(UrlSchemaHelper.TBEAN_TOAST) && (context instanceof Activity)) {
-                        UtilHelper.showToast(context, (int) R.string.obfuscated_res_0x7f0f034a);
+                        UtilHelper.showToast(context, (int) R.string.obfuscated_res_0x7f0f0350);
                         ((Activity) context).finish();
                         return 0;
                     } else if (str.startsWith("tieba://focusforum")) {
@@ -192,22 +188,22 @@ public class AdStatic {
                         context.startActivity(intent);
                         return 0;
                     } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains(UrlSchemaHelper.GOTO_TDOU_PAY_BUNDING_PHONE)) {
-                        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001359, nd5.c(str, "bindid=")));
+                        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001359, ge5.c(str, "bindid=")));
                         if (context instanceof Activity) {
                             ((Activity) context).finish();
                         }
                         return 1;
-                    } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains(UrlSchemaHelper.CHANGE_YINJI_SUCCESS) && (i = nd5.i(str)) != null && UrlSchemaHelper.CHANGE_YINJI_SUCCESS.equalsIgnoreCase(i.getString("path"))) {
+                    } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains(UrlSchemaHelper.CHANGE_YINJI_SUCCESS) && (i = ge5.i(str)) != null && UrlSchemaHelper.CHANGE_YINJI_SUCCESS.equalsIgnoreCase(i.getString("path"))) {
                         MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001372));
                         return 0;
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_OPFEATURE)) {
-                        AdStatic.p(context, bj5.d(str.replaceFirst(UrlSchemaHelper.SCHEMA_TYPE_OPFEATURE, ""), str2), null, null);
+                        AdStatic.p(context, tj5.d(str.replaceFirst(UrlSchemaHelper.SCHEMA_TYPE_OPFEATURE, ""), str2), null, null);
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_WEB)) {
-                        AdStatic.p(context, bj5.d(str.replaceFirst(UrlSchemaHelper.SCHEMA_TYPE_WEB, ""), str2), null, null);
+                        AdStatic.p(context, tj5.d(str.replaceFirst(UrlSchemaHelper.SCHEMA_TYPE_WEB, ""), str2), null, null);
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_TOPIC)) {
                         AdStatic.p(context, str3, str.substring(6), null);
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_ZB)) {
-                        AdStatic.p(context, str.substring(3), context.getString(R.string.obfuscated_res_0x7f0f0e3c), null);
+                        AdStatic.p(context, str.substring(3), context.getString(R.string.obfuscated_res_0x7f0f0e5a), null);
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_LIST)) {
                         String substring2 = str.substring(5);
                         if (!TextUtils.isEmpty(substring2)) {
@@ -222,7 +218,7 @@ public class AdStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class d implements y98.a {
+    public static class d implements x98.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -240,7 +236,7 @@ public class AdStatic {
             }
         }
 
-        @Override // com.repackage.y98.a
+        @Override // com.repackage.x98.a
         public int a(Context context, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -312,7 +308,7 @@ public class AdStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class e implements y98.a {
+    public static class e implements x98.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -330,7 +326,7 @@ public class AdStatic {
             }
         }
 
-        @Override // com.repackage.y98.a
+        @Override // com.repackage.x98.a
         public int a(Context context, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -384,13 +380,7 @@ public class AdStatic {
         }
         TbadkCoreApplication.getInst().RegisterIntent(AdWebViewActivityConfig.class, AdWebViewActivity.class);
         MessageManager.getInstance().registerListener(2005016, new a(0));
-        b bVar = new b();
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
-        intentFilter.addAction(PackageChangedReceiver.ACTION_UNINSTALL);
-        intentFilter.addDataScheme("package");
-        TbadkCoreApplication.getInst().registerReceiver(new AppNotificationReceiver(), intentFilter);
-        wi5.l().o(bVar);
+        oj5.l().o(new b());
         SwitchManager.getInstance().addSwitchData(new ye("switch_mbaidu_startup", 1, null));
         l();
         m();
@@ -564,28 +554,28 @@ public class AdStatic {
     public static void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, null) == null) {
-            wi5.l().e(new c());
+            oj5.l().e(new c());
         }
     }
 
     public static void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, null) == null) {
-            wi5.l().e(new d());
+            oj5.l().e(new d());
         }
     }
 
     public static void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65551, null) == null) {
-            wi5.l().e(new e());
+            oj5.l().e(new e());
         }
     }
 
     public static void o(Context context, String str, String str2, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65552, null, context, str, str2, bundle) == null) {
-            String d2 = bj5.d(str, null);
+            String d2 = tj5.d(str, null);
             Intent intent = new Intent();
             intent.setAction("com.baidu.searchbox.action.VIEW");
             intent.addCategory("android.intent.category.DEFAULT");
@@ -606,7 +596,7 @@ public class AdStatic {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65553, null, context, str, str2, bundle) == null) {
             k(str);
-            bj5.g(context, str, str2, bundle);
+            tj5.g(context, str, str2, bundle);
         }
     }
 

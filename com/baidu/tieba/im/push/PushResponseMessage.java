@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.np4;
+import com.repackage.yp4;
 import com.squareup.wire.Wire;
 import java.util.LinkedList;
 import protobuf.PushMessage.DataRes;
@@ -21,7 +21,7 @@ import protobuf.PushMsgInfo;
 public class PushResponseMessage extends ResponsePullMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public np4 notificationData;
+    public yp4 notificationData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PushResponseMessage() {
@@ -41,10 +41,10 @@ public class PushResponseMessage extends ResponsePullMessage {
         }
     }
 
-    public np4 getNotificationData() {
+    public yp4 getNotificationData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.notificationData : (np4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.notificationData : (yp4) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.im.message.ResponsePullMessage

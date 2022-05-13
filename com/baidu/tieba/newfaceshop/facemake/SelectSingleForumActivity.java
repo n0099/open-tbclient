@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.mi;
 import com.repackage.oo7;
 import java.util.ArrayList;
 import java.util.List;
@@ -118,7 +118,7 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
                 BazhuInfoData.BaInfo baInfo = (BazhuInfoData.BaInfo) this.a.mDataList.get(i);
-                CheckBox checkBox = (CheckBox) view2.findViewById(R.id.obfuscated_res_0x7f09212b);
+                CheckBox checkBox = (CheckBox) view2.findViewById(R.id.obfuscated_res_0x7f092186);
                 if (checkBox.isChecked()) {
                     return;
                 }
@@ -168,7 +168,7 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
     private void setTransmitConfirmButtonText() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            this.mTransmitConfirmButton.setText(R.string.obfuscated_res_0x7f0f10d4);
+            this.mTransmitConfirmButton.setText(R.string.obfuscated_res_0x7f0f10ee);
         }
     }
 
@@ -194,25 +194,25 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d075f);
-            this.mRootView = findViewById(R.id.obfuscated_res_0x7f091ade);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ad);
+            setContentView(R.layout.obfuscated_res_0x7f0d0752);
+            this.mRootView = findViewById(R.id.obfuscated_res_0x7f091b2c);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923fd);
             this.mNavigationBar = navigationBar;
             View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mBackView = addSystemImageButton;
             if (addSystemImageButton.getLayoutParams() instanceof LinearLayout.LayoutParams) {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mBackView.getLayoutParams();
-                layoutParams.leftMargin = oi.f(getActivity(), R.dimen.obfuscated_res_0x7f070234);
+                layoutParams.leftMargin = mi.f(getActivity(), R.dimen.obfuscated_res_0x7f070234);
                 this.mBackView.setLayoutParams(layoutParams);
             }
-            this.mTitleView = this.mNavigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0546));
+            this.mTitleView = this.mNavigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f054c));
             this.mBackView.setOnClickListener(this.mOnClickListener);
-            this.mDivider = findViewById(R.id.obfuscated_res_0x7f09239a);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09212d);
+            this.mDivider = findViewById(R.id.obfuscated_res_0x7f0923ea);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092187);
             this.mTransmitConfirmButton = textView;
             textView.setOnClickListener(this.mOnClickListener);
-            this.mLayoutConfirm = findViewById(R.id.obfuscated_res_0x7f0911c6);
-            this.mListView = (BdListView) findViewById(R.id.obfuscated_res_0x7f092133);
+            this.mLayoutConfirm = findViewById(R.id.obfuscated_res_0x7f0911d5);
+            this.mListView = (BdListView) findViewById(R.id.obfuscated_res_0x7f09218a);
             if (getIntent() != null) {
                 ArrayList parcelableArrayListExtra = getIntent().getParcelableArrayListExtra("KEY_INTPUT_FORUM_LIST");
                 if (ListUtils.getCount(parcelableArrayListExtra) > 0) {

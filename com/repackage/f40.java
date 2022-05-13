@@ -1,241 +1,492 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.Proxy;
+import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import android.util.DisplayMetrics;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.internal.ConectivityUtils;
 import java.util.HashMap;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicInteger;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class f40 {
+public class f40 implements b40 {
     public static /* synthetic */ Interceptable $ic;
-    public static f40 i;
     public transient /* synthetic */ FieldHolder $fh;
-    public Thread a;
-    public AtomicInteger b;
-    public h40 c;
-    public q40 d;
-    public HashMap<String, String> e;
-    public HashMap<String, String> f;
-    public o40 g;
-    public Context h;
 
     /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-        public static a a;
+        public static HashMap<String, Integer> a;
+        public static a b;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public a(Context context) {
+        /* renamed from: com.repackage.f40$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public static class C0411a {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public String a;
+            public String b;
+            public String c;
+            public int d;
+
+            public C0411a(Context context) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {context};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                a(context);
+            }
+
+            @SuppressLint({"MissingPermission"})
+            public final void a(Context context) {
+                NetworkInfo networkInfo;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+                    try {
+                        networkInfo = ((ConnectivityManager) context.getApplicationContext().getSystemService("connectivity")).getActiveNetworkInfo();
+                    } catch (Exception unused) {
+                        networkInfo = null;
+                    }
+                    if (networkInfo != null) {
+                        if ("wifi".equals(networkInfo.getTypeName().toLowerCase())) {
+                            this.c = "wifi";
+                        } else {
+                            b(context, networkInfo);
+                            this.c = this.a;
+                        }
+                        this.d = networkInfo.getSubtype();
+                        networkInfo.getSubtypeName();
+                    }
+                }
+            }
+
+            public final void b(Context context, NetworkInfo networkInfo) {
+                String lowerCase;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, networkInfo) == null) {
+                    if (networkInfo.getExtraInfo() != null && (lowerCase = networkInfo.getExtraInfo().toLowerCase()) != null) {
+                        if (lowerCase.startsWith(ConectivityUtils.APN_CMWAP) || lowerCase.startsWith(ConectivityUtils.APN_UNIWAP) || lowerCase.startsWith(ConectivityUtils.APN_3GWAP)) {
+                            this.a = lowerCase;
+                            this.b = "10.0.0.172";
+                            return;
+                        } else if (lowerCase.startsWith(ConectivityUtils.APN_CTWAP)) {
+                            this.a = lowerCase;
+                            this.b = "10.0.0.200";
+                            return;
+                        } else if (lowerCase.startsWith(ConectivityUtils.APN_CMNET) || lowerCase.startsWith(ConectivityUtils.APN_UNINET) || lowerCase.startsWith(ConectivityUtils.APN_CTNET) || lowerCase.startsWith(ConectivityUtils.APN_3GNET)) {
+                            this.a = lowerCase;
+                            return;
+                        }
+                    }
+                    String defaultHost = Proxy.getDefaultHost();
+                    int defaultPort = Proxy.getDefaultPort();
+                    if (defaultHost == null || defaultHost.length() <= 0) {
+                        return;
+                    }
+                    this.b = defaultHost;
+                    if ("10.0.0.172".equals(defaultHost.trim()) || "10.0.0.200".equals(this.b.trim())) {
+                        return;
+                    }
+                    Integer.toString(defaultPort);
+                }
+            }
+
+            public String c() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (String) invokeV.objValue;
+            }
+
+            public int d() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : invokeV.intValue;
+            }
+        }
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-433923470, "Lcom/repackage/f40$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-433923470, "Lcom/repackage/f40$a;");
+                    return;
+                }
+            }
+            HashMap<String, Integer> hashMap = new HashMap<>();
+            a = hashMap;
+            hashMap.put("WIFI", 1);
+            a.put("3GNET", 21);
+            a.put("3GWAP", 22);
+            a.put("CMNET", 31);
+            a.put("UNINET", 32);
+            a.put("CTNET", 33);
+            a.put("CMWAP", 41);
+            a.put("UNIWAP", 42);
+            a.put("CTWAP", 43);
+            b = new a();
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
-                interceptable.invokeUnInit(65536, newInitContext);
+                interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            if (context == null) {
-                throw new NullPointerException("context should not be null");
-            }
-            if (f40.i == null) {
-                synchronized (f40.class) {
-                    if (f40.i == null) {
-                        f40 unused = f40.i = new f40(context.getApplicationContext(), null);
-                    }
+                    interceptable.invokeInitBody(65537, newInitContext);
                 }
             }
         }
 
-        public static a c(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-                if (a == null) {
-                    synchronized (f40.class) {
-                        if (a == null) {
-                            a = new a(context);
-                        }
-                    }
-                }
-                return a;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public final void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                f40.i.e = new HashMap();
-                f40.i.e.put(BOSTokenRequest.CHARSET, IMAudioTransRequest.CHARSET);
-                f40.i.e.put("Content-type", "application/json");
-                f40.i.d = new y40();
-            }
-        }
-
-        public f40 b() {
+        public static a a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (f40.i.d == null) {
-                    a();
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (a) invokeV.objValue;
+        }
+
+        public String b(Context context) {
+            InterceptResult invokeL;
+            StringBuilder sb;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+                C0411a c0411a = new C0411a(context);
+                String c = c0411a.c();
+                int d = c0411a.d();
+                if (TextUtils.isEmpty(c)) {
+                    sb = new StringBuilder();
+                } else {
+                    Integer num = a.get(c.toUpperCase());
+                    r3 = num != null ? num : 5;
+                    sb = new StringBuilder();
                 }
-                return f40.i;
+                sb.append(r3);
+                sb.append("_");
+                sb.append(d);
+                return sb.toString();
             }
-            return (f40) invokeV.objValue;
+            return (String) invokeL.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements Runnable {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
+        public static b c;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f40 a;
+        public String a;
+        public DisplayMetrics b;
 
-        public b(f40 f40Var) {
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-433923439, "Lcom/repackage/f40$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-433923439, "Lcom/repackage/f40$b;");
+                    return;
+                }
+            }
+            c = new b();
+        }
+
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f40Var};
-                interceptable.invokeUnInit(65536, newInitContext);
+                interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static b a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c : (b) invokeV.objValue;
+        }
+
+        public static String g(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+                try {
+                    return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+                } catch (PackageManager.NameNotFoundException e) {
+                    e.printStackTrace();
+                    return "0.8";
+                }
+            }
+            return (String) invokeL.objValue;
+        }
+
+        public final String b(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+                int e = e(context.getApplicationContext());
+                int d = d(context.getApplicationContext());
+                int c2 = c(context.getApplicationContext());
+                String g = g(context.getApplicationContext());
+                StringBuffer stringBuffer = new StringBuffer();
+                stringBuffer.append(e);
+                stringBuffer.append("_");
+                stringBuffer.append(d);
+                stringBuffer.append("_");
+                stringBuffer.append("android");
+                stringBuffer.append("_");
+                stringBuffer.append(g);
+                stringBuffer.append("_");
+                stringBuffer.append(c2);
+                return stringBuffer.toString();
+            }
+            return (String) invokeL.objValue;
+        }
+
+        public final int c(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+                h(context);
+                DisplayMetrics displayMetrics = this.b;
+                if (displayMetrics != null) {
+                    return displayMetrics.densityDpi;
+                }
+                return 0;
+            }
+            return invokeL.intValue;
+        }
+
+        public final int d(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+                h(context);
+                DisplayMetrics displayMetrics = this.b;
+                if (displayMetrics != null) {
+                    return displayMetrics.heightPixels;
+                }
+                return 0;
+            }
+            return invokeL.intValue;
+        }
+
+        public final int e(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+                h(context);
+                DisplayMetrics displayMetrics = this.b;
+                if (displayMetrics != null) {
+                    return displayMetrics.widthPixels;
+                }
+                return 0;
+            }
+            return invokeL.intValue;
+        }
+
+        public String f(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+                synchronized (b.class) {
+                    if (TextUtils.isEmpty(this.a)) {
+                        this.a = b(context);
+                    }
+                }
+                return this.a;
+            }
+            return (String) invokeL.objValue;
+        }
+
+        public final void h(Context context) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048581, this, context) == null) && context != null && this.b == null) {
+                this.b = context.getResources().getDisplayMetrics();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static c e;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+        public String d;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-433923408, "Lcom/repackage/f40$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-433923408, "Lcom/repackage/f40$c;");
                     return;
                 }
             }
-            this.a = f40Var;
+            e = new c();
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            boolean z;
+        public c() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                f40 f40Var = this.a;
-                f40Var.c = new l40(f40Var.h);
-                if (this.a.g != null) {
-                    this.a.g.a(this.a.c.a());
-                    z = this.a.g.b();
-                } else {
-                    z = false;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
                 }
-                if (z && this.a.k()) {
-                    this.a.o();
-                    this.a.m();
-                }
-                this.a.a = null;
             }
+            c();
+        }
+
+        public static c a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? e : (c) invokeV.objValue;
+        }
+
+        public String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (String) invokeV.objValue;
+        }
+
+        public final void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                String str = Build.MODEL;
+                this.a = str;
+                if (TextUtils.isEmpty(str)) {
+                    this.a = "NUL";
+                } else {
+                    this.a = this.a.replace("_", "-");
+                }
+                String str2 = Build.MANUFACTURER;
+                this.b = str2;
+                if (TextUtils.isEmpty(str2)) {
+                    this.b = "NUL";
+                } else {
+                    this.b = this.b.replace("_", "-");
+                }
+                String str3 = Build.VERSION.RELEASE;
+                this.c = str3;
+                this.c = TextUtils.isEmpty(str3) ? "0.0" : this.c.replace("_", "-");
+                this.d = d();
+            }
+        }
+
+        public final String d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                String str = this.a;
+                String str2 = this.c;
+                int i = Build.VERSION.SDK_INT;
+                String str3 = this.b;
+                return str + "_" + str2 + "_" + i + "_" + str3;
+            }
+            return (String) invokeV.objValue;
         }
     }
 
-    public f40(Context context) {
+    public f40() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = new AtomicInteger(0);
-        new AtomicBoolean(false);
-        this.h = context;
-        this.g = new v40(context);
     }
 
-    public /* synthetic */ f40(Context context, g40 g40Var) {
-        this(context);
+    @Override // com.repackage.b40
+    public long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? System.currentTimeMillis() : invokeV.longValue;
     }
 
-    public final String e(String str) {
+    @Override // com.repackage.b40
+    public String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                throw new NullPointerException("url should not be empty");
-            }
-            HashMap<String, String> hashMap = this.f;
-            return hashMap == null ? str : x40.a(str, hashMap);
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? a.a().b(context) : (String) invokeL.objValue;
     }
 
-    public final Runnable h() {
+    @Override // com.repackage.b40
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new b(this) : (Runnable) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? c.a().b() : (String) invokeV.objValue;
     }
 
-    public final boolean k() {
-        InterceptResult invokeV;
-        r40 a2;
+    @Override // com.repackage.b40
+    public String b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String e = e("https://mbd.baidu.com/store");
-            q40 q40Var = this.d;
-            JSONObject a3 = u40.a((q40Var == null || (a2 = q40Var.a()) == null) ? null : a2.a(e, "POST", this.e, this.c.a()));
-            return a3 != null && a3.optInt("errno", -1) == 0;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) ? u20.e(context).g() : (String) invokeL.objValue;
     }
 
-    public final void m() {
-        AtomicInteger atomicInteger;
+    @Override // com.repackage.b40
+    public String c(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (atomicInteger = this.b) == null) {
-            return;
-        }
-        atomicInteger.set(2);
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) ? (context == null || context.getApplicationContext() == null) ? "" : context.getApplicationContext().getPackageName() : (String) invokeL.objValue;
     }
 
-    public final void o() {
-        o40 o40Var;
+    @Override // com.repackage.b40
+    public String d(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (o40Var = this.g) == null) {
-            return;
-        }
-        o40Var.b(this.c.a());
-    }
-
-    public void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            synchronized (f40.class) {
-                if (this.b.get() == 0) {
-                    if (this.h == null) {
-                        throw new NullPointerException("context should not be null");
-                    }
-                    this.b.set(1);
-                    if (this.a == null) {
-                        this.a = new Thread(h());
-                    }
-                    this.a.start();
-                }
-            }
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) ? b.a().f(context) : (String) invokeL.objValue;
     }
 }

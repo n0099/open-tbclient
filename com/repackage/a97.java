@@ -2,6 +2,7 @@ package com.repackage;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
@@ -12,6 +13,8 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.MsgCacheData;
+import com.baidu.tieba.im.data.ShareForumMsgData;
+import com.baidu.tieba.im.data.ShareThreadMsgData;
 import com.baidu.tieba.im.data.SystemMsgData;
 import com.baidu.tieba.im.data.VoiceMsgData;
 import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
@@ -21,15 +24,14 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import protobuf.MsgInfo;
 /* loaded from: classes5.dex */
 public class a97 {
     public static /* synthetic */ Interceptable $ic;
-    public static Pattern a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,7 +47,7 @@ public class a97 {
                 return;
             }
         }
-        a = Pattern.compile("(#\\([^#\\)\\(]+\\))");
+        Pattern.compile("(#\\([^#\\)\\(]+\\))");
     }
 
     public static String a(String str) {
@@ -70,22 +72,22 @@ public class a97 {
                     return null;
                 }
                 if (optString.equals(TbEnum.SystemMessage.EVENT_ID_KICKED_OUT)) {
-                    return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0983);
+                    return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0987);
                 }
                 if (!optString.equals(TbEnum.SystemMessage.EVENT_ID_HIDE_GROUP) && !optString.equals(TbEnum.SystemMessage.EVENT_ID_HIDE_GROUP_WARN)) {
                     if (optString.equals(TbEnum.SystemMessage.EVENT_ID_GROUP_JOIN)) {
                         String optString3 = optJSONObject.optString("userId");
                         String optString4 = optJSONObject.optString(TbEnum.SystemMessage.KEY_USER_NAME);
                         if (optString3.equals(TbadkCoreApplication.getCurrentAccount())) {
-                            return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f097f);
+                            return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0983);
                         }
-                        return optString4 + TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f097e);
+                        return optString4 + TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0982);
                     } else if (optString.equals(TbEnum.SystemMessage.EVENT_ID_GROUP_QUIT)) {
-                        return optJSONObject.optString("userId").equals(TbadkCoreApplication.getCurrentAccount()) ? TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0983) : optString2;
+                        return optJSONObject.optString("userId").equals(TbadkCoreApplication.getCurrentAccount()) ? TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0987) : optString2;
                     } else if (optString.equals(TbEnum.SystemMessage.EVENT_ID_APPLY_SUC)) {
-                        return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f097f);
+                        return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0983);
                     } else {
-                        if (!optString.equals(TbEnum.SystemMessage.EVENT_ID_INVITE_GROUP) && !optString.equals(TbEnum.SystemMessage.EVENT_ID_COMMON) && optString.equals(TbEnum.SystemMessage.EVENT_ID_GROUP_ACTIVITYS_IN_CHAT)) {
+                        if (!optString.equals(TbEnum.SystemMessage.EVENT_ID_INVITE_GROUP) && !optString.equals(TbEnum.SystemMessage.EVENT_ID_COMMON) && !optString.equals(TbEnum.SystemMessage.EVENT_ID_STRANGER_FIRST_MSG) && optString.equals(TbEnum.SystemMessage.EVENT_ID_GROUP_ACTIVITYS_IN_CHAT)) {
                         }
                     }
                 }
@@ -98,10 +100,52 @@ public class a97 {
         return (String) invokeL.objValue;
     }
 
-    public static final String b(String str) {
+    @Nullable
+    public static ShareForumMsgData b(@Nullable ChatMessage chatMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, chatMessage)) == null) {
+            if (chatMessage == null || chatMessage.getMsgType() != 33) {
+                return null;
+            }
+            if (chatMessage.getObjContent() != null) {
+                return (ShareForumMsgData) chatMessage.getObjContent();
+            }
+            ShareForumMsgData shareForumMsgData = (ShareForumMsgData) OrmObject.objectWithJsonStr(chatMessage.getContent(), ShareForumMsgData.class);
+            if (shareForumMsgData != null) {
+                chatMessage.setEncodeContent(shareForumMsgData.toEncodeContent());
+            }
+            chatMessage.setObjContent(shareForumMsgData);
+            return shareForumMsgData;
+        }
+        return (ShareForumMsgData) invokeL.objValue;
+    }
+
+    @Nullable
+    public static ShareThreadMsgData c(@Nullable ChatMessage chatMessage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, chatMessage)) == null) {
+            if (chatMessage == null || chatMessage.getMsgType() != 32) {
+                return null;
+            }
+            if (chatMessage.getObjContent() != null) {
+                return (ShareThreadMsgData) chatMessage.getObjContent();
+            }
+            ShareThreadMsgData shareThreadMsgData = (ShareThreadMsgData) OrmObject.objectWithJsonStr(chatMessage.getContent(), ShareThreadMsgData.class);
+            if (shareThreadMsgData != null) {
+                chatMessage.setEncodeContent(shareThreadMsgData.toEncodeContent());
+            }
+            chatMessage.setObjContent(shareThreadMsgData);
+            return shareThreadMsgData;
+        }
+        return (ShareThreadMsgData) invokeL.objValue;
+    }
+
+    public static final String d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             StringBuilder sb = new StringBuilder();
             if (TextUtils.isEmpty(str)) {
                 return null;
@@ -132,42 +176,42 @@ public class a97 {
         return (String) invokeL.objValue;
     }
 
-    public static String c(ChatMessage chatMessage) {
+    public static String e(ChatMessage chatMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, chatMessage)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, chatMessage)) == null) {
             if (chatMessage == null) {
                 return null;
             }
             UserData userInfo = chatMessage.getUserInfo();
             String userName = (userInfo == null || TextUtils.isEmpty(userInfo.getUserName())) ? "" : chatMessage.getUserInfo().getUserName();
             if (userInfo != null && !TextUtils.isEmpty(userInfo.getUserId()) && userInfo.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
-                return v(chatMessage);
+                return z(chatMessage);
             }
             if (chatMessage.getMsgType() == 11) {
-                return v(chatMessage);
+                return z(chatMessage);
             }
             if (chatMessage.getToUserId() != 0) {
-                return v(chatMessage);
+                return z(chatMessage);
             }
             if (!TextUtils.isEmpty(userName)) {
-                return userName + ":" + v(chatMessage);
+                return userName + ":" + z(chatMessage);
             }
-            return v(chatMessage);
+            return z(chatMessage);
         }
         return (String) invokeL.objValue;
     }
 
-    public static int d(Context context, int i) {
+    public static int f(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i)) == null) ? context.getResources().getDimensionPixelSize(i) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, context, i)) == null) ? context.getResources().getDimensionPixelSize(i) : invokeLI.intValue;
     }
 
-    public static final String e(String str) {
+    public static final String g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
             StringBuilder sb = new StringBuilder();
             if (TextUtils.isEmpty(str)) {
                 return null;
@@ -177,7 +221,7 @@ public class a97 {
                 if (jSONArray.length() >= 2) {
                     String optString = jSONArray.optString(0);
                     if (1 == jSONArray.optInt(1)) {
-                        sb.append(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f09c4));
+                        sb.append(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f09c8));
                     }
                     if (optString != null) {
                         sb.append(optString);
@@ -191,10 +235,10 @@ public class a97 {
         return (String) invokeL.objValue;
     }
 
-    public static String f(String str, boolean z) {
+    public static String h(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65542, null, str, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65544, null, str, z)) == null) {
             if (str == null) {
                 return null;
             }
@@ -207,19 +251,19 @@ public class a97 {
         return (String) invokeLZ.objValue;
     }
 
-    public static String g(JSONObject jSONObject, boolean z) {
+    public static String i(JSONObject jSONObject, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65543, null, jSONObject, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65545, null, jSONObject, z)) == null) {
             return jSONObject.optString(z ? "big_src" : "src");
         }
         return (String) invokeLZ.objValue;
     }
 
-    public static MsgCacheData h(ChatMessage chatMessage) {
+    public static MsgCacheData j(ChatMessage chatMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, chatMessage)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, chatMessage)) == null) {
             try {
                 MsgCacheData msgCacheData = new MsgCacheData();
                 msgCacheData.setRich_content(null);
@@ -231,61 +275,61 @@ public class a97 {
         return (MsgCacheData) invokeL.objValue;
     }
 
-    public static c67 i(CommonMsgPojo commonMsgPojo) {
+    public static p57 k(CommonMsgPojo commonMsgPojo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, commonMsgPojo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, commonMsgPojo)) == null) {
             if (commonMsgPojo != null && commonMsgPojo.getMsg_type() == 7) {
-                return k(commonMsgPojo.getContent());
+                return m(commonMsgPojo.getContent());
             }
             return null;
         }
-        return (c67) invokeL.objValue;
+        return (p57) invokeL.objValue;
     }
 
-    public static c67 j(String str) {
+    public static p57 l(String str) {
         InterceptResult invokeL;
         String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
             if (TextUtils.isEmpty(str) || (split = str.split("_")) == null || split.length != 2) {
                 return null;
             }
-            c67 c67Var = new c67();
-            c67Var.a = split[0];
-            c67Var.b = split[1];
-            return c67Var;
+            p57 p57Var = new p57();
+            p57Var.a = split[0];
+            p57Var.b = split[1];
+            return p57Var;
         }
-        return (c67) invokeL.objValue;
+        return (p57) invokeL.objValue;
     }
 
-    public static c67 k(String str) {
+    public static p57 m(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
             try {
                 JSONArray jSONArray = new JSONArray(str);
                 if (jSONArray.length() > 0) {
-                    return j(jSONArray.getJSONObject(0).optString("msg_src"));
+                    return l(jSONArray.getJSONObject(0).optString("msg_src"));
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
             return null;
         }
-        return (c67) invokeL.objValue;
+        return (p57) invokeL.objValue;
     }
 
-    public static SystemMsgData l(ChatMessage chatMessage) {
+    public static SystemMsgData n(ChatMessage chatMessage) {
         InterceptResult invokeL;
         String optString;
         String optString2;
         JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, chatMessage)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, chatMessage)) == null) {
             if (chatMessage == null || chatMessage.getMsgType() != 11 || TextUtils.isEmpty(chatMessage.getContent())) {
                 return null;
             }
@@ -301,7 +345,7 @@ public class a97 {
                 if (optString.equals(TbEnum.SystemMessage.EVENT_ID_KICKED_OUT)) {
                     SystemMsgData systemMsgData = new SystemMsgData();
                     systemMsgData.setIsSelf(true);
-                    systemMsgData.setContent(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0983));
+                    systemMsgData.setContent(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0987));
                     return systemMsgData;
                 }
                 if (!optString.equals(TbEnum.SystemMessage.EVENT_ID_HIDE_GROUP) && !optString.equals(TbEnum.SystemMessage.EVENT_ID_HIDE_GROUP_WARN)) {
@@ -311,10 +355,10 @@ public class a97 {
                         SystemMsgData systemMsgData2 = new SystemMsgData();
                         if (optString3.equals(TbadkCoreApplication.getCurrentAccount())) {
                             systemMsgData2.setIsSelf(true);
-                            systemMsgData2.setContent(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f097f));
+                            systemMsgData2.setContent(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0983));
                         } else {
                             systemMsgData2.setIsSelf(false);
-                            systemMsgData2.setContent(optString4 + TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f097e));
+                            systemMsgData2.setContent(optString4 + TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0982));
                         }
                         return systemMsgData2;
                     } else if (optString.equals(TbEnum.SystemMessage.EVENT_ID_GROUP_QUIT)) {
@@ -322,7 +366,7 @@ public class a97 {
                         SystemMsgData systemMsgData3 = new SystemMsgData();
                         if (optString5.equals(TbadkCoreApplication.getCurrentAccount())) {
                             systemMsgData3.setIsSelf(true);
-                            systemMsgData3.setContent(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0983));
+                            systemMsgData3.setContent(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0987));
                         } else {
                             systemMsgData3.setIsSelf(false);
                             systemMsgData3.setContent(optString2);
@@ -332,7 +376,7 @@ public class a97 {
                         if (optString.equals(TbEnum.SystemMessage.EVENT_ID_APPLY_SUC)) {
                             SystemMsgData systemMsgData4 = new SystemMsgData();
                             systemMsgData4.setIsSelf(true);
-                            systemMsgData4.setContent(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f097f));
+                            systemMsgData4.setContent(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0983));
                         } else if (optString.equals(TbEnum.SystemMessage.EVENT_ID_GROUP_ACTIVITYS_IN_CHAT)) {
                             SystemMsgData systemMsgData5 = new SystemMsgData();
                             systemMsgData5.setIsSelf(true);
@@ -352,14 +396,14 @@ public class a97 {
         return (SystemMsgData) invokeL.objValue;
     }
 
-    public static long m(ChatMessage chatMessage) {
+    public static long o(ChatMessage chatMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, chatMessage)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, chatMessage)) == null) {
             if (chatMessage == null) {
                 return -1L;
             }
-            if (mg.g(TbadkCoreApplication.getCurrentAccount(), -1L) == chatMessage.getUserId()) {
+            if (kg.g(TbadkCoreApplication.getCurrentAccount(), -1L) == chatMessage.getUserId()) {
                 return chatMessage.getToUserId();
             }
             return chatMessage.getUserId();
@@ -367,10 +411,10 @@ public class a97 {
         return invokeL.longValue;
     }
 
-    public static VoiceMsgData n(ChatMessage chatMessage) {
+    public static VoiceMsgData p(ChatMessage chatMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, chatMessage)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, chatMessage)) == null) {
             VoiceMsgData voiceMsgData = null;
             if (chatMessage == null || chatMessage.getMsgType() != 3) {
                 return null;
@@ -405,10 +449,44 @@ public class a97 {
         return (VoiceMsgData) invokeL.objValue;
     }
 
-    public static boolean o(ChatMessage chatMessage) {
+    public static boolean q(@Nullable ChatMessage chatMessage, @Nullable MsgInfo msgInfo) {
+        InterceptResult invokeLL;
+        ShareForumMsgData ofImForumInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, null, chatMessage, msgInfo)) == null) {
+            if (chatMessage == null || msgInfo == null || chatMessage.getMsgType() != 33 || (ofImForumInfo = ShareForumMsgData.ofImForumInfo(msgInfo.forumInfo)) == null) {
+                return false;
+            }
+            ofImForumInfo.setHasRead(t(chatMessage));
+            chatMessage.setContent(OrmObject.jsonStrWithObject(ofImForumInfo));
+            chatMessage.setObjContent(ofImForumInfo);
+            chatMessage.setEncodeContent(ofImForumInfo.toEncodeContent());
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean r(@Nullable ChatMessage chatMessage, @Nullable MsgInfo msgInfo) {
+        InterceptResult invokeLL;
+        ShareThreadMsgData ofImShareThreadInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, chatMessage, msgInfo)) == null) {
+            if (chatMessage == null || msgInfo == null || chatMessage.getMsgType() != 32 || (ofImShareThreadInfo = ShareThreadMsgData.ofImShareThreadInfo(msgInfo.threadInfo)) == null) {
+                return false;
+            }
+            ofImShareThreadInfo.setHasRead(t(chatMessage));
+            chatMessage.setContent(OrmObject.jsonStrWithObject(ofImShareThreadInfo));
+            chatMessage.setObjContent(ofImShareThreadInfo);
+            chatMessage.setEncodeContent(ofImShareThreadInfo.toEncodeContent());
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean s(ChatMessage chatMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, chatMessage)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, chatMessage)) == null) {
             if (chatMessage == null) {
                 return true;
             }
@@ -430,10 +508,10 @@ public class a97 {
         return invokeL.booleanValue;
     }
 
-    public static boolean p(ChatMessage chatMessage) {
+    public static boolean t(ChatMessage chatMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, chatMessage)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, chatMessage)) == null) {
             try {
                 if (chatMessage.getMsgType() != 11 && TbadkCoreApplication.isLogin()) {
                     if (chatMessage.getUserInfo().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
@@ -447,68 +525,69 @@ public class a97 {
         return invokeL.booleanValue;
     }
 
-    public static boolean q(ChatMessage chatMessage) {
+    public static boolean u(ChatMessage chatMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65553, null, chatMessage)) == null) ? chatMessage != null && chatMessage.getMsgType() == 4 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65557, null, chatMessage)) == null) ? chatMessage != null && chatMessage.getMsgType() == 4 : invokeL.booleanValue;
     }
 
-    public static boolean r(ChatMessage chatMessage) {
+    public static boolean v(ChatMessage chatMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65554, null, chatMessage)) == null) ? chatMessage != null && chatMessage.getMsgType() == 6 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65558, null, chatMessage)) == null) ? chatMessage != null && chatMessage.getMsgType() == 6 : invokeL.booleanValue;
     }
 
-    public static boolean s(ChatMessage chatMessage) {
+    public static boolean w(ChatMessage chatMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65555, null, chatMessage)) == null) ? chatMessage != null && chatMessage.getMsgType() == 2 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65559, null, chatMessage)) == null) ? chatMessage != null && chatMessage.getMsgType() == 2 : invokeL.booleanValue;
     }
 
-    public static boolean t(ChatMessage chatMessage) {
+    public static boolean x(ChatMessage chatMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65556, null, chatMessage)) == null) ? chatMessage != null && chatMessage.getMsgType() == 3 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65560, null, chatMessage)) == null) ? chatMessage != null && chatMessage.getMsgType() == 3 : invokeL.booleanValue;
     }
 
-    public static String u(int i, String str) {
+    public static String y(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeIL = interceptable.invokeIL(65557, null, i, str)) != null) {
+        if (interceptable != null && (invokeIL = interceptable.invokeIL(65561, null, i, str)) != null) {
             return (String) invokeIL.objValue;
         }
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        if (i == 1) {
-            String b = (str.length() <= 1 || str.charAt(0) != '[') ? null : b(str);
-            if (!TextUtils.isEmpty(b)) {
-                str = b;
+        if (i == 1 || i == 30) {
+            String d = (str.length() <= 1 || str.charAt(0) != '[') ? null : d(str);
+            if (!TextUtils.isEmpty(d)) {
+                str = d;
             }
             if (str == null) {
                 return null;
             }
-            Matcher matcher = a.matcher(str);
-            while (matcher.find()) {
-                String group = matcher.group();
-                str = str.replace(group, group.replace(SmallTailInfo.EMOTION_PREFIX, PreferencesUtil.LEFT_MOUNT).replace(SmallTailInfo.EMOTION_SUFFIX, PreferencesUtil.RIGHT_MOUNT));
-            }
             return str;
         } else if (i == 2) {
-            return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f09c6);
+            return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f09cb);
         } else {
             if (i == 3) {
+                return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f09cf);
+            }
+            if (i == 32) {
+                return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f09ce);
+            }
+            if (i == 33) {
                 return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f09c9);
             }
             if (i == 11) {
                 return a(str);
             }
             if (i == 23) {
-                return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f09c8);
+                return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f09cd);
             }
             if (i != 4) {
                 if (i == 5) {
-                    return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f09c5);
+                    return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f09ca);
                 }
                 if (i == 6) {
                     try {
@@ -518,7 +597,7 @@ public class a97 {
                         return "";
                     }
                 } else if (i == 7) {
-                    String string = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f09c7);
+                    String string = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f09cc);
                     if (TextUtils.isEmpty(str)) {
                         return string;
                     }
@@ -539,11 +618,11 @@ public class a97 {
                     }
                 } else if (i != 25) {
                     if (i == 9) {
-                        return e(str);
+                        return g(str);
                     }
                     return null;
                 } else if (TextUtils.isEmpty(str)) {
-                    return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f07d2);
+                    return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f07db);
                 } else {
                     try {
                         JSONArray jSONArray2 = new JSONArray(str);
@@ -554,14 +633,14 @@ public class a97 {
                             int optInt = optJSONObject.optInt("remind_count");
                             int optInt2 = optJSONObject.optInt("msg_type");
                             if (optInt2 == 1) {
-                                return String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f07d3), optString, optString2);
+                                return String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f07dc), optString, optString2);
                             }
-                            return optInt2 == 3 ? String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f149e), Integer.valueOf(optInt)) : optString2;
+                            return optInt2 == 3 ? String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f14c9), Integer.valueOf(optInt)) : optString2;
                         }
                         return "";
                     } catch (JSONException e3) {
                         e3.printStackTrace();
-                        return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f07d2);
+                        return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f07db);
                     }
                 }
             }
@@ -590,9 +669,9 @@ public class a97 {
         }
     }
 
-    public static String v(ChatMessage chatMessage) {
+    public static String z(ChatMessage chatMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65558, null, chatMessage)) == null) ? chatMessage == null ? "" : u(chatMessage.getMsgType(), chatMessage.getContent()) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65562, null, chatMessage)) == null) ? chatMessage == null ? "" : y(chatMessage.getMsgType(), chatMessage.getContent()) : (String) invokeL.objValue;
     }
 }

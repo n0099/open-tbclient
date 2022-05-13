@@ -1,234 +1,49 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkItem;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.browser.core.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yy5;
 /* loaded from: classes7.dex */
-public class zy5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface zy5 {
 
     /* loaded from: classes7.dex */
-    public static class a implements az5 {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yy5.a a;
 
-        public a(yy5.a aVar) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = aVar;
         }
 
-        @Override // com.repackage.az5
-        public void onFailed(int i) {
+        public void a(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                this.a.a(2, i);
+            if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && i != 1 && i != 2 && i != 3 && BdLog.e()) {
+                throw new IllegalArgumentException("invalid source code");
             }
         }
-    }
 
-    /* loaded from: classes7.dex */
-    public static class b implements az5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yy5.a a;
-
-        public b(yy5.a aVar) {
+        public void b(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = aVar;
-        }
-
-        @Override // com.repackage.az5
-        public void onFailed(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                this.a.a(2, i);
+            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && i != 1 && i != 2 && i != 3 && BdLog.e()) {
+                throw new IllegalArgumentException("invalid source code");
             }
         }
     }
 
-    public static boolean a(Context context, Uri uri, Bundle bundle, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{context, uri, bundle, Boolean.valueOf(z)})) == null) ? b(context, uri, null, bundle, z) : invokeCommon.booleanValue;
-    }
+    void a(int i, a aVar);
 
-    public static boolean b(Context context, Uri uri, yy5 yy5Var, Bundle bundle, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, uri, yy5Var, bundle, Boolean.valueOf(z)})) == null) {
-            yy5.a aVar = new yy5.a();
-            if (uri == null) {
-                if (yy5Var != null) {
-                    yy5Var.b(1, "Uri is empty.", aVar);
-                }
-                return false;
-            } else if (!"deeplink".equals(uri.getHost())) {
-                if (yy5Var != null) {
-                    yy5Var.b(2, "Uri host is not deeplink.", aVar);
-                }
-                return false;
-            } else {
-                String queryParameter = uri.getQueryParameter(DeepLinkItem.DEEPLINK_APPURL_KEY);
-                String queryParameter2 = uri.getQueryParameter(DeepLinkItem.DEEPLINK_MARKETURL_KEY);
-                String queryParameter3 = uri.getQueryParameter("webUrl");
-                String queryParameter4 = uri.getQueryParameter("pkgName");
-                String queryParameter5 = uri.getQueryParameter(DeepLinkItem.DEEPLINK_MARKET_PKGNAME_KEY);
-                boolean booleanQueryParameter = uri.getBooleanQueryParameter(DeepLinkItem.DEEPLINK_IS_DESIGNATE_PKG, true);
-                if (e(context, queryParameter, queryParameter4, yy5Var, booleanQueryParameter, aVar) || f(context, queryParameter2, queryParameter5, yy5Var, booleanQueryParameter, aVar)) {
-                    return true;
-                }
-                return g(context, queryParameter3, bundle, yy5Var, aVar, z);
-            }
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public static boolean c(Context context, String str, String str2, boolean z, az5 az5Var) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, str, str2, Boolean.valueOf(z), az5Var})) == null) {
-            try {
-                Intent b2 = bz5.b(context, str, str2, z, az5Var);
-                if (b2 == null) {
-                    return false;
-                }
-                context.startActivity(b2);
-                return true;
-            } catch (Exception unused) {
-                if (az5Var != null) {
-                    az5Var.onFailed(-101);
-                }
-                return false;
-            }
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public static boolean d(Context context, String str, Bundle bundle, boolean z) {
-        InterceptResult invokeCommon;
-        TbPageContext<?> tbPageContext;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, str, bundle, Boolean.valueOf(z)})) == null) {
-            String[] strArr = {str};
-            UrlManager urlManager = UrlManager.getInstance();
-            if (urlManager == null || (tbPageContext = (TbPageContext) f9.a(context)) == null) {
-                return false;
-            }
-            if (urlManager.UrlValidated(str)) {
-                urlManager.dealOneLink(tbPageContext, strArr, true);
-                return true;
-            }
-            return urlManager.dealOneLink(tbPageContext, strArr);
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public static boolean e(Context context, String str, String str2, yy5 yy5Var, boolean z, yy5.a aVar) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, str2, yy5Var, Boolean.valueOf(z), aVar})) == null) {
-            if (TextUtils.isEmpty(str)) {
-                aVar.a(1, -4);
-                return false;
-            } else if (c(context, str, str2, z, new a(aVar))) {
-                aVar.b(1);
-                if (yy5Var != null) {
-                    yy5Var.a(1, aVar);
-                }
-                return true;
-            } else {
-                return false;
-            }
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public static boolean f(Context context, String str, String str2, yy5 yy5Var, boolean z, yy5.a aVar) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, str, str2, yy5Var, Boolean.valueOf(z), aVar})) == null) {
-            if (TextUtils.isEmpty(str)) {
-                aVar.a(2, -5);
-                return false;
-            } else if (c(context, str, str2, z, new b(aVar))) {
-                aVar.b(2);
-                if (yy5Var != null) {
-                    yy5Var.a(2, aVar);
-                    return true;
-                }
-                return true;
-            } else {
-                return false;
-            }
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public static boolean g(Context context, String str, Bundle bundle, yy5 yy5Var, yy5.a aVar, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{context, str, bundle, yy5Var, aVar, Boolean.valueOf(z)})) == null) {
-            if (TextUtils.isEmpty(str)) {
-                aVar.a(3, -6);
-                if (yy5Var != null) {
-                    yy5Var.b(-6, "Uri web url is empty", aVar);
-                }
-                return false;
-            } else if (d(context, str, bundle, z)) {
-                aVar.b(3);
-                if (yy5Var != null) {
-                    yy5Var.a(3, aVar);
-                    return true;
-                }
-                return true;
-            } else {
-                aVar.a(3, -7);
-                if (yy5Var != null) {
-                    yy5Var.b(-7, "Uri web url open failed", aVar);
-                }
-                return false;
-            }
-        }
-        return invokeCommon.booleanValue;
-    }
+    void b(int i, String str, a aVar);
 }

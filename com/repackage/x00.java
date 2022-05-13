@@ -1,65 +1,84 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.basic.upload.ContentUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.exoplayer2.text.cea.Cea608Decoder;
-import com.kwad.yoga.YogaNodeJNIBase;
-import kotlin.jvm.internal.ByteCompanionObject;
-import org.apache.commons.codec.binary4util.BaseNCodec;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import javax.crypto.ShortBufferException;
 /* loaded from: classes7.dex */
-public final class x00 {
+public final class x00 implements y00 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    public static byte[] a() {
-        InterceptResult invokeV;
+    public x00(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new byte[]{121, -75, -64, -117, -32, 4, -8, -19, -11, 84, -123, -65, -29, -73, 23, ByteCompanionObject.MAX_VALUE, 52, -54, 124, 29, 10, -105, -19, 73, 56, 100, 42, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, -13, 25, -76, -71} : (byte[]) invokeV.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = i;
     }
 
-    public static byte[] b() {
-        InterceptResult invokeV;
+    @Override // com.repackage.y00
+    public int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new byte[]{-8, 55, 15, 115, 74, -108, -56, -37, -56, -80, -90, 107, 115, -78, 65, 82, -59, 2, -104, 65, 10, 21, 19, -71, -74, 114, -100, 1, 29, -66, 72, 72} : (byte[]) invokeV.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            int i2 = this.a;
+            return i2 - (i % i2);
+        }
+        return invokeI.intValue;
     }
 
-    public static byte[] c() {
-        InterceptResult invokeV;
+    @Override // com.repackage.y00
+    public int a(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
+        int i3;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new byte[]{-40, -59, -7, 54, -86, 73, -69, 120, 54, -124, -45, -125, 120, -95, 68, 70} : (byte[]) invokeV.objValue;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i, i2)) == null) {
+            if (bArr == null || i2 == 0) {
+                return 0;
+            }
+            int i4 = i2 + i;
+            int i5 = bArr[i4 - 1];
+            int i6 = i5 & 255;
+            if (i6 < 1 || i6 > this.a || (i3 = i4 - i6) < i) {
+                return -1;
+            }
+            for (int i7 = 0; i7 < i6; i7++) {
+                if (bArr[i3 + i7] != i5) {
+                    return -1;
+                }
+            }
+            return i3;
+        }
+        return invokeLII.intValue;
     }
 
-    public static byte[] d() {
-        InterceptResult invokeV;
+    @Override // com.repackage.y00
+    public void b(byte[] bArr, int i, int i2) throws ShortBufferException {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new byte[]{10, 28, -53, -126, Constants.GZIP_CAST_TYPE, -111, 68, -11, -28, Constants.SHORT_PING_CMD_TYPE, 81, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 59, -1, 98, -58, -25, -60, -55, 70, 66, 51, -63, -79, -96, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, 70, 7, 108, 59, -79, -65} : (byte[]) invokeV.objValue;
-    }
-
-    public static byte[] e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new byte[]{-101, -5, -82, -122, -10, 77, -50, -88, 27, -103, -100, 67, 98, 89, -44, -92, -125, 65, -82, -74, 1, 92, -103, -116, 74, -60, 73, 78, 77, -42, 107, -109} : (byte[]) invokeV.objValue;
-    }
-
-    public static byte[] f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? new byte[]{-71, 92, 64, -96, ContentUtil.GZIP_HEAD_2, 89, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 119, -7, 115, 0, 56, 80, 20, YogaNodeJNIBase.HAS_NEW_LAYOUT, -64, -23, -79, -32, -55, 2, 124, -48, -16, YogaNodeJNIBase.LAYOUT_BORDER_START_INDEX, -95, -96, -96, -56, -88, -55, 63} : (byte[]) invokeV.objValue;
-    }
-
-    public static byte[] g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? new byte[]{-14, -21, -20, -77, 32, 107, -63, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, -44, -86, 57, -31, 102, 90, 4, 13, 91, 22, 84, 30, -86, 4, -106, -62, 49, 108, BaseNCodec.PAD_DEFAULT, 48, -101, 90, -110, 88} : (byte[]) invokeV.objValue;
-    }
-
-    public static byte[] h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? new byte[]{-102, 65, -58, 79, -27, -122, 9, -80, 45, 79, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, -12, 70, -80, -110, 30} : (byte[]) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2) == null) || bArr == null) {
+            return;
+        }
+        if (i + i2 > bArr.length) {
+            throw new ShortBufferException("Buffer too small to hold padding");
+        }
+        byte b = (byte) (i2 & 255);
+        for (int i3 = 0; i3 < i2; i3++) {
+            bArr[i3 + i] = b;
+        }
     }
 }

@@ -18,7 +18,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.py;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -166,7 +165,7 @@ public class c implements com.baidu.mapsdkplatform.comapi.map.l {
                 JSONObject jSONObject = new JSONObject(str);
                 JSONObject optJSONObject = jSONObject.optJSONArray(ActionJsonData.TAG_DATASET).optJSONObject(0);
                 eVar = this.a.i;
-                GeoPoint b = eVar.b(jSONObject.optInt("px"), jSONObject.optInt(py.c));
+                GeoPoint b = eVar.b(jSONObject.optInt("px"), jSONObject.optInt("py"));
                 int optInt = optJSONObject.optInt(Config.EXCEPTION_CRASH_CHANNEL);
                 if (optInt == 17) {
                     onMapClickListener = this.a.s;

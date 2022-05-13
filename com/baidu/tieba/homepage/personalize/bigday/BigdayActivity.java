@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vt4;
+import com.repackage.iu4;
 import java.util.Calendar;
 /* loaded from: classes3.dex */
 public class BigdayActivity extends BaseActivity {
@@ -81,7 +81,7 @@ public class BigdayActivity extends BaseActivity {
                 calendar.set(12, 59);
                 calendar.set(13, 59);
                 calendar.set(14, 0);
-                vt4.k().x("key_bigday_next_showtime_home", calendar.getTimeInMillis());
+                iu4.k().x("key_bigday_next_showtime_home", calendar.getTimeInMillis());
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, null));
                 finish();
             }
@@ -94,11 +94,11 @@ public class BigdayActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d015d);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090379);
+            setContentView(R.layout.obfuscated_res_0x7f0d0159);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090371);
             this.bigdayImg = tbImageView;
             tbImageView.setAutoChangeStyle(false);
-            this.bigdayClose = (ImageView) findViewById(R.id.obfuscated_res_0x7f090378);
+            this.bigdayClose = (ImageView) findViewById(R.id.obfuscated_res_0x7f090370);
             if (UtilHelper.canUseStyleImmersiveSticky()) {
                 ((FrameLayout.LayoutParams) this.bigdayClose.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + getResources().getDimension(R.dimen.obfuscated_res_0x7f07028a));
             }

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.oi;
+import com.repackage.mi;
 /* loaded from: classes3.dex */
 public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActivity> {
     public static /* synthetic */ Interceptable $ic;
@@ -128,8 +128,8 @@ public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActiv
         this.d = 0;
         this.a = null;
         TbadkApplication inst = TbadkApplication.getInst();
-        this.c = oi.k(inst);
-        this.d = oi.i(inst);
+        this.c = mi.k(inst);
+        this.d = mi.i(inst);
         this.e = inst.getResources().getDisplayMetrics().density;
     }
 

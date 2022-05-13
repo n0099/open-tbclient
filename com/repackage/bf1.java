@@ -5,32 +5,43 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sdk.base.api.CallBack;
 /* loaded from: classes5.dex */
-public abstract class bf1<T> implements CallBack<T> {
+public class bf1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
+    public int a;
+    public int b;
+    public int c;
+    public String d;
 
-    public bf1() {
+    public bf1(int i, int i2, int i3, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = System.currentTimeMillis();
+        this.a = -1;
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
+        this.d = str;
     }
 
-    public long a() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "CallBackMsg{status=" + this.a + ", subStatus=" + this.b + ", op='" + this.c + "', data='" + this.d + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -19,14 +19,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dg;
-import com.repackage.eg;
+import com.repackage.bg;
+import com.repackage.cg;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class UserIconBox extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public dg<TbImageView> a;
+    public bg<TbImageView> a;
     public Context b;
     public boolean c;
     public int d;
@@ -74,7 +74,7 @@ public class UserIconBox extends LinearLayout {
     }
 
     /* loaded from: classes3.dex */
-    public static class b implements eg<TbImageView> {
+    public static class b implements cg<TbImageView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -99,7 +99,7 @@ public class UserIconBox extends LinearLayout {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.eg
+        @Override // com.repackage.cg
         public /* bridge */ /* synthetic */ TbImageView a(TbImageView tbImageView) {
             TbImageView tbImageView2 = tbImageView;
             e(tbImageView2);
@@ -108,7 +108,7 @@ public class UserIconBox extends LinearLayout {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.eg
+        @Override // com.repackage.cg
         public /* bridge */ /* synthetic */ TbImageView c(TbImageView tbImageView) {
             TbImageView tbImageView2 = tbImageView;
             h(tbImageView2);
@@ -122,7 +122,7 @@ public class UserIconBox extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.eg
+        @Override // com.repackage.cg
         /* renamed from: f */
         public void b(TbImageView tbImageView) {
             Interceptable interceptable = $ic;
@@ -135,7 +135,7 @@ public class UserIconBox extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.eg
+        @Override // com.repackage.cg
         /* renamed from: g */
         public TbImageView d() {
             InterceptResult invokeV;
@@ -159,7 +159,7 @@ public class UserIconBox extends LinearLayout {
 
     /* loaded from: classes3.dex */
     public interface c<T extends View> {
-        dg<TbImageView> getUserIconPool();
+        bg<TbImageView> getUserIconPool();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -185,10 +185,10 @@ public class UserIconBox extends LinearLayout {
         f(context);
     }
 
-    public static dg<TbImageView> c(Context context, int i) {
+    public static bg<TbImageView> c(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i)) == null) ? new dg<>(new b(context), i, 0) : (dg) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i)) == null) ? new bg<>(new b(context), i, 0) : (bg) invokeLI.objValue;
     }
 
     public final boolean b(int i) {
@@ -219,8 +219,8 @@ public class UserIconBox extends LinearLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            dg<TbImageView> dgVar = this.a;
-            TbImageView b2 = dgVar != null ? dgVar.b() : null;
+            bg<TbImageView> bgVar = this.a;
+            TbImageView b2 = bgVar != null ? bgVar.b() : null;
             return (b2 == null || b2.getParent() != null) ? new TbImageView(context) : b2;
         }
         return (TbImageView) invokeL.objValue;

@@ -11,5 +11,7 @@ public interface cl0 {
 
     <T extends bl0> void b(@NonNull Object obj, @NonNull el0<T> el0Var);
 
+    <T extends bl0> void c(@NonNull Object obj, int i, @NonNull el0<T> el0Var);
+
     void unregister(@NonNull Object obj);
 }

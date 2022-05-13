@@ -1,77 +1,148 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.homepage.personalize.PersonalizePageView;
-import com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class iz6 extends du4 implements BigdaySwipeRefreshLayout.k, PersonalizePageView.k0 {
+public class iz6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public iz6(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    public static void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeI(65536, null, i) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            StringBuilder sb = new StringBuilder();
+            sb.append("key_card_interest_close_click_num_");
+            sb.append(currentAccount);
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_HOME_RECOMMEND_CARD_INTEREST_CLICK).param("uid", currentAccount).param("obj_param1", iu4.k().l(sb.toString(), 0) != 0 ? 2 : 1).param("obj_locate", i));
         }
     }
 
-    @Override // com.repackage.cu4
-    public boolean N() {
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            StringBuilder sb = new StringBuilder();
+            sb.append("key_card_interest_close_click_num_");
+            sb.append(currentAccount);
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_HOME_RECOMMEND_CARD_INTEREST_SHOW).param("uid", currentAccount).param("obj_param1", iu4.k().l(sb.toString(), 0) != 0 ? 2 : 1));
+        }
+    }
+
+    public static boolean c(px4 px4Var, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, px4Var, str)) == null) {
+            long m = iu4.k().m("key_card_interest_close_click_time_" + str, 0L);
+            if (m != 0) {
+                return px4Var.a() != -1 && ((int) (((((System.currentTimeMillis() - m) / 1000) / 60) / 60) / 24)) >= px4Var.a();
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean d(px4 px4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, px4Var)) == null) ? px4Var.c() == 1 : invokeL.booleanValue;
+    }
+
+    public static boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (UbsABTestHelper.isRecommendCardInterestABTestA() && h()) {
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                px4 homepageInterestConfig = TbSingleton.getInstance().getHomepageInterestConfig();
+                if (homepageInterestConfig == null) {
+                    return false;
+                }
+                if (d(homepageInterestConfig)) {
+                    return true;
+                }
+                if (iu4.k().l("key_card_interest_close_click_num_" + currentAccount, 0) != 0) {
+                    if (c(homepageInterestConfig, currentAccount)) {
+                        return true;
+                    }
+                } else if (g(homepageInterestConfig)) {
+                    return true;
+                }
+                return false;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout.k
-    public void h() {
+    public static boolean f(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i, i2)) == null) {
+            if (h()) {
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                px4 homepageInterestConfig = TbSingleton.getInstance().getHomepageInterestConfig();
+                if (homepageInterestConfig != null && i2 > 0) {
+                    if (d(homepageInterestConfig)) {
+                        return true;
+                    }
+                    if (iu4.k().l("key_card_interest_close_click_num_" + currentAccount, 0) != 0) {
+                        if (c(homepageInterestConfig, currentAccount) && i == 0) {
+                            return true;
+                        }
+                    } else if (g(homepageInterestConfig) && i == 0) {
+                        return true;
+                    }
+                    return false;
+                }
+                return false;
+            }
+            return false;
         }
+        return invokeII.booleanValue;
     }
 
-    @Override // com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout.k
-    public void i() {
+    public static boolean g(px4 px4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, px4Var)) == null) ? px4Var.d() == 1 : invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout.k
-    public int j() {
+    public static boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (TbadkCoreApplication.isLogin()) {
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                px4 homepageInterestConfig = TbSingleton.getInstance().getHomepageInterestConfig();
+                if (homepageInterestConfig == null) {
+                    return false;
+                }
+                StringBuilder sb = new StringBuilder();
+                sb.append("key_card_interest_close_click_num_");
+                sb.append(currentAccount);
+                return iu4.k().l(sb.toString(), 0) < homepageInterestConfig.b();
+            }
+            return false;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout.k
-    public void l() {
+    public static void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            iu4.k().x("key_card_interest_close_click_time_" + currentAccount, System.currentTimeMillis());
+            String str = "key_card_interest_close_click_num_" + currentAccount;
+            iu4.k().w(str, iu4.k().l(str, 0) + 1);
         }
     }
 }

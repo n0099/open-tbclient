@@ -82,7 +82,7 @@ public class OCRCameraLayout extends FrameLayout {
     public final void a(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = getContext().getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04011e, R.attr.obfuscated_res_0x7f040180, R.attr.obfuscated_res_0x7f0403d5, R.attr.obfuscated_res_0x7f040540}, 0, 0);
+            TypedArray obtainStyledAttributes = getContext().getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040127, R.attr.obfuscated_res_0x7f040188, R.attr.obfuscated_res_0x7f0403d9, R.attr.obfuscated_res_0x7f040545}, 0, 0);
             try {
                 this.f = obtainStyledAttributes.getResourceId(1, -1);
                 this.g = obtainStyledAttributes.getResourceId(0, -1);

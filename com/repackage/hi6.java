@@ -1,42 +1,109 @@
 package com.repackage;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.tbadkCore.FrsViewData;
-import java.util.ArrayList;
-import java.util.HashMap;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
+import tbclient.ForumRule;
+import tbclient.PbContent;
 /* loaded from: classes6.dex */
-public interface hi6 {
-    void a(String str);
+public class hi6 implements ro {
+    public static /* synthetic */ Interceptable $ic;
+    public static BdUniqueId d;
+    public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public List<PbContent> b;
+    public boolean c;
 
-    void b();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755647236, "Lcom/repackage/hi6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755647236, "Lcom/repackage/hi6;");
+                return;
+            }
+        }
+        d = BdUniqueId.gen();
+    }
 
-    int c();
+    public hi6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
-    void d(dp dpVar);
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.booleanValue;
+    }
 
-    void e();
+    public List<PbContent> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (List) invokeV.objValue;
+    }
 
-    List<uo> f();
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
 
-    void g(ArrayList<uo> arrayList, FrsViewData frsViewData);
+    public void f(ForumRule forumRule) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, forumRule) == null) || forumRule == null) {
+            return;
+        }
+        this.a = forumRule.title;
+        this.b = forumRule.content;
+        this.c = forumRule.status.intValue() == 1;
+    }
 
-    HashMap<Integer, ThreadData> h();
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.c = z;
+        }
+    }
 
-    int i();
+    @Override // com.repackage.ro
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? d : (BdUniqueId) invokeV.objValue;
+    }
 
-    int j();
+    public void i(List<PbContent> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
+            this.b = list;
+        }
+    }
 
-    boolean k(BdUniqueId bdUniqueId);
-
-    void l(fd6 fd6Var);
-
-    void m();
-
-    void n(boolean z);
-
-    void notifyDataSetChanged();
-
-    void setFromCDN(boolean z);
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.a = str;
+        }
+    }
 }

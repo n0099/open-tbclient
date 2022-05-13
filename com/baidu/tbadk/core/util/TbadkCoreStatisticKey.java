@@ -142,6 +142,7 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_SEARCH_SUG_LIVE_SHOW = "c14293";
     public static final String KEY_SEARCH_SUG_RANKING_CLICK = "c14292";
     public static final String KEY_SEARCH_SUG_RANKING_SHOW = "c14291";
+    public static final String KEY_SEND_MSG = "c14638";
     public static final String KEY_SHARE_CANCEL = "c12481";
     public static final String KEY_SHARE_CLICK = "c12386";
     public static final String KEY_SHARE_FORUM_OR_THREAD = "c10125";

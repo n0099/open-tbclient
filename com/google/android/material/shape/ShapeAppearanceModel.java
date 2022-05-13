@@ -674,7 +674,7 @@ public class ShapeAppearanceModel {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{context, attributeSet, Integer.valueOf(i), Integer.valueOf(i2), cornerSize})) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040589, R.attr.obfuscated_res_0x7f04058c}, i, i2);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04058f, R.attr.obfuscated_res_0x7f040592}, i, i2);
             int resourceId = obtainStyledAttributes.getResourceId(0, 0);
             int resourceId2 = obtainStyledAttributes.getResourceId(1, 0);
             obtainStyledAttributes.recycle();
@@ -707,7 +707,7 @@ public class ShapeAppearanceModel {
                 i = i2;
                 context = contextThemeWrapper;
             }
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(i, new int[]{R.attr.obfuscated_res_0x7f040189, R.attr.obfuscated_res_0x7f04018a, R.attr.obfuscated_res_0x7f04018b, R.attr.obfuscated_res_0x7f04018c, R.attr.obfuscated_res_0x7f04018d, R.attr.obfuscated_res_0x7f04018f, R.attr.obfuscated_res_0x7f040190, R.attr.obfuscated_res_0x7f040191, R.attr.obfuscated_res_0x7f040192, R.attr.obfuscated_res_0x7f040193});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(i, new int[]{R.attr.obfuscated_res_0x7f04018c, R.attr.obfuscated_res_0x7f04018d, R.attr.obfuscated_res_0x7f04018e, R.attr.obfuscated_res_0x7f04018f, R.attr.obfuscated_res_0x7f040190, R.attr.obfuscated_res_0x7f040192, R.attr.obfuscated_res_0x7f040193, R.attr.obfuscated_res_0x7f040194, R.attr.obfuscated_res_0x7f040195, R.attr.obfuscated_res_0x7f040196});
             try {
                 int i3 = obtainStyledAttributes.getInt(0, 0);
                 int i4 = obtainStyledAttributes.getInt(3, i3);

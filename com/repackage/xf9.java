@@ -1,38 +1,50 @@
 package com.repackage;
 
+import android.app.Activity;
+import android.content.Context;
+import android.support.v4.media.session.MediaSessionCompat;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.AdSlot;
+import com.bytedance.sdk.openadsdk.TTAdNative;
+import com.bytedance.sdk.openadsdk.TTAdSdk;
+import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.FunNativeAd2;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.repackage.tf9;
-import com.repackage.vf9;
-import java.util.ArrayDeque;
-import java.util.Deque;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.NumberUtils;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class xf9 {
+public class xf9 extends uf9<TTNativeExpressAd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, Deque<c>> a;
+    public final HashMap<TTNativeExpressAd, ExpressAdListenerWrapper<TTNativeExpressAd.ExpressAdInteractionListener>> j;
 
     /* loaded from: classes7.dex */
-    public static class a implements c {
+    public class a implements TTAdNative.NativeExpressAdListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final vf9 a;
-        public final HashSet<Ssp.Pid> b;
+        public final /* synthetic */ FunAdSlot a;
+        public final /* synthetic */ xf9 b;
 
-        public a(vf9 vf9Var) {
+        public a(xf9 xf9Var, FunAdSlot funAdSlot) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vf9Var};
+                Object[] objArr = {xf9Var, funAdSlot};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,113 +54,150 @@ public class xf9 {
                     return;
                 }
             }
-            this.a = vf9Var;
-            this.b = new HashSet<>();
-            for (vf9.c cVar : vf9Var.e) {
-                for (vf9.b bVar : cVar.b) {
-                    this.b.add(bVar.c);
-                }
+            this.b = xf9Var;
+            this.a = funAdSlot;
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeExpressAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
+        public void onError(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
+                this.b.onError(i, str);
             }
         }
 
-        @Override // com.repackage.xf9.c
-        public Set<Ssp.Pid> a() {
-            InterceptResult invokeV;
+        /* JADX DEBUG: Multi-variable search result rejected for r9v1, resolved type: com.bytedance.sdk.openadsdk.TTNativeExpressAd */
+        /* JADX WARN: Multi-variable type inference failed */
+        /* JADX WARN: Type inference failed for: r11v1, types: [A, com.bytedance.sdk.openadsdk.TTNativeExpressAd$ExpressAdInteractionListener, com.repackage.yf9] */
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeExpressAdListener
+        public void onNativeExpressAdLoad(List<TTNativeExpressAd> list) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Set) invokeV.objValue;
-        }
-
-        @Override // com.repackage.xf9.c
-        public int b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.d : invokeV.intValue;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+                LogPrinter.d();
+                if (list != null && !list.isEmpty()) {
+                    xf9 xf9Var = this.b;
+                    String sid = this.a.getSid();
+                    xf9Var.getClass();
+                    b bVar = new b(xf9Var, list.size());
+                    for (TTNativeExpressAd tTNativeExpressAd : list) {
+                        ExpressAdListenerWrapper expressAdListenerWrapper = new ExpressAdListenerWrapper();
+                        ?? yf9Var = new yf9(xf9Var, expressAdListenerWrapper, sid, tTNativeExpressAd, bVar);
+                        expressAdListenerWrapper.listener = yf9Var;
+                        tTNativeExpressAd.setExpressInteractionListener((TTNativeExpressAd.ExpressAdInteractionListener) yf9Var);
+                        tTNativeExpressAd.render();
+                    }
+                    return;
+                }
+                onError(0, "NoFill");
+            }
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class b implements c {
+    public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final tf9 a;
-        public final HashSet<Ssp.Pid> b;
+        public int a;
+        public final int b;
+        public boolean c;
+        public final /* synthetic */ xf9 d;
 
-        public b(tf9 tf9Var) {
+        public b(xf9 xf9Var, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tf9Var};
+                Object[] objArr = {xf9Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = tf9Var;
-            this.b = new HashSet<>();
-            for (tf9.b bVar : tf9Var.b) {
-                for (tf9.a aVar : bVar.b) {
-                    this.b.add(aVar.c);
-                }
-            }
-        }
-
-        @Override // com.repackage.xf9.c
-        public Set<Ssp.Pid> a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Set) invokeV.objValue;
-        }
-
-        @Override // com.repackage.xf9.c
-        public int b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.c : invokeV.intValue;
+            this.d = xf9Var;
+            this.c = false;
+            this.b = i;
         }
     }
 
-    /* loaded from: classes7.dex */
-    public interface c {
-        Set<Ssp.Pid> a();
-
-        int b();
-    }
-
-    public xf9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xf9(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.DRAW), pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
+        this.j = new HashMap<>();
     }
 
-    public final Deque<c> a(String str) {
-        InterceptResult invokeL;
-        Deque<c> deque;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            synchronized (this.a) {
-                deque = this.a.get(str);
-                if (deque == null) {
-                    deque = new ArrayDeque<>();
-                    this.a.put(str, deque);
-                }
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            TTNativeExpressAd tTNativeExpressAd = (TTNativeExpressAd) obj;
+            this.j.remove(tTNativeExpressAd);
+            if (tTNativeExpressAd != null) {
+                tTNativeExpressAd.destroy();
             }
-            return deque;
         }
-        return (Deque) invokeL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public FunNativeAd2 getNativeAdInternal2(Context context, String str, Object obj) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, obj)) == null) ? new BaseNativeAd2(FunNativeAd2.NativeType.EXPRESS, (TTNativeExpressAd) obj, new zf9(this)) : (FunNativeAd2) invokeLLL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
+            if (this.i == null) {
+                this.i = TTAdSdk.getAdManager().createAdNative(context.getApplicationContext());
+            }
+            int expressWidth = funAdSlot.getExpressWidth();
+            int expressHeight = funAdSlot.getExpressHeight();
+            if (expressWidth == 0 && expressHeight == 0 && FunAdSdk.isLogEnabled()) {
+                throw new RuntimeException("Invalid expressWidth and expressHeight.");
+            }
+            AdSlot.Builder adCount = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setDownloadType(FunAdSdk.getFunAdConfig().downLoadType).setExpressViewAcceptedSize(expressWidth, expressHeight).setImageAcceptedSize(640, MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP).setAdCount(NumberUtils.adjustInt(funAdSlot.getAdCount(), 1, 3));
+            TTAdNative createAdNative = TTAdSdk.getAdManager().createAdNative(context);
+            onLoadStart(funAdSlot);
+            createAdNative.loadExpressDrawFeedAd(adCount.build(), new a(this, funAdSlot));
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
+            onShowStart();
+            View expressAdView = ((TTNativeExpressAd) obj).getExpressAdView();
+            if (expressAdView.getParent() != null) {
+                ((ViewGroup) expressAdView.getParent()).removeView(expressAdView);
+            }
+            viewGroup.removeAllViews();
+            viewGroup.addView(expressAdView);
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

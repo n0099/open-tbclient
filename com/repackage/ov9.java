@@ -1,174 +1,83 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.util.Log;
-import android.util.SparseArray;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.open.activity.AssistActivity;
-import com.yy.open.activity.BridgeActivity;
-import org.json.JSONObject;
+import java.nio.ByteBuffer;
+import org.java_websocket.exceptions.InvalidDataException;
+import org.java_websocket.framing.Framedata;
 /* loaded from: classes6.dex */
-public final class ov9 {
+public abstract class ov9 implements Framedata {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<c> a;
-    public Handler b;
-    public Context c;
-    public String d;
-    public sv9 e;
+    public boolean a;
+    public Framedata.Opcode b;
+    public ByteBuffer c;
+    public boolean d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ lv9 b;
-        public final /* synthetic */ Intent c;
-        public final /* synthetic */ long d;
-        public final /* synthetic */ ov9 e;
 
-        public a(ov9 ov9Var, int i, lv9 lv9Var, Intent intent, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ov9Var, Integer.valueOf(i), lv9Var, intent, Long.valueOf(j)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-115040606, "Lcom/repackage/ov9$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-115040606, "Lcom/repackage/ov9$a;");
                     return;
                 }
             }
-            this.e = ov9Var;
-            this.a = i;
-            this.b = lv9Var;
-            this.c = intent;
-            this.d = j;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            String str;
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    if (this.a == 0) {
-                        this.b.onCancel();
-                        return;
-                    }
-                    String stringExtra = this.c.getStringExtra("resjson");
-                    this.e.e.a(stringExtra);
-                    JSONObject jSONObject = new JSONObject(stringExtra);
-                    if (jSONObject.has("resCode") && jSONObject.has("resMsg")) {
-                        String optString = jSONObject.optString("resMsg");
-                        int optInt = jSONObject.optInt("resCode");
-                        if (optInt != 1000006 && optInt != 1290001) {
-                            optInt = this.a;
-                            this.e.f(this.c, this.b, this.d, optInt, optString);
-                            return;
-                        }
-                        Log.e("chenqiang", "resCode:" + optInt);
-                        this.e.f(this.c, this.b, this.d, optInt, optString);
-                        return;
-                    }
-                    Log.e("chenqiang", "please update yy new version！");
-                    if (jSONObject.has("openid") && jSONObject.has("access_code")) {
-                        i = this.a;
-                        str = "success";
-                    } else {
-                        str = "handleAuthLoginResult--default error!";
-                        i = 444222199;
-                    }
-                    this.e.f(this.c, this.b, this.d, i, str);
-                } catch (Exception unused) {
-                    this.b.onError(new mv9(444222105, rv9.h(444222105)));
-                }
+            int[] iArr = new int[Framedata.Opcode.values().length];
+            a = iArr;
+            try {
+                iArr[Framedata.Opcode.PING.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[Framedata.Opcode.PONG.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[Framedata.Opcode.TEXT.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[Framedata.Opcode.BINARY.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                a[Framedata.Opcode.CLOSING.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                a[Framedata.Opcode.CONTINUOUS.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lv9 a;
-        public final /* synthetic */ mv9 b;
-
-        public b(ov9 ov9Var, lv9 lv9Var, mv9 mv9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ov9Var, lv9Var, mv9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lv9Var;
-            this.b = mv9Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.onError(this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public final class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public lv9 a;
-        public long b;
-
-        public c(ov9 ov9Var, lv9 lv9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ov9Var, lv9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lv9Var;
-            this.b = System.currentTimeMillis();
-        }
-    }
-
-    public ov9(Context context, String str) {
+    public ov9(Framedata.Opcode opcode) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {opcode};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -178,196 +87,184 @@ public final class ov9 {
                 return;
             }
         }
-        this.e = sv9.b();
-        this.c = context;
-        this.d = str;
-        this.a = new SparseArray<>();
-        this.b = new Handler(Looper.getMainLooper());
+        this.b = opcode;
+        this.c = ew9.a();
+        this.a = true;
+        this.d = false;
+        this.e = false;
+        this.f = false;
+        this.g = false;
     }
 
-    public final void c(Activity activity, String str, lv9 lv9Var) {
+    public static ov9 g(Framedata.Opcode opcode) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, lv9Var) == null) {
-            if (qv9.d(activity, BridgeActivity.class) && qv9.d(activity, AssistActivity.class)) {
-                int a2 = rv9.a(activity);
-                if (a2 != 0) {
-                    try {
-                        this.a.put(62345, new c(this, lv9Var));
-                        String c2 = rv9.c(this.c, this.d, str, true);
-                        Intent intent = new Intent(activity, AssistActivity.class);
-                        intent.putExtra("type", AssistActivity.TYPE_WEB);
-                        intent.putExtra("url", c2);
-                        activity.startActivityForResult(intent, 62345);
-                        return;
-                    } catch (Exception unused) {
-                        g(new mv9(a2), lv9Var);
-                        return;
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, opcode)) == null) {
+            if (opcode != null) {
+                switch (a.a[opcode.ordinal()]) {
+                    case 1:
+                        return new pv9();
+                    case 2:
+                        return new qv9();
+                    case 3:
+                        return new rv9();
+                    case 4:
+                        return new jv9();
+                    case 5:
+                        return new kv9();
+                    case 6:
+                        return new lv9();
+                    default:
+                        throw new IllegalArgumentException("Supplied opcode is invalid");
                 }
-                Intent e = rv9.e(activity);
-                this.a.put(62345, new c(this, lv9Var));
-                Bundle d = rv9.d(activity, this.d);
-                e.putExtra("action", "action_login");
-                e.putExtra("bundle", d);
-                i(activity, e, 62345);
-                return;
             }
-            g(new mv9(3), lv9Var);
+            throw new IllegalArgumentException("Supplied opcode cannot be null");
         }
+        return (ov9) invokeL.objValue;
     }
 
-    public final boolean d(int i, int i2, Intent intent, lv9 lv9Var) {
-        InterceptResult invokeCommon;
-        long currentTimeMillis;
-        lv9 lv9Var2;
+    @Override // org.java_websocket.framing.Framedata
+    public ByteBuffer a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), intent, lv9Var})) == null) {
-            if (i == 62345 || i == 62347) {
-                c cVar = this.a.get(i);
-                if (cVar != null) {
-                    currentTimeMillis = cVar.b;
-                    lv9Var2 = cVar.a;
-                    this.a.remove(i);
-                } else {
-                    currentTimeMillis = System.currentTimeMillis();
-                    lv9Var2 = lv9Var;
-                }
-                if (i == 62345) {
-                    e(i2, intent, lv9Var2, currentTimeMillis);
-                    return true;
-                } else if (i == 62347) {
-                    h(i2, intent, lv9Var2, currentTimeMillis);
-                    return true;
-                } else {
-                    return false;
-                }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (ByteBuffer) invokeV.objValue;
+    }
+
+    @Override // org.java_websocket.framing.Framedata
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : invokeV.booleanValue;
+    }
+
+    @Override // org.java_websocket.framing.Framedata
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : invokeV.booleanValue;
+    }
+
+    @Override // org.java_websocket.framing.Framedata
+    public Framedata.Opcode d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (Framedata.Opcode) invokeV.objValue;
+    }
+
+    @Override // org.java_websocket.framing.Framedata
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g : invokeV.booleanValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || getClass() != obj.getClass()) {
+                return false;
+            }
+            ov9 ov9Var = (ov9) obj;
+            if (this.a == ov9Var.a && this.d == ov9Var.d && this.e == ov9Var.e && this.f == ov9Var.f && this.g == ov9Var.g && this.b == ov9Var.b) {
+                ByteBuffer byteBuffer = this.c;
+                ByteBuffer byteBuffer2 = ov9Var.c;
+                return byteBuffer != null ? byteBuffer.equals(byteBuffer2) : byteBuffer2 == null;
             }
             return false;
         }
-        return invokeCommon.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public final void e(int i, Intent intent, lv9 lv9Var, long j) {
+    @Override // org.java_websocket.framing.Framedata
+    public boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), intent, lv9Var, Long.valueOf(j)}) == null) {
-            this.b.postDelayed(new a(this, i, lv9Var, intent, j), 10L);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a : invokeV.booleanValue;
+    }
+
+    public abstract void h() throws InvalidDataException;
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            int hashCode = (((this.a ? 1 : 0) * 31) + this.b.hashCode()) * 31;
+            ByteBuffer byteBuffer = this.c;
+            return ((((((((hashCode + (byteBuffer != null ? byteBuffer.hashCode() : 0)) * 31) + (this.d ? 1 : 0)) * 31) + (this.e ? 1 : 0)) * 31) + (this.f ? 1 : 0)) * 31) + (this.g ? 1 : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.a = z;
         }
     }
 
-    public final void f(Intent intent, lv9 lv9Var, long j, int i, String str) {
+    public void j(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{intent, lv9Var, Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-            switch (i) {
-                case 1000006:
-                    lv9Var.onError(new mv9(1000006, str));
-                    return;
-                case 1290001:
-                    lv9Var.onError(new mv9(1290001, str));
-                    return;
-                case 444111001:
-                    try {
-                        String stringExtra = intent.getStringExtra("resjson");
-                        this.e.a(stringExtra);
-                        JSONObject jSONObject = new JSONObject(stringExtra);
-                        jSONObject.optString("openid");
-                        jSONObject.optString("uid");
-                        jSONObject.optString("access_code");
-                        lv9Var.onComplete(jSONObject);
-                        return;
-                    } catch (Exception unused) {
-                        lv9Var.onError(new mv9(444222105, rv9.h(444222105)));
-                        return;
-                    }
-                case 444111002:
-                    lv9Var.onCancel();
-                    return;
-                case 444111003:
-                    try {
-                        JSONObject jSONObject2 = new JSONObject(intent.getStringExtra("resjson"));
-                        if ("1".equals(jSONObject2.optString("appType"))) {
-                            jSONObject2.optString("uid");
-                        } else {
-                            jSONObject2.optString("openid");
-                        }
-                        lv9Var.onComplete(jSONObject2);
-                        return;
-                    } catch (Exception unused2) {
-                        lv9Var.onError(new mv9(444222105, rv9.h(444222105)));
-                        return;
-                    }
-                case 444222000:
-                    lv9Var.onError(new mv9(444222000, str));
-                    return;
-                case 444222001:
-                    lv9Var.onError(new mv9(444222001, str));
-                    return;
-                case 444222002:
-                    lv9Var.onError(new mv9(444222002, str));
-                    return;
-                case 444222003:
-                    lv9Var.onError(new mv9(444222003, str));
-                    return;
-                case 444222104:
-                    lv9Var.onError(new mv9(444222104, str));
-                    return;
-                case 444222105:
-                    lv9Var.onError(new mv9(444222105, str));
-                    return;
-                case 444222106:
-                    try {
-                        new JSONObject(intent.getStringExtra("resjson"));
-                        lv9Var.onError(new mv9(444222106, str));
-                        return;
-                    } catch (Exception unused3) {
-                        lv9Var.onError(new mv9(444222105, rv9.h(444222105)));
-                        return;
-                    }
-                case 444222108:
-                    try {
-                        lv9Var.onComplete(new JSONObject(intent.getStringExtra("resjson")));
-                        return;
-                    } catch (Exception unused4) {
-                        lv9Var.onError(new mv9(444222105, rv9.h(444222105)));
-                        return;
-                    }
-                case 444222110:
-                    try {
-                        new JSONObject(intent.getStringExtra("resjson"));
-                        lv9Var.onError(new mv9(444222110, str));
-                        return;
-                    } catch (Exception unused5) {
-                        lv9Var.onError(new mv9(444222105, rv9.h(444222105)));
-                        return;
-                    }
-                default:
-                    Log.e("chenqiang", "default  error");
-                    lv9Var.onError(new mv9(i, rv9.h(i)));
-                    return;
-            }
+        if (interceptable == null || interceptable.invokeL(1048586, this, byteBuffer) == null) {
+            this.c = byteBuffer;
         }
     }
 
-    public final void g(mv9 mv9Var, lv9 lv9Var) {
+    public void k(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, mv9Var, lv9Var) == null) || lv9Var == null) {
-            return;
-        }
-        this.b.postDelayed(new b(this, lv9Var, mv9Var), 50L);
-    }
-
-    public final void h(int i, Intent intent, lv9 lv9Var, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), intent, lv9Var, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.e = z;
         }
     }
 
-    public final void i(Activity activity, Intent intent, int i) {
+    public void l(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048582, this, activity, intent, i) == null) {
-            intent.putExtra("request_code", i);
-            Intent intent2 = new Intent(activity.getApplicationContext(), BridgeActivity.class);
-            intent2.putExtra("intent", intent);
-            activity.startActivityForResult(intent2, i);
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            this.f = z;
         }
+    }
+
+    public void m(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            this.g = z;
+        }
+    }
+
+    public void n(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+            this.d = z;
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("Framedata{ optcode:");
+            sb.append(d());
+            sb.append(", fin:");
+            sb.append(f());
+            sb.append(", rsv1:");
+            sb.append(b());
+            sb.append(", rsv2:");
+            sb.append(c());
+            sb.append(", rsv3:");
+            sb.append(e());
+            sb.append(", payloadlength:[pos:");
+            sb.append(this.c.position());
+            sb.append(", len:");
+            sb.append(this.c.remaining());
+            sb.append("], payload:");
+            sb.append(this.c.remaining() > 1000 ? "(too big to display)" : new String(this.c.array()));
+            sb.append('}');
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

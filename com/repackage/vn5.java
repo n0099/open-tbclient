@@ -1,86 +1,244 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import android.util.Pair;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import tbclient.LiveSquare.HotLiveWithCategory;
 import tbclient.ThreadInfo;
 /* loaded from: classes7.dex */
-public class vn5 extends BaseCardInfo {
+public class vn5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId i;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public String c;
-    public ThreadData d;
-    public boolean e;
-    public boolean f;
-    public boolean g;
-    public boolean h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755225388, "Lcom/repackage/vn5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static List<zn5> a(List<HotLiveWithCategory> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return new LinkedList();
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755225388, "Lcom/repackage/vn5;");
-                return;
+            ArrayList arrayList = new ArrayList(list.size());
+            for (HotLiveWithCategory hotLiveWithCategory : list) {
+                if (hotLiveWithCategory != null) {
+                    arrayList.add(new zn5(hotLiveWithCategory));
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public static List<ro> b(zn5 zn5Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, zn5Var)) == null) {
+            List<ThreadInfo> list = zn5Var.e;
+            ArrayList arrayList = new ArrayList(list.size());
+            for (ThreadInfo threadInfo : list) {
+                if (threadInfo != null) {
+                    wn5 wn5Var = new wn5();
+                    wn5Var.a = zn5Var.a;
+                    wn5Var.b = zn5Var.b;
+                    wn5Var.c = zn5Var.c;
+                    wn5Var.parserProtobuf(threadInfo);
+                    arrayList.add(wn5Var);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public static void c(List<zn5> list, List<zn5> list2, List<Long> list3) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65538, null, list, list2, list3) == null) || ListUtils.isEmpty(list2)) {
+            return;
+        }
+        HashMap hashMap = new HashMap(list2.size());
+        for (zn5 zn5Var : list2) {
+            if (zn5Var != null) {
+                hashMap.put(e(zn5Var), zn5Var.e);
             }
         }
-        i = BdUniqueId.gen();
-    }
-
-    public vn5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        for (zn5 zn5Var2 : list) {
+            if (zn5Var2 != null && !ListUtils.isEmpty(zn5Var2.e)) {
+                ArrayList<Integer> arrayList = new ArrayList();
+                ArrayList arrayList2 = new ArrayList();
+                for (int i = 0; i < zn5Var2.e.size(); i++) {
+                    ThreadInfo threadInfo = zn5Var2.e.get(i);
+                    if (threadInfo != null) {
+                        if (list3.contains(threadInfo.ala_info.live_id)) {
+                            arrayList.add(Integer.valueOf(i));
+                        } else {
+                            arrayList2.add(threadInfo.ala_info.live_id);
+                        }
+                    }
+                }
+                if (!ListUtils.isEmpty(arrayList)) {
+                    List list4 = (List) hashMap.get(e(zn5Var2));
+                    if (!ListUtils.isEmpty(list4)) {
+                        ArrayList arrayList3 = new ArrayList();
+                        for (Integer num : arrayList) {
+                            int intValue = num.intValue();
+                            if (intValue < zn5Var2.e.size()) {
+                                ThreadInfo threadInfo2 = null;
+                                Iterator it = list4.iterator();
+                                while (true) {
+                                    if (!it.hasNext()) {
+                                        break;
+                                    }
+                                    ThreadInfo threadInfo3 = (ThreadInfo) it.next();
+                                    if (threadInfo3 != null && !list3.contains(threadInfo3.ala_info.live_id) && !arrayList2.contains(threadInfo3.ala_info.live_id) && !arrayList3.contains(threadInfo3.ala_info.live_id)) {
+                                        threadInfo2 = threadInfo3;
+                                        break;
+                                    }
+                                }
+                                if (threadInfo2 != null) {
+                                    arrayList3.add(threadInfo2.ala_info.live_id);
+                                    zn5Var2.e.set(intValue, threadInfo2);
+                                } else {
+                                    zn5Var2.e.remove(intValue);
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
-        this.f = false;
-        this.g = false;
-        this.h = false;
     }
 
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
+    public static Pair<List<ro>, List<ro>> d(String str, List<zn5> list) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (ThreadData) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.uo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? i : (BdUniqueId) invokeV.objValue;
-    }
-
-    @Deprecated
-    public void parserProtobuf(ThreadInfo threadInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadInfo) == null) {
-            if (this.d == null) {
-                this.d = new ThreadData();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return null;
             }
-            this.d.parserProtobuf(threadInfo);
+            LinkedList linkedList = new LinkedList();
+            ArrayList arrayList = new ArrayList();
+            ArrayList arrayList2 = new ArrayList();
+            for (zn5 zn5Var : list) {
+                if (zn5Var != null && !ListUtils.isEmpty(zn5Var.e)) {
+                    List<ro> b = b(zn5Var);
+                    String str2 = zn5Var.b;
+                    if (!ListUtils.isEmpty(b) && b.size() >= 2 && !TextUtils.isEmpty(str2)) {
+                        ao5 ao5Var = new ao5();
+                        ao5Var.a = zn5Var.a;
+                        ao5Var.b = str2;
+                        ao5Var.c = zn5Var.c;
+                        ao5Var.d = zn5Var.d;
+                        int i = zn5Var.f;
+                        ao5Var.e = zn5Var.g;
+                        linkedList.add(ao5Var);
+                        int size = b.size();
+                        if (size % 2 != 0) {
+                            size--;
+                        }
+                        int i2 = 0;
+                        zn5Var.e = zn5Var.e.subList(0, size);
+                        while (true) {
+                            int i3 = i2 + 1;
+                            if (i3 < size) {
+                                if ("1:1".equals(zn5Var.d)) {
+                                    or5 or5Var = new or5();
+                                    wn5 wn5Var = (wn5) b.get(i2);
+                                    wn5 wn5Var2 = (wn5) b.get(i3);
+                                    or5Var.a = wn5Var;
+                                    or5Var.b = wn5Var2;
+                                    arrayList.add(wn5Var);
+                                    arrayList.add(wn5Var2);
+                                    linkedList.add(or5Var);
+                                } else if ("16:9".equals(zn5Var.d)) {
+                                    nr5 nr5Var = new nr5();
+                                    wn5 wn5Var3 = (wn5) b.get(i2);
+                                    wn5 wn5Var4 = (wn5) b.get(i3);
+                                    nr5Var.a = wn5Var3;
+                                    nr5Var.b = wn5Var4;
+                                    arrayList.add(wn5Var3);
+                                    arrayList.add(wn5Var4);
+                                    linkedList.add(nr5Var);
+                                }
+                                i2 += 2;
+                            }
+                        }
+                    } else {
+                        arrayList2.add(zn5Var);
+                    }
+                } else {
+                    arrayList2.add(zn5Var);
+                }
+            }
+            list.removeAll(arrayList2);
+            return new Pair<>(linkedList, arrayList);
         }
+        return (Pair) invokeLL.objValue;
+    }
+
+    public static String e(zn5 zn5Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, zn5Var)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(zn5Var.a + "_");
+            sb.append(zn5Var.b + "_");
+            sb.append(zn5Var.c);
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean f(zn5 zn5Var, List<zn5> list) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, zn5Var, list)) == null) {
+            if (zn5Var != null && !ListUtils.isEmpty(list)) {
+                for (zn5 zn5Var2 : list) {
+                    if (zn5Var.a == zn5Var2.a && zn5Var.b.equals(zn5Var2.b) && zn5Var.c.equals(zn5Var2.c)) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static List<zn5> g(List<zn5> list, List<zn5> list2, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65542, null, list, list2, z)) == null) {
+            if (list == null || list.isEmpty()) {
+                return list2;
+            }
+            if (list2 == null || list2.isEmpty()) {
+                return list;
+            }
+            LinkedList linkedList = new LinkedList();
+            for (zn5 zn5Var : list2) {
+                if (zn5Var != null && !ListUtils.isEmpty(zn5Var.e) && !TextUtils.isEmpty(zn5Var.b)) {
+                    if (z) {
+                        if (!f(zn5Var, list)) {
+                            linkedList.add(zn5Var);
+                        }
+                    } else {
+                        linkedList.add(zn5Var);
+                    }
+                }
+            }
+            if (z) {
+                linkedList.addAll(0, list);
+            }
+            return linkedList;
+        }
+        return (List) invokeLLZ.objValue;
     }
 }

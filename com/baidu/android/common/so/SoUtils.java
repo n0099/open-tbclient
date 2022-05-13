@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.um4;
+import com.repackage.fn4;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -75,7 +75,7 @@ public final class SoUtils {
                 return;
             }
         }
-        DEBUG = um4.e();
+        DEBUG = fn4.e();
         uris = new String[]{"lib/arm64", "lib/armeabi", "lib/x86", "lib/mips"};
     }
 

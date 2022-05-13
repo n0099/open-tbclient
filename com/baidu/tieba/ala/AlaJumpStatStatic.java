@@ -18,9 +18,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.j95;
 import com.repackage.ma;
-import com.repackage.s85;
-import com.repackage.ug;
+import com.repackage.sg;
 /* loaded from: classes3.dex */
 public class AlaJumpStatStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -161,10 +161,10 @@ public class AlaJumpStatStatic {
     public static final void b(Object obj, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, obj, str) == null) {
-            ug statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+            sg statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.b("workflow", "ala_jump_fail");
             statsItem.b(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME, str);
-            statsItem.c(FetchLog.START_TIME, Long.valueOf(System.currentTimeMillis() - s85.b().c()));
+            statsItem.c(FetchLog.START_TIME, Long.valueOf(System.currentTimeMillis() - j95.b().c()));
             if (obj instanceof AlaLiveRoomActivityConfig) {
                 AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = (AlaLiveRoomActivityConfig) obj;
                 statsItem.b(SapiAccount.SAPI_ACCOUNT_FROMTYPE, alaLiveRoomActivityConfig.getIntent().getStringExtra(AlaLiveRoomActivityConfig.LIVE_FROM_TYPE));

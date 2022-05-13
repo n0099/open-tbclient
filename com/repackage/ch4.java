@@ -1,160 +1,111 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.ByteArrayInputStream;
-import java.io.CharArrayWriter;
-import java.io.Closeable;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public class ch4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Closeable closeable) {
+    @Deprecated
+    public static String a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        StringBuilder sb;
+        StringBuilder sb2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65536, null, closeable) == null) || closeable == null) {
-            return;
-        }
-        try {
-            closeable.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static long b(InputStream inputStream, OutputStream outputStream) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, inputStream, outputStream)) == null) {
-            if (inputStream != null && outputStream != null) {
-                try {
-                    byte[] bArr = new byte[3072];
-                    long j = 0;
-                    while (true) {
-                        int read = inputStream.read(bArr);
-                        if (read > 0) {
-                            outputStream.write(bArr, 0, read);
-                            j += read;
-                        } else {
-                            outputStream.flush();
-                            return j;
-                        }
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, str3)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
             }
-            return 0L;
+            String str4 = str2 + "=";
+            int indexOf = str.indexOf("?");
+            String str5 = null;
+            if (indexOf < 0) {
+                int indexOf2 = str.indexOf("#");
+                if (indexOf2 < 0) {
+                    sb2 = new StringBuilder(str);
+                } else {
+                    str5 = str.substring(indexOf2);
+                    sb2 = new StringBuilder(str.substring(0, indexOf2));
+                }
+                sb2.append("?");
+                sb2.append(str4);
+                sb2.append(str3);
+                if (str5 != null) {
+                    sb2.append(str5);
+                }
+                return sb2.toString();
+            }
+            if (str.indexOf("&" + str4, indexOf) < 0) {
+                if (str.indexOf("?" + str4, indexOf) < 0) {
+                    int indexOf3 = str.indexOf("#");
+                    if (indexOf3 < 0) {
+                        sb = new StringBuilder(str);
+                    } else {
+                        str5 = str.substring(indexOf3);
+                        str = str.substring(0, indexOf3);
+                        sb = new StringBuilder(str);
+                    }
+                    if (!str.endsWith("&") && !str.endsWith("?")) {
+                        sb.append("&");
+                    }
+                    sb.append(str4);
+                    sb.append(str3);
+                    if (str5 != null) {
+                        sb.append(str5);
+                    }
+                    return sb.toString();
+                }
+                return str;
+            }
+            return str;
         }
-        return invokeLL.longValue;
+        return (String) invokeLLL.objValue;
     }
 
-    public static String c(File file) {
+    public static String b(String str) {
         InterceptResult invokeL;
-        FileReader fileReader;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
-            FileReader fileReader2 = null;
-            if (file != null && file.exists()) {
-                try {
-                    fileReader = new FileReader(file);
-                } catch (Exception unused) {
-                    fileReader = null;
-                } catch (Throwable th) {
-                    th = th;
-                }
-                try {
-                    char[] cArr = new char[256];
-                    CharArrayWriter charArrayWriter = new CharArrayWriter();
-                    while (true) {
-                        int read = fileReader.read(cArr);
-                        if (read > 0) {
-                            charArrayWriter.write(cArr, 0, read);
-                        } else {
-                            String charArrayWriter2 = charArrayWriter.toString();
-                            a(fileReader);
-                            return charArrayWriter2;
-                        }
-                    }
-                } catch (Exception unused2) {
-                    a(fileReader);
-                    return null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileReader2 = fileReader;
-                    a(fileReader2);
-                    throw th;
-                }
-            }
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            int d = ug4.d();
+            int b = ug4.b();
+            int a = ug4.a();
+            String f = ug4.f();
+            StringBuffer stringBuffer = new StringBuffer();
+            stringBuffer.append(d);
+            stringBuffer.append("_");
+            stringBuffer.append(b);
+            stringBuffer.append("_");
+            stringBuffer.append(f);
+            stringBuffer.append("_");
+            stringBuffer.append(str);
+            stringBuffer.append("_");
+            stringBuffer.append(a);
+            return stringBuffer.toString();
         }
         return (String) invokeL.objValue;
     }
 
-    public static boolean d(String str, File file) {
-        InterceptResult invokeLL;
-        File parentFile;
+    @NonNull
+    public static Map<String, String> c(@NonNull String str) {
+        InterceptResult invokeL;
+        String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, file)) == null) {
-            if (TextUtils.isEmpty(str) || (parentFile = file.getParentFile()) == null || !parentFile.isDirectory()) {
-                return false;
-            }
-            if (!parentFile.exists()) {
-                parentFile.mkdirs();
-            }
-            e(str.getBytes(), file);
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static void e(byte[] bArr, File file) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, file) == null) {
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-            f(byteArrayInputStream, file);
-            a(byteArrayInputStream);
-        }
-    }
-
-    public static void f(InputStream inputStream, File file) {
-        FileOutputStream fileOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, inputStream, file) == null) {
-            FileOutputStream fileOutputStream2 = null;
-            try {
-                try {
-                    fileOutputStream = new FileOutputStream(file);
-                } catch (Throwable th) {
-                    th = th;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            HashMap hashMap = new HashMap();
+            for (String str2 : str.split(";")) {
+                if (str2 != null && str2.contains("=")) {
+                    int indexOf = str2.indexOf("=");
+                    hashMap.put(str2.substring(0, indexOf).trim().toUpperCase(), str2.substring(indexOf + 1));
                 }
-            } catch (FileNotFoundException e) {
-                e = e;
             }
-            try {
-                b(inputStream, fileOutputStream);
-                a(fileOutputStream);
-            } catch (FileNotFoundException e2) {
-                e = e2;
-                fileOutputStream2 = fileOutputStream;
-                e.printStackTrace();
-                a(fileOutputStream2);
-            } catch (Throwable th2) {
-                th = th2;
-                fileOutputStream2 = fileOutputStream;
-                a(fileOutputStream2);
-                throw th;
-            }
+            return hashMap;
         }
+        return (Map) invokeL.objValue;
     }
 }

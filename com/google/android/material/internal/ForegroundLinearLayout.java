@@ -254,7 +254,7 @@ public class ForegroundLinearLayout extends LinearLayoutCompat {
         this.foregroundGravity = 119;
         this.mForegroundInPadding = true;
         this.foregroundBoundsChanged = false;
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, new int[]{16843017, 16843264, R.attr.obfuscated_res_0x7f0402a1}, i, 0, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, new int[]{16843017, 16843264, R.attr.obfuscated_res_0x7f0402a4}, i, 0, new int[0]);
         this.foregroundGravity = obtainStyledAttributes.getInt(1, this.foregroundGravity);
         Drawable drawable = obtainStyledAttributes.getDrawable(0);
         if (drawable != null) {

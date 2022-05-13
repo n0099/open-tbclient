@@ -1,88 +1,73 @@
 package com.repackage;
 
+import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-@Singleton
-@Service
 /* loaded from: classes5.dex */
-public class a14 implements uh1 {
+public abstract class a14 extends r23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String c;
 
-    public a14() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a14(r13 r13Var, String str, String str2) {
+        super(r13Var, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {r13Var, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = str2;
     }
 
-    @Override // com.repackage.uh1
-    public JSONObject a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.r23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u03 u03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? z04.c().d() : (JSONObject) invokeV.objValue;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, u03Var)) == null) {
+            d02 V = hm2.U().V();
+            if (V == null) {
+                ux1.c(this.c, "fragment manager is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            }
+            e14 e14Var = (e14) V.n(qw3.class);
+            if (e14Var == null) {
+                ux1.c(this.c, "fragment is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            }
+            return k(e14Var.b(), unitedSchemeEntity, callbackHandler);
+        }
+        return invokeLLLL.booleanValue;
     }
 
-    @Override // com.repackage.uh1
-    public void b(String str) {
+    public void j(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            c14.d(str);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity, callbackHandler) == null) {
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
     }
 
-    @Override // com.repackage.uh1
-    public void c(CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, callbackHandler, str) == null) {
-            c14.e(callbackHandler, str);
-        }
-    }
-
-    @Override // com.repackage.uh1
-    public void d(CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, callbackHandler, str) == null) {
-            c14.a(callbackHandler, str);
-        }
-    }
-
-    @Override // com.repackage.uh1
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            c14.f(str);
-        }
-    }
-
-    @Override // com.repackage.uh1
-    public void f(CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, callbackHandler, str) == null) {
-            c14.g(callbackHandler, str);
-        }
-    }
-
-    @Override // com.repackage.uh1
-    public void g(CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, callbackHandler, str) == null) {
-            c14.b(callbackHandler, str);
-        }
-    }
+    public abstract boolean k(@NonNull d14 d14Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler);
 }

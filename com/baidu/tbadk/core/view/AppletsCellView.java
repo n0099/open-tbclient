@@ -20,9 +20,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
-import com.repackage.ul4;
-import com.repackage.ul5;
+import com.repackage.fm4;
+import com.repackage.mi;
+import com.repackage.vl5;
 import tbclient.SmartApp;
 /* loaded from: classes3.dex */
 public class AppletsCellView extends LinearLayout implements View.OnClickListener {
@@ -70,14 +70,14 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
             if (!(interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) || z) {
                 return;
             }
-            this.a.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f57);
+            this.a.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f6d);
         }
 
         @Override // com.baidu.tbadk.widget.TbImageView.g
         public void onCancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f57);
+                this.a.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f6d);
             }
         }
     }
@@ -108,21 +108,21 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0125, (ViewGroup) this, true);
-            this.b = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f0902a1);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0902a3);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0902a0);
-            this.e = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0902a2);
-            this.f = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f0902a4);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0902a5);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0121, (ViewGroup) this, true);
+            this.b = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090297);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090299);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090296);
+            this.e = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090298);
+            this.f = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f09029a);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09029b);
             this.b.setIsRound(true);
             this.b.setIsPreDrawBorder(true);
             this.b.setDrawBorder(true);
-            this.b.setBorderWidth(oi.f(context, R.dimen.tbds1));
+            this.b.setBorderWidth(mi.f(context, R.dimen.tbds1));
             this.b.setDefaultResource(R.color.CAM_X0205);
-            this.b.setRadius(oi.f(context, R.dimen.obfuscated_res_0x7f070266));
+            this.b.setRadius(mi.f(context, R.dimen.obfuscated_res_0x7f070266));
             ViewGroup.LayoutParams layoutParams = this.e.getLayoutParams();
-            layoutParams.height = ((oi.k(getContext()) - oi.f(getContext(), R.dimen.tbds130)) * 9) / 16;
+            layoutParams.height = ((mi.k(getContext()) - mi.f(getContext(), R.dimen.tbds130)) * 9) / 16;
             this.e.setLayoutParams(layoutParams);
             this.e.setConrers(15);
             setOnClickListener(this);
@@ -156,11 +156,11 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) || (smartApp = this.h) == null) {
             return;
         }
-        if (!ul5.b(smartApp.id, smartApp.link, "1191003900000000", smartApp.is_game)) {
+        if (!vl5.b(smartApp.id, smartApp.link, "1191003900000000", smartApp.is_game)) {
             if (StringUtils.isNull(this.h.h5_url)) {
                 return;
             }
-            ul4.m(getContext(), this.h.h5_url);
+            fm4.m(getContext(), this.h.h5_url);
         }
         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("fid", this.j).param("tid", this.k).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_name", this.h.name).param("obj_id", this.h.swan_app_id.longValue()).param("obj_source", this.i).param("obj_param1", this.h.is_game.intValue()));
     }
@@ -183,7 +183,7 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
                 this.d.setText(smartApp._abstract);
             }
             if (StringUtils.isNull(smartApp.pic, true)) {
-                this.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f57);
+                this.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f6d);
                 return;
             }
             this.e.setEvent(new a(this));

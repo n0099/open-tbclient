@@ -1,204 +1,28 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.net.Uri;
-import androidx.annotation.AnyThread;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
-import com.baidu.swan.game.ad.downloader.model.DownloadState;
-import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fo3;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 /* loaded from: classes5.dex */
-public final class do3 implements mo3, fo3.a {
+public class do3 implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
-    @SuppressLint({"StaticFieldLeak"})
-    public static do3 k;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public ExecutorService b;
-    public final ConcurrentHashMap<String, Object> c;
-    public final List<DownloadInfo> d;
-    public final Context e;
-    public final no3 f;
-    public final ko3 g;
-    public final co3 h;
-    public ConcurrentHashMap<Uri, BroadcastReceiver> i;
-    public ConcurrentHashMap<Uri, Timer> j;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
 
-    /* loaded from: classes5.dex */
-    public class a extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ do3 this$0;
-        public final /* synthetic */ d val$listener;
-        public final /* synthetic */ String val$packageName;
-        public final /* synthetic */ Uri val$uri;
-
-        public a(do3 do3Var, String str, d dVar, Uri uri) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {do3Var, str, dVar, uri};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = do3Var;
-            this.val$packageName = str;
-            this.val$listener = dVar;
-            this.val$uri = uri;
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            String dataString;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && (dataString = intent.getDataString()) != null && dataString.endsWith(this.val$packageName)) {
-                this.val$listener.a(Boolean.TRUE);
-                this.this$0.l(context, this.val$uri);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends TimerTask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ Uri c;
-        public final /* synthetic */ do3 d;
-
-        public b(do3 do3Var, d dVar, Context context, Uri uri) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {do3Var, dVar, context, uri};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = do3Var;
-            this.a = dVar;
-            this.b = context;
-            this.c = uri;
-        }
-
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a(Boolean.FALSE);
-                this.d.l(this.b, this.c);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c extends TimerTask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Timer a;
-        public final /* synthetic */ do3 b;
-
-        public c(do3 do3Var, Timer timer) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {do3Var, timer};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = do3Var;
-            this.a = timer;
-        }
-
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (Map.Entry entry : this.b.i.entrySet()) {
-                    do3 do3Var = this.b;
-                    do3Var.l(do3Var.e, (Uri) entry.getKey());
-                }
-                this.a.cancel();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static abstract class d<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public d() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public void a(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
-            }
-        }
-    }
-
-    public do3(Context context, co3 co3Var) {
+    public do3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, co3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -208,249 +32,127 @@ public final class do3 implements mo3, fo3.a {
                 return;
             }
         }
-        this.i = new ConcurrentHashMap<>();
-        this.j = new ConcurrentHashMap<>();
-        this.e = context;
-        if (co3Var == null) {
-            this.h = new co3();
-        } else {
-            this.h = co3Var;
-        }
-        if (this.h.a() == null) {
-            this.g = new ho3(context, this.h);
-        } else {
-            this.g = this.h.a();
-        }
-        this.d = new ArrayList();
-        this.c = new ConcurrentHashMap<>();
-        this.g.b();
-        this.b = Executors.newFixedThreadPool(this.h.b());
-        this.f = new eo3(this.g);
+        this.e = false;
+        this.f = false;
     }
 
-    public static synchronized mo3 m(Context context, co3 co3Var) {
-        InterceptResult invokeLL;
-        do3 do3Var;
+    public static do3 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, co3Var)) == null) {
-            synchronized (do3.class) {
-                if (k == null) {
-                    k = new do3(context, co3Var);
-                }
-                do3Var = k;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            do3 do3Var = new do3();
+            do3Var.i(true);
+            do3Var.g(true);
+            do3Var.h(-1);
+            do3Var.f(-1);
             return do3Var;
         }
-        return (mo3) invokeLL.objValue;
+        return (do3) invokeV.objValue;
     }
 
-    @Override // com.repackage.mo3
-    public synchronized void a(DownloadInfo downloadInfo) {
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, downloadInfo) == null) {
-            synchronized (this) {
-                if (n()) {
-                    p(downloadInfo);
-                }
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : invokeV.intValue;
     }
 
-    @Override // com.repackage.mo3
-    public synchronized void b(DownloadInfo downloadInfo) {
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadInfo) == null) {
-            synchronized (this) {
-                if (downloadInfo == null) {
-                    return;
-                }
-                downloadInfo.setStatus(DownloadState.DELETED.value());
-                this.c.remove(downloadInfo.getId());
-                this.d.remove(downloadInfo);
-                this.g.delete(downloadInfo);
-                this.f.b(downloadInfo);
-                new File(downloadInfo.getPath()).delete();
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    @Override // com.repackage.mo3
-    public synchronized void c(DownloadInfo downloadInfo) {
+    public Object clone() throws CloneNotSupportedException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadInfo) == null) {
-            synchronized (this) {
-                this.d.add(downloadInfo);
-                p(downloadInfo);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? super.clone() : invokeV.objValue;
     }
 
-    @Override // com.repackage.mo3
-    public synchronized void d(DownloadInfo downloadInfo) {
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, downloadInfo) == null) {
-            synchronized (this) {
-                if (n()) {
-                    o(downloadInfo);
-                }
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    @Override // com.repackage.mo3
-    public synchronized void destroy() {
+    public int e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                k();
-                if (this.g != null) {
-                    this.g.close();
-                }
-                if (this.b != null) {
-                    this.b.shutdownNow();
-                    this.b = null;
-                }
-                k = null;
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : invokeV.intValue;
     }
 
-    @Override // com.repackage.fo3.a
-    public synchronized void e(DownloadInfo downloadInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, downloadInfo) == null) {
-            synchronized (this) {
-                aq3.c(downloadInfo.getPath(), false);
-                this.c.remove(downloadInfo.getId());
-                this.d.remove(downloadInfo);
-                q();
-            }
-        }
-    }
-
-    @Override // com.repackage.mo3
-    @AnyThread
-    public synchronized void f(@NonNull String str, @NonNull Uri uri, @NonNull d<Boolean> dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048582, this, str, uri, dVar) == null) {
-            synchronized (this) {
-                Context appContext = AppRuntime.getAppContext();
-                if (aq3.a(appContext, str)) {
-                    dVar.a(Boolean.TRUE);
-                }
-                IntentFilter intentFilter = new IntentFilter();
-                intentFilter.addDataScheme("package");
-                intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
-                a aVar = new a(this, str, dVar, uri);
-                appContext.registerReceiver(aVar, intentFilter);
-                Timer timer = new Timer();
-                timer.schedule(new b(this, dVar, appContext, uri), 60000L);
-                this.i.put(uri, aVar);
-                this.j.put(uri, timer);
-            }
-        }
-    }
-
-    @Override // com.repackage.mo3
-    public synchronized DownloadInfo g(String str) {
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
-        DownloadInfo downloadInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            synchronized (this) {
-                downloadInfo = null;
-                Iterator<DownloadInfo> it = this.d.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    DownloadInfo next = it.next();
-                    if (next.getId().equals(str)) {
-                        downloadInfo = next;
-                        break;
-                    }
-                }
-                if (downloadInfo == null) {
-                    downloadInfo = this.g.c(str);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            return downloadInfo;
+            if (obj instanceof do3) {
+                do3 do3Var = (do3) obj;
+                return this.a == do3Var.a && this.b == do3Var.b && this.d == do3Var.d && this.c == do3Var.c && this.g == do3Var.g;
+            }
+            return false;
         }
-        return (DownloadInfo) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public final void k() {
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            Timer timer = new Timer();
-            timer.schedule(new c(this, timer), 60000L);
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.d = i;
         }
     }
 
-    public final void l(Context context, Uri uri) {
+    public void g(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, context, uri) == null) {
-            BroadcastReceiver remove = this.i.remove(uri);
-            if (remove != null) {
-                context.unregisterReceiver(remove);
-            }
-            Timer remove2 = this.j.remove(uri);
-            if (remove2 != null) {
-                remove2.cancel();
-            }
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.f = z;
         }
     }
 
-    public synchronized boolean n() {
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.e = z;
+        }
+    }
+
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            synchronized (this) {
-                if (System.currentTimeMillis() - this.a > 500) {
-                    this.a = System.currentTimeMillis();
-                    return true;
-                }
-                return false;
-            }
+            return "Position{l=" + this.a + ", t=" + this.b + ", w=" + this.c + ", h=" + this.d + ", WAuto=" + this.e + ", HAuto=" + this.f + ", fixed=" + this.g + '}';
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public final void o(DownloadInfo downloadInfo) {
+    public do3(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, downloadInfo) == null) {
-            downloadInfo.setStatus(DownloadState.DOWNLOAD_PAUSED.value());
-            this.c.remove(downloadInfo.getId());
-            this.f.b(downloadInfo);
-            q();
-        }
-    }
-
-    public final void p(DownloadInfo downloadInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, downloadInfo) == null) {
-            if (this.c.size() >= this.h.b()) {
-                downloadInfo.setStatus(DownloadState.WAIT.value());
-                this.f.b(downloadInfo);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            fo3 fo3Var = new fo3(this.b, this.f, downloadInfo, this);
-            this.c.put(downloadInfo.getId(), fo3Var);
-            downloadInfo.setStatus(DownloadState.PREPARE_DOWNLOAD.value());
-            this.f.b(downloadInfo);
-            fo3Var.c();
         }
-    }
-
-    public final void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            for (DownloadInfo downloadInfo : this.d) {
-                if (downloadInfo.getStatus() == DownloadState.WAIT.value()) {
-                    p(downloadInfo);
-                    return;
-                }
-            }
-        }
+        this.e = false;
+        this.f = false;
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
+        this.d = i4;
     }
 }

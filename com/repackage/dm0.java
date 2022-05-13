@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class dm0 implements pb1 {
+public class dm0 implements ac1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,13 +25,13 @@ public class dm0 implements pb1 {
         }
     }
 
-    @Override // com.repackage.pb1
+    @Override // com.repackage.ac1
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new ah0());
+            arrayList.add(new dh0());
             arrayList.add(new it0());
             return arrayList;
         }

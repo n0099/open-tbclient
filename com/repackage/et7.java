@@ -112,7 +112,7 @@ public abstract class et7<V extends kt7, D extends IBaseDialogData> implements j
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (alertDialog = this.a) == null) {
             return;
         }
-        rg.a(alertDialog, this.b.getPageActivity());
+        pg.a(alertDialog, this.b.getPageActivity());
     }
 
     @Override // com.repackage.jt7
@@ -121,11 +121,11 @@ public abstract class et7<V extends kt7, D extends IBaseDialogData> implements j
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             AlertDialog alertDialog = this.a;
             if (alertDialog != null) {
-                rg.i(alertDialog, this.b.getPageActivity());
+                pg.i(alertDialog, this.b.getPageActivity());
                 return;
             }
             if (this.g) {
-                this.a = new AlertDialog.Builder(this.c, R.style.obfuscated_res_0x7f1003e7).create();
+                this.a = new AlertDialog.Builder(this.c, R.style.obfuscated_res_0x7f1003e6).create();
             } else {
                 this.a = new AlertDialog.Builder(this.c).create();
             }
@@ -136,7 +136,7 @@ public abstract class et7<V extends kt7, D extends IBaseDialogData> implements j
             if (onCancelListener != null) {
                 this.a.setOnCancelListener(onCancelListener);
             }
-            rg.i(this.a, this.b.getPageActivity());
+            pg.i(this.a, this.b.getPageActivity());
             if (this.a.getWindow().getDecorView().getParent() == null) {
                 return;
             }
@@ -145,11 +145,11 @@ public abstract class et7<V extends kt7, D extends IBaseDialogData> implements j
                 this.f = 17;
             }
             window.setGravity(this.f);
-            window.setBackgroundDrawableResource(R.drawable.obfuscated_res_0x7f08120b);
+            window.setBackgroundDrawableResource(R.drawable.obfuscated_res_0x7f081221);
             WindowManager.LayoutParams attributes = window.getAttributes();
             attributes.dimAmount = 0.7f;
             attributes.width = -1;
-            DisplayMetrics q = oi.q(this.b.getPageActivity());
+            DisplayMetrics q = mi.q(this.b.getPageActivity());
             if (q != null) {
                 int a2 = a();
                 if (UtilHelper.getRealScreenOrientation(this.c) == 2) {

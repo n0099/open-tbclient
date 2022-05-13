@@ -1,21 +1,60 @@
 package com.repackage;
 
-import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
+import android.animation.Animator;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface sx8 {
-    void B(rx8 rx8Var);
+public abstract class sx8 implements Animator.AnimatorListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
-    void E(int i);
+    public sx8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = false;
+    }
 
-    void H(int i);
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationCancel(Animator animator) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+            this.a = true;
+        }
+    }
 
-    void S(CloudMusicData.MusicTagList musicTagList);
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationEnd(Animator animator) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
+        }
+    }
 
-    void displayNoDataView(boolean z);
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationRepeat(Animator animator) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
+        }
+    }
 
-    void f0(int i);
-
-    void s(boolean z);
-
-    void u();
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationStart(Animator animator) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
+            this.a = false;
+        }
+    }
 }

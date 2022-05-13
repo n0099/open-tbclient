@@ -24,13 +24,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c11;
 import com.repackage.fq0;
 import com.repackage.gq0;
 import com.repackage.io0;
 import com.repackage.jo0;
 import com.repackage.jq0;
 import com.repackage.lo0;
+import com.repackage.m11;
 import com.repackage.px0;
 import com.repackage.ty0;
 import com.repackage.un0;
@@ -164,7 +164,7 @@ public class NadExpressVideoOperateView extends NadExpressNaBaseView {
         public void getOutline(View view2, Outline outline) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, view2, outline) == null) {
-                outline.setRoundRect(new Rect(0, 0, this.a.q.getWidth(), this.a.q.getHeight()), c11.c.a(this.a.getContext(), 8.0f));
+                outline.setRoundRect(new Rect(0, 0, this.a.q.getWidth(), this.a.q.getHeight()), m11.c.a(this.a.getContext(), 8.0f));
             }
         }
     }
@@ -194,7 +194,7 @@ public class NadExpressVideoOperateView extends NadExpressNaBaseView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Resources resources = getContext().getResources();
-            int e = c11.c.e(getContext()) - (resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070043) * 2);
+            int e = m11.c.e(getContext()) - (resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070043) * 2);
             ViewGroup viewGroup = this.q;
             if (viewGroup != null) {
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) viewGroup.getLayoutParams();
@@ -303,7 +303,7 @@ public class NadExpressVideoOperateView extends NadExpressNaBaseView {
     public void j(LayoutInflater layoutInflater, lo0 lo0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, layoutInflater, lo0Var) == null) {
-            layoutInflater.inflate((lo0Var == null || lo0Var.a(AdBaseModel.STYLE.VIDEO) == 0) ? R.layout.obfuscated_res_0x7f0d05ae : lo0Var.a(AdBaseModel.STYLE.VIDEO), this);
+            layoutInflater.inflate((lo0Var == null || lo0Var.a(AdBaseModel.STYLE.VIDEO) == 0) ? R.layout.obfuscated_res_0x7f0d05a1 : lo0Var.a(AdBaseModel.STYLE.VIDEO), this);
         }
     }
 
@@ -311,10 +311,10 @@ public class NadExpressVideoOperateView extends NadExpressNaBaseView {
     public void k(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            this.m = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0914bd);
-            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f0914bc);
-            this.o = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914bb);
-            this.q = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0914c3);
+            this.m = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0914db);
+            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f0914da);
+            this.o = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914d9);
+            this.q = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0914e1);
         }
     }
 
@@ -357,7 +357,7 @@ public class NadExpressVideoOperateView extends NadExpressNaBaseView {
                 if (this.m == null || jo0Var.f.k.size() <= 0 || (un0Var = (un0) ty0.d(jo0Var.f.k, 0)) == null) {
                     return;
                 }
-                this.m.g(un0Var.a);
+                this.m.n(un0Var.a);
                 return;
             }
             setVisibility(8);
@@ -371,12 +371,12 @@ public class NadExpressVideoOperateView extends NadExpressNaBaseView {
             setMaxTitleLine(2);
             TextView textView = this.n;
             if (textView != null) {
-                textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060290));
-                this.n.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080db3));
+                textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060293));
+                this.n.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dcd));
             }
             ImageView imageView = this.o;
             if (imageView != null) {
-                imageView.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080db2));
+                imageView.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dcc));
             }
             F();
         }

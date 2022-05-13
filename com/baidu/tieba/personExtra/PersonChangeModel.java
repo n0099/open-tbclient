@@ -19,8 +19,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.mg;
-import com.repackage.mi;
+import com.repackage.kg;
+import com.repackage.ki;
 import com.repackage.wa;
 import tbclient.AlaUserInfo;
 import tbclient.BirthdayInfo;
@@ -210,14 +210,14 @@ public class PersonChangeModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (!mi.A()) {
-                this.b.a(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c17));
+            if (!ki.A()) {
+                this.b.a(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c2d));
                 return false;
             } else if (TbadkCoreApplication.getCurrentAccount() == null) {
                 return false;
             } else {
                 ProfileRequestMessage profileRequestMessage = new ProfileRequestMessage();
-                profileRequestMessage.set_uid(Long.valueOf(mg.g(TbadkCoreApplication.getCurrentAccount(), 0L)));
+                profileRequestMessage.set_uid(Long.valueOf(kg.g(TbadkCoreApplication.getCurrentAccount(), 0L)));
                 profileRequestMessage.set_pn(1);
                 profileRequestMessage.set_rn(1);
                 profileRequestMessage.set_has_plist(1);

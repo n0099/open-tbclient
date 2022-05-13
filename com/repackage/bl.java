@@ -1,60 +1,191 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-import android.graphics.Rect;
-import android.widget.ImageView;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nps.pm.BundleInfo;
+import com.baidu.nps.pm.BundleInfoGroup;
+import com.baidu.nps.pm.manager.NPSPackageManager;
+import com.baidu.nps.utils.SourceData;
+import com.baidu.searchbox.pms.init.RequestParams;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class bl extends yk {
+public class bl {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean b;
+    public static boolean c;
+    public static bl d;
     public transient /* synthetic */ FieldHolder $fh;
-    public Rect v;
+    public volatile vm a;
+
+    /* loaded from: classes5.dex */
+    public static class a implements q61 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.q61
+        public void onProgress(long j, long j2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            }
+        }
+
+        @Override // com.repackage.q61
+        public void onResult(int i, String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && BdBaseApplication.getInst().isDebugMode()) {
+                BdLog.e("Plug-in predownload status{\"code\": " + i + ", \"msg\": " + str + "}");
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964044037, "Lcom/repackage/bl;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1964044037, "Lcom/repackage/bl;");
+                return;
+            }
+        }
+        d = new bl();
+    }
 
     public bl() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.v = new Rect();
     }
 
-    @Override // com.repackage.rk, com.repackage.pk
-    public void h(Canvas canvas, sk skVar, ImageView imageView) {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, canvas, skVar, imageView) == null) {
-            Matrix matrix = this.e;
-            if (matrix != null) {
-                canvas.concat(matrix);
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !c && vm.m()) {
+            c = true;
+            NPSPackageManager.getInstance().downloadAllBundles();
+        }
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || b) {
+            return;
+        }
+        b = true;
+        NPSPackageManager.getInstance().fetchBundleInfo();
+    }
+
+    public static bl e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? d : (bl) invokeV.objValue;
+    }
+
+    public static void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            a();
+        }
+    }
+
+    public static void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
+            if (str != null && str.trim().length() != 0) {
+                SourceData sourceData = new SourceData();
+                sourceData.source = "";
+                NPSPackageManager.getInstance().preDownload(str, new a(), 1, sourceData);
+            } else if (BdBaseApplication.getInst().isDebugMode()) {
+                BdLog.e("PackageName of Plug-in is null.");
             }
-            canvas.save();
-            if (this.u) {
-                try {
-                    canvas.clipPath(this.r);
-                } catch (Error unused) {
+        }
+    }
+
+    @NonNull
+    public List<BundleInfo> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (Map.Entry<String, BundleInfoGroup> entry : NPSPackageManager.getInstance().getAllBundleGroup().entrySet()) {
+                BundleInfoGroup value = entry.getValue();
+                BundleInfo bundleByType = value.getBundleByType(3);
+                if (bundleByType == null) {
+                    bundleByType = value.getBundleByType(2);
+                }
+                if (bundleByType != null) {
+                    arrayList.add(bundleByType);
                 }
             }
-            if (skVar.e()) {
-                Bitmap bitmap = skVar.a.getBitmap();
-                this.v.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
-                canvas.drawBitmap(bitmap, this.v, this.f, this.b);
-            } else {
-                this.v.set(0, 0, skVar.b(), skVar.a());
-                skVar.b.g(canvas, this.v, this.f, this.b);
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public RequestParams.Channel d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            g();
+            return this.a.l();
+        }
+        return (RequestParams.Channel) invokeV.objValue;
+    }
+
+    public vm f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            g();
+            return this.a;
+        }
+        return (vm) invokeV.objValue;
+    }
+
+    public final synchronized void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                if (this.a == null) {
+                    this.a = new vm();
+                }
             }
-            canvas.restore();
         }
     }
 }

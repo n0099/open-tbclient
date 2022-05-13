@@ -1,16 +1,163 @@
 package com.repackage;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.UBCManager;
+import com.baidu.ubs.analytics.SampleResult;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class d59 extends fc1<UBCManager> {
+public final class d59 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public String b;
+    public String c;
+    public boolean d;
+    public JSONArray e;
+    public Map<String, com.baidu.ubs.analytics.a.g> f;
+
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final d59 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-489990132, "Lcom/repackage/d59$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-489990132, "Lcom/repackage/d59$a;");
+                    return;
+                }
+            }
+            a = new d59((byte) 0);
+        }
+    }
+
+    public /* synthetic */ d59(byte b) {
+        this();
+    }
+
+    public static d59 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (d59) invokeV.objValue;
+    }
+
+    public final void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            this.a = context;
+        }
+    }
+
+    public final void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public final synchronized void c(List<com.baidu.ubs.analytics.a.g> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            synchronized (this) {
+                this.f = new HashMap();
+                for (int i = 0; i < list.size(); i++) {
+                    if (list.get(i) != null) {
+                        this.f.put(list.get(i).getId(), list.get(i));
+                    }
+                }
+            }
+        }
+    }
+
+    public final synchronized void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            synchronized (this) {
+                this.d = z;
+            }
+        }
+    }
+
+    public final void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public final SampleResult f(String str) {
+        InterceptResult invokeL;
+        Map<String, com.baidu.ubs.analytics.a.g> map;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (this.e == null) {
+                if (str != null && (map = this.f) != null) {
+                    if (map.containsKey(str)) {
+                        return l69.a(this.f.get(str).getGroup());
+                    }
+                    return SampleResult.OTHERE;
+                }
+                return SampleResult.OTHERE;
+            }
+            for (int i = 0; i < this.e.length(); i++) {
+                JSONObject optJSONObject = this.e.optJSONObject(i);
+                if (optJSONObject != null && str.equals(optJSONObject.optString("exid"))) {
+                    return l69.a(optJSONObject.optString("group"));
+                }
+            }
+            return SampleResult.OTHERE;
+        }
+        return (SampleResult) invokeL.objValue;
+    }
+
+    public final boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : invokeV.booleanValue;
+    }
+
+    public final Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (Context) invokeV.objValue;
+    }
+
+    public final String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public final String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public final Map<String, com.baidu.ubs.analytics.a.g> k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f : (Map) invokeV.objValue;
+    }
 
     public d59() {
         Interceptable interceptable = $ic;
@@ -22,16 +169,9 @@ public class d59 extends fc1<UBCManager> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fc1
-    /* renamed from: a */
-    public UBCManager createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new e59() : (UBCManager) invokeV.objValue;
+        this.d = true;
     }
 }

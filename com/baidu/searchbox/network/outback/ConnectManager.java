@@ -13,7 +13,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.searchbox.network.outback.core.internal.Util;
-import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -76,7 +75,7 @@ public class ConnectManager {
                 }
             }
             NO = new NetworkStateEnum(HlsPlaylistParser.BOOLEAN_FALSE, 0, "no");
-            WIFI = new NetworkStateEnum(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 1, "wifi");
+            WIFI = new NetworkStateEnum("WIFI", 1, "wifi");
             _2G = new NetworkStateEnum("_2G", 2, "2g");
             _3G = new NetworkStateEnum("_3G", 3, "3g");
             _4G = new NetworkStateEnum("_4G", 4, "4g");

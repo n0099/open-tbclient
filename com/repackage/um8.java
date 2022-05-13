@@ -1,21 +1,55 @@
 package com.repackage;
 
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface um8 {
-    void a(TbPageContext<?> tbPageContext);
+public class um8 extends vm8 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Runnable b;
 
-    void b(String str);
+    public um8(Runnable runnable, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {runnable, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = runnable;
+        this.a = i;
+    }
 
-    boolean c(ej ejVar, int i);
+    @Override // com.repackage.vm8
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b.run();
+        }
+    }
 
-    void cancelRecord();
+    @Override // com.repackage.vm8
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            pm8.a = Math.max(pm8.a, this.a + 1);
+        }
+    }
 
-    void d(ej ejVar);
-
-    boolean e();
-
-    void release();
-
-    void stopRecord();
+    @Override // com.repackage.vm8
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
 }

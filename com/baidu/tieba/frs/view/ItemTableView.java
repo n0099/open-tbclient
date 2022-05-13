@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.mi;
 import java.util.List;
 import tbclient.ItemPlot;
 /* loaded from: classes3.dex */
@@ -43,7 +43,7 @@ public class ItemTableView extends LinearLayout {
                 return;
             }
         }
-        g = oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds5);
+        g = mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds5);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

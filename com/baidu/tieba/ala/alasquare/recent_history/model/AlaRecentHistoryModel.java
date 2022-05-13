@@ -21,15 +21,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jq5;
 import com.repackage.kq5;
+import com.repackage.lq5;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AlaRecentHistoryModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<kq5> a;
+    public List<lq5> a;
     public b b;
     public int c;
     public int d;
@@ -76,12 +76,12 @@ public class AlaRecentHistoryModel extends BdBaseModel {
                         this.a.b.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.f);
                     }
                 } else {
-                    jq5 recentHistoryData = alaRecentHistoryResponseMessage.getRecentHistoryData();
+                    kq5 recentHistoryData = alaRecentHistoryResponseMessage.getRecentHistoryData();
                     if (recentHistoryData == null) {
                         return;
                     }
                     this.a.e = recentHistoryData.a;
-                    List<kq5> list = recentHistoryData.b;
+                    List<lq5> list = recentHistoryData.b;
                     if (!this.a.f) {
                         this.a.a.clear();
                         if (!ListUtils.isEmpty(list)) {
@@ -102,7 +102,7 @@ public class AlaRecentHistoryModel extends BdBaseModel {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(boolean z, List<kq5> list);
+        void a(boolean z, List<lq5> list);
 
         void b(int i, String str, boolean z);
     }
@@ -146,7 +146,7 @@ public class AlaRecentHistoryModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public List<kq5> getData() {
+    public List<lq5> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (List) invokeV.objValue;

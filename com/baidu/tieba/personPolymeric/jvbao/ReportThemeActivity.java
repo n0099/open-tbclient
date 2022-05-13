@@ -35,12 +35,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ki;
 import com.repackage.mi;
 import com.repackage.n38;
 import com.repackage.n68;
-import com.repackage.oi;
+import com.repackage.ro;
 import com.repackage.t58;
-import com.repackage.uo;
 import com.repackage.z58;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
@@ -56,7 +56,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
     public PersonPostModel.c mCallBack;
     public TextView mConfirm;
     public TextView mConfirmNumView;
-    public ArrayList<uo> mData;
+    public ArrayList<ro> mData;
     public boolean mHasMore;
     public View mListContainerView;
     public View mListRootView;
@@ -139,14 +139,14 @@ public class ReportThemeActivity extends BaseFragmentActivity {
             if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
                 this.a.refreshConfirmUI(message.arg1);
                 if (message.arg1 > 10) {
-                    this.a.mConfirmNumView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f03c2, new Object[]{10}));
+                    this.a.mConfirmNumView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f03c7, new Object[]{10}));
                     BdTopToast bdTopToast = new BdTopToast(this.a.getActivity());
                     bdTopToast.i(false);
-                    bdTopToast.h(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a96));
+                    bdTopToast.h(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a9d));
                     bdTopToast.j(this.a.mNavigationBar);
                     return;
                 }
-                this.a.mConfirmNumView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f03c2, new Object[]{Integer.valueOf(message.arg1)}));
+                this.a.mConfirmNumView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f03c7, new Object[]{Integer.valueOf(message.arg1)}));
             }
         }
     }
@@ -376,7 +376,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
             this.mHasMore = dealHasMore(personPostModel, z);
             PersonPostModel personPostModel3 = this.mModel;
             if (personPostModel3 != null) {
-                if (ListUtils.isEmpty(personPostModel3.threadList) && !mi.z()) {
+                if (ListUtils.isEmpty(personPostModel3.threadList) && !ki.z()) {
                     showNetRefreshView(this.mListRootView, null, false);
                     this.mListContainerView.setVisibility(8);
                 } else {
@@ -406,10 +406,10 @@ public class ReportThemeActivity extends BaseFragmentActivity {
     private void initNavigationBar() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65551, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ad);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923fd);
             this.mNavigationBar = navigationBar;
-            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0faa));
-            this.mConfirm = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.obfuscated_res_0x7f0f0421));
+            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0fc2));
+            this.mConfirm = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.obfuscated_res_0x7f0f0428));
             this.mBack = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mConfirm.setOnClickListener(new d(this));
         }
@@ -419,12 +419,12 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, this) == null) {
             initNavigationBar();
-            this.mRootView = findViewById(R.id.obfuscated_res_0x7f091ac9);
-            this.mListContainerView = findViewById(R.id.obfuscated_res_0x7f091271);
-            this.mListRootView = findViewById(R.id.obfuscated_res_0x7f091274);
-            this.mThemeView = (TextView) findViewById(R.id.obfuscated_res_0x7f09061e);
-            this.mListView = (BdListView) findViewById(R.id.obfuscated_res_0x7f091a63);
-            this.mConfirmNumView = (TextView) findViewById(R.id.obfuscated_res_0x7f0906c8);
+            this.mRootView = findViewById(R.id.obfuscated_res_0x7f091b17);
+            this.mListContainerView = findViewById(R.id.obfuscated_res_0x7f09127e);
+            this.mListRootView = findViewById(R.id.obfuscated_res_0x7f091283);
+            this.mThemeView = (TextView) findViewById(R.id.obfuscated_res_0x7f090616);
+            this.mListView = (BdListView) findViewById(R.id.obfuscated_res_0x7f091ab1);
+            this.mConfirmNumView = (TextView) findViewById(R.id.obfuscated_res_0x7f0906c3);
             t58 t58Var = new t58(this, this.mData);
             this.mAdapter = t58Var;
             this.mListView.setAdapter((ListAdapter) t58Var);
@@ -434,7 +434,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
             this.mLoadMoreView = pbListView;
             pbListView.a();
             this.mLoadMoreView.p(R.color.CAM_X0205);
-            this.mLoadMoreView.t(oi.f(this, R.dimen.tbds182));
+            this.mLoadMoreView.t(mi.f(this, R.dimen.tbds182));
             this.mLoadMoreView.x();
             this.mLoadMoreView.G(R.dimen.tbfontsize33);
             this.mLoadMoreView.E(SkinManager.getColor(R.color.CAM_X0107));
@@ -453,7 +453,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         ArrayList<String> stringArrayListExtra = getIntent().getStringArrayListExtra(ReportThemeActivityConfig.REPORT_TID_LIST);
         this.reportThemeList = stringArrayListExtra;
         this.reportNum = stringArrayListExtra.size();
-        this.mConfirmNumView.setText(getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f03c2, new Object[]{Integer.valueOf(getReportNum())}));
+        this.mConfirmNumView.setText(getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f03c7, new Object[]{Integer.valueOf(getReportNum())}));
         this.mConfirmNumView.setVisibility(8);
         this.mThemeView.setVisibility(8);
         this.mConfirm.setEnabled(false);
@@ -463,9 +463,9 @@ public class ReportThemeActivity extends BaseFragmentActivity {
     private void showNoDataView(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65554, this, i) == null) {
-            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0c2e);
+            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0c44);
             if (this.mNoDataView == null) {
-                this.mNoDataView = NoDataViewFactory.a(this, null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.FINDBAR, oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070264)), NoDataViewFactory.e.d(null, string), null);
+                this.mNoDataView = NoDataViewFactory.a(this, null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.FINDBAR, mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070264)), NoDataViewFactory.e.d(null, string), null);
             }
             this.mNoDataView.f(getPageContext(), TbadkApplication.getInst().getSkinType());
             this.mNoDataView.setVisibility(0);
@@ -483,7 +483,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         }
         hideNetRefreshView(view2);
         this.mListContainerView.setVisibility(0);
-        if (mi.z()) {
+        if (ki.z()) {
             if (z && mCanShowLoadingView) {
                 showLoadingView(this.mRootView);
             }
@@ -548,7 +548,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0732);
+            setContentView(R.layout.obfuscated_res_0x7f0d0725);
             initData(bundle);
             initView();
             forceRefresh(true);
@@ -592,7 +592,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         }
     }
 
-    public void setData(ArrayList<uo> arrayList) {
+    public void setData(ArrayList<ro> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, arrayList) == null) {
             setThreadData(arrayList);
@@ -606,7 +606,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         }
     }
 
-    public void setThreadData(ArrayList<uo> arrayList) {
+    public void setThreadData(ArrayList<ro> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, arrayList) == null) {
             if (ListUtils.isEmpty(arrayList)) {
@@ -614,7 +614,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
                 if (this.mListView.getHeaderViewsCount() == 0) {
                     this.mThemeView.setVisibility(8);
                     this.mConfirmNumView.setVisibility(8);
-                    showNoDataView(R.string.obfuscated_res_0x7f0f0ba2);
+                    showNoDataView(R.string.obfuscated_res_0x7f0f0bb6);
                 }
             } else {
                 NoDataView noDataView = this.mNoDataView;
@@ -642,9 +642,9 @@ public class ReportThemeActivity extends BaseFragmentActivity {
             if (this.mRefreshView == null) {
                 n68 n68Var = new n68(getPageContext().getPageActivity(), getNetRefreshListener());
                 this.mRefreshView = n68Var;
-                n68Var.e(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0f69));
+                n68Var.e(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0f84));
                 this.mRefreshView.d(null);
-                this.mRefreshView.c(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0f68));
+                this.mRefreshView.c(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0f83));
                 this.mRefreshView.f();
                 this.mRefreshView.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             }
@@ -659,7 +659,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
             this.mListView.setNextPage(this.mLoadMoreView);
             this.mLoadMoreView.L(0);
             this.mLoadMoreView.f();
-            this.mLoadMoreView.C(getPageContext().getString(R.string.obfuscated_res_0x7f0f09e8));
+            this.mLoadMoreView.C(getPageContext().getString(R.string.obfuscated_res_0x7f0f09ee));
         }
     }
 

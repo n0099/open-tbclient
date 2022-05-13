@@ -11,11 +11,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b21;
 import com.repackage.dy0;
-import com.repackage.hi0;
-import com.repackage.m11;
+import com.repackage.ki0;
+import com.repackage.l21;
 import com.repackage.ot0;
+import com.repackage.w11;
 import com.repackage.wp0;
 /* loaded from: classes2.dex */
 public class BdVideoGesture {
@@ -116,7 +116,7 @@ public class BdVideoGesture {
                 return;
             }
         }
-        o = dy0.b(hi0.b()) / 10;
+        o = dy0.b(ki0.b()) / 10;
     }
 
     public BdVideoGesture(Context context, @NonNull ot0 ot0Var) {
@@ -161,7 +161,7 @@ public class BdVideoGesture {
             if (ot0Var == null) {
                 return false;
             }
-            if (ot0Var.p()) {
+            if (ot0Var.q()) {
                 this.l.m(this.e);
                 return false;
             } else if (motionEvent.getAction() == 0) {
@@ -171,9 +171,9 @@ public class BdVideoGesture {
                 this.a = motionEvent.getX();
                 this.b = motionEvent.getY();
                 this.c = motionEvent.getPointerId(0);
-                this.i = dy0.c(hi0.b());
+                this.i = dy0.c(ki0.b());
                 this.j = this.l.getCurrentPosition();
-                this.k = m11.a(this.l.o());
+                this.k = w11.a(this.l.o());
                 this.l.m(this.e);
                 return false;
             } else if (motionEvent.getAction() == 2) {
@@ -233,7 +233,7 @@ public class BdVideoGesture {
             }
             double d = abs;
             double d2 = abs2;
-            if (d > d2 * 1.0d && abs > b21.a(30.0f) && this.d) {
+            if (d > d2 * 1.0d && abs > l21.a(30.0f) && this.d) {
                 this.f = true;
                 if (f3 <= i / 2) {
                     this.e = VideoPluginGesture.BrightChange;
@@ -242,7 +242,7 @@ public class BdVideoGesture {
                     this.e = VideoPluginGesture.VolumeChange;
                     return;
                 }
-            } else if (d * 1.0d >= d2 || abs2 <= b21.a(30.0f)) {
+            } else if (d * 1.0d >= d2 || abs2 <= l21.a(30.0f)) {
                 return;
             } else {
                 this.e = VideoPluginGesture.PlayTimeChange;
@@ -260,7 +260,7 @@ public class BdVideoGesture {
         if (videoPluginGesture == VideoPluginGesture.VolumeChange) {
             float f5 = this.i + ((f2 / 100.0f) * o);
             if (f5 > 0.0f) {
-                r13 = f5 > ((float) dy0.b(hi0.b())) ? dy0.b(hi0.b()) : f5;
+                r13 = f5 > ((float) dy0.b(ki0.b())) ? dy0.b(ki0.b()) : f5;
             }
             this.l.f(r13);
         } else if (videoPluginGesture == VideoPluginGesture.BrightChange) {

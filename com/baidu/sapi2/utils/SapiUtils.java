@@ -52,7 +52,6 @@ import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -713,7 +712,7 @@ public class SapiUtils implements NoProguard {
             }
             if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
                 if (activeNetworkInfo.getType() == 1) {
-                    return CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
+                    return "WIFI";
                 }
                 if (activeNetworkInfo.getType() == 0) {
                     int subtype = activeNetworkInfo.getSubtype();

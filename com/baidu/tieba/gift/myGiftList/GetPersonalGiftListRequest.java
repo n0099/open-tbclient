@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rc5;
+import com.repackage.jd5;
 import tbclient.GetMyGift.DataReq;
 import tbclient.GetMyGift.GetMyGiftReqIdl;
 /* loaded from: classes3.dex */
@@ -51,7 +51,7 @@ public class GetPersonalGiftListRequest extends NetMessage {
             builder.st_type = this.type;
             builder.account_type = Integer.valueOf(this.userType);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                rc5.a(builder, true);
+                jd5.a(builder, true);
             }
             GetMyGiftReqIdl.Builder builder2 = new GetMyGiftReqIdl.Builder();
             builder2.data = builder.build(false);

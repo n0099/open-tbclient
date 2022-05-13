@@ -41,8 +41,8 @@ public class mr7 implements CustomMessageTask.CustomRunnable<Object> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
             lr7 lr7Var = null;
             if (customMessage != null && customMessage.getCmd() == 2001314) {
-                br4.f();
-                byte[] bArr = br4.d("tb.pb_normal").get(PbChosenActivity.CHOSEN_PB_TABLE_NAME);
+                mr4.f();
+                byte[] bArr = mr4.d("tb.pb_normal").get(PbChosenActivity.CHOSEN_PB_TABLE_NAME);
                 if (bArr != null) {
                     try {
                         excPbPageResIdl = (ExcPbPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ExcPbPageResIdl.class);

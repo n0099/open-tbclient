@@ -83,7 +83,7 @@ public abstract class CommonPersonalMsglistModel extends MsglistModel {
                     if (userData == null || userData.getUserId() == null) {
                         return;
                     }
-                    if (this.this$0.mUser.getUserId().equals(String.valueOf(a97.m(chatMessage)))) {
+                    if (this.this$0.mUser.getUserId().equals(String.valueOf(a97.o(chatMessage)))) {
                         this.this$0.sendMsgFail(chatMessage);
                     }
                 }
@@ -199,7 +199,7 @@ public abstract class CommonPersonalMsglistModel extends MsglistModel {
                     if (userData == null || userData.getUserId() == null) {
                         return;
                     }
-                    if (this.this$0.mUser.getUserId().equals(String.valueOf(a97.m(chatMessage)))) {
+                    if (this.this$0.mUser.getUserId().equals(String.valueOf(a97.o(chatMessage)))) {
                         this.this$0.sendMsgFail(chatMessage);
                     }
                 }

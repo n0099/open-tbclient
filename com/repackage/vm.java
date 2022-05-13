@@ -1,283 +1,309 @@
 package com.repackage;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.ApsConstants;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nps.interfa.IPackageDownloadCallback;
+import com.baidu.nps.interfa.IPackageGetCallback;
+import com.baidu.nps.pm.IBundleInfo;
+import com.baidu.searchbox.pms.bean.DegradeData;
+import com.baidu.searchbox.pms.bean.ErrorInfo;
+import com.baidu.searchbox.pms.bean.PackageInfo;
+import com.baidu.searchbox.pms.bean.ResultData;
+import com.baidu.searchbox.pms.callback.PackageCallback;
+import com.baidu.searchbox.pms.download.DownloadOptions;
+import com.baidu.searchbox.pms.init.PmsManager;
+import com.baidu.searchbox.pms.init.RequestParams;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Array;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class vm {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<Class<?>, Class<?>> a;
+    public static boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public IPackageGetCallback a;
+    public volatile ResultData b;
+    public volatile ErrorInfo c;
+    public RequestParams.Channel d;
 
     /* loaded from: classes7.dex */
-    public static class a<T> {
+    public class a implements PackageCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Class<? extends T> a;
-        public final T b;
+        public final /* synthetic */ IPackageGetCallback a;
+        public final /* synthetic */ vm b;
+
+        public a(vm vmVar, IPackageGetCallback iPackageGetCallback) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vmVar, iPackageGetCallback};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = vmVar;
+            this.a = iPackageGetCallback;
+        }
+
+        @Override // com.baidu.searchbox.pms.callback.PackageCallback
+        public void onDegradeData(DegradeData degradeData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, degradeData) == null) {
+            }
+        }
+
+        @Override // com.baidu.searchbox.pms.callback.PackageCallback
+        public void onFetchError(ErrorInfo errorInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, errorInfo) == null) {
+                this.b.n(errorInfo, this.a);
+            }
+        }
+
+        @Override // com.baidu.searchbox.pms.callback.PackageCallback
+        public void onResultData(ResultData resultData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, resultData) == null) {
+                this.b.o(resultData, this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements PackageCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vm a;
+
+        public b(vm vmVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vmVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vmVar;
+        }
+
+        @Override // com.baidu.searchbox.pms.callback.PackageCallback
+        public void onDegradeData(DegradeData degradeData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, degradeData) == null) {
+            }
+        }
+
+        @Override // com.baidu.searchbox.pms.callback.PackageCallback
+        public void onFetchError(ErrorInfo errorInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, errorInfo) == null) {
+                synchronized (this.a) {
+                    this.a.c = errorInfo;
+                    this.a.p();
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.pms.callback.PackageCallback
+        public void onResultData(ResultData resultData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, resultData) == null) {
+                synchronized (this.a) {
+                    boolean unused = vm.e = true;
+                    this.a.b = resultData;
+                    this.a.p();
+                }
+            }
+        }
     }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964024786, "Lcom/repackage/vm;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1964024786, "Lcom/repackage/vm;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1964024786, "Lcom/repackage/vm;");
+        }
+    }
+
+    public vm() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1964024786, "Lcom/repackage/vm;");
+        }
+    }
+
+    public static boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? e : invokeV.booleanValue;
+    }
+
+    public final List<IBundleInfo> g(List<PackageInfo> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (list == null || list.isEmpty()) {
+                return null;
+            }
+            for (PackageInfo packageInfo : list) {
+                arrayList.add(new zk(packageInfo));
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public final PackageInfo h(IBundleInfo iBundleInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iBundleInfo)) == null) {
+            PackageInfo packageInfo = new PackageInfo();
+            packageInfo.channelId = ApsConstants.TYPE_ANDROID_PLUGIN;
+            packageInfo.packageName = iBundleInfo.getPackageName();
+            packageInfo.md5 = iBundleInfo.getMd5();
+            packageInfo.downloadUrl = iBundleInfo.getDownloadUrl();
+            packageInfo.isSilence = 1;
+            return packageInfo;
+        }
+        return (PackageInfo) invokeL.objValue;
+    }
+
+    public void i(IBundleInfo iBundleInfo, String str, int i, IPackageDownloadCallback iPackageDownloadCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_SEND_USER_MSG, this, iBundleInfo, str, i, iPackageDownloadCallback) == null) {
+            PackageInfo h = h(iBundleInfo);
+            h.filePath = str;
+            DownloadOptions downloadOptions = new DownloadOptions();
+            downloadOptions.saveToDb = false;
+            if (i == 49) {
+                if (ki.H()) {
+                    PmsManager.getInstance().download(h, downloadOptions, new al(iPackageDownloadCallback));
+                    return;
+                } else {
+                    iPackageDownloadCallback.onPackageDownloadFail(h.packageName, -1, "no wifi");
+                    return;
+                }
+            }
+            PmsManager.getInstance().download(h, downloadOptions, new al(iPackageDownloadCallback));
+        }
+    }
+
+    public final void j(List<IBundleInfo> list, IPackageGetCallback iPackageGetCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, list, iPackageGetCallback) == null) {
+            RequestParams requestParams = new RequestParams();
+            requestParams.setRunType(ApsConstants.RUN_TYPE_ANDROID_PLUGIN);
+            RequestParams.Channel channel = new RequestParams.Channel();
+            channel.setChannelId(ApsConstants.TYPE_ANDROID_PLUGIN);
+            ArrayList arrayList = new ArrayList();
+            for (IBundleInfo iBundleInfo : list) {
+                arrayList.add(iBundleInfo.getPackageName());
+            }
+            channel.setPackageNames(arrayList);
+            channel.setCallback(new a(this, iPackageGetCallback));
+            requestParams.addChannel(channel);
+            PmsManager.getInstance().execute(requestParams);
+        }
+    }
+
+    public void k(List<IBundleInfo> list, IPackageGetCallback iPackageGetCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, list, iPackageGetCallback) == null) {
+            if (list == null || list.isEmpty()) {
+                synchronized (this) {
+                    this.a = iPackageGetCallback;
+                    p();
+                }
                 return;
             }
+            j(list, iPackageGetCallback);
         }
-        HashMap<Class<?>, Class<?>> hashMap = new HashMap<>();
-        a = hashMap;
-        hashMap.put(Boolean.class, Boolean.TYPE);
-        a.put(Byte.class, Byte.TYPE);
-        a.put(Character.class, Character.TYPE);
-        a.put(Short.class, Short.TYPE);
-        a.put(Integer.class, Integer.TYPE);
-        a.put(Float.class, Float.TYPE);
-        a.put(Long.class, Long.TYPE);
-        a.put(Double.class, Double.TYPE);
-        HashMap<Class<?>, Class<?>> hashMap2 = a;
-        Class<?> cls = Boolean.TYPE;
-        hashMap2.put(cls, cls);
-        HashMap<Class<?>, Class<?>> hashMap3 = a;
-        Class<?> cls2 = Byte.TYPE;
-        hashMap3.put(cls2, cls2);
-        HashMap<Class<?>, Class<?>> hashMap4 = a;
-        Class<?> cls3 = Character.TYPE;
-        hashMap4.put(cls3, cls3);
-        HashMap<Class<?>, Class<?>> hashMap5 = a;
-        Class<?> cls4 = Short.TYPE;
-        hashMap5.put(cls4, cls4);
-        HashMap<Class<?>, Class<?>> hashMap6 = a;
-        Class<?> cls5 = Integer.TYPE;
-        hashMap6.put(cls5, cls5);
-        HashMap<Class<?>, Class<?>> hashMap7 = a;
-        Class<?> cls6 = Float.TYPE;
-        hashMap7.put(cls6, cls6);
-        HashMap<Class<?>, Class<?>> hashMap8 = a;
-        Class<?> cls7 = Long.TYPE;
-        hashMap8.put(cls7, cls7);
-        HashMap<Class<?>, Class<?>> hashMap9 = a;
-        Class<?> cls8 = Double.TYPE;
-        hashMap9.put(cls8, cls8);
     }
 
-    public static <T> T a(Object obj, String str, Object[] objArr) throws SecurityException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException {
-        InterceptResult invokeLLL;
+    public RequestParams.Channel l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, obj, str, objArr)) == null) ? (T) b(obj, str, objArr) : (T) invokeLLL.objValue;
-    }
-
-    public static <T> T b(Object obj, String str, Object[] objArr) throws SecurityException, NoSuchMethodException, IllegalArgumentException, IllegalAccessException, InvocationTargetException {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, obj, str, objArr)) == null) ? (T) f(obj.getClass(), str, i(objArr)).invoke(obj, j(objArr)) : (T) invokeLLL.objValue;
-    }
-
-    public static Object c(Object obj, Object obj2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, obj, obj2)) == null) {
-            if (obj == null) {
-                return obj2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            RequestParams.Channel channel = this.d;
+            if (channel != null) {
+                return channel;
             }
-            if (obj2 == null) {
-                return obj;
-            }
-            if (obj.getClass().isArray() && obj2.getClass().isArray()) {
-                Class<?> componentType = obj.getClass().getComponentType();
-                int length = Array.getLength(obj);
-                int length2 = Array.getLength(obj2) + length;
-                Object newInstance = Array.newInstance(componentType, length2);
-                for (int i = 0; i < length2; i++) {
-                    if (i < length) {
-                        Array.set(newInstance, i, Array.get(obj, i));
-                    } else {
-                        Array.set(newInstance, i, Array.get(obj2, i - length));
-                    }
-                }
-                return newInstance;
-            } else if ((obj instanceof List) && (obj2 instanceof List)) {
-                List list = (List) obj;
-                List list2 = (List) obj2;
-                ArrayList arrayList = new ArrayList(list.size() + list2.size());
-                arrayList.addAll(list);
-                arrayList.addAll(list2);
-                return arrayList;
-            } else {
-                return obj;
-            }
+            RequestParams.Channel channel2 = new RequestParams.Channel();
+            this.d = channel2;
+            channel2.setFetchAllPackages(true);
+            this.d.setChannelId(ApsConstants.TYPE_ANDROID_PLUGIN);
+            this.d.setCallback(new b(this));
+            return this.d;
         }
-        return invokeLL.objValue;
+        return (RequestParams.Channel) invokeV.objValue;
     }
 
-    public static boolean d(Class<?>[] clsArr, Class<?>[] clsArr2) {
-        InterceptResult invokeLL;
+    public final void n(ErrorInfo errorInfo, IPackageGetCallback iPackageGetCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, clsArr, clsArr2)) == null) {
-            if (clsArr == null) {
-                return clsArr2 == null || clsArr2.length == 0;
-            }
-            int length = clsArr.length;
-            if (clsArr2 == null) {
-                return length == 0;
-            } else if (length != clsArr2.length) {
-                return false;
-            } else {
-                for (int i = length - 1; i >= 0; i--) {
-                    if (clsArr[i].isAssignableFrom(clsArr2[i]) || (a.containsKey(clsArr[i]) && a.get(clsArr[i]).equals(a.get(clsArr2[i])))) {
-                        return true;
-                    }
-                }
-                return false;
-            }
+        if (interceptable == null || interceptable.invokeLL(1048582, this, errorInfo, iPackageGetCallback) == null) {
+            iPackageGetCallback.onBundleInfoGetFail(errorInfo.code, errorInfo.errorMsg);
         }
-        return invokeLL.booleanValue;
     }
 
-    public static Method e(Method[] methodArr, String str, Class<?>[] clsArr) throws NoSuchMethodException {
-        InterceptResult invokeLLL;
+    public final void o(ResultData resultData, IPackageGetCallback iPackageGetCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, methodArr, str, clsArr)) == null) {
-            if (str != null) {
-                for (Method method : methodArr) {
-                    if (method.getName().equals(str) && d(method.getParameterTypes(), clsArr)) {
-                        return method;
-                    }
-                }
-                throw new NoSuchMethodException(str);
-            }
-            throw new NullPointerException("Method name must not be null.");
+        if (interceptable == null || interceptable.invokeLL(1048583, this, resultData, iPackageGetCallback) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.addAll(resultData.addList);
+            arrayList.addAll(resultData.updateList);
+            iPackageGetCallback.onBundleInfoGetSuccess(g(arrayList));
         }
-        return (Method) invokeLLL.objValue;
     }
 
-    public static Method f(Class<?> cls, String str, Class<?>[] clsArr) throws NoSuchMethodException, SecurityException {
-        InterceptResult invokeLLL;
+    public final void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, cls, str, clsArr)) == null) {
-            Method e = e(cls.getDeclaredMethods(), str, clsArr);
-            if (e != null) {
-                e.setAccessible(true);
-            }
-            return e;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.a == null) {
+            return;
         }
-        return (Method) invokeLLL.objValue;
-    }
-
-    public static Method g(Object obj, String str, Class<?>[] clsArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, obj, str, clsArr)) == null) {
-            for (Class<?> cls = obj.getClass(); cls != Object.class; cls = cls.getSuperclass()) {
-                try {
-                    return cls.getDeclaredMethod(str, clsArr);
-                } catch (Exception unused) {
-                }
-            }
-            return null;
-        }
-        return (Method) invokeLLL.objValue;
-    }
-
-    public static Object h(Object obj, Class<?> cls, String str) throws NoSuchFieldException, NoSuchFieldError, IllegalArgumentException, IllegalAccessException {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, obj, cls, str)) == null) {
-            Field declaredField = cls.getDeclaredField(str);
-            declaredField.setAccessible(true);
-            return declaredField.get(obj);
-        }
-        return invokeLLL.objValue;
-    }
-
-    public static Class<?>[] i(Object[] objArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, objArr)) == null) {
-            if (objArr == null || objArr.length <= 0) {
-                return null;
-            }
-            Class<?>[] clsArr = new Class[objArr.length];
-            for (int i = 0; i < objArr.length; i++) {
-                Object obj = objArr[i];
-                if (obj != null && (obj instanceof a)) {
-                    clsArr[i] = ((a) obj).a;
-                } else {
-                    clsArr[i] = obj == null ? null : obj.getClass();
-                }
-            }
-            return clsArr;
-        }
-        return (Class[]) invokeL.objValue;
-    }
-
-    public static Object[] j(Object[] objArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, objArr)) == null) {
-            if (objArr == null || objArr.length <= 0) {
-                return null;
-            }
-            Object[] objArr2 = new Object[objArr.length];
-            for (int i = 0; i < objArr.length; i++) {
-                Object obj = objArr[i];
-                if (obj != null && (obj instanceof a)) {
-                    objArr2[i] = ((a) obj).b;
-                } else {
-                    objArr2[i] = obj;
-                }
-            }
-            return objArr2;
-        }
-        return (Object[]) invokeL.objValue;
-    }
-
-    public static Object k(Object obj, String str, Class<?>[] clsArr, Object[] objArr) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65547, null, obj, str, clsArr, objArr)) == null) {
-            Method g = g(obj, str, clsArr);
-            if (g != null) {
-                try {
-                    g.setAccessible(true);
-                    return g.invoke(obj, objArr);
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                    return null;
-                } catch (IllegalArgumentException e2) {
-                    e2.printStackTrace();
-                    return null;
-                } catch (InvocationTargetException e3) {
-                    e3.printStackTrace();
-                    return null;
-                }
-            }
-            return null;
-        }
-        return invokeLLLL.objValue;
-    }
-
-    public static void l(Object obj, Class<?> cls, String str, Object obj2) throws NoSuchFieldException, NoSuchFieldError, IllegalArgumentException, IllegalAccessException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65548, null, obj, cls, str, obj2) == null) {
-            Field declaredField = cls.getDeclaredField(str);
-            declaredField.setAccessible(true);
-            declaredField.set(obj, obj2);
+        if (this.c != null) {
+            n(this.c, this.a);
+            this.a = null;
+            this.c = null;
+        } else if (this.b != null) {
+            o(this.b, this.a);
+            this.a = null;
+            this.b = null;
         }
     }
 }

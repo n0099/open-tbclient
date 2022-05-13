@@ -8,14 +8,14 @@ import com.baidu.tieba.homepage.topic.topictab.message.RequestGetTopicListMessag
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.mi;
-import com.repackage.q27;
+import com.repackage.ki;
+import com.repackage.q17;
 import com.repackage.wa;
 /* loaded from: classes3.dex */
 public class TopicModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public q27 a;
+    public q17 a;
     public wa b;
     public wa c;
     public boolean d;
@@ -65,10 +65,10 @@ public class TopicModel extends BdBaseModel {
     public void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (!mi.A()) {
-                q27 q27Var = this.a;
-                if (q27Var != null) {
-                    q27Var.netCallback(-1, null);
+            if (!ki.A()) {
+                q17 q17Var = this.a;
+                if (q17Var != null) {
+                    q17Var.netCallback(-1, null);
                 }
             } else if (this.d) {
             } else {
@@ -83,10 +83,10 @@ public class TopicModel extends BdBaseModel {
         }
     }
 
-    public void z(q27 q27Var) {
+    public void z(q17 q17Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, q27Var) == null) {
-            this.a = q27Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, q17Var) == null) {
+            this.a = q17Var;
         }
     }
 }

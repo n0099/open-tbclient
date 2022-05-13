@@ -1,74 +1,167 @@
 package com.repackage;
 
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.cache.BdCacheService;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.R;
-import com.baidu.tieba.frs.extra.adapter.FrsU9ViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire.Wire;
+import java.io.IOException;
+import java.util.List;
+import tbclient.GameForumGuideTab.GameForumGuideTabResIdl;
 /* loaded from: classes7.dex */
-public class xi6 extends kd6<lk8, FrsU9ViewHolder> {
+public class xi6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public qe<byte[]> a;
+    public c b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xi6(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId, bdUniqueId2);
+    /* loaded from: classes7.dex */
+    public class a extends sd5<GameForumGuideTabResIdl> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ xi6 b;
+
+        public a(xi6 xi6Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xi6Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = xi6Var;
+            this.a = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.sd5
+        /* renamed from: a */
+        public GameForumGuideTabResIdl doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                Wire wire = new Wire(new Class[0]);
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                qe qeVar = this.b.a;
+                byte[] bArr = (byte[]) qeVar.get(currentAccount + this.a);
+                if (bArr == null || bArr.length == 0) {
+                    return null;
+                }
+                try {
+                    return (GameForumGuideTabResIdl) wire.parseFrom(bArr, GameForumGuideTabResIdl.class);
+                } catch (IOException e) {
+                    BdLog.e(e);
+                    return null;
+                }
+            }
+            return (GameForumGuideTabResIdl) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements zc5<GameForumGuideTabResIdl> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xi6 a;
+
+        public b(xi6 xi6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xi6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xi6Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.zc5
+        /* renamed from: a */
+        public void onReturnDataInUI(GameForumGuideTabResIdl gameForumGuideTabResIdl) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, gameForumGuideTabResIdl) == null) || gameForumGuideTabResIdl == null) {
+                return;
+            }
+            List<dj6> a = wi6.a(gameForumGuideTabResIdl.data.sub_tab_list);
+            List<ro> b = wi6.b(gameForumGuideTabResIdl.data.thread_list);
+            boolean z = gameForumGuideTabResIdl.data.has_more.intValue() == 1;
+            if (this.a.b != null) {
+                this.a.b.a(a, b, z);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public interface c {
+        void a(List<dj6> list, List<ro> list2, boolean z);
+    }
+
+    public xi6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = null;
+        this.a = BdCacheService.k().a("tb.frs.game.strategy.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: l0 */
-    public FrsU9ViewHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            Log.e("Adapter", "Frs U9 Context:" + this.a + "   Resource:" + this.a.getResources() + "  Asset:" + this.a.getResources().getAssets());
-            return new FrsU9ViewHolder(this.k, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d084d, (ViewGroup) null, true), this.e);
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.a == null || str == null) {
+            return;
         }
-        return (FrsU9ViewHolder) invokeL.objValue;
+        vd5.b(new a(this, str), new b(this));
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.kd6, com.repackage.ho
-    /* renamed from: m0 */
-    public View S(int i, View view2, ViewGroup viewGroup, lk8 lk8Var, FrsU9ViewHolder frsU9ViewHolder) {
-        InterceptResult invokeCommon;
+    public void d(String str, byte[] bArr, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, lk8Var, frsU9ViewHolder})) == null) {
-            super.S(i, view2, viewGroup, lk8Var, frsU9ViewHolder);
-            if (lk8Var == null || frsU9ViewHolder == null) {
-                return null;
-            }
-            frsU9ViewHolder.h(lk8Var);
-            frsU9ViewHolder.i(TbadkCoreApplication.getInst().getSkinType());
-            return frsU9ViewHolder.b();
+        if (!(interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bArr, z) == null) || str == null || str.length() <= 0) {
+            return;
         }
-        return (View) invokeCommon.objValue;
+        if (z) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            qe<byte[]> qeVar = this.a;
+            qeVar.e(currentAccount + str, bArr, 604800000L);
+            return;
+        }
+        String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
+        qe<byte[]> qeVar2 = this.a;
+        qeVar2.i(currentAccount2 + str, bArr, 604800000L);
+    }
+
+    public void e(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
+            this.b = cVar;
+        }
     }
 }

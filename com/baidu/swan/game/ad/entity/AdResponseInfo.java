@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.LaunchStatsUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -105,7 +106,7 @@ public class AdResponseInfo implements Parcelable {
             this.mAdsNum = jSONObject.optInt("n", 0);
             this.mRequestId = jSONObject.optString("req_id");
             this.mErrorCode = jSONObject.optString("error_code", "");
-            JSONArray jSONArray = jSONObject.getJSONArray("ad");
+            JSONArray jSONArray = jSONObject.getJSONArray(LaunchStatsUtils.AD);
             if (jSONArray != null) {
                 for (int i3 = 0; i3 < jSONArray.length(); i3++) {
                     try {

@@ -1,65 +1,62 @@
 package com.repackage;
 
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.pms.bean.PackageInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Array;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.util.Arrays;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class fn {
+public class fn extends BdAsyncTask<List<PackageInfo>, Integer, Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Object obj, String str, Object[] objArr) throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
+    public fn() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, obj, str, objArr) == null) {
-            Field b = b(obj, str);
-            Object[] objArr2 = (Object[]) b.get(obj);
-            Object[] objArr3 = (Object[]) Array.newInstance(objArr2.getClass().getComponentType(), objArr2.length + objArr.length);
-            System.arraycopy(objArr, 0, objArr3, 0, objArr.length);
-            System.arraycopy(objArr2, 0, objArr3, objArr.length, objArr2.length);
-            b.set(obj, objArr3);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static Field b(Object obj, String str) throws NoSuchFieldException {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    @SafeVarargs
+    /* renamed from: b */
+    public final Boolean doInBackground(List<PackageInfo>... listArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, obj, str)) == null) {
-            for (Class<?> cls = obj.getClass(); cls != null; cls = cls.getSuperclass()) {
-                try {
-                    Field declaredField = cls.getDeclaredField(str);
-                    if (!declaredField.isAccessible()) {
-                        declaredField.setAccessible(true);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, listArr)) == null) {
+            if (listArr != null && listArr.length != 0) {
+                List<PackageInfo> list = listArr[0];
+                if (list != null && !list.isEmpty()) {
+                    boolean z = true;
+                    for (PackageInfo packageInfo : list) {
+                        if (packageInfo != null && !StringUtils.isNull(packageInfo.name)) {
+                            BdBaseApplication.getInst().getResHashMap().remove(packageInfo.name);
+                            File file = new File(in.b(packageInfo.name));
+                            if (file.exists() && !file.delete()) {
+                                z = false;
+                            }
+                        }
                     }
-                    return declaredField;
-                } catch (NoSuchFieldException e) {
-                    e.printStackTrace();
+                    return Boolean.valueOf(z);
                 }
+                return Boolean.TRUE;
             }
-            throw new NoSuchFieldException("Field " + str + " not found in " + obj.getClass());
+            return Boolean.TRUE;
         }
-        return (Field) invokeLL.objValue;
-    }
-
-    public static Method c(Object obj, String str, Class<?>... clsArr) throws NoSuchMethodException {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, obj, str, clsArr)) == null) {
-            for (Class<?> cls = obj.getClass(); cls != null; cls = cls.getSuperclass()) {
-                try {
-                    Method declaredMethod = cls.getDeclaredMethod(str, clsArr);
-                    if (!declaredMethod.isAccessible()) {
-                        declaredMethod.setAccessible(true);
-                    }
-                    return declaredMethod;
-                } catch (NoSuchMethodException unused) {
-                }
-            }
-            throw new NoSuchMethodException("Method " + str + " with parameters " + Arrays.asList(clsArr) + " not found in " + obj.getClass());
-        }
-        return (Method) invokeLLL.objValue;
+        return (Boolean) invokeL.objValue;
     }
 }

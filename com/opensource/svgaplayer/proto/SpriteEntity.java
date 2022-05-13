@@ -8,9 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bo9;
-import com.repackage.wn9;
-import com.repackage.xn9;
+import com.repackage.rm9;
+import com.repackage.sm9;
+import com.repackage.wm9;
 import com.squareup.wire2.FieldEncoding;
 import com.squareup.wire2.Message;
 import com.squareup.wire2.ProtoAdapter;
@@ -50,14 +50,14 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
                     return;
                 }
             }
-            this.frames = bo9.i();
+            this.frames = wm9.i();
         }
 
         public Builder frames(List<FrameEntity> list) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
-                bo9.a(list);
+                wm9.a(list);
                 this.frames = list;
                 return this;
             }
@@ -111,41 +111,41 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire2.ProtoAdapter
-        public SpriteEntity decode(wn9 wn9Var) throws IOException {
+        public SpriteEntity decode(rm9 rm9Var) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, wn9Var)) != null) {
+            if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, rm9Var)) != null) {
                 return (SpriteEntity) invokeL.objValue;
             }
             Builder builder = new Builder();
-            long c = wn9Var.c();
+            long c = rm9Var.c();
             while (true) {
-                int f = wn9Var.f();
+                int f = rm9Var.f();
                 if (f == -1) {
-                    wn9Var.d(c);
+                    rm9Var.d(c);
                     return builder.build();
                 } else if (f == 1) {
-                    builder.imageKey(ProtoAdapter.STRING.decode(wn9Var));
+                    builder.imageKey(ProtoAdapter.STRING.decode(rm9Var));
                 } else if (f != 2) {
-                    FieldEncoding g = wn9Var.g();
-                    builder.addUnknownField(f, g, g.rawProtoAdapter().decode(wn9Var));
+                    FieldEncoding g = rm9Var.g();
+                    builder.addUnknownField(f, g, g.rawProtoAdapter().decode(rm9Var));
                 } else {
-                    builder.frames.add(FrameEntity.ADAPTER.decode(wn9Var));
+                    builder.frames.add(FrameEntity.ADAPTER.decode(rm9Var));
                 }
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        public void encode(xn9 xn9Var, SpriteEntity spriteEntity) throws IOException {
+        public void encode(sm9 sm9Var, SpriteEntity spriteEntity) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, xn9Var, spriteEntity) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, sm9Var, spriteEntity) == null) {
                 String str = spriteEntity.imageKey;
                 if (str != null) {
-                    ProtoAdapter.STRING.encodeWithTag(xn9Var, 1, str);
+                    ProtoAdapter.STRING.encodeWithTag(sm9Var, 1, str);
                 }
-                FrameEntity.ADAPTER.asRepeated().encodeWithTag(xn9Var, 2, spriteEntity.frames);
-                xn9Var.k(spriteEntity.unknownFields());
+                FrameEntity.ADAPTER.asRepeated().encodeWithTag(sm9Var, 2, spriteEntity.frames);
+                sm9Var.k(spriteEntity.unknownFields());
             }
         }
 
@@ -169,7 +169,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, spriteEntity)) == null) {
                 ?? newBuilder2 = spriteEntity.newBuilder2();
-                bo9.k(newBuilder2.frames, FrameEntity.ADAPTER);
+                wm9.k(newBuilder2.frames, FrameEntity.ADAPTER);
                 newBuilder2.clearUnknownFields();
                 return newBuilder2.build();
             }
@@ -223,7 +223,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
             }
             if (obj instanceof SpriteEntity) {
                 SpriteEntity spriteEntity = (SpriteEntity) obj;
-                return unknownFields().equals(spriteEntity.unknownFields()) && bo9.f(this.imageKey, spriteEntity.imageKey) && this.frames.equals(spriteEntity.frames);
+                return unknownFields().equals(spriteEntity.unknownFields()) && wm9.f(this.imageKey, spriteEntity.imageKey) && this.frames.equals(spriteEntity.frames);
             }
             return false;
         }
@@ -288,7 +288,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
             }
         }
         this.imageKey = str;
-        this.frames = bo9.g("frames", list);
+        this.frames = wm9.g("frames", list);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -301,7 +301,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             Builder builder = new Builder();
             builder.imageKey = this.imageKey;
-            builder.frames = bo9.c("frames", this.frames);
+            builder.frames = wm9.c("frames", this.frames);
             builder.addUnknownFields(unknownFields());
             return builder;
         }

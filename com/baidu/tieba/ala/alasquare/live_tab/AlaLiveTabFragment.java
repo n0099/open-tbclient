@@ -26,24 +26,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.h45;
-import com.repackage.ho5;
+import com.repackage.io5;
+import com.repackage.ki;
 import com.repackage.mi;
 import com.repackage.na;
-import com.repackage.no5;
-import com.repackage.oe6;
-import com.repackage.oi;
-import com.repackage.wp5;
+import com.repackage.oo5;
+import com.repackage.td6;
+import com.repackage.xp5;
+import com.repackage.y45;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
-public class AlaLiveTabFragment extends BaseFragment implements oe6 {
+public class AlaLiveTabFragment extends BaseFragment implements td6 {
     public static /* synthetic */ Interceptable $ic = null;
     public static int i = 1;
     public static int j = 1;
     public static int k = 1;
     public static HashMap<Integer, Integer> l;
     public transient /* synthetic */ FieldHolder $fh;
-    public wp5 a;
+    public xp5 a;
     public AlaLiveUserNotifyController b;
     public AlaLiveUserNotifyManager.AlaLiveNotifyListener c;
     public boolean d;
@@ -83,21 +83,21 @@ public class AlaLiveTabFragment extends BaseFragment implements oe6 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof no5)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof oo5)) {
                 this.a.a.z(true);
-                no5 no5Var = (no5) customResponsedMessage.getData();
-                if (no5Var.a) {
-                    if (this.a.d || !no5Var.b) {
-                        this.a.K0();
+                oo5 oo5Var = (oo5) customResponsedMessage.getData();
+                if (oo5Var.a) {
+                    if (this.a.d || !oo5Var.b) {
+                        this.a.L0();
                         AlaLiveTabFragment alaLiveTabFragment = this.a;
                         alaLiveTabFragment.hideLoadingView(alaLiveTabFragment.a.m());
-                        this.a.a.B(no5Var.c);
+                        this.a.a.B(oo5Var.c);
                         this.a.d = false;
                     }
-                } else if (this.a.d || !no5Var.b) {
+                } else if (this.a.d || !oo5Var.b) {
                     AlaLiveTabFragment alaLiveTabFragment2 = this.a;
                     alaLiveTabFragment2.hideLoadingView(alaLiveTabFragment2.a.m());
-                    this.a.O0();
+                    this.a.P0();
                 }
             }
         }
@@ -211,7 +211,7 @@ public class AlaLiveTabFragment extends BaseFragment implements oe6 {
             boolean e;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpResponsedMessage)) == null) {
-                if ((((HttpMessage) httpResponsedMessage.getmOrginalMessage()).getParams().get("fname") == null || StringUtils.isNull(((HttpMessage) httpResponsedMessage.getmOrginalMessage()).getParams().get("fname").toString())) && (e = ho5.e()) != this.a.a.q) {
+                if ((((HttpMessage) httpResponsedMessage.getmOrginalMessage()).getParams().get("fname") == null || StringUtils.isNull(((HttpMessage) httpResponsedMessage.getmOrginalMessage()).getParams().get("fname").toString())) && (e = io5.e()) != this.a.a.q) {
                     this.a.a.j(e, true, false);
                     return null;
                 }
@@ -248,9 +248,9 @@ public class AlaLiveTabFragment extends BaseFragment implements oe6 {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && mi.A() && this.a.a != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ki.A() && this.a.a != null) {
                 this.a.a.z(false);
-                this.a.N0();
+                this.a.O0();
                 this.a.a.s();
                 AlaLiveUserNotifyManager.getInstance().sendGetUserNotifyRequest();
             }
@@ -292,7 +292,7 @@ public class AlaLiveTabFragment extends BaseFragment implements oe6 {
         this.h = new b(this, 2921446);
     }
 
-    public static void I0(int i2) {
+    public static void J0(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65545, null, i2) == null) {
             if (l.containsKey(Integer.valueOf(i2))) {
@@ -303,7 +303,7 @@ public class AlaLiveTabFragment extends BaseFragment implements oe6 {
         }
     }
 
-    public static int J0(int i2) {
+    public static int K0(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i2)) == null) {
@@ -316,66 +316,59 @@ public class AlaLiveTabFragment extends BaseFragment implements oe6 {
         return invokeI.intValue;
     }
 
-    @Override // com.repackage.oe6
-    public void A() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    @Override // com.repackage.oe6
+    @Override // com.repackage.td6
     public void C() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public void K0() {
+    public void L0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.a.z(true);
-            h45 h45Var = this.mRefreshView;
-            if (h45Var != null) {
-                h45Var.dettachView(this.a.m());
+            y45 y45Var = this.mRefreshView;
+            if (y45Var != null) {
+                y45Var.dettachView(this.a.m());
                 this.mRefreshView = null;
             }
         }
     }
 
-    public boolean L0() {
+    public boolean M0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : invokeV.booleanValue;
     }
 
-    public void M0() {
+    public void N0() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && isAdded()) {
-            N0();
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && isAdded()) {
+            O0();
             this.a.s();
         }
     }
 
-    public final void N0() {
+    public final void O0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (this.e < 0) {
                 this.e = this.a.m().getHeight();
             }
-            showLoadingView(this.a.m(), false, (((this.e - TbadkCoreApplication.getInst().getMainTabBottomBarHeight()) - oi.f(getContext(), R.dimen.tbds304)) / 2) - (TbadkCoreApplication.getInst().getMainTabBottomBarHeight() / 2));
+            showLoadingView(this.a.m(), false, (((this.e - TbadkCoreApplication.getInst().getMainTabBottomBarHeight()) - mi.f(getContext(), R.dimen.tbds304)) / 2) - (TbadkCoreApplication.getInst().getMainTabBottomBarHeight() / 2));
         }
     }
 
-    public void O0() {
+    public void P0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (this.mRefreshView == null) {
-                this.mRefreshView = new h45(getContext(), new e(this));
+                this.mRefreshView = new y45(getContext(), new e(this));
             }
             this.mRefreshView.p();
             this.mRefreshView.m(null);
-            this.mRefreshView.n(getResources().getString(R.string.obfuscated_res_0x7f0f0f69));
+            this.mRefreshView.n(getResources().getString(R.string.obfuscated_res_0x7f0f0f84));
             this.mRefreshView.i(R.drawable.new_pic_emotion_08);
             this.a.z(false);
             this.mRefreshView.l(0);
@@ -383,17 +376,17 @@ public class AlaLiveTabFragment extends BaseFragment implements oe6 {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.v75
+    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.m85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "a083" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "a083" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.oe6
-    public void m() {
+    @Override // com.repackage.td6
+    public void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.a.x();
         }
     }
@@ -401,15 +394,15 @@ public class AlaLiveTabFragment extends BaseFragment implements oe6 {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
             super.onChangeSkinType(i2);
-            wp5 wp5Var = this.a;
-            if (wp5Var != null) {
-                wp5Var.v();
+            xp5 xp5Var = this.a;
+            if (xp5Var != null) {
+                xp5Var.v();
             }
-            h45 h45Var = this.mRefreshView;
-            if (h45Var != null) {
-                h45Var.onChangeSkinType();
+            y45 y45Var = this.mRefreshView;
+            if (y45Var != null) {
+                y45Var.onChangeSkinType();
             }
         }
     }
@@ -417,9 +410,9 @@ public class AlaLiveTabFragment extends BaseFragment implements oe6 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
             super.onCreate(null);
-            this.a = new wp5(getPageContext(), getChildFragmentManager(), this.f);
+            this.a = new xp5(getPageContext(), getChildFragmentManager(), this.f);
             if (this.b == null) {
                 this.b = new AlaLiveUserNotifyController(getPageContext());
             }
@@ -430,7 +423,7 @@ public class AlaLiveTabFragment extends BaseFragment implements oe6 {
             MessageManager.getInstance().addResponsedMessageRule(new d(this, AlaCmdConfigHttp.CMD_ALA_GET_TAB_LIVE_INFO));
             this.a.n();
             if (this.e > 0) {
-                N0();
+                O0();
             }
         }
     }
@@ -439,7 +432,7 @@ public class AlaLiveTabFragment extends BaseFragment implements oe6 {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, layoutInflater, viewGroup, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, layoutInflater, viewGroup, bundle)) == null) {
             ViewGroup m = this.a.m();
             if (m.getParent() instanceof ViewGroup) {
                 ((ViewGroup) m.getParent()).removeView(m);
@@ -452,12 +445,12 @@ public class AlaLiveTabFragment extends BaseFragment implements oe6 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDestroy();
             this.d = true;
-            wp5 wp5Var = this.a;
-            if (wp5Var != null) {
-                wp5Var.k();
+            xp5 xp5Var = this.a;
+            if (xp5Var != null) {
+                xp5Var.k();
             }
             AlaLiveUserNotifyController alaLiveUserNotifyController = this.b;
             if (alaLiveUserNotifyController != null) {
@@ -472,41 +465,48 @@ public class AlaLiveTabFragment extends BaseFragment implements oe6 {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onLazyLoad();
             this.f = true;
             this.a.s();
-            N0();
+            O0();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onPrimary();
             if (isPrimary()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, Boolean.FALSE));
                 AlaLiveUserNotifyManager.getInstance().sendGetUserNotifyRequest();
-                wp5 wp5Var = this.a;
-                if (wp5Var != null) {
-                    wp5Var.u(true);
+                xp5 xp5Var = this.a;
+                if (xp5Var != null) {
+                    xp5Var.u(true);
                 }
             } else {
-                wp5 wp5Var2 = this.a;
-                if (wp5Var2 != null) {
-                    wp5Var2.u(false);
+                xp5 xp5Var2 = this.a;
+                if (xp5Var2 != null) {
+                    xp5Var2.u(false);
                 }
             }
-            wp5 wp5Var3 = this.a;
-            if (wp5Var3 != null) {
-                wp5Var3.w(isPrimary());
+            xp5 xp5Var3 = this.a;
+            if (xp5Var3 != null) {
+                xp5Var3.w(isPrimary());
             }
         }
     }
 
-    @Override // com.repackage.oe6
-    public void r() {
+    @Override // com.repackage.td6
+    public void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.td6
+    public void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
         }

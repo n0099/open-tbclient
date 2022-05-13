@@ -1,25 +1,13 @@
 package com.repackage;
-
-import android.view.MotionEvent;
-import android.view.View;
-import com.baidu.tieba.videoplay.fragment.VideoVerticalPageFragment;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: lambda */
 /* loaded from: classes7.dex */
-public final /* synthetic */ class wv8 implements View.OnTouchListener {
-    public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ wv8 a = new wv8();
-    public transient /* synthetic */ FieldHolder $fh;
+public interface wv8 {
+    void onError(int i, String str);
 
-    private /* synthetic */ wv8() {
-    }
+    void onFinish();
 
-    @Override // android.view.View.OnTouchListener
-    public final boolean onTouch(View view2, MotionEvent motionEvent) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) ? VideoVerticalPageFragment.t1(view2, motionEvent) : invokeLL.booleanValue;
-    }
+    void onMuxerSucess(String str, String str2, String str3, String str4);
+
+    void onResponeSucess(zv8 zv8Var);
+
+    void onUpdateProgress(int i);
 }

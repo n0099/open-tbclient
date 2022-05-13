@@ -152,45 +152,45 @@ public final class du {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bVar)) == null) {
                 while (true) {
-                    int m195a = bVar.m195a();
-                    switch (m195a) {
+                    int m196a = bVar.m196a();
+                    switch (m196a) {
                         case 0:
                             return this;
                         case 8:
-                            a(bVar.m204b());
-                            break;
-                        case 16:
                             a(bVar.m205b());
                             break;
+                        case 16:
+                            a(bVar.m206b());
+                            break;
                         case 26:
-                            a(bVar.m198a());
+                            a(bVar.m199a());
                             break;
                         case 34:
-                            b(bVar.m198a());
+                            b(bVar.m199a());
                             break;
                         case 42:
-                            c(bVar.m198a());
+                            c(bVar.m199a());
                             break;
                         case 50:
-                            d(bVar.m198a());
+                            d(bVar.m199a());
                             break;
                         case 58:
-                            e(bVar.m198a());
+                            e(bVar.m199a());
                             break;
                         case 64:
-                            b(bVar.m204b());
+                            b(bVar.m205b());
                             break;
                         case 72:
-                            c(bVar.m204b());
+                            c(bVar.m205b());
                             break;
                         case 80:
-                            d(bVar.m204b());
+                            d(bVar.m205b());
                             break;
                         case 90:
-                            f(bVar.m198a());
+                            f(bVar.m199a());
                             break;
                         default:
-                            if (a(bVar, m195a)) {
+                            if (a(bVar, m196a)) {
                                 break;
                             } else {
                                 return this;
@@ -225,37 +225,37 @@ public final class du {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) {
                 if (a()) {
-                    cVar.m233a(1, c());
+                    cVar.m234a(1, c());
                 }
                 if (b()) {
-                    cVar.m247b(2, a());
+                    cVar.m248b(2, a());
                 }
-                if (m293c()) {
-                    cVar.m237a(3, a());
+                if (m294c()) {
+                    cVar.m238a(3, a());
                 }
-                if (m295d()) {
-                    cVar.m237a(4, b());
+                if (m296d()) {
+                    cVar.m238a(4, b());
                 }
-                if (m297e()) {
-                    cVar.m237a(5, m292c());
+                if (m298e()) {
+                    cVar.m238a(5, m293c());
                 }
-                if (m299f()) {
-                    cVar.m237a(6, m294d());
+                if (m300f()) {
+                    cVar.m238a(6, m295d());
                 }
                 if (g()) {
-                    cVar.m237a(7, m296e());
+                    cVar.m238a(7, m297e());
                 }
                 if (h()) {
-                    cVar.m233a(8, d());
+                    cVar.m234a(8, d());
                 }
                 if (i()) {
-                    cVar.m233a(9, e());
+                    cVar.m234a(9, e());
                 }
                 if (j()) {
-                    cVar.m233a(10, f());
+                    cVar.m234a(10, f());
                 }
                 if (k()) {
-                    cVar.m237a(11, m298f());
+                    cVar.m238a(11, m299f());
                 }
             }
         }
@@ -276,20 +276,20 @@ public final class du {
                 if (b()) {
                     a += com.xiaomi.push.c.b(2, a());
                 }
-                if (m293c()) {
+                if (m294c()) {
                     a += com.xiaomi.push.c.a(3, a());
                 }
-                if (m295d()) {
+                if (m296d()) {
                     a += com.xiaomi.push.c.a(4, b());
                 }
-                if (m297e()) {
-                    a += com.xiaomi.push.c.a(5, m292c());
+                if (m298e()) {
+                    a += com.xiaomi.push.c.a(5, m293c());
                 }
-                if (m299f()) {
-                    a += com.xiaomi.push.c.a(6, m294d());
+                if (m300f()) {
+                    a += com.xiaomi.push.c.a(6, m295d());
                 }
                 if (g()) {
-                    a += com.xiaomi.push.c.a(7, m296e());
+                    a += com.xiaomi.push.c.a(7, m297e());
                 }
                 if (h()) {
                     a += com.xiaomi.push.c.a(8, d());
@@ -301,7 +301,7 @@ public final class du {
                     a += com.xiaomi.push.c.a(10, f());
                 }
                 if (k()) {
-                    a += com.xiaomi.push.c.a(11, m298f());
+                    a += com.xiaomi.push.c.a(11, m299f());
                 }
                 this.e = a;
                 return a;
@@ -374,14 +374,14 @@ public final class du {
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public String m292c() {
+        public String m293c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f234c : (String) invokeV.objValue;
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public boolean m293c() {
+        public boolean m294c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f235c : invokeV.booleanValue;
@@ -416,14 +416,14 @@ public final class du {
         }
 
         /* renamed from: d  reason: collision with other method in class */
-        public String m294d() {
+        public String m295d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f236d : (String) invokeV.objValue;
         }
 
         /* renamed from: d  reason: collision with other method in class */
-        public boolean m295d() {
+        public boolean m296d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f237d : invokeV.booleanValue;
@@ -447,14 +447,14 @@ public final class du {
         }
 
         /* renamed from: e  reason: collision with other method in class */
-        public String m296e() {
+        public String m297e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f238e : (String) invokeV.objValue;
         }
 
         /* renamed from: e  reason: collision with other method in class */
-        public boolean m297e() {
+        public boolean m298e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f239e : invokeV.booleanValue;
@@ -478,14 +478,14 @@ public final class du {
         }
 
         /* renamed from: f  reason: collision with other method in class */
-        public String m298f() {
+        public String m299f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f : (String) invokeV.objValue;
         }
 
         /* renamed from: f  reason: collision with other method in class */
-        public boolean m299f() {
+        public boolean m300f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.f240f : invokeV.booleanValue;
@@ -603,19 +603,19 @@ public final class du {
                 return (b) invokeL.objValue;
             }
             while (true) {
-                int m195a = bVar.m195a();
-                if (m195a == 0) {
+                int m196a = bVar.m196a();
+                if (m196a == 0) {
                     return this;
                 }
-                if (m195a == 8) {
-                    a(bVar.m201a());
-                } else if (m195a == 24) {
-                    a(bVar.m204b());
-                } else if (m195a == 32) {
-                    b(bVar.m204b());
-                } else if (m195a == 40) {
-                    c(bVar.m204b());
-                } else if (!a(bVar, m195a)) {
+                if (m196a == 8) {
+                    a(bVar.m202a());
+                } else if (m196a == 24) {
+                    a(bVar.m205b());
+                } else if (m196a == 32) {
+                    b(bVar.m205b());
+                } else if (m196a == 40) {
+                    c(bVar.m205b());
+                } else if (!a(bVar, m196a)) {
                     return this;
                 }
             }
@@ -637,16 +637,16 @@ public final class du {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
                 if (b()) {
-                    cVar.m238a(1, a());
+                    cVar.m239a(1, a());
                 }
-                if (m300c()) {
-                    cVar.m233a(3, c());
+                if (m301c()) {
+                    cVar.m234a(3, c());
                 }
-                if (m301d()) {
-                    cVar.m233a(4, d());
+                if (m302d()) {
+                    cVar.m234a(4, d());
                 }
-                if (m302e()) {
-                    cVar.m233a(5, e());
+                if (m303e()) {
+                    cVar.m234a(5, e());
                 }
             }
         }
@@ -664,13 +664,13 @@ public final class du {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
                 int a = b() ? 0 + com.xiaomi.push.c.a(1, a()) : 0;
-                if (m300c()) {
+                if (m301c()) {
                     a += com.xiaomi.push.c.a(3, c());
                 }
-                if (m301d()) {
+                if (m302d()) {
                     a += com.xiaomi.push.c.a(4, d());
                 }
-                if (m302e()) {
+                if (m303e()) {
                     a += com.xiaomi.push.c.a(5, e());
                 }
                 this.d = a;
@@ -715,7 +715,7 @@ public final class du {
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public boolean m300c() {
+        public boolean m301c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f243c : invokeV.booleanValue;
@@ -728,7 +728,7 @@ public final class du {
         }
 
         /* renamed from: d  reason: collision with other method in class */
-        public boolean m301d() {
+        public boolean m302d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f244d : invokeV.booleanValue;
@@ -741,7 +741,7 @@ public final class du {
         }
 
         /* renamed from: e  reason: collision with other method in class */
-        public boolean m302e() {
+        public boolean m303e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.e : invokeV.booleanValue;
@@ -824,23 +824,23 @@ public final class du {
                 return (c) invokeL.objValue;
             }
             while (true) {
-                int m195a = bVar.m195a();
-                if (m195a == 0) {
+                int m196a = bVar.m196a();
+                if (m196a == 0) {
                     return this;
                 }
-                if (m195a == 10) {
-                    a(bVar.m198a());
-                } else if (m195a == 18) {
-                    b(bVar.m198a());
-                } else if (m195a == 26) {
-                    c(bVar.m198a());
-                } else if (m195a == 34) {
-                    d(bVar.m198a());
-                } else if (m195a == 42) {
-                    e(bVar.m198a());
-                } else if (m195a == 50) {
-                    f(bVar.m198a());
-                } else if (!a(bVar, m195a)) {
+                if (m196a == 10) {
+                    a(bVar.m199a());
+                } else if (m196a == 18) {
+                    b(bVar.m199a());
+                } else if (m196a == 26) {
+                    c(bVar.m199a());
+                } else if (m196a == 34) {
+                    d(bVar.m199a());
+                } else if (m196a == 42) {
+                    e(bVar.m199a());
+                } else if (m196a == 50) {
+                    f(bVar.m199a());
+                } else if (!a(bVar, m196a)) {
                     return this;
                 }
             }
@@ -869,22 +869,22 @@ public final class du {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
                 if (a()) {
-                    cVar.m237a(1, a());
+                    cVar.m238a(1, a());
                 }
                 if (b()) {
-                    cVar.m237a(2, b());
+                    cVar.m238a(2, b());
                 }
-                if (m303c()) {
-                    cVar.m237a(3, c());
+                if (m304c()) {
+                    cVar.m238a(3, c());
                 }
-                if (m304d()) {
-                    cVar.m237a(4, d());
+                if (m305d()) {
+                    cVar.m238a(4, d());
                 }
-                if (m305e()) {
-                    cVar.m237a(5, e());
+                if (m306e()) {
+                    cVar.m238a(5, e());
                 }
-                if (m306f()) {
-                    cVar.m237a(6, f());
+                if (m307f()) {
+                    cVar.m238a(6, f());
                 }
             }
         }
@@ -905,16 +905,16 @@ public final class du {
                 if (b()) {
                     a += com.xiaomi.push.c.a(2, b());
                 }
-                if (m303c()) {
+                if (m304c()) {
                     a += com.xiaomi.push.c.a(3, c());
                 }
-                if (m304d()) {
+                if (m305d()) {
                     a += com.xiaomi.push.c.a(4, d());
                 }
-                if (m305e()) {
+                if (m306e()) {
                     a += com.xiaomi.push.c.a(5, e());
                 }
-                if (m306f()) {
+                if (m307f()) {
                     a += com.xiaomi.push.c.a(6, f());
                 }
                 this.a = a;
@@ -966,7 +966,7 @@ public final class du {
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public boolean m303c() {
+        public boolean m304c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f248c : invokeV.booleanValue;
@@ -990,7 +990,7 @@ public final class du {
         }
 
         /* renamed from: d  reason: collision with other method in class */
-        public boolean m304d() {
+        public boolean m305d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f249d : invokeV.booleanValue;
@@ -1014,7 +1014,7 @@ public final class du {
         }
 
         /* renamed from: e  reason: collision with other method in class */
-        public boolean m305e() {
+        public boolean m306e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f250e : invokeV.booleanValue;
@@ -1038,7 +1038,7 @@ public final class du {
         }
 
         /* renamed from: f  reason: collision with other method in class */
-        public boolean m306f() {
+        public boolean m307f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f251f : invokeV.booleanValue;
@@ -1115,19 +1115,19 @@ public final class du {
                 return (d) invokeL.objValue;
             }
             while (true) {
-                int m195a = bVar.m195a();
-                if (m195a == 0) {
+                int m196a = bVar.m196a();
+                if (m196a == 0) {
                     return this;
                 }
-                if (m195a == 8) {
-                    a(bVar.m201a());
-                } else if (m195a == 18) {
-                    a(bVar.m198a());
-                } else if (m195a == 26) {
-                    b(bVar.m198a());
-                } else if (m195a == 34) {
-                    c(bVar.m198a());
-                } else if (!a(bVar, m195a)) {
+                if (m196a == 8) {
+                    a(bVar.m202a());
+                } else if (m196a == 18) {
+                    a(bVar.m199a());
+                } else if (m196a == 26) {
+                    b(bVar.m199a());
+                } else if (m196a == 34) {
+                    c(bVar.m199a());
+                } else if (!a(bVar, m196a)) {
                     return this;
                 }
             }
@@ -1167,16 +1167,16 @@ public final class du {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
                 if (b()) {
-                    cVar.m238a(1, a());
+                    cVar.m239a(1, a());
                 }
-                if (m307c()) {
-                    cVar.m237a(2, a());
+                if (m308c()) {
+                    cVar.m238a(2, a());
                 }
                 if (d()) {
-                    cVar.m237a(3, b());
+                    cVar.m238a(3, b());
                 }
                 if (e()) {
-                    cVar.m237a(4, c());
+                    cVar.m238a(4, c());
                 }
             }
         }
@@ -1194,7 +1194,7 @@ public final class du {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
                 int a = b() ? 0 + com.xiaomi.push.c.a(1, a()) : 0;
-                if (m307c()) {
+                if (m308c()) {
                     a += com.xiaomi.push.c.a(2, a());
                 }
                 if (d()) {
@@ -1252,7 +1252,7 @@ public final class du {
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public boolean m307c() {
+        public boolean m308c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f255c : invokeV.booleanValue;
@@ -1383,33 +1383,33 @@ public final class du {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bVar)) == null) {
                 while (true) {
-                    int m195a = bVar.m195a();
-                    switch (m195a) {
+                    int m196a = bVar.m196a();
+                    switch (m196a) {
                         case 0:
                             return this;
                         case 8:
                             a(bVar.c());
                             break;
                         case 18:
-                            a(bVar.m198a());
+                            a(bVar.m199a());
                             break;
                         case 26:
-                            b(bVar.m198a());
+                            b(bVar.m199a());
                             break;
                         case 34:
-                            c(bVar.m198a());
+                            c(bVar.m199a());
                             break;
                         case 40:
-                            b(bVar.m204b());
+                            b(bVar.m205b());
                             break;
                         case 50:
-                            d(bVar.m198a());
+                            d(bVar.m199a());
                             break;
                         case 58:
-                            e(bVar.m198a());
+                            e(bVar.m199a());
                             break;
                         case 66:
-                            f(bVar.m198a());
+                            f(bVar.m199a());
                             break;
                         case 74:
                             b bVar2 = new b();
@@ -1417,10 +1417,10 @@ public final class du {
                             a(bVar2);
                             break;
                         case 80:
-                            c(bVar.m204b());
+                            c(bVar.m205b());
                             break;
                         default:
-                            if (a(bVar, m195a)) {
+                            if (a(bVar, m196a)) {
                                 break;
                             } else {
                                 return this;
@@ -1469,34 +1469,34 @@ public final class du {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) == null) {
                 if (a()) {
-                    cVar.m246b(1, c());
+                    cVar.m247b(1, c());
                 }
                 if (b()) {
-                    cVar.m237a(2, a());
+                    cVar.m238a(2, a());
                 }
-                if (m309c()) {
-                    cVar.m237a(3, b());
+                if (m310c()) {
+                    cVar.m238a(3, b());
                 }
-                if (m311d()) {
-                    cVar.m237a(4, m308c());
+                if (m312d()) {
+                    cVar.m238a(4, m309c());
                 }
-                if (m313e()) {
-                    cVar.m233a(5, d());
+                if (m314e()) {
+                    cVar.m234a(5, d());
                 }
-                if (m314f()) {
-                    cVar.m237a(6, m310d());
+                if (m315f()) {
+                    cVar.m238a(6, m311d());
                 }
                 if (g()) {
-                    cVar.m237a(7, m312e());
+                    cVar.m238a(7, m313e());
                 }
                 if (h()) {
-                    cVar.m237a(8, f());
+                    cVar.m238a(8, f());
                 }
                 if (i()) {
-                    cVar.m236a(9, (com.xiaomi.push.e) a());
+                    cVar.m237a(9, (com.xiaomi.push.e) a());
                 }
                 if (j()) {
-                    cVar.m233a(10, e());
+                    cVar.m234a(10, e());
                 }
             }
         }
@@ -1517,20 +1517,20 @@ public final class du {
                 if (b()) {
                     b += com.xiaomi.push.c.a(2, a());
                 }
-                if (m309c()) {
+                if (m310c()) {
                     b += com.xiaomi.push.c.a(3, b());
                 }
-                if (m311d()) {
-                    b += com.xiaomi.push.c.a(4, m308c());
+                if (m312d()) {
+                    b += com.xiaomi.push.c.a(4, m309c());
                 }
-                if (m313e()) {
+                if (m314e()) {
                     b += com.xiaomi.push.c.a(5, d());
                 }
-                if (m314f()) {
-                    b += com.xiaomi.push.c.a(6, m310d());
+                if (m315f()) {
+                    b += com.xiaomi.push.c.a(6, m311d());
                 }
                 if (g()) {
-                    b += com.xiaomi.push.c.a(7, m312e());
+                    b += com.xiaomi.push.c.a(7, m313e());
                 }
                 if (h()) {
                     b += com.xiaomi.push.c.a(8, f());
@@ -1612,14 +1612,14 @@ public final class du {
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public String m308c() {
+        public String m309c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f261c : (String) invokeV.objValue;
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public boolean m309c() {
+        public boolean m310c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f262c : invokeV.booleanValue;
@@ -1643,14 +1643,14 @@ public final class du {
         }
 
         /* renamed from: d  reason: collision with other method in class */
-        public String m310d() {
+        public String m311d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f263d : (String) invokeV.objValue;
         }
 
         /* renamed from: d  reason: collision with other method in class */
-        public boolean m311d() {
+        public boolean m312d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f264d : invokeV.booleanValue;
@@ -1674,14 +1674,14 @@ public final class du {
         }
 
         /* renamed from: e  reason: collision with other method in class */
-        public String m312e() {
+        public String m313e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.e : (String) invokeV.objValue;
         }
 
         /* renamed from: e  reason: collision with other method in class */
-        public boolean m313e() {
+        public boolean m314e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f265e : invokeV.booleanValue;
@@ -1705,7 +1705,7 @@ public final class du {
         }
 
         /* renamed from: f  reason: collision with other method in class */
-        public boolean m314f() {
+        public boolean m315f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f266f : invokeV.booleanValue;
@@ -1810,19 +1810,19 @@ public final class du {
                 return (f) invokeL.objValue;
             }
             while (true) {
-                int m195a = bVar.m195a();
-                if (m195a == 0) {
+                int m196a = bVar.m196a();
+                if (m196a == 0) {
                     return this;
                 }
-                if (m195a == 10) {
-                    a(bVar.m198a());
-                } else if (m195a == 18) {
-                    b(bVar.m198a());
-                } else if (m195a == 26) {
+                if (m196a == 10) {
+                    a(bVar.m199a());
+                } else if (m196a == 18) {
+                    b(bVar.m199a());
+                } else if (m196a == 26) {
                     b bVar2 = new b();
                     bVar.a(bVar2);
                     a(bVar2);
-                } else if (!a(bVar, m195a)) {
+                } else if (!a(bVar, m196a)) {
                     return this;
                 }
             }
@@ -1865,13 +1865,13 @@ public final class du {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, cVar) == null) {
                 if (a()) {
-                    cVar.m237a(1, a());
+                    cVar.m238a(1, a());
                 }
                 if (b()) {
-                    cVar.m237a(2, b());
+                    cVar.m238a(2, b());
                 }
                 if (c()) {
-                    cVar.m236a(3, (com.xiaomi.push.e) a());
+                    cVar.m237a(3, (com.xiaomi.push.e) a());
                 }
             }
         }
@@ -2000,17 +2000,17 @@ public final class du {
                 return (g) invokeL.objValue;
             }
             while (true) {
-                int m195a = bVar.m195a();
-                if (m195a == 0) {
+                int m196a = bVar.m196a();
+                if (m196a == 0) {
                     return this;
                 }
-                if (m195a == 10) {
-                    a(bVar.m198a());
-                } else if (m195a == 18) {
-                    b(bVar.m198a());
-                } else if (m195a == 26) {
-                    c(bVar.m198a());
-                } else if (!a(bVar, m195a)) {
+                if (m196a == 10) {
+                    a(bVar.m199a());
+                } else if (m196a == 18) {
+                    b(bVar.m199a());
+                } else if (m196a == 26) {
+                    c(bVar.m199a());
+                } else if (!a(bVar, m196a)) {
                     return this;
                 }
             }
@@ -2039,13 +2039,13 @@ public final class du {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
                 if (a()) {
-                    cVar.m237a(1, a());
+                    cVar.m238a(1, a());
                 }
                 if (b()) {
-                    cVar.m237a(2, b());
+                    cVar.m238a(2, b());
                 }
-                if (m315c()) {
-                    cVar.m237a(3, c());
+                if (m316c()) {
+                    cVar.m238a(3, c());
                 }
             }
         }
@@ -2066,7 +2066,7 @@ public final class du {
                 if (b()) {
                     a += com.xiaomi.push.c.a(2, b());
                 }
-                if (m315c()) {
+                if (m316c()) {
                     a += com.xiaomi.push.c.a(3, c());
                 }
                 this.a = a;
@@ -2118,7 +2118,7 @@ public final class du {
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public boolean m315c() {
+        public boolean m316c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f274c : invokeV.booleanValue;
@@ -2198,15 +2198,15 @@ public final class du {
                 return (h) invokeL.objValue;
             }
             while (true) {
-                int m195a = bVar.m195a();
-                if (m195a == 0) {
+                int m196a = bVar.m196a();
+                if (m196a == 0) {
                     return this;
                 }
-                if (m195a == 8) {
-                    a(bVar.m204b());
-                } else if (m195a == 18) {
-                    a(bVar.m198a());
-                } else if (!a(bVar, m195a)) {
+                if (m196a == 8) {
+                    a(bVar.m205b());
+                } else if (m196a == 18) {
+                    a(bVar.m199a());
+                } else if (!a(bVar, m196a)) {
                     return this;
                 }
             }
@@ -2235,10 +2235,10 @@ public final class du {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
                 if (a()) {
-                    cVar.m233a(1, c());
+                    cVar.m234a(1, c());
                 }
                 if (b()) {
-                    cVar.m237a(2, a());
+                    cVar.m238a(2, a());
                 }
             }
         }
@@ -2354,13 +2354,13 @@ public final class du {
                 return (i) invokeL.objValue;
             }
             while (true) {
-                int m195a = bVar.m195a();
-                if (m195a == 0) {
+                int m196a = bVar.m196a();
+                if (m196a == 0) {
                     return this;
                 }
-                if (m195a == 10) {
-                    a(bVar.m197a());
-                } else if (!a(bVar, m195a)) {
+                if (m196a == 10) {
+                    a(bVar.m198a());
+                } else if (!a(bVar, m196a)) {
                     return this;
                 }
             }
@@ -2370,7 +2370,7 @@ public final class du {
         public void a(com.xiaomi.push.c cVar) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) && a()) {
-                cVar.m235a(1, a());
+                cVar.m236a(1, a());
             }
         }
 
@@ -2481,17 +2481,17 @@ public final class du {
                 return (j) invokeL.objValue;
             }
             while (true) {
-                int m195a = bVar.m195a();
-                if (m195a == 0) {
+                int m196a = bVar.m196a();
+                if (m196a == 0) {
                     return this;
                 }
-                if (m195a == 10) {
-                    a(bVar.m197a());
-                } else if (m195a == 18) {
+                if (m196a == 10) {
+                    a(bVar.m198a());
+                } else if (m196a == 18) {
                     b bVar2 = new b();
                     bVar.a(bVar2);
                     a(bVar2);
-                } else if (!a(bVar, m195a)) {
+                } else if (!a(bVar, m196a)) {
                     return this;
                 }
             }
@@ -2516,10 +2516,10 @@ public final class du {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, cVar) == null) {
                 if (a()) {
-                    cVar.m235a(1, a());
+                    cVar.m236a(1, a());
                 }
                 if (b()) {
-                    cVar.m236a(2, (com.xiaomi.push.e) a());
+                    cVar.m237a(2, (com.xiaomi.push.e) a());
                 }
             }
         }
@@ -2663,23 +2663,23 @@ public final class du {
                 return (k) invokeL.objValue;
             }
             while (true) {
-                int m195a = bVar.m195a();
-                if (m195a == 0) {
+                int m196a = bVar.m196a();
+                if (m196a == 0) {
                     return this;
                 }
-                if (m195a == 10) {
-                    a(bVar.m198a());
-                } else if (m195a == 18) {
-                    b(bVar.m198a());
-                } else if (m195a == 24) {
-                    a(bVar.m196a());
-                } else if (m195a == 32) {
-                    b(bVar.m196a());
-                } else if (m195a == 40) {
-                    a(bVar.m201a());
-                } else if (m195a == 48) {
-                    a(bVar.m204b());
-                } else if (!a(bVar, m195a)) {
+                if (m196a == 10) {
+                    a(bVar.m199a());
+                } else if (m196a == 18) {
+                    b(bVar.m199a());
+                } else if (m196a == 24) {
+                    a(bVar.m197a());
+                } else if (m196a == 32) {
+                    b(bVar.m197a());
+                } else if (m196a == 40) {
+                    a(bVar.m202a());
+                } else if (m196a == 48) {
+                    a(bVar.m205b());
+                } else if (!a(bVar, m196a)) {
                     return this;
                 }
             }
@@ -2719,22 +2719,22 @@ public final class du {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) {
                 if (a()) {
-                    cVar.m237a(1, a());
+                    cVar.m238a(1, a());
                 }
                 if (b()) {
-                    cVar.m237a(2, b());
+                    cVar.m238a(2, b());
                 }
-                if (m316c()) {
-                    cVar.m234a(3, a());
+                if (m317c()) {
+                    cVar.m235a(3, a());
                 }
                 if (d()) {
-                    cVar.m234a(4, b());
+                    cVar.m235a(4, b());
                 }
                 if (f()) {
-                    cVar.m238a(5, e());
+                    cVar.m239a(5, e());
                 }
                 if (g()) {
-                    cVar.m233a(6, c());
+                    cVar.m234a(6, c());
                 }
             }
         }
@@ -2755,7 +2755,7 @@ public final class du {
                 if (b()) {
                     a += com.xiaomi.push.c.a(2, b());
                 }
-                if (m316c()) {
+                if (m317c()) {
                     a += com.xiaomi.push.c.a(3, a());
                 }
                 if (d()) {
@@ -2823,7 +2823,7 @@ public final class du {
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public boolean m316c() {
+        public boolean m317c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.c : invokeV.booleanValue;

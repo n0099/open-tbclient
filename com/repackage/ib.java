@@ -53,7 +53,7 @@ public class ib {
             if (iArr == null || iArr.length != 3) {
                 return 0;
             }
-            int I = mi.I();
+            int I = ki.I();
             if (I != 1) {
                 if (I != 2) {
                     if (I != 3) {

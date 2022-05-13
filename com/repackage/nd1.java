@@ -1,24 +1,13 @@
 package com.repackage;
+
+import android.graphics.Bitmap;
+import android.view.View;
+import com.baidu.sdk.container.filedownloader.MaterialLoadErrorCode;
 /* loaded from: classes6.dex */
 public interface nd1 {
+    void a(String str, View view2, MaterialLoadErrorCode materialLoadErrorCode);
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a();
-    }
+    void b(String str, View view2, Bitmap bitmap);
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void onPrepared();
-    }
-
-    void a();
-
-    void b();
-
-    void c();
-
-    void d();
-
-    void e();
+    void onLoadingStarted(String str, View view2);
 }

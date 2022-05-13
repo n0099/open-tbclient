@@ -1,154 +1,86 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.ala.atomdata.AlaNewSquareSubListActivityConfig;
-import com.baidu.ala.square.IAlaSquareTabController;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
-import com.baidu.tieba.ala.alasquare.holder.SquareLiveCategoryViewHolder;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import tbclient.ThreadInfo;
 /* loaded from: classes7.dex */
-public class wn5 extends ho<zn5, SquareLiveCategoryViewHolder> {
+public class wn5 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId i;
     public transient /* synthetic */ FieldHolder $fh;
-    public IAlaSquareTabController i;
+    public int a;
+    public String b;
+    public String c;
+    public ThreadData d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
+    public boolean h;
 
-    /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zn5 a;
-        public final /* synthetic */ wn5 b;
-
-        public a(wn5 wn5Var, zn5 zn5Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755195597, "Lcom/repackage/wn5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wn5Var, zn5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = wn5Var;
-            this.a = zn5Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.b.i != null) {
-                    int tabIndex = this.b.i.getTabIndex(this.a.a);
-                    if (tabIndex >= 0) {
-                        this.b.i.goToTab(tabIndex);
-                        return;
-                    } else {
-                        this.b.b0(this.a);
-                        return;
-                    }
-                }
-                this.b.b0(this.a);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wn5(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755195597, "Lcom/repackage/wn5;");
                 return;
             }
         }
+        i = BdUniqueId.gen();
     }
 
-    public final void b0(zn5 zn5Var) {
+    public wn5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zn5Var) == null) {
-            Context context = this.a;
-            String str = zn5Var.d;
-            String str2 = zn5Var.b;
-            String str3 = zn5Var.c;
-            List<String> list = zn5Var.e;
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaNewSquareSubListActivityConfig(context, str, str2, str3, (list == null || !(list instanceof ArrayList)) ? null : (ArrayList) list)));
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: c0 */
-    public SquareLiveCategoryViewHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new SquareLiveCategoryViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d079d, viewGroup, false)) : (SquareLiveCategoryViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: d0 */
-    public View S(int i, View view2, ViewGroup viewGroup, zn5 zn5Var, SquareLiveCategoryViewHolder squareLiveCategoryViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, zn5Var, squareLiveCategoryViewHolder})) == null) {
-            View findViewById = squareLiveCategoryViewHolder.a.findViewById(R.id.obfuscated_res_0x7f091288);
-            TextView textView = (TextView) squareLiveCategoryViewHolder.a.findViewById(R.id.obfuscated_res_0x7f091286);
-            TextView textView2 = (TextView) squareLiveCategoryViewHolder.a.findViewById(R.id.obfuscated_res_0x7f091287);
-            ImageView imageView = (ImageView) squareLiveCategoryViewHolder.a.findViewById(R.id.obfuscated_res_0x7f091285);
-            if (i == 0) {
-                findViewById.setVisibility(8);
-            } else {
-                findViewById.setVisibility(0);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            SkinManager.setBackgroundColor(findViewById, R.color.CAM_X0205);
-            SkinManager.setBackgroundColor(squareLiveCategoryViewHolder.a, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0106);
-            SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0109);
-            SkinManager.setImageResource(imageView, R.drawable.icon_arrow_tab);
-            textView.setText(!TextUtils.isEmpty(zn5Var.c) ? zn5Var.c : zn5Var.b);
-            textView2.setOnClickListener(new a(this, zn5Var));
-            return squareLiveCategoryViewHolder.b();
         }
-        return (View) invokeCommon.objValue;
+        this.f = false;
+        this.g = false;
+        this.h = false;
     }
 
-    public void e0(IAlaSquareTabController iAlaSquareTabController) {
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, iAlaSquareTabController) == null) {
-            this.i = iAlaSquareTabController;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (ThreadData) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.ro
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? i : (BdUniqueId) invokeV.objValue;
+    }
+
+    @Deprecated
+    public void parserProtobuf(ThreadInfo threadInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadInfo) == null) {
+            if (this.d == null) {
+                this.d = new ThreadData();
+            }
+            this.d.parserProtobuf(threadInfo);
         }
     }
 }

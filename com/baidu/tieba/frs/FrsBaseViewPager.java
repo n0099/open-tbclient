@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.mi;
 /* loaded from: classes3.dex */
 public class FrsBaseViewPager extends BdBaseViewPager {
     public static /* synthetic */ Interceptable $ic;
@@ -157,7 +157,7 @@ public class FrsBaseViewPager extends BdBaseViewPager {
         this.l = true;
         Activity activity = (Activity) context;
         this.h = activity;
-        this.f = oi.d(activity, 0);
+        this.f = mi.d(activity, 0);
         BdBaseViewPager.a aVar = new BdBaseViewPager.a(this, this.h);
         aVar.b(1000);
         aVar.a(this);

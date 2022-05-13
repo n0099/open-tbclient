@@ -1,37 +1,23 @@
 package com.repackage;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.voyager.impl.VoyagerImpl;
+import com.repackage.ie9;
+/* compiled from: lambda */
 /* loaded from: classes5.dex */
-public class de9 extends fc1<ke9> {
+public final /* synthetic */ class de9 implements ie9.a {
     public static /* synthetic */ Interceptable $ic;
+    public static final /* synthetic */ de9 a = new de9();
     public transient /* synthetic */ FieldHolder $fh;
 
-    public de9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    private /* synthetic */ de9() {
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fc1
-    /* renamed from: a */
-    public ke9 createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    @Override // com.repackage.ie9.a
+    public final void a(gk9 gk9Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new VoyagerImpl() : (ke9) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048576, this, gk9Var) == null) {
+            me9.d(gk9Var);
+        }
     }
 }

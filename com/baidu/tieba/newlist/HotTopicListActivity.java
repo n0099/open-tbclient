@@ -15,14 +15,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.cq7;
-import com.repackage.uo;
+import com.repackage.ro;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> implements cq7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String callFrom;
-    public List<uo> curDataList;
+    public List<ro> curDataList;
     public HotTopicListModel mModel;
     public HotTopicListView mView;
 
@@ -54,7 +54,7 @@ public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> imp
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.repackage.v75
+    @Override // com.baidu.tbadk.BaseActivity, com.repackage.m85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -83,7 +83,7 @@ public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> imp
     }
 
     @Override // com.repackage.cq7
-    public void netCallback(int i, List<uo> list) {
+    public void netCallback(int i, List<ro> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, list) == null) {
             this.mView.m();

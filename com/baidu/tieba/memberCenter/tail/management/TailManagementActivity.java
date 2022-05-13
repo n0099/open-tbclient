@@ -134,7 +134,7 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0802);
+            setContentView(R.layout.obfuscated_res_0x7f0d07fb);
             this.mModel = new yk7(getPageContext());
             this.mAdapter = new vk7(getPageContext(), this.mModel, this.mRefreshCallbackListener);
             zk7 zk7Var = new zk7(this, this.mNavBtnClickListener);

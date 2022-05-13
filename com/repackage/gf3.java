@@ -1,16 +1,10 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import android.view.View;
-import androidx.annotation.IdRes;
+import android.os.Bundle;
+import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.swan.apps.model.SwanAppBearInfo;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.swan.apps.view.BearLayout;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,34 +12,49 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.services.vod.VodClient;
-import java.util.LinkedHashMap;
-import okhttp3.Response;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.repackage.xl2;
+import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.nio.channels.Channel;
+import java.nio.channels.Pipe;
+import java.nio.channels.ReadableByteChannel;
+import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
 public class gf3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
+    public static final boolean i;
     public transient /* synthetic */ FieldHolder $fh;
-    public BearLayout a;
-    public Activity b;
-    public SwanAppBearInfo c;
+    public final Set<nf3<Pipe.SourceChannel>> a;
+    public ExecutorService b;
+    public int c;
+    public long d;
+    public TimeUnit e;
+    public nf3<String> f;
+    public final xl2.a g;
+    public float h;
 
     /* loaded from: classes6.dex */
-    public class a extends ResponseCallback<String> {
+    public class a implements nf3<nf3<Pipe.SourceChannel>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public BearLayout.d a;
-        public boolean b;
+        public final /* synthetic */ List a;
+        public final /* synthetic */ gf3 b;
 
-        public a(gf3 gf3Var, BearLayout.d dVar, boolean z) {
+        public a(gf3 gf3Var, List list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gf3Var, dVar, Boolean.valueOf(z)};
+                Object[] objArr = {gf3Var, list};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -55,65 +64,236 @@ public class gf3 {
                     return;
                 }
             }
-            this.a = dVar;
-            this.b = z;
+            this.b = gf3Var;
+            this.a = list;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        @Override // com.repackage.nf3
         /* renamed from: a */
-        public void onSuccess(String str, int i) {
+        public void onCallback(nf3<Pipe.SourceChannel> nf3Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) || this.a == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, nf3Var) == null) {
+                try {
+                    this.a.add(new e(this.b, nf3Var));
+                } catch (IOException e) {
+                    if (gf3.i) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements nf3<e> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CountDownLatch a;
+        public final /* synthetic */ ExecutorService b;
+
+        public b(gf3 gf3Var, CountDownLatch countDownLatch, ExecutorService executorService) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gf3Var, countDownLatch, executorService};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = countDownLatch;
+            this.b = executorService;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.nf3
+        /* renamed from: a */
+        public void onCallback(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
+                eVar.f(this.a);
+                this.b.submit(eVar);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements nf3<e> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ByteBuffer a;
+
+        public c(gf3 gf3Var, ByteBuffer byteBuffer) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gf3Var, byteBuffer};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = byteBuffer;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.nf3
+        /* renamed from: a */
+        public void onCallback(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
+                try {
+                    if (eVar.d.isOpen() && eVar.c.isOpen()) {
+                        this.a.rewind();
+                        eVar.d.write(this.a);
+                    }
+                } catch (IOException e) {
+                    if (gf3.i) {
+                        gf3.m("connect e:" + e + " line: " + eVar);
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements nf3<e> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d(gf3 gf3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gf3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.nf3
+        /* renamed from: a */
+        public void onCallback(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
+                Pipe.SinkChannel sinkChannel = eVar.d;
+                gf3.f(sinkChannel, eVar.toString() + " by[PumpingFinish]");
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final nf3<Pipe.SourceChannel> a;
+        public final Pipe b;
+        public final Pipe.SourceChannel c;
+        public final Pipe.SinkChannel d;
+        public CountDownLatch e;
+        public String f;
+
+        public e(gf3 gf3Var, nf3<Pipe.SourceChannel> nf3Var) throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gf3Var, nf3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = nf3Var;
+            Pipe open = Pipe.open();
+            this.b = open;
+            this.d = open.sink();
+            this.c = this.b.source();
+        }
+
+        public final void d() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Pipe.SinkChannel sinkChannel = this.d;
+                gf3.f(sinkChannel, "sink for " + toString());
+                Pipe.SourceChannel sourceChannel = this.c;
+                gf3.f(sourceChannel, "source for " + toString());
+            }
+        }
+
+        public final void e() {
+            CountDownLatch countDownLatch;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (countDownLatch = this.e) == null) {
                 return;
             }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                int optInt = jSONObject.optInt("errno");
-                if (optInt == 0) {
-                    if (this.b) {
-                        JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                        if (optJSONObject != null) {
-                            JSONArray optJSONArray = optJSONObject.optJSONArray("items");
-                            if (optJSONArray != null && optJSONArray.length() > 0) {
-                                this.a.a(true);
-                            }
-                            this.a.a(false);
+            countDownLatch.countDown();
+        }
+
+        public final void f(CountDownLatch countDownLatch) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, countDownLatch) == null) {
+                this.e = countDownLatch;
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                this.f = Thread.currentThread().toString();
+                if (gf3.i) {
+                    gf3.m(" >> run on " + toString());
+                }
+                try {
+                    try {
+                        this.a.onCallback(this.c);
+                    } catch (Exception e) {
+                        if (gf3.i) {
+                            e.printStackTrace();
+                            gf3.m("catch Exception on " + toString() + " :\n  " + e.toString());
                         }
-                    } else {
-                        this.a.a(true);
                     }
-                } else if (800200 == optInt) {
-                    String optString = jSONObject.optString("errmsg");
-                    BearLayout.d dVar = this.a;
-                    dVar.b("errNo:" + optInt + ",errMsg:" + optString);
-                } else {
-                    BearLayout.d dVar2 = this.a;
-                    dVar2.b("errNo:" + optInt);
-                }
-            } catch (JSONException e) {
-                if (gf3.d) {
-                    e.printStackTrace();
-                    this.a.b(e.getMessage());
+                    if (gf3.i) {
+                        gf3.m("countdown by end -> " + toString());
+                    }
+                    e();
+                } finally {
+                    d();
                 }
             }
         }
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
+        public String toString() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) && gf3.d) {
-                exc.printStackTrace();
-                this.a.b(exc.getMessage());
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return "PipeLine: " + this.f + " consumer=" + this.a.toString();
             }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public String parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) ? (response == null || response.body() == null) ? "" : response.body().string() : (String) invokeLI.objValue;
+            return (String) invokeV.objValue;
         }
     }
 
@@ -130,15 +310,13 @@ public class gf3 {
                 return;
             }
         }
-        d = tg1.a;
+        i = eh1.a;
     }
 
-    public gf3(Activity activity, View view2, @NonNull SwanAppBearInfo swanAppBearInfo, @IdRes int i) {
+    public gf3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, view2, swanAppBearInfo, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -148,50 +326,320 @@ public class gf3 {
                 return;
             }
         }
-        this.b = activity;
-        this.c = swanAppBearInfo;
-        BearLayout bearLayout = (BearLayout) view2.findViewById(i);
-        this.a = bearLayout;
-        bearLayout.setVisibility(0);
-        this.a.k(activity, swanAppBearInfo, this);
+        this.a = new HashSet();
+        this.c = 8192;
+        this.d = -1L;
+        this.e = TimeUnit.NANOSECONDS;
+        this.g = new xl2.a();
+        this.h = 0.0f;
     }
 
-    public void b() {
+    public static void f(Channel channel, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (SwanAppNetworkUtils.i(this.b)) {
-                LinkedHashMap linkedHashMap = new LinkedHashMap();
-                linkedHashMap.put("type", VodClient.PATH_MEDIA);
-                linkedHashMap.put("sfrom", "searchpaws");
-                linkedHashMap.put("store", "uid_cuid");
-                linkedHashMap.put("source", "dusite_na_subbar");
-                linkedHashMap.put("third_id", this.c.bearId);
-                linkedHashMap.put("op_type", "add");
-                String b = nv1.b();
-                if (TextUtils.isEmpty(b)) {
-                    return;
-                }
-                l74.g().getRequest().url(b).addUrlParams(linkedHashMap).cookieManager(qj2.q().a()).build().executeAsyncOnUIBack(new a(this, this.a.getCallback(), false));
-                return;
-            }
-            b03.f(this.b, R.string.obfuscated_res_0x7f0f0196).G();
+        if ((interceptable == null || interceptable.invokeLL(65541, null, channel, str) == null) && channel != null && channel.isOpen()) {
+            xg4.d(channel);
         }
     }
 
-    public void c() {
+    public static void m(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && SwanAppNetworkUtils.i(this.b)) {
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            linkedHashMap.put("type", VodClient.PATH_MEDIA);
-            linkedHashMap.put("sfrom", "searchpaws");
-            linkedHashMap.put("store", "uid_cuid");
-            linkedHashMap.put("source", "dusite_na_subbar");
-            linkedHashMap.put("third_id", this.c.bearId);
-            String B = qj2.o().B();
-            if (TextUtils.isEmpty(B)) {
-                return;
+        if ((interceptable == null || interceptable.invokeL(65542, null, str) == null) && i) {
+            Log.i("PipeHub", str);
+        }
+    }
+
+    @NonNull
+    public gf3 d(@NonNull nf3<Pipe.SourceChannel>... nf3VarArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, nf3VarArr)) == null) {
+            this.a.addAll(Arrays.asList(nf3VarArr));
+            return this;
+        }
+        return (gf3) invokeL.objValue;
+    }
+
+    public final void e(String str) {
+        nf3<String> nf3Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (nf3Var = this.f) == null) {
+            return;
+        }
+        nf3Var.onCallback(str);
+    }
+
+    public gf3 g(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle)) == null) {
+            this.g.update(bundle);
+            return this;
+        }
+        return (gf3) invokeL.objValue;
+    }
+
+    public synchronized void h(ReadableByteChannel readableByteChannel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, readableByteChannel) == null) {
+            synchronized (this) {
+                e("start");
+                long currentTimeMillis = System.currentTimeMillis();
+                List<e> i2 = i();
+                CountDownLatch countDownLatch = new CountDownLatch(i2.size());
+                ExecutorService l = l(i2, countDownLatch);
+                n(readableByteChannel, i2);
+                e("pump_finish");
+                if (i) {
+                    m("pumping: cost=" + (System.currentTimeMillis() - currentTimeMillis));
+                }
+                try {
+                    if (i) {
+                        m("main await for timeout: " + this.e.toMillis(this.d));
+                    }
+                    boolean z = false;
+                    if (this.d < 0) {
+                        countDownLatch.await();
+                    } else {
+                        z = !countDownLatch.await(this.d, this.e);
+                    }
+                    if (i) {
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("main await finish by ");
+                        sb.append(z ? "time's up" : "count down");
+                        m(sb.toString());
+                    }
+                    if (i) {
+                        m("all done: " + (System.currentTimeMillis() - currentTimeMillis));
+                    }
+                } catch (InterruptedException e2) {
+                    if (i) {
+                        m("main await finish by InterruptedException " + e2);
+                        e2.printStackTrace();
+                    }
+                    if (i) {
+                        m("all done: " + (System.currentTimeMillis() - currentTimeMillis));
+                    }
+                }
+                r(l);
+                e("finish");
             }
-            l74.g().getRequest().url(B).connectionTimeout(3000).addUrlParams(linkedHashMap).cookieManager(qj2.q().a()).build().executeAsyncOnUIBack(new a(this, this.a.getCallback(), true));
+        }
+    }
+
+    public final List<e> i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            mf3.c(new a(this, arrayList), this.a);
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public float j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.h : invokeV.floatValue;
+    }
+
+    public final float k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            float h = this.g.h("progress_granularity", 0.01f);
+            if (h < 0.0f) {
+                h = 0.0f;
+            }
+            if (h > 1.0f) {
+                return 1.0f;
+            }
+            return h;
+        }
+        return invokeV.floatValue;
+    }
+
+    @NonNull
+    public final ExecutorService l(@NonNull List<e> list, @NonNull CountDownLatch countDownLatch) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, list, countDownLatch)) == null) {
+            ExecutorService executorService = this.b;
+            if (executorService == null || executorService.isShutdown() || this.b.isTerminated()) {
+                this.b = null;
+            }
+            ExecutorService executorService2 = this.b;
+            if (executorService2 == null) {
+                executorService2 = Executors.newCachedThreadPool();
+            }
+            mf3.c(new b(this, countDownLatch, executorService2), list);
+            return executorService2;
+        }
+        return (ExecutorService) invokeLL.objValue;
+    }
+
+    public final void n(@NonNull ReadableByteChannel readableByteChannel, @NonNull List<e> list) {
+        d dVar;
+        long j;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, readableByteChannel, list) == null) {
+            ReadableByteChannel readableByteChannel2 = readableByteChannel;
+            List<e> list2 = list;
+            float f = 0.0f;
+            s(0.0f);
+            float k = k();
+            long k2 = this.g.k("length");
+            ByteBuffer allocate = ByteBuffer.allocate(this.c);
+            long j2 = 0;
+            int i3 = 0;
+            while (true) {
+                try {
+                    try {
+                        long read = readableByteChannel2.read(allocate);
+                        if (read == -1) {
+                            break;
+                        }
+                        j2 += read;
+                        try {
+                            allocate.flip();
+                            mf3.c(new c(this, allocate), list2);
+                            int i4 = i3 + 1;
+                            if (k2 > 0) {
+                                float f2 = ((float) j2) / ((float) k2);
+                                if (f2 < f) {
+                                    f2 = 0.0f;
+                                }
+                                if (f2 > 1.0f) {
+                                    f2 = 1.0f;
+                                }
+                                float f3 = f2 - this.h;
+                                int round = Math.round(100.0f * f2);
+                                i2 = i4;
+                                StringBuilder sb = new StringBuilder();
+                                int i5 = 0;
+                                while (i5 < 100) {
+                                    sb.append(i5 > round ? "=" : "#");
+                                    i5++;
+                                }
+                                if (i) {
+                                    j = k2;
+                                    m(String.format("pumping: %4s [%s] read/at:[%7d/%-7d]", NumberFormat.getPercentInstance().format(f2), sb, Long.valueOf(read), Long.valueOf(j2)));
+                                } else {
+                                    j = k2;
+                                }
+                                if (f3 > k) {
+                                    if (i) {
+                                        NumberFormat percentInstance = NumberFormat.getPercentInstance();
+                                        m("pumping: updateProgress granularity:" + percentInstance.format(k) + " step:" + percentInstance.format(f3));
+                                    }
+                                    s(f2);
+                                }
+                            } else {
+                                j = k2;
+                                i2 = i4;
+                            }
+                            allocate.clear();
+                            readableByteChannel2 = readableByteChannel;
+                            list2 = list;
+                            i3 = i2;
+                            k2 = j;
+                            f = 0.0f;
+                        } catch (IOException e2) {
+                            e = e2;
+                            readableByteChannel2 = readableByteChannel;
+                            list2 = list;
+                            if (i) {
+                                e.printStackTrace();
+                            }
+                            f(readableByteChannel2, "connected source");
+                            dVar = new d(this);
+                            mf3.c(dVar, list2);
+                            s(1.0f);
+                        } catch (Throwable th) {
+                            th = th;
+                            readableByteChannel2 = readableByteChannel;
+                            list2 = list;
+                            f(readableByteChannel2, "connected source");
+                            mf3.c(new d(this), list2);
+                            throw th;
+                        }
+                    } catch (Throwable th2) {
+                        th = th2;
+                    }
+                } catch (IOException e3) {
+                    e = e3;
+                }
+            }
+            long j3 = k2;
+            if (i) {
+                m("pumping done: writeCount=" + i3 + " length: " + j3);
+            }
+            f(readableByteChannel, "connected source");
+            dVar = new d(this);
+            list2 = list;
+            mf3.c(dVar, list2);
+            s(1.0f);
+        }
+    }
+
+    @NonNull
+    public gf3 o(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
+            if (i2 < 1) {
+                i2 = 8192;
+            }
+            this.c = i2;
+            return this;
+        }
+        return (gf3) invokeI.objValue;
+    }
+
+    public gf3 p(nf3<String> nf3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, nf3Var)) == null) {
+            this.f = nf3Var;
+            return this;
+        }
+        return (gf3) invokeL.objValue;
+    }
+
+    @NonNull
+    public gf3 q(long j, @NonNull TimeUnit timeUnit) {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048587, this, j, timeUnit)) == null) {
+            if (j < 0) {
+                j = -1;
+            }
+            this.d = j;
+            this.e = timeUnit;
+            return this;
+        }
+        return (gf3) invokeJL.objValue;
+    }
+
+    public final void r(@NonNull ExecutorService executorService) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, executorService) == null) {
+            if (executorService != this.b && !executorService.isShutdown()) {
+                executorService.shutdown();
+            }
+            this.b = null;
+        }
+    }
+
+    public final void s(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048589, this, f) == null) {
+            if (i) {
+                m("updateProgress: progress=" + f);
+            }
+            this.h = f;
+            e("on_progress");
         }
     }
 }

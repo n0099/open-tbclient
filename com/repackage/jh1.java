@@ -1,177 +1,215 @@
 package com.repackage;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.RelativeLayout;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.view.narootview.SwanAppInlineFullScreenContainer;
-import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sz1;
+import com.repackage.z53;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class jh1 implements yo3 {
+public class jh1 extends r23 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ViewGroup.LayoutParams c;
     public transient /* synthetic */ FieldHolder $fh;
-    public rz1 a;
-    public FrameLayout b;
+    public String c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755588770, "Lcom/repackage/jh1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements nf3<x53<z53.e>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ u03 a;
+        public final /* synthetic */ Context b;
+        public final /* synthetic */ boolean c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ CallbackHandler e;
+        public final /* synthetic */ UnitedSchemeEntity f;
+        public final /* synthetic */ jh1 g;
+
+        public a(jh1 jh1Var, u03 u03Var, Context context, boolean z, String str, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jh1Var, u03Var, context, Boolean.valueOf(z), str, callbackHandler, unitedSchemeEntity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755588770, "Lcom/repackage/jh1;");
-                return;
+            this.g = jh1Var;
+            this.a = u03Var;
+            this.b = context;
+            this.c = z;
+            this.d = str;
+            this.e = callbackHandler;
+            this.f = unitedSchemeEntity;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.nf3
+        /* renamed from: a */
+        public void onCallback(x53<z53.e> x53Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, x53Var) == null) {
+                boolean e = this.a.M().e(this.b);
+                if (!s53.h(x53Var)) {
+                    if (!e && !this.c) {
+                        n73.S(com.baidu.pass.biometrics.face.liveness.b.a.g0, 4, this.d);
+                    }
+                    s53.q(x53Var, this.e, this.g.c);
+                    return;
+                }
+                if (e && !this.c) {
+                    n73.S("success", 4, this.d);
+                }
+                this.g.l(this.b, this.f, this.e, this.a, this.d);
             }
         }
-        c = new FrameLayout.LayoutParams(-1, -1);
     }
 
-    public jh1() {
+    /* loaded from: classes6.dex */
+    public class b implements kh1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ UnitedSchemeEntity b;
+        public final /* synthetic */ jh1 c;
+
+        public b(jh1 jh1Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jh1Var, callbackHandler, unitedSchemeEntity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = jh1Var;
+            this.a = callbackHandler;
+            this.b = unitedSchemeEntity;
+        }
+
+        @Override // com.repackage.kh1
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (i == 1) {
+                    UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(1002, "user cancel this operation").toString(), this.c.c);
+                } else {
+                    UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(1003, "close failed").toString(), this.c.c);
+                }
+            }
+        }
+
+        @Override // com.repackage.kh1
+        public void b(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+                UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString(), this.c.c);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jh1(r13 r13Var) {
+        super(r13Var, "/swanAPI/chooseAddress");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {r13Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.repackage.yo3
-    public void a(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
-            sz1 V = wl2.U().V();
-            Context appContext = AppRuntime.getAppContext();
-            if (V == null) {
-                if (appContext != null) {
-                    b03.f(appContext, R.string.obfuscated_res_0x7f0f019c).G();
-                    return;
-                }
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            jq2 d = jq2.d(str, str);
-            d.h(jSONObject.toString());
-            sz1.b i = V.i("adLanding");
-            i.n(sz1.g, sz1.i);
-            i.k("adLanding", d).b();
         }
     }
 
-    @Override // com.repackage.yo3
-    public boolean b() {
-        InterceptResult invokeV;
+    @Override // com.repackage.r23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u03 u03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.yo3
-    public boolean c(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.yo3
-    public boolean d(View view2, sn3 sn3Var) {
-        InterceptResult invokeLL;
-        sz1 V;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view2, sn3Var)) == null) {
-            wl2 U = wl2.U();
-            SwanAppActivity activity = U.getActivity();
-            if (activity == null || activity.isFinishing() || (V = U.V()) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, u03Var)) == null) {
+            if (u03Var == null) {
+                ux1.i("ChooseAddress", "swanApp is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
                 return false;
-            }
-            rz1 o = V.o();
-            this.a = o;
-            if (o.F3()) {
-                int t = ae3.t();
-                if (view2 instanceof ViewGroup) {
-                    ViewGroup viewGroup = (ViewGroup) view2;
-                    for (int i = 0; i < viewGroup.getChildCount(); i++) {
-                        View childAt = viewGroup.getChildAt(i);
-                        if (childAt.getTop() < t) {
-                            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) childAt.getLayoutParams();
-                            layoutParams.topMargin = childAt.getTop() + t;
-                            childAt.setLayoutParams(layoutParams);
-                        }
-                    }
+            } else if (u03Var.m0()) {
+                if (r23.b) {
+                    Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
                 }
-            }
-            SwanAppInlineFullScreenContainer swanAppInlineFullScreenContainer = new SwanAppInlineFullScreenContainer(activity);
-            this.b = swanAppInlineFullScreenContainer;
-            swanAppInlineFullScreenContainer.addView(view2, c);
-            qz2 floatLayer = o.getFloatLayer();
-            if (floatLayer == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
                 return false;
+            } else {
+                JSONObject m = m(unitedSchemeEntity.getParam("params"));
+                String optString = m.optString("cb");
+                this.c = optString;
+                if (TextUtils.isEmpty(optString)) {
+                    ux1.i("ChooseAddress", "cb is empty");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                String optString2 = m.optString("invokeFrom");
+                boolean e = u03Var.M().e(context);
+                if (!e) {
+                    n73.S("show", 4, optString2);
+                }
+                u03Var.d0().h(context, "mapp_choose_address", s53.j(m), new a(this, u03Var, context, e, optString2, callbackHandler, unitedSchemeEntity));
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
             }
-            floatLayer.m(true);
-            ae3.b(activity);
-            floatLayer.n(this.b);
-            return true;
         }
-        return invokeLL.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 
-    @Override // com.repackage.yo3
-    public void e() {
+    public final void l(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u03 u03Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, u03Var, str) == null) {
+            bk2.j0().a(context, u03Var.b, u03Var.N(), new b(this, callbackHandler, unitedSchemeEntity));
         }
     }
 
-    @Override // com.repackage.yo3
-    public boolean f(View view2, sn3 sn3Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, view2, sn3Var)) == null) {
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.repackage.yo3
-    public boolean removeView(View view2) {
+    public final JSONObject m(String str) {
         InterceptResult invokeL;
-        qz2 floatLayer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, view2)) == null) {
-            this.b.removeAllViews();
-            rz1 rz1Var = this.a;
-            if (rz1Var == null || (floatLayer = rz1Var.getFloatLayer()) == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new JSONObject();
             }
-            floatLayer.m(false);
-            floatLayer.g();
-            return true;
+            try {
+                return new JSONObject(str);
+            } catch (JSONException e) {
+                if (r23.b) {
+                    Log.w("SwanAppAction", "JSONObject parsed error!!", e);
+                }
+                return new JSONObject();
+            }
         }
-        return invokeL.booleanValue;
+        return (JSONObject) invokeL.objValue;
     }
 }

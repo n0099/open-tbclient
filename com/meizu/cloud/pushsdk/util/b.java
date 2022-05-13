@@ -3,7 +3,7 @@ package com.meizu.cloud.pushsdk.util;
 import android.content.Context;
 import android.content.SharedPreferences;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.repackage.ym9;
+import com.repackage.tl9;
 /* loaded from: classes5.dex */
 public class b {
     public static String a(Context context, String str) {
@@ -127,7 +127,7 @@ public class b {
     public static int j(Context context, String str) {
         int b = b(context, "mz_push_preference", str + ".message_seq") + 1;
         c(context, str, b);
-        ym9.b("mz_push_preference", "current messageSeq " + b);
+        tl9.b("mz_push_preference", "current messageSeq " + b);
         return b;
     }
 

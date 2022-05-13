@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.h95;
+import com.repackage.y95;
 /* loaded from: classes4.dex */
 public class RelevanceItemSearchActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -62,7 +62,7 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public h95 getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public y95 getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, linearLayout, navigationBar)) == null) {
@@ -70,7 +70,7 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
             this.mSearchView = relevanceItemSearchView;
             return relevanceItemSearchView;
         }
-        return (h95) invokeLL.objValue;
+        return (y95) invokeLL.objValue;
     }
 
     public boolean isShouldHideInput(View view2, MotionEvent motionEvent) {

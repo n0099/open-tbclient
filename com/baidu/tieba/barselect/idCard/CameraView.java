@@ -23,10 +23,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.aw5;
 import com.repackage.bw5;
 import com.repackage.cw5;
-import com.repackage.gw5;
+import com.repackage.dw5;
+import com.repackage.hw5;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -35,7 +35,7 @@ public class CameraView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
-    public cw5 b;
+    public dw5 b;
     public View c;
     public MaskView d;
     public ImageView e;
@@ -49,7 +49,7 @@ public class CameraView extends FrameLayout {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements cw5.b {
+    public class b implements dw5.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public File a;
@@ -111,11 +111,11 @@ public class CameraView extends FrameLayout {
             this.c = cameraView;
         }
 
-        @Override // com.repackage.cw5.b
+        @Override // com.repackage.dw5.b
         public void a(byte[] bArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bArr) == null) {
-                bw5.c(new a(this, bArr));
+                cw5.c(new a(this, bArr));
             }
         }
 
@@ -275,9 +275,9 @@ public class CameraView extends FrameLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            aw5 aw5Var = new aw5(getContext());
-            this.b = aw5Var;
-            View a2 = aw5Var.a();
+            bw5 bw5Var = new bw5(getContext());
+            this.b = bw5Var;
+            View a2 = bw5Var.a();
             this.c = a2;
             addView(a2);
             MaskView maskView = new MaskView(getContext());
@@ -289,13 +289,13 @@ public class CameraView extends FrameLayout {
             LinearLayout linearLayout = new LinearLayout(getContext());
             this.g = linearLayout;
             linearLayout.setOrientation(1);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, gw5.a(25));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, hw5.a(25));
             layoutParams.gravity = 17;
             TextView textView = new TextView(getContext());
             this.f = textView;
             textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f080208);
             this.f.setAlpha(0.5f);
-            this.f.setPadding(gw5.a(10), 0, gw5.a(10), 0);
+            this.f.setPadding(hw5.a(10), 0, hw5.a(10), 0);
             this.g.addView(this.f, layoutParams);
             this.f.setGravity(17);
             this.f.setTextColor(-1);
@@ -330,10 +330,10 @@ public class CameraView extends FrameLayout {
         }
     }
 
-    public cw5 getCameraControl() {
+    public dw5 getCameraControl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : (cw5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : (dw5) invokeV.objValue;
     }
 
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
@@ -343,10 +343,10 @@ public class CameraView extends FrameLayout {
             int i5 = i4 - i2;
             this.c.layout(i, 0, i3, i5);
             this.d.layout(i, 0, i3, i5);
-            int a2 = gw5.a(250);
-            int a3 = gw5.a(25);
+            int a2 = hw5.a(250);
+            int a3 = hw5.a(25);
             int width = (getWidth() - a2) / 2;
-            int a4 = this.d.getFrameRect().bottom + gw5.a(16);
+            int a4 = this.d.getFrameRect().bottom + hw5.a(16);
             int i6 = a2 + width;
             int i7 = a3 + a4;
             this.g.layout(width, a4, i6, i7);

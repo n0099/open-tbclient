@@ -38,7 +38,7 @@ public class v78 extends u78 {
             }
         }
         m0(false);
-        this.M0 = oi.k(this.O) / 10;
+        this.M0 = mi.k(this.O) / 10;
     }
 
     @Override // com.repackage.u78
@@ -76,10 +76,10 @@ public class v78 extends u78 {
     }
 
     @Override // com.repackage.u78
-    public void o0(int i) {
+    public void n0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            super.o0(i);
+            super.n0(i);
             this.J.setVisibility(8);
             this.D.setVisibility(8);
         }
@@ -94,23 +94,23 @@ public class v78 extends u78 {
                 return;
             }
             this.T = this.t.getControl().getPlayerHeight() > this.t.getControl().getPlayerWidth();
-            int playerHeight = (int) ((this.t.getControl().getPlayerHeight() / this.t.getControl().getPlayerWidth()) * oi.k(this.O));
+            int playerHeight = (int) ((this.t.getControl().getPlayerHeight() / this.t.getControl().getPlayerWidth()) * mi.k(this.O));
             this.N0 = playerHeight;
-            if (playerHeight > oi.i(this.O)) {
-                this.N0 = oi.i(this.O);
+            if (playerHeight > mi.i(this.O)) {
+                this.N0 = mi.i(this.O);
             }
             this.Q.getLayoutParams().height = this.N0;
             this.Q.requestLayout();
         }
     }
 
-    public void x0(String str, String str2) {
+    public void w0(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
             this.U = str2;
             P();
             Q();
-            o0(this.b);
+            n0(this.b);
             this.F.setPlayer(this.t.getControl());
             this.B.setVisibility(8);
             this.u.setPlaceHolder(3);

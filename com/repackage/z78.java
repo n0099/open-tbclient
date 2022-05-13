@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class z78 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
-    public static fo p;
+    public static co p;
     public static String q;
     public transient /* synthetic */ FieldHolder $fh;
     public final LinearLayout a;
@@ -64,19 +64,19 @@ public class z78 implements View.OnClickListener {
             }
         }
         this.o = tbPageContext;
-        this.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0920a6);
-        this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091898);
-        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922c7);
-        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a5c);
-        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a6a);
-        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a4d);
-        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f5d);
-        this.d = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f72);
-        this.e = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f68);
-        this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0917fb);
-        this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0917a0);
-        this.n = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090694);
-        this.g = oi.d(view2.getContext(), 42.0f);
+        this.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092101);
+        this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f0918f0);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09231d);
+        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091aaa);
+        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a5e);
+        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a9b);
+        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f6a);
+        this.d = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f7f);
+        this.e = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f75);
+        this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091850);
+        this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0917df);
+        this.n = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09068f);
+        this.g = mi.d(view2.getContext(), 42.0f);
         LinearLayout linearLayout = this.c;
         if (linearLayout != null) {
             linearLayout.setOnClickListener(this);
@@ -87,7 +87,7 @@ public class z78 implements View.OnClickListener {
         this.m.setOnClickListener(this);
         this.d.setOnClickListener(this);
         this.e.setOnClickListener(this);
-        this.m.setText(R.string.obfuscated_res_0x7f0f0f93);
+        this.m.setText(R.string.obfuscated_res_0x7f0f0faa);
     }
 
     public void a(int i) {
@@ -100,7 +100,7 @@ public class z78 implements View.OnClickListener {
             SkinManager.setBackgroundResource(this.b, R.color.CAM_X0201);
             TbadkCoreApplication.getInst().getSkinType();
             SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0105);
-            WebPManager.setPureDrawable(this.n, R.drawable.obfuscated_res_0x7f0808f2, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
+            WebPManager.setPureDrawable(this.n, R.drawable.obfuscated_res_0x7f080900, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
         }
     }
 
@@ -111,9 +111,9 @@ public class z78 implements View.OnClickListener {
             if (str2 != null && !str2.equals(str)) {
                 p = null;
             }
-            fo foVar = p;
-            if (foVar != null) {
-                this.i.setImageBitmap(foVar.p());
+            co coVar = p;
+            if (coVar != null) {
+                this.i.setImageBitmap(coVar.p());
                 q = str;
                 return;
             }
@@ -288,7 +288,7 @@ public class z78 implements View.OnClickListener {
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f090a6a) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f090a5e) {
                 TbPageContext<?> tbPageContext = this.o;
                 if (tbPageContext != null) {
                     tbPageContext.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.o.getPageActivity()).createNormalCfg((String) view2.getTag(), "")));

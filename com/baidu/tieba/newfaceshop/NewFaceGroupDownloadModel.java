@@ -23,10 +23,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.repackage.bo7;
 import com.repackage.do7;
-import com.repackage.e96;
 import com.repackage.eo7;
-import com.repackage.na6;
-import com.repackage.y86;
+import com.repackage.h86;
+import com.repackage.n86;
+import com.repackage.s96;
 import com.repackage.zn7;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
@@ -82,7 +82,7 @@ public class NewFaceGroupDownloadModel extends FaceBaseModel {
                     InterceptResult invokeL;
                     Interceptable interceptable = $ic;
                     if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                        int f = y86.c().f(this.b.a);
+                        int f = h86.c().f(this.b.a);
                         if (f == 0) {
                             return Boolean.FALSE;
                         }
@@ -94,8 +94,8 @@ public class NewFaceGroupDownloadModel extends FaceBaseModel {
                         emotionGroupData.setDownloadTime(System.currentTimeMillis());
                         emotionGroupData.setGroupName(this.b.a.b);
                         emotionGroupData.setStatus(1);
-                        if (e96.k().e(emotionGroupData)) {
-                            return Boolean.valueOf(e96.k().f(TbadkCoreApplication.getCurrentAccount(), emotionGroupData));
+                        if (n86.k().e(emotionGroupData)) {
+                            return Boolean.valueOf(n86.k().f(TbadkCoreApplication.getCurrentAccount(), emotionGroupData));
                         }
                         return Boolean.FALSE;
                     }
@@ -116,18 +116,18 @@ public class NewFaceGroupDownloadModel extends FaceBaseModel {
                             if (do7Var != null) {
                                 do7Var.onSuccess(this.a);
                             }
-                            na6 na6Var = new na6();
-                            na6Var.a = 0;
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921375, na6Var));
+                            s96 s96Var = new s96();
+                            s96Var.a = 0;
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921375, s96Var));
                             return;
                         }
                         do7 do7Var2 = this.b.c;
                         if (do7Var2 != null) {
                             do7Var2.onFail("failed to download");
                         }
-                        na6 na6Var2 = new na6();
-                        na6Var2.a = 1;
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921375, na6Var2));
+                        s96 s96Var2 = new s96();
+                        s96Var2.a = 1;
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921375, s96Var2));
                     }
                 }
             }
@@ -161,9 +161,9 @@ public class NewFaceGroupDownloadModel extends FaceBaseModel {
                     if (do7Var != null) {
                         do7Var.onFail(str);
                     }
-                    na6 na6Var = new na6();
-                    na6Var.a = 1;
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921375, na6Var));
+                    s96 s96Var = new s96();
+                    s96Var.a = 1;
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921375, s96Var));
                 }
             }
 
@@ -175,10 +175,10 @@ public class NewFaceGroupDownloadModel extends FaceBaseModel {
                     if (do7Var != null) {
                         do7Var.onProgress(i);
                     }
-                    na6 na6Var = new na6();
-                    na6Var.a = 2;
-                    na6Var.b = i;
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921375, na6Var));
+                    s96 s96Var = new s96();
+                    s96Var.a = 2;
+                    s96Var.b = i;
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921375, s96Var));
                 }
             }
 

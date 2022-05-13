@@ -1,22 +1,14 @@
 package com.repackage;
 
-import android.graphics.drawable.Drawable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class n28 {
+public class n28 implements c28 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
-    public String c;
-    public String d;
-    public Drawable e;
-    public Drawable f;
-    public Drawable g;
-    public boolean h;
 
     public n28() {
         Interceptable interceptable = $ic;
@@ -28,9 +20,17 @@ public class n28 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = false;
+    }
+
+    @Override // com.repackage.c28
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
     }
 }

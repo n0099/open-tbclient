@@ -92,13 +92,13 @@ public class NadEnhanceButtonDownloadView extends NadMiniVideoDownloadView {
 
     @Override // com.baidu.nadcore.business.uitemplate.NadMiniVideoDownloadView
     @DrawableRes
-    public int e(@NonNull rj0 rj0Var) {
+    public int f(@NonNull rj0 rj0Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, rj0Var)) == null) {
             int i = a.a[rj0Var.c.ordinal()];
             if (i == 1 || i == 5 || i == 6) {
-                return R.drawable.obfuscated_res_0x7f080dac;
+                return R.drawable.obfuscated_res_0x7f080dc6;
             }
             return -1;
         }
@@ -109,7 +109,7 @@ public class NadEnhanceButtonDownloadView extends NadMiniVideoDownloadView {
     public int getLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d05ba : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d05ad : invokeV.intValue;
     }
 
     @Override // com.baidu.nadcore.business.uitemplate.NadMiniVideoDownloadView

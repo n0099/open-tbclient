@@ -1,21 +1,20 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.FrsPage.Classify;
+import java.util.ArrayList;
+import tbclient.FrsPage.ForumHeadlineImgInfo;
 /* loaded from: classes5.dex */
 public class cp4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public int b;
+    public String b;
+    public yo4 c;
 
     public cp4() {
         Interceptable interceptable = $ic;
@@ -30,41 +29,38 @@ public class cp4 {
                 return;
             }
         }
-        this.a = null;
-        this.b = 0;
+        this.a = "";
+        this.b = "";
     }
 
-    public int a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public void b(ForumHeadlineImgInfo forumHeadlineImgInfo) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumHeadlineImgInfo) == null) || forumHeadlineImgInfo == null) {
             return;
         }
-        try {
-            this.b = jSONObject.optInt("class_id", 0);
-            this.a = jSONObject.optString(ForumSquareActivityConfig.FORUM_CLASS_NAME);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+        forumHeadlineImgInfo.thread_id.longValue();
+        forumHeadlineImgInfo.thread_user_id.longValue();
+        String str = forumHeadlineImgInfo.thread_user_name;
+        forumHeadlineImgInfo.img_user_id.longValue();
+        String str2 = forumHeadlineImgInfo.img_user_name;
+        this.a = forumHeadlineImgInfo.img_url;
+        this.b = forumHeadlineImgInfo.headline_url;
+        this.c = new yo4();
+        ArrayList<bp4> arrayList = new ArrayList<>();
+        String str3 = this.a;
+        if (str3 == null) {
+            str3 = "";
         }
-    }
-
-    public void d(Classify classify) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, classify) == null) || classify == null) {
-            return;
-        }
-        this.b = classify.class_id.intValue();
-        this.a = classify.class_name;
+        String str4 = this.b;
+        bp4 bp4Var = new bp4(str3, str4 != null ? str4 : "", null);
+        bp4Var.t(true);
+        arrayList.add(bp4Var);
+        this.c.g(arrayList);
     }
 }

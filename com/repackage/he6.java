@@ -1,65 +1,33 @@
 package com.repackage;
 
-import androidx.collection.LongSparseArray;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
 /* loaded from: classes6.dex */
-public class he6 {
+public class he6 extends ee6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final he6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public LongSparseArray<LinkedList<String>> a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755651080, "Lcom/repackage/he6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755651080, "Lcom/repackage/he6;");
-                return;
-            }
-        }
-        b = new he6();
-    }
+    public int e;
+    public String f;
+    public boolean g;
+    public boolean h;
+    public boolean i;
 
     public he6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new LongSparseArray<>();
-    }
-
-    public static he6 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (he6) invokeV.objValue;
-    }
-
-    public void b(long j) {
-        LinkedList<String> linkedList;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048576, this, j) == null) || (linkedList = this.a.get(j)) == null) {
-            return;
-        }
-        linkedList.clear();
+        this.g = true;
+        this.i = true;
     }
 }

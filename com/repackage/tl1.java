@@ -1,7 +1,19 @@
 package com.repackage;
-/* loaded from: classes7.dex */
-public interface tl1 {
-    boolean a(String str, String str2, String str3);
 
-    void b();
+import java.io.File;
+/* loaded from: classes7.dex */
+public interface tl1 extends lu2 {
+    File a();
+
+    void e(String str, String str2);
+
+    void e(String str, String str2, Throwable th);
+
+    void flush(boolean z);
+
+    void i(String str, String str2);
+
+    void w(String str, String str2);
+
+    void w(String str, String str2, Throwable th);
 }

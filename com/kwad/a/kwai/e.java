@@ -52,10 +52,10 @@ public class e extends c.b {
     }
 
     @Override // com.kwad.a.kwai.c.b
-    public c.AbstractC0283c a(long j) {
+    public c.AbstractC0282c a(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? new h(this.j, this, j) : (c.AbstractC0283c) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? new h(this.j, this, j) : (c.AbstractC0282c) invokeJ.objValue;
     }
 
     @Override // com.kwad.a.kwai.c.b

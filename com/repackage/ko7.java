@@ -50,7 +50,7 @@ public class ko7 {
     public static volatile ko7 e;
     public transient /* synthetic */ FieldHolder $fh;
     public Handler a;
-    public BlockingQueue<o35> b;
+    public BlockingQueue<f45> b;
     public boolean c;
     public FaceGroupDraft d;
 
@@ -70,7 +70,7 @@ public class ko7 {
 
         /* renamed from: com.repackage.ko7$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0457a implements m {
+        public class C0451a implements m {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ go7 a;
@@ -78,7 +78,7 @@ public class ko7 {
             public final /* synthetic */ AtomicInteger c;
             public final /* synthetic */ a d;
 
-            public C0457a(a aVar, go7 go7Var, FaceData faceData, AtomicInteger atomicInteger) {
+            public C0451a(a aVar, go7 go7Var, FaceData faceData, AtomicInteger atomicInteger) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -130,12 +130,12 @@ public class ko7 {
 
             /* renamed from: com.repackage.ko7$a$b$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class C0458a implements GetEmotionInfosModel.b {
+            public class C0452a implements GetEmotionInfosModel.b {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ b a;
 
-                public C0458a(b bVar) {
+                public C0452a(b bVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -163,23 +163,23 @@ public class ko7 {
                 }
 
                 @Override // com.baidu.tbadk.img.GetEmotionInfosModel.b
-                public void onSuccess(List<l35> list) {
+                public void onSuccess(List<c45> list) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                        for (l35 l35Var : list) {
-                            if (l35Var != null) {
+                        for (c45 c45Var : list) {
+                            if (c45Var != null) {
                                 FaceData faceData = new FaceData();
                                 faceData.type = 2;
-                                faceData.index = this.a.a.c.get(l35Var.g).intValue();
-                                faceData.pid = l35Var.a;
-                                faceData.width = l35Var.b;
-                                faceData.height = l35Var.c;
+                                faceData.index = this.a.a.c.get(c45Var.g).intValue();
+                                faceData.pid = c45Var.a;
+                                faceData.width = c45Var.b;
+                                faceData.height = c45Var.c;
                                 EmotionImageData emotionImageData = new EmotionImageData();
-                                emotionImageData.setPicId(l35Var.a);
-                                emotionImageData.setThumbUrl(l35Var.e);
-                                emotionImageData.setPicUrl(l35Var.d);
-                                emotionImageData.setWidth(l35Var.b);
-                                emotionImageData.setHeight(l35Var.c);
+                                emotionImageData.setPicId(c45Var.a);
+                                emotionImageData.setThumbUrl(c45Var.e);
+                                emotionImageData.setPicUrl(c45Var.d);
+                                emotionImageData.setWidth(c45Var.b);
+                                emotionImageData.setHeight(c45Var.c);
                                 faceData.emotionImageData = emotionImageData;
                                 this.a.a.a.add(faceData);
                             }
@@ -214,7 +214,7 @@ public class ko7 {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     if (this.a.b.size() > 0) {
-                        new GetEmotionInfosModel().A(this.a.b, new C0458a(this));
+                        new GetEmotionInfosModel().A(this.a.b, new C0452a(this));
                         return;
                     }
                     UploadFaceGroupModel uploadFaceGroupModel = new UploadFaceGroupModel();
@@ -292,11 +292,11 @@ public class ko7 {
                     AtomicInteger atomicInteger = new AtomicInteger(this.d.size());
                     go7 go7Var = new go7(Boolean.TRUE);
                     for (int i3 = 0; i3 < Math.min(this.d.size(), 4); i3++) {
-                        this.i.b.offer(new o35("face group"));
+                        this.i.b.offer(new f45("face group"));
                     }
                     for (int i4 = 0; i4 < this.d.size() && go7Var.a(); i4++) {
                         FaceData faceData2 = this.d.get(i4);
-                        this.i.B(faceData2.imageFileInfo, new C0457a(this, go7Var, faceData2, atomicInteger));
+                        this.i.B(faceData2.imageFileInfo, new C0451a(this, go7Var, faceData2, atomicInteger));
                     }
                     return;
                 }
@@ -348,10 +348,10 @@ public class ko7 {
                 try {
                     String filePath = this.a.getFilePath();
                     if (this.a.isGif()) {
-                        o35 o35Var = (o35) this.c.b.poll(10L, TimeUnit.SECONDS);
-                        if (o35Var != null) {
-                            a(this.b, o35Var.m(filePath, true, false));
-                            this.c.v(o35Var);
+                        f45 f45Var = (f45) this.c.b.poll(10L, TimeUnit.SECONDS);
+                        if (f45Var != null) {
+                            a(this.b, f45Var.m(filePath, true, false));
+                            this.c.v(f45Var);
                             return;
                         }
                         a(this.b, null);
@@ -365,12 +365,12 @@ public class ko7 {
                     String y = ko7.y("face_" + Math.abs(filePath.hashCode()), b, 60);
                     b.recycle();
                     if (!TextUtils.isEmpty(y)) {
-                        o35 o35Var2 = (o35) this.c.b.poll(10L, TimeUnit.SECONDS);
-                        if (o35Var2 != null) {
-                            ImageUploadResult m = o35Var2.m(y, false, false);
+                        f45 f45Var2 = (f45) this.c.b.poll(10L, TimeUnit.SECONDS);
+                        if (f45Var2 != null) {
+                            ImageUploadResult m = f45Var2.m(y, false, false);
                             FileHelper.deleteFile(new File(y));
                             a(this.b, m);
-                            this.c.v(o35Var2);
+                            this.c.v(f45Var2);
                             return;
                         }
                         a(this.b, null);
@@ -566,8 +566,8 @@ public class ko7 {
                 EmotionImageData emotionImageData = this.a.emotionImageData;
                 String str = TbadkCoreApplication.getCurrentAccount() + System.currentTimeMillis();
                 String str2 = "t_" + str;
-                String o = s96.o(this.a.pid, true);
-                String o2 = s96.o(this.a.pid, false);
+                String o = x86.o(this.a.pid, true);
+                String o2 = x86.o(this.a.pid, false);
                 if (!FileHelper.copyFileByAbsolutelyPath(o, this.b + str)) {
                     this.c.onFail("face group: fail to copy big file when install collect emotion");
                     return;
@@ -863,7 +863,7 @@ public class ko7 {
                 return null;
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
-                TiebaStatic.file(e2, ni.join("FileHelper", ".", "saveFileToSDOrMemory", " ", file.getAbsolutePath()));
+                TiebaStatic.file(e2, li.join("FileHelper", ".", "saveFileToSDOrMemory", " ", file.getAbsolutePath()));
                 return null;
             }
         }
@@ -951,7 +951,7 @@ public class ko7 {
     public final void o(eo7 eo7Var, k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, eo7Var, kVar) == null) {
-            int f2 = y86.c().f(eo7Var);
+            int f2 = h86.c().f(eo7Var);
             if (f2 == 0) {
                 BdLog.e("no valid emotion");
                 s(kVar, false);
@@ -965,8 +965,8 @@ public class ko7 {
             emotionGroupData.setDownloadTime(System.currentTimeMillis());
             emotionGroupData.setGroupName(eo7Var.b);
             emotionGroupData.setStatus(1);
-            e96.k().e(emotionGroupData);
-            e96.k().f(TbadkCoreApplication.getCurrentAccount(), emotionGroupData);
+            n86.k().e(emotionGroupData);
+            n86.k().f(TbadkCoreApplication.getCurrentAccount(), emotionGroupData);
             s(kVar, true);
         }
     }
@@ -1054,10 +1054,10 @@ public class ko7 {
         }
     }
 
-    public final void v(o35 o35Var) {
+    public final void v(f45 f45Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, o35Var) == null) {
-            this.b.offer(o35Var);
+        if (interceptable == null || interceptable.invokeL(1048590, this, f45Var) == null) {
+            this.b.offer(f45Var);
         }
     }
 

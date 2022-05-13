@@ -1,34 +1,56 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.data.GodUserData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.frs.accelerator.PkgNameAndNodeInfoData;
+import com.baidu.tieba.frs.accelerator.TornadoNodeInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class af6 implements r37 {
+public class af6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MetaData a;
 
-    public af6() {
+    public static Map<Integer, PkgNameAndNodeInfoData> a(List<TornadoNodeInfo> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return null;
             }
+            HashMap hashMap = new HashMap();
+            int i = 0;
+            for (int i2 = 0; i2 < list.size(); i2++) {
+                for (int i3 = 0; i3 < list.get(i2).getNodeInfoList().size(); i3++) {
+                    hashMap.put(Integer.valueOf(i), new PkgNameAndNodeInfoData(list.get(i2).getPackageName(), list.get(i2).getNodeInfoList().get(i3), list.get(i2).getGameId()));
+                    i++;
+                }
+            }
+            return hashMap;
         }
-        MetaData metaData = new MetaData();
-        this.a = metaData;
-        if (metaData.getGodUserData() == null) {
-            this.a.setGodUserData(new GodUserData());
+        return (Map) invokeL.objValue;
+    }
+
+    public static String[] b(List<TornadoNodeInfo> list, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, list, i)) == null) {
+            if (ListUtils.isEmpty(list) || i <= 0) {
+                return null;
+            }
+            String[] strArr = new String[i];
+            int i2 = 0;
+            for (int i3 = 0; i3 < list.size(); i3++) {
+                for (int i4 = 0; i4 < list.get(i3).getNodeInfoList().size(); i4++) {
+                    strArr[i2] = list.get(i3).getNodeInfoList().get(i4).getNodeName();
+                    i2++;
+                }
+            }
+            return strArr;
         }
+        return (String[]) invokeLI.objValue;
     }
 }

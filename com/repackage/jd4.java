@@ -1,283 +1,39 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class jd4 {
+public class jd4 extends ac4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final q74 a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b extends jd4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* loaded from: classes6.dex */
-        public static class a {
-            public static /* synthetic */ Interceptable $ic;
-            public static b a;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            static {
-                InterceptResult invokeClinit;
-                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(2052678172, "Lcom/repackage/jd4$b$a;")) != null) {
-                    Interceptable interceptable = invokeClinit.interceptor;
-                    if (interceptable != null) {
-                        $ic = interceptable;
-                    }
-                    if ((invokeClinit.flags & 1) != 0) {
-                        classClinitInterceptable.invokePostClinit(2052678172, "Lcom/repackage/jd4$b$a;");
-                        return;
-                    }
-                }
-                a = new b(null);
-            }
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.repackage.jd4
-        @NonNull
-        public String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "DB" : (String) invokeV.objValue;
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c extends jd4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* loaded from: classes6.dex */
-        public static class a {
-            public static /* synthetic */ Interceptable $ic;
-            public static c a;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            static {
-                InterceptResult invokeClinit;
-                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(2052707963, "Lcom/repackage/jd4$c$a;")) != null) {
-                    Interceptable interceptable = invokeClinit.interceptor;
-                    if (interceptable != null) {
-                        $ic = interceptable;
-                    }
-                    if ((invokeClinit.flags & 1) != 0) {
-                        classClinitInterceptable.invokePostClinit(2052707963, "Lcom/repackage/jd4$c$a;");
-                        return;
-                    }
-                }
-                a = new c(null);
-            }
-        }
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.repackage.jd4
-        @NonNull
-        public String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "IO" : (String) invokeV.objValue;
-        }
-
-        public /* synthetic */ c(a aVar) {
-            this();
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class d extends jd4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* loaded from: classes6.dex */
-        public static class a {
-            public static /* synthetic */ Interceptable $ic;
-            public static d a;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            static {
-                InterceptResult invokeClinit;
-                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(2052737754, "Lcom/repackage/jd4$d$a;")) != null) {
-                    Interceptable interceptable = invokeClinit.interceptor;
-                    if (interceptable != null) {
-                        $ic = interceptable;
-                    }
-                    if ((invokeClinit.flags & 1) != 0) {
-                        classClinitInterceptable.invokePostClinit(2052737754, "Lcom/repackage/jd4$d$a;");
-                        return;
-                    }
-                }
-                a = new d(null);
-            }
-        }
-
-        public d() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.repackage.jd4
-        @NonNull
-        public String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Net" : (String) invokeV.objValue;
-        }
-
-        public /* synthetic */ d(a aVar) {
-            this();
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755592521, "Lcom/repackage/jd4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755592521, "Lcom/repackage/jd4;");
-                return;
-            }
-        }
-        a = s74.b();
-    }
 
     public jd4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @NonNull
-    public static b c() {
-        InterceptResult invokeV;
+    @Override // com.repackage.ac4, com.repackage.dc4
+    public void b(JSONObject jSONObject, n84 n84Var, @Nullable n84 n84Var2, @Nullable n84 n84Var3) {
+        JSONObject optJSONObject;
+        gd4 a;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a.a : (b) invokeV.objValue;
-    }
-
-    @NonNull
-    public static jd4 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? c.a.a : (jd4) invokeV.objValue;
-    }
-
-    @NonNull
-    public static jd4 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? d.a.a : (jd4) invokeV.objValue;
-    }
-
-    public final String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "PMS " + b();
+        if (!(interceptable == null || interceptable.invokeLLLL(1048576, this, jSONObject, n84Var, n84Var2, n84Var3) == null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("base_info")) == null || (a = gd4.a(optJSONObject)) == null) {
+            return;
         }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public abstract String b();
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void g(String str, String str2, @Nullable Throwable th) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, th) == null) && f()) {
-            a.L(str, a(), str2, th, false);
-        }
-    }
-
-    public void h(String str, String str2, @Nullable Throwable th, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, th, Boolean.valueOf(z)}) == null) && f()) {
-            a.L(str, a(), str2, th, z);
-        }
-    }
-
-    public void i(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) && f()) {
-            a.z(str, a(), str2, false);
-        }
+        hd4.e().i(a);
+        hd4.e().j(a.k);
     }
 }

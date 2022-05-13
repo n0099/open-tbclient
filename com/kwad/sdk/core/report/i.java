@@ -31,7 +31,7 @@ public class i {
 
     public static void a(String str, String str2, JSONObject jSONObject) {
         try {
-            com.kwai.adclient.kscommerciallogger.a.a().a(("ad_client_error_log".equals(str) ? a.C0349a.a() : a.C0349a.b()).a(BusinessType.TACHIKOMA).a(str2).b(str2).a(jSONObject).c());
+            com.kwai.adclient.kscommerciallogger.a.a().a(("ad_client_error_log".equals(str) ? a.C0348a.a() : a.C0348a.b()).a(BusinessType.TACHIKOMA).a(str2).b(str2).a(jSONObject).c());
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.a(th);
             com.kwad.sdk.core.kwai.a.a(th);

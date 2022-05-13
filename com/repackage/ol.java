@@ -1,71 +1,106 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.live.nps.LiveNPSPluginManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.AbstractMap;
+import java.util.ArrayList;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ol {
+public abstract class ol {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, rl> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964031544, "Lcom/repackage/ol;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1964031544, "Lcom/repackage/ol;");
+    public ol() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        HashMap hashMap = new HashMap();
-        a = hashMap;
-        hashMap.put(LiveNPSPluginManager.NPS_PLUGIN_PKG_NAME, new nl());
+        this.a = false;
     }
 
-    public static void a(String str, int i) {
-        rl rlVar;
+    public abstract String a();
+
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65537, null, str, i) == null) || (rlVar = a.get(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.a) {
             return;
         }
-        rlVar.b(i);
+        this.a = true;
+        if (TextUtils.isEmpty(a())) {
+            return;
+        }
+        try {
+            new JSONObject().put("version", i);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
-    public static void b(String str, int i, long j) {
-        rl rlVar;
+    public void c(int i, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), Long.valueOf(j)}) == null) || (rlVar = a.get(str)) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            String a = a();
+            if (TextUtils.isEmpty(a)) {
+                return;
+            }
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new AbstractMap.SimpleEntry("version", String.valueOf(j)));
+            String str = a + "_download";
+            if (i == 0) {
+                nl.c(str, arrayList);
+            } else {
+                nl.b(str, arrayList);
+            }
         }
-        rlVar.c(i, j);
     }
 
-    public static void c(String str, int i, int i2) {
-        rl rlVar;
+    public void d(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65539, null, str, i, i2) == null) || (rlVar = a.get(str)) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            String a = a();
+            if (TextUtils.isEmpty(a)) {
+                return;
+            }
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new AbstractMap.SimpleEntry("version", String.valueOf(i2)));
+            String str = a + "_install";
+            if (i == 13) {
+                nl.c(str, arrayList);
+            } else {
+                nl.b(str, arrayList);
+            }
         }
-        rlVar.d(i, i2);
     }
 
-    public static void d(String str, int i, int i2) {
-        rl rlVar;
+    public void e(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i, i2) == null) || (rlVar = a.get(str)) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            String a = a();
+            if (TextUtils.isEmpty(a)) {
+                return;
+            }
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new AbstractMap.SimpleEntry("version", String.valueOf(i2)));
+            String str = a + "_launch";
+            if (i == 14) {
+                nl.c(str, arrayList);
+            } else {
+                nl.b(str, arrayList);
+            }
         }
-        rlVar.e(i, i2);
     }
 }

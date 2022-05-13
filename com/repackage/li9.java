@@ -1,102 +1,149 @@
 package com.repackage;
 
 import android.app.Activity;
-import android.view.View;
+import android.content.Context;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.ChannelNativeAds;
-import com.fun.ad.sdk.CustomInflater;
-import com.fun.ad.sdk.ExpressInflater;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.channel.model.gdt.GDTNativeUnifiedVideoView;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
-import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.qq.e.ads.nativ.NativeADEventListener;
-import com.qq.e.ads.nativ.NativeUnifiedADData;
-import com.repackage.fi9;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes6.dex */
-public class li9 implements FunNativeAd2Bridger<NativeUnifiedADData, com.fun.module.gdt.w> {
+public class li9 extends ReporterPidLoader<vh9> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final fi9.c a;
-    public final /* synthetic */ si9 b;
-    public final /* synthetic */ fi9 c;
 
-    public li9(fi9 fi9Var, NativeUnifiedADData nativeUnifiedADData, String str, si9 si9Var) {
+    /* loaded from: classes6.dex */
+    public class a implements fi9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public boolean b;
+        public final /* synthetic */ vh9 c;
+        public final /* synthetic */ li9 d;
+
+        public a(li9 li9Var, vh9 vh9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {li9Var, vh9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = li9Var;
+            this.c = vh9Var;
+        }
+
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                LogPrinter.d();
+                this.d.onAdClicked(this.b, new String[0]);
+                this.b = true;
+            }
+        }
+
+        public void b(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i) == null) {
+                LogPrinter.e("onFail code: " + i + ", message: " + str, new Object[0]);
+                this.d.onError(i, str);
+            }
+        }
+
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                LogPrinter.d();
+                this.d.onAdLoaded((li9) this.c);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public li9(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.INTERSTITIAL), pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fi9Var, nativeUnifiedADData, str, si9Var};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = fi9Var;
-        this.b = si9Var;
-        this.a = new fi9.c(fi9Var, nativeUnifiedADData, str);
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'android.view.View' to match base method */
-    /* JADX WARN: Type inference failed for: r1v1, types: [com.fun.module.gdt.w, android.view.View] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public com.fun.module.gdt.w createExpressView(NativeUnifiedADData nativeUnifiedADData) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
+        vh9 vh9Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, obj) == null) || (vh9Var = (vh9) obj) == null) {
+            return;
+        }
+        vh9Var.a();
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean isAdAvailable(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, nativeUnifiedADData)) == null) ? this.c.b(FunAdSdk.getAppContext(), nativeUnifiedADData) : (View) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            vh9 vh9Var = (vh9) obj;
+            return vh9Var != null && vh9Var.d();
+        }
+        return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showCustom(Activity activity, CustomInflater customInflater, String str, NativeUnifiedADData nativeUnifiedADData, BaseNativeAd2<NativeUnifiedADData, com.fun.module.gdt.w> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, nativeUnifiedADData, baseNativeAd2, funAdInteractionListener}) == null) {
-            NativeUnifiedADData nativeUnifiedADData2 = nativeUnifiedADData;
-            ChannelNativeAds.GdtADStatusChangeListener gdtADStatusChangeListener = this.b.c.getGdtADStatusChangeListener();
-            if (gdtADStatusChangeListener != null) {
-                this.a.d = new ji9(this, gdtADStatusChangeListener, nativeUnifiedADData2);
-            } else {
-                this.a.d = null;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
+            vh9 vh9Var = (vh9) rh9.a(context, this.mPid);
+            onLoadStart(funAdSlot);
+            if (vh9Var == null) {
+                onError(0, "jy 插屏广告创建失败");
+                return;
             }
-            this.c.j(nativeUnifiedADData2, str, customInflater.getGdtNativeAdContainer(), this.b.d, customInflater.getClickViews(), this.a, funAdInteractionListener);
+            vh9Var.c(new a(this, vh9Var));
+            vh9Var.b();
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, NativeUnifiedADData nativeUnifiedADData, BaseNativeAd2<NativeUnifiedADData, com.fun.module.gdt.w> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
-        Ssp.Pid pid;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, nativeUnifiedADData, baseNativeAd2, funAdInteractionListener}) == null) {
-            NativeUnifiedADData nativeUnifiedADData2 = nativeUnifiedADData;
-            com.fun.module.gdt.w wVar = (com.fun.module.gdt.w) expressInflater.getExpressView();
-            fi9 fi9Var = this.c;
-            FunNativeAdListenerHelper<NativeUnifiedADData, NativeADEventListener> funNativeAdListenerHelper = fi9Var.i;
-            pid = fi9Var.mPid;
-            funNativeAdListenerHelper.startShow(nativeUnifiedADData2, str, pid, this.a, funAdInteractionListener);
-            fi9.c cVar = this.a;
-            cVar.d = new ki9(this, wVar, nativeUnifiedADData2);
-            fi9 fi9Var2 = this.c;
-            fi9Var2.getClass();
-            if (wVar instanceof GDTNativeUnifiedVideoView) {
-                ((GDTNativeUnifiedVideoView) wVar).setVideoOnClickListener(new hi9(fi9Var2));
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
+            vh9 vh9Var = (vh9) obj;
+            onShowStart();
+            if (vh9Var.d()) {
+                vh9Var.e();
+                return true;
             }
-            nativeUnifiedADData2.setNativeAdEventListener(cVar);
-            wVar.a(nativeUnifiedADData2);
-            expressInflater.inflate();
+            LogPrinter.e("Ad isn't ready now", new Object[0]);
+            return false;
         }
+        return invokeLLLL.booleanValue;
     }
 }

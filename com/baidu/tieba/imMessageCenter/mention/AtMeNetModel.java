@@ -9,28 +9,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.o65;
-import com.repackage.y97;
-import com.repackage.z97;
+import com.repackage.e75;
+import com.repackage.fa7;
+import com.repackage.ga7;
 /* loaded from: classes3.dex */
-public class AtMeNetModel extends NetModel<y97, z97, AtMessageActivity> {
+public class AtMeNetModel extends NetModel<fa7, ga7, AtMessageFragment> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AtMeNetModel(TbPageContext<AtMessageActivity> tbPageContext, y97 y97Var) {
-        super(tbPageContext, y97Var, NetModel.NetModelType.TYPE_NETWORK);
+    public AtMeNetModel(TbPageContext tbPageContext, fa7 fa7Var) {
+        super(tbPageContext, fa7Var, NetModel.NetModelType.TYPE_NETWORK);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, y97Var};
+            Object[] objArr = {tbPageContext, fa7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (o65) objArr2[1], (NetModel.NetModelType) objArr2[2]);
+                super((TbPageContext) objArr2[0], (e75) objArr2[1], (NetModel.NetModelType) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -63,9 +63,9 @@ public class AtMeNetModel extends NetModel<y97, z97, AtMessageActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<z97> getResponseDataClass() {
+    public Class<ga7> getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? z97.class : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ga7.class : (Class) invokeV.objValue;
     }
 }

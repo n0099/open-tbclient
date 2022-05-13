@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.disk.DefaultDiskStorage;
-import com.repackage.ie1;
+import com.repackage.te1;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -113,7 +113,7 @@ public class OneKeyLoginSdkCall {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, sapiConfiguration, tokenListener) == null) {
             try {
                 try {
-                    ie1.c().i(sapiConfiguration.context, 15000L, new ie1.a(this, tokenListener) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.3
+                    te1.c().i(sapiConfiguration.context, 15000L, new te1.a(this, tokenListener) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.3
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ OneKeyLoginSdkCall this$0;
@@ -138,7 +138,7 @@ public class OneKeyLoginSdkCall {
                             this.val$listener = tokenListener;
                         }
 
-                        @Override // com.repackage.ie1.a
+                        @Override // com.repackage.te1.a
                         public void onFinish(String str) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
@@ -251,10 +251,10 @@ public class OneKeyLoginSdkCall {
         if (interceptable == null || interceptable.invokeLL(1048581, this, sapiConfiguration, tokenListener) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             OneKeyLoginStat.OauthToken.statExtMap.put("netType", SapiUtils.getNetworkClass(sapiConfiguration.context));
-            OneKeyLoginStat.OauthToken.statExtMap.put("operator", ie1.c().b(sapiConfiguration.context));
+            OneKeyLoginStat.OauthToken.statExtMap.put("operator", te1.c().b(sapiConfiguration.context));
             try {
                 try {
-                    ie1.c().f(sapiConfiguration.context, 15000L, new ie1.a(this, currentTimeMillis, tokenListener) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.2
+                    te1.c().f(sapiConfiguration.context, 15000L, new te1.a(this, currentTimeMillis, tokenListener) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ OneKeyLoginSdkCall this$0;
@@ -281,7 +281,7 @@ public class OneKeyLoginSdkCall {
                             this.val$listener = tokenListener;
                         }
 
-                        @Override // com.repackage.ie1.a
+                        @Override // com.repackage.te1.a
                         public void onFinish(String str) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
@@ -376,8 +376,8 @@ public class OneKeyLoginSdkCall {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, sapiConfiguration) == null) {
             try {
-                ie1.c().d(sapiConfiguration.context, oneKeyLoginAppKey, oneKeyLoginAppSecret);
-                ie1.c().h(sapiConfiguration.context, sapiConfiguration.isAgreeDangerousProtocol());
+                te1.c().d(sapiConfiguration.context, oneKeyLoginAppKey, oneKeyLoginAppSecret);
+                te1.c().h(sapiConfiguration.context, sapiConfiguration.isAgreeDangerousProtocol());
             } catch (NoClassDefFoundError unused) {
                 Log.e(TAG, "please import the package : onekey_login_ssolibrary-*.aar");
             }
@@ -490,7 +490,7 @@ public class OneKeyLoginSdkCall {
             }
             String networkClass = SapiUtils.getNetworkClass(context);
             OneKeyLoginStat.PreGetPhoneStat.statExtMap.put("netType", networkClass);
-            String b = ie1.c().b(context);
+            String b = te1.c().b(context);
             OneKeyLoginStat.PreGetPhoneStat.statExtMap.put("operator", b);
             try {
                 if (TextUtils.equals(b, OPERATOR_CHINA_MOBILE) || TextUtils.equals(b, OPERATOR_CHINA_UNICOM) || TextUtils.equals(b, OPERATOR_CHINA_TELECOM)) {
@@ -510,7 +510,7 @@ public class OneKeyLoginSdkCall {
                     OneKeyLoginStat.PreGetPhoneStat.statExtMap.put("is_login", "0");
                     OneKeyLoginStat.PreGetPhoneStat.statExtMap.put(OneKeyLoginStat.PreGetPhoneStat.KEY_EXT_IS_GRAY, "1");
                     OneKeyLoginStat.PreGetPhoneStat.statExtMap.put(OneKeyLoginStat.PreGetPhoneStat.KEY_EXT_IS_ABLE_SIM, "1");
-                    ie1.c().g(context, i, new ie1.a(this, str, networkClass, currentTimeMillis, oneKeyLoginOptCallback) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.1
+                    te1.c().g(context, i, new te1.a(this, str, networkClass, currentTimeMillis, oneKeyLoginOptCallback) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ OneKeyLoginSdkCall this$0;
@@ -541,7 +541,7 @@ public class OneKeyLoginSdkCall {
                             this.val$callback = oneKeyLoginOptCallback;
                         }
 
-                        @Override // com.repackage.ie1.a
+                        @Override // com.repackage.te1.a
                         public void onFinish(String str2) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, str2) == null) {

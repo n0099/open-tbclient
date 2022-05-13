@@ -1,140 +1,66 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import androidx.annotation.Nullable;
+import com.baidu.swan.apps.core.container.PullToRefreshBaseWebView;
+import com.repackage.bn1;
 /* loaded from: classes5.dex */
-public class an1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public volatile long c;
-    public long d;
-    public long e;
-    public long f;
-    public String g;
+public interface an1<T extends bn1> extends cn1<T>, jm1 {
+    void B(FrameLayout frameLayout, j13 j13Var);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755851123, "Lcom/repackage/an1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755851123, "Lcom/repackage/an1;");
-                return;
-            }
-        }
-        boolean z = tg1.a;
-    }
+    void E(int i);
 
-    public an1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.g = "1";
-    }
+    boolean L();
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @NonNull
-    public String a() {
-        InterceptResult invokeV;
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = this.g;
-            switch (str.hashCode()) {
-                case 48:
-                    if (str.equals("0")) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 49:
-                    if (str.equals("1")) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 50:
-                    if (str.equals("2")) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 51:
-                    if (str.equals("3")) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            return c != 0 ? c != 1 ? c != 2 ? c != 3 ? "unknown" : "fip" : "ftp" : "fcp" : "fmp";
-        }
-        return (String) invokeV.objValue;
-    }
+    boolean M();
 
-    public long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j = this.f;
-            if (j > 0) {
-                return j;
-            }
-            long[] jArr = {this.d, this.e, this.b};
-            long j2 = Long.MAX_VALUE;
-            for (int i = 0; i < 3; i++) {
-                long j3 = jArr[i];
-                if (j3 > 0 && j3 < j2) {
-                    j2 = j3;
-                }
-            }
-            if (j2 != Long.MAX_VALUE) {
-                this.f = j2;
-            }
-            return this.f;
-        }
-        return invokeV.longValue;
-    }
+    void N(l72 l72Var);
 
-    public String c(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? j == this.d ? "2" : j == this.e ? "3" : (j != this.b && j == this.c) ? "0" : "1" : (String) invokeJ.objValue;
-    }
+    ln1 P();
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "WebViewPaintTiming{fp=" + this.a + ", fcp=" + this.b + ", fmp=" + this.c + ", ftp=" + this.d + ", fip=" + this.e + ", mMinCache=" + this.f + ", fmpType='" + this.g + "', fmpTypeName='" + a() + "'}";
-        }
-        return (String) invokeV.objValue;
-    }
+    void R(FrameLayout frameLayout, j13 j13Var);
+
+    int T();
+
+    void U(String str);
+
+    void W();
+
+    boolean Z(s43 s43Var);
+
+    boolean b0(s43 s43Var);
+
+    void c0(i22 i22Var);
+
+    void d0(j22 j22Var);
+
+    boolean e();
+
+    @Nullable
+    kx1 f0();
+
+    int i0();
+
+    void j(uq2 uq2Var);
+
+    PullToRefreshBaseWebView k0();
+
+    void l(ViewGroup viewGroup, View view2);
+
+    boolean l0();
+
+    dn1 m();
+
+    @Nullable
+    String m0();
+
+    String o();
+
+    boolean t(int i);
+
+    void y(String str);
+
+    boolean z(s43 s43Var);
 }

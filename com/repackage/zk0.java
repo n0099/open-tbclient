@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class zk0 extends fc1<cl0> {
+public class zk0 extends qc1<cl0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -56,9 +56,17 @@ public class zk0 extends fc1<cl0> {
         }
 
         @Override // com.repackage.cl0
+        public <T extends bl0> void c(@NonNull Object obj, int i, @NonNull el0<T> el0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, obj, i, el0Var) == null) {
+                this.b.c(obj, i, el0Var);
+            }
+        }
+
+        @Override // com.repackage.cl0
         public void unregister(@NonNull Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
                 this.b.g(obj);
             }
         }
@@ -79,7 +87,7 @@ public class zk0 extends fc1<cl0> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fc1
+    @Override // com.repackage.qc1
     /* renamed from: a */
     public cl0 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;

@@ -1,58 +1,60 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.im.message.SaveDraftMessage;
+import com.baidu.tieba.im.pushNotify.ChatSetting;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class e87 {
+public abstract class e87 implements CustomMessageTask.CustomRunnable<SaveDraftMessage.a> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile e87 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public p77 a;
+    public int b;
 
-    public e87() {
+    public e87(p77 p77Var, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {p77Var, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = p77Var;
+        this.b = i;
     }
 
-    public static e87 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<SaveDraftMessage.a> customMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (e87.class) {
-                    if (b == null) {
-                        b = new e87();
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            CustomResponsedMessage<?> customResponsedMessage = new CustomResponsedMessage<>(this.b);
+            if (customMessage == null || !(customMessage instanceof SaveDraftMessage)) {
+                return null;
             }
-            return b;
+            SaveDraftMessage.a data = customMessage.getData();
+            ChatSetting a = this.a.a(TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "", data.b);
+            if (a == null) {
+                return null;
+            }
+            a.setDraft(data.a);
+            this.a.h(a);
+            return customResponsedMessage;
         }
-        return (e87) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
-    }
-
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.a = z;
-        }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

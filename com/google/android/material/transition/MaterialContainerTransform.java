@@ -52,7 +52,7 @@ import com.google.android.material.shape.Shapeable;
 import com.google.android.material.transition.TransitionUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class MaterialContainerTransform extends Transition {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ProgressThresholdsGroup DEFAULT_ENTER_THRESHOLDS;
@@ -116,17 +116,17 @@ public final class MaterialContainerTransform extends Transition {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public @interface FadeMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public @interface FitMode {
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class ProgressThresholds {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -169,7 +169,7 @@ public final class MaterialContainerTransform extends Transition {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class ProgressThresholdsGroup {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -206,11 +206,11 @@ public final class MaterialContainerTransform extends Transition {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public @interface TransitionDirection {
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class TransitionDrawable extends Drawable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int COMPAT_SHADOW_COLOR = -7829368;
@@ -702,9 +702,9 @@ public final class MaterialContainerTransform extends Transition {
                 transitionValues.f980view = TransitionUtils.findDescendantOrAncestorById(transitionValues.f980view, i);
             } else if (view2 != null) {
                 transitionValues.f980view = view2;
-            } else if (transitionValues.f980view.getTag(R.id.obfuscated_res_0x7f091466) instanceof View) {
-                transitionValues.f980view.setTag(R.id.obfuscated_res_0x7f091466, null);
-                transitionValues.f980view = (View) transitionValues.f980view.getTag(R.id.obfuscated_res_0x7f091466);
+            } else if (transitionValues.f980view.getTag(R.id.obfuscated_res_0x7f091480) instanceof View) {
+                transitionValues.f980view.setTag(R.id.obfuscated_res_0x7f091480, null);
+                transitionValues.f980view = (View) transitionValues.f980view.getTag(R.id.obfuscated_res_0x7f091480);
             }
             View view3 = transitionValues.f980view;
             if (!ViewCompat.isLaidOut(view3) && view3.getWidth() == 0 && view3.getHeight() == 0) {
@@ -729,8 +729,8 @@ public final class MaterialContainerTransform extends Transition {
             if (shapeAppearanceModel != null) {
                 return shapeAppearanceModel;
             }
-            if (view2.getTag(R.id.obfuscated_res_0x7f091466) instanceof ShapeAppearanceModel) {
-                return (ShapeAppearanceModel) view2.getTag(R.id.obfuscated_res_0x7f091466);
+            if (view2.getTag(R.id.obfuscated_res_0x7f091480) instanceof ShapeAppearanceModel) {
+                return (ShapeAppearanceModel) view2.getTag(R.id.obfuscated_res_0x7f091480);
             }
             Context context = view2.getContext();
             int transitionShapeAppearanceResId = getTransitionShapeAppearanceResId(context);
@@ -762,7 +762,7 @@ public final class MaterialContainerTransform extends Transition {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(new int[]{R.attr.obfuscated_res_0x7f0406a7});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(new int[]{R.attr.obfuscated_res_0x7f0406af});
             int resourceId = obtainStyledAttributes.getResourceId(0, -1);
             obtainStyledAttributes.recycle();
             return resourceId;

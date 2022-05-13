@@ -69,7 +69,7 @@ public class ao7 {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements d05 {
+    public class b implements r05 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -113,12 +113,12 @@ public class ao7 {
 
         /* renamed from: com.repackage.ao7$b$b  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0379b implements Runnable {
+        public class RunnableC0378b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public RunnableC0379b(b bVar) {
+            public RunnableC0378b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -198,7 +198,7 @@ public class ao7 {
             this.b = do7Var;
         }
 
-        @Override // com.repackage.d05
+        @Override // com.repackage.r05
         public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) || this.b == null) {
@@ -207,7 +207,7 @@ public class ao7 {
             this.c.a.post(new c(this));
         }
 
-        @Override // com.repackage.d05
+        @Override // com.repackage.r05
         public void onFileDownloadSucceed(DownloadData downloadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) {
@@ -218,12 +218,12 @@ public class ao7 {
                         this.c.a.post(new a(this, str));
                     }
                 } else if (this.b != null) {
-                    this.c.a.post(new RunnableC0379b(this));
+                    this.c.a.post(new RunnableC0378b(this));
                 }
             }
         }
 
-        @Override // com.repackage.d05
+        @Override // com.repackage.r05
         public boolean onFileDownloaded(DownloadData downloadData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -233,14 +233,14 @@ public class ao7 {
             return invokeL.booleanValue;
         }
 
-        @Override // com.repackage.d05
+        @Override // com.repackage.r05
         public void onFileUpdateProgress(DownloadData downloadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) {
             }
         }
 
-        @Override // com.repackage.d05
+        @Override // com.repackage.r05
         public boolean onPreDownload(DownloadData downloadData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -373,9 +373,9 @@ public class ao7 {
                     MyEmotionGroupData myEmotionGroupData = new MyEmotionGroupData();
                     myEmotionGroupData.setGroupId(str);
                     myEmotionGroupData.setUid(TbadkCoreApplication.getCurrentAccount());
-                    if (y86.c().b(myEmotionGroupData)) {
+                    if (h86.c().b(myEmotionGroupData)) {
                         FileHelper.deleteFileOrDir(new File(c + str));
-                        e96.k().h(str);
+                        n86.k().h(str);
                         i++;
                     }
                 }
@@ -406,7 +406,7 @@ public class ao7 {
             String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str);
             DownloadData downloadData = new DownloadData(nameMd5FromUrl, nameMd5FromUrl, str, new b(this, nameMd5FromUrl, do7Var));
             downloadData.setPath((FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/") + nameMd5FromUrl);
-            e05.k().l(downloadData);
+            s05.k().l(downloadData);
         }
     }
 
@@ -422,7 +422,7 @@ public class ao7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             try {
-                List<MyEmotionGroupData> h = y86.c().h(TbadkCoreApplication.getCurrentAccount());
+                List<MyEmotionGroupData> h = h86.c().h(TbadkCoreApplication.getCurrentAccount());
                 Iterator<MyEmotionGroupData> it = h.iterator();
                 while (it.hasNext()) {
                     MyEmotionGroupData next = it.next();
@@ -442,7 +442,7 @@ public class ao7 {
     public MyEmotionGroupData g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? y86.c().d(TbadkCoreApplication.getCurrentAccount(), str) : (MyEmotionGroupData) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? h86.c().d(TbadkCoreApplication.getCurrentAccount(), str) : (MyEmotionGroupData) invokeL.objValue;
     }
 
     public List<String> h() {
@@ -468,7 +468,7 @@ public class ao7 {
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048583, this, list, z)) == null) {
             if (list != null && !list.isEmpty()) {
                 try {
-                    e96.k().o(list, TbadkCoreApplication.getCurrentAccount());
+                    n86.k().n(list, TbadkCoreApplication.getCurrentAccount());
                     MessageManager.getInstance().runTask(2004603, (Class) null);
                     if (z) {
                         bo7.m().w();

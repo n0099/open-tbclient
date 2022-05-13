@@ -1,70 +1,57 @@
 package com.repackage;
 
-import android.animation.ObjectAnimator;
-import android.view.View;
-import android.view.animation.LinearInterpolator;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.menu.BaseMenuView;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import androidx.annotation.NonNull;
+import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.tachikoma.core.component.anim.AnimationProperty;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class l64 {
+public class l64 extends n64 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static long a(BaseMenuView baseMenuView) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public l64(@NonNull Context context) {
+        super(BaiduMap.e, context.getString(R.string.obfuscated_res_0x7f0f0cec), "com.baidu.BaiduMap");
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, baseMenuView)) == null) ? baseMenuView.a() ? 240L : 200L : invokeL.longValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = true;
     }
 
-    public static ObjectAnimator b(BaseMenuView baseMenuView) {
-        InterceptResult invokeL;
+    @Override // com.repackage.n64
+    public void e(Context context, LatLng latLng, LatLng latLng2, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, baseMenuView)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(baseMenuView, AnimationProperty.TRANSLATE_Y, 0.0f);
-            ofFloat.setDuration(a(baseMenuView));
-            ofFloat.setInterpolator(new m64(0.32f, 0.6f, 0.1f, 1.0f));
-            return ofFloat;
+        if (!(interceptable == null || interceptable.invokeLLLLL(1048576, this, context, latLng, latLng2, str, str2) == null) || latLng == null || latLng2 == null) {
+            return;
         }
-        return (ObjectAnimator) invokeL.objValue;
-    }
-
-    public static ObjectAnimator c(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, AnimationProperty.OPACITY, 0.0f);
-            ofFloat.setDuration(160L);
-            ofFloat.setInterpolator(new LinearInterpolator());
-            return ofFloat;
-        }
-        return (ObjectAnimator) invokeL.objValue;
-    }
-
-    public static ObjectAnimator d(View view2, BaseMenuView baseMenuView) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, view2, baseMenuView)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, AnimationProperty.OPACITY, 1.0f);
-            ofFloat.setDuration(a(baseMenuView));
-            ofFloat.setInterpolator(new LinearInterpolator());
-            return ofFloat;
-        }
-        return (ObjectAnimator) invokeLL.objValue;
-    }
-
-    public static ObjectAnimator e(BaseMenuView baseMenuView) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, baseMenuView)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(baseMenuView, AnimationProperty.TRANSLATE_Y, baseMenuView.getHeight());
-            ofFloat.setDuration(160L);
-            ofFloat.setInterpolator(new m64(0.32f, 0.6f, 0.1f, 1.0f));
-            return ofFloat;
-        }
-        return (ObjectAnimator) invokeL.objValue;
+        Intent intent = new Intent();
+        Uri.Builder buildUpon = Uri.parse("baidumap://map/direction?").buildUpon();
+        buildUpon.appendQueryParameter("origin", "name:" + str + "|latlng:" + latLng.latitude + "," + latLng.longitude);
+        buildUpon.appendQueryParameter("destination", "name:" + str2 + "|latlng:" + latLng2.latitude + "," + latLng2.longitude);
+        buildUpon.appendQueryParameter("mode", "driving");
+        buildUpon.appendQueryParameter("target", "1");
+        buildUpon.appendQueryParameter("src", context.getPackageName());
+        intent.setData(buildUpon.build());
+        context.startActivity(intent);
     }
 }

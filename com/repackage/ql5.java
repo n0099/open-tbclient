@@ -1,90 +1,70 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.common.util.CommonParam;
+import com.baidu.tieba.advert.sdk.data.AdInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+import com.heytap.mcssdk.mode.CommandMessage;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
 public class ql5 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static boolean b;
-    public static boolean c;
-    public static long d;
-    public static String e;
-    public static long f;
-    public static String g;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, String str2, long j) {
+    public static String a(Context context, AdInfo adInfo) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, str2, Long.valueOf(j)}) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST_SUCCESS_NOT_SHOW);
-            statisticItem.param("obj_source", str);
-            statisticItem.param("obj_type", "a064");
-            if (rl5.b.equals(str)) {
-                statisticItem.param(TiebaStatic.Params.OBJ_TO, str2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, adInfo)) == null) {
+            if (adInfo != null) {
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("placeId", adInfo.placeId);
+                    jSONObject.put(CommandMessage.SDK_VERSION, "1.1.4");
+                    jSONObject.put("adType", adInfo.adShowType.getValue());
+                    if (TextUtils.isEmpty(adInfo.redirectUrl)) {
+                        jSONObject.put("landingPage", adInfo.downLoadUrl);
+                    } else {
+                        jSONObject.put("landingPage", adInfo.redirectUrl);
+                    }
+                    jSONObject.put("showStamp", String.valueOf(System.currentTimeMillis()));
+                    jSONObject.put("packageName", adInfo.packageName);
+                    jSONObject.put("finalPrice", adInfo.finalPrice);
+                    jSONObject.put("chargingMode", adInfo.chargingMode);
+                    jSONObject.put("token", adInfo.token);
+                    jSONObject.put("adpUserId", adInfo.adpUserId);
+                    jSONObject.put("bdId", CommonParam.getCUID(context));
+                    jSONObject.put("unitId", adInfo.unitId);
+                    jSONObject.put("planId", adInfo.planId);
+                    jSONObject.put("ideaId", adInfo.ideaId);
+                    jSONObject.put("ideaType", adInfo.sourceType);
+                    jSONObject.put("s", "0");
+                    return jSONObject.toString();
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                    return "";
+                }
             }
-            statisticItem.param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis());
-            statisticItem.param("fid", j);
-            TiebaStatic.log(statisticItem);
+            return "";
         }
+        return (String) invokeLL.objValue;
     }
 
-    public static void b() {
+    public static String b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && b && a && c) {
-            if (rl5.b.equals(g)) {
-                a(rl5.c, null, d);
-            } else {
-                a(rl5.b, e, f);
-            }
-            c();
-        }
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            b = false;
-            a = false;
-            c = false;
-            d = 0L;
-            e = null;
-            f = 0L;
-            g = null;
-        }
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            c = true;
-            g = str;
-            b();
-        }
-    }
-
-    public static void e(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j) == null) {
-            a = true;
-            d = j;
-            b();
-        }
-    }
-
-    public static void f(int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            if (i != 3 || ub5.v()) {
-                b = true;
-                e = ub5.m(i);
-                f = j;
-                b();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+            } catch (PackageManager.NameNotFoundException e) {
+                BdLog.e(e);
+                return null;
             }
         }
+        return (String) invokeL.objValue;
     }
 }

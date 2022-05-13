@@ -1,33 +1,42 @@
 package com.repackage;
 
+import android.app.Activity;
 import android.content.Context;
+import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.AdRipper;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.repackage.uj9;
-import com.win.opensdk.PBError;
+import com.kwad.sdk.api.KsAdSDK;
+import com.kwad.sdk.api.KsLoadManager;
+import com.kwad.sdk.api.KsScene;
+import com.kwad.sdk.api.KsSplashScreenAd;
 /* loaded from: classes6.dex */
-public class ij9 extends dj9 {
+public class ij9 extends ReporterPidLoader<KsSplashScreenAd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final iq9 a;
 
     /* loaded from: classes6.dex */
-    public class a implements jq9 {
+    public class a implements KsLoadManager.SplashScreenAdListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nj9 a;
+        public final /* synthetic */ ij9 a;
 
-        public a(ij9 ij9Var, nj9 nj9Var) {
+        public a(ij9 ij9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ij9Var, nj9Var};
+                Object[] objArr = {ij9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -37,137 +46,93 @@ public class ij9 extends dj9 {
                     return;
                 }
             }
-            this.a = nj9Var;
+            this.a = ij9Var;
         }
 
-        @Override // com.repackage.jq9
-        public void a() {
+        @Override // com.kwad.sdk.api.KsLoadManager.SplashScreenAdListener
+        public void onError(int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                uj9.a aVar = (uj9.a) this.a;
-                aVar.getClass();
-                LogPrinter.d();
-                aVar.d.onAdClose();
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("KSSplashAd onError code: " + i + ", message: " + str, new Object[0]);
+                this.a.onError(i, str);
             }
         }
 
-        @Override // com.repackage.jq9
-        public void b(PBError pBError) {
+        @Override // com.kwad.sdk.api.KsLoadManager.SplashScreenAdListener
+        public void onRequestResult(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pBError) == null) {
-                nj9 nj9Var = this.a;
-                String msg = pBError.getMsg();
-                int code = pBError.getCode();
-                uj9.a aVar = (uj9.a) nj9Var;
-                aVar.getClass();
-                LogPrinter.d();
-                aVar.d.onAdError(code, msg);
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             }
         }
 
-        @Override // com.repackage.jq9
-        public void e() {
+        @Override // com.kwad.sdk.api.KsLoadManager.SplashScreenAdListener
+        public void onSplashScreenAdLoad(KsSplashScreenAd ksSplashScreenAd) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                uj9.a aVar = (uj9.a) this.a;
-                aVar.getClass();
-                LogPrinter.d();
-                aVar.d.onAdClose();
-            }
-        }
-
-        @Override // com.win.opensdk.PBListener
-        public void onClicked() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                ((uj9.a) this.a).a();
-            }
-        }
-
-        @Override // com.repackage.jq9
-        public void onDisplayed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                uj9.a aVar = (uj9.a) this.a;
-                aVar.getClass();
-                LogPrinter.d();
-                aVar.d.onAdShow(aVar.c, aVar.a, new String[0]);
-                aVar.a = true;
-            }
-        }
-
-        @Override // com.win.opensdk.PBListener
-        public void onFail(PBError pBError) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, pBError) == null) {
-                ((uj9.a) this.a).b(pBError.getMsg(), pBError.getCode());
-            }
-        }
-
-        @Override // com.win.opensdk.PBListener
-        public void onLoaded() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                ((uj9.a) this.a).c();
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ksSplashScreenAd) == null) {
+                LogPrinter.e("KSSplashAd onSplashScreenAdLoad", new Object[0]);
+                this.a.onAdLoaded((ij9) ksSplashScreenAd);
             }
         }
     }
 
-    public ij9(Context context, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ij9(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.SPLASH), pid, true, false, true);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new iq9(context.getApplicationContext(), str);
     }
 
-    @Override // com.repackage.yi9
-    public void a() {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public AdRipper createAdRipper(Ssp.Pid pid) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.j();
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new ui9(pid) : (AdRipper) invokeL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            KsSplashScreenAd ksSplashScreenAd = (KsSplashScreenAd) obj;
         }
     }
 
-    @Override // com.repackage.yi9
-    public void b() {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.l();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
+            KsScene build = new KsScene.Builder(Long.parseLong(this.mPid.pid)).build();
+            onLoadStart(funAdSlot);
+            KsAdSDK.getLoadManager().loadSplashScreenAd(build, new a(this));
         }
     }
 
-    @Override // com.repackage.dj9
-    public void c(long j) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.a.m(j);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
+            KsSplashScreenAd ksSplashScreenAd = (KsSplashScreenAd) obj;
+            View view2 = ksSplashScreenAd.getView(activity, new jj9(this, ksSplashScreenAd));
+            onShowStart();
+            viewGroup.removeAllViews();
+            viewGroup.addView(view2);
+            return true;
         }
-    }
-
-    @Override // com.repackage.dj9
-    public void d(ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, viewGroup) == null) {
-            this.a.o(viewGroup);
-        }
-    }
-
-    @Override // com.repackage.dj9
-    public void e(nj9 nj9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, nj9Var) == null) {
-            this.a.n(new a(this, nj9Var));
-        }
+        return invokeLLLL.booleanValue;
     }
 }

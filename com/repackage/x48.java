@@ -37,7 +37,7 @@ public class x48 extends r48 implements ol7, o48 {
     public View k;
     public PersonPostModel l;
     public int m;
-    public List<p18> n;
+    public List<j18> n;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public x48(BaseFragment baseFragment, t48 t48Var, BdUniqueId bdUniqueId, long j, boolean z) {
@@ -75,8 +75,8 @@ public class x48 extends r48 implements ol7, o48 {
         this.i = this.f.l();
         ArrayList arrayList = new ArrayList(2);
         this.n = arrayList;
-        arrayList.add(new p18());
-        this.n.add(new p18());
+        arrayList.add(new j18());
+        this.n.add(new j18());
     }
 
     @Override // com.repackage.ol7
@@ -132,10 +132,10 @@ public class x48 extends r48 implements ol7, o48 {
         }
     }
 
-    public void j(uw8 uw8Var) {
+    public void j(rv8 rv8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, uw8Var) == null) {
-            this.g.X(uw8Var);
+        if (interceptable == null || interceptable.invokeL(1048582, this, rv8Var) == null) {
+            this.g.X(rv8Var);
         }
     }
 
@@ -183,7 +183,7 @@ public class x48 extends r48 implements ol7, o48 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && TbadkCoreApplication.isLogin() && !this.a && this.c == TbadkCoreApplication.getCurrentAccountId()) {
             this.a = true;
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.b.getPageActivity()).createNormalConfig(mg.g(TbadkCoreApplication.getCurrentAccount(), 0L), true, TbadkCoreApplication.getCurrentAccountInfo() == null ? false : TbadkCoreApplication.getCurrentAccountInfo().isBigV())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.b.getPageActivity()).createNormalConfig(kg.g(TbadkCoreApplication.getCurrentAccount(), 0L), true, TbadkCoreApplication.getCurrentAccountInfo() == null ? false : TbadkCoreApplication.getCurrentAccountInfo().isBigV())));
             this.j.finish();
         }
     }
@@ -195,7 +195,7 @@ public class x48 extends r48 implements ol7, o48 {
             this.j.hideLoadingView(this.k);
             boolean z = true;
             if (y48Var == null) {
-                this.i.y(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c17), true);
+                this.i.y(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c2d), true);
                 this.i.m();
                 this.i.t(8);
                 return;
@@ -215,11 +215,11 @@ public class x48 extends r48 implements ol7, o48 {
             this.d = false;
             if (this.a && y48Var.j() != null) {
                 y48Var.j().setBimg_url(TbadkCoreApplication.getInst().getDefaultBubble());
-                c35.d().i(y48Var.j());
+                s35.d().i(y48Var.j());
             }
-            p18 p18Var = this.n.get(0);
-            p18Var.a(y48Var.f());
-            p18Var.b(z);
+            j18 j18Var = this.n.get(0);
+            j18Var.a(y48Var.f());
+            j18Var.b(z);
             this.g.Z(y48Var, z, i(y48Var));
         }
     }

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b77;
+import com.repackage.r67;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.AddMsgRecord.MsgRecord;
@@ -53,7 +53,7 @@ public class AddMsgRecordModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            List<ImMessageCenterPojo> m = b77.p().m();
+            List<ImMessageCenterPojo> m = r67.p().m();
             ArrayList arrayList = null;
             if (m != null && m.size() != 0) {
                 for (ImMessageCenterPojo imMessageCenterPojo : m) {

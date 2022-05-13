@@ -1,90 +1,199 @@
 package com.repackage;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.basic.upload.ContentUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.cea.Cea608Decoder;
 /* loaded from: classes7.dex */
 public class up3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final byte[] a;
-    public static final byte[] b;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public int d;
+    public int e;
+    public String f;
+    public String g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755253319, "Lcom/repackage/up3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+        public int d;
+        public int e;
+        public String f;
+        public String g;
+
+        public b() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755253319, "Lcom/repackage/up3;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        a = new byte[]{48, 75, 97, 106, 68, 55, 65, 90, 99, 70, 50, 81, 110, 80, 114, 53, 102, 119, 105, 72, 82, 78, 121, 103, 109, ContentUtil.GZIP_HEAD_1, 112, 85, 84, 73, 88, 120, 54, 57, 66, 87, 98, 45, 104, 77, 67, 71, 74, 111, 95, 86, 56, 69, 115, 107, 122, 49, 89, 100, 118, 76, 51, 52, 108, Constants.SHORT_PING_CMD_TYPE, 116, 113, 83, 79};
-        b = new byte[128];
-        int i = 0;
-        while (true) {
-            byte[] bArr = a;
-            if (i >= bArr.length) {
-                return;
+
+        public up3 h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new up3(this, null) : (up3) invokeV.objValue;
+        }
+
+        public b i(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                this.e = mq3.a(i);
+                return this;
             }
-            b[bArr[i]] = (byte) i;
-            i++;
+            return (b) invokeI.objValue;
+        }
+
+        public b j(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                this.a = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b k(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+                this.f = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b l(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+                this.d = mq3.a(i);
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b m(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+                this.b = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b n(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+                this.g = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b o(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+                this.c = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
         }
     }
 
-    public up3() {
+    public /* synthetic */ up3(b bVar, a aVar) {
+        this(bVar);
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : invokeV.intValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : (String) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : invokeV.intValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.g : (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public up3(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            for (int length = str.getBytes().length % 3; length > 0 && length < 3; length++) {
-                str = str + "$";
-            }
-            byte[] bytes = str.getBytes();
-            byte[] bArr = new byte[(bytes.length / 3) * 4];
-            int i = 0;
-            int i2 = 0;
-            while (i < bytes.length) {
-                byte[] bArr2 = a;
-                bArr[i2] = bArr2[(bytes[i] & Cea608Decoder.CC_IMPLICIT_DATA_HEADER) >> 2];
-                int i3 = i + 1;
-                bArr[i2 + 1] = bArr2[((bytes[i] & 3) << 4) + ((bytes[i3] & 240) >> 4)];
-                int i4 = i + 2;
-                bArr[i2 + 2] = bArr2[((bytes[i3] & 15) << 2) + ((bytes[i4] & 192) >> 6)];
-                bArr[i2 + 3] = bArr2[bytes[i4] & 63];
-                i += 3;
-                i2 += 4;
-            }
-            return new String(bArr);
-        }
-        return (String) invokeL.objValue;
+        this.b = bVar.b;
+        this.a = bVar.a;
+        this.d = bVar.d;
+        this.e = bVar.e;
+        this.c = bVar.c;
+        this.f = bVar.f;
+        this.g = bVar.g;
     }
 }

@@ -98,11 +98,11 @@ public class CategoryView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03e0, this);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03d4, this);
             this.b = inflate;
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090659);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091d53);
-            this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091d51);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090651);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091dac);
+            this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091daa);
             this.b.setOnClickListener(this.g);
             this.e.setOnClickListener(this.g);
         }

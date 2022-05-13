@@ -1,56 +1,28 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.graphics.Matrix;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.hardware.camera2.CameraCharacteristics;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
-import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.video.VideoItemModel;
-import com.baidu.tieba.videoplay.VideoPlayView;
-import com.baidu.tieba.videoplay.nad.AdVideoFlowFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.db8;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
 /* loaded from: classes6.dex */
-public class hw8 implements IAdBaseAsyncController.a, ab8<VideoItemModel> {
+public class hw8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TbPageContext<BaseFragmentActivity> a;
-    public final List<VideoItemModel> b;
-    public final db8 c;
-    public final Queue<AdvertAppInfo> d;
-    public final Map<VideoItemModel, AdvertAppInfo> e;
-    public int f;
-    public boolean g;
-    public int h;
-    public VideoPlayView i;
-    public xa8 j;
-    public final boolean k;
-    public db8.a l;
-    public int m;
-    public VideoItemModel n;
+    public final Matrix a;
+    public RectF b;
 
-    public hw8(@NonNull List list, TbPageContext<BaseFragmentActivity> tbPageContext) {
+    public hw8(CameraCharacteristics cameraCharacteristics, RectF rectF) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {list, tbPageContext};
+            Object[] objArr = {cameraCharacteristics, rectF};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -60,186 +32,48 @@ public class hw8 implements IAdBaseAsyncController.a, ab8<VideoItemModel> {
                 return;
             }
         }
-        boolean z = false;
-        this.f = 0;
-        this.g = true;
-        this.b = list;
-        this.a = tbPageContext;
-        db8 db8Var = (db8) ma8.q().k(IAdBaseAsyncController.Type.VIDEO_FLOW, this);
-        this.c = db8Var;
-        db8Var.a(this.a);
-        this.d = new LinkedList();
-        this.e = new HashMap();
-        int s = rg5.h().s();
-        int t = rg5.h().t();
-        if (s > 0 && t > 0) {
-            z = true;
+        if (a(rectF)) {
+            Rect rect = (Rect) cameraCharacteristics.get(CameraCharacteristics.SENSOR_INFO_ACTIVE_ARRAY_SIZE);
+            Integer num = (Integer) cameraCharacteristics.get(CameraCharacteristics.SENSOR_ORIENTATION);
+            int intValue = num == null ? 90 : num.intValue();
+            this.b = new RectF(rect);
+            Integer num2 = (Integer) cameraCharacteristics.get(CameraCharacteristics.LENS_FACING);
+            this.a = b(num2 != null && num2.intValue() == 0, intValue, rectF);
+            return;
         }
-        this.k = z;
-        if (z) {
-            xa8 xa8Var = new xa8();
-            this.j = xa8Var;
-            xa8Var.d(s - 1);
-            this.j.e(t);
-        }
+        throw new IllegalArgumentException("previewRect");
     }
 
-    @Override // com.repackage.ab8
-    public void a(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-            if (i2 != 0) {
-                this.h = i2;
-            }
-            if (this.h - 2 <= i && this.d.isEmpty() && this.g) {
-                this.c.loadAd();
-                this.g = false;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.recapp.async.IAdBaseAsyncController.a
-    public void b(@Nullable List<AdvertAppInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.g = true;
-            this.d.addAll(list);
-            VideoItemModel videoItemModel = new VideoItemModel(new VideoItemData(), 5);
-            this.n = videoItemModel;
-            ya8.b(this.b, this.m, this.j, this.f, videoItemModel, this.d.peek(), this);
-        }
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            VideoItemModel videoItemModel = this.b.get(i);
-            if (this.e.containsKey(videoItemModel)) {
-                this.c.o(this.e.get(videoItemModel));
-            }
-        }
-    }
-
-    public AdVideoFlowFragment g(int i) {
-        InterceptResult invokeI;
-        z98 k;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            AdvertAppInfo advertAppInfo = this.e.get(this.b.get(i));
-            if (advertAppInfo == null || (k = this.c.k(advertAppInfo)) == null) {
-                return null;
-            }
-            if ((k instanceof View) && (this.a.getPageActivity() instanceof lh0)) {
-                advertAppInfo.u = nh0.b(advertAppInfo.u, (lh0) this.a.getPageActivity(), (View) k);
-            }
-            k.setPageChangeHandler(this.l, i);
-            AdVideoFlowFragment adVideoFlowFragment = new AdVideoFlowFragment();
-            adVideoFlowFragment.D0(k);
-            return adVideoFlowFragment;
-        }
-        return (AdVideoFlowFragment) invokeI.objValue;
-    }
-
-    public List<VideoItemModel> h(@NonNull String str) {
+    public final boolean a(RectF rectF) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (Map.Entry<VideoItemModel, AdvertAppInfo> entry : this.e.entrySet()) {
-                if (TextUtils.equals(entry.getValue().a, str)) {
-                    arrayList.add(entry.getKey());
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, rectF)) == null) ? (rectF.width() == 0.0f || rectF.height() == 0.0f) ? false : true : invokeL.booleanValue;
     }
 
-    public void i() {
+    public final Matrix b(boolean z, int i, RectF rectF) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.k) {
-            this.f = 0;
-            this.h = rg5.h().s() - 1;
-            if (this.d.size() >= 1 || !this.g) {
-                return;
-            }
-            this.c.loadAd();
-            this.g = false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), rectF})) == null) {
+            Matrix matrix = new Matrix();
+            matrix.setScale(z ? -1.0f : 1.0f, 1.0f);
+            matrix.postRotate(-i);
+            matrix.mapRect(rectF);
+            Matrix matrix2 = new Matrix();
+            matrix2.setRectToRect(rectF, this.b, Matrix.ScaleToFit.FILL);
+            matrix.setConcat(matrix2, matrix);
+            return matrix;
         }
+        return (Matrix) invokeCommon.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ab8
-    /* renamed from: j */
-    public void c(int i, int i2, za8 za8Var, VideoItemModel videoItemModel) {
+    public RectF c(RectF rectF) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), za8Var, videoItemModel}) == null) {
-            AdvertAppInfo advertAppInfo = (AdvertAppInfo) za8Var;
-            this.d.remove(advertAppInfo);
-            this.f = i2;
-            this.e.put(videoItemModel, advertAppInfo);
-            VideoPlayView videoPlayView = this.i;
-            if (videoPlayView != null) {
-                videoPlayView.B();
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rectF)) == null) {
+            RectF rectF2 = new RectF();
+            this.a.mapRect(rectF2, rectF);
+            return rectF2;
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ab8
-    /* renamed from: k */
-    public void e(int i, int i2, VideoItemModel videoItemModel, za8 za8Var, VideoItemModel videoItemModel2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), videoItemModel, za8Var, videoItemModel2}) == null) {
-            AdvertAppInfo advertAppInfo = (AdvertAppInfo) za8Var;
-            this.d.remove(advertAppInfo);
-            this.f = i2;
-            this.e.put(videoItemModel, advertAppInfo);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ab8
-    /* renamed from: l */
-    public void d(int i, int i2, int i3, za8 za8Var, VideoItemModel videoItemModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), za8Var, videoItemModel}) == null) {
-        }
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048588, this, i) == null) && this.k) {
-            this.m = i;
-            VideoItemModel videoItemModel = (VideoItemModel) jd7.d(this.b, i);
-            if (this.e.containsKey(videoItemModel)) {
-                AdvertAppInfo advertAppInfo = this.e.get(videoItemModel);
-                ad8.q(advertAppInfo);
-                ed7.g(ed7.e(advertAppInfo));
-                this.c.c(advertAppInfo, true);
-                return;
-            }
-            this.c.c(null, false);
-            if (i <= this.f) {
-                return;
-            }
-            VideoItemModel videoItemModel2 = new VideoItemModel(new VideoItemData(), 5);
-            this.n = videoItemModel2;
-            ya8.b(this.b, i, this.j, this.f, videoItemModel2, this.d.peek(), this);
-        }
-    }
-
-    public void n(db8.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, aVar) == null) {
-            this.l = aVar;
-        }
-    }
-
-    public void o(VideoPlayView videoPlayView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, videoPlayView) == null) {
-            this.i = videoPlayView;
-        }
+        return (RectF) invokeL.objValue;
     }
 }

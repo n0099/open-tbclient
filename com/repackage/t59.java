@@ -1,20 +1,17 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.r59;
+import com.repackage.u59;
+import java.lang.ref.WeakReference;
 /* loaded from: classes7.dex */
-public class t59 {
+public final class t59 implements r59.a {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile o59 a;
-    public static l59 b;
-    public static n59 c;
-    public static m59 d;
-    public static n49 e;
-    public static r49 f;
     public transient /* synthetic */ FieldHolder $fh;
 
     public t59() {
@@ -31,112 +28,37 @@ public class t59 {
         }
     }
 
-    public static l59 a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.r59.a
+    public final void a(Activity activity) {
+        u59 u59Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            l59 l59Var = b;
-            if (l59Var != null) {
-                return l59Var;
-            }
-            if (a == null) {
-                a = d();
-            }
-            if (a != null) {
-                b = a.a();
-            }
-            return b;
+        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+            u59Var = u59.a.a;
+            u59Var.c(new WeakReference<>(activity));
         }
-        return (l59) invokeV.objValue;
     }
 
-    public static m59 b() {
-        InterceptResult invokeV;
+    @Override // com.repackage.r59.a
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            m59 m59Var = d;
-            if (m59Var != null) {
-                return m59Var;
-            }
-            if (a == null) {
-                a = d();
-            }
-            if (a != null) {
-                d = a.e();
-            }
-            return d;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
-        return (m59) invokeV.objValue;
     }
 
-    public static n59 c() {
-        InterceptResult invokeV;
+    @Override // com.repackage.r59.a
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            n59 n59Var = c;
-            if (n59Var != null) {
-                return n59Var;
-            }
-            if (a == null) {
-                a = d();
-            }
-            if (a != null) {
-                c = a.b();
-            }
-            return c;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
-        return (n59) invokeV.objValue;
     }
 
-    public static o59 d() {
-        InterceptResult invokeV;
+    @Override // com.repackage.r59.a
+    public final void onActivityDestroyed(Activity activity) {
+        u59 u59Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            synchronized (t59.class) {
-                if (a == null) {
-                    a = s59.a();
-                }
-            }
-            return a;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            u59Var = u59.a.a;
+            u59Var.d(activity);
         }
-        return (o59) invokeV.objValue;
-    }
-
-    public static n49 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            n49 n49Var = e;
-            if (n49Var != null) {
-                return n49Var;
-            }
-            if (a == null) {
-                a = d();
-            }
-            if (a != null) {
-                e = a.c();
-            }
-            return e;
-        }
-        return (n49) invokeV.objValue;
-    }
-
-    public static r49 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            r49 r49Var = f;
-            if (r49Var != null) {
-                return r49Var;
-            }
-            if (a == null) {
-                a = d();
-            }
-            if (a != null) {
-                f = a.d();
-            }
-            return f;
-        }
-        return (r49) invokeV.objValue;
     }
 }

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.mi;
 import org.apache.commons.codec.digest4util.Sha2Crypt;
 /* loaded from: classes3.dex */
 public class VerticalScrollNumberView extends LinearLayout {
@@ -70,10 +70,10 @@ public class VerticalScrollNumberView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             this.a = context;
-            this.b = oi.f(context, R.dimen.obfuscated_res_0x7f070201);
-            this.c = oi.f(this.a, R.dimen.obfuscated_res_0x7f070225);
-            this.d = oi.f(this.a, R.dimen.obfuscated_res_0x7f0701d4);
-            this.e = oi.f(this.a, R.dimen.obfuscated_res_0x7f070305);
+            this.b = mi.f(context, R.dimen.obfuscated_res_0x7f070201);
+            this.c = mi.f(this.a, R.dimen.obfuscated_res_0x7f070225);
+            this.d = mi.f(this.a, R.dimen.obfuscated_res_0x7f0701d4);
+            this.e = mi.f(this.a, R.dimen.obfuscated_res_0x7f070305);
         }
     }
 

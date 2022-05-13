@@ -26,9 +26,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ca0;
-import com.repackage.fc0;
-import com.repackage.y90;
+import com.repackage.ba0;
+import com.repackage.fa0;
+import com.repackage.ic0;
 /* loaded from: classes2.dex */
 public class LiveBannerStatusAnimView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -109,7 +109,7 @@ public class LiveBannerStatusAnimView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.h) {
                 this.m = "live_feed_page_tag_live_ani.json";
-            } else if (!SkinManager.SKIN_TYPE_STR_NIGHT.equals(fc0.e().o()) && !"dark".equals(fc0.e().o())) {
+            } else if (!SkinManager.SKIN_TYPE_STR_NIGHT.equals(ic0.e().o()) && !"dark".equals(ic0.e().o())) {
                 this.m = "live_feed_page_tag_live_ani.json";
             } else {
                 this.m = "live_feed_page_tag_live_night.json";
@@ -121,12 +121,12 @@ public class LiveBannerStatusAnimView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             this.a = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0509, this);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912a7);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912a8);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0912a9);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0912a6);
-            this.f = findViewById(R.id.obfuscated_res_0x7f09128e);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04fd, this);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912b6);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912b7);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0912b8);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0912b5);
+            this.f = findViewById(R.id.obfuscated_res_0x7f09129d);
             this.l = new LottieDrawable();
             c();
             this.l.loop(true);
@@ -144,53 +144,53 @@ public class LiveBannerStatusAnimView extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             TextView textView = this.d;
             if (textView != null) {
-                textView.setTextColor(fc0.e().a(this.a, this.h, "color_white3"));
+                textView.setTextColor(ic0.e().a(this.a, this.h, "color_white3"));
             }
             TextView textView2 = this.e;
             if (textView2 != null) {
-                textView2.setTextColor(fc0.e().a(this.a, this.h, "color_white3"));
+                textView2.setTextColor(ic0.e().a(this.a, this.h, "color_white3"));
             }
             if (this.b == null || this.f == null || this.e == null) {
                 return;
             }
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setShape(0);
-            gradientDrawable.setCornerRadius(y90.a(this.a, 9.0f));
+            gradientDrawable.setCornerRadius(ba0.a(this.a, 9.0f));
             gradientDrawable.setGradientType(0);
             gradientDrawable.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
             gradientDrawable.setColors(new int[]{Color.parseColor("#4D000000"), Color.parseColor("#4D000000")});
             setBackground(gradientDrawable);
             GradientDrawable gradientDrawable2 = new GradientDrawable();
             gradientDrawable2.setShape(0);
-            gradientDrawable2.setCornerRadius(y90.a(this.a, 9.0f));
+            gradientDrawable2.setCornerRadius(ba0.a(this.a, 9.0f));
             if (this.i == 1) {
                 int i = this.j;
                 if (i == 3) {
-                    gradientDrawable2.setColors(new int[]{fc0.e().a(this.a, this.h, "color_768CAE"), fc0.e().a(this.a, this.h, "color_768CAE")});
+                    gradientDrawable2.setColors(new int[]{ic0.e().a(this.a, this.h, "color_768CAE"), ic0.e().a(this.a, this.h, "color_768CAE")});
                     this.b.setBackgroundDrawable(gradientDrawable2);
-                    if (!Config.TRACE_VISIT_RECENT_DAY.equals(fc0.e().o()) && !this.h) {
+                    if (!Config.TRACE_VISIT_RECENT_DAY.equals(ic0.e().o()) && !this.h) {
                         if ("tieba".equals(LiveFeedPageSdk.f().e())) {
-                            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d25);
+                            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d40);
                         } else {
-                            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d26);
+                            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d41);
                         }
                     } else {
-                        this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d25);
+                        this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d40);
                     }
                 } else if (i == 0) {
-                    gradientDrawable2.setColors(new int[]{fc0.e().a(this.a, this.h, "color_4E6EF2"), fc0.e().a(this.a, this.h, "color_4E6EF2")});
+                    gradientDrawable2.setColors(new int[]{ic0.e().a(this.a, this.h, "color_4E6EF2"), ic0.e().a(this.a, this.h, "color_4E6EF2")});
                     this.b.setBackgroundDrawable(gradientDrawable2);
-                    if (!Config.TRACE_VISIT_RECENT_DAY.equals(fc0.e().o()) && !this.h) {
+                    if (!Config.TRACE_VISIT_RECENT_DAY.equals(ic0.e().o()) && !this.h) {
                         if ("tieba".equals(LiveFeedPageSdk.f().e())) {
-                            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d27);
+                            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d42);
                         } else {
-                            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d28);
+                            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d43);
                         }
                     } else {
-                        this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d27);
+                        this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d42);
                     }
                 } else {
-                    gradientDrawable2.setColors(new int[]{fc0.e().a(this.a, this.h, "color_FF3333"), fc0.e().a(this.a, this.h, "color_FF3333")});
+                    gradientDrawable2.setColors(new int[]{ic0.e().a(this.a, this.h, "color_FF3333"), ic0.e().a(this.a, this.h, "color_FF3333")});
                     this.f.setBackgroundDrawable(gradientDrawable2);
                     this.e.setVisibility(0);
                 }
@@ -210,8 +210,8 @@ public class LiveBannerStatusAnimView extends FrameLayout {
                 if (lottieDrawable.isAnimating() && this.c.getVisibility() == 0) {
                     return;
                 }
-                if (this.k != null && !this.k.equals(fc0.e().o())) {
-                    this.k = fc0.e().o();
+                if (this.k != null && !this.k.equals(ic0.e().o())) {
+                    this.k = ic0.e().o();
                     if (this.l.isAnimating()) {
                         this.l.cancelAnimation();
                     }
@@ -283,24 +283,24 @@ public class LiveBannerStatusAnimView extends FrameLayout {
                     if (i2 == 3) {
                         this.g = false;
                         this.b.setVisibility(0);
-                        this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d2a);
-                        this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09f6));
-                        this.d.setPadding(y90.a(this.a, 2.0f), 0, y90.a(this.a, 4.0f), 0);
+                        this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d45);
+                        this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09fc));
+                        this.d.setPadding(ba0.a(this.a, 2.0f), 0, ba0.a(this.a, 4.0f), 0);
                         this.e.setVisibility(8);
                     } else if (i2 == 0) {
                         this.g = false;
                         this.b.setVisibility(0);
-                        this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d2a);
-                        this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09f8));
-                        this.d.setPadding(y90.a(this.a, 2.0f), 0, y90.a(this.a, 4.0f), 0);
+                        this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d45);
+                        this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09fe));
+                        this.d.setPadding(ba0.a(this.a, 2.0f), 0, ba0.a(this.a, 4.0f), 0);
                         this.e.setVisibility(8);
                     } else {
                         this.g = true;
                         this.b.setVisibility(8);
-                        this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09f7));
-                        this.d.setPadding(0, 0, y90.a(this.a, 4.0f), 0);
+                        this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09fd));
+                        this.d.setPadding(0, 0, ba0.a(this.a, 4.0f), 0);
                         this.e.setVisibility(0);
-                        this.e.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09f5), ca0.a(this.a, liveBannerEntity.audienceCount)));
+                        this.e.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09fb), fa0.a(this.a, liveBannerEntity.audienceCount)));
                     }
                     f(Config.TRACE_VISIT_RECENT_DAY);
                     setVisibility(0);

@@ -1,40 +1,31 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qz2;
-import org.json.JSONObject;
-@Deprecated
+import com.repackage.y03;
 /* loaded from: classes6.dex */
-public class f33 extends g23 {
+public class f33 extends e33 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f33(g13 g13Var) {
-        super(g13Var, "/swanAPI/showLoading");
+    public f33(x03 x03Var) {
+        super(x03Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {g13Var};
+            Object[] objArr = {x03Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((x03) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -42,63 +33,45 @@ public class f33 extends g23 {
         }
     }
 
-    @Override // com.repackage.g23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j03 j03Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.repackage.e33
+    public void H(String str) {
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j03Var)) == null) {
-            if (g23.b) {
-                Log.d("ShowLoadingAction", "handle entity: " + unitedSchemeEntity.toString());
-            }
-            if (j03Var != null && j03Var.m0()) {
-                if (g23.b) {
-                    Log.d("ShowLoadingAction", "ShowLoadingAction does not supported when app is invisible.");
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && L() && (str2 = this.d) != null && str2.equals(str)) {
+            t03 J = t03.J();
+            if (J.D()) {
+                if (J.r().m0()) {
+                    J.o("flag_finish_activity", "flag_remove_task");
+                    return;
                 }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
-                return false;
-            } else if (!(context instanceof SwanAppActivity)) {
-                jx1.c("showLoading", "context not support");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "context not support");
-                return false;
-            } else {
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    jx1.c("showLoading", "none params");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                jx1.i("showLoading", "handleShowLoading : joParams = \n" + optParamsAsJo);
-                String optString = optParamsAsJo.optString("title");
-                if (TextUtils.isEmpty(optString)) {
-                    jx1.c("showLoading", "none title");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                boolean optBoolean = optParamsAsJo.optBoolean("mask", false);
-                sz1 swanAppFragmentManager = ((SwanAppActivity) context).getSwanAppFragmentManager();
-                if (swanAppFragmentManager == null) {
-                    jx1.c("showLoading", "none fragment");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none fragment");
-                    return false;
-                }
-                pz1 m = swanAppFragmentManager.m();
-                if (!(m instanceof qz2.a)) {
-                    jx1.c("showLoading", "fragment not support");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment not support");
-                    return false;
-                }
-                qz2 floatLayer = ((qz2.a) m).getFloatLayer();
-                if (floatLayer == null) {
-                    jx1.c("showLoading", "can't get floatLayer");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "can't create floatLayer");
-                    return false;
-                }
-                rz2.f(floatLayer, context, optString, optBoolean);
-                jx1.i("showLoading", "show loading success");
-                unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                return true;
+                nc3 nc3Var = new nc3();
+                nc3Var.k(10L);
+                nc3Var.i(2107L);
+                nc3Var.d("app forbidden");
+                a13.x0(p84.i().u(str), bk2.c(), J.r().V(), false, null, nc3Var);
             }
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public boolean L() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (u03.a0() == null || this.b == 0) ? false : true : invokeV.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.nf3
+    /* renamed from: M */
+    public void onCallback(y03.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            if (gx2.I(aVar.D(), "swan_forbidden_kill_on_client")) {
+                this.b = aVar.j("ipc_forbidden_flag", 1);
+                this.d = aVar.o("mAppId", t03.J().getAppId());
+            }
+            if (gx2.I(aVar.D(), "swan_kill_to_client")) {
+                t03.J().o("flag_finish_activity", "flag_remove_task");
+            }
+        }
     }
 }

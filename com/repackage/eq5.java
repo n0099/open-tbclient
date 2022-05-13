@@ -3,27 +3,98 @@ package com.repackage;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.mobstat.Config;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.live.interfaces.service.AccountManagerService;
-import com.baidu.searchbox.live.interfaces.service.AppInfoService;
-import com.baidu.searchbox.live.interfaces.service.RouterService;
-import com.baidu.searchbox.live.interfaces.service.ToastService;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class eq5 implements ma0 {
+public class eq5 {
     public static /* synthetic */ Interceptable $ic;
+    public static eq5 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public AccountManagerService a;
-    public AppInfoService b;
-    public ToastService c;
-    public RouterService d;
+
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final eq5 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-406068854, "Lcom/repackage/eq5$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-406068854, "Lcom/repackage/eq5$b;");
+                    return;
+                }
+            }
+            a = new eq5(null);
+        }
+    }
+
+    public /* synthetic */ eq5(a aVar) {
+        this();
+    }
+
+    public static eq5 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                a = b.a;
+            }
+            return a;
+        }
+        return (eq5) invokeV.objValue;
+    }
+
+    public String b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i == 1 ? SkinManager.SKIN_TYPE_STR_NIGHT : i == 4 ? "dark" : Config.TRACE_VISIT_RECENT_DAY : (String) invokeI.objValue;
+    }
+
+    public void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            if (!LiveFeedPageSdk.f().l()) {
+                x90.a().d(R.raw.lottie_common_pull_refresh, R.raw.obfuscated_res_0x7f11002e, R.raw.obfuscated_res_0x7f11002f, R.raw.obfuscated_res_0x7f11002e, 15, 15, 30, 30);
+                x90.a().b("live_feed_page_load_more.json", "live_feed_page_load_more.json", "live_feed_page_load_more.json", "live_feed_page_load_more.json");
+                x90.a().c(R.raw.lottie_full_screen_refresh, R.raw.obfuscated_res_0x7f11003b, R.raw.obfuscated_res_0x7f11003c, R.raw.obfuscated_res_0x7f11003b, "", 67.0f, 67.0f);
+                ia0.a().b(R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, 125.0f, 125.0f);
+                ia0.a().c(R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, 125.0f, 125.0f);
+                ia0.a().d(R.drawable.new_pic_emotion_08, R.drawable.new_pic_emotion_08, R.drawable.new_pic_emotion_08, R.drawable.new_pic_emotion_08, 125.0f, 125.0f);
+                ia0.a().e(R.drawable.obfuscated_res_0x7f080d35, R.drawable.obfuscated_res_0x7f080d36, R.drawable.obfuscated_res_0x7f080d34, R.drawable.obfuscated_res_0x7f080d35);
+                LiveFeedPageSdk.f().k(new oh7());
+                LiveFeedPageSdk.f().i("tieba", b(TbadkCoreApplication.getInst().getSkinType()));
+                LiveFeedPageSdk.f().j(new fq5());
+                LiveFeedPageSdk.f().p();
+            }
+            LiveFeedPageSdk.f().o(context);
+            if (LiveFeedPageSdk.f().g() == null || TextUtils.isEmpty(LiveFeedPageSdk.f().g().c())) {
+                return;
+            }
+            LiveFeedPageSdk.f().r(LiveFeedPageSdk.f().g().c());
+        }
+    }
 
     public eq5() {
         Interceptable interceptable = $ic;
@@ -35,68 +106,7 @@ public class eq5 implements ma0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = (AccountManagerService) ServiceManager.getService(AccountManagerService.Companion.getSERVICE_REFERENCE());
-        this.b = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
-        this.c = (ToastService) ServiceManager.getService(ToastService.Companion.getSERVICE_REFERENCE());
-        this.d = (RouterService) ServiceManager.getService(RouterService.Companion.getSERVICE_REFERENCE());
-    }
-
-    @Override // com.repackage.ma0
-    public void a(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) || this.c == null || context == null || TextUtils.isEmpty(str)) {
-            return;
-        }
-        this.c.showNormal(context, str, 0);
-    }
-
-    @Override // com.repackage.ma0
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            AccountManagerService accountManagerService = this.a;
-            return accountManagerService != null ? accountManagerService.getAccount().getUk() : "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ma0
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            return skinType == 1 ? SkinManager.SKIN_TYPE_STR_NIGHT : skinType == 4 ? "dark" : Config.TRACE_VISIT_RECENT_DAY;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ma0
-    public String getCuid() {
-        InterceptResult invokeV;
-        AppInfoService appInfoService;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a == null || (appInfoService = this.b) == null) ? "" : this.a.getSocialEncryption(appInfoService.getCuid(), "baiduuid_") : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ma0
-    public String getIID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ma0
-    public void invokeScheme(Context context, String str) {
-        RouterService routerService;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048581, this, context, str) == null) || context == null || TextUtils.isEmpty(str) || (routerService = this.d) == null) {
-            return;
-        }
-        routerService.invokeScheme(context, str);
     }
 }

@@ -127,7 +127,7 @@ public class TextSizeSeekBar extends View {
             this.d = dimensionPixelSize;
             this.e = dimensionPixelSize;
             this.h = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.T_X09);
-            this.k = new String[]{context.getString(R.string.obfuscated_res_0x7f0f0633), context.getString(R.string.obfuscated_res_0x7f0f0632), context.getString(R.string.obfuscated_res_0x7f0f0631), context.getString(R.string.obfuscated_res_0x7f0f0634)};
+            this.k = new String[]{context.getString(R.string.obfuscated_res_0x7f0f063b), context.getString(R.string.obfuscated_res_0x7f0f063a), context.getString(R.string.obfuscated_res_0x7f0f0639), context.getString(R.string.obfuscated_res_0x7f0f063c)};
             this.l = SkinManager.getColor(R.color.CAM_X0105);
             this.m = SkinManager.getColor(R.color.CAM_X0109);
             this.n = SkinManager.getColor(R.color.CAM_X0111);

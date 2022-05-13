@@ -150,20 +150,20 @@ public class kp7 implements InterestedForumModel.d, InterestedForumAdapter.c, Vi
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             if (i > 0 && !this.g.isEnabled()) {
                 this.g.setEnabled(true);
-                this.g.setText(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f11cc));
+                this.g.setText(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f11e9));
             } else if (i == 0) {
                 this.g.setEnabled(false);
-                this.g.setText(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f142c));
+                this.g.setText(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f1454));
             }
-            lu4 lu4Var = new lu4();
+            yu4 yu4Var = new yu4();
             if (!z) {
-                this.f.setText(this.h.getString(R.string.obfuscated_res_0x7f0f10c1));
-                this.f.setConfig(lu4Var);
+                this.f.setText(this.h.getString(R.string.obfuscated_res_0x7f0f10da));
+                this.f.setConfig(yu4Var);
                 return;
             }
-            this.f.setText(this.h.getString(R.string.obfuscated_res_0x7f0f148a));
-            lu4Var.t(R.color.CAM_X0109);
-            this.f.setConfig(lu4Var);
+            this.f.setText(this.h.getString(R.string.obfuscated_res_0x7f0f14b5));
+            yu4Var.t(R.color.CAM_X0109);
+            this.f.setConfig(yu4Var);
         }
     }
 
@@ -200,7 +200,7 @@ public class kp7 implements InterestedForumModel.d, InterestedForumAdapter.c, Vi
                     this.c.setVisibility(0);
                 }
                 this.d.n(pp7Var.a);
-                this.a.C0();
+                this.a.D0();
             }
             if (this.b.p()) {
                 return;
@@ -302,20 +302,20 @@ public class kp7 implements InterestedForumModel.d, InterestedForumAdapter.c, Vi
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.e.J();
             this.e.Q();
-            this.e.C(this.c.getContext().getString(R.string.obfuscated_res_0x7f0f09e7));
-            this.e.L(oi.f(this.c.getContext(), R.dimen.tbds217));
+            this.e.C(this.c.getContext().getString(R.string.obfuscated_res_0x7f0f09ed));
+            this.e.L(mi.f(this.c.getContext(), R.dimen.tbds217));
         }
     }
 
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.e.D(this.c.getContext().getString(R.string.obfuscated_res_0x7f0f091b), oi.f(this.c.getContext(), R.dimen.tbds178));
+            this.e.D(this.c.getContext().getString(R.string.obfuscated_res_0x7f0f091f), mi.f(this.c.getContext(), R.dimen.tbds178));
             this.e.G(R.dimen.tbds36);
             this.e.A(R.color.CAM_X0109);
             this.e.f();
             this.e.B(null);
-            this.e.L(oi.f(this.c.getContext(), R.dimen.tbds217));
+            this.e.L(mi.f(this.c.getContext(), R.dimen.tbds217));
         }
     }
 
@@ -326,7 +326,7 @@ public class kp7 implements InterestedForumModel.d, InterestedForumAdapter.c, Vi
             List<np7> o = this.d.o();
             try {
                 this.b.i(o);
-                vp7.a(2, 1, this.a.B0(), "", e(o));
+                vp7.a(2, 1, this.a.C0(), "", e(o));
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
@@ -341,13 +341,13 @@ public class kp7 implements InterestedForumModel.d, InterestedForumAdapter.c, Vi
             if (pp7Var != null && !ListUtils.isEmpty(pp7Var.a)) {
                 PbListView pbListView = this.e;
                 if (pbListView != null) {
-                    pbListView.C(this.c.getContext().getString(R.string.obfuscated_res_0x7f0f0da9));
+                    pbListView.C(this.c.getContext().getString(R.string.obfuscated_res_0x7f0f0dc3));
                     this.e.f();
                     return;
                 }
                 return;
             }
-            this.a.D0(str);
+            this.a.E0(str);
         }
     }
 }

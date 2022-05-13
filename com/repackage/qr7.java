@@ -25,7 +25,7 @@ import java.util.List;
 public class qr7 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<uy7> a;
+    public List<ry7> a;
     public Context b;
     public int c;
     public int d;
@@ -70,7 +70,7 @@ public class qr7 extends BaseAdapter {
         this.d = 0;
         this.b = context;
         this.a = new ArrayList();
-        this.c = oi.k(context) - (((int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070201)) * 2);
+        this.c = mi.k(context) - (((int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070201)) * 2);
         this.d = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207);
     }
 
@@ -82,19 +82,19 @@ public class qr7 extends BaseAdapter {
             if (view2 != null && (view2.getTag() instanceof a)) {
                 aVar = (a) view2.getTag();
             } else {
-                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d01e1, (ViewGroup) null);
+                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d01da, (ViewGroup) null);
                 aVar = new a();
-                aVar.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091692);
+                aVar.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0916b9);
                 view2.setTag(aVar);
             }
-            uy7 item = getItem(i);
-            if (item instanceof vy7) {
-                vy7 vy7Var = (vy7) item;
-                if (!StringUtils.isNull(vy7Var.e) && !"1".equals(vy7Var.e)) {
+            ry7 item = getItem(i);
+            if (item instanceof sy7) {
+                sy7 sy7Var = (sy7) item;
+                if (!StringUtils.isNull(sy7Var.e) && !"1".equals(sy7Var.e)) {
                     aVar.a.setVisibility(0);
                     ViewGroup.LayoutParams layoutParams = aVar.a.getLayoutParams();
                     int i2 = this.c;
-                    int c = vy7Var.c(i2);
+                    int c = sy7Var.c(i2);
                     if (layoutParams == null) {
                         layoutParams = new AbsListView.LayoutParams(i2, c);
                     } else {
@@ -102,7 +102,7 @@ public class qr7 extends BaseAdapter {
                         layoutParams.width = i2;
                     }
                     aVar.a.setLayoutParams(layoutParams);
-                    aVar.a.K(vy7Var.d(), 17, false);
+                    aVar.a.K(sy7Var.d(), 17, false);
                 } else {
                     aVar.a.setVisibility(8);
                 }
@@ -115,11 +115,11 @@ public class qr7 extends BaseAdapter {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: b */
-    public uy7 getItem(int i) {
+    public ry7 getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            List<uy7> list = this.a;
+            List<ry7> list = this.a;
             if (list != null && list.size() > 0) {
                 int size = this.a.size();
                 if (i >= 0 && i < size) {
@@ -128,7 +128,7 @@ public class qr7 extends BaseAdapter {
             }
             return null;
         }
-        return (uy7) invokeI.objValue;
+        return (ry7) invokeI.objValue;
     }
 
     public final View c(int i, View view2) {
@@ -146,11 +146,11 @@ public class qr7 extends BaseAdapter {
                 int i2 = this.d;
                 textView.setPadding(i2, 0, i2, 0);
             }
-            uy7 item = getItem(i);
-            if (item instanceof xy7) {
-                xy7 xy7Var = (xy7) item;
-                textView.setText(xy7Var.b());
-                int d = xy7Var.d();
+            ry7 item = getItem(i);
+            if (item instanceof uy7) {
+                uy7 uy7Var = (uy7) item;
+                textView.setText(uy7Var.b());
+                int d = uy7Var.d();
                 if (d == 1) {
                     textView.setGravity(17);
                 } else if (d != 2) {
@@ -158,15 +158,15 @@ public class qr7 extends BaseAdapter {
                 } else {
                     textView.setGravity(5);
                 }
-                if (!StringUtils.isNull(xy7Var.e())) {
-                    if (!SkinManager.setViewTextColor(textView, xy7Var.e())) {
+                if (!StringUtils.isNull(uy7Var.e())) {
+                    if (!SkinManager.setViewTextColor(textView, uy7Var.e())) {
                         SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
                     }
                 } else {
                     SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
                 }
-                if (xy7Var.f() > 0) {
-                    textView.setTextSize(0, xy7Var.f());
+                if (uy7Var.f() > 0) {
+                    textView.setTextSize(0, uy7Var.f());
                 }
             }
             return textView;
@@ -174,7 +174,7 @@ public class qr7 extends BaseAdapter {
         return (View) invokeIL.objValue;
     }
 
-    public void d(List<uy7> list) {
+    public void d(List<ry7> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             this.a.clear();
@@ -190,7 +190,7 @@ public class qr7 extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<uy7> list = this.a;
+            List<ry7> list = this.a;
             if (list == null) {
                 return 0;
             }
@@ -214,17 +214,17 @@ public class qr7 extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            List<uy7> list = this.a;
+            List<ry7> list = this.a;
             if (list != null && list.size() > 0) {
                 if (i >= 0 && i < this.a.size()) {
-                    uy7 uy7Var = this.a.get(i);
-                    if (uy7Var == null) {
+                    ry7 ry7Var = this.a.get(i);
+                    if (ry7Var == null) {
                         return super.getItemViewType(i);
                     }
-                    if (uy7Var.getType() == 0) {
+                    if (ry7Var.getType() == 0) {
                         return 0;
                     }
-                    if (uy7Var.getType() == 3) {
+                    if (ry7Var.getType() == 3) {
                         return 1;
                     }
                     return super.getItemViewType(i);

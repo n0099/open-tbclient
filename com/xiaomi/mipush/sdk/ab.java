@@ -32,7 +32,7 @@ public class ab implements Runnable {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            com.xiaomi.channel.commonutils.logger.b.m108a("clicked activity finish by timeout.");
+            com.xiaomi.channel.commonutils.logger.b.m109a("clicked activity finish by timeout.");
             this.a.finish();
         }
     }

@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.i05;
-import com.repackage.u25;
+import com.repackage.k35;
+import com.repackage.w05;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class CommonTabWidgetView extends LinearLayout {
@@ -57,7 +57,7 @@ public class CommonTabWidgetView extends LinearLayout {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.c == null) {
                 return;
             }
-            this.a.c.A(new i05(3, 3, null));
+            this.a.c.A(new w05(3, 3, null));
         }
     }
 
@@ -88,7 +88,7 @@ public class CommonTabWidgetView extends LinearLayout {
         c(context);
     }
 
-    public void b(u25.b bVar) {
+    public void b(k35.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             this.a.b(bVar);
@@ -100,9 +100,9 @@ public class CommonTabWidgetView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             setVisibility(8);
             removeAllViews();
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01f6, (ViewGroup) this, true);
-            this.a = (CommonTabHorizonScrollView) findViewById(R.id.obfuscated_res_0x7f091904);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091902);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01ef, (ViewGroup) this, true);
+            this.a = (CommonTabHorizonScrollView) findViewById(R.id.obfuscated_res_0x7f09195c);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09195a);
             this.b = imageView;
             imageView.setOnClickListener(new a(this));
         }
@@ -132,7 +132,7 @@ public class CommonTabWidgetView extends LinearLayout {
         }
     }
 
-    public void setDatas(ArrayList<u25> arrayList) {
+    public void setDatas(ArrayList<k35> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) {
             this.a.setDatas(arrayList);

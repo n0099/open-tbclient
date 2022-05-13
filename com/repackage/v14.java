@@ -1,179 +1,36 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c04;
-import java.util.HashMap;
-import java.util.List;
+import com.repackage.jx3;
 /* loaded from: classes7.dex */
-public class v14 {
+public class v14 extends b92 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static volatile v14 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public c04 a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755284040, "Lcom/repackage/v14;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755284040, "Lcom/repackage/v14;");
-                return;
-            }
-        }
-        b = tg1.a;
-    }
 
     public v14() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static v14 b() {
-        InterceptResult invokeV;
+    @Override // com.repackage.d92
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (v14.class) {
-                    if (c == null) {
-                        c = new v14();
-                    }
-                }
-            }
-            return c;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            jx3.d.d(str);
+            ed2.k(str);
+            x14.k(str);
         }
-        return (v14) invokeV.objValue;
-    }
-
-    public String a(String str) {
-        InterceptResult invokeL;
-        c04 c04Var;
-        c04.c cVar;
-        HashMap<String, String> hashMap;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String c2 = c(str, 1);
-            if (TextUtils.isEmpty(c2) || (c04Var = this.a) == null || (cVar = c04Var.d) == null || (hashMap = cVar.a) == null) {
-                return null;
-            }
-            return hashMap.get(c2);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:17:0x0023  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public String c(String str, int i) {
-        InterceptResult invokeLI;
-        c04 c04Var;
-        c04.b bVar;
-        List<c04.a> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
-            if (!TextUtils.isEmpty(str) && (c04Var = this.a) != null && (bVar = c04Var.c) != null && (list = bVar.a) != null) {
-                for (c04.a aVar : list) {
-                    if (TextUtils.equals(aVar.a, str) || TextUtils.equals(aVar.b, str)) {
-                        if (i != 0) {
-                            if (i != 1) {
-                                if (i != 2) {
-                                    if (i != 3) {
-                                        return aVar.b;
-                                    }
-                                    return aVar.d;
-                                }
-                                return aVar.c;
-                            }
-                            return aVar.b;
-                        }
-                        return aVar.a;
-                    }
-                    while (r0.hasNext()) {
-                    }
-                }
-            }
-            return null;
-        }
-        return (String) invokeLI.objValue;
-    }
-
-    public boolean d(String str) {
-        InterceptResult invokeL;
-        c04.b bVar;
-        HashMap<String, Boolean> hashMap;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            String c2 = c(str, 1);
-            if (TextUtils.isEmpty(c2)) {
-                return false;
-            }
-            c04 c04Var = this.a;
-            if (c04Var != null && (bVar = c04Var.c) != null && (hashMap = bVar.b) != null && hashMap.containsKey(c2)) {
-                if (b) {
-                    Log.i("SubPackageDataHelper", "内存中查询分包是否存在信息");
-                }
-                return this.a.c.b.get(c2).booleanValue();
-            }
-            if (b) {
-                Log.i("SubPackageDataHelper", "DB中查询分包是否存在信息");
-            }
-            String f0 = j03.f0();
-            if (j03.L() == null) {
-                return false;
-            }
-            String j0 = j03.L().j0();
-            if (TextUtils.isEmpty(f0) || TextUtils.isEmpty(j0)) {
-                return false;
-            }
-            boolean n = e84.i().n(f0, j0, c2);
-            if (n) {
-                f(c2, true);
-            }
-            return n;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void e(c04 c04Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, c04Var) == null) {
-            this.a = c04Var;
-        }
-    }
-
-    public void f(String str, boolean z) {
-        c04 c04Var;
-        c04.b bVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) || TextUtils.isEmpty(str) || (c04Var = this.a) == null || (bVar = c04Var.c) == null || bVar.b == null) {
-            return;
-        }
-        if (b) {
-            Log.i("SubPackageDataHelper", "更新内存缓存信息: " + str + ": " + z);
-        }
-        this.a.c.b.put(str, Boolean.valueOf(z));
     }
 }

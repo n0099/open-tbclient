@@ -1,85 +1,113 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.bdtask.model.info.TaskInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes6.dex */
-public final class lr {
+public final class lr extends rr {
     public static /* synthetic */ Interceptable $ic;
+    public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final boolean b;
-    public final boolean c;
+    public final String d;
+    public final String e;
 
-    public lr(int i, boolean z, boolean z2) {
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final lr a(TaskInfo taskInfo, String str) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, taskInfo, str)) == null) ? new lr(taskInfo, str, null, 0, null, null, 60, null) : (lr) invokeLL.objValue;
+        }
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964034241, "Lcom/repackage/lr;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1964034241, "Lcom/repackage/lr;");
+                return;
+            }
+        }
+        f = new a(null);
+    }
+
+    public /* synthetic */ lr(TaskInfo taskInfo, String str, String str2, int i, Integer num, String str3, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(taskInfo, str, (i2 & 4) != 0 ? taskInfo.getSingleKey() : str2, (i2 & 8) != 0 ? 8 : i, (i2 & 16) != 0 ? null : num, (i2 & 32) != 0 ? null : str3);
+    }
+
+    @Override // com.repackage.fs
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TaskDuplicatedCacheAction" : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.rr
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (String) invokeV.objValue;
+    }
+
+    public final String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lr(TaskInfo taskInfo, String str, String str2, int i, Integer num, String str3) {
+        super(str2, num, str3);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {taskInfo, str, str2, Integer.valueOf(i), num, str3};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (Integer) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = z;
-        this.c = z2;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj instanceof lr) {
-                int i = this.a;
-                lr lrVar = (lr) obj;
-                if (i != lrVar.a) {
-                    return false;
-                }
-                if (i == 8) {
-                    return this.b == lrVar.b && this.c == lrVar.c;
-                }
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: boolean */
-    /* JADX WARN: Multi-variable type inference failed */
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int i = this.a * 31;
-            boolean z = this.b;
-            int i2 = z;
-            if (z != 0) {
-                i2 = 1;
-            }
-            int i3 = (i + i2) * 31;
-            boolean z2 = this.c;
-            return i3 + (z2 ? 1 : z2 ? 1 : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "TaskBuoyViewModelHolder(status=" + this.a + ", hasComplete=" + this.b + ", isRepeated=" + this.c + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
+        this.d = str;
+        this.e = str2;
     }
 }

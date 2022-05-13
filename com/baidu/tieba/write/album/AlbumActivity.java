@@ -18,12 +18,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rz8;
+import com.repackage.oy8;
 /* loaded from: classes4.dex */
 public class AlbumActivity extends BaseFragmentActivity implements View.OnClickListener, ActivityCompat.OnRequestPermissionsResultCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rz8 albumView;
+    public oy8 albumView;
     public boolean canUseStyleImmersiveSticky;
     public View mStatebarView;
 
@@ -105,21 +105,21 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             SkinManager.setBackgroundColor(this.mStatebarView, R.color.CAM_X0201, i);
-            rz8 rz8Var = this.albumView;
-            if (rz8Var != null) {
-                rz8Var.onViewChangeSkinType(i);
+            oy8 oy8Var = this.albumView;
+            if (oy8Var != null) {
+                oy8Var.onViewChangeSkinType(i);
             }
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
-        rz8 rz8Var;
+        oy8 oy8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, view2) == null) || (rz8Var = this.albumView) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, view2) == null) || (oy8Var = this.albumView) == null) {
             return;
         }
-        rz8Var.onClick(view2);
+        oy8Var.onClick(view2);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
@@ -128,11 +128,11 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
-            setContentView(R.layout.obfuscated_res_0x7f0d0117);
-            this.mStatebarView = findViewById(R.id.obfuscated_res_0x7f091d93);
+            setContentView(R.layout.obfuscated_res_0x7f0d0113);
+            this.mStatebarView = findViewById(R.id.obfuscated_res_0x7f091dec);
             this.canUseStyleImmersiveSticky = UtilHelper.canUseStyleImmersiveSticky();
             checkStyleImmersiveStickyStatusBarForBg();
-            this.albumView = new rz8(this, bundle, R.id.obfuscated_res_0x7f090aa9, R.id.obfuscated_res_0x7f090aa9);
+            this.albumView = new oy8(this, bundle, R.id.obfuscated_res_0x7f090a97, R.id.obfuscated_res_0x7f090a97);
         }
     }
 
@@ -145,9 +145,9 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
             if (view2 != null) {
                 view2.setBackgroundDrawable(null);
             }
-            rz8 rz8Var = this.albumView;
-            if (rz8Var != null) {
-                rz8Var.onDestroy();
+            oy8 oy8Var = this.albumView;
+            if (oy8Var != null) {
+                oy8Var.onDestroy();
             }
         }
     }
@@ -170,9 +170,9 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            rz8 rz8Var = this.albumView;
-            if (rz8Var != null) {
-                rz8Var.C();
+            oy8 oy8Var = this.albumView;
+            if (oy8Var != null) {
+                oy8Var.C();
             }
             super.onPause();
         }
@@ -183,9 +183,9 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onResume();
-            rz8 rz8Var = this.albumView;
-            if (rz8Var != null) {
-                rz8Var.onResume();
+            oy8 oy8Var = this.albumView;
+            if (oy8Var != null) {
+                oy8Var.onResume();
             }
         }
     }
@@ -195,9 +195,9 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
-            rz8 rz8Var = this.albumView;
-            if (rz8Var != null) {
-                rz8Var.E(bundle);
+            oy8 oy8Var = this.albumView;
+            if (oy8Var != null) {
+                oy8Var.E(bundle);
             }
         }
     }
@@ -207,9 +207,9 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onStart();
-            rz8 rz8Var = this.albumView;
-            if (rz8Var != null) {
-                rz8Var.F();
+            oy8 oy8Var = this.albumView;
+            if (oy8Var != null) {
+                oy8Var.F();
             }
         }
     }
@@ -219,9 +219,9 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onStop();
-            rz8 rz8Var = this.albumView;
-            if (rz8Var != null) {
-                rz8Var.G();
+            oy8 oy8Var = this.albumView;
+            if (oy8Var != null) {
+                oy8Var.G();
             }
         }
     }

@@ -12,10 +12,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.o65;
-import com.repackage.vl6;
+import com.repackage.e75;
+import com.repackage.wk6;
 /* loaded from: classes3.dex */
-public class FrsItemTabNetModel<T> extends NetAutoModel<FrsItemTabRequestData, vl6, T> {
+public class FrsItemTabNetModel<T> extends NetAutoModel<FrsItemTabRequestData, wk6, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,7 +32,7 @@ public class FrsItemTabNetModel<T> extends NetAutoModel<FrsItemTabRequestData, v
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (o65) objArr2[1]);
+                super((TbPageContext) objArr2[0], (e75) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -82,6 +82,6 @@ public class FrsItemTabNetModel<T> extends NetAutoModel<FrsItemTabRequestData, v
     public Class getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? vl6.class : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? wk6.class : (Class) invokeV.objValue;
     }
 }

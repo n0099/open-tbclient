@@ -46,7 +46,7 @@ public class dj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public di m284a() {
+    public di m285a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f219a : (di) invokeV.objValue;

@@ -92,12 +92,12 @@ public class BdAsyncTaskParallel {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {bdAsyncTaskParallelType, bdUniqueId};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
@@ -135,32 +135,5 @@ public class BdAsyncTaskParallel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (BdAsyncTaskParallelType) invokeV.objValue;
-    }
-
-    public BdAsyncTaskParallel(BdUniqueId bdUniqueId, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-        this.b = BdAsyncTaskParallelType.MAX_PARALLEL;
-        this.c = 1;
-        if (bdUniqueId != null) {
-            this.b = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
-            this.c = i;
-            this.a = bdUniqueId;
-            return;
-        }
-        throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
     }
 }

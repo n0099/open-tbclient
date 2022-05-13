@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.mi;
 /* loaded from: classes3.dex */
 public class EntelechyPullUpRefreshView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -74,7 +74,7 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
             return;
         }
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040630, R.attr.obfuscated_res_0x7f040631});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040638, R.attr.obfuscated_res_0x7f040639});
             this.e = obtainStyledAttributes.getResourceId(1, R.drawable.icon_frs_reload);
             this.f = obtainStyledAttributes.getBoolean(0, false);
             obtainStyledAttributes.recycle();
@@ -89,9 +89,9 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
             addView(this.a);
         }
         this.b = new TbImageView(context);
-        int f = oi.f(getContext(), R.dimen.obfuscated_res_0x7f0702ce);
+        int f = mi.f(getContext(), R.dimen.obfuscated_res_0x7f0702ce);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(f, f);
-        layoutParams.topMargin = oi.f(getContext(), R.dimen.obfuscated_res_0x7f0701d5);
+        layoutParams.topMargin = mi.f(getContext(), R.dimen.obfuscated_res_0x7f0701d5);
         this.b.setLayoutParams(layoutParams);
         SkinManager.setImageResource(this.b, this.e);
         addView(this.b);

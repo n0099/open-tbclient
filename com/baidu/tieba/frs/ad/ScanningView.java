@@ -221,11 +221,11 @@ public class ScanningView extends View {
                 return;
             }
         }
-        this.j = R.drawable.obfuscated_res_0x7f080586;
+        this.j = R.drawable.obfuscated_res_0x7f080576;
         this.k = 400;
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403df, R.attr.obfuscated_res_0x7f0403e0});
-            this.j = obtainStyledAttributes.getResourceId(1, R.drawable.obfuscated_res_0x7f080586);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403e3, R.attr.obfuscated_res_0x7f0403e4});
+            this.j = obtainStyledAttributes.getResourceId(1, R.drawable.obfuscated_res_0x7f080576);
             this.k = obtainStyledAttributes.getInt(0, 400);
             obtainStyledAttributes.recycle();
         }

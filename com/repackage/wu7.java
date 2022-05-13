@@ -1,109 +1,81 @@
 package com.repackage;
 
-import android.content.Context;
-import android.util.SparseArray;
-import android.util.SparseIntArray;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.pb.pb.main.PbFragment;
-import com.baidu.tieba.pb.videopb.AbsVideoPbFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class wu7<T, V extends TypeAdapter.ViewHolder> extends ho<T, V> {
+public class wu7 extends xe {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jz7 i;
-    public PbFragment j;
-    public AbsVideoPbFragment k;
-    public int l;
-    public boolean m;
-    public SparseIntArray n;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wu7(jz7 jz7Var, BdUniqueId bdUniqueId) {
-        super(jz7Var == null ? null : jz7Var.x(), bdUniqueId);
+    public wu7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jz7Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.l = 3;
-        this.m = false;
-        new SparseArray();
-        this.n = new SparseIntArray();
-        a0(jz7Var);
     }
 
-    @Override // com.repackage.ho
-    public View S(int i, View view2, ViewGroup viewGroup, T t, V v) {
-        InterceptResult invokeCommon;
+    @Override // com.repackage.xe
+    public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t, v})) == null) {
-            this.l = TbadkCoreApplication.getInst().getSkinType();
-            wo woVar = (wo) viewGroup;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        }
+    }
+
+    @Override // com.repackage.xe
+    public String[] getCrashKeys() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return null;
         }
-        return (View) invokeCommon.objValue;
+        return (String[]) invokeV.objValue;
     }
 
-    public int Z(int i) {
-        InterceptResult invokeI;
+    @Override // com.repackage.xe
+    public int getDefaultType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            int i2 = this.n.get(i, -1);
-            if (i2 != -1) {
-                return i2;
-            }
-            int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(i);
-            this.n.put(i, dimensionPixelSize);
-            return dimensionPixelSize;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 0;
         }
-        return invokeI.intValue;
+        return invokeV.intValue;
     }
 
-    public void a0(jz7 jz7Var) {
+    @Override // com.repackage.xe
+    public int getMaxCrashTimes() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jz7Var) == null) || jz7Var == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 10;
         }
-        this.i = jz7Var;
-        this.j = jz7Var.x0();
-        AbsVideoPbFragment t = jz7Var.t();
-        this.k = t;
-        PbFragment pbFragment = this.j;
-        if (pbFragment != null) {
-            this.a = pbFragment.getActivity();
-        } else if (t != null) {
-            this.a = t.getActivity();
-        } else {
-            this.a = null;
-        }
+        return invokeV.intValue;
     }
 
-    public void setFromCDN(boolean z) {
+    @Override // com.repackage.xe
+    public String getName() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.m = z;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "pb_v89_smallflow_open" : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.xe
+    public int getOffType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return 0;
         }
+        return invokeV.intValue;
     }
 }

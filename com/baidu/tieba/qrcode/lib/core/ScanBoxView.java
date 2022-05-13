@@ -192,7 +192,7 @@ public class ScanBoxView extends View {
                 this.W = ((BitmapDrawable) drawable).getBitmap();
             }
             if (this.W == null) {
-                Bitmap decodeResource = BitmapFactory.decodeResource(getResources(), R.drawable.obfuscated_res_0x7f080ec4);
+                Bitmap decodeResource = BitmapFactory.decodeResource(getResources(), R.drawable.obfuscated_res_0x7f080ede);
                 this.W = decodeResource;
                 this.W = b98.e(decodeResource, this.t);
             }
@@ -206,7 +206,7 @@ public class ScanBoxView extends View {
                 this.U = ((BitmapDrawable) drawable2).getBitmap();
             }
             if (this.U == null) {
-                Bitmap decodeResource2 = BitmapFactory.decodeResource(getResources(), R.drawable.obfuscated_res_0x7f080ec4);
+                Bitmap decodeResource2 = BitmapFactory.decodeResource(getResources(), R.drawable.obfuscated_res_0x7f080ede);
                 this.U = decodeResource2;
                 this.U = b98.e(decodeResource2, this.t);
             }
@@ -602,7 +602,7 @@ public class ScanBoxView extends View {
             int i = this.m;
             options.outWidth = i;
             options.outHeight = i;
-            this.a = BitmapHelper.getResBitmap(this.l0, R.drawable.obfuscated_res_0x7f080a06, options);
+            this.a = BitmapHelper.getResBitmap(this.l0, R.drawable.obfuscated_res_0x7f080a1e, options);
             Matrix matrix = new Matrix();
             matrix.postRotate(90.0f);
             Bitmap bitmap = this.a;
@@ -686,7 +686,7 @@ public class ScanBoxView extends View {
     public void k(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048613, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0404fa, R.attr.obfuscated_res_0x7f0404fb, R.attr.obfuscated_res_0x7f0404fc, R.attr.obfuscated_res_0x7f0404fd, R.attr.obfuscated_res_0x7f0404fe, R.attr.obfuscated_res_0x7f0404ff, R.attr.obfuscated_res_0x7f040500, R.attr.obfuscated_res_0x7f040501, R.attr.obfuscated_res_0x7f040502, R.attr.obfuscated_res_0x7f040503, R.attr.obfuscated_res_0x7f040504, R.attr.obfuscated_res_0x7f040505, R.attr.obfuscated_res_0x7f040506, R.attr.obfuscated_res_0x7f040507, R.attr.obfuscated_res_0x7f040508, R.attr.obfuscated_res_0x7f040509, R.attr.obfuscated_res_0x7f04050a, R.attr.obfuscated_res_0x7f04050b, R.attr.obfuscated_res_0x7f04050c, R.attr.obfuscated_res_0x7f04050d, R.attr.obfuscated_res_0x7f04050e, R.attr.obfuscated_res_0x7f04050f, R.attr.obfuscated_res_0x7f040510, R.attr.obfuscated_res_0x7f040511, R.attr.obfuscated_res_0x7f040512, R.attr.obfuscated_res_0x7f040513, R.attr.obfuscated_res_0x7f040514, R.attr.obfuscated_res_0x7f040515, R.attr.obfuscated_res_0x7f040516, R.attr.obfuscated_res_0x7f040517});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0404ff, R.attr.obfuscated_res_0x7f040500, R.attr.obfuscated_res_0x7f040501, R.attr.obfuscated_res_0x7f040502, R.attr.obfuscated_res_0x7f040503, R.attr.obfuscated_res_0x7f040504, R.attr.obfuscated_res_0x7f040505, R.attr.obfuscated_res_0x7f040506, R.attr.obfuscated_res_0x7f040507, R.attr.obfuscated_res_0x7f040508, R.attr.obfuscated_res_0x7f040509, R.attr.obfuscated_res_0x7f04050a, R.attr.obfuscated_res_0x7f04050b, R.attr.obfuscated_res_0x7f04050c, R.attr.obfuscated_res_0x7f04050d, R.attr.obfuscated_res_0x7f04050e, R.attr.obfuscated_res_0x7f04050f, R.attr.obfuscated_res_0x7f040510, R.attr.obfuscated_res_0x7f040511, R.attr.obfuscated_res_0x7f040512, R.attr.obfuscated_res_0x7f040513, R.attr.obfuscated_res_0x7f040514, R.attr.obfuscated_res_0x7f040515, R.attr.obfuscated_res_0x7f040516, R.attr.obfuscated_res_0x7f040517, R.attr.obfuscated_res_0x7f040518, R.attr.obfuscated_res_0x7f040519, R.attr.obfuscated_res_0x7f04051a, R.attr.obfuscated_res_0x7f04051b, R.attr.obfuscated_res_0x7f04051c});
             int indexCount = obtainStyledAttributes.getIndexCount();
             for (int i = 0; i < indexCount; i++) {
                 j(obtainStyledAttributes.getIndex(i), obtainStyledAttributes);

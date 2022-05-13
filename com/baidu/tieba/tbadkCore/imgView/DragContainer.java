@@ -42,10 +42,10 @@ public class DragContainer extends LinearLayout {
             }
         }
         this.b = new Rect();
-        c(context);
+        b(context);
     }
 
-    public final void c(Context context) {
+    public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.a = new Scroller(context);
@@ -132,6 +132,6 @@ public class DragContainer extends LinearLayout {
             }
         }
         this.b = new Rect();
-        c(context);
+        b(context);
     }
 }

@@ -123,10 +123,10 @@ public class SwanAppSelectPopView extends LinearLayout implements View.OnClickLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onFinishInflate();
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f090448);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f090443);
             this.mCopyView = findViewById;
             findViewById.setOnClickListener(this);
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f090449);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f090444);
             this.mSearchView = findViewById2;
             findViewById2.setOnClickListener(this);
         }

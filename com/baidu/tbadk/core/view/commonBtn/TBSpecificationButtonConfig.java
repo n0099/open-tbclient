@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.mi;
 /* loaded from: classes3.dex */
 public abstract class TBSpecificationButtonConfig {
     public static /* synthetic */ Interceptable $ic;
@@ -191,13 +191,13 @@ public abstract class TBSpecificationButtonConfig {
         this.r = 0;
         this.s = GradientDrawable.Orientation.LEFT_RIGHT;
         this.e = new int[2];
-        this.j = oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
-        this.k = oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
-        this.l = oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
-        this.m = oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
-        this.n = oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds176);
-        this.o = oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds78);
-        this.g = oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
+        this.j = mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
+        this.k = mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
+        this.l = mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
+        this.m = mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
+        this.n = mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds176);
+        this.o = mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds78);
+        this.g = mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
     }
 
     public abstract Drawable a(float f);

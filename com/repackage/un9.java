@@ -1,44 +1,58 @@
 package com.repackage;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire2.Message;
-import com.squareup.wire2.Message.a;
-import com.squareup.wire2.ProtoAdapter;
-import com.squareup.wire2.WireField;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import com.win.opensdk.L;
+import com.win.opensdk.PBMediaView;
+import com.win.opensdk.core.Info;
+import com.win.opensdk.views.CircleProgressbar;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 /* loaded from: classes7.dex */
-public final class un9<M extends Message<M, B>, B extends Message.a<M, B>> {
+public class un9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final WireField.Label a;
-    public final String b;
-    public final int c;
-    public final String d;
-    public final String e;
-    public final boolean f;
-    public final Field g;
-    public final Field h;
-    public final Method i;
-    public ProtoAdapter<?> j;
-    public ProtoAdapter<?> k;
-    public ProtoAdapter<Object> l;
+    public Context a;
+    public vs9 b;
+    public Info c;
+    public View d;
+    public List e;
+    public sn9 f;
+    public cs9 g;
+    public long h;
+    public zs9 i;
+    public boolean j;
+    public long k;
+    public float l;
+    public float m;
+    public int n;
+    public int o;
+    public int p;
+    public int q;
+    public int r;
+    public int s;
+    public int t;
+    public int u;
+    public long v;
+    public int w;
+    public int x;
+    public long y;
 
-    public un9(WireField wireField, Field field, Class<B> cls) {
+    public un9(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wireField, field, cls};
+            Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -48,150 +62,166 @@ public final class un9<M extends Message<M, B>, B extends Message.a<M, B>> {
                 return;
             }
         }
-        this.a = wireField.label();
-        this.b = field.getName();
-        this.c = wireField.tag();
-        this.d = wireField.keyAdapter();
-        this.e = wireField.adapter();
-        this.f = wireField.redacted();
-        this.g = field;
-        this.h = c(cls, this.b);
-        this.i = d(cls, this.b, field.getType());
+        this.e = Collections.synchronizedList(new ArrayList());
+        this.h = 0L;
+        this.i = new au9(this);
+        this.j = false;
+        this.k = 0L;
+        this.a = context;
+        vs9 vs9Var = new vs9(context, str, L.e);
+        this.b = vs9Var;
+        vs9Var.g = this.i;
+        this.g = new cs9(context);
     }
 
-    public static Field c(Class<?> cls, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, str)) == null) {
-            try {
-                return cls.getField(str);
-            } catch (NoSuchFieldException unused) {
-                throw new AssertionError("No builder field " + cls.getName() + "." + str);
-            }
+    public static /* synthetic */ void d(un9 un9Var, View view2) {
+        if (un9Var.t <= 0 || un9Var.u <= 0) {
+            un9Var.u = view2.getHeight();
+            un9Var.t = view2.getWidth();
         }
-        return (Field) invokeLL.objValue;
     }
 
-    public static Method d(Class<?> cls, String str, Class<?> cls2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, cls, str, cls2)) == null) {
-            try {
-                return cls.getMethod(str, cls2);
-            } catch (NoSuchMethodException unused) {
-                throw new AssertionError("No builder method " + cls.getName() + "." + str + "(" + cls2.getName() + SmallTailInfo.EMOTION_SUFFIX);
-            }
-        }
-        return (Method) invokeLLL.objValue;
-    }
-
-    public ProtoAdapter<Object> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ProtoAdapter<Object> protoAdapter = this.l;
-            if (protoAdapter != null) {
-                return protoAdapter;
-            }
-            if (f()) {
-                ProtoAdapter<Object> newMapAdapter = ProtoAdapter.newMapAdapter(g(), i());
-                this.l = newMapAdapter;
-                return newMapAdapter;
-            }
-            ProtoAdapter<?> withLabel = i().withLabel(this.a);
-            this.l = withLabel;
-            return withLabel;
-        }
-        return (ProtoAdapter) invokeV.objValue;
-    }
-
-    public Object b(M m) {
+    public final List a(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m)) == null) {
-            try {
-                return this.g.get(m);
-            } catch (IllegalAccessException e) {
-                throw new AssertionError(e);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (view2 instanceof ViewGroup) {
+                try {
+                    ViewGroup viewGroup = (ViewGroup) view2;
+                    for (int i = 0; i < viewGroup.getChildCount(); i++) {
+                        View childAt = viewGroup.getChildAt(i);
+                        if (childAt != null) {
+                            arrayList.add(childAt);
+                            if (!(childAt instanceof PBMediaView)) {
+                                arrayList.addAll(a(childAt));
+                            }
+                        }
+                    }
+                } catch (Exception unused) {
+                }
             }
+            return arrayList;
         }
-        return invokeL.objValue;
+        return (List) invokeL.objValue;
     }
 
-    public Object e(B b) {
-        InterceptResult invokeL;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b)) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                return this.h.get(b);
-            } catch (IllegalAccessException e) {
-                throw new AssertionError(e);
+                g();
+                if (this.b != null) {
+                    this.b.b();
+                    this.b = null;
+                }
+                if (this.f != null) {
+                    this.f = null;
+                }
+            } catch (Exception unused) {
             }
         }
-        return invokeL.objValue;
+    }
+
+    public void c(View view2, PBMediaView pBMediaView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, pBMediaView) == null) {
+            List<View> arrayList = new ArrayList();
+            if (view2 != null) {
+                arrayList = a(view2);
+            }
+            if (view2 == null || arrayList == null || arrayList.size() == 0 || !f()) {
+                return;
+            }
+            this.h = 0L;
+            if (this.d != null) {
+                g();
+            }
+            this.d = view2;
+            try {
+                qn9 qn9Var = new qn9(this);
+                for (View view3 : arrayList) {
+                    if (view3 != null && !(view3 instanceof PBMediaView)) {
+                        if (!this.e.contains(view3)) {
+                            this.e.add(view3);
+                        }
+                        if (!(view3 instanceof CircleProgressbar)) {
+                            view3.setOnClickListener(qn9Var);
+                            view3.setOnTouchListener(qn9Var);
+                        }
+                    }
+                }
+            } catch (Exception unused) {
+            }
+            if (pBMediaView != null) {
+                try {
+                    if (pBMediaView.getHtmlWebView() != null) {
+                        er9 htmlWebView = pBMediaView.getHtmlWebView();
+                        htmlWebView.a(f() ? this.c.getLoad() : "", this.c);
+                        if (this.c.isNat()) {
+                            htmlWebView.c.setOnTouchListener(new in9(this));
+                        }
+                        htmlWebView.b = new mn9(this);
+                    }
+                } catch (Exception unused2) {
+                }
+            }
+            tq9 a = xq9.a(this.a);
+            a.o(new br9(this.c));
+            a.m();
+            sn9 sn9Var = this.f;
+            if (sn9Var != null) {
+                sn9Var.onDisplayed();
+            }
+            if (this.c != null) {
+                hq9.m(this.a, this.c.getId() + ":" + System.currentTimeMillis(), false);
+            }
+            new so9().a(view2, this.c, new en9(this, view2));
+        }
     }
 
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? !this.d.isEmpty() : invokeV.booleanValue;
-    }
-
-    public ProtoAdapter<?> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ProtoAdapter<?> protoAdapter = this.k;
-            if (protoAdapter != null) {
-                return protoAdapter;
-            }
-            ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.d);
-            this.k = protoAdapter2;
-            return protoAdapter2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Info info = this.c;
+            return info != null && info.isEffective();
         }
-        return (ProtoAdapter) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void h(B b, Object obj) {
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, b, obj) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             try {
-                if (this.a.isOneOf()) {
-                    this.i.invoke(b, obj);
-                } else {
-                    this.h.set(b, obj);
+                for (View view2 : this.e) {
+                    if (view2 != null) {
+                        view2.setOnClickListener(null);
+                    }
                 }
-            } catch (IllegalAccessException | InvocationTargetException e) {
-                throw new AssertionError(e);
+                this.e.clear();
+                if (this.d != null) {
+                    this.d = null;
+                }
+            } catch (Exception unused) {
             }
         }
     }
 
-    public ProtoAdapter<?> i() {
+    public HashMap h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            ProtoAdapter<?> protoAdapter = this.j;
-            if (protoAdapter != null) {
-                return protoAdapter;
-            }
-            ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.e);
-            this.j = protoAdapter2;
-            return protoAdapter2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("dx", Integer.valueOf(this.n));
+            hashMap.put("dy", Integer.valueOf(this.o));
+            hashMap.put("dts", Long.valueOf(this.v));
+            hashMap.put("ux", Integer.valueOf(this.w));
+            hashMap.put("uy", Integer.valueOf(this.x));
+            hashMap.put("uts", Long.valueOf(this.y));
+            ro9.j(hashMap, this.p, this.q, this.r, this.s, this.t, this.u);
+            return hashMap;
         }
-        return (ProtoAdapter) invokeV.objValue;
-    }
-
-    public void j(B b, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, b, obj) == null) {
-            if (this.a.isRepeated()) {
-                ((List) e(b)).add(obj);
-            } else if (!this.d.isEmpty()) {
-                ((Map) e(b)).putAll((Map) obj);
-            } else {
-                h(b, obj);
-            }
-        }
+        return (HashMap) invokeV.objValue;
     }
 }

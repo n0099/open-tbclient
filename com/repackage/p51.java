@@ -1,32 +1,11 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes6.dex */
-public class p51 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface p51 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "crius.runtime");
 
-    public p51() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    int a();
 
-    public abstract void a(boolean z, long j);
-
-    public abstract void b(@NonNull ho0 ho0Var);
-
-    public abstract void c();
+    boolean b();
 }

@@ -1,196 +1,253 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Message;
-import android.os.SystemClock;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.SapiWebView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class gr3 {
+public class gr3 extends uw2 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static long b;
-    public static Handler c;
-    public static long d;
-    public static final Handler.Callback e;
-    public static final gr3 f;
     public transient /* synthetic */ FieldHolder $fh;
+    public String f;
+    public JSONObject g;
+    public jr3 h;
 
     /* loaded from: classes6.dex */
-    public static final class a implements Handler.Callback {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
-        public static final a a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ JSONObject a;
+        public final /* synthetic */ gr3 b;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-347946644, "Lcom/repackage/gr3$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-347946644, "Lcom/repackage/gr3$a;");
-                    return;
-                }
-            }
-            a = new a();
-        }
-
-        public a() {
+        public a(gr3 gr3Var, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gr3Var, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.b = gr3Var;
+            this.a = jSONObject;
         }
 
-        @Override // android.os.Handler.Callback
-        public final boolean handleMessage(Message msg) {
-            InterceptResult invokeL;
+        /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+        @Override // java.lang.Runnable
+        public void run() {
+            char c;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, msg)) == null) {
-                Intrinsics.checkNotNullParameter(msg, "msg");
-                if (msg.what == 0 && gr3.f.g()) {
-                    gr3 gr3Var = gr3.f;
-                    if (gr3.b < SapiWebView.DEFAULT_TIMEOUT_MILLIS) {
-                        long elapsedRealtime = SystemClock.elapsedRealtime();
-                        gr3 gr3Var2 = gr3.f;
-                        gr3 gr3Var3 = gr3.f;
-                        gr3.b = (gr3.b + elapsedRealtime) - gr3.d;
-                        gr3 gr3Var4 = gr3.f;
-                        gr3.d = elapsedRealtime;
-                        gr3 gr3Var5 = gr3.f;
-                        Handler handler = gr3.c;
-                        if (handler != null) {
-                            handler.sendEmptyMessageDelayed(0, 1000L);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                fr3.t().I(this.b.g);
+                String str = this.b.f;
+                switch (str.hashCode()) {
+                    case -1261560102:
+                        if (str.equals("queryStatus")) {
+                            c = 1;
+                            break;
                         }
-                        gr3 gr3Var6 = gr3.f;
-                        if ((gr3.b / 1000) % 15 == 0) {
-                            hq3 hq3Var = hq3.o;
-                            gr3 gr3Var7 = gr3.f;
-                            hq3Var.U(gr3.b);
-                            return true;
+                        c = 65535;
+                        break;
+                    case -625158317:
+                        if (str.equals("deleteDownload")) {
+                            c = 4;
+                            break;
                         }
-                        return true;
-                    }
+                        c = 65535;
+                        break;
+                    case -451216226:
+                        if (str.equals("pauseDownload")) {
+                            c = 2;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case -234424485:
+                        if (str.equals("open_manual")) {
+                            c = 7;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case 184711125:
+                        if (str.equals("resumeDownload")) {
+                            c = 3;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case 900412038:
+                        if (str.equals("installApp")) {
+                            c = 5;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case 1554935562:
+                        if (str.equals("startDownload")) {
+                            c = 0;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case 1921860518:
+                        if (str.equals("startDownloadFile")) {
+                            c = '\b';
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case 1944785703:
+                        if (str.equals("checkPackageExpired")) {
+                            c = 6;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    default:
+                        c = 65535;
+                        break;
                 }
-                gr3 gr3Var8 = gr3.f;
-                gr3.d = 0L;
-                gr3.f.i(false);
-                return true;
+                switch (c) {
+                    case 0:
+                        this.b.w(this.a);
+                        return;
+                    case 1:
+                        this.b.u(this.a);
+                        return;
+                    case 2:
+                        this.b.t(this.a);
+                        return;
+                    case 3:
+                        this.b.v(this.a);
+                        return;
+                    case 4:
+                        this.b.p(this.a);
+                        return;
+                    case 5:
+                        this.b.q(this.a);
+                        return;
+                    case 6:
+                        this.b.s(this.a);
+                        return;
+                    case 7:
+                        this.b.r(this.a);
+                        return;
+                    case '\b':
+                        this.b.x(this.a);
+                        return;
+                    default:
+                        return;
+                }
             }
-            return invokeL.booleanValue;
         }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755668471, "Lcom/repackage/gr3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755668471, "Lcom/repackage/gr3;");
-                return;
-            }
-        }
-        f = new gr3();
-        e = a.a;
     }
 
     public gr3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public final long f() {
-        InterceptResult invokeV;
+    @Override // com.repackage.uw2
+    public void b(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : invokeV.longValue;
-    }
-
-    public final boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a : invokeV.booleanValue;
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            long j = b;
-            if (j < 30000) {
-                return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            this.f = bundle.getString("operation", "");
+            this.g = ud3.d(bundle.getString("ubc_params", ""));
+            JSONObject d = ud3.d(bundle.getString("data", ""));
+            if (this.h == null) {
+                this.h = new jr3(this);
             }
-            b = j % 30000;
-            hq3.o.M();
+            fr3.t().H(this.h);
+            fr3.m.execute(new a(this, d));
         }
     }
 
-    public final void i(boolean z) {
+    public final void p(@NonNull JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            a = z;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+            fr3.t().s(jSONObject.optString("key_download_package_name"));
         }
     }
 
-    public final void j() {
+    public final void q(@NonNull JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (c == null) {
-                c = new Handler(e);
-            }
-            b = hq3.o.A();
-            a = true;
-            d = SystemClock.elapsedRealtime();
-            Handler handler = c;
-            if (handler != null) {
-                handler.sendEmptyMessageDelayed(0, 1000L);
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            String optString = jSONObject.optString("key_download_url");
+            String optString2 = jSONObject.optString("key_download_package_name");
+            String optString3 = jSONObject.optString("download_params");
+            pr3.n().h("manualInstall", new or3(this.g), optString2, optString3, optString);
+            fr3.t().L(optString, optString2, optString3);
         }
     }
 
-    public final void k() {
+    public final void r(@NonNull JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            a = false;
-            Handler handler = c;
-            if (handler != null) {
-                handler.removeCallbacksAndMessages(null);
-            }
-            if (d > 0) {
-                long elapsedRealtime = SystemClock.elapsedRealtime();
-                b = (b + elapsedRealtime) - d;
-                d = elapsedRealtime;
-            }
-            hq3.o.U(b);
+        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
+            fr3.t().x(jSONObject.optString("key_download_url"), jSONObject.optString("key_download_package_name"));
+        }
+    }
+
+    public final void s(@NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
+            fr3.t().p(jSONObject.optString("key_download_url"), jSONObject.optString("key_download_package_name"), jSONObject.optLong(GameGuideConfigInfo.KEY_PACKAGE_EXPIRE, 0L));
+        }
+    }
+
+    public final void t(@NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
+            fr3.t().y(jSONObject.optString("key_download_package_name"));
+        }
+    }
+
+    public final void u(@NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) {
+            fr3.t().z(jSONObject.optString("key_download_package_name"));
+        }
+    }
+
+    public final void v(@NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) {
+            fr3.t().G(jSONObject.optString("key_download_url"), jSONObject.optString("key_download_package_name"), jSONObject.optString("download_params"));
+        }
+    }
+
+    public final void w(@NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) {
+            fr3.t().J(jSONObject.optString("key_download_url"), jSONObject.optString("key_download_package_name"), jSONObject.optString("download_params"));
+        }
+    }
+
+    public final void x(@NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) {
+            fr3.t().K(jSONObject.optString("key_download_url"), jSONObject.optString(xq3.b), jSONObject.optString(xq3.c));
         }
     }
 }

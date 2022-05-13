@@ -24,11 +24,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cv9;
-import com.repackage.gv9;
-import com.repackage.ho9;
-import com.repackage.ko9;
-import com.repackage.wp9;
+import com.repackage.bu9;
+import com.repackage.cn9;
+import com.repackage.fn9;
+import com.repackage.ro9;
+import com.repackage.xt9;
 import com.tachikoma.core.component.input.InputType;
 import com.tachikoma.core.event.base.TKBaseEvent;
 import java.lang.ref.WeakReference;
@@ -44,7 +44,7 @@ public class AdvancedWebView extends WebView {
     public transient /* synthetic */ FieldHolder $fh;
     public WeakReference a;
     public WeakReference b;
-    public ko9 c;
+    public fn9 c;
     public final List d;
     public ValueCallback e;
     public ValueCallback f;
@@ -217,22 +217,22 @@ public class AdvancedWebView extends WebView {
         }
     }
 
-    public void b(Activity activity, ko9 ko9Var) {
+    public void b(Activity activity, fn9 fn9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, ko9Var) == null) {
-            c(activity, ko9Var, 51426);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, fn9Var) == null) {
+            c(activity, fn9Var, 51426);
         }
     }
 
-    public void c(Activity activity, ko9 ko9Var, int i) {
+    public void c(Activity activity, fn9 fn9Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, activity, ko9Var, i) == null) {
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, activity, fn9Var, i) == null) {
             if (activity != null) {
                 this.a = new WeakReference(activity);
             } else {
                 this.a = null;
             }
-            g(ko9Var, i);
+            g(fn9Var, i);
         }
     }
 
@@ -248,10 +248,10 @@ public class AdvancedWebView extends WebView {
         setFocusable(true);
         setFocusableInTouchMode(true);
         setSaveEnabled(true);
-        wp9.m(this);
-        super.setWebViewClient(new cv9(this));
-        super.setWebChromeClient(new gv9(this));
-        setDownloadListener(new ho9(this));
+        ro9.m(this);
+        super.setWebViewClient(new xt9(this));
+        super.setWebChromeClient(new bu9(this));
+        setDownloadListener(new cn9(this));
     }
 
     public void e(ValueCallback valueCallback, ValueCallback valueCallback2, boolean z) {
@@ -294,10 +294,10 @@ public class AdvancedWebView extends WebView {
         webSettings.setMixedContentMode(!z ? 1 : 0);
     }
 
-    public void g(ko9 ko9Var, int i) {
+    public void g(fn9 fn9Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, ko9Var, i) == null) {
-            this.c = ko9Var;
+        if (interceptable == null || interceptable.invokeLI(1048582, this, fn9Var, i) == null) {
+            this.c = fn9Var;
             this.i = i;
         }
     }

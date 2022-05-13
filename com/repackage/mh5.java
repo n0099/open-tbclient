@@ -1,23 +1,170 @@
 package com.repackage;
 
-import com.baidu.tbadk.TbPageContext;
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.baseEditMark.MarkData;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.xl4;
 /* loaded from: classes6.dex */
 public class mh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public xl4 b;
+    public b c;
+    public MarkData d;
+    public final xl4.a e;
 
-    public static gh5 a(hh5 hh5Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, hh5Var)) == null) {
-            if (hh5Var != null && (hh5Var.a() instanceof TbPageContext) && (((TbPageContext) hh5Var.a()).getPageActivity() instanceof gh5)) {
-                return (gh5) ((TbPageContext) hh5Var.a()).getPageActivity();
+    /* loaded from: classes6.dex */
+    public class a implements xl4.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mh5 a;
+
+        public a(mh5 mh5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mh5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return null;
+            this.a = mh5Var;
         }
-        return (gh5) invokeL.objValue;
+
+        @Override // com.repackage.xl4.a
+        public void a(boolean z, boolean z2, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), str}) == null) {
+                if (z) {
+                    if (z2) {
+                        mi.N(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f00cf));
+                    } else {
+                        mi.N(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f0f9c));
+                    }
+                    if (this.a.c != null) {
+                        this.a.c.a(z2);
+                    }
+                    if (this.a.d != null) {
+                        wj8 wj8Var = new wj8();
+                        wj8Var.a = this.a.d.getThreadId();
+                        wj8Var.b = z2;
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921603, wj8Var));
+                        return;
+                    }
+                    return;
+                }
+                mi.N(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f14b8));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(boolean z);
+    }
+
+    public mh5(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = null;
+        this.e = new a(this);
+        this.a = context;
+        if (context instanceof BaseActivity) {
+            this.b = xl4.b((BaseActivity) context);
+        } else if (context instanceof BaseFragmentActivity) {
+            this.b = xl4.c((BaseFragmentActivity) context);
+        }
+        xl4 xl4Var = this.b;
+        if (xl4Var != null) {
+            xl4Var.j(this.e);
+        }
+    }
+
+    public void d() {
+        xl4 xl4Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (xl4Var = this.b) == null) {
+            return;
+        }
+        xl4Var.a();
+        this.b.h(true);
+    }
+
+    public void e() {
+        xl4 xl4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (xl4Var = this.b) != null && xl4Var.e()) {
+            this.b.d();
+            this.b.h(false);
+        }
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            xl4 xl4Var = this.b;
+            if (xl4Var != null) {
+                return xl4Var.e();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void g(boolean z) {
+        xl4 xl4Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (xl4Var = this.b) == null) {
+            return;
+        }
+        xl4Var.h(z);
+    }
+
+    public void h(MarkData markData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, markData) == null) {
+            this.d = markData;
+            xl4 xl4Var = this.b;
+            if (xl4Var != null) {
+                xl4Var.i(markData);
+            }
+        }
+    }
+
+    public void i(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
+            this.c = bVar;
+        }
     }
 }

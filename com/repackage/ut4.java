@@ -1,40 +1,74 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.net.Uri;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ut4 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "com.baidu.tieba";
-    public static String b = "com.baidu.tieba:remote";
-    public static String c = "com.baidu.tieba:bdservice_v1";
-    public static String d = "com.baidu.tieba:pluginInstaller";
-    public static String e = "com.baidu.tieba:daemon";
-    public static String f = "com.baidu.tieba:cdnTachometer";
-    public static String g = "plugininstaller_settings";
-    public static String h = "daemon_settings";
-    public static String i = "cdnTachometer_settings";
-    public static final String[] j;
-    public static final String[] k;
+public class ut4 extends mt4 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public kt4 c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755249444, "Lcom/repackage/ut4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755249444, "Lcom/repackage/ut4;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ut4(kt4 kt4Var) {
+        super(kt4Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {kt4Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((kt4) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        j = new String[]{"skin_", "from_id", "bd_loc_crash_count", "webview_crash_count", "bd_loc_switcher", "install_other_app_file_name", "cuid", "new_cuid", "new_cuid_galaxy2", "gpu_open", "client_id", "keepalive_wifi", "keepalive_nonwifi", "networkcore_type", "socket_reconn_strategy", "image_quality", "capable_of_webp_format", "webp_failure_count", "log_stat_upload_time ", "log_stat_debug_time", "log_stat_switch_data", "log_stat_error_time", "is_motu_forbidden", "cdn_iplist_cache_key_three", "report_user_info_time_key", "image_viewer_tip", "location_lat", "location_lng", "location_pos", "location_on", "xiaoying_crash_count", "plugin_patch_hook_failed_count", "page_stay_duration_switch", "page_stay_max_cost", "applist_intalled_apk_ids", "applist_intalled_apk_ids_timestamp", "KEY_UPLOAD_LOG_INTERVAL", "KEY_LOG_REAL_TIME_UPLOAD_SWITCH", "smart_app_tid", "smart_app_id", "smart_app_name", "key_ai_app_guide_display", "AD_SNIFF_RESULT_KEY", "key_baiduid_for_anti", "key_secret_is_show_new", "key_qq_share_h5_enable", "key_wechat_small_app_to_h5", "key_launch_up_speed", "fun_ad_big_image_floor", "fun_ad_big_image_density", "fun_ad_big_image_size", "fun_ad_big_image_switch", "key_post_thread_has_request_location", "key_sync_extra_field", "key_member_auto_ban_renewal_show"};
-        k = new String[0];
+        this.c = kt4Var;
+    }
+
+    @Override // com.repackage.mt4
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TBHY_COMMON_SHOW_SHARE_DIALOG" : (String) invokeV.objValue;
+    }
+
+    @nt4(isAsync = false, value = "showShareDialog")
+    public void showShareDialog(JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        String optString = jSONObject.optString("title");
+        String optString2 = jSONObject.optString("content");
+        String optString3 = jSONObject.optString("imgUrl");
+        String optString4 = jSONObject.optString("shareUrl");
+        ShareItem shareItem = new ShareItem();
+        shareItem.t = optString;
+        shareItem.u = optString2;
+        if (optString3 == null) {
+            shareItem.x = null;
+        } else {
+            shareItem.x = Uri.parse(optString3);
+        }
+        shareItem.v = optString4;
+        ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.c.getContext(), shareItem, true);
+        shareDialogConfig.setIsSupportNightMode(true);
+        shareDialogConfig.setIsCopyLink(true);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
     }
 }

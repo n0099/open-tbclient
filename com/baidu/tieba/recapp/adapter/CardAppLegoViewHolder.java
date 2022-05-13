@@ -9,23 +9,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.aa8;
-import com.repackage.sd7;
 import com.repackage.w68;
+import com.repackage.yd7;
+import com.repackage.z98;
 /* loaded from: classes3.dex */
 public class CardAppLegoViewHolder extends TypeAdapter.ViewHolder implements w68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public aa8 a;
+    public z98 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CardAppLegoViewHolder(sd7<?> sd7Var) {
-        super((View) sd7Var);
+    public CardAppLegoViewHolder(yd7<?> yd7Var) {
+        super((View) yd7Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sd7Var};
+            Object[] objArr = {yd7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,20 +39,20 @@ public class CardAppLegoViewHolder extends TypeAdapter.ViewHolder implements w68
     }
 
     public void c(int i) {
-        aa8 aa8Var;
+        z98 z98Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (aa8Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (z98Var = this.a) == null) {
             return;
         }
-        aa8Var.autoPlay(i);
+        z98Var.autoPlay(i);
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            aa8 aa8Var = this.a;
-            return aa8Var != null && aa8Var.canPlay();
+            z98 z98Var = this.a;
+            return z98Var != null && z98Var.canPlay();
         }
         return invokeV.booleanValue;
     }
@@ -61,19 +61,19 @@ public class CardAppLegoViewHolder extends TypeAdapter.ViewHolder implements w68
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            aa8 aa8Var = this.a;
-            if (aa8Var == null) {
+            z98 z98Var = this.a;
+            if (z98Var == null) {
                 return -2;
             }
-            return aa8Var.getPlayStatus();
+            return z98Var.getPlayStatus();
         }
         return invokeV.intValue;
     }
 
-    public void f(aa8 aa8Var) {
+    public void f(z98 z98Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aa8Var) == null) {
-            this.a = aa8Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, z98Var) == null) {
+            this.a = z98Var;
         }
     }
 
@@ -82,11 +82,11 @@ public class CardAppLegoViewHolder extends TypeAdapter.ViewHolder implements w68
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            aa8 aa8Var = this.a;
-            if (aa8Var == null) {
+            z98 z98Var = this.a;
+            if (z98Var == null) {
                 return 0;
             }
-            return (int) aa8Var.getCurrentPosition();
+            return (int) z98Var.getCurrentPosition();
         }
         return invokeV.intValue;
     }
@@ -96,8 +96,8 @@ public class CardAppLegoViewHolder extends TypeAdapter.ViewHolder implements w68
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            aa8 aa8Var = this.a;
-            return aa8Var == null ? "" : aa8Var.getPlayUrl();
+            z98 z98Var = this.a;
+            return z98Var == null ? "" : z98Var.getPlayUrl();
         }
         return (String) invokeV.objValue;
     }
@@ -107,11 +107,11 @@ public class CardAppLegoViewHolder extends TypeAdapter.ViewHolder implements w68
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            aa8 aa8Var = this.a;
-            if (aa8Var == null) {
+            z98 z98Var = this.a;
+            if (z98Var == null) {
                 return null;
             }
-            return aa8Var.getVideoContainer();
+            return z98Var.getVideoContainer();
         }
         return (View) invokeV.objValue;
     }
@@ -131,11 +131,11 @@ public class CardAppLegoViewHolder extends TypeAdapter.ViewHolder implements w68
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            aa8 aa8Var = this.a;
-            if (aa8Var == null) {
+            z98 z98Var = this.a;
+            if (z98Var == null) {
                 return false;
             }
-            return aa8Var.isPlayStarted();
+            return z98Var.isPlayStarted();
         }
         return invokeV.booleanValue;
     }
@@ -145,32 +145,32 @@ public class CardAppLegoViewHolder extends TypeAdapter.ViewHolder implements w68
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            aa8 aa8Var = this.a;
-            if (aa8Var == null) {
+            z98 z98Var = this.a;
+            if (z98Var == null) {
                 return false;
             }
-            return aa8Var.isPlaying();
+            return z98Var.isPlaying();
         }
         return invokeV.booleanValue;
     }
 
     @Override // com.repackage.w68
     public void startPlay() {
-        aa8 aa8Var;
+        z98 z98Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (aa8Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (z98Var = this.a) == null) {
             return;
         }
-        aa8Var.startPlay();
+        z98Var.startPlay();
     }
 
     @Override // com.repackage.w68
     public void stopPlay() {
-        aa8 aa8Var;
+        z98 z98Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (aa8Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (z98Var = this.a) == null) {
             return;
         }
-        aa8Var.stopPlay();
+        z98Var.stopPlay();
     }
 }

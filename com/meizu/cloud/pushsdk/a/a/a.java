@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.android.common.security.RSAUtil;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
-import com.repackage.ym9;
+import com.repackage.tl9;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -153,11 +153,11 @@ public class a {
     }
 
     private void b(String str) {
-        ym9.a("HttpKeyMgr", str);
+        tl9.a("HttpKeyMgr", str);
     }
 
     private void c(String str) {
-        ym9.b("HttpKeyMgr", str);
+        tl9.b("HttpKeyMgr", str);
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, IF, INVOKE, IF, INVOKE, IF, NOP, INVOKE, INVOKE, IF, NOP] complete} */

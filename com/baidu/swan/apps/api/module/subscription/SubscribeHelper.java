@@ -24,21 +24,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c73;
-import com.repackage.dd2;
-import com.repackage.dd3;
-import com.repackage.de3;
-import com.repackage.ed2;
-import com.repackage.fd2;
-import com.repackage.i03;
-import com.repackage.j03;
-import com.repackage.l73;
-import com.repackage.mg4;
-import com.repackage.py2;
-import com.repackage.qj2;
-import com.repackage.tg1;
-import com.repackage.vg1;
-import com.repackage.wl2;
+import com.repackage.az2;
+import com.repackage.bk2;
+import com.repackage.eh1;
+import com.repackage.gh1;
+import com.repackage.hm2;
+import com.repackage.n73;
+import com.repackage.od2;
+import com.repackage.od3;
+import com.repackage.oe3;
+import com.repackage.pd2;
+import com.repackage.qd2;
+import com.repackage.t03;
+import com.repackage.u03;
+import com.repackage.w73;
+import com.repackage.xg4;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -55,7 +55,7 @@ public class SubscribeHelper {
     public String[] a;
     public l b;
     public Context c;
-    public j03 d;
+    public u03 d;
 
     /* loaded from: classes2.dex */
     public class a implements j {
@@ -146,7 +146,7 @@ public class SubscribeHelper {
                         do {
                             hashMap.put(query.getString(query.getColumnIndex("templateId")), Integer.valueOf(query.getInt(query.getColumnIndex("result"))));
                         } while (query.moveToNext());
-                        mg4.d(query);
+                        xg4.d(query);
                     }
                 }
                 LinkedHashMap<String, Boolean> linkedHashMap = new LinkedHashMap<>();
@@ -209,15 +209,15 @@ public class SubscribeHelper {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     ContentResolver contentResolver = this.c.e.c.getContentResolver();
-                    for (fd2 fd2Var : this.a) {
-                        String str = fd2Var.a;
+                    for (qd2 qd2Var : this.a) {
+                        String str = qd2Var.a;
                         Boolean bool = (Boolean) this.c.b.get(str);
                         if (bool != null && !bool.booleanValue()) {
                             ContentValues contentValues = new ContentValues();
                             contentValues.put("appKey", this.c.c.a);
                             contentValues.put("templateId", str);
                             contentValues.put("result", (Integer) 0);
-                            contentValues.put("title", fd2Var.b);
+                            contentValues.put("title", qd2Var.b);
                             contentValues.put("tips", this.b);
                             contentResolver.insert(SwanAppSubscribeMsgProvider.CONTENT_URI, contentValues);
                         }
@@ -287,16 +287,16 @@ public class SubscribeHelper {
         }
 
         @Override // com.baidu.swan.apps.api.module.subscription.SubscribeHelper.i
-        public void a(@Nullable String str, List<fd2> list, boolean z) {
+        public void a(@Nullable String str, List<qd2> list, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLZ(1048576, this, str, list, z) == null) {
                 if (!TextUtils.isEmpty(str) && list != null && list.size() > 0) {
-                    dd3.k(new a(this, list, str), "createFormDataBase");
+                    od3.k(new a(this, list, str), "createFormDataBase");
                     if (z && this.c.e) {
                         this.e.m(this.c, str, list, this.d, this.a);
                         return;
                     } else {
-                        de3.a0(new b(this, str, list));
+                        oe3.a0(new b(this, str, list));
                         return;
                     }
                 }
@@ -306,7 +306,7 @@ public class SubscribeHelper {
     }
 
     /* loaded from: classes2.dex */
-    public class d implements ed2.f {
+    public class d implements pd2.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ l a;
@@ -339,8 +339,8 @@ public class SubscribeHelper {
             this.e = kVar;
         }
 
-        @Override // com.repackage.ed2.f
-        public boolean a(DialogInterface dialogInterface, int i, List<fd2> list) {
+        @Override // com.repackage.pd2.f
+        public boolean a(DialogInterface dialogInterface, int i, List<qd2> list) {
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, dialogInterface, i, list)) == null) {
@@ -404,7 +404,7 @@ public class SubscribeHelper {
     }
 
     /* loaded from: classes2.dex */
-    public class f implements vg1 {
+    public class f implements gh1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean a;
@@ -439,19 +439,19 @@ public class SubscribeHelper {
             this.f = kVar;
         }
 
-        @Override // com.repackage.vg1
+        @Override // com.repackage.gh1
         public void onResult(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
                 if (i == 0) {
                     if (!this.a && SubscribeHelper.l()) {
-                        c73.S("success", 12, NativeConstants.COMPONENT);
+                        n73.S("success", 12, NativeConstants.COMPONENT);
                     }
                     this.g.v(this.b, this.c, this.d, this.e, this.f);
                     return;
                 }
                 if (!this.a && !SubscribeHelper.l()) {
-                    c73.S(com.baidu.pass.biometrics.face.liveness.b.a.g0, 12, NativeConstants.COMPONENT);
+                    n73.S(com.baidu.pass.biometrics.face.liveness.b.a.g0, 12, NativeConstants.COMPONENT);
                 }
                 this.g.t();
                 this.f.a(500106, "用户未登录", null);
@@ -496,19 +496,19 @@ public class SubscribeHelper {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 ContentResolver contentResolver = this.e.c.getContentResolver();
-                for (fd2 fd2Var : this.a) {
+                for (qd2 qd2Var : this.a) {
                     ContentValues contentValues = new ContentValues();
-                    contentValues.put("title", fd2Var.b);
+                    contentValues.put("title", qd2Var.b);
                     contentValues.put("tips", this.b);
                     contentValues.put("result", Integer.valueOf(this.c ? 1 : -1));
-                    contentResolver.update(SwanAppSubscribeMsgProvider.CONTENT_URI, contentValues, "appKey=? and templateId=?", new String[]{this.d, fd2Var.a});
+                    contentResolver.update(SwanAppSubscribeMsgProvider.CONTENT_URI, contentValues, "appKey=? and templateId=?", new String[]{this.d, qd2Var.a});
                 }
             }
         }
     }
 
     /* loaded from: classes2.dex */
-    public class h implements dd2 {
+    public class h implements od2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ k a;
@@ -533,21 +533,21 @@ public class SubscribeHelper {
             this.a = kVar;
         }
 
-        @Override // com.repackage.ny2
+        @Override // com.repackage.yy2
         public void a(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
                 this.b.t();
                 this.a.a(0, "调用成功", jSONObject);
-                if (qj2.h0().e(this.b.c)) {
-                    py2.c.e();
+                if (bk2.h0().e(this.b.c)) {
+                    az2.c.e();
                 } else {
-                    py2.c.f();
+                    az2.c.f();
                 }
             }
         }
 
-        @Override // com.repackage.ny2
+        @Override // com.repackage.yy2
         public void onFail(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -558,7 +558,7 @@ public class SubscribeHelper {
 
     /* loaded from: classes2.dex */
     public interface i {
-        void a(@Nullable String str, @Nullable List<fd2> list, boolean z);
+        void a(@Nullable String str, @Nullable List<qd2> list, boolean z);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -676,7 +676,7 @@ public class SubscribeHelper {
                 return;
             }
         }
-        e = tg1.a;
+        e = eh1.a;
     }
 
     public SubscribeHelper() {
@@ -696,17 +696,17 @@ public class SubscribeHelper {
     public static boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? i03.J().r().M().e(qj2.c()) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? t03.J().r().M().e(bk2.c()) : invokeV.booleanValue;
     }
 
-    public final JSONArray k(List<fd2> list) {
+    public final JSONArray k(List<qd2> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
             JSONArray jSONArray = new JSONArray();
             if (list != null && list.size() > 0) {
-                for (fd2 fd2Var : list) {
-                    jSONArray.put(fd2Var.b);
+                for (qd2 qd2Var : list) {
+                    jSONArray.put(qd2Var.b);
                 }
             }
             return jSONArray;
@@ -714,7 +714,7 @@ public class SubscribeHelper {
         return (JSONArray) invokeL.objValue;
     }
 
-    public final void m(@NonNull l lVar, String str, @NonNull List<fd2> list, @NonNull List<String> list2, @NonNull k kVar) {
+    public final void m(@NonNull l lVar, String str, @NonNull List<qd2> list, @NonNull List<String> list2, @NonNull k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar, str, list, list2, kVar) == null) {
             boolean l2 = l();
@@ -723,18 +723,18 @@ public class SubscribeHelper {
                 return;
             }
             if (!l2) {
-                c73.S("show", 12, NativeConstants.COMPONENT);
+                n73.S("show", 12, NativeConstants.COMPONENT);
             }
-            i03.J().r().M().f(wl2.U().getActivity(), null, new f(this, l2, lVar, str, list, list2, kVar));
+            t03.J().r().M().f(hm2.U().getActivity(), null, new f(this, l2, lVar, str, list, list2, kVar));
         }
     }
 
-    public boolean n(Context context, j03 j03Var, String str, JSONObject jSONObject, invokeSubscribeFrom invokesubscribefrom, k kVar) {
+    public boolean n(Context context, u03 u03Var, String str, JSONObject jSONObject, invokeSubscribeFrom invokesubscribefrom, k kVar) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, j03Var, str, jSONObject, invokesubscribefrom, kVar})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, u03Var, str, jSONObject, invokesubscribefrom, kVar})) == null) {
             this.c = context;
-            this.d = j03Var;
+            this.d = u03Var;
             String optString = jSONObject.optString("subscribeId");
             if (TextUtils.isEmpty(optString)) {
                 kVar.a(202, "subscribeId is empty", null);
@@ -786,34 +786,34 @@ public class SubscribeHelper {
     public final void p(String str, String[] strArr, j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, str, strArr, jVar) == null) {
-            dd3.k(new b(this, str, strArr, jVar), "querySubscribeInfo");
+            od3.k(new b(this, str, strArr, jVar), "querySubscribeInfo");
         }
     }
 
-    public final void q(String str, String str2, List<fd2> list, List<fd2> list2) {
+    public final void q(String str, String str2, List<qd2> list, List<qd2> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048581, this, str, str2, list, list2) == null) {
-            l73 l73Var = new l73();
-            l73Var.a = "swan";
-            l73Var.b = str;
-            l73Var.g = str2;
+            w73 w73Var = new w73();
+            w73Var.a = "swan";
+            w73Var.b = str;
+            w73Var.g = str2;
             if (list2 != null) {
-                l73Var.e = String.valueOf(list2.size());
+                w73Var.e = String.valueOf(list2.size());
             }
-            l73Var.a("appkey", this.d.getAppId());
-            l73Var.a("tpl", k(list));
-            l73Var.a("selected_tpl", k(list2));
+            w73Var.a("appkey", this.d.getAppId());
+            w73Var.a("tpl", k(list));
+            w73Var.a("selected_tpl", k(list2));
             if (e) {
-                Log.d("SubscribeHelper", "event: " + l73Var.f());
+                Log.d("SubscribeHelper", "event: " + w73Var.f());
             }
-            c73.y("1311", "92", l73Var);
+            n73.y("1311", "92", w73Var);
         }
     }
 
     public final void r(@NonNull l lVar, @NonNull List<String> list, @NonNull k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048582, this, lVar, list, kVar) == null) {
-            qj2.W().d(lVar.a, list, lVar.b, lVar.c, new h(this, kVar));
+            bk2.W().d(lVar.a, list, lVar.b, lVar.c, new h(this, kVar));
         }
     }
 
@@ -821,40 +821,40 @@ public class SubscribeHelper {
     public final void s(@NonNull l lVar, LinkedHashMap<String, Boolean> linkedHashMap, @NonNull List<String> list, k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048583, this, lVar, linkedHashMap, list, kVar) == null) {
-            qj2.W().b(lVar.a, linkedHashMap.keySet(), new c(this, kVar, linkedHashMap, lVar, list));
+            bk2.W().b(lVar.a, linkedHashMap.keySet(), new c(this, kVar, linkedHashMap, lVar, list));
         }
     }
 
     public void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            i03.J().r().V().X0("0");
+            t03.J().r().V().X0("0");
         }
     }
 
-    public final void u(@NonNull l lVar, String str, List<fd2> list, @NonNull List<String> list2, @NonNull k kVar) {
+    public final void u(@NonNull l lVar, String str, List<qd2> list, @NonNull List<String> list2, @NonNull k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048585, this, lVar, str, list, list2, kVar) == null) {
-            ed2.a((Activity) this.c, this.d, str, list, new d(this, lVar, list, str, list2, kVar), new e(this, kVar)).show();
+            pd2.a((Activity) this.c, this.d, str, list, new d(this, lVar, list, str, list2, kVar), new e(this, kVar)).show();
             q("show", lVar.d, list, list);
         }
     }
 
-    public final void v(@NonNull l lVar, String str, @NonNull List<fd2> list, @NonNull List<String> list2, @NonNull k kVar) {
+    public final void v(@NonNull l lVar, String str, @NonNull List<qd2> list, @NonNull List<String> list2, @NonNull k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048586, this, lVar, str, list, list2, kVar) == null) {
             w(lVar.a, list, str, true);
-            for (fd2 fd2Var : list) {
-                list2.add(fd2Var.a);
+            for (qd2 qd2Var : list) {
+                list2.add(qd2Var.a);
             }
             r(lVar, list2, kVar);
         }
     }
 
-    public final void w(String str, List<fd2> list, String str2, boolean z) {
+    public final void w(String str, List<qd2> list, String str2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{str, list, str2, Boolean.valueOf(z)}) == null) {
-            dd3.g().execute(new g(this, list, str2, z, str));
+            od3.g().execute(new g(this, list, str2, z, str));
         }
     }
 }

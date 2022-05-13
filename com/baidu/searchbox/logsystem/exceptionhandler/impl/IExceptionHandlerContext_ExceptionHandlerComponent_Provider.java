@@ -5,10 +5,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cn;
-import com.repackage.pb1;
+import com.repackage.ac1;
+import com.repackage.zm;
 /* loaded from: classes2.dex */
-public class IExceptionHandlerContext_ExceptionHandlerComponent_Provider implements pb1 {
+public class IExceptionHandlerContext_ExceptionHandlerComponent_Provider implements ac1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,10 +26,10 @@ public class IExceptionHandlerContext_ExceptionHandlerComponent_Provider impleme
         }
     }
 
-    @Override // com.repackage.pb1
+    @Override // com.repackage.ac1
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new cn() : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new zm() : invokeV.objValue;
     }
 }

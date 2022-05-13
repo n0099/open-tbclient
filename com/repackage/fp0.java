@@ -100,7 +100,7 @@ public class fp0 {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public fp0() {
-        this(hi0.b());
+        this(ki0.b());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

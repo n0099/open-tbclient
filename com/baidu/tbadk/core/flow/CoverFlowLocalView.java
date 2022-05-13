@@ -18,27 +18,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.as4;
-import com.repackage.bs4;
-import com.repackage.cs4;
-import com.repackage.ds4;
-import com.repackage.zr4;
+import com.repackage.ks4;
+import com.repackage.ls4;
+import com.repackage.ms4;
+import com.repackage.ns4;
+import com.repackage.os4;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class CoverFlowLocalView<T extends as4> extends FrameLayout {
+public class CoverFlowLocalView<T extends ls4> extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ListViewPager a;
     public IndicatorView b;
-    public cs4 c;
+    public ns4 c;
     public View d;
     public CoverFlowLocalAdapter<T> e;
-    public zr4 f;
+    public ks4 f;
     public CoverFlowLocalView<T>.b g;
     public boolean h;
     public boolean i;
     public boolean j;
-    public ds4<T> k;
+    public os4<T> k;
     public CoverFlowLocalView<T>.d l;
     public CoverFlowLocalView<T>.c m;
     public boolean n;
@@ -132,7 +132,7 @@ public class CoverFlowLocalView<T extends as4> extends FrameLayout {
             }
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r7v29, resolved type: com.repackage.ds4 */
+        /* JADX DEBUG: Multi-variable search result rejected for r7v29, resolved type: com.repackage.os4 */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i, float f, int i2) {
@@ -162,7 +162,7 @@ public class CoverFlowLocalView<T extends as4> extends FrameLayout {
             this.a.b.setPosition(i + f);
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r0v12, resolved type: com.repackage.ds4 */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v12, resolved type: com.repackage.os4 */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
@@ -215,7 +215,7 @@ public class CoverFlowLocalView<T extends as4> extends FrameLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             int intValue;
-            as4 b;
+            ls4 b;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.k == null || !(view2.getTag() instanceof Integer) || (b = this.a.e.b((intValue = ((Integer) view2.getTag()).intValue()))) == null) {
                 return;
@@ -319,7 +319,7 @@ public class CoverFlowLocalView<T extends as4> extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             q(context);
             p(context);
-            setCoverFlowFactory(new bs4());
+            setCoverFlowFactory(new ms4());
             addView(this.a);
             addView(this.b);
             CoverFlowLocalAdapter<T> coverFlowLocalAdapter = new CoverFlowLocalAdapter<>(context);
@@ -380,10 +380,10 @@ public class CoverFlowLocalView<T extends as4> extends FrameLayout {
         }
     }
 
-    public void setCallback(ds4<T> ds4Var) {
+    public void setCallback(os4<T> os4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ds4Var) == null) {
-            this.k = ds4Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, os4Var) == null) {
+            this.k = os4Var;
         }
     }
 
@@ -398,17 +398,17 @@ public class CoverFlowLocalView<T extends as4> extends FrameLayout {
         }
     }
 
-    public void setCoverFlowFactory(zr4 zr4Var) {
+    public void setCoverFlowFactory(ks4 ks4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, zr4Var) == null) || zr4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, ks4Var) == null) || ks4Var == null) {
             return;
         }
-        this.f = zr4Var;
-        cs4 a2 = zr4Var.a();
+        this.f = ks4Var;
+        ns4 a2 = ks4Var.a();
         this.c = a2;
         a2.i(this.b);
-        zr4Var.c().b(this.a);
-        View b2 = zr4Var.b();
+        ks4Var.c().b(this.a);
+        View b2 = ks4Var.b();
         this.d = b2;
         if (b2 != null) {
             removeAllViews();

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
-import com.repackage.ym9;
+import com.repackage.tl9;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -57,13 +57,13 @@ public class b {
             if (b2 != null && b2.length > 0) {
                 String str = new String(a.a().b());
                 String str2 = a;
-                ym9.a(str2, "attach x_a_key: " + str);
+                tl9.a(str2, "attach x_a_key: " + str);
                 map.put("X-A-Key", str);
             }
         } else {
             String str3 = new String(c2);
             String str4 = a;
-            ym9.a(str4, "attach x_s_key: " + str3);
+            tl9.a(str4, "attach x_s_key: " + str3);
             map.put("X-S-Key", str3);
         }
         return map;
@@ -100,7 +100,7 @@ public class b {
         try {
             String headerField = uRLConnection.getHeaderField("X-S-Key");
             String str = a;
-            ym9.a(str, "get x_s_key = " + headerField);
+            tl9.a(str, "get x_s_key = " + headerField);
             if (TextUtils.isEmpty(headerField)) {
                 return;
             }
@@ -194,7 +194,7 @@ public class b {
                                 }
                                 a(httpURLConnection, str3.getBytes());
                                 int responseCode = httpURLConnection.getResponseCode();
-                                ym9.a(a, "code = " + responseCode);
+                                tl9.a(a, "code = " + responseCode);
                                 a(httpURLConnection);
                                 b(httpURLConnection);
                                 inputStream = httpURLConnection.getInputStream();
@@ -203,7 +203,7 @@ public class b {
                                         a2 = a(inputStream);
                                         if (a2 != null) {
                                             String str4 = new String(a2);
-                                            ym9.a(a, "body = " + str4);
+                                            tl9.a(a, "body = " + str4);
                                             try {
                                                 new JSONObject(str4).getInt("code");
                                             } catch (JSONException e) {
@@ -212,7 +212,7 @@ public class b {
                                         }
                                     } catch (Exception e2) {
                                         e = e2;
-                                        ym9.b(a, "realStringPartRequest error " + e.getMessage());
+                                        tl9.b(a, "realStringPartRequest error " + e.getMessage());
                                         if (inputStream != null) {
                                             try {
                                                 inputStream.close();
@@ -234,7 +234,7 @@ public class b {
                         }
                         a(httpURLConnection, str3.getBytes());
                         int responseCode2 = httpURLConnection.getResponseCode();
-                        ym9.a(a, "code = " + responseCode2);
+                        tl9.a(a, "code = " + responseCode2);
                         a(httpURLConnection);
                         b(httpURLConnection);
                         inputStream = httpURLConnection.getInputStream();
@@ -280,7 +280,7 @@ public class b {
         try {
             String headerField = uRLConnection.getHeaderField("Key-Timeout");
             String str = a;
-            ym9.a(str, "get keyTimeout = " + headerField);
+            tl9.a(str, "get keyTimeout = " + headerField);
         } catch (NullPointerException unused) {
         }
     }

@@ -5,37 +5,34 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LowFlowsActivityConfig;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class ix5 implements View.OnClickListener {
+public final class ix5 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public View b;
+    public final int a;
+    public final Context b;
     public View c;
-    public ImageView d;
-    public View e;
-    public EMTextView f;
-    public ImageView g;
-    public int h;
-    public String i;
+    public RelativeLayout d;
+    public RelativeLayout e;
+    public ImageView f;
+    public TextView g;
+    public ImageView h;
 
     public ix5(Context context) {
         Interceptable interceptable = $ic;
@@ -52,106 +49,143 @@ public class ix5 implements View.OnClickListener {
                 return;
             }
         }
-        this.h = 3;
-        this.a = context;
-        c(context);
+        Intrinsics.checkNotNullParameter(context, "context");
+        this.a = 3;
+        this.b = context;
+        c();
     }
 
-    public ImageView a() {
+    public final View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.g : (ImageView) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ImageView imageView = this.h;
+            if (imageView == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mCardInterestClose");
+                return null;
+            }
+            return imageView;
+        }
+        return (View) invokeV.objValue;
     }
 
-    public View b() {
+    public final View b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (View) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            View view2 = this.c;
+            if (view2 == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mView");
+                return null;
+            }
+            return view2;
+        }
+        return (View) invokeV.objValue;
     }
 
-    public final void c(Context context) {
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01ac, (ViewGroup) null);
-            this.b = inflate;
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f091ade);
-            this.c = findViewById;
-            findViewById.setOnClickListener(this);
-            this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090ed7);
-            this.e = this.b.findViewById(R.id.obfuscated_res_0x7f0923b3);
-            this.f = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f092024);
-            ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09066c);
-            this.g = imageView;
-            imageView.setClickable(true);
-            e(TbadkCoreApplication.getInst().getSkinType());
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            RelativeLayout relativeLayout = null;
+            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d01a0, (ViewGroup) null);
+            Intrinsics.checkNotNullExpressionValue(inflate, "from(mContext).inflate(R…card_interest_view, null)");
+            this.c = inflate;
+            if (inflate == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mView");
+                inflate = null;
+            }
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f090554);
+            Intrinsics.checkNotNullExpressionValue(findViewById, "mView.findViewById(R.id.card_interest_root)");
+            this.d = (RelativeLayout) findViewById;
+            View view2 = this.c;
+            if (view2 == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mView");
+                view2 = null;
+            }
+            View findViewById2 = view2.findViewById(R.id.obfuscated_res_0x7f090553);
+            Intrinsics.checkNotNullExpressionValue(findViewById2, "mView.findViewById(R.id.card_interest_insind)");
+            this.e = (RelativeLayout) findViewById2;
+            View view3 = this.c;
+            if (view3 == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mView");
+                view3 = null;
+            }
+            View findViewById3 = view3.findViewById(R.id.obfuscated_res_0x7f090550);
+            Intrinsics.checkNotNullExpressionValue(findViewById3, "mView.findViewById(R.id.card_interest_add)");
+            this.f = (ImageView) findViewById3;
+            View view4 = this.c;
+            if (view4 == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mView");
+                view4 = null;
+            }
+            View findViewById4 = view4.findViewById(R.id.obfuscated_res_0x7f090552);
+            Intrinsics.checkNotNullExpressionValue(findViewById4, "mView.findViewById(R.id.card_interest_content)");
+            this.g = (TextView) findViewById4;
+            View view5 = this.c;
+            if (view5 == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mView");
+                view5 = null;
+            }
+            View findViewById5 = view5.findViewById(R.id.obfuscated_res_0x7f090551);
+            Intrinsics.checkNotNullExpressionValue(findViewById5, "mView.findViewById(R.id.card_interest_close)");
+            this.h = (ImageView) findViewById5;
+            RelativeLayout relativeLayout2 = this.e;
+            if (relativeLayout2 == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mCardInterestInsind");
+            } else {
+                relativeLayout = relativeLayout2;
+            }
+            relativeLayout.setOnClickListener(this);
+            d(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public void d() {
+    public final void d(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || StringUtils.isNull(TbSingleton.getInstance().getBannerText())) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || this.a == i) {
             return;
         }
-        this.f.setText(TbSingleton.getInstance().getBannerText());
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            if (this.h != i) {
-                vr4 d = vr4.d(this.c);
-                d.n(R.string.J_X06);
-                d.f(R.color.CAM_X0201);
-                vr4 d2 = vr4.d(this.e);
-                d2.n(R.string.J_X03);
-                d2.f(R.color.CAM_X0110);
-                vr4.d(this.f).v(R.color.CAM_X0108);
-                this.g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_close22, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
-                if (i == 4) {
-                    WebPManager.setMaskDrawable(this.d, R.drawable.obfuscated_res_0x7f080f65, WebPManager.ResourceStateType.NORMAL);
-                } else if (i == 1) {
-                    WebPManager.setMaskDrawable(this.d, R.drawable.obfuscated_res_0x7f080f64, WebPManager.ResourceStateType.NORMAL);
-                } else {
-                    WebPManager.setMaskDrawable(this.d, R.drawable.obfuscated_res_0x7f080f63, WebPManager.ResourceStateType.NORMAL);
-                }
-            }
-            this.h = i;
+        RelativeLayout relativeLayout = this.d;
+        ImageView imageView = null;
+        if (relativeLayout == null) {
+            Intrinsics.throwUninitializedPropertyAccessException("mCardInterestRoot");
+            relativeLayout = null;
         }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            if ("2".equals(str)) {
-                tx6.a("c14079", "0", str);
-            }
-            if ("1".equals(str)) {
-                tx6.a("c14079", StringUtils.isNull(TbSingleton.getInstance().getLFUserTaskId()) ? "0" : TbSingleton.getInstance().getLFUserTaskId(), str);
-            }
+        gs4 d = gs4.d(relativeLayout);
+        d.n(R.string.J_X06);
+        d.f(R.color.CAM_X0201);
+        ImageView imageView2 = this.f;
+        if (imageView2 == null) {
+            Intrinsics.throwUninitializedPropertyAccessException("mCardInterestAdd");
+            imageView2 = null;
         }
+        WebPManager.setPureDrawable(imageView2, R.drawable.obfuscated_res_0x7f08069a, R.color.CAM_X0304, null);
+        TextView textView = this.g;
+        if (textView == null) {
+            Intrinsics.throwUninitializedPropertyAccessException("mCardInterestContent");
+            textView = null;
+        }
+        gs4 d2 = gs4.d(textView);
+        d2.v(R.color.CAM_X0304);
+        d2.z(R.dimen.T_X08);
+        ImageView imageView3 = this.h;
+        if (imageView3 == null) {
+            Intrinsics.throwUninitializedPropertyAccessException("mCardInterestClose");
+        } else {
+            imageView = imageView3;
+        }
+        imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_close22, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public void onClick(View v) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
-            HashMap hashMap = new HashMap();
-            if ("from_personaize".equals(this.i)) {
-                hashMap.put(LowFlowsActivityConfig.LF_USER, TbSingleton.getInstance().getLFUser());
-                hashMap.put(LowFlowsActivityConfig.LF_USER_TASKID, TbSingleton.getInstance().getLFUserTaskId());
-                tx6.a("c14080", StringUtils.isNull(TbSingleton.getInstance().getLFUserTaskId()) ? "0" : TbSingleton.getInstance().getLFUserTaskId(), "1");
-            } else {
-                hashMap.put(LowFlowsActivityConfig.LF_USER, "1");
-                tx6.a("c14080", "0", "2");
+        if (interceptable == null || interceptable.invokeL(1048580, this, v) == null) {
+            Intrinsics.checkNotNullParameter(v, "v");
+            if (v.getId() == R.id.obfuscated_res_0x7f090553) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new InterestGuideActivityConfig(this.b, 5)));
+                iz6.a(1);
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.a, "TreasureTrovePage", hashMap)));
-        }
-    }
-
-    public void setFrom(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.i = str;
         }
     }
 }

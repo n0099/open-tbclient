@@ -29,7 +29,7 @@ public class OneKeyLoginActivity extends BaseActivity {
     public String shareModelJSONStr;
 
     /* renamed from: view  reason: collision with root package name */
-    public jq7 f1011view;
+    public jq7 f1009view;
 
     public OneKeyLoginActivity() {
         Interceptable interceptable = $ic;
@@ -74,7 +74,7 @@ public class OneKeyLoginActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            this.f1011view.a(i);
+            this.f1009view.a(i);
         }
     }
 
@@ -84,16 +84,16 @@ public class OneKeyLoginActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0048);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091ade);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091b2c);
             initData();
             if (TextUtils.isEmpty(this.shareModelJSONStr)) {
-                this.f1011view = new mq7(getPageContext(), findViewById);
-                this.controller = new lq7(getPageContext(), this.f1011view);
+                this.f1009view = new mq7(getPageContext(), findViewById);
+                this.controller = new lq7(getPageContext(), this.f1009view);
             } else {
-                this.f1011view = new oq7(getPageContext(), findViewById);
-                this.controller = new nq7(getPageContext(), this.f1011view);
+                this.f1009view = new oq7(getPageContext(), findViewById);
+                this.controller = new nq7(getPageContext(), this.f1009view);
             }
-            this.f1011view.c(this.oneKeyLoginData);
+            this.f1009view.c(this.oneKeyLoginData);
             this.controller.j(this.oneKeyLoginData);
             this.controller.i(false);
             this.controller.k(UbsABTestHelper.isFirstLoginTestB());

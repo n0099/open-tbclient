@@ -1,137 +1,27 @@
 package com.repackage;
 
-import android.view.View;
-import android.widget.RelativeLayout;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.PersonalCardDetailActivityConfig;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.ThemeCardInUserData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.internal.Base64;
+import com.google.android.exoplayer2.text.cea.Cea608Decoder;
+import com.kwad.yoga.YogaNodeJNIBase;
+import kotlin.jvm.internal.ByteCompanionObject;
+import org.apache.commons.codec.binary4util.BaseNCodec;
 /* loaded from: classes5.dex */
-public class a00 extends sy implements fz<ThreadData> {
+public final class a00 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext e;
-    public TbImageView f;
-    public boolean g;
 
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ThemeCardInUserData a;
-        public final /* synthetic */ a00 b;
-
-        public a(a00 a00Var, ThemeCardInUserData themeCardInUserData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a00Var, themeCardInUserData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = a00Var;
-            this.a = themeCardInUserData;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(this.b.e.getPageActivity(), this.a.getCardId())));
-            }
-        }
+    public static byte[] a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new byte[]{0, -86, -91, -2, -41, ByteCompanionObject.MAX_VALUE, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, -25, -33, 93, 51, -73, 32, -81, BaseNCodec.PAD_DEFAULT, 108, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, 126, YogaNodeJNIBase.LAYOUT_BORDER_START_INDEX, -125, 125, -55, -29, 34, -60, 84, -67, -46, 125, -93, -67, -27, 97, 54, Base64.INTERNAL_PADDING, 0, -6, 83, 67, -116, 43, -24, 26, 88, -5, 33, 27, -105, 49, 76, -70, -32, 105, -48, 67, 69, 102, -111, -81, 93, -103, -18, 17, 55, 81, -34, -80, -76, -13, -84, 6, 91, 10, 48, -56, -1, 45, 9, 23, 34, 6, 103, Base64.INTERNAL_PADDING, -51, 29, 70, -19, -51, 20, -39, -43, -97, 75, 23, -124, -101, -71, -75, -107, -88, -13, -71, 80, 90, -76, -119, 51, -80, 118, Byte.MIN_VALUE, -12, -108, 98, -29, -27, 60, -119, -74, 110, BaseNCodec.PAD_DEFAULT, 51, -22, 53, 66, -99, -45, -25, 111, -121, 25, -72, ByteCompanionObject.MAX_VALUE, 3, 51, -100, 57, -90, 116, -59, -117, 74, -71, 121, 59, 19, -8, -109, 33, -14, 76, -105, -127, -23, 5, 99, -82, 22, -99, 51, 78, -26, 77, -52, -29, 121, 42, -76, 20, 2, 116, 111, -76, 2, -78, -90, -54, 81, 115, 82, 50, 124, -83, 96, 20, -40, -118, 105, 90, -70, 120, -33, -110, 12, -15, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, 34, -125, -116, 69, -54, -103, -109, -124, 26, 94, -89, -98, -11, -66, 89, 48, -68, -51, 107, -60, 12, 114, -71, 119, 49, -31, -65, 113, -99, 3, -90, 79, -88, -38, -87, -25, -38, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 110, -25, 29, 49, 124, -76, -91, 77, -11, -90, 114, -63, 118, -22, -5, -124, 19, 22, -74, -75, 78, 28, Cea608Decoder.CTRL_END_OF_CAPTION, -69} : (byte[]) invokeV.objValue;
     }
 
-    public a00(TbPageContext tbPageContext) {
+    public static byte[] b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.g = true;
-        this.e = tbPageContext;
-        h(-1);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(oi.f(tbPageContext.getPageActivity(), R.dimen.obfuscated_res_0x7f070264), oi.f(tbPageContext.getPageActivity(), R.dimen.obfuscated_res_0x7f0702d5));
-        layoutParams.addRule(11);
-        layoutParams.topMargin = oi.f(tbPageContext.getPageActivity(), R.dimen.tbds30);
-        layoutParams.rightMargin = oi.f(tbPageContext.getPageActivity(), R.dimen.tbds30);
-        i(layoutParams);
-        TbImageView tbImageView = new TbImageView(tbPageContext.getPageActivity());
-        this.f = tbImageView;
-        g(tbImageView);
-    }
-
-    public void l(ThreadData threadData) {
-        MetaData author;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) == null) || threadData == null || this.f == null || (author = threadData.getAuthor()) == null) {
-            return;
-        }
-        ThemeCardInUserData themeCard = author.getThemeCard();
-        if (themeCard != null && !StringUtils.isNull(themeCard.getCardImageUrlAndroid()) && !threadData.isHeadLinePost) {
-            if (this.g && (this.f.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f.getLayoutParams();
-                layoutParams.rightMargin = oi.f(this.e.getPageActivity(), R.dimen.tbds106);
-                this.f.setLayoutParams(layoutParams);
-            }
-            this.f.setVisibility(0);
-            this.f.setImageDrawable(null);
-            this.f.K(themeCard.getCardImageUrlAndroid(), 10, false);
-            this.f.setOnClickListener(new a(this, themeCard));
-            return;
-        }
-        this.f.setVisibility(8);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fz
-    /* renamed from: m */
-    public void a(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) == null) {
-            l(threadData);
-        }
-    }
-
-    public void n(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.g = z;
-        }
-    }
-
-    public void o(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
-            this.f.setPageId(bdUniqueId);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new byte[]{1, 0, 1} : (byte[]) invokeV.objValue;
     }
 }

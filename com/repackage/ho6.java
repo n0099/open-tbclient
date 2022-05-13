@@ -1,29 +1,42 @@
 package com.repackage;
 
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.shrinkhead.LogicField;
-import tbclient.ThemeElement;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface ho6 extends po6 {
-    @Override // com.repackage.po6
-    @Nullable
-    <T> T a(@NonNull LogicField logicField);
+public class ho6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public int b;
+    public String c;
+    public String d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
 
-    void b(boolean z);
-
-    void e(@NonNull ThemeElement themeElement);
-
-    void f(@NonNull FrsFragment frsFragment, @NonNull View view2);
-
-    @NonNull
-    mo6 h();
-
-    void i(@Nullable Integer num, @Nullable Integer num2, boolean z);
-
-    View m();
-
-    int n(@NonNull LogicField logicField);
+    public ho6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = false;
+        this.b = 0;
+        this.c = null;
+        this.d = null;
+        this.e = -1;
+        this.f = -1;
+        this.g = -1;
+        this.h = -1;
+    }
 }

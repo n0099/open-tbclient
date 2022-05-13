@@ -1,21 +1,24 @@
 package com.repackage;
 
+import android.graphics.Bitmap;
+import android.widget.ImageView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ts9 implements Runnable {
+public class ts9 implements wr9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ at9 a;
+    public final /* synthetic */ ImageView a;
 
-    public ts9(at9 at9Var) {
+    public ts9(bp9 bp9Var, ImageView imageView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {at9Var};
+            Object[] objArr = {bp9Var, imageView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -25,18 +28,30 @@ public class ts9 implements Runnable {
                 return;
             }
         }
-        this.a = at9Var;
+        this.a = imageView;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    @Override // com.repackage.wr9
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            yr9 a = cs9.a(this.a.a.c.a);
-            a.e(new gs9(this.a.a.c.b.b()), 200, System.currentTimeMillis() - this.a.a.a);
-            a.m();
-            this.a.a.c.c.onLoaded();
-            this.a.a.c.d = true;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        }
+    }
+
+    @Override // com.repackage.wr9
+    public void a(Bitmap bitmap) {
+        ImageView imageView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) || (imageView = this.a) == null || bitmap == null) {
+            return;
+        }
+        imageView.setImageBitmap(bitmap);
+    }
+
+    @Override // com.repackage.wr9
+    public void a(com.win.opensdk.k0 k0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k0Var) == null) {
         }
     }
 }

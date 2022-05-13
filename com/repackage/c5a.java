@@ -1,30 +1,51 @@
 package com.repackage;
 
-import android.app.Activity;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import tv.athena.revenue.payui.model.PayFlowType;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.IYYPayWayView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.yy.mobile.framework.revenuesdk.IRevenue;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
+import tv.athena.revenue.RevenueManager;
+import tv.athena.revenue.api.MiddleRevenueConfig;
+import tv.athena.revenue.payui.model.PayUIKitConfig;
 /* loaded from: classes5.dex */
-public interface c5a extends v4a {
-    void b(Activity activity);
+public class c5a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void c(Activity activity, IYYPayWayView.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
+    public static s4a a(int i, PayUIKitConfig payUIKitConfig) {
+        InterceptResult invokeIL;
+        MiddleRevenueConfig middleRevenueConfig;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, payUIKitConfig)) == null) {
+            ProductInfo productInfo = new ProductInfo();
+            productInfo.cid = 0;
+            productInfo.productId = "";
+            productInfo.srcCurrencySymbol = "";
+            productInfo.srcAmount = i / 100.0d;
+            if (payUIKitConfig != null && (middleRevenueConfig = payUIKitConfig.revenueConfig) != null && middleRevenueConfig.getCurrencyType() == 4) {
+                productInfo.destAmount = i;
+                return new s4a(productInfo, 4);
+            }
+            productInfo.destAmount = i;
+            return new s4a(productInfo);
+        }
+        return (s4a) invokeIL.objValue;
+    }
 
-    void d(PayFlowType payFlowType);
-
-    boolean e();
-
-    void f(String str, PayFlowType payFlowType);
-
-    boolean g(PayFlowType payFlowType);
-
-    void h(Activity activity, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
-
-    void i(Activity activity, IYYPayAmountView.ViewParams viewParams);
-
-    void j(String str, PayFlowType payFlowType);
-
-    void release();
+    public static IAppPayService b(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
+            IRevenue revenue = RevenueManager.instance().getRevenue(i, i2);
+            if (revenue == null) {
+                RLog.error("CommonUtils", "getAppPayService null iRevenue", new Object[0]);
+                return null;
+            }
+            return revenue.getAppPayService();
+        }
+        return (IAppPayService) invokeII.objValue;
+    }
 }

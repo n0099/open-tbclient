@@ -81,7 +81,7 @@ public class rq7 implements pq7, View.OnClickListener {
         public void onFailure(WebAuthResult webAuthResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) {
-                this.a.a.showToast(String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f1121), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
+                this.a.a.showToast(String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f113d), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
                 this.a.a.passLoginFail();
             }
         }
@@ -137,7 +137,7 @@ public class rq7 implements pq7, View.OnClickListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webAuthResult) == null) {
                 this.b.a.closeLoadingDialog();
-                this.b.a.showToast(String.format(this.b.a.getString(R.string.obfuscated_res_0x7f0f1395), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
+                this.b.a.showToast(String.format(this.b.a.getString(R.string.obfuscated_res_0x7f0f13b9), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
                 this.b.a.passLoginFail();
             }
         }
@@ -176,23 +176,23 @@ public class rq7 implements pq7, View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, loginDialogActivity, viewGroup) == null) {
             this.a = loginDialogActivity;
-            View inflate = LayoutInflater.from(loginDialogActivity).inflate(R.layout.obfuscated_res_0x7f0d076b, viewGroup, true);
-            this.b = inflate.findViewById(R.id.obfuscated_res_0x7f09079a);
-            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f0907b3);
-            this.d = inflate.findViewById(R.id.obfuscated_res_0x7f090673);
-            this.e = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090674);
-            this.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0907bf);
-            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0907bd);
-            this.h = inflate.findViewById(R.id.obfuscated_res_0x7f092294);
-            this.i = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09227b);
-            this.j = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09229d);
-            this.k = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922b8);
-            this.l = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09132b);
-            this.m = inflate.findViewById(R.id.obfuscated_res_0x7f091982);
-            this.n = inflate.findViewById(R.id.obfuscated_res_0x7f09243a);
-            this.o = inflate.findViewById(R.id.obfuscated_res_0x7f09243d);
-            this.p = inflate.findViewById(R.id.obfuscated_res_0x7f0924aa);
-            this.q = inflate.findViewById(R.id.obfuscated_res_0x7f091444);
+            View inflate = LayoutInflater.from(loginDialogActivity).inflate(R.layout.obfuscated_res_0x7f0d0763, viewGroup, true);
+            this.b = inflate.findViewById(R.id.obfuscated_res_0x7f090797);
+            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f0907b0);
+            this.d = inflate.findViewById(R.id.obfuscated_res_0x7f09066b);
+            this.e = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09066c);
+            this.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0907bc);
+            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0907ba);
+            this.h = inflate.findViewById(R.id.obfuscated_res_0x7f0922ea);
+            this.i = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0922d3);
+            this.j = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922f3);
+            this.k = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09230e);
+            this.l = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09133a);
+            this.m = inflate.findViewById(R.id.obfuscated_res_0x7f0919da);
+            this.n = inflate.findViewById(R.id.obfuscated_res_0x7f09248a);
+            this.o = inflate.findViewById(R.id.obfuscated_res_0x7f09248d);
+            this.p = inflate.findViewById(R.id.obfuscated_res_0x7f0924ff);
+            this.q = inflate.findViewById(R.id.obfuscated_res_0x7f09145b);
             this.b.setOnClickListener(this);
             this.d.setOnClickListener(this);
             this.e.setOnClickListener(this);
@@ -225,7 +225,7 @@ public class rq7 implements pq7, View.OnClickListener {
         }
         this.i.K(storageModel.url, 10, false);
         this.j.setText(this.r.displayname);
-        this.k.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1120, this.r.app));
+        this.k.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f113c, this.r.app));
     }
 
     public final void e() {
@@ -298,19 +298,19 @@ public class rq7 implements pq7, View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, view2) == null) {
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f09079a || id == R.id.obfuscated_res_0x7f090673 || id == R.id.obfuscated_res_0x7f090674) {
+            if (id == R.id.obfuscated_res_0x7f090797 || id == R.id.obfuscated_res_0x7f09066b || id == R.id.obfuscated_res_0x7f09066c) {
                 c();
-            } else if (id == R.id.obfuscated_res_0x7f09132b) {
+            } else if (id == R.id.obfuscated_res_0x7f09133a) {
                 e();
-            } else if (id == R.id.obfuscated_res_0x7f091982) {
+            } else if (id == R.id.obfuscated_res_0x7f0919da) {
                 g();
-            } else if (id == R.id.obfuscated_res_0x7f09243a) {
+            } else if (id == R.id.obfuscated_res_0x7f09248a) {
                 i();
-            } else if (id == R.id.obfuscated_res_0x7f09243d) {
+            } else if (id == R.id.obfuscated_res_0x7f09248d) {
                 j();
-            } else if (id == R.id.obfuscated_res_0x7f0924aa) {
+            } else if (id == R.id.obfuscated_res_0x7f0924ff) {
                 k();
-            } else if (id == R.id.obfuscated_res_0x7f091444) {
+            } else if (id == R.id.obfuscated_res_0x7f09145b) {
                 f();
             }
         }
@@ -321,27 +321,27 @@ public class rq7 implements pq7, View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
             SkinManager.setBackgroundResource(this.c, R.drawable.nav_bg_corner_shape, i);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f0808fa, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            vr4 d = vr4.d(this.f);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f080908, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            gs4 d = gs4.d(this.f);
             d.v(R.color.CAM_X0105);
             d.z(R.dimen.T_X05);
             d.A(R.string.F_X02);
-            vr4 d2 = vr4.d(this.g);
+            gs4 d2 = gs4.d(this.g);
             d2.v(R.color.CAM_X0108);
             d2.z(R.dimen.T_X08);
             d2.A(R.string.F_X01);
-            vr4 d3 = vr4.d(this.h);
+            gs4 d3 = gs4.d(this.h);
             d3.n(R.string.J_X05);
             d3.f(R.color.CAM_X0204);
-            vr4 d4 = vr4.d(this.j);
+            gs4 d4 = gs4.d(this.j);
             d4.v(R.color.CAM_X0105);
             d4.z(R.dimen.T_X05);
             d4.A(R.string.F_X02);
-            vr4 d5 = vr4.d(this.k);
+            gs4 d5 = gs4.d(this.k);
             d5.v(R.color.CAM_X0108);
             d5.z(R.dimen.T_X08);
             d5.A(R.string.F_X01);
-            vr4 d6 = vr4.d(this.l);
+            gs4 d6 = gs4.d(this.l);
             d6.v(R.color.CAM_X0101);
             d6.z(R.dimen.T_X05);
             d6.A(R.string.F_X01);

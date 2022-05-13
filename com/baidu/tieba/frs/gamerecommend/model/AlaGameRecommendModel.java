@@ -17,9 +17,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rk6;
-import com.repackage.tk6;
-import com.repackage.uo;
+import com.repackage.ro;
+import com.repackage.sj6;
+import com.repackage.uj6;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AlaGameRecommendModel extends BdBaseModel {
@@ -33,7 +33,7 @@ public class AlaGameRecommendModel extends BdBaseModel {
     public BdUniqueId e;
     public HttpMessageListener f;
     public b g;
-    public tk6 h;
+    public uj6 h;
 
     /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
@@ -73,7 +73,7 @@ public class AlaGameRecommendModel extends BdBaseModel {
                         this.a.g.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.d);
                     }
                 } else {
-                    rk6 data = alaGameRecommendReponseMessage.getData();
+                    sj6 data = alaGameRecommendReponseMessage.getData();
                     if (data == null) {
                         return;
                     }
@@ -93,7 +93,7 @@ public class AlaGameRecommendModel extends BdBaseModel {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(boolean z, List<uo> list);
+        void a(boolean z, List<ro> list);
 
         void b(int i, String str, boolean z);
     }
@@ -116,7 +116,7 @@ public class AlaGameRecommendModel extends BdBaseModel {
         this.a = str;
         this.g = bVar;
         this.e = BdUniqueId.gen();
-        this.h = new tk6();
+        this.h = new uj6();
         H();
         registerListener();
     }

@@ -1,94 +1,49 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.PBError;
-import com.win.opensdk.PBInterstitial;
-import com.win.opensdk.PBInterstitialListener;
 /* loaded from: classes5.dex */
-public class cu9 implements PBInterstitialListener {
+public class cu9 extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ PBInterstitial a;
+    public final /* synthetic */ dp9 a;
 
-    public cu9(PBInterstitial pBInterstitial) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cu9(dp9 dp9Var, Looper looper) {
+        super(looper);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pBInterstitial};
+            Object[] objArr = {dp9Var, looper};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = pBInterstitial;
+        this.a = dp9Var;
     }
 
-    @Override // com.win.opensdk.PBListener
-    public void onClicked() {
-        PBInterstitialListener pBInterstitialListener;
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        dp9 dp9Var;
+        ep9 ep9Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (pBInterstitialListener = this.a.c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || message.what != 0 || (ep9Var = (dp9Var = this.a).e) == null || dp9Var.i) {
             return;
         }
-        pBInterstitialListener.onClicked();
-    }
-
-    @Override // com.win.opensdk.PBListener
-    public void onFail(PBError pBError) {
-        PBInterstitialListener pBInterstitialListener;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pBError) == null) || (pBInterstitialListener = this.a.c) == null) {
-            return;
-        }
-        pBInterstitialListener.onFail(pBError);
-    }
-
-    @Override // com.win.opensdk.PBInterstitialListener
-    public void onInterstitialDismissed() {
-        PBInterstitialListener pBInterstitialListener;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (pBInterstitialListener = this.a.c) == null) {
-            return;
-        }
-        pBInterstitialListener.onInterstitialDismissed();
-    }
-
-    @Override // com.win.opensdk.PBInterstitialListener
-    public void onInterstitialDisplayed() {
-        PBInterstitialListener pBInterstitialListener;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (pBInterstitialListener = this.a.c) == null) {
-            return;
-        }
-        pBInterstitialListener.onInterstitialDisplayed();
-    }
-
-    @Override // com.win.opensdk.PBInterstitialListener
-    public void onInterstitialShowFail(String str) {
-        PBInterstitialListener pBInterstitialListener;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (pBInterstitialListener = this.a.c) == null) {
-            return;
-        }
-        pBInterstitialListener.onInterstitialShowFail(str);
-    }
-
-    @Override // com.win.opensdk.PBListener
-    public void onLoaded() {
-        PBInterstitialListener pBInterstitialListener;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (pBInterstitialListener = this.a.c) == null) {
-            return;
-        }
-        pBInterstitialListener.onLoaded();
+        ep9Var.onFail(PBError.LOAD_TIME_OUT);
+        this.a.j = true;
     }
 }

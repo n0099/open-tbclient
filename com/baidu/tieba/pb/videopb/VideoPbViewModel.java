@@ -16,12 +16,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.bs7;
-import com.repackage.lz7;
+import com.repackage.iz7;
 /* loaded from: classes3.dex */
 public class VideoPbViewModel extends ViewModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lz7 a;
+    public iz7 a;
     public PbModel b;
     public int c;
 
@@ -38,7 +38,7 @@ public class VideoPbViewModel extends ViewModel {
                 return;
             }
         }
-        this.a = new lz7();
+        this.a = new iz7();
         this.c = 0;
     }
 
@@ -150,14 +150,14 @@ public class VideoPbViewModel extends ViewModel {
         if (!(interceptable == null || interceptable.invokeZ(1048591, this, z) == null) || this.a.g().getValue() == null) {
             return;
         }
-        bs7 d0 = this.b.d0(this.a.g().getValue());
-        if (d0 != null) {
+        bs7 Z0 = this.b.Z0(this.a.g().getValue());
+        if (Z0 != null) {
             this.a.k().addLast(this.a.b());
-            this.a.o(d0);
-            this.a.w(!ListUtils.isEmpty(d0.f()) ? d0.f().get(0) : null);
+            this.a.o(Z0);
+            this.a.w(!ListUtils.isEmpty(Z0.f()) ? Z0.f().get(0) : null);
             this.a.y(this.a.k().getLast() != null ? this.a.k().getLast().O() : null);
-            this.b.x2(z ? 21 : 22);
-            this.b.N1(d0);
+            this.b.t3(z ? 21 : 22);
+            this.b.J2(Z0);
             this.a.s(true);
         }
     }
@@ -171,22 +171,22 @@ public class VideoPbViewModel extends ViewModel {
         this.a.o(pollLast);
         this.a.w(!ListUtils.isEmpty(pollLast.f()) ? pollLast.f().get(0) : null);
         this.a.y(this.a.k().peekLast() != null ? this.a.k().peekLast().O() : null);
-        this.b.N1(pollLast);
+        this.b.J2(pollLast);
         this.a.s(true);
     }
 
     public void r(ThreadData threadData) {
-        bs7 d0;
+        bs7 Z0;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048593, this, threadData) == null) || threadData == null || (d0 = this.b.d0(threadData)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048593, this, threadData) == null) || threadData == null || (Z0 = this.b.Z0(threadData)) == null) {
             return;
         }
         this.a.k().addLast(this.a.b());
-        this.a.o(d0);
-        this.a.w(!ListUtils.isEmpty(d0.f()) ? d0.f().get(0) : null);
+        this.a.o(Z0);
+        this.a.w(!ListUtils.isEmpty(Z0.f()) ? Z0.f().get(0) : null);
         this.a.y(this.a.k().getLast() != null ? this.a.k().getLast().O() : null);
-        this.b.x2(20);
-        this.b.N1(d0);
+        this.b.t3(20);
+        this.b.J2(Z0);
         this.a.s(true);
     }
 
@@ -198,12 +198,12 @@ public class VideoPbViewModel extends ViewModel {
         this.c = i;
         this.a.p(bs7Var);
         if (bs7Var != null) {
-            lz7 lz7Var = this.a;
+            iz7 iz7Var = this.a;
             boolean z = true;
             if (bs7Var.s() != 1 && !bs7Var.g0()) {
                 z = false;
             }
-            lz7Var.q(z);
+            iz7Var.q(z);
         }
     }
 

@@ -23,8 +23,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.i27;
-import com.repackage.oi;
+import com.repackage.i17;
+import com.repackage.mi;
 /* loaded from: classes3.dex */
 public class TopicTimelineCellCardView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -35,7 +35,7 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
     public TextView d;
     public int e;
     public int f;
-    public i27 g;
+    public i17 g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TopicTimelineCellCardView(Context context) {
@@ -63,12 +63,12 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01c5, (ViewGroup) this, true);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09058f);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090590);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090591);
-            this.e = oi.f(context, R.dimen.tbds340);
-            this.f = oi.f(context, R.dimen.tbds230);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01bf, (ViewGroup) this, true);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09058d);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09058e);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09058f);
+            this.e = mi.f(context, R.dimen.tbds340);
+            this.f = mi.f(context, R.dimen.tbds230);
             setOnClickListener(this);
             b();
         }
@@ -105,19 +105,19 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
         }
     }
 
-    public void setData(i27 i27Var) {
+    public void setData(i17 i17Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, i27Var) == null) {
-            if (i27Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, i17Var) == null) {
+            if (i17Var == null) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            this.g = i27Var;
-            this.c.setText(i27Var.d);
-            this.d.setText(i27Var.c);
-            if (StringUtils.isNull(i27Var.e)) {
-                int i = i27Var.f;
+            this.g = i17Var;
+            this.c.setText(i17Var.d);
+            this.d.setText(i17Var.c);
+            if (StringUtils.isNull(i17Var.e)) {
+                int i = i17Var.f;
                 if (i == 0) {
                     SkinManager.setBackgroundResource(this.b, R.drawable.topic_timeline_bg_one);
                     return;
@@ -130,11 +130,11 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
                 }
             }
             try {
-                GradientDrawable gradientDrawable = (GradientDrawable) getResources().getDrawable(R.drawable.obfuscated_res_0x7f081201);
-                gradientDrawable.setColor(Color.parseColor(i27Var.e));
+                GradientDrawable gradientDrawable = (GradientDrawable) getResources().getDrawable(R.drawable.obfuscated_res_0x7f081217);
+                gradientDrawable.setColor(Color.parseColor(i17Var.e));
                 this.b.setBackgroundDrawable(gradientDrawable);
             } catch (Exception unused) {
-                int i2 = i27Var.f;
+                int i2 = i17Var.f;
                 if (i2 == 0) {
                     SkinManager.setBackgroundResource(this.b, R.drawable.topic_timeline_bg_one);
                 } else if (i2 == 1) {

@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mg;
-import com.repackage.n57;
+import com.repackage.kg;
+import com.repackage.x47;
 import com.repackage.ya;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -28,7 +28,7 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
     public List<ResponseHistoryMessage.a> mDataList;
     public a mListener;
     public b mLocalListener;
-    public n57 mView;
+    public x47 mView;
     public int mforumId;
 
     /* loaded from: classes3.dex */
@@ -39,12 +39,12 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
 
         /* renamed from: com.baidu.tieba.im.chat.officialBar.OfficialBarHistoryActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0197a implements Runnable {
+        public class RunnableC0196a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0197a(a aVar) {
+            public RunnableC0196a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -65,7 +65,7 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.a.mView.g()) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.a.mView.h()) {
                     return;
                 }
                 this.a.a.getNextPage();
@@ -101,23 +101,23 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
                 this.a.hideProgressBar();
                 this.a.isRefreshing = false;
                 if (socketResponsedMessage == null) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
-                    this.a.mView.j(this.a.mDataList);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c2d);
+                    this.a.mView.k(this.a.mDataList);
                 } else if (socketResponsedMessage.getError() != 0) {
                     this.a.showToast(socketResponsedMessage.getErrorString());
-                    this.a.mView.j(this.a.mDataList);
+                    this.a.mView.k(this.a.mDataList);
                 } else if (socketResponsedMessage.getCmd() != 208002 || !(socketResponsedMessage instanceof ResponseHistoryMessage)) {
-                    this.a.mView.j(this.a.mDataList);
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
+                    this.a.mView.k(this.a.mDataList);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c2d);
                 } else {
                     ResponseHistoryMessage responseHistoryMessage = (ResponseHistoryMessage) socketResponsedMessage;
                     if (responseHistoryMessage.getMsg().isEmpty()) {
-                        this.a.mView.j(this.a.mDataList);
+                        this.a.mView.k(this.a.mDataList);
                         return;
                     }
                     RequestHistoryMessage requestHistoryMessage = (RequestHistoryMessage) responseHistoryMessage.getOrginalMessage();
                     if (requestHistoryMessage == null) {
-                        this.a.mView.j(this.a.mDataList);
+                        this.a.mView.k(this.a.mDataList);
                         return;
                     }
                     if (requestHistoryMessage.getRequestId() != 0) {
@@ -125,11 +125,11 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
                     } else {
                         this.a.mDataList = responseHistoryMessage.getMsg();
                     }
-                    this.a.mView.h(this.a.mDataList);
+                    this.a.mView.i(this.a.mDataList);
                     if (responseHistoryMessage.getMsg().size() == 0) {
-                        this.a.mView.j(this.a.mDataList);
+                        this.a.mView.k(this.a.mDataList);
                     } else {
-                        new Handler().post(new RunnableC0197a(this));
+                        new Handler().post(new RunnableC0196a(this));
                     }
                 }
             }
@@ -176,7 +176,7 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
                     }
                     if (this.a.mDataList == null || this.a.mDataList.isEmpty()) {
                         this.a.mDataList = responseLocalHistoryMessage.getData();
-                        this.a.mView.h(this.a.mDataList);
+                        this.a.mView.i(this.a.mDataList);
                     }
                 }
             }
@@ -213,7 +213,7 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
                 i = list2.get(list2.size() - 1).d;
             }
             this.isRefreshing = true;
-            MessageManager.getInstance().sendMessage(new RequestHistoryMessage(this.mforumId, mg.g(TbadkCoreApplication.getCurrentAccount(), 0L), i));
+            MessageManager.getInstance().sendMessage(new RequestHistoryMessage(this.mforumId, kg.g(TbadkCoreApplication.getCurrentAccount(), 0L), i));
         }
     }
 
@@ -239,9 +239,9 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
     private void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            n57 n57Var = new n57(this);
-            this.mView = n57Var;
-            n57Var.i(this);
+            x47 x47Var = new x47(this);
+            this.mView = x47Var;
+            x47Var.j(this);
         }
     }
 

@@ -1,82 +1,61 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.Nullable;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.AdapterViewHolder;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.homepage.tabfeed.view.HomeLocalCompleteInfoLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class z07 extends ho<p17, AdapterViewHolder<HomeLocalCompleteInfoLayout>> implements s07 {
+public class z07 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext i;
-    public View.OnClickListener j;
+    public x07 a;
+    public ArrayList<y07> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z07(TbPageContext tbPageContext, @Nullable View.OnClickListener onClickListener) {
-        super(tbPageContext.getPageActivity(), p17.a);
+    public z07() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, onClickListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.i = tbPageContext;
-        this.j = onClickListener;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: Z */
-    public AdapterViewHolder<HomeLocalCompleteInfoLayout> M(ViewGroup viewGroup) {
+    public static z07 a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new AdapterViewHolder<>(new HomeLocalCompleteInfoLayout(viewGroup.getContext())) : (AdapterViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, p17 p17Var, AdapterViewHolder<HomeLocalCompleteInfoLayout> adapterViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, p17Var, adapterViewHolder})) == null) {
-            if (p17Var == null || adapterViewHolder == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
                 return null;
             }
-            HomeLocalCompleteInfoLayout c = adapterViewHolder.c();
-            c.onChangeSkinType(this.i, TbadkCoreApplication.getInst().getSkinType());
-            c.setCloseClickListener(this.j);
-            r07.m();
-            return adapterViewHolder.b();
+            z07 z07Var = new z07();
+            JSONObject optJSONObject = jSONObject.optJSONObject("guide_content");
+            JSONArray optJSONArray = jSONObject.optJSONArray("hot_topic");
+            z07Var.a = x07.a(optJSONObject);
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                z07Var.b = new ArrayList<>();
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    try {
+                        y07 a = y07.a(optJSONArray.getJSONObject(i));
+                        if (a != null) {
+                            z07Var.b.add(a);
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            return z07Var;
         }
-        return (View) invokeCommon.objValue;
-    }
-
-    @Override // com.repackage.s07
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-        }
+        return (z07) invokeL.objValue;
     }
 }

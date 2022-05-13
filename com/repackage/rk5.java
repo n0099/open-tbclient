@@ -16,7 +16,7 @@ public class rk5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public List<iy4> b;
+    public List<wy4> b;
 
     public rk5() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class rk5 {
         }
     }
 
-    public List<iy4> a() {
+    public List<wy4> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -59,10 +59,10 @@ public class rk5 {
         if (listdata.friend_list != null) {
             this.b = new ArrayList();
             for (friendList friendlist : listdata.friend_list) {
-                iy4 iy4Var = new iy4();
-                iy4Var.j(friendlist);
-                iy4Var.k(this.a);
-                this.b.add(iy4Var);
+                wy4 wy4Var = new wy4();
+                wy4Var.j(friendlist);
+                wy4Var.k(this.a);
+                this.b.add(wy4Var);
             }
         }
     }
@@ -76,10 +76,10 @@ public class rk5 {
         if (robotslist.friend_list != null) {
             this.b = new ArrayList();
             for (friendList friendlist : robotslist.friend_list) {
-                iy4 iy4Var = new iy4();
-                iy4Var.j(friendlist);
-                iy4Var.k(this.a);
-                this.b.add(iy4Var);
+                wy4 wy4Var = new wy4();
+                wy4Var.j(friendlist);
+                wy4Var.k(this.a);
+                this.b.add(wy4Var);
             }
         }
     }

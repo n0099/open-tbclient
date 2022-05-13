@@ -1,26 +1,22 @@
 package com.repackage;
 
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.message.MemoryChangedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.BroadcastInfo;
-import tbclient.GetForumBroadcastList.DataRes;
-import tbclient.Page;
 /* loaded from: classes7.dex */
-public class t67 {
+public class t67 extends la {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<u67> a;
-    public Page b;
-    public boolean c;
-    public boolean d;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public t67() {
+        super(2016004);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -28,69 +24,36 @@ public class t67 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.ra
+    /* renamed from: c */
+    public CustomResponsedMessage a(CustomResponsedMessage customResponsedMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    public List<u67> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (List) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
-    public void d(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, dataRes) == null) || dataRes == null) {
-            return;
-        }
-        Page page = dataRes.page;
-        this.b = page;
-        if (page != null) {
-            this.c = page.has_more.intValue() == 1;
-        }
-        List<BroadcastInfo> list = dataRes.bcast_infos;
-        if (list != null) {
-            for (int i = 0; i < list.size(); i++) {
-                u67 u67Var = new u67();
-                u67Var.l(list.get(i));
-                this.a.add(u67Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage)) == null) {
+            if (customResponsedMessage == null) {
+                return null;
             }
-        }
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    public void f() {
-        List<u67> list;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (list = this.a) == null || list.size() <= 0) {
-            return;
-        }
-        for (u67 u67Var : this.a) {
-            if (u67Var != null) {
-                o67.t().x(u67Var.e().forum_id.longValue(), u67Var.b() * 100, u67Var.i());
+            if (customResponsedMessage instanceof MemoryChangedMessage) {
+                MemoryChangedMessage memoryChangedMessage = (MemoryChangedMessage) customResponsedMessage;
+                ImMessageCenterPojo data = memoryChangedMessage.getData();
+                if (data != null && data.getCustomGroupType() == -8) {
+                    return new MemoryChangedMessage(x37.a(data), memoryChangedMessage.isFromServer(), memoryChangedMessage.getType());
+                }
+                if (data != null && data.getCustomGroupType() == -7) {
+                    return new MemoryChangedMessage(y37.a(data), memoryChangedMessage.isFromServer(), memoryChangedMessage.getType());
+                }
             }
+            return customResponsedMessage;
         }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ae1;
+import com.repackage.le1;
 import java.util.ArrayList;
 import java.util.List;
 @NotProguard
@@ -136,26 +136,26 @@ public class MarioSDK {
             if (aVar == null) {
                 return null;
             }
-            ae1 ae1Var = new ae1();
+            le1 le1Var = new le1();
             if (aVar.a != null) {
-                ae1Var.p(aVar.a);
+                le1Var.p(aVar.a);
             }
             if (aVar.c != null) {
-                ae1Var.setFirstFrameListener(aVar.c);
+                le1Var.setFirstFrameListener(aVar.c);
             }
-            ae1Var.setRenderMode(aVar.d);
+            le1Var.setRenderMode(aVar.d);
             if (aVar.f != null) {
-                ae1Var.o(aVar.f);
+                le1Var.o(aVar.f);
             }
             if (aVar.b != null) {
-                ae1Var.setRenderer(aVar.b);
+                le1Var.setRenderer(aVar.b);
             }
             if (aVar.g() != null) {
                 for (DebugConsole debugConsole : aVar.g()) {
-                    ae1Var.addDebugConsole(debugConsole);
+                    le1Var.addDebugConsole(debugConsole);
                 }
             }
-            return ae1Var;
+            return le1Var;
         }
         return (AREngineDelegate) invokeL.objValue;
     }

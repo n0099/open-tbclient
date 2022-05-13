@@ -1,7 +1,14 @@
 package com.repackage;
 
+import android.content.Context;
+import android.net.Uri;
+import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.cyberplayer.sdk.extractor.CyberExtractor;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,69 +16,34 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebKitFactory;
-import com.repackage.gd4;
-import java.io.File;
-import java.util.HashSet;
-import java.util.Set;
+import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
+import com.repackage.cf2;
+import com.repackage.re2;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public final class ki4 implements gd4 {
+public class ki4 implements cf2 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean c;
-    public static final Set<gd4.a> d;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
+    public String a;
+    public cf2.a b;
+    public CyberExtractor c;
+    public volatile boolean d;
 
     /* loaded from: classes6.dex */
-    public class a implements WebKitFactory.WebkitInstallListener {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
-        public final /* synthetic */ File b;
+        public final /* synthetic */ Map b;
         public final /* synthetic */ ki4 c;
 
-        /* renamed from: com.repackage.ki4$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class RunnableC0456a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public RunnableC0456a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    ki4 ki4Var = this.a.c;
-                    ki4Var.j(ki4Var.b);
-                }
-            }
-        }
-
-        public a(ki4 ki4Var, String str, File file) {
+        public a(ki4 ki4Var, String str, Map map) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ki4Var, str, file};
+                Object[] objArr = {ki4Var, str, map};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -83,47 +55,25 @@ public final class ki4 implements gd4 {
             }
             this.c = ki4Var;
             this.a = str;
-            this.b = file;
+            this.b = map;
         }
 
-        @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
-        public void onInstallFinish(int i, String str) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                boolean z = true;
-                if (mg4.B(this.a, str)) {
-                    synchronized (ki4.d) {
-                        this.c.i(true);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.c.d) {
+                    if (ki4.e) {
+                        Log.d("MediaExtractorWidget", "media extractor already released");
+                        return;
                     }
                     return;
                 }
-                if (ki4.e(this.c) <= 2) {
-                    if (8 == i) {
-                        this.c.b = this.a;
-                    } else {
-                        ki4 ki4Var = this.c;
-                        ki4Var.b = this.a + File.pathSeparator + this.c.a;
-                        if (mg4.f(this.b, new File(this.c.b)) != this.b.length()) {
-                            z = false;
-                        }
-                    }
-                    if (z && i03.L().postDelayed(new RunnableC0456a(this), 1000L)) {
-                        return;
-                    }
+                this.c.c.setDataSource(this.c.getContext(), Uri.parse(wh2.a(this.a)), this.b);
+                Bundle metaData = this.c.c.getMetaData();
+                if (this.c.b != null) {
+                    this.c.b.a(metaData);
                 }
-                if (8 == i) {
-                    mg4.k(this.a);
-                }
-                synchronized (ki4.d) {
-                    this.c.i(false);
-                }
-            }
-        }
-
-        @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
-        public void onInstallStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             }
         }
     }
@@ -141,13 +91,15 @@ public final class ki4 implements gd4 {
                 return;
             }
         }
-        d = new HashSet();
+        e = eh1.a;
     }
 
-    public ki4() {
+    public ki4(ZeusPluginFactory.Invoker invoker, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {invoker, str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -157,63 +109,76 @@ public final class ki4 implements gd4 {
                 return;
             }
         }
-        this.a = 0;
+        this.a = str;
+        this.d = false;
     }
 
-    public static /* synthetic */ int e(ki4 ki4Var) {
-        int i = ki4Var.a + 1;
-        ki4Var.a = i;
-        return i;
-    }
-
-    @Override // com.repackage.gd4
-    public void a(String str, gd4.a aVar) {
+    @Override // com.repackage.re2
+    public void A(@NonNull re2.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) {
-            synchronized (d) {
-                d.add(aVar);
-                if (c) {
-                    return;
-                }
-                c = true;
-                j(str);
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            this.c = new CyberExtractor(true);
+            aVar.a(true);
         }
     }
 
-    public final void i(boolean z) {
+    @Override // com.repackage.re2
+    @Nullable
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            synchronized (d) {
-                for (gd4.a aVar : d) {
-                    if (aVar != null) {
-                        aVar.a(z);
-                    }
-                }
-                d.clear();
-                c = false;
-                this.a = 0;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? bk2.c() : (Context) invokeV.objValue;
+    }
+
+    @Override // com.repackage.cf2
+    public void k(String str, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, map) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        od3.j(new a(this, str, map), "loadMetadata");
+    }
+
+    @Override // com.repackage.re2
+    @Nullable
+    public String k0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.cf2
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.d = true;
+            CyberExtractor cyberExtractor = this.c;
+            if (cyberExtractor != null) {
+                cyberExtractor.release();
             }
+            this.c = null;
+            cf2.a aVar = this.b;
+            if (aVar != null) {
+                aVar.onRelease();
+            }
+            this.b = null;
         }
     }
 
-    public final void j(String str) {
+    @Override // com.repackage.cf2
+    public void w(cf2.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                synchronized (d) {
-                    i(false);
-                }
-                return;
-            }
-            File file = new File(str);
-            if (!file.isFile()) {
-                synchronized (d) {
-                    i(false);
-                }
-                return;
-            }
-            WebKitFactory.installAsync("file://" + str, new a(this, str, file));
+        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
+            this.b = aVar;
         }
     }
 }

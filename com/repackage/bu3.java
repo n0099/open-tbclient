@@ -1,25 +1,354 @@
 package com.repackage;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.text.TextUtils;
+import android.webkit.JavascriptInterface;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.v8engine.JSExceptionType;
+import com.baidu.searchbox.v8engine.JSRuntime;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.searchbox.v8engine.event.EventTargetImpl;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import java.util.TreeMap;
 /* loaded from: classes5.dex */
-public class bu3 {
+public class bu3 extends EventTargetImpl implements yt3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile int a;
     public transient /* synthetic */ FieldHolder $fh;
+    public aq3 a;
+    @V8JavascriptField
+    public String adUnitId;
+    public String b;
+    public boolean c;
+    public zt3 d;
+    public au3 e;
+    public Map<String, String> f;
+    public jp3 g;
+    public b h;
+    public boolean i;
+    public boolean j;
+    public tf3 k;
+    public zp3 l;
 
-    public static synchronized int a() {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (bu3.class) {
-                i = a;
-                a = i + 1;
+    /* loaded from: classes5.dex */
+    public class a implements zp3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ bu3 a;
+
+        /* renamed from: com.repackage.bu3$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class C0384a implements tf3 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public C0384a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
             }
-            return i;
+
+            @Override // com.repackage.tf3
+            public void b() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                }
+            }
+
+            @Override // com.repackage.tf3
+            public void g() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    this.a.a.i = false;
+                    this.a.a.a.i0();
+                }
+            }
+
+            @Override // com.repackage.tf3
+            public void n() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                    this.a.a.i = true;
+                    if (this.a.a.j) {
+                        this.a.a.a.N();
+                    }
+                }
+            }
         }
-        return invokeV.intValue;
+
+        public a(bu3 bu3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bu3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bu3Var;
+        }
+
+        @Override // com.repackage.zp3
+        public void a(boolean z, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
+                if (z) {
+                    this.a.dispatchEvent(new JSEvent("load"));
+                    if (this.a.d != null) {
+                        this.a.d.c();
+                    }
+                    xt3.b().c(16, "");
+                    rt3.b(this.a.getType(), "success");
+                    return;
+                }
+                if (this.a.d != null) {
+                    this.a.d.b(str);
+                }
+                xt3.b().c(17, str);
+                rt3.c(this.a.getType(), com.baidu.pass.biometrics.face.liveness.b.a.g0, str);
+            }
+        }
+
+        @Override // com.repackage.zp3
+        public void b(boolean z, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str) == null) {
+                if (z) {
+                    if (this.a.e != null) {
+                        this.a.e.c();
+                    }
+                    if (this.a.h == null) {
+                        this.a.h = new b(this.a, null);
+                        IntentFilter intentFilter = new IntentFilter();
+                        intentFilter.addAction("android.intent.action.SCREEN_ON");
+                        intentFilter.addAction("android.intent.action.SCREEN_OFF");
+                        AppRuntime.getAppContext().registerReceiver(this.a.h, intentFilter);
+                    }
+                    if (this.a.k == null) {
+                        this.a.k = new C0384a(this);
+                        bu3.M(this.a.k);
+                    }
+                } else if (this.a.e != null) {
+                    this.a.e.b(str);
+                }
+            }
+        }
+
+        @Override // com.repackage.zp3
+        public void c(boolean z, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+                JSEvent jSEvent = new JSEvent("close");
+                jSEvent.data = cu3.a(z);
+                this.a.dispatchEvent(jSEvent);
+                rt3.a(this.a.getType(), "pageclose", i);
+                this.a.destroy();
+            }
+        }
+
+        @Override // com.repackage.zp3
+        public void onClick(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+                rt3.a(this.a.getType(), "click", i);
+            }
+        }
+
+        @Override // com.repackage.zp3
+        public void onError(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+                JSEvent jSEvent = new JSEvent("error");
+                jSEvent.data = cu3.b(str);
+                this.a.dispatchEvent(jSEvent);
+                cq3.k(this.a.f, str);
+                this.a.destroy();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ bu3 this$0;
+
+        public b(bu3 bu3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bu3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = bu3Var;
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+                if (TextUtils.equals(intent.getAction(), "android.intent.action.SCREEN_ON")) {
+                    this.this$0.j = true;
+                    if (this.this$0.i) {
+                        this.this$0.a.N();
+                    }
+                } else if (TextUtils.equals(intent.getAction(), "android.intent.action.SCREEN_OFF")) {
+                    this.this$0.j = false;
+                }
+            }
+        }
+
+        public /* synthetic */ b(bu3 bu3Var, a aVar) {
+            this(bu3Var);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bu3(e82 e82Var, JsObject jsObject) {
+        super(e82Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {e82Var, jsObject};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((JSRuntime) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.adUnitId = "";
+        this.f = new TreeMap();
+        this.j = true;
+        this.l = new a(this);
+        bt1 F = bt1.F(jsObject);
+        if (F != null) {
+            this.adUnitId = F.B("adUnitId");
+            this.b = F.B("appSid");
+        }
+        if (F != null && !TextUtils.isEmpty(this.adUnitId) && !TextUtils.isEmpty(this.b)) {
+            boolean g = nq3.g();
+            this.c = g;
+            if (g) {
+                this.b = nq3.c();
+                this.adUnitId = nq3.d();
+            }
+            this.f = cq3.a("video", "game", this.b, this.adUnitId, this.c);
+            this.g = new pt3();
+            aq3 aq3Var = new aq3(hm2.U().getActivity(), this.b, this.adUnitId, this.c, this.l, this.g);
+            this.a = aq3Var;
+            aq3Var.k0(this.f);
+            loadAd(null);
+            return;
+        }
+        e82Var.throwJSException(JSExceptionType.Error, "请求广告的必须参数为空,中断执行");
+    }
+
+    public static void M(tf3 tf3Var) {
+        li1 W;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65549, null, tf3Var) == null) || (W = hm2.U().W()) == null) {
+            return;
+        }
+        W.e(tf3Var);
+    }
+
+    public static void N(tf3 tf3Var) {
+        li1 W;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65550, null, tf3Var) == null) || (W = hm2.U().W()) == null) {
+            return;
+        }
+        W.f(tf3Var);
+    }
+
+    public final void destroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.h != null) {
+                AppRuntime.getAppContext().unregisterReceiver(this.h);
+                this.h = null;
+            }
+            tf3 tf3Var = this.k;
+            if (tf3Var != null) {
+                N(tf3Var);
+                this.k = null;
+            }
+        }
+    }
+
+    public String getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c ? "gdtvideo" : "video" : (String) invokeV.objValue;
+    }
+
+    @JavascriptInterface
+    public synchronized void loadAd(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject) == null) {
+            synchronized (this) {
+                this.d = zt3.d(bt1.F(jsObject));
+                xt3.b().a(this.d);
+                if (this.a != null) {
+                    this.a.c0();
+                }
+            }
+        }
+    }
+
+    @JavascriptInterface
+    public synchronized void showAd(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jsObject) == null) {
+            synchronized (this) {
+                rt3.d(getType());
+                this.e = au3.d(bt1.F(jsObject));
+                if (this.a != null) {
+                    this.a.l0();
+                }
+            }
+        }
     }
 }

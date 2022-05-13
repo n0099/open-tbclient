@@ -1,27 +1,28 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import androidx.collection.LongSparseArray;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.android.imsdk.upload.action.IMTrackDatabase;
+import com.baidu.tieba.im.data.GroupMsgData;
+import com.baidu.tieba.im.message.MessageSyncMessage;
+import com.baidu.tieba.im.message.ResponsePullMessage;
+import com.baidu.tieba.im.message.ResponseUnLoginMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class a77 {
+public class a77 extends ua {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<String, ImMessageCenterPojo> a;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(Iterator<ImMessageCenterPojo> it);
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a77() {
+        super(202003);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -29,51 +30,93 @@ public class a77 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ConcurrentHashMap<>();
     }
 
-    public void a(ImMessageCenterPojo imMessageCenterPojo) {
+    public final void c(GroupMsgData groupMsgData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, imMessageCenterPojo) == null) || imMessageCenterPojo == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, groupMsgData) == null) || groupMsgData == null || groupMsgData.getGroupInfo() == null) {
             return;
         }
-        this.a.put(imMessageCenterPojo.getGid(), imMessageCenterPojo);
+        MessageManager.getInstance().dispatchResponsedMessage(groupMsgData);
     }
 
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.clear();
-        }
-    }
-
-    public ImMessageCenterPojo c(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.ra
+    /* renamed from: d */
+    public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, socketResponsedMessage)) == null) {
+            MessageSyncMessage messageSyncMessage = null;
+            if (socketResponsedMessage instanceof ResponsePullMessage) {
+                if (socketResponsedMessage.getOrginalMessage() != null && (socketResponsedMessage.getOrginalMessage() instanceof MessageSyncMessage)) {
+                    messageSyncMessage = (MessageSyncMessage) socketResponsedMessage.getOrginalMessage();
+                }
+                if (messageSyncMessage != null) {
+                    xt4.a("im", messageSyncMessage.getClientLogID(), messageSyncMessage.getCmd(), IMTrackDatabase.AckEnum.TABLE_NAME, socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), new Object[0]);
+                }
+                if (socketResponsedMessage.getError() == 110000) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new ResponseUnLoginMessage());
+                }
+                ResponsePullMessage responsePullMessage = (ResponsePullMessage) socketResponsedMessage;
+                List<GroupMsgData> groupMsg = responsePullMessage.getGroupMsg();
+                if (groupMsg != null && groupMsg.size() > 0) {
+                    for (GroupMsgData groupMsgData : groupMsg) {
+                        if (groupMsgData != null && groupMsgData.getGroupInfo() != null) {
+                            c(groupMsgData);
+                        }
+                    }
+                }
+                if (!e(responsePullMessage)) {
+                    y67.l().n();
+                }
+                return socketResponsedMessage;
             }
-            return this.a.get(str);
+            return null;
         }
-        return (ImMessageCenterPojo) invokeL.objValue;
+        return (SocketResponsedMessage) invokeL.objValue;
     }
 
-    public void d(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            aVar.a(this.a.values().iterator());
-        }
-    }
-
-    public boolean e(String str) {
+    public final boolean e(ResponsePullMessage responsePullMessage) {
         InterceptResult invokeL;
+        Long l;
+        Long l2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? (TextUtils.isEmpty(str) || this.a.remove(str) == null) ? false : true : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, responsePullMessage)) == null) {
+            if (responsePullMessage != null && responsePullMessage.getGroupMsg() != null && responsePullMessage.getGroupMsg().size() != 0 && !responsePullMessage.hasError()) {
+                List<GroupMsgData> groupMsg = responsePullMessage.getGroupMsg();
+                if (!(responsePullMessage.getOrginalMessage() instanceof MessageSyncMessage)) {
+                    return false;
+                }
+                MessageSyncMessage messageSyncMessage = (MessageSyncMessage) responsePullMessage.getOrginalMessage();
+                if (messageSyncMessage.getGroupMids() != null && messageSyncMessage.getGroupMids().size() != 0) {
+                    LongSparseArray<Long> longSparseArray = new LongSparseArray<>();
+                    LongSparseArray<Long> s = r67.p().s();
+                    boolean z = false;
+                    for (GroupMsgData groupMsgData : groupMsg) {
+                        if (groupMsgData != null && groupMsgData.getGroupInfo() != null && s67.a(groupMsgData.getGroupInfo().getCustomType()) && (l = s.get(groupMsgData.getGroupInfo().getGroupId())) != null && (l2 = messageSyncMessage.getGroupMids().get(groupMsgData.getGroupInfo().getGroupId())) != null) {
+                            if (l.longValue() > l2.longValue()) {
+                                z = true;
+                            }
+                            if (groupMsgData.hasMore()) {
+                                longSparseArray.put(groupMsgData.getGroupInfo().getGroupId(), l);
+                            }
+                        }
+                    }
+                    if (z && longSparseArray.size() > 0) {
+                        y67.l().r(longSparseArray);
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

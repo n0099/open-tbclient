@@ -1,92 +1,90 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.img.effect.ImageOperation;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.anim.AnimationProperty;
+import com.baidu.ubc.UBCManager;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class v35 extends s35 {
+public class v35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
-    public v35() {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", "before_request");
+                jSONObject.put("value", "1");
+                uBCManager.onEvent("4509", jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
-        this.a = 0;
     }
 
-    public static ImageOperation e(int i) {
-        InterceptResult invokeI;
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            ImageOperation imageOperation = new ImageOperation();
-            imageOperation.actionName = AnimationProperty.ROTATE;
-            imageOperation.actionParam = String.valueOf(i);
-            return imageOperation;
-        }
-        return (ImageOperation) invokeI.objValue;
-    }
-
-    @Override // com.repackage.s35
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? AnimationProperty.ROTATE : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.s35
-    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) {
-            if (bitmap == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                jSONObject.put("value", "0");
+                JSONObject jSONObject2 = new JSONObject();
+                if (StringUtils.isNull(str)) {
+                    str = "";
+                }
+                jSONObject2.put("scheme", str);
+                jSONObject.put("ext", jSONObject2);
+                uBCManager.onEvent("4509", jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            h35.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
-            int i = this.a;
-            if (i == 0 || i == 1) {
-                return BitmapHelper.rotateBitmap(bitmap, this.a);
+        }
+    }
+
+    public static void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                jSONObject.put("value", "1");
+                JSONObject jSONObject2 = new JSONObject();
+                if (StringUtils.isNull(str)) {
+                    str = "";
+                }
+                jSONObject2.put("scheme", str);
+                jSONObject.put("ext", jSONObject2);
+                uBCManager.onEvent("4509", jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            return (i == 2 || i == 3) ? BitmapHelper.reversalBitmap(bitmap, this.a) : bitmap;
         }
-        return (Bitmap) invokeLZ.objValue;
     }
 
-    @Override // com.repackage.s35
-    public Bitmap c(String str) throws Exception {
-        InterceptResult invokeL;
+    public static void d(boolean z, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            int max = Math.max(oi.k(TbadkCoreApplication.getInst().getApp()), oi.i(TbadkCoreApplication.getInst().getApp()));
-            return b(BitmapHelper.loadResizedBitmap(str, max, max), true);
+        if (interceptable == null || interceptable.invokeZL(65539, null, z, jSONObject) == null) {
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("type", "request");
+                jSONObject2.put("value", z ? "1" : "0");
+                JSONObject jSONObject3 = new JSONObject();
+                jSONObject3.put("slog", jSONObject != null ? jSONObject : "");
+                jSONObject2.put("ext", jSONObject3);
+                uBCManager.onEvent("4509", jSONObject2);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    @Override // com.repackage.s35
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || str == null) {
-            return;
-        }
-        this.a = Integer.parseInt(str);
     }
 }

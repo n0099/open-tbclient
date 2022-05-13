@@ -1,80 +1,190 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.content.Context;
+import android.content.res.Resources;
+import android.os.Build;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
+import android.view.Display;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class f3a<T> extends hz9<T> {
+public class f3a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final cz9<T> e;
+    public final int a;
+    public final int b;
+    public final boolean c;
+    public final int d;
+    public final int e;
+    public final boolean f;
+    public final float g;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public f3a(hz9<? super T> hz9Var) {
-        this(hz9Var, true);
+    public f3a(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {hz9Var};
+            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((hz9) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        Resources resources = activity.getResources();
+        this.f = resources.getConfiguration().orientation == 1;
+        this.g = h(activity);
+        this.a = c(resources, SapiSystemBarTintManager.SystemBarConfig.g);
+        this.b = b(activity);
+        this.d = e(activity);
+        this.e = g(activity);
+        this.c = this.d > 0;
     }
 
-    @Override // com.repackage.cz9
-    public void onCompleted() {
+    @TargetApi(14)
+    public static boolean j(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e.onCompleted();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
+            Display defaultDisplay = activity.getWindowManager().getDefaultDisplay();
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            if (Build.VERSION.SDK_INT >= 17) {
+                defaultDisplay.getRealMetrics(displayMetrics);
+            }
+            int i = displayMetrics.heightPixels;
+            int i2 = displayMetrics.widthPixels;
+            DisplayMetrics displayMetrics2 = new DisplayMetrics();
+            defaultDisplay.getMetrics(displayMetrics2);
+            return i2 - displayMetrics2.widthPixels > 0 || i - displayMetrics2.heightPixels > 0;
         }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.cz9
-    public void onError(Throwable th) {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            this.e.onError(th);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    @TargetApi(14)
+    public final int b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            if (Build.VERSION.SDK_INT >= 14) {
+                TypedValue typedValue = new TypedValue();
+                context.getTheme().resolveAttribute(16843499, typedValue, true);
+                return TypedValue.complexToDimensionPixelSize(typedValue.data, context.getResources().getDisplayMetrics());
+            }
+            return 0;
         }
+        return invokeL.intValue;
     }
 
-    @Override // com.repackage.cz9
-    public void onNext(T t) {
+    public final int c(Resources resources, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            this.e.onNext(t);
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f3a(hz9<? super T> hz9Var, boolean z) {
-        super(hz9Var, z);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {hz9Var, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((hz9) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, resources, str)) == null) {
+            try {
+                Class<?> cls = Class.forName("com.android.internal.R$dimen");
+                int parseInt = Integer.parseInt(cls.getField(str).get(cls.newInstance()).toString());
+                if (parseInt > 0) {
+                    return resources.getDimensionPixelSize(parseInt);
+                }
+                return 0;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return 0;
             }
         }
-        this.e = new e3a(hz9Var);
+        return invokeLL.intValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : invokeV.intValue;
+    }
+
+    @TargetApi(14)
+    public final int e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+            Resources resources = context.getResources();
+            if (Build.VERSION.SDK_INT < 14 || !j((Activity) context)) {
+                return 0;
+            }
+            return c(resources, this.f ? SapiSystemBarTintManager.SystemBarConfig.h : SapiSystemBarTintManager.SystemBarConfig.i);
+        }
+        return invokeL.intValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : invokeV.intValue;
+    }
+
+    @TargetApi(14)
+    public final int g(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
+            Resources resources = context.getResources();
+            if (Build.VERSION.SDK_INT < 14 || !j((Activity) context)) {
+                return 0;
+            }
+            return c(resources, SapiSystemBarTintManager.SystemBarConfig.j);
+        }
+        return invokeL.intValue;
+    }
+
+    @SuppressLint({"NewApi"})
+    public final float h(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, activity)) == null) {
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            if (Build.VERSION.SDK_INT >= 16) {
+                activity.getWindowManager().getDefaultDisplay().getRealMetrics(displayMetrics);
+            } else {
+                activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+            }
+            float f = displayMetrics.density;
+            return Math.min(displayMetrics.widthPixels / f, displayMetrics.heightPixels / f);
+        }
+        return invokeL.floatValue;
+    }
+
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.c : invokeV.booleanValue;
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.g >= 600.0f || this.f : invokeV.booleanValue;
     }
 }

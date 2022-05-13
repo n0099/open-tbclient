@@ -1,113 +1,16 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class n85 extends o85 {
+public abstract class n85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long b;
-    public long c;
-    public long d;
-    public int e;
-    public long f;
-    public int g;
-    public b h;
-    public final Handler i;
-
-    /* loaded from: classes6.dex */
-    public class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n85 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(n85 n85Var, Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n85Var, looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = n85Var;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                this.a.h = new b(this.a);
-                this.a.h.setSelfExecute(true);
-                this.a.h.execute(new String[0]);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends BdAsyncTask<String, Integer, Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n85 a;
-
-        public b(n85 n85Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n85Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = n85Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Boolean doInBackground(String... strArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                this.a.g = PerformanceLoggerHelper.getInstance().getCpuUsageStatistic();
-                this.a.e();
-                return Boolean.TRUE;
-            }
-            return (Boolean) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(Boolean bool) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) {
-            }
-        }
-    }
+    public boolean a;
 
     public n85() {
         Interceptable interceptable = $ic;
@@ -122,23 +25,61 @@ public class n85 extends o85 {
                 return;
             }
         }
-        this.h = null;
-        this.i = new a(this, Looper.getMainLooper());
+        this.a = iu4.k().h("page_stay_duration_switch", false);
     }
 
-    public final void e() {
-        q85 q85Var;
+    public boolean a(p85 p85Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (q85Var = (q85) PerformanceLoggerHelper.getInstance().getLoggerWithType(this.a)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, p85Var)) == null) {
+            if (p85Var == null || p85Var.p()) {
+                return false;
+            }
+            if (p85Var.a) {
+                p85Var.x(o85.b(p85Var.h(), 6));
+            } else {
+                int c = b() > q85.b().c() ? q85.b().c() : b();
+                if (c > 5) {
+                    c = 5;
+                }
+                p85Var.x(o85.b(p85Var.h(), c));
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public abstract int b();
+
+    public abstract boolean c();
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
+                return this.a;
+            }
+            if (!TbadkCoreApplication.getInst().isPageStayOpen()) {
+                e(false);
+                return false;
+            } else if (!q85.b().f()) {
+                e(false);
+                return false;
+            } else {
+                e(true);
+                return true;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || this.a == z) {
             return;
         }
-        q85Var.c(this);
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.i.sendEmptyMessage(0);
-        }
+        iu4.k().u("page_stay_duration_switch", true);
+        this.a = z;
     }
 }

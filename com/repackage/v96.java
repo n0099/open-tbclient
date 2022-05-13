@@ -1,106 +1,91 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tieba.R;
+import com.baidu.mobstat.Config;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.forbidden.fans.GetForbiddenFansResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class v96 extends BaseAdapter {
+public class v96 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<bl4> a;
-    public String b;
-    public Context c;
-    public k35 d;
-    public int e;
-    public int f;
+    public aq4 a;
+    public ArrayList<u96> b;
+    public b c;
+    public HttpMessageListener d;
 
     /* loaded from: classes7.dex */
-    public class a implements g35 {
+    public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ViewGroup a;
+        public final /* synthetic */ v96 a;
 
-        public a(v96 v96Var, ViewGroup viewGroup) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(v96 v96Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {v96Var, viewGroup};
+                Object[] objArr = {v96Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = viewGroup;
+            this.a = v96Var;
         }
 
-        @Override // com.repackage.g35
-        public void a(fo foVar, String str, boolean z) {
-            HeadImageView headImageView;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, foVar, str, z) == null) || (headImageView = (HeadImageView) this.a.findViewWithTag(str)) == null || foVar == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof GetForbiddenFansResponse)) {
+                GetForbiddenFansResponse getForbiddenFansResponse = (GetForbiddenFansResponse) httpResponsedMessage;
+                this.a.a = getForbiddenFansResponse.getPageData();
+                if (this.a.b == null) {
+                    this.a.b = new ArrayList();
+                }
+                if (this.a.a != null) {
+                    if (this.a.a.a() == 1) {
+                        this.a.b.clear();
+                    }
+                    if (getForbiddenFansResponse.getFansList() != null) {
+                        this.a.b.addAll(getForbiddenFansResponse.getFansList());
+                    }
+                }
+                if (this.a.c != null) {
+                    this.a.c.a(getForbiddenFansResponse.getError(), getForbiddenFansResponse.getErrorString(), this.a.b);
+                }
             }
-            headImageView.invalidate();
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public HeadImageView a;
-        public TextView b;
-        public ImageView c;
-
-        public b(v96 v96Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v96Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(v96 v96Var, a aVar) {
-            this(v96Var);
-        }
+    public interface b {
+        void a(int i, String str, ArrayList<u96> arrayList);
     }
 
-    public v96(Context context) {
+    public v96() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -110,112 +95,62 @@ public class v96 extends BaseAdapter {
                 return;
             }
         }
-        this.c = context;
-        this.d = new k35();
-        this.f = (int) this.c.getResources().getDimension(R.dimen.obfuscated_res_0x7f07023f);
-        this.e = oi.k(this.c) / 2;
+        this.d = new a(this, CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS, TbConfig.SERVER_ADDRESS + TbConfig.GET_FORBIDDEN_FANS);
+        tbHttpMessageTask.setIsNeedLogin(true);
+        tbHttpMessageTask.setIsNeedTbs(true);
+        tbHttpMessageTask.setIsUseCurrentBDUSS(true);
+        tbHttpMessageTask.setResponsedClass(GetForbiddenFansResponse.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        MessageManager.getInstance().registerListener(this.d);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public bl4 getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<bl4> list = this.a;
-            if (list == null || i < 0 || i >= list.size()) {
-                return null;
-            }
-            return this.a.get(i);
-        }
-        return (bl4) invokeI.objValue;
-    }
-
-    public void b(List<bl4> list, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, str) == null) {
-            this.a = list;
-            this.b = str;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<bl4> list = this.a;
-            if (list != null) {
-                return list.size();
-            }
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            aq4 aq4Var = this.a;
+            return aq4Var != null && aq4Var.b() == 1;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    public void g() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.longValue;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
+            httpMessage.addParam("rn", 20);
+            httpMessage.addParam(Config.PACKAGE_NAME, 1);
+            MessageManager.getInstance().sendMessage(httpMessage);
+        }
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        b bVar;
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-            if (view2 != null) {
-                bVar = (b) view2.getTag();
-            } else {
-                view2 = LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d01ed, viewGroup, false);
-                bVar = new b(this, null);
-                bVar.a = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f70);
-                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f82);
-                ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f58);
-                bVar.c = imageView;
-                SkinManager.setImageResource(imageView, R.drawable.icon_site_ok);
-                view2.setTag(bVar);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            aq4 aq4Var = this.a;
+            if (aq4Var == null || aq4Var.b() == 1) {
+                aq4 aq4Var2 = this.a;
+                int a2 = aq4Var2 != null ? 1 + aq4Var2.a() : 1;
+                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
+                httpMessage.addParam("rn", 20);
+                httpMessage.addParam(Config.PACKAGE_NAME, a2);
+                MessageManager.getInstance().sendMessage(httpMessage);
             }
-            bVar.a.setTag(null);
-            bVar.a.setDefaultResource(R.drawable.pic_image_h_not);
-            bVar.a.K(null, 12, false);
-            bVar.a.invalidate();
-            bl4 item = getItem(i);
-            if (item != null) {
-                if (!TextUtils.isEmpty(item.g())) {
-                    item.g();
-                    String s = oi.s(bVar.b.getPaint(), item.g(), this.e);
-                    bVar.b.setText(s + "(" + item.c() + SmallTailInfo.EMOTION_SUFFIX);
-                } else {
-                    bVar.b.setText("");
-                }
-                String b2 = item.b();
-                if (!TextUtils.isEmpty(b2) && b2.equals(this.b)) {
-                    bVar.c.setVisibility(0);
-                } else {
-                    bVar.c.setVisibility(8);
-                }
-                ImageFileInfo e = item.e();
-                if (e != null) {
-                    e.clearPageActions();
-                    int i2 = this.f;
-                    e.addPageAction(u35.g(i2, i2));
-                    fo c = this.d.c(e, false);
-                    bVar.a.setTag(e.toCachedKey(false));
-                    if (c != null) {
-                        bVar.a.invalidate();
-                    } else {
-                        this.d.e(e, new a(this, viewGroup), false, false);
-                    }
-                }
-            } else {
-                bVar.b.setText("");
-            }
-            return view2;
         }
-        return (View) invokeILL.objValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.d);
+        }
+    }
+
+    public void j(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
+            this.c = bVar;
+        }
     }
 }

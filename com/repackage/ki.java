@@ -1,11 +1,20 @@
 package com.repackage;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.Proxy;
+import android.telephony.TelephonyManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.lib.service.AsyncService;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
+import com.baidu.adp.lib.util.NetworkState;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,100 +23,130 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
+import java.util.regex.Pattern;
 /* loaded from: classes6.dex */
 public class ki {
     public static /* synthetic */ Interceptable $ic;
-    public static ki a;
+    public static Pattern m;
+    public static boolean n;
+    public static ki o;
     public transient /* synthetic */ FieldHolder $fh;
+    public NetworkInfo a;
+    public boolean b;
+    public boolean c;
+    public boolean d;
+    public int e;
+    public int f;
+    public int g;
+    public String h;
+    public int i;
+    public long j;
+    public boolean k;
+    public Runnable l;
 
     /* loaded from: classes6.dex */
-    public class a extends BdAsyncTask<Object, Object, Object> {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public StringBuilder c;
-        public li d;
-        public boolean e;
-        public final /* synthetic */ ki f;
 
-        public a(ki kiVar, String str, String str2, StringBuilder sb, li liVar) {
+        public a(ki kiVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {kiVar, str, str2, sb, liVar};
+                Object[] objArr = {kiVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.f = kiVar;
-            this.a = str;
-            this.b = str2;
-            this.c = sb;
-            this.d = liVar;
-            this.e = false;
         }
 
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Object doInBackground(Object... objArr) {
-            InterceptResult invokeL;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                boolean g = this.f.g(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.a, this.c);
-                this.e = g;
-                if (g) {
-                    return null;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    int I = ki.I();
+                    long l = ki.l();
+                    ki.e();
+                    if (ki.C()) {
+                        NetworkState networkState = new NetworkState();
+                        networkState.mLastNetState = I;
+                        networkState.mCurNetState = ki.I();
+                        networkState.mlastChangedTime = l;
+                        long currentTimeMillis = System.currentTimeMillis();
+                        networkState.mCurChangedTime = currentTimeMillis;
+                        ki.N(currentTimeMillis);
+                        MessageManager.getInstance().dispatchResponsedMessage(new NetWorkChangedMessage(networkState));
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-                this.f.c(this.b, "".getBytes(), this.c);
-                return null;
             }
-            return invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
 
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(Object obj) {
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-                super.onPostExecute(obj);
-                if (this.c.length() > 0) {
-                    BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
-                    bdStatisticsManager.error("so", "load_" + this.a + ".so", "", -9101, this.c.toString(), new Object[0]);
-                }
-                li liVar = this.d;
-                if (liVar != null) {
-                    liVar.a(this.e);
-                }
+            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+                AsyncService.INSTANCE.sendRunnable(ki.k().l);
             }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
         }
     }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1964035481, "Lcom/repackage/ki;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964035481, "Lcom/repackage/ki;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1964035481, "Lcom/repackage/ki;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+        m = Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.(172|200)$", 8);
+        n = true;
+        try {
+            b bVar = new b(null);
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.setPriority(1000);
+            intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+            BdBaseApplication.getInst().getApp().registerReceiver(bVar, intentFilter);
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1964035481, "Lcom/repackage/ki;");
-        }
+        o = null;
     }
 
     public ki() {
@@ -120,312 +159,449 @@ public class ki {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        this.a = null;
+        this.b = true;
+        this.c = false;
+        this.d = true;
+        this.e = 0;
+        this.f = 0;
+        this.g = -1;
+        this.h = null;
+        this.i = -1;
+        this.k = true;
+        this.l = new a(this);
+    }
+
+    public static boolean A() {
+        InterceptResult invokeV;
+        NetworkInfo[] allNetworkInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            try {
+                ConnectivityManager connectivityManager = (ConnectivityManager) BdBaseApplication.getInst().getContext().getSystemService("connectivity");
+                if (connectivityManager != null && (allNetworkInfo = connectivityManager.getAllNetworkInfo()) != null && allNetworkInfo.length > 0) {
+                    for (NetworkInfo networkInfo : allNetworkInfo) {
+                        if (networkInfo.getState() == NetworkInfo.State.CONNECTED) {
+                            return true;
+                        }
+                    }
+                }
+            } catch (Exception unused) {
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean C() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? k().B() : invokeV.booleanValue;
+    }
+
+    public static boolean D() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? n : invokeV.booleanValue;
+    }
+
+    public static boolean E() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            NetworkInfo h = k().h();
+            return (h == null || h.getExtraInfo() == null || !h.getExtraInfo().contains("wap")) ? false : true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean F(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? m.matcher(str).find() : invokeL.booleanValue;
+    }
+
+    public static boolean H() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? k().G() : invokeV.booleanValue;
+    }
+
+    public static int I() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            if (H()) {
+                return 1;
+            }
+            if (t()) {
+                return 2;
+            }
+            if (u()) {
+                return 3;
+            }
+            return (v() || z()) ? 4 : 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public static String J() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            int I = I();
+            return I != 1 ? I != 2 ? I != 3 ? I != 4 ? "unreachable" : "4g" : "3g" : "2g" : "wifi";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String K() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            String J = J();
+            return J != null ? J.toUpperCase() : J;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static int L() {
+        InterceptResult invokeV;
+        String substring;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            String networkOperator = ((TelephonyManager) BdBaseApplication.getInst().getContext().getSystemService("phone")).getNetworkOperator();
+            if (networkOperator == null || networkOperator.length() < 4 || li.isEmptyStringAfterTrim(networkOperator) || (substring = networkOperator.substring(0, 3)) == null || !substring.equals("460")) {
+                return 0;
+            }
+            try {
+                i = Integer.parseInt(networkOperator.substring(3));
+            } catch (NumberFormatException unused) {
+                i = 0;
+            }
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3 && i != 5) {
+                            if (i != 6) {
+                                if (i != 7) {
+                                    if (i != 11) {
+                                        return 0;
+                                    }
+                                }
+                            }
+                        }
+                        return 3;
+                    }
+                }
+                return 2;
+            }
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
+    public static void N(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65548, null, j) == null) {
+            k().M(j);
         }
     }
 
-    public static ki d() {
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? k().p() : (String) invokeV.objValue;
+    }
+
+    public static int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? k().q() : invokeV.intValue;
+    }
+
+    public static void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65553, null) == null) {
+            k().j();
+        }
+    }
+
+    public static int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? k().o() : invokeV.intValue;
+    }
+
+    public static synchronized ki k() {
         InterceptResult invokeV;
         ki kiVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            ki kiVar2 = a;
-            if (kiVar2 == null) {
-                synchronized (ki.class) {
-                    if (a == null) {
-                        a = new ki();
-                    }
-                    kiVar = a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
+            synchronized (ki.class) {
+                if (o == null) {
+                    o = new ki();
                 }
-                return kiVar;
+                kiVar = o;
             }
-            return kiVar2;
+            return kiVar;
         }
         return (ki) invokeV.objValue;
     }
 
-    public final void c(String str, byte[] bArr, StringBuilder sb) {
-        FileOutputStream fileOutputStream;
+    public static long l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, bArr, sb) == null) {
-            FileOutputStream fileOutputStream2 = null;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? k().g() : invokeV.longValue;
+    }
+
+    public static String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? !z() ? "N" : H() ? "WIFI" : v() ? "4G" : u() ? "3G" : t() ? "2G" : "N" : (String) invokeV.objValue;
+    }
+
+    public static int n(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65558, null, i)) == null) {
+            switch (i) {
+                case 1:
+                case 2:
+                case 4:
+                case 7:
+                case 11:
+                    return 1;
+                case 3:
+                case 5:
+                case 6:
+                case 8:
+                case 9:
+                case 10:
+                case 12:
+                case 14:
+                case 15:
+                    return 2;
+                case 13:
+                    return 3;
+                default:
+                    return 4;
+            }
+        }
+        return invokeI.intValue;
+    }
+
+    public static void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65559, null) == null) {
+            s(true);
+        }
+    }
+
+    public static void s(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65560, null, z) == null) {
+            k().O(z);
+            k().j();
+        }
+    }
+
+    public static boolean t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) ? 1 == k().i() : invokeV.booleanValue;
+    }
+
+    public static boolean u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) ? 2 == k().i() : invokeV.booleanValue;
+    }
+
+    public static boolean v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) ? 3 == k().i() : invokeV.booleanValue;
+    }
+
+    public static boolean x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) ? k().w() : invokeV.booleanValue;
+    }
+
+    public static boolean z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65565, null)) == null) ? k().y() : invokeV.booleanValue;
+    }
+
+    public boolean B() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.k : invokeV.booleanValue;
+    }
+
+    public boolean G() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a == null) {
+                j();
+            }
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void M(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.j = j;
+        }
+    }
+
+    public void O(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.k = z;
+        }
+    }
+
+    public final long g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.j : invokeV.longValue;
+    }
+
+    public final NetworkInfo h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             try {
-                try {
-                    fileOutputStream = new FileOutputStream(new File(str));
-                } catch (Exception e) {
-                    e = e;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                fileOutputStream.write(bArr);
-                lg.d(fileOutputStream);
-            } catch (Exception e2) {
-                e = e2;
-                fileOutputStream2 = fileOutputStream;
-                sb.append("-Error4:");
-                sb.append(e.getClass().getName() + "-" + e.getMessage());
-                sb.append("-");
-                lg.d(fileOutputStream2);
-            } catch (Throwable th2) {
-                th = th2;
-                fileOutputStream2 = fileOutputStream;
-                lg.d(fileOutputStream2);
-                throw th;
+                return ((ConnectivityManager) BdBaseApplication.getInst().getContext().getSystemService("connectivity")).getActiveNetworkInfo();
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
             }
         }
+        return (NetworkInfo) invokeV.objValue;
     }
 
-    public final String e(String str) {
-        InterceptResult invokeL;
+    public int i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + "lib" + File.separator + "lib" + str + ".so";
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.a == null) {
+                j();
+            }
+            return this.f;
         }
-        return (String) invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    public final String f(String str) {
-        InterceptResult invokeL;
+    public final void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + "files" + File.separator + "lib" + str + ".so";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x0125 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r4v3, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r4v4 */
-    /* JADX WARN: Type inference failed for: r4v6, types: [java.io.InputStream] */
-    public final boolean g(String str, String str2, StringBuilder sb) {
-        InterceptResult invokeLLL;
-        Throwable th;
-        ZipInputStream zipInputStream;
-        IOException e;
-        ByteArrayOutputStream byteArrayOutputStream;
-        Throwable th2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, str2, sb)) == null) {
-            ArrayList arrayList = new ArrayList();
-            StringBuilder sb2 = new StringBuilder();
-            sb2.append("lib");
-            sb2.append(File.separator);
-            sb2.append("x86");
-            sb2.append(File.separator);
-            sb2.append("lib");
-            sb2.append(str2);
-            ?? r4 = ".so";
-            sb2.append(".so");
-            arrayList.add(sb2.toString());
-            arrayList.add("lib" + File.separator + "mips" + File.separator + "lib" + str2 + ".so");
-            arrayList.add("lib" + File.separator + "armeabi" + File.separator + "lib" + str2 + ".so");
-            File file = new File(str);
-            boolean z = false;
-            if (file.exists()) {
-                try {
-                    try {
-                        zipInputStream = new ZipInputStream(new FileInputStream(file));
-                        try {
-                            byte[] bArr = new byte[1024];
-                            while (true) {
-                                ZipEntry nextEntry = zipInputStream.getNextEntry();
-                                if (nextEntry == null) {
-                                    break;
-                                } else if (arrayList.contains(nextEntry.getName())) {
-                                    try {
-                                        byteArrayOutputStream = new ByteArrayOutputStream();
-                                        while (true) {
-                                            try {
-                                                int read = zipInputStream.read(bArr);
-                                                if (read == -1) {
-                                                    break;
-                                                }
-                                                byteArrayOutputStream.write(bArr, 0, read);
-                                            } catch (Exception unused) {
-                                            } catch (Throwable th3) {
-                                                th2 = th3;
-                                                lg.d(byteArrayOutputStream);
-                                                throw th2;
-                                            }
-                                        }
-                                        byteArrayOutputStream.flush();
-                                        String f = f(str2);
-                                        c(f, byteArrayOutputStream.toByteArray(), sb);
-                                        if (k(f, sb)) {
-                                            sb.append("-Succ5-");
-                                            z = true;
-                                            lg.d(byteArrayOutputStream);
-                                            break;
-                                        }
-                                    } catch (Exception unused2) {
-                                        byteArrayOutputStream = null;
-                                    } catch (Throwable th4) {
-                                        byteArrayOutputStream = null;
-                                        th2 = th4;
-                                    }
-                                    lg.d(byteArrayOutputStream);
-                                }
-                            }
-                        } catch (IOException e2) {
-                            e = e2;
-                            sb.append("-Error5:");
-                            sb.append(e.getClass().getName() + "-" + e.getMessage());
-                            sb.append("-");
-                            lg.c(zipInputStream);
-                            return z;
-                        }
-                    } catch (Throwable th5) {
-                        th = th5;
-                        lg.c(r4);
-                        throw th;
-                    }
-                } catch (IOException e3) {
-                    zipInputStream = null;
-                    e = e3;
-                } catch (Throwable th6) {
-                    r4 = 0;
-                    th = th6;
-                    lg.c(r4);
-                    throw th;
-                }
-                lg.c(zipInputStream);
-                return z;
-            }
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public boolean h(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, str, i)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (BdBaseApplication.getInst().getApp() == null || BdBaseApplication.getInst().getApp().getApplicationInfo() == null) {
-                return false;
-            }
-            boolean z = false;
-            for (int i2 = 0; i2 < i; i2++) {
-                z = j(str, sb);
-                if (z) {
-                    break;
-                }
-            }
-            if (!z) {
-                String f = f(str);
-                File file = new File(f);
-                if (file.exists()) {
-                    if (file.length() > 0) {
-                        z = k(f, sb);
-                        if (z) {
-                            sb.append("-Succ2-");
-                        } else {
-                            sb.append("-Error7-");
-                        }
-                    } else {
-                        sb.append("-Error6:soSize1-");
-                    }
-                }
-            }
-            if (sb.length() > 0) {
-                BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
-                bdStatisticsManager.error("so", "load_" + str + ".so", "", -9101, sb.toString(), new Object[0]);
-            }
-            return z;
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public boolean i(String str, int i, li liVar) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048581, this, str, i, liVar)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (BdBaseApplication.getInst().getApp() == null || BdBaseApplication.getInst().getApp().getApplicationInfo() == null) {
-                return false;
-            }
-            boolean z = false;
-            for (int i2 = 0; i2 < i; i2++) {
-                z = j(str, sb);
-                if (z) {
-                    break;
-                }
-            }
-            if (!z) {
-                String f = f(str);
-                File file = new File(f);
-                if (file.exists()) {
-                    if (file.length() > 0) {
-                        z = k(f, sb);
-                        if (z) {
-                            sb.append("-Succ2-");
-                        } else {
-                            sb.append("-Error7-");
-                        }
-                    } else {
-                        sb.append("-Error6:soSize1-");
-                    }
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            NetworkInfo h = h();
+            this.a = h;
+            if (h != null) {
+                if (h.getType() == 1) {
+                    this.b = true;
+                    this.c = false;
+                } else if (h.getType() == 0) {
+                    this.b = false;
+                    this.c = true;
                 } else {
-                    a aVar = new a(this, str, f, sb, liVar);
-                    aVar.setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen()));
-                    aVar.execute(new Object[0]);
-                    return false;
+                    this.b = false;
+                    this.c = false;
                 }
-            }
-            if (sb.length() > 0) {
-                BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
-                bdStatisticsManager.error("so", "load_" + str + ".so", "", -9101, sb.toString(), new Object[0]);
-            }
-            return z;
-        }
-        return invokeLIL.booleanValue;
-    }
-
-    public final boolean j(String str, StringBuilder sb) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, sb)) == null) {
-            boolean k = k(e(str), sb);
-            if (k) {
-                return k;
-            }
-            try {
-                System.loadLibrary(str);
-                sb.append("-Succ3-");
-                return true;
-            } catch (Throwable th) {
-                sb.append("-Error3:");
-                sb.append(th.getClass().getName() + "-" + th.getMessage());
-                sb.append("-");
-                return k;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final boolean k(String str, StringBuilder sb) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, sb)) == null) {
-            if (!new File(str).exists()) {
-                sb.append("-Error1:");
-                sb.append(str);
-                sb.append("_FileNotFound-");
+                this.d = true;
+                int subtype = h.getSubtype();
+                this.e = subtype;
+                if (this.c) {
+                    this.f = n(subtype);
+                } else {
+                    this.f = 0;
+                }
             } else {
+                this.b = false;
+                this.c = false;
+                this.d = false;
+                this.e = 0;
+                this.e = 0;
+            }
+            this.g = L();
+            this.h = Proxy.getDefaultHost();
+            this.i = Proxy.getDefaultPort();
+        }
+    }
+
+    public int o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (this.g == -1) {
                 try {
-                    System.load(str);
-                    return true;
-                } catch (Throwable th) {
-                    sb.append("-Error2:");
-                    sb.append(th.getClass().getName() + "-" + th.getMessage());
-                    sb.append("-");
+                    this.g = L();
+                } catch (Exception unused) {
+                    this.g = 0;
                 }
             }
-            return false;
+            return this.g;
         }
-        return invokeLL.booleanValue;
+        return invokeV.intValue;
+    }
+
+    public String p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (this.h == null) {
+                this.h = Proxy.getDefaultHost();
+            }
+            return this.h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (-1 == this.i) {
+                this.i = Proxy.getDefaultPort();
+            }
+            return this.i;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (this.a == null) {
+                j();
+            }
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (this.a == null) {
+                j();
+            }
+            return this.d;
+        }
+        return invokeV.booleanValue;
     }
 }

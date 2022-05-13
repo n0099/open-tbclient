@@ -1,64 +1,115 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ViewCommonUtil;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tbadk.widget.LinearGradientView;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
-import com.baidu.tieba.frs.headerimage.FrsHeaderBannerView;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.nr4;
+import java.net.URLEncoder;
+import tbclient.PopInfo;
 /* loaded from: classes7.dex */
 public class yp6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public RelativeLayout b;
-    public LinearGradientView c;
-    public BarImageView d;
-    public TextView e;
-    public FrsHeaderBannerView f;
-    public LinearLayout g;
-    public ImageView h;
-    public View i;
-    public TbImageView j;
-    public ImageView k;
-    public ImageView l;
-    public ImageView m;
-    public ImageView n;
-    public int o;
-    public int p;
-    public int q;
+    public final FrsFragment a;
+    public b b;
 
     /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
+    }
 
-        public a(yp6 yp6Var, Context context) {
+    /* loaded from: classes7.dex */
+    public class b extends BdAsyncTask<Void, Void, Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yp6 a;
+
+        /* loaded from: classes7.dex */
+        public class a implements nr4.e {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // com.repackage.nr4.e
+            public void onClick(nr4 nr4Var) {
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, nr4Var) == null) || nr4Var == null) {
+                    return;
+                }
+                nr4Var.dismiss();
+            }
+        }
+
+        /* renamed from: com.repackage.yp6$b$b  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class C0564b implements nr4.e {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ PopInfo a;
+            public final /* synthetic */ b b;
+
+            public C0564b(b bVar, PopInfo popInfo) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, popInfo};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = bVar;
+                this.a = popInfo;
+            }
+
+            @Override // com.repackage.nr4.e
+            public void onClick(nr4 nr4Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, nr4Var) == null) {
+                    UrlManager.getInstance().dealOneLink(this.b.a.a.getPageContext(), new String[]{this.a.ahead_url});
+                    if (nr4Var == null) {
+                        return;
+                    }
+                    nr4Var.dismiss();
+                }
+            }
+        }
+
+        public b(yp6 yp6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yp6Var, context};
+                Object[] objArr = {yp6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -68,63 +119,54 @@ public class yp6 {
                     return;
                 }
             }
-            this.a = context;
+            this.a = yp6Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        public /* synthetic */ b(yp6 yp6Var, a aVar) {
+            this(yp6Var);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Boolean doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                Context context = this.a;
-                if (context instanceof Activity) {
-                    ((Activity) context).finish();
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
+                mr4.f();
+                qe<String> g = mr4.g("tb.enter_frs_dialog_list");
+                String encode = URLEncoder.encode(this.a.a.g0().getForum().getName());
+                if (g.get(encode) == null) {
+                    g.g(encode, "1");
+                    return Boolean.TRUE;
                 }
+                return Boolean.FALSE;
+            }
+            return (Boolean) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(Boolean bool) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) && bool.booleanValue() && this.a.c() && this.a.a.isAdded()) {
+                PopInfo popInfo = this.a.a.g0().enterFrsDialogInfo;
+                nr4 nr4Var = new nr4(this.a.a.getActivity());
+                nr4Var.setTitle(popInfo.title);
+                nr4Var.setMessage(popInfo.v_title);
+                nr4Var.isShowTitleAndMessage();
+                nr4Var.setNegativeButton(popInfo.ok_info, new a(this));
+                nr4Var.setPositiveButton(popInfo.ahead_info, new C0564b(this, popInfo));
+                nr4Var.create(this.a.a.getPageContext()).show();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-
-        public b(yp6 yp6Var, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yp6Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                Context context = this.a;
-                if (context instanceof Activity) {
-                    ((Activity) context).finish();
-                }
-            }
-        }
-    }
-
-    public yp6(Context context) {
+    public yp6(FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {context};
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -134,79 +176,27 @@ public class yp6 {
                 return;
             }
         }
-        this.o = UtilHelper.getDimenPixelSize(R.dimen.tbds42) + UtilHelper.getStatusBarHeight();
-        this.p = UtilHelper.getDimenPixelSize(R.dimen.tbds50) + UtilHelper.getStatusBarHeight();
-        this.q = UtilHelper.getDimenPixelSize(R.dimen.tbds51) + UtilHelper.getStatusBarHeight();
-        if (context == null) {
+        this.a = frsFragment;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            PopInfo popInfo = this.a.g0().enterFrsDialogInfo;
+            return (popInfo == null || StringUtils.isNull(popInfo.ahead_info) || StringUtils.isNull(popInfo.ahead_url) || StringUtils.isNull(popInfo.ok_info) || StringUtils.isNull(popInfo.title) || StringUtils.isNull(popInfo.v_title) || this.a.g0().enterFrsDialogInfo.if_pop.intValue() == 0) ? false : true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void d() {
+        FrsFragment frsFragment;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || !TbadkCoreApplication.isLogin() || (frsFragment = this.a) == null || frsFragment.g0() == null || this.a.g0().getForum() == null || StringUtils.isNull(this.a.g0().getForum().getName()) || this.a.g0().enterFrsDialogInfo == null || !c() || this.b != null) {
             return;
         }
-        if (UbsABTestHelper.isFrsModifyABTestA()) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05f8, (ViewGroup) null);
-            this.a = inflate;
-            this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090d31);
-            this.c = (LinearGradientView) this.a.findViewById(R.id.obfuscated_res_0x7f090d34);
-            TbImageView tbImageView = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090d32);
-            this.j = tbImageView;
-            tbImageView.setDefaultBgResource(R.color.transparent);
-            this.d = (BarImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090b44);
-            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090a6a);
-            this.e = textView;
-            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
-            ViewCommonUtil.setViewMargin(this.e, -1, this.q, -1, -1);
-            this.f = (FrsHeaderBannerView) this.a.findViewById(R.id.obfuscated_res_0x7f090b33);
-            this.g = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09096c);
-            this.h = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09096b);
-            ImageView imageView = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09096e);
-            this.k = imageView;
-            ViewCommonUtil.setViewMargin(imageView, -1, this.p, -1, -1);
-            this.k.setOnClickListener(new a(this, context));
-            this.d.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.d.setContentDescription(context.getResources().getString(R.string.obfuscated_res_0x7f0f02d2));
-            this.d.setStrokeWith(oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds4));
-            this.d.setShowOval(true);
-            this.d.setBorderColor(SkinManager.getColor(R.color.black_alpha15));
-            this.d.setStrokeColorResId(R.color.CAM_X0201);
-            ViewCommonUtil.setViewMargin(this.d, -1, this.o, -1, -1);
-            SkinManager.setBackgroundColor(this.a, R.color.CAM_X0201);
-            SkinManager.setBackgroundResource(this.h, R.color.CAM_X0201);
-            SkinManager.setImageResource(this.k, R.drawable.obfuscated_res_0x7f080622);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.obfuscated_res_0x7f0802d7, R.color.CAM_X0204, SvgManager.SvgResourceStateType.NORMAL);
-            return;
-        }
-        View inflate2 = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d030e, (ViewGroup) null);
-        this.a = inflate2;
-        this.b = (RelativeLayout) inflate2.findViewById(R.id.obfuscated_res_0x7f090d31);
-        this.c = (LinearGradientView) this.a.findViewById(R.id.obfuscated_res_0x7f090d34);
-        TbImageView tbImageView2 = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090d32);
-        this.j = tbImageView2;
-        tbImageView2.setDefaultBgResource(R.color.transparent);
-        this.j.setDefaultResource(R.drawable.obfuscated_res_0x7f080f0b);
-        this.d = (BarImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090b44);
-        TextView textView2 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090a6a);
-        this.e = textView2;
-        SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0101);
-        this.f = (FrsHeaderBannerView) this.a.findViewById(R.id.obfuscated_res_0x7f090b33);
-        this.g = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09096c);
-        this.h = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09096b);
-        this.i = this.a.findViewById(R.id.obfuscated_res_0x7f090d48);
-        this.k = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09096e);
-        this.l = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090970);
-        this.m = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09096d);
-        this.n = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09096f);
-        this.k.setOnClickListener(new b(this, context));
-        this.d.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.d.setContentDescription(context.getResources().getString(R.string.obfuscated_res_0x7f0f02d2));
-        this.d.setStrokeWith(oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds4));
-        this.d.setShowOval(true);
-        this.d.setBorderColor(SkinManager.getColor(R.color.black_alpha15));
-        this.d.setStrokeColorResId(R.color.CAM_X0201);
-        SkinManager.setBackgroundColor(this.a, R.color.CAM_X0201);
-        SkinManager.setBackgroundResource(this.i, R.drawable.white_bg_frs_header_round_corner);
-        SkinManager.setBackgroundResource(this.h, R.color.CAM_X0201);
-        SkinManager.setImageResource(this.k, R.drawable.obfuscated_res_0x7f080622);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.obfuscated_res_0x7f080624, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-        this.m.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809c2, SkinManager.getColor(R.color.CAM_X0101), null));
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.n, R.drawable.obfuscated_res_0x7f080623, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.obfuscated_res_0x7f0802d7, R.color.CAM_X0204, SvgManager.SvgResourceStateType.NORMAL);
+        b bVar = new b(this, null);
+        this.b = bVar;
+        bVar.execute(new Void[0]);
     }
 }

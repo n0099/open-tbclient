@@ -75,18 +75,18 @@ public class BdLayerTitleBarView extends FrameLayout implements View.OnClickList
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(this.a).cloneInContext(this.a).inflate(R.layout.obfuscated_res_0x7f0d05d8, this);
-            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091367);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091374);
+            LayoutInflater.from(this.a).cloneInContext(this.a).inflate(R.layout.obfuscated_res_0x7f0d05cb, this);
+            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09137a);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091387);
             this.c = imageView;
             imageView.setOnClickListener(this);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091375);
-            BdVideoBattery bdVideoBattery = (BdVideoBattery) findViewById(R.id.obfuscated_res_0x7f091366);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091388);
+            BdVideoBattery bdVideoBattery = (BdVideoBattery) findViewById(R.id.obfuscated_res_0x7f091379);
             this.e = bdVideoBattery;
-            bdVideoBattery.setImage(R.drawable.obfuscated_res_0x7f080e11);
-            this.f = (BdTextProgressView) findViewById(R.id.obfuscated_res_0x7f09136f);
+            bdVideoBattery.setImage(R.drawable.obfuscated_res_0x7f080e2b);
+            this.f = (BdTextProgressView) findViewById(R.id.obfuscated_res_0x7f091382);
             f();
-            this.h = findViewById(R.id.obfuscated_res_0x7f09209d);
+            this.h = findViewById(R.id.obfuscated_res_0x7f0920f8);
         }
     }
 
@@ -105,9 +105,9 @@ public class BdLayerTitleBarView extends FrameLayout implements View.OnClickList
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             if (z2) {
-                this.b.setBackgroundColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f06085a));
+                this.b.setBackgroundColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060863));
             } else {
-                this.b.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dea));
+                this.b.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e04));
             }
             c(z);
         }

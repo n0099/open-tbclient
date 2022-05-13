@@ -1,15 +1,10 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import android.os.Environment;
+import android.text.TextUtils;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.advert.sdk.data.AdInfo;
-import com.baidu.tieba.advert.sdk.data.SplashHttpRequest;
-import com.baidu.tieba.advert.sdk.data.SplashHttpResponse;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,73 +12,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 /* loaded from: classes6.dex */
-public class ol5 {
+public class ol5 extends BdAsyncTask<Void, Void, Boolean> {
     public static /* synthetic */ Interceptable $ic;
-    public static ol5 c;
+    public static final String b;
+    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
-    public final HttpMessageListener b;
-
-    /* loaded from: classes6.dex */
-    public class a extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ol5 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ol5 ol5Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ol5Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ol5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                if (httpResponsedMessage instanceof SplashHttpResponse) {
-                    SplashHttpResponse splashHttpResponse = (SplashHttpResponse) httpResponsedMessage;
-                    if (!splashHttpResponse.hasError() && splashHttpResponse.getErrno() == 0) {
-                        if (this.a.a != null) {
-                            this.a.a.b(splashHttpResponse.getResultMsg());
-                            return;
-                        }
-                        return;
-                    }
-                    BdLog.e("Response of splash has error");
-                    if (this.a.a != null) {
-                        this.a.a.a(splashHttpResponse.getResultMsg());
-                        return;
-                    }
-                    return;
-                }
-                BdLog.e("Not response of splash request");
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(String str);
-
-        void b(String str);
-    }
+    public AdInfo a;
 
     static {
         InterceptResult invokeClinit;
@@ -98,7 +38,8 @@ public class ol5 {
                 return;
             }
         }
-        c = new ol5();
+        b = Environment.getExternalStorageDirectory() + "/tieba/.advideo";
+        c = File.separator;
     }
 
     public ol5() {
@@ -111,37 +52,86 @@ public class ol5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.b = new a(this, CmdConfigHttp.CMD_GET_SPLASH_INFO);
     }
 
-    public static String b() {
-        InterceptResult invokeV;
+    public final void b(boolean z, File file) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "http://baichuan.baidu.com/rs/adpmobile/downloadstatistics" : (String) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? "http://baichuan.baidu.com/rs/adpmobile/successdisplaystatistics" : (String) invokeV.objValue;
-    }
-
-    public static ol5 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? c : (ol5) invokeV.objValue;
-    }
-
-    public void e(TbPageContext<?> tbPageContext, b bVar, AdInfo adInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, tbPageContext, bVar, adInfo) == null) {
-            this.a = bVar;
-            this.b.setTag(tbPageContext.getUniqueId());
-            MessageManager.getInstance().registerListener(this.b);
-            SplashHttpRequest.sendRequest(new SplashHttpRequest(tbPageContext.getPageActivity(), adInfo));
+        if (interceptable == null || interceptable.invokeZL(1048576, this, z, file) == null) {
+            if (z && file != null) {
+                File file2 = new File(b + c + (si.c(this.a.adVideoUrl) + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION));
+                if (file2.exists()) {
+                    file2.delete();
+                }
+                if (file.renameTo(file2)) {
+                    this.a.videoLocalPath = file2.getAbsolutePath();
+                } else {
+                    this.a.videoLocalPath = "";
+                }
+            } else {
+                this.a.videoLocalPath = "";
+            }
+            sl5.g(this.a);
         }
+    }
+
+    public void c(AdInfo adInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adInfo) == null) {
+            this.a = adInfo;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x0093, code lost:
+        if (r12.equalsIgnoreCase(r11.a.videoMd5) == false) goto L26;
+     */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public Boolean doInBackground(Void... voidArr) {
+        InterceptResult invokeL;
+        File file;
+        boolean z;
+        boolean c2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, voidArr)) != null) {
+            return (Boolean) invokeL.objValue;
+        }
+        String str = b + c + "advideo.temp";
+        file = new File(str);
+        if (file.exists()) {
+            file.delete();
+        }
+        z = false;
+        try {
+            new File(b).mkdirs();
+            if (!file.createNewFile()) {
+                b(false, null);
+                return Boolean.FALSE;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        pf pfVar = new pf();
+        pfVar.b().v(this.a.adVideoUrl);
+        c2 = new mf(pfVar).c(str, null, 3, 3000, -1, -1, true, true);
+        try {
+            if (TextUtils.isEmpty(this.a.videoMd5)) {
+                b(c2, file);
+                return Boolean.valueOf(c2);
+            }
+            String b2 = si.b(new FileInputStream(str));
+            if (TextUtils.isEmpty(b2)) {
+                c2 = false;
+            }
+        } catch (FileNotFoundException e2) {
+            e2.printStackTrace();
+        }
+        z = c2;
+        b(z, file);
+        return Boolean.valueOf(z);
     }
 }

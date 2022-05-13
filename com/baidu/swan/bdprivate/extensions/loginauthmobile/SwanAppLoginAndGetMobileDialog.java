@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qj2;
+import com.repackage.bk2;
 import java.lang.ref.WeakReference;
 /* loaded from: classes2.dex */
 public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
@@ -76,8 +76,8 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 if (motionEvent.getAction() == 4) {
-                    this.a.I0(true);
-                    this.a.C0();
+                    this.a.J0(true);
+                    this.a.D0();
                 }
                 return true;
             }
@@ -158,7 +158,7 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
         this.g = true;
     }
 
-    public void B0(SpannableStringBuilder spannableStringBuilder, int i, String str, String str2) {
+    public void C0(SpannableStringBuilder spannableStringBuilder, int i, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(1048576, this, spannableStringBuilder, i, str, str2) == null) {
             spannableStringBuilder.append((CharSequence) str);
@@ -166,7 +166,7 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
         }
     }
 
-    public void C0() {
+    public void D0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             b bVar = this.a;
@@ -177,11 +177,11 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
         }
     }
 
-    public abstract void D0();
+    public abstract void E0();
 
-    public abstract void E0(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup);
+    public abstract void F0(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup);
 
-    public void F0(boolean z) {
+    public void G0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             this.c = z;
@@ -189,11 +189,11 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
             if (window != null) {
                 window.setBackgroundDrawable(getContext().getResources().getDrawable(this.c ? R.drawable.obfuscated_res_0x7f08019a : R.drawable.obfuscated_res_0x7f080199));
             }
-            L0();
+            M0();
         }
     }
 
-    public final void G0() {
+    public final void H0() {
         Bundle arguments;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (arguments = getArguments()) == null) {
@@ -206,28 +206,28 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
         this.i = arguments.getString("app_id");
     }
 
-    public void H0(FragmentActivity fragmentActivity) {
+    public void I0(FragmentActivity fragmentActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, fragmentActivity) == null) {
             this.b = fragmentActivity;
         }
     }
 
-    public void I0(boolean z) {
+    public void J0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             this.g = z;
         }
     }
 
-    public void J0(b bVar) {
+    public void K0(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
             this.a = bVar;
         }
     }
 
-    public final void K0(Window window) {
+    public final void L0(Window window) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, window) == null) {
             window.setBackgroundDrawable(getContext().getResources().getDrawable(this.c ? R.drawable.obfuscated_res_0x7f08019a : R.drawable.obfuscated_res_0x7f080199));
@@ -243,13 +243,13 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
         }
     }
 
-    public abstract void L0();
+    public abstract void M0();
 
     @Override // androidx.fragment.app.Fragment, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, configuration) == null) {
-            C0();
+            D0();
             super.onConfigurationChanged(configuration);
         }
     }
@@ -268,17 +268,17 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048589, this, layoutInflater, viewGroup, bundle)) == null) {
-            G0();
+            H0();
             getDialog().requestWindowFeature(1);
             getDialog().setCanceledOnTouchOutside(true);
             Window window = getDialog().getWindow();
             if (window == null) {
                 return null;
             }
-            K0(window);
-            E0(layoutInflater, viewGroup);
-            L0();
-            D0();
+            L0(window);
+            F0(layoutInflater, viewGroup);
+            M0();
+            E0();
             return this.d;
         }
         return (View) invokeLLL.objValue;
@@ -313,9 +313,9 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             super.onResume();
-            boolean a2 = qj2.M().a();
+            boolean a2 = bk2.M().a();
             if (a2 != this.c) {
-                F0(a2);
+                G0(a2);
             }
         }
     }

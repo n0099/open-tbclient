@@ -182,7 +182,7 @@ public class re<T> implements qe.c<T> {
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            sg.a().b(new c(this, str));
+            qg.a().b(new c(this, str));
         }
     }
 
@@ -211,7 +211,7 @@ public class re<T> implements qe.c<T> {
     public void f(String str, qe.a<T> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, aVar) == null) {
-            sg.a().b(new a(this, str, aVar));
+            qg.a().b(new a(this, str, aVar));
         }
     }
 
@@ -228,7 +228,7 @@ public class re<T> implements qe.c<T> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (BdBaseApplication.getInst().isDebugMode() && oi.B()) {
+            if (BdBaseApplication.getInst().isDebugMode() && mi.B()) {
                 if (!this.a) {
                     BdLog.detailException("access db in main thread!", new Exception());
                 } else {
@@ -245,7 +245,7 @@ public class re<T> implements qe.c<T> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (BdBaseApplication.getInst().isDebugMode() && oi.B()) {
+            if (BdBaseApplication.getInst().isDebugMode() && mi.B()) {
                 if (!this.a) {
                     BdLog.detailException("access db in main thread!", new Exception());
                 } else {
@@ -261,7 +261,7 @@ public class re<T> implements qe.c<T> {
     public void i(String str, T t, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, t, Long.valueOf(j)}) == null) {
-            sg.a().b(new b(this, str, t, j));
+            qg.a().b(new b(this, str, t, j));
         }
     }
 

@@ -11,15 +11,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.exceptions.FatalException;
-import com.repackage.hm9;
-import com.repackage.im9;
-/* loaded from: classes5.dex */
+import com.repackage.cl9;
+import com.repackage.dl9;
+/* loaded from: classes4.dex */
 public class ArCoreApk {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class InstallBehavior {
         public static final /* synthetic */ InstallBehavior[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -100,7 +100,7 @@ public class ArCoreApk {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class InstallStatus {
         public static final /* synthetic */ InstallStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -181,7 +181,7 @@ public class ArCoreApk {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class UserMessageType {
         public static final /* synthetic */ UserMessageType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -263,7 +263,7 @@ public class ArCoreApk {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(Availability availability);
     }
@@ -285,13 +285,13 @@ public class ArCoreApk {
     public static ArCoreApk b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? im9.d() : (ArCoreApk) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? dl9.d() : (ArCoreApk) invokeV.objValue;
     }
 
     public abstract Availability a(Context context);
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class Availability {
         public static final /* synthetic */ Availability[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -416,7 +416,7 @@ public class ArCoreApk {
             return invokeV.booleanValue;
         }
 
-        public /* synthetic */ Availability(String str, int i, int i2, hm9 hm9Var) {
+        public /* synthetic */ Availability(String str, int i, int i2, cl9 cl9Var) {
             this(str, i, i2);
         }
     }

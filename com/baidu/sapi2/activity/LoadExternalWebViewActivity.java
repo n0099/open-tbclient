@@ -246,7 +246,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d04df);
+                setContentView(R.layout.obfuscated_res_0x7f0d04d4);
                 this.w = CoreViewRouter.getInstance().getOneKeyLoginCallback();
                 CoreViewRouter.getInstance().releaseOneKeyLoginCallback();
                 init();

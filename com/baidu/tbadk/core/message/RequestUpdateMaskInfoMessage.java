@@ -23,6 +23,8 @@ public class RequestUpdateMaskInfoMessage extends TbSocketMessage {
     public int call_from;
     public long g_id;
     public int isMask;
+    public boolean isMute;
+    public int isMuteNotifications;
     public String list;
     public int maskType;
 
@@ -43,6 +45,7 @@ public class RequestUpdateMaskInfoMessage extends TbSocketMessage {
             }
         }
         this.call_from = 1;
+        this.isMute = false;
     }
 
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
@@ -56,6 +59,9 @@ public class RequestUpdateMaskInfoMessage extends TbSocketMessage {
             builder.list = this.list;
             builder.g_id = Long.valueOf(this.g_id);
             builder.call_from = Integer.valueOf(this.call_from);
+            if (this.isMute) {
+                builder.is_mute_notifications = Integer.valueOf(this.isMuteNotifications);
+            }
             UpdateMaskInfoReqIdl.Builder builder2 = new UpdateMaskInfoReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);
@@ -93,63 +99,89 @@ public class RequestUpdateMaskInfoMessage extends TbSocketMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.maskType : invokeV.intValue;
     }
 
+    public boolean getMute() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.isMute : invokeV.booleanValue;
+    }
+
     public boolean isMask() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.isMask == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.isMask == 1 : invokeV.booleanValue;
+    }
+
+    public boolean isMuteNotifications() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.isMuteNotifications == 1 : invokeV.booleanValue;
     }
 
     public boolean isSettingMask() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.isMask != 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.isMask != 1 : invokeV.booleanValue;
     }
 
     public void setCallFrom(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
             this.call_from = i;
         }
     }
 
     public void setG_id(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
             this.g_id = j;
         }
     }
 
     public void setIsMask(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
             this.isMask = i;
         }
     }
 
     public void setList(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
             this.list = str;
         }
     }
 
     public void setMask(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
             this.isMask = z ? 1 : 0;
         }
     }
 
     public void setMaskType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
             this.maskType = i;
+        }
+    }
+
+    public void setMute(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+            this.isMute = z;
+        }
+    }
+
+    public void setMuteNotifications(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
+            this.isMuteNotifications = z ? 1 : 0;
         }
     }
 
     public void setSettingMask(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
             this.isMask = !z ? 1 : 0;
         }
     }

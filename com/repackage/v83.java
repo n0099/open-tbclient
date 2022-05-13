@@ -1,17 +1,57 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.os.Bundle;
-import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class v83 extends t83 {
+public class v83 implements x83 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes7.dex */
+    public class a extends u83 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(v83 v83Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v83Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.u83
+        @NonNull
+        public String c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
+        }
+
+        @Override // com.repackage.y83
+        public long getMaxSize() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return 0L;
+            }
+            return invokeV.longValue;
+        }
+    }
 
     public v83() {
         Interceptable interceptable = $ic;
@@ -27,40 +67,128 @@ public class v83 extends t83 {
         }
     }
 
-    @Override // com.repackage.t83
-    @SuppressLint({"BDThrowableCheck"})
-    public Bundle b(s83 s83Var) {
+    @Override // com.repackage.x83
+    public String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, s83Var)) == null) {
-            r83 b = x83.b(s83Var.a);
-            if (b == null) {
-                if (!t83.a) {
-                    return Bundle.EMPTY;
-                }
-                throw new IllegalArgumentException("illegal sp.");
-            }
-            int i = s83Var.b;
-            if (i == 1) {
-                b.putInt(s83Var.c, Integer.parseInt(s83Var.d));
-            } else if (i == 2) {
-                b.putLong(s83Var.c, Long.parseLong(s83Var.d));
-            } else if (i == 3) {
-                b.putBoolean(s83Var.c, Boolean.parseBoolean(s83Var.d));
-            } else if (i == 4) {
-                b.putString(s83Var.c, s83Var.d);
-            } else if (i != 5) {
-                if (t83.a) {
-                    throw new IllegalArgumentException("wrong info params.");
-                }
-            } else {
-                b.putFloat(s83Var.c, Float.parseFloat(s83Var.d));
-            }
-            if (t83.a) {
-                Log.d("SwanAppSpDelegation", "Put: " + s83Var);
-            }
-            return Bundle.EMPTY;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? str : (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.x83
+    public boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return false;
         }
-        return (Bundle) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.x83
+    public String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.x83
+    @NonNull
+    public y83 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new a(this) : (y83) invokeV.objValue;
+    }
+
+    @Override // com.repackage.x83
+    public String e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.x83
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.x83
+    public String g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.x83
+    public String h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.x83
+    public String i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.x83
+    public boolean j(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048585, this, str, z)) == null) {
+            return false;
+        }
+        return invokeLZ.booleanValue;
+    }
+
+    @Override // com.repackage.x83
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.x83
+    public boolean l(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.x83
+    public String m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
     }
 }

@@ -4,28 +4,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class qf4 {
+/* loaded from: classes6.dex */
+public class qf4 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public int d;
-    public String e;
-    public String f;
-    public int g;
-    public String h;
-    public int i;
-    public int j;
-    public String k;
+    public int a;
 
-    public qf4(String str, String str2, String str3, int i, String str4, String str5) {
+    public qf4(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, Integer.valueOf(i), str4, str5};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -35,11 +25,19 @@ public class qf4 {
                 return;
             }
         }
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
-        this.d = i;
-        this.e = str4;
-        this.f = str5;
+        this.a = i;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        int i;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (i = this.a) < 0) {
+            return;
+        }
+        try {
+            Thread.sleep(i);
+        } catch (Throwable unused) {
+        }
     }
 }

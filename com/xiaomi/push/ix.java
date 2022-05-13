@@ -195,7 +195,7 @@ public class ix extends jb {
                 a(this.e, 0, 1);
                 return this.e[0];
             }
-            byte b = ((jb) this).a.m569a()[((jb) this).a.a()];
+            byte b = ((jb) this).a.m570a()[((jb) this).a.a()];
             ((jb) this).a.a(1);
             return b;
         }
@@ -217,7 +217,7 @@ public class ix extends jb {
             byte[] bArr = this.g;
             int i = 0;
             if (((jb) this).a.b() >= 4) {
-                bArr = ((jb) this).a.m569a();
+                bArr = ((jb) this).a.m570a();
                 i = ((jb) this).a.a();
                 ((jb) this).a.a(4);
             } else {
@@ -236,7 +236,7 @@ public class ix extends jb {
             byte[] bArr = this.h;
             int i = 0;
             if (((jb) this).a.b() >= 8) {
-                bArr = ((jb) this).a.m569a();
+                bArr = ((jb) this).a.m570a();
                 i = ((jb) this).a.a();
                 ((jb) this).a.a(8);
             } else {
@@ -294,7 +294,7 @@ public class ix extends jb {
             int a2 = a();
             if (((jb) this).a.b() >= a2) {
                 try {
-                    String str = new String(((jb) this).a.m569a(), ((jb) this).a.a(), a2, "UTF-8");
+                    String str = new String(((jb) this).a.m570a(), ((jb) this).a.a(), a2, "UTF-8");
                     ((jb) this).a.a(a2);
                     return str;
                 } catch (UnsupportedEncodingException unused) {
@@ -331,7 +331,7 @@ public class ix extends jb {
             int a2 = a();
             c(a2);
             if (((jb) this).a.b() >= a2) {
-                ByteBuffer wrap = ByteBuffer.wrap(((jb) this).a.m569a(), ((jb) this).a.a(), a2);
+                ByteBuffer wrap = ByteBuffer.wrap(((jb) this).a.m570a(), ((jb) this).a.a(), a2);
                 ((jb) this).a.a(a2);
                 return wrap;
             }
@@ -350,7 +350,7 @@ public class ix extends jb {
             byte[] bArr = this.f;
             int i = 0;
             if (((jb) this).a.b() >= 2) {
-                bArr = ((jb) this).a.m569a();
+                bArr = ((jb) this).a.m570a();
                 i = ((jb) this).a.a();
                 ((jb) this).a.a(2);
             } else {
@@ -374,7 +374,7 @@ public class ix extends jb {
         if (interceptable == null || interceptable.invokeB(1048590, this, b) == null) {
             byte[] bArr = this.f786a;
             bArr[0] = b;
-            ((jb) this).a.m568a(bArr, 0, 1);
+            ((jb) this).a.m569a(bArr, 0, 1);
         }
     }
 
@@ -387,7 +387,7 @@ public class ix extends jb {
             bArr[1] = (byte) ((i >> 16) & 255);
             bArr[2] = (byte) ((i >> 8) & 255);
             bArr[3] = (byte) (i & 255);
-            ((jb) this).a.m568a(bArr, 0, 4);
+            ((jb) this).a.m569a(bArr, 0, 4);
         }
     }
 
@@ -404,7 +404,7 @@ public class ix extends jb {
             bArr[5] = (byte) ((j >> 16) & 255);
             bArr[6] = (byte) ((j >> 8) & 255);
             bArr[7] = (byte) (j & 255);
-            ((jb) this).a.m568a(bArr, 0, 8);
+            ((jb) this).a.m569a(bArr, 0, 8);
         }
     }
 
@@ -450,7 +450,7 @@ public class ix extends jb {
             try {
                 byte[] bytes = str.getBytes("UTF-8");
                 a(bytes.length);
-                ((jb) this).a.m568a(bytes, 0, bytes.length);
+                ((jb) this).a.m569a(bytes, 0, bytes.length);
             } catch (UnsupportedEncodingException unused) {
                 throw new iv("JVM DOES NOT SUPPORT UTF-8");
             }
@@ -463,7 +463,7 @@ public class ix extends jb {
         if (interceptable == null || interceptable.invokeL(1048598, this, byteBuffer) == null) {
             int limit = (byteBuffer.limit() - byteBuffer.position()) - byteBuffer.arrayOffset();
             a(limit);
-            ((jb) this).a.m568a(byteBuffer.array(), byteBuffer.position() + byteBuffer.arrayOffset(), limit);
+            ((jb) this).a.m569a(byteBuffer.array(), byteBuffer.position() + byteBuffer.arrayOffset(), limit);
         }
     }
 
@@ -474,7 +474,7 @@ public class ix extends jb {
             byte[] bArr = this.f787b;
             bArr[0] = (byte) ((s >> 8) & 255);
             bArr[1] = (byte) (s & 255);
-            ((jb) this).a.m568a(bArr, 0, 2);
+            ((jb) this).a.m569a(bArr, 0, 2);
         }
     }
 

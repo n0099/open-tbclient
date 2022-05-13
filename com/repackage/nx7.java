@@ -1,59 +1,94 @@
 package com.repackage;
 
+import android.text.SpannableString;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qy;
+import com.repackage.zx;
 /* loaded from: classes6.dex */
-public abstract class nx7 {
+public class nx7 extends kx7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public tx5 b;
-    public qy.a c;
-    public OriginalThreadInfo d;
-    public int e;
+    public LinearLayout f;
+    public TextView g;
 
-    public nx7(TbPageContext tbPageContext) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nx7(TbPageContext tbPageContext, int i) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = 3;
-        this.a = tbPageContext;
     }
 
-    public abstract View a();
-
-    public abstract void b(TbPageContext tbPageContext, int i);
-
-    public abstract void c(OriginalThreadInfo originalThreadInfo);
-
-    public void d(qy.a aVar) {
+    @Override // com.repackage.kx7
+    public View a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.c = aVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            LinearLayout linearLayout = (LinearLayout) this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0215, (ViewGroup) null);
+            this.f = linearLayout;
+            this.g = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091f60);
+            return this.f;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.repackage.kx7
+    public void b(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) || this.e == i) {
+            return;
+        }
+        this.e = i;
+        SkinManager.setBackgroundColor(this.f, R.color.CAM_X0204);
+        SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
+    }
+
+    @Override // com.repackage.kx7
+    public void c(OriginalThreadInfo originalThreadInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, originalThreadInfo) == null) {
+            this.g.setText(new SpannableString(this.a.getString(R.string.obfuscated_res_0x7f0f0cfe)));
+            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
         }
     }
 
-    public void e(tx5 tx5Var) {
+    @Override // com.repackage.kx7
+    public void d(zx.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, tx5Var) == null) {
-            this.b = tx5Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            super.d(aVar);
+        }
+    }
+
+    @Override // com.repackage.kx7
+    public void e(ux5 ux5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ux5Var) == null) {
+            super.e(ux5Var);
         }
     }
 }

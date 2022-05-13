@@ -18,14 +18,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ap3;
-import com.repackage.dp3;
-import com.repackage.zn3;
+import com.repackage.ko3;
+import com.repackage.lp3;
+import com.repackage.op3;
 /* loaded from: classes2.dex */
 public class RewardVideoView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public dp3 a;
+    public op3 a;
     public Context b;
     public boolean c;
     public VolumeBroadcastReceiver d;
@@ -91,34 +91,34 @@ public class RewardVideoView extends RelativeLayout {
     }
 
     @NonNull
-    public final zn3 b() {
+    public final ko3 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            zn3 zn3Var = new zn3();
-            zn3Var.f = true;
-            zn3Var.b = this.c;
-            zn3Var.o = false;
-            zn3Var.z = false;
-            zn3Var.v = false;
-            return zn3Var;
+            ko3 ko3Var = new ko3();
+            ko3Var.f = true;
+            ko3Var.b = this.c;
+            ko3Var.o = false;
+            ko3Var.z = false;
+            ko3Var.v = false;
+            return ko3Var;
         }
-        return (zn3) invokeV.objValue;
+        return (ko3) invokeV.objValue;
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            dp3 c = ap3.c();
+            op3 c = lp3.c();
             c.e(getContext(), b());
             this.a = c;
             AudioManager audioManager = (AudioManager) this.b.getSystemService("audio");
             this.c = audioManager.getStreamVolume(3) <= (Build.VERSION.SDK_INT >= 28 ? audioManager.getStreamMinVolume(3) : 0);
             FrameLayout frameLayout = new FrameLayout(this.b);
             addView(frameLayout, new RelativeLayout.LayoutParams(-1, -1));
-            dp3 dp3Var = this.a;
-            if (dp3Var != null) {
-                dp3Var.a(frameLayout);
+            op3 op3Var = this.a;
+            if (op3Var != null) {
+                op3Var.a(frameLayout);
             }
         }
     }
@@ -130,29 +130,29 @@ public class RewardVideoView extends RelativeLayout {
     }
 
     public void e(boolean z) {
-        dp3 dp3Var;
+        op3 op3Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (dp3Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (op3Var = this.a) == null) {
             return;
         }
         this.c = z;
-        dp3Var.mute(z);
+        op3Var.mute(z);
     }
 
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            zn3 b = b();
+            ko3 b = b();
             b.p = str;
             this.a.h(b);
             this.a.d(false);
         }
     }
 
-    public dp3 getPlayer() {
+    public op3 getPlayer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : (dp3) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : (op3) invokeV.objValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View

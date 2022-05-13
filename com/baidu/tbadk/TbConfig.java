@@ -17,8 +17,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.h35;
-import com.repackage.oi;
+import com.repackage.mi;
+import com.repackage.y35;
 import java.util.HashSet;
 /* loaded from: classes2.dex */
 public class TbConfig {
@@ -335,7 +335,7 @@ public class TbConfig {
     public static final boolean MSG_DEFAULT_CHAT_SWITCH = true;
     public static final boolean MSG_DEFAULT_FANS_SWITCH = true;
     public static final int MSG_DEFAULT_FREQUENCY = 300;
-    public static final String MSG_DEFAULT_NODISTURB_END_TIME = "09:00";
+    public static final String MSG_DEFAULT_NODISTURB_END_TIME = "07:00";
     public static final String MSG_DEFAULT_NODISTURB_START_TIME = "23:00";
     public static final boolean MSG_DEFAULT_NODISTURB_SWITCH = false;
     public static final boolean MSG_DEFAULT_REMIND_LIGHT = true;
@@ -517,6 +517,7 @@ public class TbConfig {
     public static final int TYPE_DAILY_BUILD = 1;
     public static final int TYPE_GRAY_BUILD = 2;
     public static final int TYPE_RELEASE_BUILD = 3;
+    public static final int TYPE_UNKNOWN_BUILD = -1;
     public static final String UNFAVOLIKE_ADDRESS = "c/c/forum/unfavolike";
     public static final String UNFOLLOW_ADDRESS = "c/c/user/unfollow";
     public static final long UPDATE_NOTIFY_INTERVAL = 86400000;
@@ -554,7 +555,6 @@ public class TbConfig {
     public static final String URL_DELETE_GRAFFITTI = "c/c/graffiti/remove";
     public static final String URL_DELETE_REPLY_AT_MSG = "c/c/post/delmsg";
     public static final String URL_ENTER_FORUM_AD = "c/f/forum/getAdInfo";
-    public static final String URL_ENTER_RECOMMEND_FORUM = "c/f/recommend/recommforum";
     public static final String URL_FEED_BACK = "https://ufosdk.baidu.com/ufosdk/postview/tSi1tVlylkKfcPzxh%2FBspQ%3D%3D/222251";
     public static final String URL_FORUM_BROADCAST_HISTORY = "c/f/forum/getForumBroadcastList";
     public static final String URL_FORUM_BROADCAST_RESIDUE = "c/f/forum/getForumMangerRights";
@@ -590,6 +590,7 @@ public class TbConfig {
     public static final String URL_GET_TOPIC_THREAD = "c/f/recommend/newtopicthread";
     public static final String URL_GET_USER_BLOCK_INFO = "c/u/user/getUserBlackInfo";
     public static final String URL_GET_USER_BY_TIEBA_UID = "c/u/user/getUserByTiebaUid";
+    public static final String URL_GET_USER_LIST = "c/u/follow/getFoldedMessageUserInfo";
     public static final String URL_GET_VIDEO_INFO_BY_VLOGID = "/c/f/video/getVideoInfoByVLogId";
     public static final String URL_GET_WORKS_TAGS = "c/f/video/getWorksTags";
     public static final String URL_GOD_AUTH = "https://tieba.baidu.com/mo/q/godRegister";
@@ -613,7 +614,6 @@ public class TbConfig {
     public static final String URL_PLAY_STATISTICS = "c/c/video/playStat";
     public static final String URL_POST_VIDEO_MONITOR_REPORT = "ala/sys/vtlog";
     public static final String URL_PROFESSION_PERMISSION = "c/f/frs/zoneRight";
-    public static final String URL_RECOMMEND_FORUM_TEST_CLOSE = "c/f/recommend/testclose";
     public static final String URL_RECOMMEND_SETTING = "https://tieba.baidu.com/mo/q/personality";
     public static final String URL_RELATE_REC_THREAD = "c/f/forum/relateRecThread";
     public static final String URL_REMOVE_FANS = "c/c/user/removeFans";
@@ -850,7 +850,7 @@ public class TbConfig {
         TRANSFER_PICTURE_ID = SERVER_ADDRESS + "c/c/img/transferUrl2Pid";
         GET_AUTHORIZE_ID = SERVER_ADDRESS + "c/s/uidTransform";
         FRIEND_PHOTO_MAX_SIZE = 80;
-        VERSION_TYPE = 3;
+        VERSION_TYPE = -1;
         BitmapConfig = Bitmap.Config.RGB_565;
         TMPDIRNAME = "tieba";
         CURRENT_FROM = null;
@@ -987,7 +987,7 @@ public class TbConfig {
     public static final String getBroadcastActionNewVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? "com.baidu.tieba.broadcast.newversion" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? BROADCAST_NEWVERSION : (String) invokeV.objValue;
     }
 
     public static final String getBroadcastActionPageAdded() {
@@ -1123,7 +1123,7 @@ public class TbConfig {
     public static final int getDimens(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65557, null, i)) == null) ? oi.f(TbadkCoreApplication.getInst().getContext(), i) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65557, null, i)) == null) ? mi.f(TbadkCoreApplication.getInst().getContext(), i) : invokeI.intValue;
     }
 
     public static int getEmotionContentSize() {
@@ -1373,7 +1373,7 @@ public class TbConfig {
             return;
         }
         sThreadImageMaxInited = true;
-        int sqrt = (int) Math.sqrt(oi.k(context) * oi.i(context));
+        int sqrt = (int) Math.sqrt(mi.k(context) * mi.i(context));
         if (sqrt > THREAD_IMAGE_MAX_WIDTH) {
             THREAD_IMAGE_MAX_WIDTH = sqrt;
         }
@@ -1400,7 +1400,7 @@ public class TbConfig {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65584, null, context)) == null) {
-            int d = oi.d(context, 427.0f);
+            int d = mi.d(context, 427.0f);
             if (d > 640) {
                 d = 640;
             }
@@ -1471,7 +1471,7 @@ public class TbConfig {
                 i = 60;
             }
             if (MAX_PHOTO_MEMORY_CACHE != i) {
-                h35.k().t(i);
+                y35.k().t(i);
             }
             MAX_PHOTO_MEMORY_CACHE = i;
         }

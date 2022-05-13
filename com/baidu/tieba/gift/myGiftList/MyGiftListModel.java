@@ -12,10 +12,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ap4;
 import com.repackage.b9;
-import com.repackage.dt6;
-import com.repackage.kk8;
+import com.repackage.ds6;
+import com.repackage.hj8;
+import com.repackage.kp4;
 import com.repackage.wa;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
@@ -29,7 +29,7 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
     public boolean e;
     public long f;
     public String g;
-    public dt6 h;
+    public ds6 h;
     public b i;
     public wa j;
     public int mUserType;
@@ -87,7 +87,7 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(int i, String str, boolean z, dt6 dt6Var);
+        void a(int i, String str, boolean z, ds6 ds6Var);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -118,8 +118,8 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
         aVar.getHttpMessageListener().setSelfListener(true);
         this.j.getSocketMessageListener().setSelfListener(true);
         registerListener(this.j);
-        kk8.h(309052, GetPersonalGiftListSocketResponseMessage.class, false, false);
-        kk8.c(309052, CmdConfigHttp.CMD_GET_PERSONAL_GIFT_LIST, TbConfig.GET_PERSONAL_GIFT_LIST, GetPersonalGiftListHttpResponseMessage.class, false, false, false, false);
+        hj8.h(309052, GetPersonalGiftListSocketResponseMessage.class, false, false);
+        hj8.c(309052, CmdConfigHttp.CMD_GET_PERSONAL_GIFT_LIST, TbConfig.GET_PERSONAL_GIFT_LIST, GetPersonalGiftListHttpResponseMessage.class, false, false, false, false);
     }
 
     public final GetPersonalGiftListRequest D(int i, long j) {
@@ -165,49 +165,49 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.booleanValue;
     }
 
-    public final void H(dt6 dt6Var) {
+    public final void H(ds6 ds6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, dt6Var) == null) || dt6Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, ds6Var) == null) || ds6Var == null) {
             return;
         }
         if (this.h == null) {
-            this.h = new dt6();
+            this.h = new ds6();
         }
         if (this.h.c() == null) {
-            this.h.i(new dt6.b());
+            this.h.i(new ds6.b());
         }
         if (this.h.d() == null) {
-            this.h.j(new dt6.c());
+            this.h.j(new ds6.c());
         }
         if (this.h.a() == null) {
             this.h.g(new ArrayList<>());
         }
-        this.h.h(dt6Var.b());
-        this.h.k(dt6Var.e());
-        this.h.i(dt6Var.c());
-        this.h.j(dt6Var.d());
-        dt6 dt6Var2 = this.h;
-        dt6Var2.h = dt6Var.h;
-        dt6Var2.f = dt6Var.f;
-        if (dt6Var.g != null) {
-            dt6Var2.g = new ap4();
-            ap4 ap4Var = this.h.g;
-            ap4 ap4Var2 = dt6Var.g;
-            ap4Var.a = ap4Var2.a;
-            ap4Var.b = ap4Var2.b;
+        this.h.h(ds6Var.b());
+        this.h.k(ds6Var.e());
+        this.h.i(ds6Var.c());
+        this.h.j(ds6Var.d());
+        ds6 ds6Var2 = this.h;
+        ds6Var2.h = ds6Var.h;
+        ds6Var2.f = ds6Var.f;
+        if (ds6Var.g != null) {
+            ds6Var2.g = new kp4();
+            kp4 kp4Var = this.h.g;
+            kp4 kp4Var2 = ds6Var.g;
+            kp4Var.a = kp4Var2.a;
+            kp4Var.b = kp4Var2.b;
         }
         if (this.h.c() != null) {
             this.b = this.h.c().a;
             this.a = this.h.c().b == 1;
         }
-        if (dt6Var.a() == null || dt6Var.a().size() <= 0) {
+        if (ds6Var.a() == null || ds6Var.a().size() <= 0) {
             return;
         }
         if (this.c) {
-            ArrayList<dt6.a> a2 = dt6Var.a();
+            ArrayList<ds6.a> a2 = ds6Var.a();
             int size = this.h.a().size() + 1;
             for (int i = 0; i < a2.size(); i++) {
-                dt6.a aVar = a2.get(i);
+                ds6.a aVar = a2.get(i);
                 if (aVar != null) {
                     aVar.h = size;
                     size++;
@@ -217,7 +217,7 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
             return;
         }
         this.h.a().clear();
-        this.h.a().addAll(dt6Var.a());
+        this.h.a().addAll(ds6Var.a());
     }
 
     public void I(b bVar) {

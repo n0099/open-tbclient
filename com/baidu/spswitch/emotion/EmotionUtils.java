@@ -150,8 +150,8 @@ public class EmotionUtils {
         this.mRecommendEmotionPanelList = new CopyOnWriteArrayList();
         this.mEmotionBitmapMap = new HashMap();
         this.mSync = new Semaphore(0);
-        this.mOftenZoneTitle = AppRuntime.getAppContext().getResources().getString(R.string.obfuscated_res_0x7f0f0cb4);
-        this.mAllZoneTitle = AppRuntime.getAppContext().getResources().getString(R.string.obfuscated_res_0x7f0f026a);
+        this.mOftenZoneTitle = AppRuntime.getAppContext().getResources().getString(R.string.obfuscated_res_0x7f0f0ccf);
+        this.mAllZoneTitle = AppRuntime.getAppContext().getResources().getString(R.string.obfuscated_res_0x7f0f026c);
     }
 
     private void freeEmotionSound() {
@@ -226,7 +226,7 @@ public class EmotionUtils {
     public String getAllZoneTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TextUtils.isEmpty(this.mAllZoneTitle) ? AppRuntime.getAppContext().getResources().getString(R.string.obfuscated_res_0x7f0f026a) : this.mAllZoneTitle : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TextUtils.isEmpty(this.mAllZoneTitle) ? AppRuntime.getAppContext().getResources().getString(R.string.obfuscated_res_0x7f0f026c) : this.mAllZoneTitle : (String) invokeV.objValue;
     }
 
     public Bitmap getEmotionBitmapByName(EmotionType emotionType, String str) {
@@ -324,7 +324,7 @@ public class EmotionUtils {
     public String getOftenZoneTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? TextUtils.isEmpty(this.mOftenZoneTitle) ? AppRuntime.getAppContext().getResources().getString(R.string.obfuscated_res_0x7f0f0cb4) : this.mOftenZoneTitle : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? TextUtils.isEmpty(this.mOftenZoneTitle) ? AppRuntime.getAppContext().getResources().getString(R.string.obfuscated_res_0x7f0f0ccf) : this.mOftenZoneTitle : (String) invokeV.objValue;
     }
 
     public List<String> getPanelEmotionList() {
@@ -430,8 +430,8 @@ public class EmotionUtils {
                 }
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject("title");
                 if (optJSONObject2 != null) {
-                    this.mOftenZoneTitle = optJSONObject2.optString("often", AppRuntime.getAppContext().getResources().getString(R.string.obfuscated_res_0x7f0f0cb4));
-                    this.mAllZoneTitle = optJSONObject2.optString("all", AppRuntime.getAppContext().getResources().getString(R.string.obfuscated_res_0x7f0f026a));
+                    this.mOftenZoneTitle = optJSONObject2.optString("often", AppRuntime.getAppContext().getResources().getString(R.string.obfuscated_res_0x7f0f0ccf));
+                    this.mAllZoneTitle = optJSONObject2.optString("all", AppRuntime.getAppContext().getResources().getString(R.string.obfuscated_res_0x7f0f026c));
                 }
                 EmotionLoader.getInstance().invalidCache();
                 this.mEmotionBitmapMap.clear();

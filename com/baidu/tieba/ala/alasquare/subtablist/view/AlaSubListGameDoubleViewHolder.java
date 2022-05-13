@@ -6,21 +6,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qr5;
+import com.repackage.rr5;
 /* loaded from: classes3.dex */
 public class AlaSubListGameDoubleViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qr5 a;
+    public rr5 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AlaSubListGameDoubleViewHolder(qr5 qr5Var) {
-        super(qr5Var.k());
+    public AlaSubListGameDoubleViewHolder(rr5 rr5Var) {
+        super(rr5Var.k());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {qr5Var};
+            Object[] objArr = {rr5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,6 +31,6 @@ public class AlaSubListGameDoubleViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.a = qr5Var;
+        this.a = rr5Var;
     }
 }

@@ -2,41 +2,37 @@ package com.repackage;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import okhttp3.Response;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class mn1 extends ln1 {
+public class mn1 extends r23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a extends ResponseCallback {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ CallbackHandler c;
-        public final /* synthetic */ mn1 d;
+        public final /* synthetic */ UnitedSchemeEntity a;
+        public final /* synthetic */ uq2 b;
+        public final /* synthetic */ mn1 c;
 
-        public a(mn1 mn1Var, String str, String str2, CallbackHandler callbackHandler) {
+        public a(mn1 mn1Var, UnitedSchemeEntity unitedSchemeEntity, uq2 uq2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {mn1Var, str, str2, callbackHandler};
+                Object[] objArr = {mn1Var, unitedSchemeEntity, uq2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,56 +42,34 @@ public class mn1 extends ln1 {
                     return;
                 }
             }
-            this.d = mn1Var;
-            this.a = str;
-            this.b = str2;
-            this.c = callbackHandler;
+            this.c = mn1Var;
+            this.a = unitedSchemeEntity;
+            this.b = uq2Var;
         }
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                mn1 mn1Var = this.d;
-                CallbackHandler callbackHandler = this.c;
-                String str = this.b;
-                mn1Var.r(callbackHandler, str, null, "downloadFile:fail" + exc.getMessage());
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.c.k(this.a, this.b);
             }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(Object obj, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public Object parseResponse(Response response, int i) {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
-                this.d.s(response, this.a, this.b, this.c);
-                return response;
-            }
-            return invokeLI.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mn1(g13 g13Var) {
-        super(g13Var, "/swanAPI/cloudDownloadFile");
+    public mn1(r13 r13Var) {
+        super(r13Var, "/swanAPI/openAdWebPage");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {g13Var};
+            Object[] objArr = {r13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((g13) objArr2[0], (String) objArr2[1]);
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -103,127 +77,53 @@ public class mn1 extends ln1 {
         }
     }
 
-    @Override // com.repackage.ln1, com.repackage.g23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j03 j03Var) {
+    @Override // com.repackage.r23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u03 u03Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j03Var)) == null) ? super.d(context, unitedSchemeEntity, callbackHandler, j03Var) : invokeLLLL.booleanValue;
-    }
-
-    @Override // com.repackage.ln1
-    public void j(Response response, CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, callbackHandler, str) == null) {
-            if (!response.isSuccessful()) {
-                k(callbackHandler, str, 1001, "downloadFile:fail");
-                return;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, u03Var)) == null) {
+            if (r23.b) {
+                Log.d("AdLandingAction", "handle entity: " + unitedSchemeEntity.toString());
             }
-            String header = response.header("Content-Type", "");
-            if (header != null && header.contains("application/json")) {
-                JSONObject m = jn1.m(response);
-                if (m != null && response.isSuccessful()) {
-                    String optString = m.optString("errno", String.valueOf(0));
-                    String optString2 = m.optString("errmsg");
-                    if (jn1.o(optString)) {
-                        r(callbackHandler, str, optString, optString2);
-                        return;
-                    }
-                    String optString3 = m.optString("DownloadUrl");
-                    if (TextUtils.isEmpty(optString3)) {
-                        r(callbackHandler, str, optString, optString2);
-                        return;
-                    } else {
-                        p(optString3, callbackHandler, str);
-                        return;
-                    }
+            String o = d43.o(unitedSchemeEntity, "params");
+            String n = d43.n(unitedSchemeEntity, "params", PrefetchEvent.EVENT_DATA_EXTRA_DATA);
+            if (TextUtils.isEmpty(o)) {
+                ux1.c("AdLanding", "adLanding: url is empty");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                return false;
+            } else if (hm2.U().V() == null) {
+                ux1.i("AdLandingAction", "open page failed");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                return false;
+            } else {
+                uq2 d = uq2.d(o, o);
+                d.b = n;
+                if (lr1.e().g()) {
+                    l(unitedSchemeEntity, d);
+                } else {
+                    k(unitedSchemeEntity, d);
                 }
-                k(callbackHandler, str, 1001, "downloadFile:fail");
-                return;
+                ux1.i("AdLanding", "open adLanding page finish");
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
             }
-            k(callbackHandler, str, 1001, "downloadFile:fail");
         }
+        return invokeLLLL.booleanValue;
     }
 
-    public void p(String str, CallbackHandler callbackHandler, String str2) {
+    public final void k(UnitedSchemeEntity unitedSchemeEntity, uq2 uq2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, callbackHandler, str2) == null) {
-            if (j03.L() == null) {
-                r(callbackHandler, str2, null, null);
-            } else {
-                q(str, str2, callbackHandler);
-            }
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity, uq2Var) == null) || i02.c3("adLanding", uq2Var)) {
+            return;
         }
+        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
     }
 
-    public final void q(String str, String str2, CallbackHandler callbackHandler) {
+    public final void l(UnitedSchemeEntity unitedSchemeEntity, uq2 uq2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, callbackHandler) == null) {
-            k74 k74Var = new k74(str, new a(this, str, str2, callbackHandler));
-            k74Var.f = true;
-            k74Var.g = false;
-            k74Var.h = true;
-            l74.g().d(k74Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, unitedSchemeEntity, uq2Var) == null) {
+            lr1.e().i();
+            oe3.b0(new a(this, unitedSchemeEntity, uq2Var), 200L);
         }
-    }
-
-    public final void r(CallbackHandler callbackHandler, String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, callbackHandler, str, str2, str3) == null) {
-            if (TextUtils.isEmpty(str2)) {
-                k(callbackHandler, str, 1001, "downloadFile:fail");
-            } else {
-                k(callbackHandler, str, 1001, jn1.k(str3));
-            }
-        }
-    }
-
-    public final void s(Response response, String str, String str2, CallbackHandler callbackHandler) {
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048581, this, response, str, str2, callbackHandler) == null) {
-            if (!response.isSuccessful()) {
-                r(callbackHandler, str2, null, "downloadFile:fail");
-                return;
-            }
-            try {
-                str3 = m13.A(lr2.s(response.headers()), mg4.t(str));
-            } catch (JSONException e) {
-                e.printStackTrace();
-                str3 = null;
-            }
-            if (TextUtils.isEmpty(str3)) {
-                r(callbackHandler, str2, null, null);
-                return;
-            }
-            String g = wl2.U().G().g(str3);
-            if (TextUtils.isEmpty(g)) {
-                r(callbackHandler, str2, null, null);
-            } else if (t(response, str3)) {
-                m(callbackHandler, str2, jn1.n(null, g, "downloadFile:ok"));
-            } else {
-                r(callbackHandler, str2, null, null);
-            }
-        }
-    }
-
-    public boolean t(Response response, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, response, str)) == null) {
-            InputStream byteStream = response.body() != null ? response.body().byteStream() : null;
-            File file = new File(str);
-            if (file.exists()) {
-                file.delete();
-                try {
-                    file.createNewFile();
-                } catch (IOException e) {
-                    if (ln1.c) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            return pg4.a(byteStream, file);
-        }
-        return invokeLL.booleanValue;
     }
 }

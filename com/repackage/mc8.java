@@ -1,19 +1,77 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.searchrecforum.message.SearchRecForumRequestMessage;
+import com.baidu.tieba.searchrecforum.message.SearchRecForumResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class mc8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public double b;
-    public double c;
+    public final BdUniqueId a;
+    public boolean b;
+    public boolean c;
+    public HttpResponsedMessage d;
+    public b e;
+    public final HttpMessageListener f;
+
+    /* loaded from: classes6.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mc8 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(mc8 mc8Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mc8Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = mc8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                if (this.a.c) {
+                    this.a.d = httpResponsedMessage;
+                } else {
+                    this.a.f(httpResponsedMessage);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(pc8 pc8Var);
+
+        void onFail();
+    }
 
     public mc8() {
         Interceptable interceptable = $ic;
@@ -25,31 +83,72 @@ public class mc8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = BdUniqueId.gen();
+        this.b = false;
+        this.c = false;
+        this.f = new a(this, CmdConfigHttp.CMD_GET_SEARCH_BACK_INTEREST_FORUM);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_SEARCH_BACK_INTEREST_FORUM, TbConfig.SERVER_ADDRESS + "c/f/excellent/getRecomForum");
+        tbHttpMessageTask.setResponsedClass(SearchRecForumResponsedMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        MessageManager.getInstance().registerListener(this.f);
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c) {
+            f(this.d);
+            this.c = false;
+            this.d = null;
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c = true;
+        }
+    }
+
+    public final void f(HttpResponsedMessage httpResponsedMessage) {
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, httpResponsedMessage) == null) {
+            this.b = false;
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003526 && (httpResponsedMessage instanceof SearchRecForumResponsedMessage)) {
+                if (httpResponsedMessage.getError() != 0 && (bVar = this.e) != null) {
+                    bVar.onFail();
+                    return;
+                }
+                lc8.d().i(false);
+                b bVar2 = this.e;
+                if (bVar2 != null) {
+                    bVar2.a(((SearchRecForumResponsedMessage) httpResponsedMessage).data);
+                }
             }
         }
     }
 
-    public static mc8 b(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && lc8.d().e()) {
+            if (this.b) {
+                MessageManager.getInstance().removeHttpMessage(this.a);
             }
-            mc8 mc8Var = new mc8();
-            mc8Var.a = jSONObject.optString("bottom_picture", "");
-            jSONObject.optInt("cover_shadow_switch", 0);
-            mc8Var.b = jSONObject.optDouble("player_width_ratio", 0.0d);
-            mc8Var.c = jSONObject.optDouble("right_margin_ratio", 0.0d);
-            jSONObject.optDouble("player_height_clipping_ratio", 0.0d);
-            return mc8Var;
+            this.b = true;
+            SearchRecForumRequestMessage searchRecForumRequestMessage = new SearchRecForumRequestMessage();
+            searchRecForumRequestMessage.setParams(lc8.d().c());
+            searchRecForumRequestMessage.setTag(this.a);
+            MessageManager.getInstance().sendMessage(searchRecForumRequestMessage);
         }
-        return (mc8) invokeL.objValue;
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public void h(b bVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.a) : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
+            this.e = bVar;
+        }
     }
 }

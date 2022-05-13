@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c4a;
+import com.repackage.w2a;
 import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
 import kotlin.Metadata;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001a\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\bf\u0018\u00002\u00020\u00012\u00020\u0002:\u0002\b\tJ\u0017\u0010\u0006\u001a\u00020\u00052\u0006\u0010\u0004\u001a\u00020\u0003H&¢\u0006\u0004\b\u0006\u0010\u0007¨\u0006\n"}, d2 = {"Ltv/athena/revenue/api/pay/IMiddlePayService;", "Lcom/yy/mobile/framework/revenuesdk/payapi/IAppPayService;", "Lkotlin/Any;", "Ltv/athena/revenue/api/pay/params/MiddlePayWithProductInfoParams;", "params", "", "payWithProductInfo", "(Ltv/athena/revenue/api/pay/params/MiddlePayWithProductInfoParams;)V", "ChargeSource", "SubscriptType", "paycore_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
@@ -160,5 +160,5 @@ public interface IMiddlePayService extends IAppPayService {
         }
     }
 
-    void a(c4a c4aVar);
+    void a(w2a w2aVar);
 }

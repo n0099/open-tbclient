@@ -6,10 +6,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a26;
+import com.repackage.b26;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class z16 implements a26.a {
+public final class z16 implements b26.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,8 +27,8 @@ public final class z16 implements a26.a {
         }
     }
 
-    @Override // com.repackage.a26.a
-    public void a(f06 item, long j, f26 displayer, zz5 config) {
+    @Override // com.repackage.b26.a
+    public void a(g06 item, long j, g26 displayer, a06 config) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{item, Long.valueOf(j), displayer, config}) == null) {
             Intrinsics.checkNotNullParameter(item, "item");
@@ -36,7 +36,7 @@ public final class z16 implements a26.a {
             Intrinsics.checkNotNullParameter(config, "config");
             DrawState f = item.f();
             if (item.i().compareTo(ItemState.Measured) >= 0) {
-                f.A(displayer.getWidth() - ((((float) (j - item.j())) / ((float) config.t())) * (displayer.getWidth() + f.q())));
+                f.A((displayer.getWidth() - f.q()) * 0.5f);
                 f.H(true);
                 return;
             }

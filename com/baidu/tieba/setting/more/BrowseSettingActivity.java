@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.je8;
+import com.repackage.zc8;
 /* loaded from: classes4.dex */
 public class BrowseSettingActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public je8 mView;
+    public zc8 mView;
 
     public BrowseSettingActivity() {
         Interceptable interceptable = $ic;
@@ -46,18 +46,18 @@ public class BrowseSettingActivity extends BaseActivity {
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            if (view2 == this.mView.l()) {
-                this.mView.x();
+            if (view2 == this.mView.m()) {
+                this.mView.y();
                 TiebaStatic.log("c10649");
             }
-            if (view2 == this.mView.o()) {
-                this.mView.z();
-                TiebaStatic.log("c10653");
-            } else if (view2 == this.mView.n()) {
-                this.mView.y();
-            } else if (view2 == this.mView.p()) {
+            if (view2 == this.mView.q()) {
                 this.mView.A();
-            } else if (view2 == this.mView.m()) {
+                TiebaStatic.log("c10653");
+            } else if (view2 == this.mView.o()) {
+                this.mView.z();
+            } else if (view2 == this.mView.r()) {
+                this.mView.B();
+            } else if (view2 == this.mView.n()) {
                 UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{"http://bjhw-bac-orp-tieba-core-137287.bjhw.baidu.com:8899/#/app-tool"});
             }
         }
@@ -68,7 +68,7 @@ public class BrowseSettingActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            this.mView = new je8(this);
+            this.mView = new zc8(this);
         }
     }
 }

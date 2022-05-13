@@ -41,7 +41,7 @@ public class h88 implements xl7 {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && m(str)) {
-            wr8.d().j(this.a, wr8.i(VideoPlatformStatic.c(), this.b.d(), this.b.b()));
+            tq8.d().j(this.a, tq8.i(VideoPlatformStatic.c(), this.b.d(), this.b.b()));
         }
     }
 

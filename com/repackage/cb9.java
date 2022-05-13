@@ -1,111 +1,396 @@
 package com.repackage;
 
-import android.graphics.SurfaceTexture;
-import android.opengl.GLES20;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
-import com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer;
-import com.faceunity.gles.GeneratedTexture;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class cb9 extends MediaBaseRenderer implements rb9 {
+public class cb9 {
     public static /* synthetic */ Interceptable $ic;
+    public static HashMap<String, HashMap> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int[] b;
-    public int c;
-    public float d;
 
-    public cb9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(String str);
+
+        void b();
+
+        void c(String str);
+
+        void d();
+
+        void e(boolean z);
+
+        void f(boolean z);
+
+        void g(int i);
+
+        void h();
+
+        void i();
+
+        void j(String str);
+
+        void k(int i);
+
+        void onRecordEnd();
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755802825, "Lcom/repackage/cb9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755802825, "Lcom/repackage/cb9;");
                 return;
             }
         }
-        this.b = new int[1];
+        a = new HashMap<>();
     }
 
-    @Override // com.repackage.rb9
-    public void a(lb9 lb9Var, SurfaceTexture surfaceTexture) {
+    public static HashMap a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, lb9Var, surfaceTexture) == null) {
-            int i = this.mSurfaceViewHeight;
-            int i2 = this.mSurfaceViewWidth;
-            float f = this.mRatio;
-            int i3 = i - ((int) (i2 * f));
-            if (f != 0.0f && f != (i * 1.0f) / i2 && i3 > 0) {
-                b();
-                GLES20.glBindFramebuffer(36160, this.c);
-                GLES20.glFramebufferTexture2D(36160, 36064, 3553, this.a, 0);
-                GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-                GLES20.glClear(16640);
-                this.mFullScreen2D.setScaleAndTranslate(1.0f, 1.0f, 0.0f, (i3 * (-1.0680001f)) / this.mSurfaceViewHeight);
-                this.mFullScreen2D.drawFrame(this.mTextureId, this.mMtx);
-                this.mFullScreen2D.setScaleAndTranslate(1.0f, 1.0f, 0.0f, 0.0f);
-                GLES20.glBindFramebuffer(36160, 0);
-                lb9Var.h(this.mFullScreen2D, this.a, GlUtil.IDENTITY_MATRIX);
-            } else if (this.mTextureMode == 1) {
-                lb9Var.h(this.mFullScreen2D, this.mTextureId, this.mMtx);
-            } else {
-                lb9Var.h(this.mFullScreenEXT, this.mTextureId, this.mMtx);
-            }
-            lb9Var.f(surfaceTexture);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("event_name", "capture_timer_clear");
+            return hashMap;
         }
+        return (HashMap) invokeV.objValue;
     }
 
-    public final void b() {
+    public static HashMap b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.d != this.mRatio) {
-                c();
-            }
-            if (this.a == 0) {
-                this.a = this.mFullScreen2D.createTexture2DObject();
-                int i = this.mSurfaceViewWidth;
-                GLES20.glTexImage2D(3553, 0, GeneratedTexture.FORMAT, i, (int) (i * this.mRatio), 0, GeneratedTexture.FORMAT, 5121, null);
-                GLES20.glBindTexture(3553, 0);
-                GLES20.glGenFramebuffers(1, this.b, 0);
-                this.c = this.b[0];
-                this.d = this.mRatio;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("event_name", "capture_timer_start");
+            return hashMap;
         }
+        return (HashMap) invokeV.objValue;
     }
 
-    public final void c() {
+    public static HashMap c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a == 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            HashMap hashMap = new HashMap();
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("sex_type", Integer.valueOf(i));
+            hashMap.put("event_name", "sex_event");
+            hashMap.put("event_data", hashMap2);
+            return hashMap;
+        }
+        return (HashMap) invokeI.objValue;
+    }
+
+    public static HashMap d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (a.get(str) != null) {
+                return a.get(str);
+            }
+            HashMap hashMap = null;
+            char c = 65535;
+            switch (str.hashCode()) {
+                case -1909077165:
+                    if (str.equals("startRecord")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case -1848594969:
+                    if (str.equals("pauseRecord")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case -815530368:
+                    if (str.equals("resetRecord")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case -793791417:
+                    if (str.equals("startOverRecord")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+                case 473974106:
+                    if (str.equals("capture_timer_clear")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 488985455:
+                    if (str.equals("capture_timer_start")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+            }
+            if (c == 0) {
+                hashMap = h();
+            } else if (c == 1) {
+                hashMap = f();
+            } else if (c == 2) {
+                hashMap = g();
+            } else if (c == 3) {
+                hashMap = a();
+            } else if (c == 4) {
+                hashMap = b();
+            } else if (c == 5) {
+                hashMap = i();
+            }
+            if (hashMap != null) {
+                a.put(str, hashMap);
+            }
+            return hashMap;
+        }
+        return (HashMap) invokeL.objValue;
+    }
+
+    public static HashMap e(double d) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Double.valueOf(d)})) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("event_name", "audio_volume");
+            hashMap.put("event_data", String.valueOf(Math.ceil(d)));
+            return hashMap;
+        }
+        return (HashMap) invokeCommon.objValue;
+    }
+
+    public static HashMap f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("msg", "game_pause");
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("event_name", "recorder_video");
+            hashMap2.put("event_data", hashMap);
+            return hashMap2;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public static HashMap g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("msg", "game_reset");
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("event_name", "recorder_video");
+            hashMap2.put("event_data", hashMap);
+            return hashMap2;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public static HashMap h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("msg", "game_start");
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("event_name", "recorder_video");
+            hashMap2.put("event_data", hashMap);
+            return hashMap2;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public static HashMap i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("msg", "game_start_over");
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("event_name", "recorder_video");
+            hashMap2.put("event_data", hashMap);
+            return hashMap2;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public static void j(HashMap<String, Object> hashMap, a aVar) {
+        Object obj;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65546, null, hashMap, aVar) == null) || ab9.f(hashMap) || aVar == null || (obj = hashMap.get("event_name")) == null || !(obj instanceof String)) {
             return;
         }
-        GLES20.glDeleteFramebuffers(1, this.b, 0);
-        GLES20.glDeleteTextures(1, new int[]{this.a}, 0);
-        this.a = 0;
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.IMediaLifeCycleIncludeGlThread
-    public void onDestroyInGlThread() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.onDestroyInGlThread();
-            c();
+        String str = (String) obj;
+        char c = 65535;
+        int i = 0;
+        switch (str.hashCode()) {
+            case -1903331025:
+                if (str.equals("show_text")) {
+                    c = 0;
+                    break;
+                }
+                break;
+            case -1768834290:
+                if (str.equals("game_end")) {
+                    c = 4;
+                    break;
+                }
+                break;
+            case -1584838740:
+                if (str.equals("filter_adjust_enable")) {
+                    c = 11;
+                    break;
+                }
+                break;
+            case -1272940549:
+                if (str.equals("game_is_ready")) {
+                    c = '\n';
+                    break;
+                }
+                break;
+            case -708270859:
+                if (str.equals("phone_shake")) {
+                    c = 1;
+                    break;
+                }
+                break;
+            case -672934016:
+                if (str.equals("case_reset")) {
+                    c = 5;
+                    break;
+                }
+                break;
+            case -548493597:
+                if (str.equals("need_volume")) {
+                    c = '\t';
+                    break;
+                }
+                break;
+            case 902635637:
+                if (str.equals("child_status")) {
+                    c = '\b';
+                    break;
+                }
+                break;
+            case 967087977:
+                if (str.equals("game_pause")) {
+                    c = 2;
+                    break;
+                }
+                break;
+            case 969912325:
+                if (str.equals("game_score")) {
+                    c = 3;
+                    break;
+                }
+                break;
+            case 1000807605:
+                if (str.equals("game_http")) {
+                    c = '\f';
+                    break;
+                }
+                break;
+            case 1001154298:
+                if (str.equals("game_time")) {
+                    c = 7;
+                    break;
+                }
+                break;
+            case 1076032614:
+                if (str.equals("need_face")) {
+                    c = 6;
+                    break;
+                }
+                break;
         }
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.IMediaLifeCycleIncludeGlThread
-    public void onPauseInGlThread() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onPauseInGlThread();
-            c();
+        switch (c) {
+            case 0:
+                if (hashMap.get("text_content") instanceof String) {
+                    aVar.c((String) hashMap.get("text_content"));
+                    return;
+                }
+                return;
+            case 1:
+                aVar.d();
+                return;
+            case 2:
+            case 3:
+                if (hashMap.get("game_score") != null) {
+                    aVar.a(hashMap.get("game_score").toString());
+                    return;
+                }
+                return;
+            case 4:
+                if (hashMap.get("game_score") != null) {
+                    aVar.a(hashMap.get("game_score").toString());
+                }
+                aVar.onRecordEnd();
+                return;
+            case 5:
+                aVar.h();
+                return;
+            case 6:
+                aVar.b();
+                return;
+            case 7:
+                if (hashMap.get("text_content") instanceof Float) {
+                    try {
+                        i = ((Float) hashMap.get("text_content")).intValue();
+                    } catch (Exception e) {
+                        va9.g(e);
+                    }
+                    aVar.g(i);
+                    return;
+                }
+                return;
+            case '\b':
+                if (hashMap.get("isDefaultChild") != null) {
+                    String obj2 = hashMap.get("isDefaultChild").toString();
+                    if (!TextUtils.equals(obj2, "1.0") && !TextUtils.equals(obj2, "1")) {
+                        r3 = false;
+                    }
+                    aVar.f(r3);
+                    return;
+                }
+                return;
+            case '\t':
+                if (hashMap.get("volume_ability") != null) {
+                    aVar.e(za9.b(hashMap.get("volume_ability").toString(), 0.0f) == 1.0f);
+                    return;
+                }
+                return;
+            case '\n':
+                aVar.i();
+                return;
+            case 11:
+                if (hashMap.get("globalBeautyMakeupFilter") == null || !(hashMap.get("globalBeautyMakeupFilter") instanceof Float)) {
+                    return;
+                }
+                aVar.k(((Float) hashMap.get("globalBeautyMakeupFilter")).intValue());
+                return;
+            case '\f':
+                if (hashMap.get("set_content") != null) {
+                    aVar.j(hashMap.get("set_content").toString());
+                    return;
+                }
+                return;
+            default:
+                return;
         }
     }
 }

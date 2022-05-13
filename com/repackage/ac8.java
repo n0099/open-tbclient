@@ -1,32 +1,30 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.DataOutputStream;
-import java.net.HttpURLConnection;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Map;
-import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes5.dex */
 public class ac8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public Map<String, String> b;
-    public LinkedList<BasicNameValuePair> c;
-    public HashMap<String, byte[]> d;
+    public int a;
+    public final Context b;
+    public final ViewGroup c;
 
-    public ac8() {
+    public ac8(Context context, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,209 +34,56 @@ public class ac8 {
                 return;
             }
         }
-        this.a = "";
-        this.b = new HashMap();
-        this.c = new LinkedList<>();
-        this.d = new HashMap<>();
+        this.a = 0;
+        this.b = context;
+        this.c = viewGroup;
     }
 
-    public void a(String str, String str2) {
-        Map<String, String> map;
+    public final boolean a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || (map = this.b) == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if ("apk_download".equals(str)) {
+                return "apk_download".equals(str2);
+            }
+            if (TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(str)) {
+                return TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(str2);
+            }
+            return false;
         }
-        map.put(str, str2);
+        return invokeLL.booleanValue;
     }
 
-    public void b(BasicNameValuePair basicNameValuePair) {
+    public bc8 b(mb8 mb8Var, bc8 bc8Var) {
+        InterceptResult invokeLL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, basicNameValuePair) == null) {
-            this.c.add(basicNameValuePair);
-        }
-    }
-
-    public String c(xb8 xb8Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xb8Var)) == null) {
-            if (this.c.size() == 0) {
-                if (xb8Var != null) {
-                    xb8Var.a = this.a.length();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mb8Var, bc8Var)) == null) {
+            if (mb8Var == null || (str = mb8Var.a) == null) {
+                return bc8Var;
+            }
+            if (bc8Var == null || !a(str, bc8Var.a)) {
+                ViewGroup viewGroup = this.c;
+                if (viewGroup == null) {
+                    return null;
                 }
-                return this.a;
-            }
-            StringBuilder sb = new StringBuilder(30);
-            sb.append(this.a);
-            if (this.a.indexOf("?") < 0) {
-                sb.append("?");
-            } else if (!this.a.endsWith("?") && !this.a.endsWith("&")) {
-                sb.append("&");
-            }
-            for (int i = 0; i < this.c.size(); i++) {
-                if (i != 0) {
-                    sb.append("&");
-                }
-                sb.append(this.c.get(i).getName());
-                sb.append("=");
-                sb.append(ni.getUrlEncode(this.c.get(i).getValue()));
-            }
-            if (xb8Var != null) {
-                xb8Var.a = sb.length();
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            HashMap<String, byte[]> hashMap = this.d;
-            return hashMap != null && hashMap.size() > 0;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final StringBuilder f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            StringBuilder sb = new StringBuilder(1024);
-            LinkedList<BasicNameValuePair> linkedList = this.c;
-            if (linkedList != null) {
-                int i = 0;
-                Iterator<BasicNameValuePair> it = linkedList.iterator();
-                while (it.hasNext()) {
-                    BasicNameValuePair next = it.next();
-                    if (next != null) {
-                        String name = next.getName();
-                        String value = next.getValue();
-                        if (i != 0) {
-                            sb.append("&");
-                        }
-                        sb.append(name + "=");
-                        sb.append(ni.getUrlEncode(value));
-                        i++;
+                viewGroup.removeAllViews();
+                if (TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(mb8Var.a)) {
+                    if (this.a == 2) {
+                        return new zb8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d086a, this.c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
                     }
-                }
-            }
-            return sb;
-        }
-        return (StringBuilder) invokeV.objValue;
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-        }
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            if (str == null) {
-                this.a = "";
-            } else {
-                this.a = str;
-            }
-        }
-    }
-
-    public void i(HttpURLConnection httpURLConnection) {
-        Map<String, String> map;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, httpURLConnection) == null) || httpURLConnection == null || (map = this.b) == null) {
-            return;
-        }
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-            httpURLConnection.addRequestProperty(entry.getKey(), entry.getValue());
-        }
-    }
-
-    public void j(HttpURLConnection httpURLConnection, xb8 xb8Var) throws Exception {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, httpURLConnection, xb8Var) == null) {
-            if (httpURLConnection != null) {
-                String sb = f().toString();
-                DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
-                try {
-                    dataOutputStream.writeBytes(sb);
-                    dataOutputStream.flush();
-                    lg.d(dataOutputStream);
-                    i = sb.length();
-                } catch (Throwable th) {
-                    lg.d(dataOutputStream);
-                    throw th;
-                }
-            } else {
-                i = 0;
-            }
-            if (xb8Var != null) {
-                xb8Var.a = i;
-            }
-        }
-    }
-
-    public void k(HttpURLConnection httpURLConnection, String str, xb8 xb8Var) throws Exception {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048586, this, httpURLConnection, str, xb8Var) == null) {
-            g();
-            if (httpURLConnection != null) {
-                DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
-                try {
-                    if (this.c != null) {
-                        Iterator<BasicNameValuePair> it = this.c.iterator();
-                        while (it.hasNext()) {
-                            BasicNameValuePair next = it.next();
-                            if (next != null) {
-                                String name = next.getName();
-                                String value = next.getValue();
-                                if (value != null && name != null) {
-                                    dataOutputStream.writeBytes("--" + str + "\r\n");
-                                    byte[] bytes = value.getBytes("UTF-8");
-                                    dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + name + "\"\r\n");
-                                    dataOutputStream.writeBytes("\r\n");
-                                    dataOutputStream.write(bytes);
-                                    dataOutputStream.writeBytes("\r\n");
-                                }
-                            }
-                        }
+                    return new xb8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d07fa, this.c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                } else if ("apk_download".equals(mb8Var.a)) {
+                    if (this.a == 2) {
+                        return new yb8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0869, this.c, true), "apk_download");
                     }
-                    if (this.d != null) {
-                        for (Map.Entry<String, byte[]> entry : this.d.entrySet()) {
-                            String key = entry.getKey();
-                            byte[] value2 = entry.getValue();
-                            if (value2 != null) {
-                                dataOutputStream.writeBytes("--" + str + "\r\n");
-                                dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + key + "\"; filename=\"file\"\r\n");
-                                dataOutputStream.writeBytes("\r\n");
-                                dataOutputStream.write(value2);
-                                dataOutputStream.writeBytes("\r\n");
-                            }
-                        }
-                    }
-                    dataOutputStream.writeBytes("--" + str + "--\r\n");
-                    dataOutputStream.flush();
-                    i = dataOutputStream.size();
-                } finally {
-                    lg.d(dataOutputStream);
+                    return new wb8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d07f9, this.c, true), "apk_download");
+                } else {
+                    return null;
                 }
-            } else {
-                i = 0;
             }
-            if (xb8Var != null) {
-                xb8Var.a = i;
-            }
+            return bc8Var;
         }
+        return (bc8) invokeLL.objValue;
     }
 }

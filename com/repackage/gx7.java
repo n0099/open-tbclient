@@ -1,21 +1,59 @@
 package com.repackage;
 
+import android.os.Handler;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.face.data.EmotionImageData;
-import com.baidu.tieba.face.data.SingleBarEmotionRecommendData;
+import com.baidu.tieba.face.SearchEmotionModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes6.dex */
 public class gx7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<EmotionImageData> a;
-    public List<String> b;
-    public SingleBarEmotionRecommendData c;
+    public Handler a;
+    public SearchEmotionModel b;
+    public String c;
+    public SearchEmotionModel.b d;
+    public Runnable e;
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gx7 a;
+
+        public a(gx7 gx7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gx7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gx7Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.a.c) || this.a.d == null) {
+                return;
+            }
+            if (this.a.b == null) {
+                this.a.b = new SearchEmotionModel();
+            }
+            this.a.b.z(this.a.c, 0, 30, this.a.d);
+        }
+    }
 
     public gx7() {
         Interceptable interceptable = $ic;
@@ -27,46 +65,41 @@ public class gx7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.e = new a(this);
+        this.a = new Handler();
     }
 
-    public List<EmotionImageData> a() {
-        InterceptResult invokeV;
+    public void e() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
-    }
-
-    public List<String> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (List) invokeV.objValue;
-    }
-
-    public SingleBarEmotionRecommendData c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (SingleBarEmotionRecommendData) invokeV.objValue;
-    }
-
-    public void d(List<EmotionImageData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.a = list;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            SearchEmotionModel searchEmotionModel = this.b;
+            if (searchEmotionModel != null) {
+                searchEmotionModel.cancelLoadData();
+            }
+            this.a.removeCallbacks(this.e);
         }
     }
 
-    public void e(List<String> list) {
+    public void f(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.b = list;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            if (TextUtils.isEmpty(str)) {
+                this.c = "";
+                return;
+            }
+            this.a.removeCallbacks(this.e);
+            this.a.postDelayed(this.e, 300L);
+            this.c = str;
         }
     }
 
-    public void f(SingleBarEmotionRecommendData singleBarEmotionRecommendData) {
+    public void g(SearchEmotionModel.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, singleBarEmotionRecommendData) == null) {
-            this.c = singleBarEmotionRecommendData;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.d = bVar;
         }
     }
 }

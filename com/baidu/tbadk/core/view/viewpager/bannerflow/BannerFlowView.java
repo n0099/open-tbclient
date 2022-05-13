@@ -13,12 +13,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
-import com.repackage.ov4;
-import com.repackage.pv4;
-import com.repackage.rv4;
-import com.repackage.sv4;
-import com.repackage.uo;
+import com.repackage.bw4;
+import com.repackage.cw4;
+import com.repackage.ew4;
+import com.repackage.fw4;
+import com.repackage.mi;
+import com.repackage.ro;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class BannerFlowView extends FrameLayout {
@@ -26,8 +26,8 @@ public class BannerFlowView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public ViewPager a;
     public IndicatorView b;
-    public ov4 c;
-    public sv4 d;
+    public bw4 c;
+    public fw4 d;
     public View e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -54,8 +54,8 @@ public class BannerFlowView extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.setSelector(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0806e9));
-            this.b.setDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0806e8));
+            this.b.setSelector(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0806d4));
+            this.b.setDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0806d3));
         }
     }
 
@@ -67,25 +67,25 @@ public class BannerFlowView extends FrameLayout {
             this.b = indicatorView;
             indicatorView.setSpacing(0);
             a();
-            this.c = new ov4(context, this.a, this.b, null);
-            this.d = new sv4(context, rv4.a);
+            this.c = new bw4(context, this.a, this.b, null);
+            this.d = new fw4(context, ew4.a);
             this.c.j(5000L);
             this.c.i(context, this.d);
             addView(this.a, new FrameLayout.LayoutParams(-1, -1));
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 85;
-            layoutParams.setMargins(0, 0, oi.f(context, R.dimen.obfuscated_res_0x7f0701d5), oi.f(context, R.dimen.obfuscated_res_0x7f0701be));
+            layoutParams.setMargins(0, 0, mi.f(context, R.dimen.obfuscated_res_0x7f0701d5), mi.f(context, R.dimen.obfuscated_res_0x7f0701be));
             addView(this.b, layoutParams);
             View view2 = new View(context);
             this.e = view2;
             view2.setBackgroundColor(SkinManager.getColor(R.color.common_color_10043));
-            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, oi.f(context, R.dimen.obfuscated_res_0x7f070198));
+            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, mi.f(context, R.dimen.obfuscated_res_0x7f070198));
             layoutParams2.gravity = 80;
             addView(this.e, layoutParams2);
         }
     }
 
-    public void setData(List<uo> list) {
+    public void setData(List<ro> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             this.a.removeAllViews();
@@ -100,13 +100,13 @@ public class BannerFlowView extends FrameLayout {
         }
     }
 
-    public void setOnItemClickListener(pv4.a<rv4, sv4.a> aVar) {
-        sv4 sv4Var;
+    public void setOnItemClickListener(cw4.a<ew4, fw4.a> aVar) {
+        fw4 fw4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) || (sv4Var = this.d) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) || (fw4Var = this.d) == null) {
             return;
         }
-        sv4Var.e(aVar);
+        fw4Var.e(aVar);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

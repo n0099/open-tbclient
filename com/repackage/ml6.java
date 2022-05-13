@@ -1,87 +1,96 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tieba.R;
-import com.baidu.tieba.frs.gametabs.SpecialFrsWebFragment;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ml6 extends m45 {
+public class ml6 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
+    public static final BdUniqueId d;
+    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
 
-    public ml6(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755495398, "Lcom/repackage/ml6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755495398, "Lcom/repackage/ml6;");
                 return;
             }
         }
-        n45 n45Var = this.a;
-        n45Var.e = i;
-        SpecialFrsWebFragment specialFrsWebFragment = (SpecialFrsWebFragment) n45Var.a;
-        specialFrsWebFragment.u1(i);
-        if (str != null && !str.contains("&_client_version=") && !str.contains("?_client_version=")) {
-            if (str.contains("&ufanS=1")) {
-                str = str + "&_client_version=" + TbConfig.getVersion();
-            } else if (str.contains("?ufanS=1")) {
-                str = str + "&_client_version=" + TbConfig.getVersion();
+        c = BdUniqueId.gen();
+        d = BdUniqueId.gen();
+        e = BdUniqueId.gen();
+    }
+
+    public ml6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        specialFrsWebFragment.J0(str);
     }
 
-    @Override // com.repackage.m45
-    public n45 a() {
+    public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            n45 n45Var = new n45();
-            n45Var.a = new SpecialFrsWebFragment();
-            n45Var.e = 101;
-            n45Var.i = n45.l;
-            return n45Var;
-        }
-        return (n45) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    @Override // com.repackage.m45
-    public TbFragmentTabIndicator c(Context context) {
-        InterceptResult invokeL;
+    public void g(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02f8, (ViewGroup) null);
-            this.b = fragmentTabIndicator;
-            fragmentTabIndicator.setTextSize(2.0f);
-            return this.b;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a = i;
         }
-        return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // com.repackage.m45
-    public boolean d() {
+    public int getPositionInFrsItemTab() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.ro
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (isSupportTop()) {
+                return c;
+            }
+            if (isSupportBottom()) {
+                return d;
+            }
+            return e;
         }
-        return invokeV.booleanValue;
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void setPositionInFrsItemTab(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.b = i;
+        }
     }
 }

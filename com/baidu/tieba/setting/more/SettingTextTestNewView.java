@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ni;
-import com.repackage.oi;
+import com.repackage.li;
+import com.repackage.mi;
 /* loaded from: classes4.dex */
 public final class SettingTextTestNewView extends TbSettingTextTipView {
     public static /* synthetic */ Interceptable $ic;
@@ -39,7 +39,7 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
             }
         }
         c();
-        h(0, 0, oi.f(context, R.dimen.obfuscated_res_0x7f070201), 0);
+        h(0, 0, mi.f(context, R.dimen.obfuscated_res_0x7f070201), 0);
     }
 
     public void i() {
@@ -53,17 +53,17 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
             }
             if (z) {
                 this.e.setText("new");
-                this.e.setTextAppearance(this.a, z2 ? R.style.obfuscated_res_0x7f1003ec : R.style.obfuscated_res_0x7f1003eb);
+                this.e.setTextAppearance(this.a, z2 ? R.style.obfuscated_res_0x7f1003eb : R.style.obfuscated_res_0x7f1003ea);
                 SkinManager.setBackgroundResource(this.e, R.drawable.icon_news_text_prompt);
                 return;
             }
             String version = TbConfig.getVersion();
-            if (TbConfig.getVersionType() == 1 && !ni.isEmpty(TbConfig.getSubVersion())) {
+            if (TbConfig.getVersionType() == 1 && !li.isEmpty(TbConfig.getSubVersion())) {
                 version = version + "." + TbConfig.getSubVersion();
             }
             this.e.setText(version);
             this.e.setBackgroundDrawable(null);
-            this.e.setTextAppearance(this.a, z2 ? R.style.obfuscated_res_0x7f1003ee : R.style.obfuscated_res_0x7f1003ed);
+            this.e.setTextAppearance(this.a, z2 ? R.style.obfuscated_res_0x7f1003ed : R.style.obfuscated_res_0x7f1003ec);
         }
     }
 }

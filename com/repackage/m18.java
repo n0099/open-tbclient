@@ -1,40 +1,120 @@
 package com.repackage;
 
+import android.view.View;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.BookInfo;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class m18 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public NavigationBar b;
+    public BdTypeListView c;
+    public k18 d;
+    public ux5<i28> e;
 
-    public m18() {
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ m18 a;
+
+        public a(m18 m18Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m18Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = m18Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.a.getPageActivity().finish();
+            }
+        }
+    }
+
+    public m18(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = tbPageContext;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f0e0c));
+            this.b.showBottomLine();
+            this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
+            this.b.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public void a(BookInfo bookInfo) {
+    public void c(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, bookInfo) == null) || bookInfo == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            this.b = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f091844);
+            BdTypeListView bdTypeListView = (BdTypeListView) view2.findViewById(R.id.obfuscated_res_0x7f091843);
+            this.c = bdTypeListView;
+            this.d = new k18(this.a, bdTypeListView, this.e);
+            b();
         }
-        String str = bookInfo.book_id;
-        String str2 = bookInfo.title;
-        String str3 = bookInfo.cover;
-        bookInfo.update_time.intValue();
-        bookInfo.book_type.intValue();
-        bookInfo.forum_id.longValue();
-        bookInfo.total_chapter.intValue();
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.d.a();
+            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0201);
+            this.b.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
+        }
+    }
+
+    public void e(List<ro> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            this.c.setData(list);
+        }
+    }
+
+    public void f(ux5<i28> ux5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ux5Var) == null) {
+            this.e = ux5Var;
+        }
     }
 }

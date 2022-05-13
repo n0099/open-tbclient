@@ -1,34 +1,38 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.ala.data.SdkLiveInfoData;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tieba.ala.alasquare.live_tab.message.AlaTabLiveResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class up5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public List<String> b;
-    public List<SdkLiveInfoData> c;
-    public List<uo> d;
-    public boolean e;
-    public String f;
-    public String g;
+    public to5 b;
+    public no5 c;
+    public qo5 d;
+    public wo5 e;
+    public List<ro> f;
+    public List<ro> g;
+    public List<SdkLiveInfoData> h;
+    public List<ro> i;
 
-    public up5(vo5 vo5Var, String str, String str2) {
+    public up5(AlaTabLiveResponsedMessage alaTabLiveResponsedMessage) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vo5Var, str, str2};
+            Object[] objArr = {alaTabLiveResponsedMessage};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,28 +43,25 @@ public class up5 {
             }
         }
         this.a = false;
-        this.e = false;
-        this.b = new ArrayList();
-        this.c = new ArrayList();
-        this.d = new ArrayList();
-        if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-            this.e = true;
-        }
-        this.f = str;
-        this.g = str2;
-        a(vo5Var);
+        this.b = alaTabLiveResponsedMessage.stageLiveInfo;
+        this.c = alaTabLiveResponsedMessage.hotLiveInfo;
+        this.d = alaTabLiveResponsedMessage.officialRecommendLiveInfo;
+        this.e = alaTabLiveResponsedMessage.tabAllLiveInfo;
+        this.h = new ArrayList();
+        this.i = new ArrayList();
+        e();
     }
 
-    public boolean a(vo5 vo5Var) {
+    public boolean a(wo5 wo5Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, vo5Var)) == null) {
-            if (vo5Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, wo5Var)) == null) {
+            if (wo5Var == null) {
                 return false;
             }
-            boolean e = e(vo5Var.b);
-            this.a = vo5Var.a;
-            return e;
+            boolean g = g(wo5Var);
+            this.a = wo5Var.a;
+            return g;
         }
         return invokeL.booleanValue;
     }
@@ -68,103 +69,156 @@ public class up5 {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b = null;
+            this.c = null;
+            this.d = null;
             this.a = false;
-            List<String> list = this.b;
+            List<ro> list = this.f;
             if (list != null) {
                 list.clear();
             }
-            List<SdkLiveInfoData> list2 = this.c;
+            List<ro> list2 = this.g;
             if (list2 != null) {
                 list2.clear();
             }
-            List<uo> list3 = this.d;
+            List<SdkLiveInfoData> list3 = this.h;
             if (list3 != null) {
                 list3.clear();
+            }
+            List<ro> list4 = this.i;
+            if (list4 != null) {
+                list4.clear();
             }
         }
     }
 
-    public final ArrayList<uo> c(List<SdkLiveInfoData> list) {
+    public final ArrayList<ro> c(List<SdkLiveInfoData> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
-            ArrayList<uo> arrayList = new ArrayList<>();
+            ArrayList<ro> arrayList = new ArrayList<>();
             int size = list.size();
             for (int i = 0; i < size; i += 2) {
-                qo5 qo5Var = new qo5();
-                tn5 tn5Var = new tn5();
-                tn5Var.a = list.get(i);
-                tn5Var.f = true;
-                tn5Var.b = this.e;
-                tn5Var.c = this.f;
-                tn5Var.d = this.g;
+                ro5 ro5Var = new ro5();
+                un5 un5Var = new un5();
+                un5Var.a = list.get(i);
+                un5Var.f = true;
+                ro5Var.a = un5Var;
                 int i2 = i + 1;
-                tn5Var.e = i2;
-                qo5Var.a = tn5Var;
                 if (i2 < size) {
-                    tn5 tn5Var2 = new tn5();
-                    tn5Var2.a = list.get(i2);
-                    tn5Var2.b = this.e;
-                    tn5Var2.c = this.f;
-                    tn5Var2.d = this.g;
-                    tn5Var2.e = i + 2;
-                    qo5Var.b = tn5Var2;
-                    tn5Var2.g = true;
+                    un5 un5Var2 = new un5();
+                    un5Var2.a = list.get(i2);
+                    ro5Var.b = un5Var2;
+                    un5Var2.g = true;
                 } else {
-                    tn5Var.f = false;
-                    tn5Var.h = true;
+                    un5Var.f = false;
+                    un5Var.h = true;
                 }
-                arrayList.add(qo5Var);
+                arrayList.add(ro5Var);
             }
             return arrayList;
         }
         return (ArrayList) invokeL.objValue;
     }
 
-    public List<uo> d() {
+    public List<ro> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (!ListUtils.isEmpty(this.d)) {
-                arrayList.addAll(this.d);
+            if (!ListUtils.isEmpty(this.g)) {
+                arrayList.addAll(this.g);
+            }
+            if (!ListUtils.isEmpty(this.i)) {
+                arrayList.addAll(this.i);
             }
             return arrayList;
         }
         return (List) invokeV.objValue;
     }
 
-    public final boolean e(List<SdkLiveInfoData> list) {
-        InterceptResult invokeL;
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return false;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.f = new ArrayList();
+            to5 to5Var = this.b;
+            if (to5Var != null && to5Var.a()) {
+                so5 so5Var = new so5();
+                so5Var.a = this.b;
+                this.f.add(so5Var);
             }
-            ArrayList arrayList = new ArrayList();
-            for (SdkLiveInfoData sdkLiveInfoData : list) {
-                if (sdkLiveInfoData != null) {
-                    String str = sdkLiveInfoData.liveId;
-                    if (!this.b.contains(str)) {
-                        arrayList.add(sdkLiveInfoData);
-                        this.b.add(str);
-                    }
+            if (this.c != null) {
+                ArrayList<ro> f = f();
+                if (!ListUtils.isEmpty(f)) {
+                    this.f.addAll(f);
                 }
             }
+            qo5 qo5Var = this.d;
+            if (qo5Var != null && !ListUtils.isEmpty(qo5Var.a)) {
+                po5 po5Var = new po5();
+                po5Var.a = this.d;
+                this.f.add(po5Var);
+            }
+            this.g = new ArrayList(this.f);
+            a(this.e);
+        }
+    }
+
+    public final ArrayList<ro> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            ArrayList<SdkLiveInfoData> arrayList = this.c.a;
+            if (arrayList == null || arrayList.size() < 2) {
+                return null;
+            }
+            ArrayList arrayList2 = new ArrayList();
+            for (SdkLiveInfoData sdkLiveInfoData : arrayList) {
+                if (sdkLiveInfoData != null) {
+                    arrayList2.add(sdkLiveInfoData);
+                }
+            }
+            if (arrayList2.size() < 2) {
+                return null;
+            }
+            return c(arrayList2);
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public final boolean g(wo5 wo5Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, wo5Var)) == null) {
+            if (wo5Var == null) {
+                return false;
+            }
+            ArrayList<SdkLiveInfoData> arrayList = wo5Var.b;
             if (ListUtils.isEmpty(arrayList)) {
                 return false;
             }
-            this.c.addAll(arrayList);
-            ArrayList<uo> c = c(this.c);
-            this.d = c;
+            ArrayList arrayList2 = new ArrayList();
+            Iterator<SdkLiveInfoData> it = arrayList.iterator();
+            while (it.hasNext()) {
+                SdkLiveInfoData next = it.next();
+                if (next != null && (!StringHelper.equals(next.source, "jiaoyoufang") || io5.c(next))) {
+                    arrayList2.add(next);
+                }
+            }
+            if (ListUtils.isEmpty(arrayList2)) {
+                return false;
+            }
+            this.h.addAll(arrayList2);
+            ArrayList<ro> c = c(this.h);
+            this.i = c;
             return !ListUtils.isEmpty(c);
         }
         return invokeL.booleanValue;
     }
 
-    public boolean f() {
+    public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : invokeV.booleanValue;
     }
 }

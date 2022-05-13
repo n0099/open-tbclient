@@ -1,96 +1,83 @@
 package com.repackage;
 
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.pms.bean.ErrorInfo;
+import com.baidu.searchbox.pms.bean.PackageInfo;
 import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
-import com.baidu.searchbox.pms.callback.PackageCallback;
-import com.baidu.searchbox.pms.init.RequestParams;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.io.File;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-public class gn extends RequestParams.Channel {
+public class gn extends DefaultDownloadCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public DefaultDownloadCallback a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gn() {
-        super("137", true, (PackageCallback) new kn(null));
+    public gn(DefaultDownloadCallback defaultDownloadCallback) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {defaultDownloadCallback};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], ((Boolean) objArr[1]).booleanValue(), (PackageCallback) objArr[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = defaultDownloadCallback;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gn(String str, DefaultDownloadCallback defaultDownloadCallback) {
-        super("137", str, new kn(defaultDownloadCallback));
+    @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
+    public void onDownloadError(PackageInfo packageInfo, ErrorInfo errorInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, defaultDownloadCallback};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1], (PackageCallback) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, packageInfo, errorInfo) == null) || errorInfo == null) {
+            return;
+        }
+        BdLog.e(errorInfo.errorMsg);
+        DefaultDownloadCallback defaultDownloadCallback = this.a;
+        if (defaultDownloadCallback != null) {
+            defaultDownloadCallback.onDownloadError(packageInfo, errorInfo);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gn(List<String> list, DefaultDownloadCallback defaultDownloadCallback) {
-        super("137", list, new kn(defaultDownloadCallback));
+    @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
+    public void onDownloadSuccess(PackageInfo packageInfo, ErrorInfo errorInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list, defaultDownloadCallback};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (List) objArr2[1], (PackageCallback) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo, errorInfo) == null) || packageInfo == null || StringUtils.isNull(packageInfo.filePath) || StringUtils.isNull(packageInfo.name)) {
+            return;
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gn(String str, DefaultDownloadCallback defaultDownloadCallback, mn mnVar) {
-        super("137", str, new kn(defaultDownloadCallback, mnVar));
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, defaultDownloadCallback, mnVar};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1], (PackageCallback) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        File file = new File(packageInfo.filePath);
+        if (file.exists() && file.isFile()) {
+            String b = in.b(packageInfo.name);
+            File file2 = new File(b);
+            if ((!file2.exists() || file2.delete()) && file.renameTo(file2)) {
+                if (b.contains(".so")) {
+                    if (kn.a(BdBaseApplication.getInst().getContext(), in.a(packageInfo.name))) {
+                        ConcurrentHashMap<String, String> resHashMap = BdBaseApplication.getInst().getResHashMap();
+                        String str = packageInfo.name;
+                        resHashMap.put(str, in.a(str));
+                    }
+                    ((an) ServiceManager.getService(an.a)).a(packageInfo.name);
+                } else {
+                    ConcurrentHashMap<String, String> resHashMap2 = BdBaseApplication.getInst().getResHashMap();
+                    String str2 = packageInfo.name;
+                    resHashMap2.put(str2, in.a(str2));
+                }
+                DefaultDownloadCallback defaultDownloadCallback = this.a;
+                if (defaultDownloadCallback != null) {
+                    defaultDownloadCallback.onDownloadSuccess(packageInfo, errorInfo);
+                }
             }
         }
     }

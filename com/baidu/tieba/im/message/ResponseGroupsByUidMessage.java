@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.br4;
+import com.repackage.mr4;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -107,8 +107,8 @@ public class ResponseGroupsByUidMessage extends TbSocketReponsedMessage {
             if (groupsByUidMessage == null || groupsByUidMessage.getFriendUid() != 0) {
                 return;
             }
-            br4.f();
-            TbSocketReponsedMessage.saveProtocolBufferDataToCache(br4.d("tb.im_entergroup"), CACHE_KEY_PREFIX + id, bArr);
+            mr4.f();
+            TbSocketReponsedMessage.saveProtocolBufferDataToCache(mr4.d("tb.im_entergroup"), CACHE_KEY_PREFIX + id, bArr);
         }
     }
 

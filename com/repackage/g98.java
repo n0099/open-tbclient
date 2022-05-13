@@ -32,7 +32,7 @@ public class g98 {
     public transient /* synthetic */ FieldHolder $fh;
     public final WebView a;
     public BdUniqueId b;
-    public ql8 c;
+    public nk8 c;
     public HashSet<String> d;
     public HashMap<String, String> e;
     public HashMap<String, String> f;
@@ -279,10 +279,10 @@ public class g98 {
         webView.loadUrl("javascript:window." + str + "('" + str2 + "')");
     }
 
-    public void l(ql8 ql8Var) {
+    public void l(nk8 nk8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ql8Var) == null) {
-            this.c = ql8Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, nk8Var) == null) {
+            this.c = nk8Var;
         }
     }
 }

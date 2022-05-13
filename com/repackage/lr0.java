@@ -76,11 +76,11 @@ public class lr0 extends ev0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.C();
-            LinearLayout linearLayout = (LinearLayout) View.inflate(this.c, R.layout.obfuscated_res_0x7f0d05b5, null);
+            LinearLayout linearLayout = (LinearLayout) View.inflate(this.c, R.layout.obfuscated_res_0x7f0d05a8, null);
             this.e = linearLayout;
-            this.f = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091f40);
-            this.g = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f091f3b);
-            this.h = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f091f32);
+            this.f = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091f98);
+            this.g = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f091f93);
+            this.h = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f091f8a);
             this.g.setText(PlayerStatus.IDLE.name());
         }
     }

@@ -1,23 +1,27 @@
 package com.repackage;
 
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.PBError;
 /* loaded from: classes6.dex */
-public class ot9 implements Runnable {
+public class ot9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ PBError a;
-    public final /* synthetic */ au9 b;
+    public Context a;
+    public String b;
+    public String c;
+    public lp9 d;
 
-    public ot9(au9 au9Var, PBError pBError) {
+    public ot9(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {au9Var, pBError};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,17 +31,64 @@ public class ot9 implements Runnable {
                 return;
             }
         }
-        this.b = au9Var;
-        this.a = pBError;
+        this.a = context;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        eu9 eu9Var;
+    public ot9 a(lp9 lp9Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (eu9Var = this.b.g) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, lp9Var)) == null) {
+            this.d = lp9Var;
+            return this;
         }
-        eu9Var.onFail(this.a);
+        return (ot9) invokeL.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c = st9.d + st9.f;
+            st9.b(this);
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.c = st9.d + st9.j;
+            st9.b(this);
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.c = st9.d + st9.g;
+            st9.b(this);
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.c = st9.d + st9.e;
+            st9.b(this);
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.c = st9.d + st9.i;
+            st9.b(this);
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.c = st9.d + st9.h;
+            st9.b(this);
+        }
     }
 }

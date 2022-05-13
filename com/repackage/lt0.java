@@ -21,11 +21,11 @@ public interface lt0 {
 
         /* renamed from: com.repackage.lt0$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0463a implements nt0 {
+        public class C0460a implements nt0 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0463a(a aVar) {
+            public C0460a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -113,7 +113,7 @@ public interface lt0 {
         public nt0 a(Map<String, String> map, Object obj) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, map, obj)) == null) ? new C0463a(this) : (nt0) invokeLL.objValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, map, obj)) == null) ? new C0460a(this) : (nt0) invokeLL.objValue;
         }
     }
 
@@ -145,7 +145,7 @@ public interface lt0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
                 if (a == null) {
-                    zi0.e("IAdVideoLayerProxyFactory", "Fetch IAdVideoSuffixProxyFactory implementation failed, IAdVideoSuffixProxyFactory.EMPTY applied");
+                    cj0.e("IAdVideoLayerProxyFactory", "Fetch IAdVideoSuffixProxyFactory implementation failed, IAdVideoSuffixProxyFactory.EMPTY applied");
                     a = lt0.a;
                 }
                 return a;

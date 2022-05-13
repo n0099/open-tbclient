@@ -53,11 +53,11 @@ public class fk5 extends ua {
                 this.a = TbadkCoreApplication.getInst().appResponseToCmd(2002006);
                 if (addressListData != null) {
                     for (rk5 rk5Var : addressListData.a()) {
-                        List<iy4> a = rk5Var.a();
+                        List<wy4> a = rk5Var.a();
                         ArrayList arrayList = new ArrayList();
-                        for (iy4 iy4Var : a) {
-                            if (!this.a && iy4Var.i() == 1) {
-                                arrayList.add(iy4Var);
+                        for (wy4 wy4Var : a) {
+                            if (!this.a && wy4Var.i() == 1) {
+                                arrayList.add(wy4Var);
                             }
                         }
                         a.removeAll(arrayList);

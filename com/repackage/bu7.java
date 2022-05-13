@@ -21,30 +21,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qv7;
+import com.repackage.pv7;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class bu7 implements v75 {
+public class bu7 implements m85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public final PbFragment b;
     public eu7 c;
     public du7 d;
-    public gw7 e;
-    public uu7 f;
+    public fw7 e;
+    public tu7 f;
     public View.OnClickListener g;
     public View.OnClickListener h;
     public TbRichTextView.y i;
     public View.OnLongClickListener j;
     public dt7 k;
     public final MoreGodReplyModel l;
-    public y75 m;
+    public p85 m;
     public long n;
     public BdListView.p o;
     public AbsListView.OnScrollListener p;
-    public qv7.b q;
+    public pv7.b q;
     public PbFragment.c3 r;
 
     /* loaded from: classes5.dex */
@@ -125,9 +125,9 @@ public class bu7 implements v75 {
             PbFragment pbFragment;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, absListView, i) == null) {
-                if (!a(this.a) && a(i) && (pbFragment = this.b.b) != null && pbFragment.P4() != null) {
-                    this.b.b.P4().D2();
-                    this.b.b.P4().i1();
+                if (!a(this.a) && a(i) && (pbFragment = this.b.b) != null && pbFragment.Q4() != null) {
+                    this.b.b.Q4().G2();
+                    this.b.b.Q4().k1();
                 }
                 this.a = i;
             }
@@ -135,7 +135,7 @@ public class bu7 implements v75 {
     }
 
     /* loaded from: classes5.dex */
-    public class c implements qv7.b {
+    public class c implements pv7.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ bu7 a;
@@ -158,16 +158,16 @@ public class bu7 implements v75 {
             this.a = bu7Var;
         }
 
-        @Override // com.repackage.qv7.b
+        @Override // com.repackage.pv7.b
         public void a(int i, String str, String str2) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeILL(1048576, this, i, str, str2) == null) || StringUtils.isNull(str)) {
                 return;
             }
-            this.a.e.W3(str);
+            this.a.e.Y3(str);
         }
 
-        @Override // com.repackage.qv7.b
+        @Override // com.repackage.pv7.b
         public void onSuccess(List<PostData> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
@@ -210,14 +210,14 @@ public class bu7 implements v75 {
                 this.b.a = false;
                 PbFragment pbFragment = this.b.b;
                 if (pbFragment != null) {
-                    if (pbFragment.P4() != null) {
-                        this.b.b.P4().w3(false);
-                        qu7 u0 = this.b.b.P4().u0();
-                        u0.g0(this.b.b.w().T0(), true);
-                        u0.Z();
+                    if (pbFragment.Q4() != null) {
+                        this.b.b.Q4().y3(false);
+                        pu7 w0 = this.b.b.Q4().w0();
+                        w0.g0(this.b.b.v().P1(), true);
+                        w0.Z();
                     }
                     bu7 bu7Var = this.b;
-                    bu7Var.b.P5(bu7Var.r);
+                    bu7Var.b.Q5(bu7Var.r);
                 }
                 Runnable runnable = this.a;
                 if (runnable != null) {
@@ -396,12 +396,12 @@ public class bu7 implements v75 {
         }
     }
 
-    public bu7(PbFragment pbFragment, gw7 gw7Var, ViewStub viewStub) {
+    public bu7(PbFragment pbFragment, fw7 fw7Var, ViewStub viewStub) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pbFragment, gw7Var, viewStub};
+            Object[] objArr = {pbFragment, fw7Var, viewStub};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -415,23 +415,23 @@ public class bu7 implements v75 {
         this.p = new b(this);
         this.q = new c(this);
         this.r = new h(this);
-        MoreGodReplyModel moreGodReplyModel = new MoreGodReplyModel(pbFragment.getPageContext(), pbFragment.w());
+        MoreGodReplyModel moreGodReplyModel = new MoreGodReplyModel(pbFragment.getPageContext(), pbFragment.v());
         this.l = moreGodReplyModel;
         moreGodReplyModel.K(this.q);
-        this.e = gw7Var;
+        this.e = fw7Var;
         this.b = pbFragment;
         this.c = new eu7(pbFragment, viewStub);
         this.d = new du7(this);
     }
 
-    @Override // com.repackage.v75
+    @Override // com.repackage.m85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "a053" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.v75
+    @Override // com.repackage.m85
     public List<String> getCurrentPageSourceKeyList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -445,7 +445,7 @@ public class bu7 implements v75 {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.v75
+    @Override // com.repackage.m85
     public List<String> getNextPageSourceKeyList() {
         InterceptResult invokeV;
         ArrayList arrayList;
@@ -473,14 +473,14 @@ public class bu7 implements v75 {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.v75
-    public w75 getPageStayFilter() {
+    @Override // com.repackage.m85
+    public n85 getPageStayFilter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return null;
         }
-        return (w75) invokeV.objValue;
+        return (n85) invokeV.objValue;
     }
 
     public void h() {
@@ -494,7 +494,7 @@ public class bu7 implements v75 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, runnable) == null) {
             this.l.cancelLoadData();
-            this.b.b5();
+            this.b.c5();
             if (!l() && runnable != null) {
                 runnable.run();
                 return;
@@ -503,31 +503,31 @@ public class bu7 implements v75 {
                 this.c.r(new d(this, runnable));
             }
             if (this.n != 0) {
-                y75 j = j();
+                p85 j = j();
                 j.y(System.currentTimeMillis() - this.n);
-                z75.b().k(this.b.getContext(), j, getPageStayFilter());
+                q85.b().k(this.b.getContext(), j, getPageStayFilter());
             }
         }
     }
 
-    public y75 j() {
+    public p85 j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             if (this.m == null) {
-                y75 y75Var = new y75();
-                this.m = y75Var;
-                y75Var.x(getCurrentPageSourceKeyList());
+                p85 p85Var = new p85();
+                this.m = p85Var;
+                p85Var.x(getCurrentPageSourceKeyList());
                 this.m.s(getCurrentPageKey());
-                PbModel w = this.b.w();
-                if (w != null) {
-                    this.m.t(mg.g(w.getForumId(), 0L));
-                    this.m.C(mg.g(w.l1(), 0L));
+                PbModel v = this.b.v();
+                if (v != null) {
+                    this.m.t(kg.g(v.getForumId(), 0L));
+                    this.m.C(kg.g(v.h2(), 0L));
                 }
             }
             return this.m;
         }
-        return (y75) invokeV.objValue;
+        return (p85) invokeV.objValue;
     }
 
     public eu7 k() {
@@ -594,9 +594,9 @@ public class bu7 implements v75 {
     public final void t(BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048592, this, bdTypeListView) == null) && this.f == null) {
-            uu7 uu7Var = new uu7(this.b, PostData.x0);
-            this.f = uu7Var;
-            uu7Var.M0(false);
+            tu7 tu7Var = new tu7(this.b, PostData.x0);
+            this.f = tu7Var;
+            tu7Var.M0(false);
             ArrayList arrayList = new ArrayList(1);
             arrayList.add(this.f);
             bdTypeListView.a(arrayList);
@@ -622,17 +622,17 @@ public class bu7 implements v75 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             if (!l()) {
-                this.b.b5();
+                this.b.c5();
                 this.a = true;
                 this.d.h(false);
                 this.d.g(true);
                 u();
                 x();
                 this.c.q(new i(this));
-                this.b.V3(this.r);
+                this.b.W3(this.r);
                 this.l.J();
             }
-            this.b.P4().i1();
+            this.b.Q4().k1();
         }
     }
 
@@ -640,10 +640,10 @@ public class bu7 implements v75 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, bs7Var) == null) {
             this.f.t(bs7Var);
-            qu7 u0 = this.e.u0();
-            this.f.setFromCDN(u0.X());
-            this.f.p(bs7Var.O().getAuthor().getUserId());
-            this.f.c(u0.Y());
+            pu7 w0 = this.e.w0();
+            this.f.setFromCDN(w0.X());
+            this.f.q(bs7Var.O().getAuthor().getUserId());
+            this.f.c(w0.Y());
             this.f.e(this.g);
             this.f.l(this.h);
             this.f.o(this.i);
@@ -653,22 +653,22 @@ public class bu7 implements v75 {
     }
 
     public final void x() {
-        List<uo> F;
+        List<ro> F;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || (F = this.l.F()) == null) {
             return;
         }
-        bs7 T0 = this.l.G().T0();
+        bs7 P1 = this.l.G().P1();
         this.c.p();
         this.c.e().setOnSrollToBottomListener(this.o);
         BdTypeListView e2 = this.c.e();
         this.d.d();
         t(e2);
-        w(T0);
+        w(P1);
         e2.setData(new ArrayList(F));
-        this.c.g().setCenterTextTitle(String.format(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0ad0), StringHelper.numFormatOver10000(T0.T().b.size())));
+        this.c.g().setCenterTextTitle(String.format(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0adf), StringHelper.numFormatOver10000(P1.T().b.size())));
         this.c.b(this.l.H());
-        if (e2.getAdapter2() instanceof lo) {
+        if (e2.getAdapter2() instanceof io) {
             e2.getAdapter2().notifyDataSetChanged();
         }
     }

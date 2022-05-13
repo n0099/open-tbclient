@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.di;
+import com.repackage.bi;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class ForumBroadcastHelper {
@@ -53,7 +53,7 @@ public class ForumBroadcastHelper {
     public void clipCopy(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            di.a("http://tieba.baidu.com/p/" + str + "?share=9105&fr=share");
+            bi.a("http://tieba.baidu.com/p/" + str + "?share=9105&fr=share");
         }
     }
 

@@ -1,110 +1,30 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import android.app.Activity;
+import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
+import tv.athena.revenue.payui.model.PayFlowType;
+import tv.athena.revenue.payui.view.IYYPayAmountView;
+import tv.athena.revenue.payui.view.IYYPayWayView;
 /* loaded from: classes7.dex */
-public final class w3a implements iz9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public Set<iz9> a;
-    public volatile boolean b;
+public interface w3a extends p3a {
+    void b(Activity activity);
 
-    public w3a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void c(Activity activity, IYYPayWayView.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
 
-    public static void c(Collection<iz9> collection) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, collection) == null) || collection == null) {
-            return;
-        }
-        ArrayList arrayList = null;
-        for (iz9 iz9Var : collection) {
-            try {
-                iz9Var.unsubscribe();
-            } catch (Throwable th) {
-                if (arrayList == null) {
-                    arrayList = new ArrayList();
-                }
-                arrayList.add(th);
-            }
-        }
-        nz9.d(arrayList);
-    }
+    void d(PayFlowType payFlowType);
 
-    public void a(iz9 iz9Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, iz9Var) == null) || iz9Var.isUnsubscribed()) {
-            return;
-        }
-        if (!this.b) {
-            synchronized (this) {
-                if (!this.b) {
-                    if (this.a == null) {
-                        this.a = new HashSet(4);
-                    }
-                    this.a.add(iz9Var);
-                    return;
-                }
-            }
-        }
-        iz9Var.unsubscribe();
-    }
+    boolean e();
 
-    public void b(iz9 iz9Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iz9Var) == null) || this.b) {
-            return;
-        }
-        synchronized (this) {
-            if (!this.b && this.a != null) {
-                boolean remove = this.a.remove(iz9Var);
-                if (remove) {
-                    iz9Var.unsubscribe();
-                }
-            }
-        }
-    }
+    void f(String str, PayFlowType payFlowType);
 
-    @Override // com.repackage.iz9
-    public boolean isUnsubscribed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.booleanValue;
-    }
+    boolean g(PayFlowType payFlowType);
 
-    @Override // com.repackage.iz9
-    public void unsubscribe() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.b) {
-            return;
-        }
-        synchronized (this) {
-            if (this.b) {
-                return;
-            }
-            this.b = true;
-            Set<iz9> set = this.a;
-            this.a = null;
-            c(set);
-        }
-    }
+    void h(Activity activity, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
+
+    void i(Activity activity, IYYPayAmountView.ViewParams viewParams);
+
+    void j(String str, PayFlowType payFlowType);
+
+    void release();
 }

@@ -13,9 +13,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fc0;
-import com.repackage.u90;
-import com.repackage.y90;
+import com.repackage.ba0;
+import com.repackage.ic0;
+import com.repackage.x90;
 /* loaded from: classes2.dex */
 public class LoadingView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -59,8 +59,8 @@ public class LoadingView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setGravity(17);
             setOrientation(1);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0514, (ViewGroup) this, true);
-            LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f091301);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0508, (ViewGroup) this, true);
+            LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f091310);
             this.b = lottieAnimationView;
             if (lottieAnimationView == null || !lottieAnimationView.isAnimating()) {
                 return;
@@ -73,13 +73,13 @@ public class LoadingView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.b.getLayoutParams();
-            layoutParams.width = y90.a(getContext(), u90.a().C);
-            layoutParams.height = y90.a(getContext(), u90.a().D);
+            layoutParams.width = ba0.a(getContext(), x90.a().C);
+            layoutParams.height = ba0.a(getContext(), x90.a().D);
             this.b.setLayoutParams(layoutParams);
-            this.b.setImageAssetsFolder(u90.a().B);
-            String h = fc0.e().h(z);
+            this.b.setImageAssetsFolder(x90.a().B);
+            String h = ic0.e().h(z);
             if (TextUtils.isEmpty(h)) {
-                int i = fc0.e().i(z);
+                int i = ic0.e().i(z);
                 if (i != 0) {
                     this.b.setAnimation(i);
                     return;

@@ -214,9 +214,9 @@ public class db {
                 try {
                     if (c()) {
                         HashMap hashMap = new HashMap();
-                        hashMap.put("uid", com.xiaomi.push.service.bi.m650a());
+                        hashMap.put("uid", com.xiaomi.push.service.bi.m651a());
                         hashMap.put("token", this.b);
-                        hashMap.put("net", bg.m210a(this.f200a.f198a));
+                        hashMap.put("net", bg.m211a(this.f200a.f198a));
                         bg.a(this.f202a, hashMap, this.f201a, "file");
                     }
                     this.f203a = true;
@@ -227,7 +227,7 @@ public class db {
 
         @Override // com.xiaomi.push.al.b
         /* renamed from: c  reason: collision with other method in class */
-        public void mo280c() {
+        public void mo281c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 if (!this.f203a) {
@@ -311,7 +311,7 @@ public class db {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || aa.b() || aa.m176a()) {
+        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || aa.b() || aa.m177a()) {
             return;
         }
         try {

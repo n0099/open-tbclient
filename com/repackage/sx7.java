@@ -6,28 +6,30 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tbadk.core.data.PollData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.ItemCardView;
+import com.baidu.tbadk.core.view.VoteView;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qy;
+import com.repackage.zx;
 /* loaded from: classes7.dex */
-public class sx7 extends nx7 {
+public class sx7 extends kx7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout f;
-    public ItemCardView g;
-    public ThreadData h;
-    public pn4 i;
-    public ez j;
+    public zn4 g;
+    public fz h;
+    public rz i;
+    public ThreadData j;
+    public VoteView k;
 
     /* loaded from: classes7.dex */
-    public class a extends pn4 {
+    public class a extends zn4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ sx7 a;
@@ -50,24 +52,24 @@ public class sx7 extends nx7 {
             this.a = sx7Var;
         }
 
-        @Override // com.repackage.pn4
-        public lp4 getNegFeedBackData() {
+        @Override // com.repackage.zn4
+        public wp4 getNegFeedBackData() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 return null;
             }
-            return (lp4) invokeV.objValue;
+            return (wp4) invokeV.objValue;
         }
 
-        @Override // com.repackage.pn4
+        @Override // com.repackage.zn4
         public ThreadData getThreadData() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.h : (ThreadData) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.j : (ThreadData) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.uo
+        @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.ro
         public BdUniqueId getType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -105,27 +107,27 @@ public class sx7 extends nx7 {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             sx7 sx7Var;
-            qy.a aVar;
+            zx.a aVar;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (aVar = (sx7Var = this.a).c) == null) {
                 return;
             }
-            aVar.a(sx7Var.i);
+            aVar.a(sx7Var.g);
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sx7(TbPageContext tbPageContext) {
+    public sx7(TbPageContext tbPageContext, int i) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -134,7 +136,7 @@ public class sx7 extends nx7 {
         }
     }
 
-    @Override // com.repackage.nx7
+    @Override // com.repackage.kx7
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -142,42 +144,41 @@ public class sx7 extends nx7 {
             if (this.f == null) {
                 LinearLayout linearLayout = new LinearLayout(this.a.getPageActivity());
                 this.f = linearLayout;
-                linearLayout.setClipChildren(false);
-                this.f.setClipToPadding(false);
-                SkinManager.setBackgroundColor(this.f, R.color.CAM_X0206);
+                SkinManager.setBackgroundColor(linearLayout, R.color.CAM_X0206);
                 this.f.setOrientation(1);
                 this.f.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
             }
             this.f.removeAllViews();
-            if (this.j == null) {
-                ez ezVar = new ez(this.a.getPageActivity());
-                this.j = ezVar;
-                ezVar.n(Boolean.TRUE);
-                this.j.x("pb");
-                this.j.z(0);
-                this.j.E(this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007), this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005), this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007), 0);
-                this.j.F(false);
-                this.j.D(true);
+            if (this.h == null) {
+                fz fzVar = new fz(this.a);
+                this.h = fzVar;
+                fzVar.n(Boolean.TRUE);
             }
-            this.f.addView(this.j.g());
-            if (this.g == null) {
-                ItemCardView itemCardView = new ItemCardView(this.a.getPageActivity());
-                this.g = itemCardView;
-                itemCardView.setIsShowRightBtn(true);
-            }
-            this.g.setBackGroundColor(R.color.CAM_X0205);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams.topMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X004);
+            layoutParams.topMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005);
             layoutParams.leftMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
             layoutParams.rightMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-            layoutParams.bottomMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005);
-            this.f.addView(this.g, layoutParams);
+            this.f.addView(this.h.g(), layoutParams);
+            if (this.i == null) {
+                rz rzVar = new rz(this.a.getPageActivity());
+                this.i = rzVar;
+                rzVar.w("pb");
+            }
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
+            layoutParams2.topMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X004);
+            this.f.addView(this.i.g(), layoutParams2);
+            if (this.k == null) {
+                this.k = new VoteView(this.a.getPageActivity());
+            }
+            LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-1, -2);
+            layoutParams3.bottomMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005);
+            this.f.addView(this.k, layoutParams3);
             return this.f;
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.nx7
+    @Override // com.repackage.kx7
     public void b(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) || this.e == i) {
@@ -185,42 +186,57 @@ public class sx7 extends nx7 {
         }
         this.e = i;
         SkinManager.setBackgroundColor(this.f, R.color.CAM_X0206);
-        ez ezVar = this.j;
-        if (ezVar != null) {
-            ezVar.onChangeSkinType(tbPageContext, i);
+        fz fzVar = this.h;
+        if (fzVar != null) {
+            fzVar.onChangeSkinType(tbPageContext, i);
         }
-        ItemCardView itemCardView = this.g;
-        if (itemCardView != null) {
-            itemCardView.G();
+        rz rzVar = this.i;
+        if (rzVar != null) {
+            rzVar.onChangeSkinType(tbPageContext, i);
         }
     }
 
-    @Override // com.repackage.nx7
+    @Override // com.repackage.kx7
     public void c(OriginalThreadInfo originalThreadInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, originalThreadInfo) == null) {
             this.d = originalThreadInfo;
-            this.h = originalThreadInfo == null ? null : originalThreadInfo.a();
-            this.i = new a(this);
-            ItemCardView itemCardView = this.g;
-            if (itemCardView != null && originalThreadInfo != null) {
-                itemCardView.setData(originalThreadInfo.D, 17, originalThreadInfo.f);
+            this.j = originalThreadInfo == null ? null : originalThreadInfo.b();
+            a aVar = new a(this);
+            this.g = aVar;
+            rz rzVar = this.i;
+            if (rzVar != null) {
+                rzVar.a(aVar);
             }
-            ez ezVar = this.j;
-            if (ezVar != null) {
-                ezVar.a(this.i);
+            fz fzVar = this.h;
+            if (fzVar != null) {
+                fzVar.a(this.g);
             }
+            PollData pollData = this.d.G;
+            if (pollData != null && pollData.getOptions() != null && this.d.G.getOptions().size() > 0) {
+                this.k.setIsTransmit(true);
+                VoteView voteView = this.k;
+                OriginalThreadInfo originalThreadInfo2 = this.d;
+                voteView.setData(originalThreadInfo2.G, originalThreadInfo2.f, originalThreadInfo2.e);
+                this.k.setVisibility(0);
+                return;
+            }
+            this.f.removeView(this.k);
         }
     }
 
-    @Override // com.repackage.nx7
-    public void d(qy.a aVar) {
+    @Override // com.repackage.kx7
+    public void d(zx.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
             super.d(aVar);
-            ez ezVar = this.j;
-            if (ezVar != null) {
-                ezVar.A(aVar);
+            rz rzVar = this.i;
+            if (rzVar != null) {
+                rzVar.x(aVar);
+            }
+            fz fzVar = this.h;
+            if (fzVar != null) {
+                fzVar.w(aVar);
             }
             LinearLayout linearLayout = this.f;
             if (linearLayout != null) {
@@ -229,14 +245,14 @@ public class sx7 extends nx7 {
         }
     }
 
-    @Override // com.repackage.nx7
-    public void e(tx5 tx5Var) {
+    @Override // com.repackage.kx7
+    public void e(ux5 ux5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, tx5Var) == null) {
-            super.e(tx5Var);
-            ez ezVar = this.j;
-            if (ezVar != null) {
-                ezVar.l(this.b);
+        if (interceptable == null || interceptable.invokeL(1048580, this, ux5Var) == null) {
+            super.e(ux5Var);
+            rz rzVar = this.i;
+            if (rzVar != null) {
+                rzVar.l(this.b);
             }
         }
     }

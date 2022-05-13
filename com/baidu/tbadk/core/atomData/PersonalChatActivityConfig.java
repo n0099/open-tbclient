@@ -17,8 +17,14 @@ import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class PersonalChatActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final int FOLLOWED_BY_SENDER = 3;
+    public static final int FOLLOW_SENDER = 2;
+    public static final int FROM_IM = 3;
+    public static final int FROM_PERSON_MAIN_PAGE = 2;
+    public static final int FROM_SHARE = 1;
     public static final int IS_FRIEND = 1;
     public static final int IS_NOT_FRIEND = 0;
+    public static final String KEY_FROM = "key_from";
     public static final String KEY_FROM_REPORT_SELECT = "key_from_report_select";
     public static final String KEY_HAS_SELECT_MSG_LIST = "key_has_select_msg_list";
     public static final String KEY_IS_FOLLOW = "key_is_follow";
@@ -67,16 +73,23 @@ public class PersonalChatActivityConfig extends IntentConfig {
         }
     }
 
+    public void setFrom(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            getIntent().putExtra("key_from", i);
+        }
+    }
+
     public void setIsReportSelect(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             getIntent().putExtra(KEY_FROM_REPORT_SELECT, z);
         }
     }
 
     public void setSelectList(ArrayList<ReportPrivateMsgData> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
             getIntent().putParcelableArrayListExtra(KEY_HAS_SELECT_MSG_LIST, arrayList);
         }
     }

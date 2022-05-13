@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rc5;
+import com.repackage.jd5;
 import tbclient.UnreadTip.DataReq;
 import tbclient.UnreadTip.UnreadTipReqIdl;
 /* loaded from: classes3.dex */
@@ -43,7 +43,7 @@ public class ConcernUnreadTipReqMessage extends NetMessage {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    rc5.a(builder, true);
+                    jd5.a(builder, true);
                 }
                 UnreadTipReqIdl.Builder builder2 = new UnreadTipReqIdl.Builder();
                 builder2.data = builder.build(false);

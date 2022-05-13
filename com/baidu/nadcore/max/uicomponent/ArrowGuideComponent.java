@@ -17,16 +17,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.a21;
 import com.repackage.cn0;
 import com.repackage.dn0;
-import com.repackage.eh0;
 import com.repackage.en0;
-import com.repackage.fi0;
 import com.repackage.fn0;
+import com.repackage.hh0;
 import com.repackage.hn0;
+import com.repackage.ii0;
 import com.repackage.jn0;
 import com.repackage.no0;
-import com.repackage.q11;
 import com.repackage.um0;
 import com.repackage.uy0;
 import com.repackage.vm0;
@@ -153,7 +153,7 @@ public final class ArrowGuideComponent extends AbsComponentPlugin {
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
-    public void c(fi0 event) {
+    public void c(ii0 event) {
         um0 um0Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
@@ -195,9 +195,9 @@ public final class ArrowGuideComponent extends AbsComponentPlugin {
     }
 
     public final void m(vm0 vm0Var) {
-        q11 animTimer;
-        q11 countDownTimer;
-        q11 animTimer2;
+        a21 animTimer;
+        a21 countDownTimer;
+        a21 animTimer2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, vm0Var) == null) {
             int i = jn0.$EnumSwitchMapping$0[vm0Var.getType().ordinal()];
@@ -275,9 +275,9 @@ public final class ArrowGuideComponent extends AbsComponentPlugin {
                 cn0 a2 = dn0.a();
                 Intrinsics.checkNotNullExpressionValue(a2, "NadMaxRuntime.getUIProvider()");
                 a2.a();
-                View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05b9, (ViewGroup) b2, true);
+                View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05ac, (ViewGroup) b2, true);
                 Intrinsics.checkNotNullExpressionValue(inflate, "LayoutInflater.from(cont…youtId, parentView, true)");
-                AdVideoImmersiveTipsView adVideoImmersiveTipsView = (AdVideoImmersiveTipsView) inflate.findViewById(R.id.obfuscated_res_0x7f0913b1);
+                AdVideoImmersiveTipsView adVideoImmersiveTipsView = (AdVideoImmersiveTipsView) inflate.findViewById(R.id.obfuscated_res_0x7f0913c5);
                 if (adVideoImmersiveTipsView != null) {
                     adVideoImmersiveTipsView.setOutClickListener(new a(this));
                     no0 no0Var2 = this.f;
@@ -295,8 +295,8 @@ public final class ArrowGuideComponent extends AbsComponentPlugin {
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin
     public void onPause() {
-        q11 animTimer;
-        q11 countDownTimer;
+        a21 animTimer;
+        a21 countDownTimer;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onPause();
@@ -320,7 +320,7 @@ public final class ArrowGuideComponent extends AbsComponentPlugin {
             AdVideoImmersiveTipsView adVideoImmersiveTipsView = this.d;
             if (adVideoImmersiveTipsView != null) {
                 adVideoImmersiveTipsView.j();
-                eh0.f(adVideoImmersiveTipsView);
+                hh0.f(adVideoImmersiveTipsView);
             }
             this.d = null;
         }
@@ -328,9 +328,9 @@ public final class ArrowGuideComponent extends AbsComponentPlugin {
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin
     public void onResume() {
-        q11 animTimer;
-        q11 animTimer2;
-        q11 countDownTimer;
+        a21 animTimer;
+        a21 animTimer2;
+        a21 countDownTimer;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onResume();

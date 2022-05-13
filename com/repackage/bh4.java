@@ -1,87 +1,88 @@
 package com.repackage;
 
-import android.content.Context;
-import android.provider.Settings;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.zxing.client.result.ResultParser;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 /* loaded from: classes5.dex */
-public class bh4 implements wg4<String> {
+public class bh4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
 
-    public bh4(Context context) {
+    public static byte[] a(InputStream inputStream) {
+        InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable != null && (invokeL = interceptable.invokeL(65536, null, inputStream)) != null) {
+            return (byte[]) invokeL.objValue;
         }
-        this.a = context.getApplicationContext();
-    }
-
-    @Override // com.repackage.wg4
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TextUtils.isEmpty(get()) : invokeV.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.wg4
-    /* renamed from: b */
-    public String get() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c() : (String) invokeV.objValue;
-    }
-
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (eh4.a(this.a, "android.permission.WRITE_SETTINGS")) {
-                try {
-                    return Settings.System.getString(this.a.getContentResolver(), "com.baidu.uuid");
-                } catch (Exception unused) {
-                    return null;
-                }
-            }
+        if (inputStream == null) {
             return null;
         }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.wg4
-    /* renamed from: d */
-    public void put(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            e(str);
-        }
-    }
-
-    public final void e(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && eh4.a(this.a, "android.permission.WRITE_SETTINGS")) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        byte[] bArr = new byte[1024];
+        while (true) {
             try {
-                Settings.System.putString(this.a.getContentResolver(), "com.baidu.uuid", str);
-            } catch (Exception unused) {
+                i = inputStream.read(bArr, 0, 1024);
+            } catch (IOException unused) {
+                i = 0;
+            }
+            if (i != -1) {
+                byteArrayOutputStream.write(bArr, 0, i);
+            } else {
+                byte[] byteArray = byteArrayOutputStream.toByteArray();
+                xg4.d(byteArrayOutputStream);
+                return byteArray;
             }
         }
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            try {
+                return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                return str;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(InputStream inputStream) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
+            try {
+                byte[] a = a(inputStream);
+                if (a != null) {
+                    String str = new String(a);
+                    if (str.startsWith(ResultParser.BYTE_ORDER_MARK)) {
+                        str = str.substring(1);
+                    }
+                    xg4.d(inputStream);
+                    return str;
+                }
+            } catch (Exception unused) {
+            } catch (Throwable th) {
+                xg4.d(inputStream);
+                throw th;
+            }
+            xg4.d(inputStream);
+            return null;
+        }
+        return (String) invokeL.objValue;
     }
 }

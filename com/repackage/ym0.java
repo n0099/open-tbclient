@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class ym0 implements fi0 {
+public final class ym0 implements ii0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final PopEventTypeEnum a;
@@ -33,7 +33,7 @@ public final class ym0 implements fi0 {
         this.a = type;
     }
 
-    @Override // com.repackage.fi0
+    @Override // com.repackage.ii0
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

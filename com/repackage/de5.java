@@ -1,58 +1,108 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import android.content.Context;
+import android.media.AudioManager;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.videoPreload.IVideoNeedPreload;
+import com.baidu.tbadk.switchs.FrsHeadVideoAutoPlaySwitch;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes5.dex */
 public class de5 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public String c;
-    public long d;
-    public boolean e;
 
-    public de5() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755770275, "Lcom/repackage/de5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755770275, "Lcom/repackage/de5;");
         }
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    public static boolean a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            if (i == 3 || i == 4) {
+                return ki.H();
             }
-            if (obj instanceof de5) {
-                de5 de5Var = (de5) obj;
-                return de5Var.d == this.d && de5Var.c.equals(this.c) && de5Var.b.equals(this.b) && de5Var.e == this.e && de5Var.a == this.a;
+            if (i != 5) {
+                int autoPlaySwitch = TbadkCoreApplication.getInst().getAutoPlaySwitch();
+                if ((autoPlaySwitch == 3 || !ki.H()) && (autoPlaySwitch != 2 || !ki.x())) {
+                    return false;
+                }
+            } else if (TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 2 && (!FrsHeadVideoAutoPlaySwitch.getIsOn() || !ki.H() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 1)) {
+                return false;
             }
-            return false;
+            return true;
         }
-        return invokeL.booleanValue;
+        return invokeI.booleanValue;
     }
 
-    public String toString() {
+    public static boolean b(int i, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, str)) == null) ? a(i) : invokeIL.booleanValue;
+    }
+
+    public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "[HotForumInfoData:rank=" + this.a + ",forumAvatar=" + this.b + ",forumName=" + this.c + ",forumId=" + this.d + ",isLiked=" + this.e + "," + PreferencesUtil.RIGHT_MOUNT;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a : invokeV.booleanValue;
+    }
+
+    public static boolean d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? (context instanceof IVideoNeedPreload) && ((IVideoNeedPreload) context).videoNeedPreload() && UbsABTestHelper.isLiveAutoPlay() : invokeL.booleanValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (ki.H() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 3) || (ki.x() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2) : invokeV.booleanValue;
+    }
+
+    public static boolean f(WeakReference<Context> weakReference, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65542, null, weakReference, z)) == null) {
+            if (weakReference == null || weakReference.get() == null) {
+                return false;
+            }
+            AudioManager audioManager = (AudioManager) weakReference.get().getSystemService("audio");
+            if (z) {
+                if (audioManager.requestAudioFocus(null, 3, 2) != 1) {
+                    return false;
+                }
+            } else if (audioManager.abandonAudioFocus(null) != 1) {
+                return false;
+            }
+            return true;
         }
-        return (String) invokeV.objValue;
+        return invokeLZ.booleanValue;
+    }
+
+    public static void g(WeakReference<Context> weakReference) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65543, null, weakReference) == null) || weakReference == null || weakReference.get() == null) {
+            return;
+        }
+        a = ((AudioManager) weakReference.get().getSystemService("audio")).isMusicActive();
     }
 }

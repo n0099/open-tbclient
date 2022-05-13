@@ -43,12 +43,12 @@ public class s48 extends r48 {
     public TbPageContext b;
     public NoDataView c;
     public View d;
-    public h45 e;
+    public y45 e;
     public e f;
     public PbListView g;
     public NoNetworkView h;
     public ImageView i;
-    public g45 j;
+    public x45 j;
     public int k;
     public LinearLayout l;
     public FrameLayout m;
@@ -117,7 +117,7 @@ public class s48 extends r48 {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && mi.A()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ki.A()) {
                 this.a.o();
                 this.a.C(true);
                 if (this.a.f != null) {
@@ -166,7 +166,7 @@ public class s48 extends r48 {
         public transient /* synthetic */ FieldHolder $fh;
         public q58 a;
         public UserData b;
-        public uw8 c;
+        public rv8 c;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -195,9 +195,9 @@ public class s48 extends r48 {
                     q58Var.a = 10;
                     q58Var.b = new Bundle();
                     this.a.b.putSerializable(UserData.TYPE_USER, this.b);
-                    uw8 uw8Var = this.c;
-                    if (uw8Var != null) {
-                        uw8Var.a(view2, this.a);
+                    rv8 rv8Var = this.c;
+                    if (rv8Var != null) {
+                        rv8Var.a(view2, this.a);
                     }
                 }
             }
@@ -234,28 +234,28 @@ public class s48 extends r48 {
         }
         this.b = tbPageContext;
         this.d = view2;
-        this.h = (NoNetworkView) view2.findViewById(R.id.obfuscated_res_0x7f091794);
-        this.l = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f091774);
-        m68 m68Var = new m68(this.b, this.d.findViewById(R.id.obfuscated_res_0x7f091776), this.d.findViewById(R.id.obfuscated_res_0x7f091778), z);
+        this.h = (NoNetworkView) view2.findViewById(R.id.obfuscated_res_0x7f0917ca);
+        this.l = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f09179c);
+        m68 m68Var = new m68(this.b, this.d.findViewById(R.id.obfuscated_res_0x7f09179e), this.d.findViewById(R.id.obfuscated_res_0x7f0917a0), z);
         this.p = m68Var;
         m68Var.k(PersonStatus.GUEST_DEFAULT);
-        this.m = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f091775);
-        this.n = (NoNetworkView) this.d.findViewById(R.id.obfuscated_res_0x7f091777);
-        this.o = (RelativeLayout) this.d.findViewById(R.id.obfuscated_res_0x7f091795);
+        this.m = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f09179d);
+        this.n = (NoNetworkView) this.d.findViewById(R.id.obfuscated_res_0x7f09179f);
+        this.o = (RelativeLayout) this.d.findViewById(R.id.obfuscated_res_0x7f0917cb);
         PbListView pbListView = new PbListView(this.b.getPageActivity());
         this.g = pbListView;
         pbListView.b();
         this.g.E(SkinManager.getColor(R.color.CAM_X0109));
         this.g.A(R.color.CAM_X0110);
         this.g.p(R.color.CAM_X0201);
-        this.g.t(oi.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f07024a));
-        this.g.r(oi.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f07023e));
+        this.g.t(mi.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f07024a));
+        this.g.r(mi.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f07023e));
         this.g.z();
         this.g.w(R.color.CAM_X0205);
         s(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void A(boolean z, List<uo> list) {
+    public void A(boolean z, List<ro> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) {
         }
@@ -276,7 +276,7 @@ public class s48 extends r48 {
         int dimensionPixelSize3 = this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702ad);
         int dimensionPixelSize4 = this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070253);
         int dimensionPixelSize5 = this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5);
-        NoDataView a2 = NoDataViewFactory.a(this.b.getPageActivity(), this.m, NoDataViewFactory.d.c(NoDataViewFactory.ImgType.LOCAL, R.drawable.new_pic_emotion_01, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize2), NoDataViewFactory.e.e(R.string.obfuscated_res_0x7f0f1489, dimensionPixelSize4), NoDataViewFactory.c.b(new NoDataViewFactory.b(this.b.getString(R.string.obfuscated_res_0x7f0f1488), new a(this)), dimensionPixelSize5));
+        NoDataView a2 = NoDataViewFactory.a(this.b.getPageActivity(), this.m, NoDataViewFactory.d.c(NoDataViewFactory.ImgType.LOCAL, R.drawable.new_pic_emotion_01, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize2), NoDataViewFactory.e.e(R.string.obfuscated_res_0x7f0f14b4, dimensionPixelSize4), NoDataViewFactory.c.b(new NoDataViewFactory.b(this.b.getString(R.string.obfuscated_res_0x7f0f14b3), new a(this)), dimensionPixelSize5));
         this.c = a2;
         a2.setVisibility(0);
         this.c.f(this.b, TbadkCoreApplication.getInst().getSkinType());
@@ -310,9 +310,9 @@ public class s48 extends r48 {
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            g45 g45Var = this.j;
-            if (g45Var != null) {
-                g45Var.dettachView(this.d);
+            x45 x45Var = this.j;
+            if (x45Var != null) {
+                x45Var.dettachView(this.d);
                 this.j = null;
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921440, Boolean.TRUE));
@@ -320,16 +320,16 @@ public class s48 extends r48 {
     }
 
     public void o() {
-        h45 h45Var;
+        y45 y45Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (h45Var = this.e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (y45Var = this.e) == null) {
             return;
         }
-        h45Var.dettachView(this.m);
+        y45Var.dettachView(this.m);
         this.e = null;
     }
 
-    public void p() {
+    public void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
         }
@@ -339,9 +339,9 @@ public class s48 extends r48 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            h45 h45Var = this.e;
-            if (h45Var != null) {
-                return h45Var.isViewAttached();
+            y45 y45Var = this.e;
+            if (y45Var != null) {
+                return y45Var.isViewAttached();
             }
             return false;
         }
@@ -366,9 +366,9 @@ public class s48 extends r48 {
             m68Var.g(i);
         }
         SkinManager.setBackgroundResource(this.d, R.color.CAM_X0201);
-        h45 h45Var = this.e;
-        if (h45Var != null) {
-            h45Var.onChangeSkinType();
+        y45 y45Var = this.e;
+        if (y45Var != null) {
+            y45Var.onChangeSkinType();
         }
         this.k = i;
     }
@@ -393,7 +393,7 @@ public class s48 extends r48 {
             this.o.setVisibility(8);
             int dimensionPixelSize = this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070286);
             if (this.c == null) {
-                this.c = NoDataViewFactory.a(this.b.getPageActivity(), this.d, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.ANTI, dimensionPixelSize), NoDataViewFactory.e.d(null, this.b.getString(R.string.obfuscated_res_0x7f0f14b7)), null);
+                this.c = NoDataViewFactory.a(this.b.getPageActivity(), this.d, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.ANTI, dimensionPixelSize), NoDataViewFactory.e.d(null, this.b.getString(R.string.obfuscated_res_0x7f0f14e2)), null);
             }
             SkinManager.setViewTextColor(this.c.getSuTextView(), (int) R.color.CAM_X0106);
             this.c.f(this.b, TbadkCoreApplication.getInst().getSkinType());
@@ -401,7 +401,7 @@ public class s48 extends r48 {
         }
     }
 
-    public void w(List<uo> list) {
+    public void w(List<ro> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048590, this, list) == null) && ListUtils.isEmpty(list)) {
             new ArrayList();
@@ -413,9 +413,9 @@ public class s48 extends r48 {
         if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             if (this.j == null) {
                 if (i < 0) {
-                    this.j = new g45(this.b.getContext());
+                    this.j = new x45(this.b.getContext());
                 } else {
-                    this.j = new g45(this.b.getContext(), i);
+                    this.j = new x45(this.b.getContext(), i);
                 }
                 this.j.onChangeSkinType();
             }
@@ -431,7 +431,7 @@ public class s48 extends r48 {
         }
         this.l.setVisibility(0);
         if (this.e == null) {
-            this.e = new h45(this.b.getPageActivity(), new b(this));
+            this.e = new y45(this.b.getPageActivity(), new b(this));
         }
         this.e.h(R.drawable.new_pic_emotion_08);
         this.e.attachView(this.m, z);
@@ -450,7 +450,7 @@ public class s48 extends r48 {
                 if (this.i == null) {
                     ImageView imageView = new ImageView(this.b.getPageActivity());
                     this.i = imageView;
-                    imageView.setImageResource(R.drawable.obfuscated_res_0x7f08087d);
+                    imageView.setImageResource(R.drawable.obfuscated_res_0x7f080880);
                     this.i.setOnClickListener(new c(this));
                 }
                 if (this.i.getParent() != null) {
@@ -459,8 +459,8 @@ public class s48 extends r48 {
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
                 layoutParams.addRule(11);
                 layoutParams.addRule(10);
-                layoutParams.topMargin = oi.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f0702d7);
-                layoutParams.rightMargin = oi.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f0701f0);
+                layoutParams.topMargin = mi.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f0702d7);
+                layoutParams.rightMargin = mi.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f0701f0);
                 View view2 = this.d;
                 if (view2 instanceof RelativeLayout) {
                     ((RelativeLayout) view2).addView(this.i, layoutParams);

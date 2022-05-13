@@ -1,16 +1,19 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.activeConfig.ActiveConfigHTTPResMsg;
-import com.baidu.tbadk.BdToken.activeConfig.ActiveConfigReqMsg;
-import com.baidu.tbadk.BdToken.activeConfig.ActiveConfigSocketResMsg;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import android.app.Activity;
+import android.text.TextUtils;
+import android.view.MotionEvent;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.BdToken.completeTask.CompleteTaskToastData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,151 +22,173 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class oj4 {
     public static /* synthetic */ Interceptable $ic;
+    public static View.OnClickListener a;
     public transient /* synthetic */ FieldHolder $fh;
-    public mj4<nj4> a;
-    public boolean b;
-    public BdUniqueId c;
-    public wa d;
 
     /* loaded from: classes6.dex */
-    public class a extends wa {
+    public static class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ oj4 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(oj4 oj4Var, int i, int i2) {
-            super(i, i2);
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {oj4Var, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = oj4Var;
         }
 
-        @Override // com.repackage.wa
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            TbPageContext<?> d;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.b = false;
-                if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || this.a.d() != responsedMessage.getOrginalMessage().getTag()) {
-                    return;
-                }
-                if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
-                    if (this.a.a != null) {
-                        this.a.a.onError(responsedMessage.getError(), responsedMessage.getErrorString());
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                Object tag = view2.getTag();
+                if (tag instanceof CompleteTaskToastData) {
+                    CompleteTaskToastData completeTaskToastData = (CompleteTaskToastData) tag;
+                    if (TextUtils.isEmpty(completeTaskToastData.url) || (d = oj4.d()) == null) {
                         return;
                     }
-                    return;
+                    UrlManager.getInstance().dealOneLink(d, new String[]{completeTaskToastData.url});
+                    ek4.b(completeTaskToastData.activityId, completeTaskToastData.missionId);
                 }
-                nj4 nj4Var = null;
-                if (responsedMessage instanceof ActiveConfigSocketResMsg) {
-                    nj4Var = ((ActiveConfigSocketResMsg) responsedMessage).getData();
-                } else if (responsedMessage instanceof ActiveConfigHTTPResMsg) {
-                    nj4Var = ((ActiveConfigHTTPResMsg) responsedMessage).getData();
-                }
-                if ((responsedMessage.getOrginalMessage().getExtra() instanceof ActiveConfigReqMsg) && ((ActiveConfigReqMsg) responsedMessage.getOrginalMessage().getExtra()).launtchType == 0) {
-                    vt4.k().x("pref_key_active_config_info", System.currentTimeMillis());
-                }
-                if (nj4Var != null && nj4Var.g != null) {
-                    if (this.a.a != null) {
-                        this.a.a.a(nj4Var);
-                    }
-                    if (nj4Var.g.is_first_up != 1) {
-                        cj4.g().q(nj4Var.g);
-                    }
-                }
-                if (nj4Var != null && this.a.c()) {
-                    vt4.k().x("pref_key_last_register_mission", System.currentTimeMillis());
-                    zi4.b().i(nj4Var);
-                    if (this.a.a != null) {
-                        this.a.a.onSuccess(nj4Var);
-                    }
-                }
-                tt4.e().j(nj4Var);
             }
         }
     }
 
-    public oj4(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755437800, "Lcom/repackage/oj4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755437800, "Lcom/repackage/oj4;");
                 return;
             }
         }
-        this.b = false;
-        this.d = new a(this, CmdConfigHttp.CMD_ACTIVE_CONFIG, 309637);
-        this.c = bdUniqueId;
-        e();
-        this.d.setTag(d());
-        MessageManager.getInstance().registerListener(this.d);
+        a = new a();
     }
 
-    public boolean c() {
+    public static void a(MotionEvent motionEvent, int i, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{motionEvent, Integer.valueOf(i), Long.valueOf(j)}) == null) && motionEvent != null && motionEvent.getAction() == 0) {
+            g(i, j);
+        }
+    }
+
+    public static void b(int i, int i2, long j, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), str}) == null) {
+            MissionEvent missionEvent = new MissionEvent();
+            missionEvent.tid = j;
+            missionEvent.pageId = i2;
+            missionEvent.pageType = i;
+            missionEvent.actionType = str;
+            e65.i(missionEvent);
+        }
+    }
+
+    public static void c(int i, long j, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Long.valueOf(j), str}) == null) {
+            MissionEvent missionEvent = new MissionEvent();
+            missionEvent.tid = j;
+            missionEvent.pageId = i;
+            missionEvent.actionType = str;
+            e65.i(missionEvent);
+        }
+    }
+
+    public static TbPageContext d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !UtilHelper.isSameDay(vt4.k().m("pref_key_last_register_mission", 0L), System.currentTimeMillis()) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (currentActivity instanceof BaseActivity) {
+                return ((BaseActivity) currentActivity).getPageContext();
+            }
+            if (currentActivity instanceof BaseFragmentActivity) {
+                return ((BaseFragmentActivity) currentActivity).getPageContext();
+            }
+            return null;
+        }
+        return (TbPageContext) invokeV.objValue;
     }
 
-    public BdUniqueId d() {
+    public static boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? TbadkCoreApplication.getInst().isMainProcess(true) : invokeV.booleanValue;
     }
 
-    public final void e() {
+    public static void f(int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            kk8.h(309637, ActiveConfigSocketResMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ACTIVE_CONFIG, kk8.a(TbConfig.URL_ACTIVE_CONFIG, 309637));
-            tbHttpMessageTask.setResponsedClass(ActiveConfigHTTPResMsg.class);
-            tbHttpMessageTask.setIsNeedAddCommenParam(true);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            if (e()) {
+                zi4.y().G();
+            } else {
+                c(i, j, MissionEvent.MESSAGE_PAUSE);
+            }
         }
     }
 
-    public void f(boolean z, boolean z2, int i) {
+    public static void g(int i, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)}) == null) || this.b) {
-            return;
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            if (e()) {
+                zi4.y().H();
+            } else {
+                c(i, j, MissionEvent.MESSAGE_TOUCH);
+            }
         }
-        if (!z) {
-            this.b = true;
-        }
-        vt4.k().x("pref_key_last_active_config", System.currentTimeMillis());
-        ActiveConfigReqMsg activeConfigReqMsg = new ActiveConfigReqMsg();
-        activeConfigReqMsg.setFirstUp(z);
-        activeConfigReqMsg.setSchemaUp(z2);
-        activeConfigReqMsg.launtchType = i;
-        activeConfigReqMsg.setTag(d());
-        MessageManager.getInstance().sendMessage(activeConfigReqMsg);
     }
 
-    public void g(mj4<nj4> mj4Var) {
+    public static void h(int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, mj4Var) == null) {
-            this.a = mj4Var;
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            if (e()) {
+                zi4.y().M(i, j);
+            } else {
+                c(i, j, MissionEvent.MESSAGE_ACTIVITY);
+            }
+        }
+    }
+
+    public static tr4 i(CompleteTaskToastData completeTaskToastData) {
+        InterceptResult invokeL;
+        TbPageContext d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, completeTaskToastData)) == null) {
+            if (completeTaskToastData == null || (d = d()) == null || d.getUniqueId() == null || completeTaskToastData.pageId != d.getUniqueId().getId()) {
+                return null;
+            }
+            tr4 f = tr4.f(d.getPageActivity(), completeTaskToastData.message);
+            f.g(completeTaskToastData.duration);
+            f.h(a);
+            f.i(completeTaskToastData);
+            f.j();
+            return f;
+        }
+        return (tr4) invokeL.objValue;
+    }
+
+    public static void j(int i, int i2, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+            if (e()) {
+                zi4.y().R(i, j);
+            } else {
+                b(i, i2, j, "onResume");
+            }
         }
     }
 }

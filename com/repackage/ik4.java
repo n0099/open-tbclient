@@ -1,16 +1,18 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes6.dex */
-public class ik4 extends bk4 {
+public class ik4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Map<String, String> a;
 
     public ik4() {
         Interceptable interceptable = $ic;
@@ -22,32 +24,28 @@ public class ik4 extends bk4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        HashMap hashMap = new HashMap();
+        this.a = hashMap;
+        hashMap.put("@@ya", "_");
+        this.a.put("@@yb", "-");
+        this.a.put("@@yc", ".");
     }
 
-    @Override // com.repackage.ak4
-    public String a(String[] strArr, Map<String, String> map) {
-        InterceptResult invokeLL;
+    public String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, strArr, map)) == null) {
-            if (strArr == null || strArr.length == 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (StringUtils.isNull(str)) {
                 return null;
             }
-            String substring = strArr[0].substring(1);
-            StringBuilder sb = new StringBuilder("com.baidu.tieba://unidispatch/usercenter");
-            sb.append("?portrait=");
-            sb.append(substring);
-            c(strArr, sb, map, 1);
-            return sb.toString();
+            for (Map.Entry<String, String> entry : this.a.entrySet()) {
+                str = str.replaceAll(entry.getKey(), entry.getValue());
+            }
+            return str;
         }
-        return (String) invokeLL.objValue;
-    }
-
-    @Override // com.repackage.ak4
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "u" : (String) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 }

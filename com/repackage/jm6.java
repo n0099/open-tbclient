@@ -1,64 +1,78 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.itemtab.card.CardItemRecommendLayout;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.frs.ResponseIncrForumAccessCountHttpMessage;
+import com.baidu.tieba.frs.ResponseIncrForumAccessCountSocketMessage;
+import com.baidu.tieba.frs.ResponseSetCommForumStateHttpMessage;
+import com.baidu.tieba.frs.ResponseSetCommForumStateSocketMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jm6 extends qy<pn4> {
+public class jm6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CardItemRecommendLayout f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jm6(Context context) {
-        super(context);
+    public jm6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = new CardItemRecommendLayout(context);
+        a();
+        b();
     }
 
-    @Override // com.repackage.qy
-    public View g() {
-        InterceptResult invokeV;
+    public final void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (View) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.fz
-    /* renamed from: o */
-    public void a(pn4 pn4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pn4Var) == null) {
-            this.f.setData(pn4Var);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ca5 h = hj8.h(309360, ResponseIncrForumAccessCountSocketMessage.class, false, false);
+            h.setResponsedClass(ResponseIncrForumAccessCountSocketMessage.class);
+            h.g(true);
+            h.h(false);
+            h.f(SocketMessageTask.DupLicateMode.NONE);
+            MessageManager.getInstance().registerTask(h);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_INCREASE_FORUM_ACCESS_COUNT, hj8.a(TbConfig.INCR_FORUM_ACCESS_ACOUNT, 309360));
+            tbHttpMessageTask.setIsNeedLogin(false);
+            tbHttpMessageTask.setIsNeedTbs(false);
+            tbHttpMessageTask.setIsNeedAddCommenParam(false);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(false);
+            tbHttpMessageTask.setResponsedClass(ResponseIncrForumAccessCountHttpMessage.class);
+            tbHttpMessageTask.setIsImm(true);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
     }
 
-    @Override // com.repackage.gz
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
-            this.f.onChangeSkinType(tbPageContext, i);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ca5 h = hj8.h(309365, ResponseSetCommForumStateSocketMessage.class, false, false);
+            h.setResponsedClass(ResponseSetCommForumStateSocketMessage.class);
+            h.g(true);
+            h.h(false);
+            h.f(SocketMessageTask.DupLicateMode.NONE);
+            MessageManager.getInstance().registerTask(h);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SET_COMMON_FORUM_STATE, hj8.a(TbConfig.SET_COMMON_FORUM_STATE, 309365));
+            tbHttpMessageTask.setIsNeedLogin(false);
+            tbHttpMessageTask.setIsNeedTbs(false);
+            tbHttpMessageTask.setIsNeedAddCommenParam(false);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(false);
+            tbHttpMessageTask.setResponsedClass(ResponseSetCommForumStateHttpMessage.class);
+            tbHttpMessageTask.setIsImm(true);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
     }
 }

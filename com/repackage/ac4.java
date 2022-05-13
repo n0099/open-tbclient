@@ -1,68 +1,43 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ac4 {
+public abstract class ac4 implements dc4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
 
-    public ac4(int i, int i2, int i3, int i4, int i5) {
+    public ac4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = i;
-        this.b = i2;
-        this.c = i3;
-        this.d = i5;
-        this.e = i4;
     }
 
-    @NonNull
-    public static ac4 a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.dc4
+    public void a(JSONArray jSONArray, n84 n84Var, @Nullable n84 n84Var2, @Nullable n84 n84Var3) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new ac4(24, 70, 1440, 720, 30) : (ac4) invokeV.objValue;
-    }
-
-    @NonNull
-    public static ac4 b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return a();
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                return new ac4(jSONObject.optInt("clean_check_hour", 24), jSONObject.optInt("hold_history_max_count", 70), jSONObject.optInt("history_force_clean_hour", 1440), jSONObject.optInt("force_clean_hour", 720), jSONObject.optInt("hold_max_count", 30));
-            } catch (JSONException unused) {
-                return a();
-            }
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, jSONArray, n84Var, n84Var2, n84Var3) == null) {
         }
-        return (ac4) invokeL.objValue;
+    }
+
+    @Override // com.repackage.dc4
+    public void b(JSONObject jSONObject, n84 n84Var, @Nullable n84 n84Var2, @Nullable n84 n84Var3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, n84Var, n84Var2, n84Var3) == null) {
+        }
     }
 }

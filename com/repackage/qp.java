@@ -1,124 +1,25 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.afd.ParseError;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.facebook.common.util.UriUtil;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class qp {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static pp a(JSONObject jSONObject, String str) throws ParseError {
-        InterceptResult invokeLL;
+    public static float a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, jSONObject, str)) == null) {
-            if (jSONObject != null) {
-                String optString = jSONObject.optString("locCode");
-                if (!TextUtils.isEmpty(optString)) {
-                    String str2 = null;
-                    if (str == null || optString.startsWith(str)) {
-                        JSONArray optJSONArray = jSONObject.optJSONArray("adInfo");
-                        if (optJSONArray != null && optJSONArray.length() != 0) {
-                            JSONObject optJSONObject = optJSONArray.optJSONObject(0);
-                            if (optJSONObject != null) {
-                                boolean z = optJSONObject.optInt("advisible", 1) == 0;
-                                if (z && optJSONObject.has("ext_info")) {
-                                    str2 = optJSONObject.optString("ext_info", null);
-                                }
-                                if (str2 == null) {
-                                    JSONArray optJSONArray2 = optJSONObject.optJSONArray("extra");
-                                    if (optJSONArray2 != null && optJSONArray2.length() != 0) {
-                                        int length = optJSONArray2.length();
-                                        int i = 0;
-                                        while (true) {
-                                            if (i >= length) {
-                                                break;
-                                            }
-                                            JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i);
-                                            if (optJSONObject2 != null) {
-                                                String optString2 = optJSONObject2.optString("k");
-                                                String optString3 = optJSONObject2.optString("v");
-                                                if (!TextUtils.isEmpty(optString3) && TextUtils.equals("extraParam", optString2)) {
-                                                    str2 = optString3;
-                                                    break;
-                                                }
-                                            }
-                                            i++;
-                                        }
-                                    } else {
-                                        throw new ParseError(1, "adInfo has no extraParams");
-                                    }
-                                }
-                                if (str2 != null) {
-                                    if (z) {
-                                        return mp.a(str2, str);
-                                    }
-                                    JSONArray optJSONArray3 = optJSONObject.optJSONArray("material");
-                                    if (optJSONArray3 != null && optJSONArray3.length() != 0) {
-                                        JSONObject optJSONObject3 = optJSONArray3.optJSONObject(0);
-                                        if (optJSONObject3 != null) {
-                                            try {
-                                                JSONArray jSONArray = new JSONArray(optJSONObject3.optString("info"));
-                                                if (jSONArray.length() != 0) {
-                                                    JSONObject optJSONObject4 = jSONArray.optJSONObject(0);
-                                                    if (optJSONObject4 != null) {
-                                                        pp ppVar = new pp();
-                                                        wc7.i(optJSONObject4.optJSONObject("lego_card").toString());
-                                                        ppVar.a = str2;
-                                                        return ppVar;
-                                                    }
-                                                    throw new ParseError(1, "info array has no first element");
-                                                }
-                                                throw new ParseError(1, "material has no info array");
-                                            } catch (JSONException unused) {
-                                                throw new ParseError(1, "material has no info array");
-                                            }
-                                        }
-                                        throw new ParseError(1, "adInfo has no material info");
-                                    }
-                                    throw new ParseError(1, "adInfo has no material info");
-                                }
-                                throw new ParseError(1, "adInfo has no extraParam info");
-                            }
-                            throw new ParseError(1, "adInfo array has no element");
-                        }
-                        throw new ParseError(1, "first ad has no adInfo");
-                    }
-                    return null;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    return i != 3 ? 0.0f : 5.5f;
                 }
-                throw new ParseError(2, "missing locCode");
+                return -7.7f;
             }
-            throw new ParseError(1, "ad has no element");
+            return 6.6f;
         }
-        return (pp) invokeLL.objValue;
-    }
-
-    public static pp b(JSONObject jSONObject, String str) throws ParseError {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, jSONObject, str)) == null) {
-            if (jSONObject != null) {
-                if (jSONObject.optInt("errno", 0) > 0) {
-                    return new pp();
-                }
-                JSONObject optJSONObject = jSONObject.optJSONObject(UriUtil.LOCAL_RESOURCE_SCHEME);
-                if (optJSONObject != null) {
-                    JSONArray optJSONArray = optJSONObject.optJSONArray("ad");
-                    if (optJSONArray != null && optJSONArray.length() != 0) {
-                        return a(optJSONArray.optJSONObject(0), str);
-                    }
-                    throw new ParseError(1, "res missing key ad");
-                }
-                throw new ParseError(1, "root missing key res");
-            }
-            throw new ParseError(1, "afd/entry retun null");
-        }
-        return (pp) invokeLL.objValue;
+        return invokeI.floatValue;
     }
 }

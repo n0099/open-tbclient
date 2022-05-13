@@ -1,13 +1,33 @@
 package com.repackage;
+
+import android.content.Context;
+import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
 /* loaded from: classes6.dex */
 public interface op3 {
-    void a(boolean z, String str);
+    void a(FrameLayout frameLayout);
 
-    void b(boolean z, String str);
+    void d(boolean z);
 
-    void c(boolean z, int i);
+    op3 e(Context context, @NonNull ko3 ko3Var);
 
-    void onClick(int i);
+    void g(ip3 ip3Var);
 
-    void onError(String str);
+    int getCurrentPosition();
+
+    int getDuration();
+
+    void h(ko3 ko3Var);
+
+    boolean isEnd();
+
+    boolean isPlaying();
+
+    void mute(boolean z);
+
+    void pause();
+
+    void resume();
+
+    void stop();
 }

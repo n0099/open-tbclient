@@ -1,62 +1,98 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.component.components.textarea.SwanEditText;
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import java.util.HashMap;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class vi2 extends g23 {
+public class vi2 extends oe2<fj2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int b;
+    public int c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vi2(g13 g13Var) {
-        super(g13Var, "/swanAPI/closeInput");
+    public vi2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {g13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = 1;
+        this.c = 3;
     }
 
-    @Override // com.repackage.g23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j03 j03Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.repackage.oe2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j03Var)) == null) {
-            SwanEditText c = wi2.d().c();
-            if (c == null) {
-                jx1.c("closeInput", "input组件不存在");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "input组件不存在");
-                return false;
-            } else if (wl2.U().V() == null) {
-                jx1.c("closeInput", "fragmentManager is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else {
-                c.clearFocus();
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                return true;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setZeusVideoExt" : (String) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.oe2
+    @SuppressLint({"BDThrowableCheck"})
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull fj2 fj2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, fj2Var) == null) {
+            Object obj = command.obj;
+            if (!(obj instanceof String)) {
+                if (oe2.a) {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("setZeusVideoExt with a illegal obj ");
+                    sb.append(obj == null);
+                    throw new RuntimeException(sb.toString());
+                }
+                return;
+            }
+            String str = command.what;
+            d(fj2Var, str, "setZeusVideoExt:" + obj, false);
+            try {
+                JSONObject jSONObject = new JSONObject((String) obj);
+                if (jSONObject.has("instance-error")) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put("instance-error", jSONObject.optString("instance-error"));
+                    fj2Var.T(hashMap);
+                }
+                String optString = jSONObject.optString("firstPlayStatus");
+                if (!TextUtils.isEmpty(optString)) {
+                    fj2Var.b0(optString);
+                }
+                this.b = jSONObject.optInt("min-cache", this.b);
+                int optInt = jSONObject.optInt("max-cache", this.c);
+                this.c = optInt;
+                if (this.b <= optInt) {
+                    if (jSONObject.has("min-cache")) {
+                        fj2Var.G(this.b);
+                    }
+                    if (jSONObject.has("max-cache")) {
+                        fj2Var.g0(this.c);
+                    }
+                } else if (oe2.a) {
+                    Log.w("【InlineCommand】", "setZeusVideoExt: minCache " + this.b + " > maxCache " + this.c);
+                }
+            } catch (Exception e) {
+                if (oe2.a) {
+                    throw new RuntimeException("setZeusVideoExt with a illegal str", e);
+                }
             }
         }
-        return invokeLLLL.booleanValue;
     }
 }

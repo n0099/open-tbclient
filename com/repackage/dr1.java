@@ -1,10 +1,13 @@
 package com.repackage;
 
-import android.util.Log;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,88 +16,109 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class dr1 implements fr1 {
+public class dr1 extends ar1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755757906, "Lcom/repackage/dr1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+
+        public a(dr1 dr1Var, Context context) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dr1Var, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755757906, "Lcom/repackage/dr1;");
+            this.a = context;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || m03.d()) {
                 return;
             }
+            m03.f(this.a, R.string.obfuscated_res_0x7f0f03ec).G();
         }
-        a = j03.v;
     }
 
-    public dr1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dr1(@NonNull vo1 vo1Var) {
+        super(vo1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vo1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((vo1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.repackage.fr1
-    public js1 a() {
+    @Override // com.repackage.xo1
+    public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (j03.a0() == null) {
-                if (a) {
-                    Log.d("AbsMenuButtonHandle", "handleBoundsResult swanApp is null");
-                }
-                return d(1001);
-            }
-            sz1 V = wl2.U().V();
-            if (V == null) {
-                if (a) {
-                    Log.d("AbsMenuButtonHandle", "handleBoundsResult fmManager is null");
-                }
-                return d(1001);
-            }
-            pz1 m = V.m();
-            if (m == null) {
-                if (a) {
-                    Log.d("AbsMenuButtonHandle", "handleBoundsResult fragment is null");
-                }
-                return d(1001);
-            }
-            return c(m);
-        }
-        return (js1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ClipboardApi" : (String) invokeV.objValue;
     }
 
-    public JSONObject b(int i, int i2, int i3, int i4) throws JSONException {
-        InterceptResult invokeIIII;
+    @SuppressLint({"KotlinPropertyAccess"})
+    public us1 x() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            q("#getClipboardData", false);
             JSONObject jSONObject = new JSONObject();
-            jSONObject.putOpt("width", Integer.valueOf(i3 - i));
-            jSONObject.putOpt("height", Integer.valueOf(i4 - i2));
-            jSONObject.putOpt("left", Integer.valueOf(i));
-            jSONObject.putOpt("right", Integer.valueOf(i3));
-            jSONObject.putOpt("top", Integer.valueOf(i2));
-            jSONObject.putOpt("bottom", Integer.valueOf(i4));
-            return jSONObject;
+            try {
+                CharSequence a2 = pe3.b(getContext()).a();
+                jSONObject.put("data", TextUtils.isEmpty(a2) ? "" : a2.toString());
+                return new us1(0, jSONObject);
+            } catch (JSONException e) {
+                p("#getClipboardData json put data fail", e, false);
+                return new us1(1001, "JSONException");
+            }
         }
-        return (JSONObject) invokeIIII.objValue;
+        return (us1) invokeV.objValue;
     }
 
-    public abstract js1 c(@NonNull pz1 pz1Var);
-
-    public abstract js1 d(int i);
+    @SuppressLint({"KotlinPropertyAccess"})
+    public us1 y(String str) {
+        InterceptResult invokeL;
+        SwanAppActivity x;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#setClipboardData", false);
+            Pair<us1, JSONObject> s = s(str);
+            us1 us1Var = (us1) s.first;
+            if (us1Var.isSuccess()) {
+                pe3.b(getContext()).c(((JSONObject) s.second).optString("data"));
+                u03 r = t03.J().r();
+                if (r != null && (x = r.x()) != null) {
+                    oe3.f0(new a(this, x), 200L);
+                }
+                return us1.f();
+            }
+            return us1Var;
+        }
+        return (us1) invokeL.objValue;
+    }
 }

@@ -1,94 +1,25 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.R;
-import com.baidu.tieba.hottopic.data.RelateForumItemData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.afx.callback.ErrorInfo;
+import com.baidu.searchbox.afx.callback.OnVideoErrorListener;
+import com.baidu.tieba.im.chat.emoji.ImEmojiUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.Hottopic.RelateForum;
+/* compiled from: lambda */
 /* loaded from: classes6.dex */
-public class h47 extends wx5 {
+public final /* synthetic */ class h47 implements OnVideoErrorListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static final /* synthetic */ h47 a = new h47();
     public transient /* synthetic */ FieldHolder $fh;
-    public List<uo> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755698138, "Lcom/repackage/h47;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755698138, "Lcom/repackage/h47;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
+    private /* synthetic */ h47() {
     }
 
-    public h47() {
+    @Override // com.baidu.searchbox.afx.callback.OnVideoErrorListener
+    public final boolean onError(ErrorInfo errorInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-    }
-
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<uo> list = this.a;
-            if (list == null || list.size() == 0) {
-                return 0;
-            }
-            return this.a.size();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.uo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
-    }
-
-    public void parserProtobuf(List<RelateForum> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || list == null || list.size() == 0) {
-            return;
-        }
-        this.showTopDivider = true;
-        this.mGroupTitle = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f5d);
-        this.a = new ArrayList();
-        for (RelateForum relateForum : list) {
-            if (!StringUtils.isNull(relateForum.forum_name)) {
-                RelateForumItemData relateForumItemData = new RelateForumItemData();
-                relateForumItemData.parserProtobuf(relateForum);
-                this.a.add(relateForumItemData);
-            }
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, errorInfo)) == null) ? ImEmojiUtil.f = false : invokeL.booleanValue;
     }
 }

@@ -1,144 +1,512 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
+import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
+import android.os.Handler;
+import android.os.Message;
+import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
+import com.baidu.nadcore.widget.bubble.BubbleManager;
+import com.baidu.nadcore.widget.bubble.BubblePosition;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.v41;
-import com.repackage.x41;
+import com.repackage.m11;
+import com.tachikoma.core.component.anim.AnimationProperty;
+import java.lang.ref.WeakReference;
 /* loaded from: classes7.dex */
-public class z41 extends v41 {
+public abstract class z41 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrameLayout i;
-    public a j;
+    public boolean a;
+    public boolean b;
+    public int c;
+    public BubbleManager.b d;
+    public BubbleManager.a e;
+    public g f;
+    public boolean g;
+    public boolean h;
+    public boolean i;
+    public ObjectAnimator j;
+    public boolean k;
+    public d51 l;
+    public v41 m;
 
     /* loaded from: classes7.dex */
-    public static class a extends v41.b {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public View g;
+        public final /* synthetic */ z41 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(Context context) {
-            super(context);
+        public a(z41 z41Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context};
+                Object[] objArr = {z41Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((Context) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.a = z41Var;
         }
 
-        @Override // com.repackage.v41.b, com.repackage.x41.a
-        public x41 a() {
-            InterceptResult invokeV;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                z41 z41Var = (z41) super.a();
-                z41Var.o(this);
-                return z41Var;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.k();
             }
-            return (x41) invokeV.objValue;
-        }
-
-        @Override // com.repackage.x41.a
-        public x41 f(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? new z41(context) : (x41) invokeL.objValue;
-        }
-
-        @Override // com.repackage.x41.a
-        public /* bridge */ /* synthetic */ x41.a q(int i) {
-            y(i);
-            return this;
-        }
-
-        public a x(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
-                this.g = view2;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a y(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-                super.q(i);
-                return this;
-            }
-            return (a) invokeI.objValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z41(Context context) {
-        super(context);
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z41 a;
+
+        public b(z41 z41Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z41Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z41Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                z41 z41Var = this.a;
+                BubblePosition b = z41Var.m.b(z41Var.l);
+                if (b == BubblePosition.INVALID) {
+                    this.a.l.m();
+                    u41.a().b("——>show: remove bubble view end");
+                    z41 z41Var2 = this.a;
+                    if (z41Var2.g) {
+                        z41Var2.l.l();
+                        u41.a().b("——>show: remove bg view end");
+                    }
+                    z41 z41Var3 = this.a;
+                    if (z41Var3.h) {
+                        z41Var3.l.k();
+                        u41.a().b("——>show: remove anchorlayer view end");
+                        return;
+                    }
+                    return;
+                }
+                this.a.l.z(b);
+                this.a.r(b);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ BubblePosition a;
+        public final /* synthetic */ z41 b;
+
+        public c(z41 z41Var, BubblePosition bubblePosition) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z41Var, bubblePosition};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = z41Var;
+            this.a = bubblePosition;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                z41 z41Var = this.b;
+                int[] i = z41Var.m.i(this.a, z41Var.l);
+                this.b.l.A(i);
+                z41 z41Var2 = this.b;
+                if (z41Var2.i) {
+                    int a = m11.c.a(null, z41Var2.m.b + 11.0f);
+                    BubblePosition bubblePosition = this.a;
+                    if (bubblePosition != BubblePosition.UP && bubblePosition != BubblePosition.DOWN) {
+                        if (bubblePosition == BubblePosition.RIGHT || bubblePosition == BubblePosition.LEFT) {
+                            int i2 = this.a == BubblePosition.LEFT ? i[0] + a : i[0] - a;
+                            z41 z41Var3 = this.b;
+                            z41Var3.b(z41Var3.l.b, i2, i[0], i[1], i[1]);
+                        }
+                    } else {
+                        int i3 = this.a == BubblePosition.UP ? i[1] + a : i[1] - a;
+                        z41 z41Var4 = this.b;
+                        z41Var4.b(z41Var4.l.b, i[0], i[0], i3, i[1]);
+                    }
+                }
+                z41 z41Var5 = this.b;
+                if (z41Var5.h) {
+                    z41Var5.l.y();
+                }
+                z41 z41Var6 = this.b;
+                z41Var6.a = true;
+                if (z41Var6.b) {
+                    z41Var6.f.sendEmptyMessageDelayed(0, z41Var6.c);
+                }
+                BubbleManager.b bVar = this.b.d;
+                if (bVar != null) {
+                    bVar.c();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z41 a;
+
+        public d(z41 z41Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z41Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z41Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.i(view2);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class e implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z41 a;
+
+        public e(z41 z41Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z41Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z41Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.i(view2);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class f implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z41 a;
+
+        public f(z41 z41Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z41Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z41Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.i(view2);
+                BubbleManager.a aVar = this.a.e;
+                if (aVar != null) {
+                    aVar.a();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class g extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final WeakReference<z41> a;
+
+        public g(z41 z41Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z41Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new WeakReference<>(z41Var);
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            z41 z41Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 0 && (z41Var = this.a.get()) != null) {
+                z41Var.c();
+            }
+        }
+    }
+
+    public z41(d51 d51Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {d51Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = true;
+        this.c = com.kuaishou.weapon.un.w0.Y3;
+        this.k = true;
+        this.m = new v41();
+        this.l = d51Var;
     }
 
-    @Override // com.repackage.v41
-    public View i(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void b(View view2, float f2, float f3, float f4, float f5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.e).inflate(R.layout.obfuscated_res_0x7f0d05e0, viewGroup, false);
-            this.i = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091d78);
-            n();
-            return inflate;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
+            ObjectAnimator objectAnimator = this.j;
+            if (objectAnimator != null && objectAnimator.isRunning()) {
+                this.j.cancel();
+            }
+            ObjectAnimator duration = ObjectAnimator.ofPropertyValuesHolder(view2, PropertyValuesHolder.ofFloat(AnimationProperty.OPACITY, 0.0f, 1.0f), PropertyValuesHolder.ofFloat(AnimationProperty.TRANSLATE_X, f2, f3), PropertyValuesHolder.ofFloat(AnimationProperty.TRANSLATE_Y, f4, f5)).setDuration(180L);
+            this.j = duration;
+            duration.start();
         }
-        return (View) invokeL.objValue;
     }
 
-    public final void n() {
-        a aVar;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.j) == null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a) {
+            vi0.b(new a(this));
+        }
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.i = z;
+        }
+    }
+
+    public v41 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.m : (v41) invokeV.objValue;
+    }
+
+    public abstract d51 f();
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.l.g()) {
+            this.f = new g(this);
+            this.l.v(new d(this));
+            this.l.u(new e(this));
+            this.l.t(new f(this));
+        }
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? !this.a : invokeV.booleanValue;
+    }
+
+    public void i(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
+            BubbleManager.b bVar = this.d;
+            if (bVar != null) {
+                bVar.a();
+            }
+            if (this.k) {
+                c();
+            }
+        }
+    }
+
+    public abstract void j();
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.a) {
+            ObjectAnimator objectAnimator = this.j;
+            if (objectAnimator != null && objectAnimator.isRunning()) {
+                this.j.cancel();
+            }
+            if (this.g) {
+                this.l.l();
+                u41.a().b("——>dismiss BgView end");
+            }
+            if (this.h) {
+                this.l.k();
+                u41.a().b("——>dismiss anchorLayer end");
+            }
+            this.l.m();
+            u41.a().b("——>dismiss BubbleView end");
+            this.a = false;
+            g gVar = this.f;
+            if (gVar != null) {
+                gVar.removeMessages(0);
+            }
+            BubbleManager.b bVar = this.d;
+            if (bVar != null) {
+                bVar.b();
+            }
+            l();
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            d51 d51Var = this.l;
+            if (d51Var != null) {
+                d51Var.n();
+                this.l = null;
+            }
+            this.d = null;
+            this.f = null;
+            this.j = null;
+        }
+    }
+
+    public void m(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            if (i <= 0) {
+                this.c = com.kuaishou.weapon.un.w0.Y3;
+            } else {
+                this.c = i;
+            }
+        }
+    }
+
+    public void n(BubbleManager.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, bVar) == null) {
+            this.d = bVar;
+        }
+    }
+
+    public final void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            u41.a().b("——>show");
+            g();
+            if (this.g) {
+                this.l.q();
+            }
+            if (this.h) {
+                this.l.p();
+                this.l.o();
+            }
+            this.l.r();
+            if (!this.k) {
+                this.l.f();
+            }
+            j();
+            this.l.j(new b(this));
+        }
+    }
+
+    public void q() {
+        d51 d51Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (d51Var = this.l) == null || d51Var.c == null || TextUtils.isEmpty(d51Var.c()) || !this.l.h() || !h()) {
             return;
         }
-        this.i.addView(aVar.g);
+        o();
     }
 
-    public void o(a aVar) {
+    public void r(BubblePosition bubblePosition) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.j = aVar;
+        if (interceptable == null || interceptable.invokeL(1048591, this, bubblePosition) == null) {
+            this.l.j(new c(this, bubblePosition));
         }
     }
 }

@@ -14,5 +14,5 @@ public interface p2 extends Input, View.OnTouchListener, View.OnKeyListener, Vie
 
     void onResume();
 
-    void y();
+    void x();
 }

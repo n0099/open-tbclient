@@ -2,6 +2,7 @@ package com.repackage;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.LaunchStatsUtils;
 import com.baidu.searchbox.player.constants.PlayerConstant;
 import com.baidu.tbadk.core.atomData.FrsVideoTabPlayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -108,7 +109,7 @@ public class k78 {
                 case 0:
                 case 1:
                 case 2:
-                    return "ad";
+                    return LaunchStatsUtils.AD;
                 case 3:
                 case 4:
                 case 5:

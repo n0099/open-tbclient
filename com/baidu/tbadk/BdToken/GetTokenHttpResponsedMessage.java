@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lj4;
+import com.repackage.wj4;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetToken.GetTokenResIdl;
@@ -16,7 +16,7 @@ import tbclient.GetToken.GetTokenResIdl;
 public class GetTokenHttpResponsedMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lj4 mData;
+    public wj4 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetTokenHttpResponsedMessage() {
@@ -36,10 +36,10 @@ public class GetTokenHttpResponsedMessage extends HttpResponsedMessage {
         }
     }
 
-    public lj4 getData() {
+    public wj4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (lj4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (wj4) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -56,9 +56,9 @@ public class GetTokenHttpResponsedMessage extends HttpResponsedMessage {
             setErrorString(getTokenResIdl.error.usermsg);
         }
         if (getTokenResIdl.data != null) {
-            lj4 lj4Var = new lj4();
-            this.mData = lj4Var;
-            lj4Var.d(getTokenResIdl.data);
+            wj4 wj4Var = new wj4();
+            this.mData = wj4Var;
+            wj4Var.d(getTokenResIdl.data);
         }
     }
 }

@@ -37,11 +37,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ci8;
+import com.repackage.ah8;
+import com.repackage.fh8;
 import com.repackage.gf;
-import com.repackage.hi8;
-import com.repackage.mq4;
-import com.repackage.ni;
+import com.repackage.li;
+import com.repackage.xq4;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class SignStatic {
@@ -108,7 +108,7 @@ public class SignStatic {
                                     signData.parserJson(postNetData);
                                     signData.forumId = id;
                                     signData.forumName = name;
-                                } else if (!ni.isEmpty(postNetData)) {
+                                } else if (!li.isEmpty(postNetData)) {
                                     JSONObject jSONObject = new JSONObject(postNetData);
                                     signMessage.parserJson(netWork, jSONObject);
                                     if (AntiHelper.l(netWork.getServerErrorCode()) || "199901".equals(jSONObject.optString("error_code"))) {
@@ -139,7 +139,7 @@ public class SignStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class b implements CustomMessageTask.CustomRunnable<hi8> {
+    public static class b implements CustomMessageTask.CustomRunnable<fh8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -158,12 +158,12 @@ public class SignStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<hi8> customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<fh8> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && (customMessage.getData() instanceof mq4)) {
-                    new ci8().f((mq4) customMessage.getData());
+                if (customMessage != null && (customMessage.getData() instanceof xq4)) {
+                    new ah8().f((xq4) customMessage.getData());
                 }
                 return null;
             }

@@ -1,79 +1,42 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.drawable.GradientDrawable;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.tieba.R;
+import android.content.SharedPreferences;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yw;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function0;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes7.dex */
-public class zw {
+public class zw implements SharedPreferences {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public b b;
+    public bx c;
 
     /* loaded from: classes7.dex */
-    public static class a implements Function0<Unit> {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Runnable a;
-
-        public a(Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {runnable};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = runnable;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // kotlin.jvm.functions.Function0
-        /* renamed from: a */
-        public Unit invoke() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.a.run();
-                return Unit.INSTANCE;
-            }
-            return (Unit) invokeV.objValue;
-        }
     }
 
     /* loaded from: classes7.dex */
-    public static class b implements Function0<Unit> {
+    public class b implements SharedPreferences.Editor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Runnable a;
+        public final /* synthetic */ zw a;
 
-        public b(Runnable runnable) {
+        public b(zw zwVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {runnable};
+                Object[] objArr = {zwVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -83,306 +46,220 @@ public class zw {
                     return;
                 }
             }
-            this.a = runnable;
+            this.a = zwVar;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // kotlin.jvm.functions.Function0
-        /* renamed from: a */
-        public Unit invoke() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.a.run();
-                return Unit.INSTANCE;
-            }
-            return (Unit) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yw.a a;
-
-        public c(yw.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = aVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.a();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ TextView b;
-        public final /* synthetic */ e c;
-        public final /* synthetic */ LinearLayout d;
-
-        /* loaded from: classes7.dex */
-        public class a implements Function0<Unit> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ d a;
-
-            /* renamed from: com.repackage.zw$d$a$a  reason: collision with other inner class name */
-            /* loaded from: classes7.dex */
-            public class RunnableC0574a implements Runnable {
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ a a;
-
-                public RunnableC0574a(a aVar) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {aVar};
-                        interceptable.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = aVar;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                        d dVar = this.a.a;
-                        dVar.c.a(dVar.d);
-                    }
-                }
-            }
-
-            public a(d dVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = dVar;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // kotlin.jvm.functions.Function0
-            /* renamed from: a */
-            public Unit invoke() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    bv.c(new RunnableC0574a(this));
-                    return Unit.INSTANCE;
-                }
-                return (Unit) invokeV.objValue;
-            }
-        }
-
-        /* loaded from: classes7.dex */
-        public class b implements Function0<Unit> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ d a;
-
-            /* loaded from: classes7.dex */
-            public class a implements Runnable {
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ b a;
-
-                public a(b bVar) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {bVar};
-                        interceptable.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = bVar;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                        d dVar = this.a.a;
-                        dVar.c.a(dVar.d);
-                    }
-                }
-            }
-
-            public b(d dVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = dVar;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // kotlin.jvm.functions.Function0
-            /* renamed from: a */
-            public Unit invoke() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    bv.c(new a(this));
-                    return Unit.INSTANCE;
-                }
-                return (Unit) invokeV.objValue;
-            }
-        }
-
-        public d(String str, TextView textView, e eVar, LinearLayout linearLayout) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, textView, eVar, linearLayout};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = textView;
-            this.c = eVar;
-            this.d = linearLayout;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.content.SharedPreferences.Editor
+        public void apply() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!TextUtils.isEmpty(this.a)) {
-                    com.baidu.bdtask.ui.utils.d.a.b(this.a, this.b, new a(this), new b(this));
-                } else {
-                    this.c.a(this.d);
-                }
+                this.a.c.apply();
             }
+        }
+
+        @Override // android.content.SharedPreferences.Editor
+        public SharedPreferences.Editor clear() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                this.a.c.clear();
+                return this;
+            }
+            return (SharedPreferences.Editor) invokeV.objValue;
+        }
+
+        @Override // android.content.SharedPreferences.Editor
+        public boolean commit() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.c.commit() : invokeV.booleanValue;
+        }
+
+        @Override // android.content.SharedPreferences.Editor
+        public SharedPreferences.Editor putBoolean(String str, boolean z) {
+            InterceptResult invokeLZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) {
+                this.a.c.putBoolean(str, z);
+                return this;
+            }
+            return (SharedPreferences.Editor) invokeLZ.objValue;
+        }
+
+        @Override // android.content.SharedPreferences.Editor
+        public SharedPreferences.Editor putFloat(String str, float f) {
+            InterceptResult invokeLF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLF = interceptable.invokeLF(1048580, this, str, f)) == null) {
+                this.a.c.putFloat(str, f);
+                return this;
+            }
+            return (SharedPreferences.Editor) invokeLF.objValue;
+        }
+
+        @Override // android.content.SharedPreferences.Editor
+        public SharedPreferences.Editor putInt(String str, int i) {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) {
+                this.a.c.putInt(str, i);
+                return this;
+            }
+            return (SharedPreferences.Editor) invokeLI.objValue;
+        }
+
+        @Override // android.content.SharedPreferences.Editor
+        public SharedPreferences.Editor putLong(String str, long j) {
+            InterceptResult invokeLJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j)) == null) {
+                this.a.c.putLong(str, j);
+                return this;
+            }
+            return (SharedPreferences.Editor) invokeLJ.objValue;
+        }
+
+        @Override // android.content.SharedPreferences.Editor
+        public SharedPreferences.Editor putString(String str, @Nullable String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) {
+                this.a.c.putString(str, str2);
+                return this;
+            }
+            return (SharedPreferences.Editor) invokeLL.objValue;
+        }
+
+        @Override // android.content.SharedPreferences.Editor
+        public SharedPreferences.Editor putStringSet(String str, @Nullable Set<String> set) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, set)) == null) {
+                this.a.c.putStringSet(str, set);
+                return this;
+            }
+            return (SharedPreferences.Editor) invokeLL.objValue;
+        }
+
+        @Override // android.content.SharedPreferences.Editor
+        public SharedPreferences.Editor remove(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+                this.a.c.remove(str);
+                return this;
+            }
+            return (SharedPreferences.Editor) invokeL.objValue;
+        }
+
+        public /* synthetic */ b(zw zwVar, a aVar) {
+            this(zwVar);
         }
     }
 
-    /* loaded from: classes7.dex */
-    public interface e {
-        void a(ViewGroup viewGroup);
-    }
-
-    public static ViewGroup a(Context context, CharSequence charSequence, String str, String str2) {
-        InterceptResult invokeLLLL;
+    public zw(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, context, charSequence, str, str2)) == null) {
-            Context applicationContext = context.getApplicationContext();
-            Resources resources = context.getResources();
-            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(applicationContext).inflate(R.layout.obfuscated_res_0x7f0d0744, (ViewGroup) null);
-            GradientDrawable gradientDrawable = (GradientDrawable) resources.getDrawable(R.drawable.obfuscated_res_0x7f081081);
-            gradientDrawable.setColor(ex.a.a(str, resources.getColor(R.color.obfuscated_res_0x7f060abf)));
-            gradientDrawable.setAlpha(204);
-            relativeLayout.setBackground(gradientDrawable);
-            TextView textView = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0915b2);
-            if (textView != null) {
-                textView.setTextColor(ex.a.a(str2, resources.getColor(R.color.obfuscated_res_0x7f060abe)));
-                textView.setText(charSequence);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return relativeLayout;
         }
-        return (ViewGroup) invokeLLLL.objValue;
+        this.a = str;
+        this.c = bx.e(str);
     }
 
-    public static void b(Context context, CharSequence charSequence, int i, CharSequence charSequence2, int i2, String str, String str2, String str3, String str4, String str5, String str6, e eVar, yw.a aVar) {
-        TextView textView;
+    @Override // android.content.SharedPreferences
+    public boolean contains(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, charSequence, Integer.valueOf(i), charSequence2, Integer.valueOf(i2), str, str2, str3, str4, str5, str6, eVar, aVar}) == null) {
-            Context applicationContext = context.getApplicationContext();
-            Resources resources = context.getResources();
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(applicationContext).inflate(R.layout.obfuscated_res_0x7f0d0745, (ViewGroup) null);
-            GradientDrawable gradientDrawable = (GradientDrawable) resources.getDrawable(R.drawable.obfuscated_res_0x7f081081);
-            gradientDrawable.setColor(ex.a.a(str, resources.getColor(R.color.obfuscated_res_0x7f060abf)));
-            gradientDrawable.setAlpha(204);
-            linearLayout.setBackground(gradientDrawable);
-            linearLayout.setClickable(true);
-            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091a9a)) != null) {
-                textView.setText(charSequence);
-                textView.setTextColor(ex.a.a(str3, resources.getColor(R.color.obfuscated_res_0x7f060abe)));
-                textView.setTextSize(1, i);
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.c.contains(str) : invokeL.booleanValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public SharedPreferences.Editor edit() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b == null) {
+                this.b = new b(this, null);
             }
-            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091a99);
-            GradientDrawable gradientDrawable2 = (GradientDrawable) resources.getDrawable(R.drawable.obfuscated_res_0x7f081082);
-            gradientDrawable2.setColor(ex.a.a(str4, resources.getColor(R.color.obfuscated_res_0x7f060abf)));
-            textView2.setBackground(gradientDrawable2);
-            if (!TextUtils.isEmpty(charSequence2)) {
-                textView2.setText(charSequence2);
-                textView2.setTextColor(ex.a.a(str6, resources.getColor(R.color.obfuscated_res_0x7f060abe)));
-                textView2.setTextSize(1, i2);
-            }
-            textView2.setOnClickListener(new c(aVar));
-            c(str2, linearLayout, new d(str5, textView2, eVar, linearLayout));
+            return this.b;
+        }
+        return (SharedPreferences.Editor) invokeV.objValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public Map<String, ?> getAll() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c.getAll() : (Map) invokeV.objValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public boolean getBoolean(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) ? this.c.getBoolean(str, z) : invokeLZ.booleanValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public float getFloat(String str, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(1048580, this, str, f)) == null) ? this.c.getFloat(str, f) : invokeLF.floatValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public int getInt(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) ? this.c.getInt(str, i) : invokeLI.intValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public long getLong(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j)) == null) ? this.c.getLong(str, j) : invokeLJ.longValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    @Nullable
+    public String getString(String str, @Nullable String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) ? this.c.getString(str, str2) : (String) invokeLL.objValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    @Nullable
+    public Set<String> getStringSet(String str, @Nullable Set<String> set) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, set)) == null) ? this.c.getStringSet(str, set) : (Set) invokeLL.objValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, onSharedPreferenceChangeListener) == null) {
+            this.c.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
         }
     }
 
-    public static void c(String str, View view2, Runnable runnable) {
+    @Override // android.content.SharedPreferences
+    public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65538, null, str, view2, runnable) == null) || runnable == null || view2 == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048586, this, onSharedPreferenceChangeListener) == null) {
+            this.c.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
         }
-        com.baidu.bdtask.ui.utils.d.a.b(str, view2, new a(runnable), new b(runnable));
     }
 }

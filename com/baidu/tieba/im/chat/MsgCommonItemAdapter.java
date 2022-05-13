@@ -18,11 +18,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ef;
+import com.repackage.eo;
 import com.repackage.ff;
-import com.repackage.ho;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public abstract class MsgCommonItemAdapter<T> extends ho<ChatMessage, MsgViewHolder<T>> {
+public abstract class MsgCommonItemAdapter<T> extends eo<ChatMessage, MsgViewHolder<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<MsglistActivity<?>> i;
@@ -35,6 +35,7 @@ public abstract class MsgCommonItemAdapter<T> extends ho<ChatMessage, MsgViewHol
     public boolean p;
     public ArrayList<ReportPrivateMsgData> q;
     public AbsMsglistView.g r;
+    public int s;
 
     /* loaded from: classes3.dex */
     public static class MsgViewHolder<T> extends TypeAdapter.ViewHolder {
@@ -95,6 +96,7 @@ public abstract class MsgCommonItemAdapter<T> extends ho<ChatMessage, MsgViewHol
         this.m = false;
         this.n = false;
         this.p = false;
+        this.s = 3;
         this.i = tbPageContext;
     }
 
@@ -118,7 +120,7 @@ public abstract class MsgCommonItemAdapter<T> extends ho<ChatMessage, MsgViewHol
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
+    @Override // com.repackage.eo
     /* renamed from: c0 */
     public View S(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgViewHolder<T> msgViewHolder) {
         InterceptResult invokeCommon;

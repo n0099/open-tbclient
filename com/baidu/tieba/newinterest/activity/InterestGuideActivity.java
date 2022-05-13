@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.aq7;
-import com.repackage.vt4;
+import com.repackage.iu4;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class InterestGuideActivity extends BaseFragmentActivity {
@@ -56,14 +56,14 @@ public class InterestGuideActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             TbSingleton.getInstance().setShowedInterestGuide(true);
-            String q = vt4.k().q("key_interest_guide_show", "");
+            String q = iu4.k().q("key_interest_guide_show", "");
             StringBuilder sb = new StringBuilder();
             sb.append(q);
             sb.append(StringUtils.isNull(q) ? "" : ",");
             String sb2 = sb.toString();
-            vt4 k = vt4.k();
+            iu4 k = iu4.k();
             k.y("key_interest_guide_show", sb2 + System.currentTimeMillis());
-            vt4.k().x("key_interest_panel_show_time", System.currentTimeMillis());
+            iu4.k().x("key_interest_panel_show_time", System.currentTimeMillis());
         }
     }
 

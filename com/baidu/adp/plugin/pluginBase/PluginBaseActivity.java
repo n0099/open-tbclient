@@ -53,9 +53,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
 import com.repackage.c9;
 import com.repackage.e9;
-import com.repackage.om;
-import com.repackage.xl;
-import com.repackage.xo;
+import com.repackage.lm;
+import com.repackage.ul;
+import com.repackage.vo;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -75,7 +75,7 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
     public transient /* synthetic */ FieldHolder $fh;
     public boolean bOnCreateCalled;
     public Activity mActivity;
-    public xl mProxyActivity;
+    public ul mProxyActivity;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PluginBaseActivity() {
@@ -112,7 +112,7 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent, serviceConnection, i)) == null) {
             String pluginPackageName = getPluginPackageName();
-            PluginSetting g = om.h().g(pluginPackageName);
+            PluginSetting g = lm.h().g(pluginPackageName);
             if (g == null || !g.isThird || ((plugin2 = PluginCenter.getInstance().getPlugin(pluginPackageName)) != null && plugin2.remapStartServiceIntent(intent))) {
                 return this.mProxyActivity.proxyBindService(intent, serviceConnection, i);
             }
@@ -146,7 +146,7 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            PluginSetting g = om.h().g(getPluginPackageName());
+            PluginSetting g = lm.h().g(getPluginPackageName());
             if (g != null && g.isThird) {
                 Activity activity = this.mActivity;
                 return activity.deleteDatabase(getPluginPackageName() + str);
@@ -161,7 +161,7 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            PluginSetting g = om.h().g(getPluginPackageName());
+            PluginSetting g = lm.h().g(getPluginPackageName());
             if (g != null && g.isThird) {
                 Activity activity = this.mActivity;
                 return activity.deleteFile(getPluginPackageName() + str);
@@ -283,7 +283,7 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
                 return null;
             }
             try {
-                PluginSetting g = om.h().g(getPluginPackageName());
+                PluginSetting g = lm.h().g(getPluginPackageName());
                 if (g == null || !g.isThird) {
                     return cacheDir;
                 }
@@ -334,7 +334,7 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, str)) == null) {
-            PluginSetting g = om.h().g(getPluginPackageName());
+            PluginSetting g = lm.h().g(getPluginPackageName());
             if (g != null && g.isThird) {
                 Activity activity = this.mActivity;
                 return activity.getDatabasePath(getPluginPackageName() + str);
@@ -349,7 +349,7 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048605, this, str, i)) == null) {
-            PluginSetting g = om.h().g(getPluginPackageName());
+            PluginSetting g = lm.h().g(getPluginPackageName());
             if (g != null && g.isThird) {
                 Activity activity = this.mActivity;
                 return activity.getDir(getPluginPackageName() + str, i);
@@ -364,7 +364,7 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, str)) == null) {
-            PluginSetting g = om.h().g(getPluginPackageName());
+            PluginSetting g = lm.h().g(getPluginPackageName());
             if (g != null && g.isThird) {
                 Activity activity = this.mActivity;
                 return activity.getFileStreamPath(getPluginPackageName() + str);
@@ -417,7 +417,7 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
-            PluginSetting g = om.h().g(getPluginPackageName());
+            PluginSetting g = lm.h().g(getPluginPackageName());
             if (g != null && g.isThird) {
                 return getPluginPackageName();
             }
@@ -447,10 +447,10 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
             Activity parent = this.mActivity.getParent();
-            if (parent == null || !(parent instanceof xl)) {
+            if (parent == null || !(parent instanceof ul)) {
                 return null;
             }
-            return ((xl) parent).getTarget();
+            return ((ul) parent).getTarget();
         }
         return (Context) invokeV.objValue;
     }
@@ -472,10 +472,10 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048619, this, str, i)) == null) {
-            PluginSetting g = om.h().g(getPluginPackageName());
+            PluginSetting g = lm.h().g(getPluginPackageName());
             if (g != null && g.isThird) {
-                xl xlVar = this.mProxyActivity;
-                return xlVar.proxyGetSharedPreferences(getPluginPackageName() + str, i);
+                ul ulVar = this.mProxyActivity;
+                return ulVar.proxyGetSharedPreferences(getPluginPackageName() + str, i);
             }
             return this.mProxyActivity.proxyGetSharedPreferences(str, i);
         }
@@ -844,9 +844,9 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         }
     }
 
-    public void onPreLoad(xo xoVar) {
+    public void onPreLoad(vo voVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048672, this, xoVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048672, this, voVar) == null) {
         }
     }
 
@@ -981,7 +981,7 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048692, this, str)) == null) {
-            PluginSetting g = om.h().g(getPluginPackageName());
+            PluginSetting g = lm.h().g(getPluginPackageName());
             if (g != null && g.isThird) {
                 Activity activity = this.mActivity;
                 return activity.openFileInput(getPluginPackageName() + str);
@@ -996,7 +996,7 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048693, this, str, i)) == null) {
-            PluginSetting g = om.h().g(getPluginPackageName());
+            PluginSetting g = lm.h().g(getPluginPackageName());
             if (g != null && g.isThird) {
                 Activity activity = this.mActivity;
                 return activity.openFileOutput(getPluginPackageName() + str, i);
@@ -1018,7 +1018,7 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048695, this, str, i, cursorFactory)) == null) {
-            PluginSetting g = om.h().g(getPluginPackageName());
+            PluginSetting g = lm.h().g(getPluginPackageName());
             if (g != null && g.isThird) {
                 Activity activity = this.mActivity;
                 return activity.openOrCreateDatabase(getPluginPackageName() + str, i, cursorFactory);
@@ -1077,11 +1077,11 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         }
     }
 
-    public void setActivityProxy(xl xlVar) {
+    public void setActivityProxy(ul ulVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048704, this, xlVar) == null) {
-            this.mActivity = xlVar.getActivity();
-            this.mProxyActivity = xlVar;
+        if (interceptable == null || interceptable.invokeL(1048704, this, ulVar) == null) {
+            this.mActivity = ulVar.getActivity();
+            this.mProxyActivity = ulVar;
         }
     }
 
@@ -1230,7 +1230,7 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048729, this, intent) == null) {
             String pluginPackageName = getPluginPackageName();
-            PluginSetting g = om.h().g(pluginPackageName);
+            PluginSetting g = lm.h().g(pluginPackageName);
             if (g == null || !g.isThird || ((plugin2 = PluginCenter.getInstance().getPlugin(pluginPackageName)) != null && plugin2.remapStartActivityIntent(intent))) {
                 this.mProxyActivity.proxyStartActivity(intent);
             }
@@ -1242,7 +1242,7 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048730, this, intent, i) == null) {
             String pluginPackageName = getPluginPackageName();
-            PluginSetting g = om.h().g(pluginPackageName);
+            PluginSetting g = lm.h().g(pluginPackageName);
             if (g == null || !g.isThird || ((plugin2 = PluginCenter.getInstance().getPlugin(pluginPackageName)) != null && plugin2.remapStartActivityIntent(intent))) {
                 this.mProxyActivity.proxyStartActivityForResult(intent, i);
             }
@@ -1304,7 +1304,7 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048738, this, intent)) == null) {
             String pluginPackageName = getPluginPackageName();
-            PluginSetting g = om.h().g(pluginPackageName);
+            PluginSetting g = lm.h().g(pluginPackageName);
             if (g == null || !g.isThird || ((plugin2 = PluginCenter.getInstance().getPlugin(pluginPackageName)) != null && plugin2.remapStartServiceIntent(intent))) {
                 return this.mProxyActivity.proxyStartService(intent);
             }
@@ -1327,7 +1327,7 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048740, this, intent)) == null) {
             String pluginPackageName = getPluginPackageName();
-            PluginSetting g = om.h().g(pluginPackageName);
+            PluginSetting g = lm.h().g(pluginPackageName);
             if (g == null || !g.isThird || ((plugin2 = PluginCenter.getInstance().getPlugin(pluginPackageName)) != null && plugin2.remapStartServiceIntent(intent))) {
                 return this.mProxyActivity.proxyStopService(intent);
             }
@@ -1370,7 +1370,7 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048703, this, intent, str) == null) {
             String pluginPackageName = getPluginPackageName();
-            PluginSetting g = om.h().g(pluginPackageName);
+            PluginSetting g = lm.h().g(pluginPackageName);
             if (g == null || !g.isThird || ((plugin2 = PluginCenter.getInstance().getPlugin(pluginPackageName)) != null && plugin2.isLoaded() && plugin2.remapBroadcastReceiver(intent))) {
                 super.sendBroadcast(intent, str);
             }

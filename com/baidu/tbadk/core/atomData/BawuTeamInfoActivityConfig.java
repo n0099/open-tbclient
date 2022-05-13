@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BawuTeamInfoActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FORUM_ID = "forum_id";

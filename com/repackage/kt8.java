@@ -1,34 +1,29 @@
 package com.repackage;
 
-import android.annotation.TargetApi;
-import android.media.MediaCodec;
-import android.media.MediaFormat;
-import android.media.MediaMuxer;
+import android.hardware.Camera;
+import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.nio.ByteBuffer;
-@TargetApi(18)
 /* loaded from: classes6.dex */
 public class kt8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MediaMuxer a;
-    public int b;
-    public boolean c;
-    public volatile boolean d;
-    public volatile boolean e;
+    public int a;
+    public float b;
+    public int c;
+    public Camera d;
+    public qt8 e;
 
-    public kt8(String str) throws IOException {
+    public kt8(Camera camera) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {camera};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,99 +33,97 @@ public class kt8 {
                 return;
             }
         }
-        this.b = 2;
-        this.c = false;
-        this.a = new MediaMuxer(str, 0);
+        this.a = 0;
+        this.d = camera;
     }
 
-    public synchronized int a(MediaFormat mediaFormat) {
+    public final int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Camera camera = this.d;
+            if (camera == null) {
+                return -1;
+            }
+            Camera.Parameters parameters = camera.getParameters();
+            if (parameters.isZoomSupported()) {
+                if (parameters.getMaxZoom() > 40) {
+                    return 40;
+                }
+                return parameters.getMaxZoom();
+            }
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean b(MotionEvent motionEvent) {
         InterceptResult invokeL;
-        int addTrack;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mediaFormat)) == null) {
-            synchronized (this) {
-                if (!this.c) {
-                    addTrack = this.a.addTrack(mediaFormat);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
+            qt8 qt8Var = this.e;
+            if (qt8Var == null || !qt8Var.j()) {
+                int action = motionEvent.getAction() & 255;
+                if (action == 0) {
+                    this.a = 0;
+                } else if (action != 2) {
+                    if (action == 5) {
+                        this.a = 1;
+                        this.b = e(motionEvent);
+                    }
+                } else if (this.a != 1 || motionEvent.getPointerCount() < 2) {
+                    return true;
                 } else {
-                    throw new IllegalStateException("muxer already started");
-                }
-            }
-            return addTrack;
-        }
-        return invokeL.intValue;
-    }
-
-    public synchronized boolean b() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                z = this.c;
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.e = true;
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.d = true;
-        }
-    }
-
-    public synchronized boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-                if (this.e && this.d) {
-                    if (this.b > 0 && this.e && this.d) {
-                        this.a.start();
-                        this.c = true;
-                        notifyAll();
+                    float e = e(motionEvent);
+                    int i = (int) ((e - this.b) / 10.0f);
+                    if (i >= 1 || i <= -1) {
+                        int i2 = this.c + i;
+                        if (i2 > a()) {
+                            i2 = a();
+                        }
+                        d(i2 >= 0 ? i2 : 0);
+                        this.b = e;
                     }
-                    return this.c;
                 }
-                return false;
+                return true;
             }
+            return true;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public synchronized void f() {
+    public void c(qt8 qt8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            synchronized (this) {
-                if (this.b > 0) {
-                    try {
-                        this.a.stop();
-                        this.a.release();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    this.c = false;
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qt8Var) == null) {
+            this.e = qt8Var;
         }
     }
 
-    public synchronized void g(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
+    public final void d(int i) {
+        Camera camera;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048582, this, i, byteBuffer, bufferInfo) == null) {
-            synchronized (this) {
-                if (this.c) {
-                    this.a.writeSampleData(i, byteBuffer, bufferInfo);
-                }
-            }
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || (camera = this.d) == null) {
+            return;
         }
+        Camera.Parameters parameters = camera.getParameters();
+        if (parameters.isZoomSupported()) {
+            parameters.setZoom(i);
+            this.d.setParameters(parameters);
+            this.c = i;
+        }
+    }
+
+    public final float e(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
+            if (motionEvent == null) {
+                return 0.0f;
+            }
+            double x = motionEvent.getX(0) - motionEvent.getX(1);
+            double y = motionEvent.getY(0) - motionEvent.getY(1);
+            return (float) Math.sqrt((x * x) + (y * y));
+        }
+        return invokeL.floatValue;
     }
 }

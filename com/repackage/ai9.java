@@ -1,110 +1,160 @@
 package com.repackage;
 
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.lang.reflect.Field;
-import org.json.JSONObject;
+import com.repackage.li9;
+import com.win.opensdk.PBError;
+import com.win.opensdk.PBInterstitial;
+import com.win.opensdk.PBInterstitialListener;
 /* loaded from: classes5.dex */
-public class ai9 extends BaseAdRipper {
+public class ai9 extends vh9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public PBInterstitial a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ai9(Ssp.Pid pid) {
-        super(pid);
+    /* loaded from: classes5.dex */
+    public class a implements PBInterstitialListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fi9 a;
+
+        public a(ai9 ai9Var, fi9 fi9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ai9Var, fi9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fi9Var;
+        }
+
+        @Override // com.win.opensdk.PBListener
+        public void onClicked() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ((li9.a) this.a).a();
+            }
+        }
+
+        @Override // com.win.opensdk.PBListener
+        public void onFail(PBError pBError) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pBError) == null) {
+                ((li9.a) this.a).b(pBError.getMsg(), pBError.getCode());
+            }
+        }
+
+        @Override // com.win.opensdk.PBInterstitialListener
+        public void onInterstitialDismissed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                li9.a aVar = (li9.a) this.a;
+                aVar.getClass();
+                LogPrinter.d();
+                aVar.d.onAdClose();
+            }
+        }
+
+        @Override // com.win.opensdk.PBInterstitialListener
+        public void onInterstitialDisplayed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                li9.a aVar = (li9.a) this.a;
+                aVar.getClass();
+                LogPrinter.d();
+                aVar.d.onAdShow(aVar.c, aVar.a, new String[0]);
+                aVar.a = true;
+            }
+        }
+
+        @Override // com.win.opensdk.PBInterstitialListener
+        public void onInterstitialShowFail(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+                li9.a aVar = (li9.a) this.a;
+                aVar.getClass();
+                LogPrinter.d();
+                aVar.d.onAdError(0, str);
+            }
+        }
+
+        @Override // com.win.opensdk.PBListener
+        public void onLoaded() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                ((li9.a) this.a).c();
+            }
+        }
+    }
+
+    public ai9(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
+            Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new PBInterstitial(context.getApplicationContext(), str);
     }
 
-    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
-    public RippedAd getRippedAdInternal(Object obj) {
-        InterceptResult invokeL;
+    @Override // com.repackage.th9
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj == null) {
-                return null;
-            }
-            try {
-                Field declaredField = obj.getClass().getDeclaredField("a");
-                declaredField.setAccessible(true);
-                Object obj2 = declaredField.get(obj);
-                if (obj2 == null) {
-                    return null;
-                }
-                Field declaredField2 = obj2.getClass().getSuperclass().getSuperclass().getDeclaredField("a");
-                declaredField2.setAccessible(true);
-                Object obj3 = declaredField2.get(obj2);
-                if (obj3 == null) {
-                    return null;
-                }
-                Field declaredField3 = obj3.getClass().getDeclaredField("b");
-                declaredField3.setAccessible(true);
-                Object obj4 = declaredField3.get(obj3);
-                if (obj4 == null) {
-                    return null;
-                }
-                Field declaredField4 = obj4.getClass().getDeclaredField("c");
-                declaredField4.setAccessible(true);
-                Object obj5 = declaredField4.get(obj4);
-                if (obj5 == null) {
-                    return null;
-                }
-                Field declaredField5 = obj5.getClass().getDeclaredField("d");
-                declaredField5.setAccessible(true);
-                Object obj6 = declaredField5.get(obj5);
-                if (obj6 == null) {
-                    return null;
-                }
-                Field declaredField6 = obj6.getClass().getDeclaredField("b");
-                declaredField6.setAccessible(true);
-                Object obj7 = declaredField6.get(obj6);
-                if (obj7 == null) {
-                    return null;
-                }
-                Field declaredField7 = obj7.getClass().getDeclaredField("a");
-                declaredField7.setAccessible(true);
-                Object obj8 = declaredField7.get(obj7);
-                if (obj8 == null) {
-                    return null;
-                }
-                Field declaredField8 = obj8.getClass().getDeclaredField("i");
-                declaredField8.setAccessible(true);
-                Object obj9 = declaredField8.get(obj8);
-                if (obj9 == null) {
-                    return null;
-                }
-                Field declaredField9 = obj9.getClass().getDeclaredField("L");
-                declaredField9.setAccessible(true);
-                JSONObject jSONObject = (JSONObject) declaredField9.get(obj9);
-                if (jSONObject == null) {
-                    return null;
-                }
-                return xh9.a(jSONObject);
-            } catch (Exception e) {
-                LogPrinter.e(e);
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.destroy();
         }
-        return (RippedAd) invokeL.objValue;
+    }
+
+    @Override // com.repackage.th9
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.load();
+        }
+    }
+
+    @Override // com.repackage.vh9
+    public void c(fi9 fi9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fi9Var) == null) {
+            this.a.setInterstitialListener(new a(this, fi9Var));
+        }
+    }
+
+    @Override // com.repackage.vh9
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.isReady() : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.vh9
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a.show();
+        }
     }
 }

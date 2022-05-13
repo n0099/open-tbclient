@@ -31,14 +31,14 @@ public class a extends g implements b.c, c.a, com.kwad.sdk.widget.d {
     public ViewGroup b;
     public d c;
     public ViewGroup d;
-    public C0337a e;
+    public C0336a e;
     public com.kwad.sdk.reward.d.c f;
     public com.kwad.sdk.reward.d.c g;
     public com.kwad.sdk.reward.b.kwai.a h;
 
     /* renamed from: com.kwad.sdk.reward.presenter.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0337a implements j.b, p.b {
+    public static class C0336a implements j.b, p.b {
         public View a;
         public KsAdWebView b;
         public com.kwad.sdk.core.webview.a c;
@@ -50,7 +50,7 @@ public class a extends g implements b.c, c.a, com.kwad.sdk.widget.d {
         public AdTemplate h;
         public boolean i = false;
 
-        public C0337a(KsAdWebView ksAdWebView, View view2, b.c cVar) {
+        public C0336a(KsAdWebView ksAdWebView, View view2, b.c cVar) {
             this.a = view2;
             this.b = ksAdWebView;
             this.f = cVar;
@@ -95,7 +95,7 @@ public class a extends g implements b.c, c.a, com.kwad.sdk.widget.d {
                 @Override // com.kwad.sdk.core.page.widget.webview.KsAdWebView.d
                 public void a(int i, String str2, String str3) {
                     com.kwad.sdk.core.d.a.a("LandPageOpenTaskPresenter", "onReceivedHttpError: " + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2);
-                    C0337a.this.a();
+                    C0336a.this.a();
                 }
 
                 @Override // com.kwad.sdk.core.page.widget.webview.KsAdWebView.d
@@ -110,11 +110,11 @@ public class a extends g implements b.c, c.a, com.kwad.sdk.widget.d {
             ax.a(new Runnable() { // from class: com.kwad.sdk.reward.presenter.c.a.a.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (C0337a.this.i) {
+                    if (C0336a.this.i) {
                         return;
                     }
-                    C0337a.this.i = true;
-                    C0337a.this.a();
+                    C0336a.this.i = true;
+                    C0336a.this.a();
                 }
             }, null, 1000L);
         }
@@ -204,7 +204,7 @@ public class a extends g implements b.c, c.a, com.kwad.sdk.widget.d {
     }
 
     /* loaded from: classes5.dex */
-    public static class d extends C0337a {
+    public static class d extends C0336a {
         public d(KsAdWebView ksAdWebView, View view2, b.c cVar) {
             super(ksAdWebView, view2, cVar);
         }
@@ -216,7 +216,7 @@ public class a extends g implements b.c, c.a, com.kwad.sdk.widget.d {
 
     private void a(View view2, boolean z) {
         int id = view2.getId();
-        if (id == R.id.obfuscated_res_0x7f0910dc || id == R.id.obfuscated_res_0x7f09100a) {
+        if (id == R.id.obfuscated_res_0x7f0910eb || id == R.id.obfuscated_res_0x7f091019) {
             b(z);
         }
     }
@@ -228,8 +228,8 @@ public class a extends g implements b.c, c.a, com.kwad.sdk.widget.d {
             com.kwad.sdk.core.d.a.a("LandPageOpenTaskPresenter", "initBottomActionBar screen is horizontal");
             return;
         }
-        ((ViewStub) a(R.id.obfuscated_res_0x7f0910e6)).inflate();
-        KSFrameLayout kSFrameLayout = (KSFrameLayout) a(R.id.obfuscated_res_0x7f0910dd);
+        ((ViewStub) a(R.id.obfuscated_res_0x7f0910f5)).inflate();
+        KSFrameLayout kSFrameLayout = (KSFrameLayout) a(R.id.obfuscated_res_0x7f0910ec);
         kSFrameLayout.setRadius(q().getResources().getDimension(R.dimen.obfuscated_res_0x7f07037a));
         int size = com.kwad.sdk.core.response.a.c.i(((g) this).a.g).size();
         kSFrameLayout.setRatio(0.0f);
@@ -241,7 +241,7 @@ public class a extends g implements b.c, c.a, com.kwad.sdk.widget.d {
             f = 155.0f;
         }
         com.kwad.sdk.a.kwai.a.a(kSFrameLayout, com.kwad.sdk.a.kwai.a.a(q, f));
-        ViewGroup viewGroup = (ViewGroup) a(R.id.obfuscated_res_0x7f0910dc);
+        ViewGroup viewGroup = (ViewGroup) a(R.id.obfuscated_res_0x7f0910eb);
         this.d = viewGroup;
         viewGroup.setClickable(true);
         new com.kwad.sdk.widget.f(this.d, this);
@@ -249,9 +249,9 @@ public class a extends g implements b.c, c.a, com.kwad.sdk.widget.d {
         this.f = cVar;
         cVar.a(this);
         this.f.a(((g) this).a.g, true);
-        C0337a c0337a = new C0337a((KsAdWebView) a(R.id.obfuscated_res_0x7f0910db), this.d, this);
-        this.e = c0337a;
-        c0337a.a(new b() { // from class: com.kwad.sdk.reward.presenter.c.a.1
+        C0336a c0336a = new C0336a((KsAdWebView) a(R.id.obfuscated_res_0x7f0910ea), this.d, this);
+        this.e = c0336a;
+        c0336a.a(new b() { // from class: com.kwad.sdk.reward.presenter.c.a.1
         });
         this.e.a(((g) this).a.g, adBaseFrameLayout);
     }
@@ -269,8 +269,8 @@ public class a extends g implements b.c, c.a, com.kwad.sdk.widget.d {
             this.h = b2;
             ((g) this).a.z = b2;
             b2.g();
-            AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) a(R.id.obfuscated_res_0x7f09112b);
-            ViewGroup viewGroup = (ViewGroup) a(R.id.obfuscated_res_0x7f09100a);
+            AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) a(R.id.obfuscated_res_0x7f09113a);
+            ViewGroup viewGroup = (ViewGroup) a(R.id.obfuscated_res_0x7f091019);
             this.b = viewGroup;
             viewGroup.setClickable(true);
             new com.kwad.sdk.widget.f(this.b, this);
@@ -278,8 +278,8 @@ public class a extends g implements b.c, c.a, com.kwad.sdk.widget.d {
             this.g = cVar;
             cVar.a(this);
             this.g.a(((g) this).a.g, false);
-            ((KSFrameLayout) a(R.id.obfuscated_res_0x7f09100c)).setWidthBasedRatio(false);
-            d dVar = new d((KsAdWebView) a(R.id.obfuscated_res_0x7f09100b), this.b, this);
+            ((KSFrameLayout) a(R.id.obfuscated_res_0x7f09101b)).setWidthBasedRatio(false);
+            d dVar = new d((KsAdWebView) a(R.id.obfuscated_res_0x7f09101a), this.b, this);
             this.c = dVar;
             dVar.a(((g) this).a.g, adBaseFrameLayout);
             a(adBaseFrameLayout);

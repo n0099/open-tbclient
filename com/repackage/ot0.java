@@ -20,5 +20,5 @@ public interface ot0 {
 
     Activity o();
 
-    boolean p();
+    boolean q();
 }

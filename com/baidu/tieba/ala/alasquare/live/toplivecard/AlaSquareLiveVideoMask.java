@@ -70,29 +70,29 @@ public class AlaSquareLiveVideoMask extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.a = context;
             this.n = AnimationUtils.loadAnimation(context, R.anim.obfuscated_res_0x7f010139);
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0606, this);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05fa, this);
             this.b = inflate;
-            this.m = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09096a);
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09128a);
+            this.m = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090963);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091299);
             this.c = tbImageView;
             tbImageView.setDefaultBgResource(R.drawable.pic_bg_video_frs);
             this.c.setAutoChangeStyle(false);
-            View findViewById = this.b.findViewById(R.id.obfuscated_res_0x7f090d2e);
+            View findViewById = this.b.findViewById(R.id.obfuscated_res_0x7f090d1b);
             this.d = findViewById;
-            findViewById.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fba);
-            this.e = (HeadImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090db6);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090db7);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090db5);
+            findViewById.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fd0);
+            this.e = (HeadImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090da6);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090da7);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090da5);
             this.e.setIsRound(true);
             this.e.setAutoChangeStyle(false);
-            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09215a);
-            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092150);
-            this.j = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090e83);
-            NoActiveStopAlaPlayAnimationView noActiveStopAlaPlayAnimationView = (NoActiveStopAlaPlayAnimationView) this.b.findViewById(R.id.obfuscated_res_0x7f090222);
+            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0921b1);
+            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0921a7);
+            this.j = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090e8a);
+            NoActiveStopAlaPlayAnimationView noActiveStopAlaPlayAnimationView = (NoActiveStopAlaPlayAnimationView) this.b.findViewById(R.id.obfuscated_res_0x7f090218);
             this.k = noActiveStopAlaPlayAnimationView;
             noActiveStopAlaPlayAnimationView.setFromSpecialForum(this.o);
-            SkinManager.setImageResource(this.j, R.drawable.obfuscated_res_0x7f080399);
-            this.l = (ProgressBar) this.b.findViewById(R.id.obfuscated_res_0x7f0902ee);
+            SkinManager.setImageResource(this.j, R.drawable.obfuscated_res_0x7f080391);
+            this.l = (ProgressBar) this.b.findViewById(R.id.obfuscated_res_0x7f0902e7);
             b();
         }
     }
@@ -156,12 +156,12 @@ public class AlaSquareLiveVideoMask extends FrameLayout {
             this.d.setVisibility(0);
             this.e.K(alaUserInfoData.portrait, 10, false);
             this.f.setText(threadData.getAuthor().getName_show());
-            this.g.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f11b6), String.valueOf(alaUserInfoData.ala_id)));
+            this.g.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f11d3), String.valueOf(alaUserInfoData.ala_id)));
         } else {
             this.d.setVisibility(8);
         }
         this.h.setText(threadData.getTitle());
-        this.i.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f11bb, String.valueOf(threadAlaInfo.audience_count)));
+        this.i.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f11d8, String.valueOf(threadAlaInfo.audience_count)));
         if (this.o) {
             return;
         }

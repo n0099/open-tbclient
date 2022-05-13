@@ -26,8 +26,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ni;
-import com.repackage.oi;
+import com.repackage.li;
+import com.repackage.mi;
 /* loaded from: classes3.dex */
 public class MessageRedDotView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -85,21 +85,9 @@ public class MessageRedDotView extends View {
         d();
     }
 
-    private float getYOffset() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            if (Build.VERSION.SDK_INT > 29) {
-                return getResources().getDimension(R.dimen.tbds5);
-            }
-            return getResources().getDimension(R.dimen.tbds10);
-        }
-        return invokeV.floatValue;
-    }
-
     public final void a(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || ni.isEmpty(this.d) || this.a == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || li.isEmpty(this.d) || this.a == null) {
             return;
         }
         Paint paint = this.f;
@@ -107,15 +95,15 @@ public class MessageRedDotView extends View {
         paint.getTextBounds(str, 0, str.length(), this.g);
         Paint.FontMetrics fontMetrics = this.f.getFontMetrics();
         int intrinsicWidth = (this.a.getIntrinsicWidth() / 2) + this.o + (this.y / 2);
-        float yOffset = ((getYOffset() + fontMetrics.bottom) - fontMetrics.ascent) - this.y;
+        float height = (((getHeight() - getPaddingBottom()) + getPaddingTop()) / 2.0f) - this.g.centerY();
         if (this.u) {
             Rect bounds = this.a.getBounds();
             float f = fontMetrics.descent;
-            float height = this.w + ((bounds.height() / 2) - (f - (((-fontMetrics.ascent) + f) / 2.0f)));
+            float height2 = this.w + ((bounds.height() / 2) - (f - (((-fontMetrics.ascent) + f) / 2.0f)));
             intrinsicWidth = bounds.width() / 2;
-            yOffset = height;
+            height = height2;
         }
-        canvas.drawText(this.d, intrinsicWidth, yOffset, this.f);
+        canvas.drawText(this.d, intrinsicWidth, height, this.f);
     }
 
     public final void b(Canvas canvas) {
@@ -154,7 +142,7 @@ public class MessageRedDotView extends View {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             String str = Build.MODEL;
             if (str.contains(RomUtils.MANUFACTURER_VIVO) && str.contains("X20")) {
-                oi.f(getContext(), R.dimen.tbds2);
+                mi.f(getContext(), R.dimen.tbds2);
             }
         }
     }
@@ -168,30 +156,30 @@ public class MessageRedDotView extends View {
             this.f = paint;
             paint.setColor(SkinManager.getColor(R.color.CAM_X0101));
             if (!this.u && this.v) {
-                this.f.setTextSize(oi.f(getContext(), R.dimen.tbfontsize26));
+                this.f.setTextSize(mi.f(getContext(), R.dimen.tbfontsize26));
                 this.f.setTypeface(Typeface.MONOSPACE);
             } else {
-                this.f.setTextSize(oi.f(getContext(), R.dimen.tbfontsize28));
+                this.f.setTextSize(mi.f(getContext(), R.dimen.tbfontsize28));
                 this.f.setTypeface(Typeface.DEFAULT_BOLD);
             }
             this.f.setTextAlign(Paint.Align.CENTER);
             this.g = new Rect();
-            this.h = oi.f(getContext(), R.dimen.tbds13);
-            this.i = oi.f(getContext(), R.dimen.tbds42);
+            this.h = mi.f(getContext(), R.dimen.tbds13);
+            this.i = mi.f(getContext(), R.dimen.tbds42);
             Paint paint2 = new Paint();
             this.j = paint2;
             paint2.setAntiAlias(true);
             this.j.setStyle(Paint.Style.FILL);
             this.j.setColor(SkinManager.getColor(R.color.transparent));
             this.k = 0;
-            this.m = oi.f(getContext(), R.dimen.tbds8);
-            int f = oi.f(getContext(), R.dimen.tbds3);
+            this.m = mi.f(getContext(), R.dimen.tbds8);
+            int f = mi.f(getContext(), R.dimen.tbds3);
             this.l = f;
             this.j.setShadowLayer(this.m, this.k, f, SkinManager.getColor(R.color.cp_cont_h_alpha66));
             this.n = new RectF();
-            this.p = oi.f(getContext(), R.dimen.tbds21);
-            this.q = oi.f(getContext(), R.dimen.tbds8);
-            this.r = oi.f(getContext(), R.dimen.tbds6);
+            this.p = mi.f(getContext(), R.dimen.tbds21);
+            this.q = mi.f(getContext(), R.dimen.tbds8);
+            this.r = mi.f(getContext(), R.dimen.tbds6);
             Paint paint3 = new Paint();
             this.s = paint3;
             paint3.setAntiAlias(true);
@@ -271,7 +259,7 @@ public class MessageRedDotView extends View {
             if (z) {
                 this.d = StringHelper.STRING_MORE;
                 i = R.drawable.icon_news_red_dot_three_dot_number;
-            } else if (ni.isEmpty(str)) {
+            } else if (li.isEmpty(str)) {
                 i = R.drawable.icon_news_red_dot;
                 this.d = null;
             } else {
@@ -325,7 +313,7 @@ public class MessageRedDotView extends View {
                 int intrinsicWidth = drawable.getIntrinsicWidth();
                 int intrinsicHeight = this.a.getIntrinsicHeight();
                 if (this.u) {
-                    this.a.setBounds(0, this.w, oi.f(getContext(), R.dimen.tbds4) + intrinsicWidth, oi.f(getContext(), R.dimen.tbds4) + intrinsicHeight + this.w);
+                    this.a.setBounds(0, this.w, mi.f(getContext(), R.dimen.tbds4) + intrinsicWidth, mi.f(getContext(), R.dimen.tbds4) + intrinsicHeight + this.w);
                 } else {
                     Drawable drawable2 = this.a;
                     int i = this.o;
@@ -345,7 +333,7 @@ public class MessageRedDotView extends View {
                         canvas.drawOval(this.n, this.j);
                     }
                 }
-                if (ni.isEmpty(this.d)) {
+                if (li.isEmpty(this.d)) {
                     return;
                 }
                 if (this.d.equals(StringHelper.STRING_MORE)) {
@@ -366,7 +354,7 @@ public class MessageRedDotView extends View {
                 if (this.u && this.z) {
                     int intrinsicWidth = drawable.getIntrinsicWidth();
                     int intrinsicHeight = this.a.getIntrinsicHeight();
-                    int f = oi.f(getContext(), R.dimen.tbds4);
+                    int f = mi.f(getContext(), R.dimen.tbds4);
                     setMeasuredDimension(intrinsicWidth + f, intrinsicHeight + f);
                     return;
                 }
@@ -425,7 +413,7 @@ public class MessageRedDotView extends View {
     public void setTextSize(@IdRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.f.setTextSize(oi.f(getContext(), i));
+            this.f.setTextSize(mi.f(getContext(), i));
         }
     }
 

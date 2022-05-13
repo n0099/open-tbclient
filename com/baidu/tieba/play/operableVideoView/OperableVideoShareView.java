@@ -29,10 +29,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fc5;
-import com.repackage.ni;
-import com.repackage.oi;
+import com.repackage.li;
+import com.repackage.mi;
 import com.repackage.u78;
+import com.repackage.wc5;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
@@ -80,7 +80,7 @@ public class OperableVideoShareView extends LinearLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || fc5.a()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || wc5.a()) {
                 return;
             }
             if (view2 == this.a.b) {
@@ -127,11 +127,11 @@ public class OperableVideoShareView extends LinearLayout {
             LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.h.getLayoutParams();
             LinearLayout.LayoutParams layoutParams5 = (LinearLayout.LayoutParams) this.i.getLayoutParams();
             if (z2 && !z) {
-                f = oi.f(getContext(), R.dimen.tbds72);
-                f2 = oi.f(getContext(), R.dimen.tbds52);
+                f = mi.f(getContext(), R.dimen.tbds72);
+                f2 = mi.f(getContext(), R.dimen.tbds52);
             } else {
-                f = oi.f(getContext(), R.dimen.tbds36);
-                f2 = oi.f(getContext(), R.dimen.tbds26);
+                f = mi.f(getContext(), R.dimen.tbds36);
+                f2 = mi.f(getContext(), R.dimen.tbds26);
             }
             layoutParams4.rightMargin = f2;
             layoutParams4.leftMargin = f2;
@@ -192,31 +192,31 @@ public class OperableVideoShareView extends LinearLayout {
     public int getLayoutR() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d064d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d0641 : invokeV.intValue;
     }
 
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             LinearLayout.inflate(getContext(), getLayoutR(), this);
-            this.b = findViewById(R.id.obfuscated_res_0x7f091cd4);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091cd5);
-            this.d = findViewById(R.id.obfuscated_res_0x7f091cd6);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091cd7);
-            this.f = findViewById(R.id.obfuscated_res_0x7f091cbd);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f091cbe);
-            this.h = findViewById(R.id.obfuscated_res_0x7f0907fd);
-            this.i = findViewById(R.id.obfuscated_res_0x7f09234f);
-            this.j = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a39);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091d2a);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d2b);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091d2c);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d2d);
+            this.f = findViewById(R.id.obfuscated_res_0x7f091d0f);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d10);
+            this.h = findViewById(R.id.obfuscated_res_0x7f0907f4);
+            this.i = findViewById(R.id.obfuscated_res_0x7f09239f);
+            this.j = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a87);
             this.b.setOnClickListener(this.m);
             this.d.setOnClickListener(this.m);
             this.f.setOnClickListener(this.m);
             setOnClickListener(this.m);
-            this.c.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f080826, 1, false));
-            this.e.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f080822, 1, false));
-            this.g.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f080823, 1, false));
-            this.j.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f08062d, R.color.CAM_X0105, null, false));
-            this.j.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(oi.f(getContext(), R.dimen.tbds52), getResources().getColor(R.color.CAM_X0622)));
+            this.c.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f080816, 1, false));
+            this.e.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f080812, 1, false));
+            this.g.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f080813, 1, false));
+            this.j.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f08061c, R.color.CAM_X0105, null, false));
+            this.j.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(mi.f(getContext(), R.dimen.tbds52), getResources().getColor(R.color.CAM_X0622)));
         }
     }
 
@@ -239,61 +239,61 @@ public class OperableVideoShareView extends LinearLayout {
         String f = f(this.k);
         Uri parse = f == null ? null : Uri.parse(f);
         String str2 = this.k.getAbstract();
-        String format = MessageFormat.format(getResources().getString(R.string.obfuscated_res_0x7f0f1116), title, str2);
+        String format = MessageFormat.format(getResources().getString(R.string.obfuscated_res_0x7f0f1131), title, str2);
         ShareItem shareItem = new ShareItem();
-        shareItem.r = title;
-        shareItem.s = format;
+        shareItem.t = title;
+        shareItem.u = format;
         if (!this.k.isUgcThreadType() && this.k.isRealVideoThread() && this.k.getThreadVideoInfo() != null) {
-            shareItem.R = this.k.getThreadVideoInfo().play_count.intValue();
+            shareItem.T = this.k.getThreadVideoInfo().play_count.intValue();
         }
-        shareItem.D = str2;
-        shareItem.t = str;
-        shareItem.o = this.l;
-        shareItem.q = tid;
-        shareItem.F = 3;
-        shareItem.G = this.k.isWorksInfo() ? 11 : 2;
+        shareItem.F = str2;
+        shareItem.v = str;
+        shareItem.q = this.l;
+        shareItem.s = tid;
+        shareItem.H = 3;
+        shareItem.I = this.k.isWorksInfo() ? 11 : 2;
         if (i == 3) {
-            shareItem.H = 1;
+            shareItem.J = 1;
         } else if (i == 2) {
-            shareItem.H = 2;
+            shareItem.J = 2;
         } else if (i == 8) {
-            shareItem.H = 3;
+            shareItem.J = 3;
         } else {
-            shareItem.H = 0;
+            shareItem.J = 0;
         }
-        shareItem.J = valueOf;
-        shareItem.p = forum_name;
-        shareItem.K = tid;
-        shareItem.L = this.k.getNid();
+        shareItem.L = valueOf;
+        shareItem.r = forum_name;
+        shareItem.M = tid;
+        shareItem.N = this.k.getNid();
         shareItem.h = true;
-        shareItem.E = 3;
-        shareItem.M = g(this.k);
+        shareItem.G = 3;
+        shareItem.O = g(this.k);
         if (parse != null) {
-            shareItem.v = parse;
+            shareItem.x = parse;
         }
-        shareItem.T = OriginalThreadInfo.ShareInfo.generateShareInfo(this.k);
-        shareItem.W = ShareItem.ForwardInfo.generateForwardInfo(this.k);
-        shareItem.I = 1;
+        shareItem.V = OriginalThreadInfo.ShareInfo.generateShareInfo(this.k);
+        shareItem.Y = ShareItem.ForwardInfo.generateForwardInfo(this.k);
+        shareItem.K = 1;
         TbadkCoreApplication.getInst().setShareItem(shareItem);
-        shareItem.k0 = this.k.getShareImageUrl();
+        shareItem.o0 = this.k.getShareImageUrl();
         Bundle bundle = new Bundle();
-        bundle.putString("tid", shareItem.K);
-        bundle.putString("fid", shareItem.J);
-        bundle.putInt("obj_type", shareItem.M);
-        bundle.putInt("obj_param1", shareItem.F);
-        bundle.putInt(TiebaStatic.Params.OBJ_PARAM2, shareItem.G);
-        bundle.putInt(TiebaStatic.Params.OBJ_PARAM3, shareItem.H);
-        bundle.putInt("obj_source", shareItem.o);
-        bundle.putInt("obj_locate", shareItem.I);
+        bundle.putString("tid", shareItem.M);
+        bundle.putString("fid", shareItem.L);
+        bundle.putInt("obj_type", shareItem.O);
+        bundle.putInt("obj_param1", shareItem.H);
+        bundle.putInt(TiebaStatic.Params.OBJ_PARAM2, shareItem.I);
+        bundle.putInt(TiebaStatic.Params.OBJ_PARAM3, shareItem.J);
+        bundle.putInt("obj_source", shareItem.q);
+        bundle.putInt("obj_locate", shareItem.K);
         shareItem.k(bundle);
         StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_CLICK);
-        statisticItem.param("tid", shareItem.K);
+        statisticItem.param("tid", shareItem.M);
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        statisticItem.param("fid", shareItem.J);
+        statisticItem.param("fid", shareItem.L);
         statisticItem.param("obj_locate", this.l);
-        statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, shareItem.H);
-        statisticItem.param("nid", shareItem.L);
-        if (!ni.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
+        statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, shareItem.J);
+        statisticItem.param("nid", shareItem.N);
+        if (!li.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
             statisticItem.param("obj_source", TbadkCoreApplication.getInst().getTaskId());
         }
         TiebaStatic.log(statisticItem);

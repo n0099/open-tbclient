@@ -17,8 +17,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vx4;
-import com.repackage.zx4;
+import com.repackage.jy4;
+import com.repackage.ny4;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class TbadkStatic {
@@ -26,7 +26,7 @@ public class TbadkStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static class a implements CustomMessageTask.CustomRunnable<vx4> {
+    public static class a implements CustomMessageTask.CustomRunnable<jy4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -46,10 +46,10 @@ public class TbadkStatic {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<vx4> run(CustomMessage<vx4> customMessage) {
+        public CustomResponsedMessage<jy4> run(CustomMessage<jy4> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2156675, new zx4()) : (CustomResponsedMessage) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2156675, new ny4()) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 

@@ -12,28 +12,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.o65;
-import com.repackage.on6;
-import com.repackage.pn6;
+import com.repackage.e75;
+import com.repackage.pm6;
+import com.repackage.qm6;
 /* loaded from: classes3.dex */
-public class FrsProfessionPermissionModel<T> extends NetAutoModel<on6, pn6, T> {
+public class FrsProfessionPermissionModel<T> extends NetAutoModel<pm6, qm6, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsProfessionPermissionModel(TbPageContext<T> tbPageContext, on6 on6Var) {
-        super(tbPageContext, on6Var);
+    public FrsProfessionPermissionModel(TbPageContext<T> tbPageContext, pm6 pm6Var) {
+        super(tbPageContext, pm6Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, on6Var};
+            Object[] objArr = {tbPageContext, pm6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (o65) objArr2[1]);
+                super((TbPageContext) objArr2[0], (e75) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -80,9 +80,9 @@ public class FrsProfessionPermissionModel<T> extends NetAutoModel<on6, pn6, T> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<pn6> getResponseDataClass() {
+    public Class<qm6> getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? pn6.class : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? qm6.class : (Class) invokeV.objValue;
     }
 }

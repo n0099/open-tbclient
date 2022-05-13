@@ -3,7 +3,6 @@ package com.baidu.ar.arplay.c;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,7 +41,7 @@ public class e {
                     return;
                 }
             }
-            fU = new a(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 0);
+            fU = new a("WIFI", 0);
             fV = new a("CMNET", 1);
             fW = new a("CMWAP", 2);
             a aVar = new a("NONE", 3);

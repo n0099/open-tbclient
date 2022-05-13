@@ -11,28 +11,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ja7;
-import com.repackage.ka7;
-import com.repackage.o65;
+import com.repackage.e75;
+import com.repackage.qa7;
+import com.repackage.ra7;
 /* loaded from: classes3.dex */
-public class ReplyMeNetModel extends NetAutoModel<ja7, ka7, ReplyMessageFragment> {
+public class ReplyMeNetModel extends NetAutoModel<qa7, ra7, ReplyMessageFragment> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ReplyMeNetModel(TbPageContext tbPageContext, ja7 ja7Var) {
-        super(tbPageContext, ja7Var);
+    public ReplyMeNetModel(TbPageContext tbPageContext, qa7 qa7Var) {
+        super(tbPageContext, qa7Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, ja7Var};
+            Object[] objArr = {tbPageContext, qa7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (o65) objArr2[1]);
+                super((TbPageContext) objArr2[0], (e75) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -79,9 +79,9 @@ public class ReplyMeNetModel extends NetAutoModel<ja7, ka7, ReplyMessageFragment
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<ka7> getResponseDataClass() {
+    public Class<ra7> getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ka7.class : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ra7.class : (Class) invokeV.objValue;
     }
 }

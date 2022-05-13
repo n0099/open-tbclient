@@ -1,15 +1,22 @@
 package com.repackage;
 
-import android.util.Base64;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
 /* loaded from: classes6.dex */
-public class ex3 implements vx3 {
+public class ex3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @V8JavascriptField
+    public fx3[] changedTouches;
+    @V8JavascriptField
+    public long timeStamp;
+    @V8JavascriptField
+    public fx3[] touches;
 
     public ex3() {
         Interceptable interceptable = $ic;
@@ -25,28 +32,12 @@ public class ex3 implements vx3 {
         }
     }
 
-    @Override // com.repackage.vx3
-    public byte[] a(String str, byte[] bArr) {
-        InterceptResult invokeLL;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bArr)) == null) {
-            if (str == null || bArr == null) {
-                return bArr;
-            }
-            char c = 65535;
-            int hashCode = str.hashCode();
-            if (hashCode != 76158) {
-                if (hashCode == 1952093519 && str.equals("BASE64")) {
-                    c = 1;
-                }
-            } else if (str.equals("MD5")) {
-                c = 0;
-            }
-            if (c != 0) {
-                return c != 1 ? bArr : Base64.encode(bArr, 2);
-            }
-            return og4.d(bArr, false).getBytes();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "SwanGameTouchData{touches=" + Arrays.toString(this.touches) + ", changedTouches=" + Arrays.toString(this.changedTouches) + ", timeStamp=" + this.timeStamp + '}';
         }
-        return (byte[]) invokeLL.objValue;
+        return (String) invokeV.objValue;
     }
 }

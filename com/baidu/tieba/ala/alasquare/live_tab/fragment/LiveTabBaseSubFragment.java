@@ -14,15 +14,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.h45;
-import com.repackage.ni;
+import com.repackage.li;
+import com.repackage.y45;
 /* loaded from: classes3.dex */
 public abstract class LiveTabBaseSubFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public LinearLayout b;
-    public h45 c;
+    public y45 c;
     public boolean d;
     public boolean e;
     public int f;
@@ -86,14 +86,14 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         this.i = new a(this, 2921442);
     }
 
-    public void B0() {
+    public void C0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.b.setVisibility(8);
         }
     }
 
-    public void C0() {
+    public void D0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921441, Boolean.FALSE));
@@ -101,15 +101,15 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         }
     }
 
-    public boolean D0() {
+    public boolean E0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (ni.isEmpty(this.g) || ni.isEmpty(this.h)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (li.isEmpty(this.g) || li.isEmpty(this.h)) ? false : true : invokeV.booleanValue;
     }
 
-    public abstract void E0();
+    public abstract void F0();
 
-    public void F0(String str, String str2) {
+    public void G0(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
             this.g = str;
@@ -117,16 +117,16 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         }
     }
 
-    public void G0() {
+    public void H0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.b.setVisibility(0);
             if (this.c == null) {
-                this.c = new h45(this.a, null);
+                this.c = new y45(this.a, null);
             }
             this.c.e();
             this.c.i(R.drawable.new_pic_emotion_03);
-            this.c.o(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c2e));
+            this.c.o(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c44));
             this.c.onChangeSkinType();
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
             if (this.c.b() == null || this.c.b().getParent() != null) {
@@ -136,18 +136,18 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         }
     }
 
-    public abstract void loadData();
+    public abstract void l();
 
-    public abstract void m();
+    public abstract void loadData();
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             super.onChangeSkinType(i);
-            h45 h45Var = this.c;
-            if (h45Var != null) {
-                h45Var.onChangeSkinType();
+            y45 y45Var = this.c;
+            if (y45Var != null) {
+                y45Var.onChangeSkinType();
             }
         }
     }

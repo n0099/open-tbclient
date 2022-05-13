@@ -1,47 +1,46 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
-import android.widget.ScrollView;
+import android.text.InputFilter;
+import android.text.Spanned;
+import android.text.TextUtils;
+import android.widget.EditText;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.switchs.LimitLowQualityPicUploadSwitch;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
-public class jz8 extends PopupWindow {
+public class jz8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public a b;
-    public int c;
-    public LinearLayout d;
-    public Context e;
-    public int f;
 
     /* loaded from: classes6.dex */
-    public interface a {
-        void onPrefixItemClick(int i);
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements View.OnClickListener {
+    public static class a implements InputFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public a b;
+        public c a;
+        public int b;
+        public String c;
 
-        public b(int i, a aVar) {
+        public a(int i, c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), aVar};
+                Object[] objArr = {Integer.valueOf(i), cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -51,120 +50,176 @@ public class jz8 extends PopupWindow {
                     return;
                 }
             }
-            this.a = i;
-            this.b = aVar;
+            this.c = "[^a-zA-Z0-9一-龥]";
+            this.b = i;
+            this.a = cVar;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            a aVar;
+        public final String a(String str, String str2) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (aVar = this.b) == null) {
-                return;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? str2.replaceAll(str, "") : (String) invokeLL.objValue;
+        }
+
+        @Override // android.text.InputFilter
+        public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), spanned, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+                if (spanned == null || charSequence == null) {
+                    return charSequence;
+                }
+                String a = a(this.c, charSequence.toString());
+                int b = xd5.b(spanned.toString()) - (i4 - i3);
+                int b2 = xd5.b(a);
+                int i5 = this.b;
+                int i6 = i5 - b;
+                if (b + b2 > i5) {
+                    c cVar = this.a;
+                    if (cVar != null) {
+                        cVar.a();
+                    }
+                    return StringHelper.cutChineseAndEnglishWithSuffix(a, i6, "");
+                }
+                return a;
             }
-            aVar.onPrefixItemClick(this.a);
+            return (CharSequence) invokeCommon.objValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jz8(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
+    /* loaded from: classes6.dex */
+    public static class b implements InputFilter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public c a;
+        public EditText b;
+        public int c;
+
+        public b(EditText editText, int i, c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {editText, Integer.valueOf(i), cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = editText;
+            this.c = i;
+            this.a = cVar;
+        }
+
+        @Override // android.text.InputFilter
+        public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), spanned, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+                if (spanned == null || charSequence == null || " ".equals(charSequence)) {
+                    return charSequence;
+                }
+                int c = xd5.c(spanned.toString()) - (i4 - i3);
+                int c2 = xd5.c(charSequence.toString());
+                if (TextUtils.isEmpty(this.b.getText()) || (c + c2) - xd5.j(this.b.getText().toString()) <= this.c) {
+                    return charSequence;
+                }
+                c cVar = this.a;
+                if (cVar != null) {
+                    cVar.a();
+                }
+                return "";
+            }
+            return (CharSequence) invokeCommon.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface c {
+        void a();
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755571255, "Lcom/repackage/jz8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755571255, "Lcom/repackage/jz8;");
+        }
+    }
+
+    public static boolean a(ImageFileInfo imageFileInfo) {
+        InterceptResult invokeL;
+        String filePath;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, imageFileInfo)) == null) {
+            if (!LimitLowQualityPicUploadSwitch.isOff() && imageFileInfo != null && !imageFileInfo.isGif() && (filePath = imageFileInfo.getFilePath()) != null) {
+                long fileSize = FileHelper.getFileSize(filePath);
+                if (fileSize < 5120) {
+                    e(1, "" + fileSize);
+                    return true;
+                }
+                int[] imageFileWH = FileHelper.getImageFileWH(filePath);
+                if (imageFileWH[0] < 100 || imageFileWH[1] < 100) {
+                    e(2, imageFileWH[0] + "*" + imageFileWH[1]);
+                    return true;
+                }
             }
+            return false;
         }
-        this.a = -1;
-        this.e = context;
-        b(context);
+        return invokeL.booleanValue;
     }
 
-    public void a(View view2) {
+    public static boolean b(ImageFileInfo imageFileInfo) {
+        InterceptResult invokeL;
+        String filePath;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            view2.setOnClickListener(new b(this.c, this.b));
-            this.d.addView(view2);
-            this.c++;
-        }
-    }
-
-    public final void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            ScrollView scrollView = new ScrollView(context);
-            scrollView.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
-            LinearLayout linearLayout = new LinearLayout(context);
-            this.d = linearLayout;
-            linearLayout.setOrientation(1);
-            this.d.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            scrollView.addView(this.d);
-            scrollView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-            scrollView.setPadding(0, 0, oi.d(context, 1.0f), oi.d(context, 1.0f));
-            scrollView.setFadingEdgeLength(0);
-            scrollView.setScrollbarFadingEnabled(false);
-            try {
-                Method declaredMethod = scrollView.getClass().getDeclaredMethod("setOverScrollMode", Integer.TYPE);
-                declaredMethod.setAccessible(true);
-                declaredMethod.invoke(scrollView, 2);
-            } catch (Exception unused) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, imageFileInfo)) == null) {
+            int l = iu4.k().l("key_upload_pic_max_width", 0);
+            int l2 = iu4.k().l("key_upload_pic_max_height", 0);
+            if (l <= 0 || l2 <= 0 || imageFileInfo == null || imageFileInfo.isGif() || (filePath = imageFileInfo.getFilePath()) == null) {
+                return false;
             }
-            setContentView(scrollView);
+            int[] imageFileWH = FileHelper.getImageFileWH(filePath);
+            return imageFileWH[0] >= l || imageFileWH[1] >= l2;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? iu4.k().l("show_write_title_tip_count", 0) : invokeV.intValue;
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? UbsABTestHelper.isShowWriteTitleTest() : invokeV.booleanValue;
+    }
+
+    public static void e(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65541, null, i, str) == null) {
+            TiebaStatic.log(new StatisticItem("c14021").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", i).param("obj_param1", str));
         }
     }
 
-    public void c(int i) {
+    public static void f(WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            int i2 = this.a;
-            if (i2 != -1) {
-                this.d.getChildAt(i2).setSelected(false);
-            }
-            this.a = i;
-            this.d.getChildAt(i).setSelected(true);
+        if (!(interceptable == null || interceptable.invokeL(65542, null, writeData) == null) || writeData == null || !d() || TextUtils.isEmpty(writeData.getTitle())) {
+            return;
         }
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public void e(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.b = aVar;
-        }
-    }
-
-    @Override // android.widget.PopupWindow
-    public void showAsDropDown(View view2, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048581, this, view2, i, i2) == null) {
-            getContentView().measure(View.MeasureSpec.makeMeasureSpec(this.e.getResources().getDisplayMetrics().widthPixels, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(this.e.getResources().getDisplayMetrics().heightPixels, Integer.MIN_VALUE));
-            int measuredWidth = getContentView().getMeasuredWidth();
-            if (measuredWidth < view2.getWidth()) {
-                measuredWidth = view2.getWidth();
-            }
-            int measuredHeight = getContentView().getMeasuredHeight();
-            int i3 = this.f;
-            if (measuredHeight > i3) {
-                measuredHeight = i3;
-            }
-            setWidth(measuredWidth);
-            setHeight(measuredHeight);
-            super.showAsDropDown(view2, i, i2);
-        }
+        iu4.k().w("show_write_title_tip_count", c() + 1);
     }
 }

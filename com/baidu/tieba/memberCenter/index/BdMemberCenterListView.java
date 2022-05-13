@@ -117,7 +117,7 @@ public class BdMemberCenterListView extends BdTypeListView {
         this.J = context;
         this.K = new Scroller(this.J);
         this.S = ViewConfiguration.get(context).getScaledTouchSlop();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400c5, R.attr.obfuscated_res_0x7f04025c});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400c7, R.attr.obfuscated_res_0x7f04025f});
         this.T = obtainStyledAttributes.getDimensionPixelSize(V, 0);
         obtainStyledAttributes.recycle();
     }

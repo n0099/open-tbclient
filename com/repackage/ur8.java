@@ -1,32 +1,47 @@
 package com.repackage;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tieba.video.SendVideoSuccessShareModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
-import tbclient.BlockPopInfo;
 /* loaded from: classes7.dex */
 public class ur8 {
     public static /* synthetic */ Interceptable $ic;
-    public static BlockPopInfo c;
-    public static BlockPopInfo d;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public CustomMessageListener b;
+    public View a;
+    public Context b;
+    public View c;
+    public TextView d;
+    public ImageView e;
+    public boolean f;
+    public PostWriteCallBackData g;
+    public TextView h;
+    public SendVideoSuccessShareModel i;
 
     /* loaded from: classes7.dex */
-    public class a implements cr4.e {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ur8 a;
 
         public a(ur8 ur8Var) {
             Interceptable interceptable = $ic;
@@ -40,32 +55,74 @@ public class ur8 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = ur8Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.f) {
+                this.a.f();
+                if (this.a.g == null || StringUtils.isNull(this.a.g.buildVideoFakeOnWallUrl())) {
+                    return;
+                }
+                fm4.n(this.a.b, null, this.a.g.buildVideoFakeOnWallUrl());
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements cr4.e {
+    public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ BlockPopInfo a;
-        public final /* synthetic */ ur8 b;
+        public final /* synthetic */ ur8 a;
 
-        public b(ur8 ur8Var, BlockPopInfo blockPopInfo) {
+        /* loaded from: classes7.dex */
+        public class a extends a9 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            @Override // com.repackage.a9
+            public void c(Object obj) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+                    ShareItem shareItem = new ShareItem();
+                    shareItem.j0 = false;
+                    shareItem.V = OriginalThreadInfo.ShareInfo.generateShareInfo((OriginalThreadInfo) obj);
+                    pz5.c().l(new ShareDialogConfig(this.a.a.b, shareItem, true, true));
+                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("uid", TbadkCoreApplication.getCurrentAccount()).param(TiebaStatic.Params.OBJ_PARAM2, 1).param(TiebaStatic.Params.OBJ_PARAM3, 1));
+                }
+            }
+        }
+
+        public b(ur8 ur8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ur8Var, blockPopInfo};
+                Object[] objArr = {ur8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -75,62 +132,62 @@ public class ur8 {
                     return;
                 }
             }
-            this.b = ur8Var;
-            this.a = blockPopInfo;
+            this.a = ur8Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                this.b.e(this.a);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.f();
+                if (this.a.g == null || StringUtils.isNull(this.a.g.getVideoid())) {
+                    return;
+                }
+                this.a.i.A(this.a.g.getVideoid());
+                this.a.i.setLoadDataCallBack(new a(this));
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class c extends CustomMessageListener {
+    public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ur8 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(ur8 ur8Var, int i) {
-            super(i);
+        public c(ur8 ur8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ur8Var, Integer.valueOf(i)};
+                Object[] objArr = {ur8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.a = ur8Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
-                return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.f();
             }
-            ur8.g(null);
-            ur8.f(null);
         }
     }
 
-    public ur8(TbPageContext tbPageContext) {
+    public ur8(Context context, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {context, viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -140,83 +197,67 @@ public class ur8 {
                 return;
             }
         }
-        c cVar = new c(this, 2005016);
-        this.b = cVar;
-        this.a = tbPageContext;
-        tbPageContext.registerListener(cVar);
-    }
-
-    public static void f(BlockPopInfo blockPopInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, blockPopInfo) == null) {
-            d = blockPopInfo;
-        }
-    }
-
-    public static void g(BlockPopInfo blockPopInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, blockPopInfo) == null) {
-            c = blockPopInfo;
-        }
-    }
-
-    public final boolean b(BlockPopInfo blockPopInfo) {
-        InterceptResult invokeL;
-        Integer num;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, blockPopInfo)) == null) {
-            if (blockPopInfo != null && (num = blockPopInfo.appeal_status) != null && num.intValue() == 1) {
-                BdToast.h(this.a.getPageActivity(), blockPopInfo.appeal_msg, R.drawable.obfuscated_res_0x7f0809a9, 3000, false).q();
-                return true;
-            } else if (blockPopInfo == null || blockPopInfo.can_post.intValue() != 0 || (!(blockPopInfo.ahead_type.intValue() == 1 || blockPopInfo.ahead_type.intValue() == 2) || blockPopInfo.appeal_status.intValue() == 1)) {
-                return false;
-            } else {
-                if (blockPopInfo.ahead_type.intValue() == 1) {
-                    String str = blockPopInfo.block_info;
-                    String str2 = blockPopInfo.ok_info;
-                    if (!ni.isEmpty(str) && !ni.isEmpty(str2)) {
-                        h(blockPopInfo);
-                    } else {
-                        BdToast.h(this.a.getPageActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0804), R.drawable.obfuscated_res_0x7f0809a9, 3000, false).q();
-                    }
-                } else if (blockPopInfo.ahead_type.intValue() == 2) {
-                    e(blockPopInfo);
-                }
-                return true;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b(d) : invokeV.booleanValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? b(c) : invokeV.booleanValue;
-    }
-
-    public final void e(BlockPopInfo blockPopInfo) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, blockPopInfo) == null) || blockPopInfo == null) {
+        this.b = context;
+        this.c = viewGroup;
+        this.i = new SendVideoSuccessShareModel();
+        if (this.b == null || this.c == null) {
             return;
         }
-        AntiHelper.p(this.a.getPageActivity(), blockPopInfo.ahead_url);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0756, (ViewGroup) null);
+        this.a = inflate;
+        this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091e23);
+        this.e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092338);
+        this.h = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0923a4);
+        ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(-1, mi.f(context, R.dimen.obfuscated_res_0x7f0701aa));
+        if (this.a.getParent() == null) {
+            viewGroup.addView(this.a, layoutParams);
+        }
+        this.a.setVisibility(8);
+        this.a.setOnClickListener(new a(this));
+        this.h.setOnClickListener(new b(this));
     }
 
-    public final void h(BlockPopInfo blockPopInfo) {
+    public void e() {
+        SendVideoSuccessShareModel sendVideoSuccessShareModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, blockPopInfo) == null) || blockPopInfo == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (sendVideoSuccessShareModel = this.i) == null) {
             return;
         }
-        cr4 cr4Var = new cr4(this.a.getPageActivity());
-        cr4Var.setMessage(blockPopInfo.block_info);
-        cr4Var.setNegativeButton(blockPopInfo.ok_info, new a(this));
-        cr4Var.setPositiveButton(blockPopInfo.ahead_info, new b(this, blockPopInfo));
-        cr4Var.create(this.a).show();
+        sendVideoSuccessShareModel.cancelLoadData();
+    }
+
+    public void f() {
+        View view2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (view2 = this.a) == null) {
+            return;
+        }
+        view2.setVisibility(8);
+    }
+
+    public void g(PostWriteCallBackData postWriteCallBackData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, postWriteCallBackData) == null) || postWriteCallBackData == null) {
+            return;
+        }
+        this.g = postWriteCallBackData;
+        this.f = postWriteCallBackData.mVideoTitleData != null;
+        View view2 = this.a;
+        if (view2 == null || this.d == null || this.e == null || this.h == null) {
+            return;
+        }
+        SkinManager.setBackgroundColor(view2, R.color.CAM_X0302);
+        SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
+        SkinManager.setImageResource(this.e, R.drawable.icon_arrow_more_white);
+        SkinManager.setBackgroundResource(this.h, R.drawable.immediately_share_background);
+        this.a.setVisibility(0);
+        this.a.postDelayed(new c(this), 5000L);
+        if (this.f) {
+            this.d.setText(R.string.obfuscated_res_0x7f0f14f0);
+        } else if (!StringUtils.isNull(postWriteCallBackData.getErrorString())) {
+            this.d.setText(postWriteCallBackData.getErrorString());
+        } else {
+            this.a.setVisibility(8);
+        }
     }
 }

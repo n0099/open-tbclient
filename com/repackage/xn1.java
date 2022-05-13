@@ -1,101 +1,229 @@
 package com.repackage;
 
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import okhttp3.Response;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class xn1 {
+public class xn1 extends wn1 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static final xn1 b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755165930, "Lcom/repackage/xn1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class a extends ResponseCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ CallbackHandler c;
+        public final /* synthetic */ xn1 d;
+
+        public a(xn1 xn1Var, String str, String str2, CallbackHandler callbackHandler) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xn1Var, str, str2, callbackHandler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755165930, "Lcom/repackage/xn1;");
-                return;
+            this.d = xn1Var;
+            this.a = str;
+            this.b = str2;
+            this.c = callbackHandler;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                xn1 xn1Var = this.d;
+                CallbackHandler callbackHandler = this.c;
+                String str = this.b;
+                xn1Var.r(callbackHandler, str, null, "downloadFile:fail" + exc.getMessage());
             }
         }
-        b = new xn1();
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(Object obj, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
+            }
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public Object parseResponse(Response response, int i) {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
+                this.d.s(response, this.a, this.b, this.c);
+                return response;
+            }
+            return invokeLI.objValue;
+        }
     }
 
-    public xn1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xn1(r13 r13Var) {
+        super(r13Var, "/swanAPI/cloudDownloadFile");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {r13Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((r13) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public final String a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.wn1, com.repackage.r23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u03 u03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = a;
-            if (str == null || StringsKt__StringsJVMKt.isBlank(str)) {
-                a = b();
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, u03Var)) == null) ? super.d(context, unitedSchemeEntity, callbackHandler, u03Var) : invokeLLLL.booleanValue;
+    }
+
+    @Override // com.repackage.wn1
+    public void j(Response response, CallbackHandler callbackHandler, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, callbackHandler, str) == null) {
+            if (!response.isSuccessful()) {
+                k(callbackHandler, str, 1001, "downloadFile:fail");
+                return;
             }
-            return a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            r83 a2 = x83.a();
-            if (a2 != null) {
-                return a2.getString("alliance_login_uk", null);
+            String header = response.header("Content-Type", "");
+            if (header != null && header.contains("application/json")) {
+                JSONObject m = un1.m(response);
+                if (m != null && response.isSuccessful()) {
+                    String optString = m.optString("errno", String.valueOf(0));
+                    String optString2 = m.optString("errmsg");
+                    if (un1.o(optString)) {
+                        r(callbackHandler, str, optString, optString2);
+                        return;
+                    }
+                    String optString3 = m.optString("DownloadUrl");
+                    if (TextUtils.isEmpty(optString3)) {
+                        r(callbackHandler, str, optString, optString2);
+                        return;
+                    } else {
+                        p(optString3, callbackHandler, str);
+                        return;
+                    }
+                }
+                k(callbackHandler, str, 1001, "downloadFile:fail");
+                return;
             }
-            return null;
+            k(callbackHandler, str, 1001, "downloadFile:fail");
         }
-        return (String) invokeV.objValue;
     }
 
-    public final void c(int i, JSONObject jsonObject) {
+    public void p(String str, CallbackHandler callbackHandler, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, jsonObject) == null) {
-            Intrinsics.checkNotNullParameter(jsonObject, "jsonObject");
-            if (i == 0) {
-                e(jsonObject);
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, callbackHandler, str2) == null) {
+            if (u03.L() == null) {
+                r(callbackHandler, str2, null, null);
+            } else {
+                q(str, str2, callbackHandler);
             }
         }
     }
 
-    public final void d() {
+    public final void q(String str, String str2, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            x83.a().putString("alliance_login_uk", "");
-            a = null;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, callbackHandler) == null) {
+            v74 v74Var = new v74(str, new a(this, str, str2, callbackHandler));
+            v74Var.f = true;
+            v74Var.g = false;
+            v74Var.h = true;
+            w74.g().d(v74Var);
         }
     }
 
-    public final void e(JSONObject jSONObject) {
+    public final void r(CallbackHandler callbackHandler, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
-            x83.a().putString("alliance_login_uk", jSONObject.optString("uk"));
+        if (interceptable == null || interceptable.invokeLLLL(1048580, this, callbackHandler, str, str2, str3) == null) {
+            if (TextUtils.isEmpty(str2)) {
+                k(callbackHandler, str, 1001, "downloadFile:fail");
+            } else {
+                k(callbackHandler, str, 1001, un1.k(str3));
+            }
         }
+    }
+
+    public final void s(Response response, String str, String str2, CallbackHandler callbackHandler) {
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048581, this, response, str, str2, callbackHandler) == null) {
+            if (!response.isSuccessful()) {
+                r(callbackHandler, str2, null, "downloadFile:fail");
+                return;
+            }
+            try {
+                str3 = x13.A(wr2.s(response.headers()), xg4.t(str));
+            } catch (JSONException e) {
+                e.printStackTrace();
+                str3 = null;
+            }
+            if (TextUtils.isEmpty(str3)) {
+                r(callbackHandler, str2, null, null);
+                return;
+            }
+            String g = hm2.U().G().g(str3);
+            if (TextUtils.isEmpty(g)) {
+                r(callbackHandler, str2, null, null);
+            } else if (t(response, str3)) {
+                m(callbackHandler, str2, un1.n(null, g, "downloadFile:ok"));
+            } else {
+                r(callbackHandler, str2, null, null);
+            }
+        }
+    }
+
+    public boolean t(Response response, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, response, str)) == null) {
+            InputStream byteStream = response.body() != null ? response.body().byteStream() : null;
+            File file = new File(str);
+            if (file.exists()) {
+                file.delete();
+                try {
+                    file.createNewFile();
+                } catch (IOException e) {
+                    if (wn1.c) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            return ah4.a(byteStream, file);
+        }
+        return invokeLL.booleanValue;
     }
 }

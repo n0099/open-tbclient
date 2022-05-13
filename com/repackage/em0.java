@@ -10,7 +10,7 @@ public class em0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject(force = false)
-    public tb1<cm0> a;
+    public ec1<cm0> a;
 
     public em0() {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class em0 {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            rb1 b = rb1.b();
+            cc1 b = cc1.b();
             this.a = b;
             b.a(new dm0());
         }

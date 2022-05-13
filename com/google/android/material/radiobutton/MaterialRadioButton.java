@@ -77,8 +77,8 @@ public class MaterialRadioButton extends AppCompatRadioButton {
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             if (this.materialThemeColorsTintList == null) {
                 int color = MaterialColors.getColor(this, R.attr.colorControlActivated);
-                int color2 = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f040167);
-                int color3 = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f04016e);
+                int color2 = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f04016a);
+                int color3 = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f040171);
                 int[] iArr = new int[ENABLED_CHECKED_STATES.length];
                 iArr[0] = MaterialColors.layer(color3, color, 1.0f);
                 iArr[1] = MaterialColors.layer(color3, color2, 0.54f);
@@ -161,7 +161,7 @@ public class MaterialRadioButton extends AppCompatRadioButton {
             }
         }
         Context context2 = getContext();
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.obfuscated_res_0x7f040118, R.attr.obfuscated_res_0x7f0406af}, i, obfuscated_res_0x7f10035b, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.obfuscated_res_0x7f04011b, R.attr.obfuscated_res_0x7f0406b7}, i, obfuscated_res_0x7f10035b, new int[0]);
         if (obtainStyledAttributes.hasValue(0)) {
             CompoundButtonCompat.setButtonTintList(this, MaterialResources.getColorStateList(context2, obtainStyledAttributes, 0));
         }

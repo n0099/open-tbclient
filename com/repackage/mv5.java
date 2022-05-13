@@ -2,12 +2,11 @@ package com.repackage;
 
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,12 +14,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class mv5 extends tw5<cu5> {
+public class mv5 extends uw5<hu5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView i;
-    public TextView j;
-    public String k;
+    public ProgressBar j;
+    public FrameLayout k;
+    public TextView l;
+    public TextView m;
+    public TextView n;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public mv5(TbPageContext<?> tbPageContext) {
@@ -43,19 +45,17 @@ public class mv5 extends tw5<cu5> {
         s(k());
     }
 
-    @Override // com.repackage.tw5
+    @Override // com.repackage.uw5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d010a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0104 : invokeV.intValue;
     }
 
-    @Override // com.repackage.tw5
+    @Override // com.repackage.uw5
     public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            SkinManager.setViewTextColor(this.i, (int) R.color.common_color_10106);
-            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0302);
         }
     }
 
@@ -63,42 +63,59 @@ public class mv5 extends tw5<cu5> {
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-            if (!TextUtils.isEmpty(this.k)) {
-                UtilHelper.copyToClipBoard(this.k);
-            }
-            BdToast c = BdToast.c(getContext(), getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0231));
-            c.j(17);
-            c.q();
         }
     }
 
     public final void s(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090220);
-            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09021f);
-            this.j = textView;
-            textView.setOnClickListener(this);
+            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090200);
+            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09123d);
+            this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09123e);
+            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090217);
+            this.j = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f090201);
+            this.k = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091241);
+            k().setOnClickListener(this);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.tw5
+    @Override // com.repackage.uw5
     /* renamed from: t */
-    public void l(cu5 cu5Var) {
+    public void l(hu5 hu5Var) {
+        eu5 e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, cu5Var) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, hu5Var) == null) || (e = hu5Var.e()) == null || e.b() == null) {
+            return;
         }
-    }
-
-    public void u(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.k = str;
-            TextView textView = this.i;
-            if (textView != null) {
-                textView.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0233) + str);
-            }
+        String str = "LV." + e.b().yy_level_id;
+        if (!TextUtils.isEmpty(e.b().yy_level_name)) {
+            str = e.b().yy_level_name + str;
+            this.m.setText(e.b().yy_level_name);
         }
+        this.i.setText(str);
+        if (e.b().yy_levelup_exp <= e.b().yy_level_exp) {
+            this.m.setVisibility(8);
+            this.n.setVisibility(8);
+            this.l.setVisibility(8);
+            this.j.setVisibility(8);
+            return;
+        }
+        if (!TextUtils.isEmpty(e.b().yy_level_next_name)) {
+            this.n.setText(e.b().yy_level_next_name);
+        }
+        long j = e.b().yy_levelup_exp;
+        long j2 = e.b().yy_level_exp;
+        this.j.setMax((int) j);
+        this.j.setProgress((int) j2);
+        if (TextUtils.isEmpty(e.b().yy_level_next_name) || e.b().yy_levelup_exp <= e.b().yy_level_exp) {
+            return;
+        }
+        String string = this.b.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f021c);
+        int i = (int) ((((float) (e.b().yy_levelup_exp - e.b().yy_level_exp)) * 100.0f) / ((float) e.b().yy_levelup_exp));
+        if (i <= 0) {
+            i = 1;
+        }
+        this.l.setText(String.format(string, e.b().yy_level_next_name, i + "%"));
     }
 }

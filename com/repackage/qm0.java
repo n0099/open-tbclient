@@ -6,12 +6,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface qm0 {
     public static final ServiceReference a = new ServiceReference("nad.core", "loadImage");
     public static final qm0 b = new a();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a implements qm0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

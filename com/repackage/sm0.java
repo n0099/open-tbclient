@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 @Service
 /* loaded from: classes7.dex */
-public class sm0 extends rh0 {
+public class sm0 extends uh0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,23 +34,23 @@ public class sm0 extends rh0 {
         }
     }
 
-    @Override // com.repackage.rh0
+    @Override // com.repackage.uh0
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "max" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.rh0
-    public boolean b(@NonNull Context context, @NonNull vh0 vh0Var, @Nullable Map<String, Object> map, @Nullable zh0 zh0Var) {
+    @Override // com.repackage.uh0
+    public boolean b(@NonNull Context context, @NonNull yh0 yh0Var, @Nullable Map<String, Object> map, @Nullable ci0 ci0Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, vh0Var, map, zh0Var)) == null) {
-            super.b(context, vh0Var, map, zh0Var);
-            HashMap<String, String> d = vh0Var.d();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, yh0Var, map, ci0Var)) == null) {
+            super.b(context, yh0Var, map, ci0Var);
+            HashMap<String, String> d = yh0Var.d();
             Intent intent = new Intent(context, ImmersiveVideoDetailActivity.class);
             intent.putExtra("map", d);
-            return x01.c(context, intent);
+            return g11.c(context, intent);
         }
         return invokeLLLL.booleanValue;
     }

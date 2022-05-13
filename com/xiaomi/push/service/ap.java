@@ -46,7 +46,7 @@ public class ap {
                 try {
                     return Settings.Global.getInt(contentResolver, "user_aggregate", 0);
                 } catch (Exception e) {
-                    com.xiaomi.channel.commonutils.logger.b.m108a("get user aggregate failed, " + e);
+                    com.xiaomi.channel.commonutils.logger.b.m109a("get user aggregate failed, " + e);
                 }
             }
             return 0;
@@ -108,7 +108,7 @@ public class ap {
                             break;
                         }
                     } catch (Exception e) {
-                        com.xiaomi.channel.commonutils.logger.b.m108a("not found xm browser:" + e);
+                        com.xiaomi.channel.commonutils.logger.b.m109a("not found xm browser:" + e);
                     }
                 }
                 i++;
@@ -137,7 +137,7 @@ public class ap {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m636a(ContentResolver contentResolver) {
+    public static boolean m637a(ContentResolver contentResolver) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, contentResolver)) == null) {

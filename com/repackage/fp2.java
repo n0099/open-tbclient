@@ -1,10 +1,8 @@
 package com.repackage;
 
-import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,14 +11,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class fp2 extends lp2 {
+public class fp2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public String g;
 
     static {
         InterceptResult invokeClinit;
@@ -35,69 +37,173 @@ public class fp2 extends lp2 {
                 return;
             }
         }
-        b = tg1.a;
+        boolean z = eh1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fp2(String str) {
-        super(str);
+    public fp2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = 60000;
+        this.b = "aac";
+        this.c = 1;
+        this.d = 8000;
+        this.e = 16000;
+        this.f = 1;
     }
 
-    @Override // com.repackage.lp2
-    public boolean a(bp2 bp2Var, dp2 dp2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j03 j03Var) {
-        InterceptResult invokeCommon;
+    public static fp2 a(JSONObject jSONObject, fp2 fp2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{bp2Var, dp2Var, context, unitedSchemeEntity, callbackHandler, j03Var})) == null) {
-            jx1.i("video", "fullscreen, video id:" + dp2Var.j + " slave id: " + dp2Var.c);
-            e(bp2Var, dp2Var.s, unitedSchemeEntity, callbackHandler);
-            return true;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public final int d(HashMap<String, String> hashMap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap)) == null) {
-            String str = hashMap.get("params");
-            if (TextUtils.isEmpty(str)) {
-                return -1;
-            }
-            try {
-                return new JSONObject(str).optInt("direction", -1);
-            } catch (JSONException e) {
-                if (b) {
-                    e.printStackTrace();
-                    return -1;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, fp2Var)) == null) {
+            if (jSONObject != null && jSONObject.length() > 0) {
+                fp2Var = new fp2();
+                fp2Var.a = jSONObject.optInt("duration", 60000);
+                String optString = jSONObject.optString("format");
+                fp2Var.b = optString;
+                if (TextUtils.isEmpty(optString)) {
+                    fp2Var.b = "aac";
                 }
-                return -1;
+                fp2Var.c = jSONObject.optInt("numberOfChannels", 1);
+                fp2Var.d = jSONObject.optInt("sampleRate", 8000);
+                int optInt = jSONObject.optInt("encodeBitRate");
+                fp2Var.e = optInt;
+                if (optInt == 0) {
+                    int i = fp2Var.d;
+                    if (i == 8000) {
+                        fp2Var.e = 16000;
+                    } else if (i == 16000) {
+                        fp2Var.e = 24000;
+                    } else if (i == 44100) {
+                        fp2Var.e = 64000;
+                    }
+                }
+                fp2Var.f = b(jSONObject.optString("audioSource", "auto"));
+                fp2Var.g = jSONObject.optString("cb");
             }
+            return fp2Var;
+        }
+        return (fp2) invokeLL.objValue;
+    }
+
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public static int b(String str) {
+        InterceptResult invokeL;
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            switch (str.hashCode()) {
+                case -401509030:
+                    if (str.equals(BdUploadHandler.MEDIA_SOURCE_VALUE_CAMCORDER)) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 108103:
+                    if (str.equals("mic")) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 3005871:
+                    if (str.equals("auto")) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1059882026:
+                    if (str.equals("voice_recognition")) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1611170697:
+                    if (str.equals("voice_communication")) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
+            }
+            if (c == 0 || c == 1) {
+                return 1;
+            }
+            if (c != 2) {
+                if (c != 3) {
+                    return c != 4 ? -1 : 6;
+                }
+                return 7;
+            }
+            return 5;
         }
         return invokeL.intValue;
     }
 
-    public final void e(bp2 bp2Var, boolean z, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        HashMap<String, String> params;
+    /* JADX WARN: Code restructure failed: missing block: B:47:0x0086, code lost:
+        r2 = false;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x0089  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public JSONObject c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bp2Var, Boolean.valueOf(z), unitedSchemeEntity, callbackHandler}) == null) || (params = unitedSchemeEntity.getParams()) == null || params.isEmpty()) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int i = this.a;
+            if (i <= 600000 && i >= 0) {
+                int i2 = this.c;
+                boolean z = true;
+                if (i2 != 1 && i2 != 2) {
+                    return UnitedSchemeUtility.wrapCallbackParams(202, "error channels");
+                }
+                if (!TextUtils.equals(this.b, "aac") && !TextUtils.equals(this.b, "pcm")) {
+                    return UnitedSchemeUtility.wrapCallbackParams(202, "error format");
+                }
+                int i3 = this.d;
+                if (i3 != 8000 && i3 != 16000 && i3 != 44100) {
+                    return UnitedSchemeUtility.wrapCallbackParams(202, "error sampleRate");
+                }
+                if (!TextUtils.equals(this.b, "pcm")) {
+                    if ((r3 = this.d) != 8000) {
+                        if (z) {
+                            return UnitedSchemeUtility.wrapCallbackParams(202, "error bitRate");
+                        }
+                    } else if (z) {
+                    }
+                }
+                if (this.f < 0) {
+                    return UnitedSchemeUtility.wrapCallbackParams(202, "error audioSource");
+                }
+                return null;
+            }
+            return UnitedSchemeUtility.wrapCallbackParams(202, "error duration");
         }
-        bp2Var.u(z, d(params));
-        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "recordTime : " + this.a + "; channel : " + this.c + "; audioFormat : " + this.b + "; sampleRate : " + this.d + "; bitRate : " + this.e + "; callbacks : " + this.g;
+        }
+        return (String) invokeV.objValue;
     }
 }

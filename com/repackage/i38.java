@@ -39,8 +39,8 @@ public class i38 implements CustomMessageTask.CustomRunnable<String> {
                 return null;
             }
             String str = "personal_myfollow_" + (TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "");
-            br4.f();
-            String str2 = br4.g("tb.my_pages").get(str);
+            mr4.f();
+            String str2 = mr4.g("tb.my_pages").get(str);
             ResponsePersonFriendByUidLocalMessage responsePersonFriendByUidLocalMessage = new ResponsePersonFriendByUidLocalMessage();
             if (str2 != null) {
                 try {

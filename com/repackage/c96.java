@@ -1,175 +1,114 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.lib.util.BdLog;
+import android.widget.BaseAdapter;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.faceshop.EmotionGroupData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.faceshop.EmotionPackageData;
+import com.baidu.tieba.faceshop.emotioncenter.adapter.EmotionCategoryAdapter;
+import com.baidu.tieba.faceshop.emotioncenter.adapter.EmotionHorizontalAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class c96 implements d05 {
+public class c96 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public b9 a;
+    public BdTypeListView b;
+    public final List<eo> c;
+    public EmotionCategoryAdapter d;
+    public EmotionHorizontalAdapter e;
+    public List<ro> f;
 
-    public c96() {
+    public c96(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = new ArrayList();
+        this.f = new ArrayList();
+        this.a = tbPageContext;
+        this.b = bdTypeListView;
+        b();
     }
 
-    @Override // com.repackage.d05
-    public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
+    public void a(List<ro> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) || i == 3) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        try {
-            File file = new File(downloadData.getPath());
-            if (file.exists()) {
-                file.delete();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (this.b != null) {
+            this.f.addAll(list);
+            this.b.setData(this.f);
+        }
+        c();
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.d = new EmotionCategoryAdapter((TbPageContext) this.a, d96.a);
+            this.e = new EmotionHorizontalAdapter((TbPageContext) this.a, e96.b);
+            this.c.add(this.d);
+            this.c.add(this.e);
+            this.b.a(this.c);
         }
     }
 
-    @Override // com.repackage.d05
-    public void onFileDownloadSucceed(DownloadData downloadData) {
+    public void c() {
+        BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) {
-            MessageManager.getInstance().runTask(2004603, (Class) null);
-            try {
-                File file = new File(downloadData.getPath());
-                if (file.exists()) {
-                    file.delete();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    @Override // com.repackage.d05
-    public boolean onFileDownloaded(DownloadData downloadData) {
-        InterceptResult invokeL;
-        FileInputStream fileInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
-            if (downloadData == null) {
-                return false;
-            }
-            FileInputStream fileInputStream2 = null;
-            try {
-                try {
-                    fileInputStream = new FileInputStream(downloadData.getPath());
-                } catch (Exception e) {
-                    e = e;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                int g = y86.c().g(downloadData.getId(), fileInputStream);
-                EmotionGroupData j = e96.k().j(downloadData.getId());
-                if (j == null) {
-                    if (g == 0) {
-                        try {
-                            fileInputStream.close();
-                        } catch (IOException e2) {
-                            BdLog.detailException(e2);
-                        }
-                        return false;
-                    }
-                    j = new EmotionGroupData();
-                    j.setBytesLength((int) downloadData.getSize());
-                    j.setBytesReceived((int) downloadData.getLength());
-                    j.setDownloadUrl(downloadData.getUrl());
-                    j.setGroupId(downloadData.getId());
-                    j.setEmotionsCount(g);
-                    j.setHeight(downloadData.getHeight());
-                    j.setWidth(downloadData.getWidth());
-                    j.setDownloadTime(System.currentTimeMillis());
-                    j.setGroupDesc(downloadData.getDescription());
-                    j.setGroupName(downloadData.getName());
-                    j.setStatus(1);
-                    e96.k().e(j);
-                }
-                e96.k().f(downloadData.getStatusMsg(), j);
-                downloadData.setStatusMsg(null);
-                try {
-                    fileInputStream.close();
-                } catch (IOException e3) {
-                    BdLog.detailException(e3);
-                }
-                return true;
-            } catch (Exception e4) {
-                e = e4;
-                fileInputStream2 = fileInputStream;
-                BdLog.detailException(e);
-                if (fileInputStream2 != null) {
-                    try {
-                        fileInputStream2.close();
-                    } catch (IOException e5) {
-                        BdLog.detailException(e5);
-                    }
-                }
-                return false;
-            } catch (Throwable th2) {
-                th = th2;
-                fileInputStream2 = fileInputStream;
-                if (fileInputStream2 != null) {
-                    try {
-                        fileInputStream2.close();
-                    } catch (IOException e6) {
-                        BdLog.detailException(e6);
-                    }
-                }
-                throw th;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.d05
-    public void onFileUpdateProgress(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) || downloadData == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bdTypeListView = this.b) == null || bdTypeListView.getAdapter2() == null || !(this.b.getAdapter2() instanceof BaseAdapter)) {
             return;
         }
-        d96.f().i(downloadData);
+        this.b.getAdapter2().notifyDataSetChanged();
     }
 
-    @Override // com.repackage.d05
-    public boolean onPreDownload(DownloadData downloadData) {
-        InterceptResult invokeL;
+    public void d(List<ro> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
-            if (downloadData == null) {
-                return false;
-            }
-            EmotionGroupData j = e96.k().j(downloadData.getId());
-            if (j == null || !z86.d(downloadData.getId())) {
-                return true;
-            }
-            e96.k().f(downloadData.getStatusMsg(), j);
-            downloadData.setStatusMsg(null);
-            return false;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || ListUtils.isEmpty(list)) {
+            return;
         }
-        return invokeL.booleanValue;
+        if (!ListUtils.isEmpty(this.f)) {
+            this.f.clear();
+        }
+        BdTypeListView bdTypeListView = this.b;
+        if (bdTypeListView != null) {
+            bdTypeListView.setData(list);
+            this.f.addAll(list);
+        }
+        c();
+    }
+
+    public void e(EmotionPackageData emotionPackageData) {
+        e96 e96Var;
+        EmotionPackageData emotionPackageData2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, emotionPackageData) == null) || emotionPackageData == null || ListUtils.isEmpty(this.f)) {
+            return;
+        }
+        for (ro roVar : this.f) {
+            if ((roVar instanceof e96) && (e96Var = (e96) roVar) != null && (emotionPackageData2 = e96Var.a) != null && emotionPackageData2.id == emotionPackageData.id) {
+                emotionPackageData2.download = emotionPackageData.download;
+                emotionPackageData2.share = emotionPackageData.share;
+                c();
+                return;
+            }
+        }
     }
 }

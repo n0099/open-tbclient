@@ -1,13 +1,13 @@
 package com.repackage;
 
-import android.content.Context;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,11 +15,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class gp2 extends lp2 {
+public class gp2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
+    public static String d;
+    public static String e;
+    public static String f;
+    public static String g;
+    public static String h;
+    public static String i;
+    public static String j;
     public transient /* synthetic */ FieldHolder $fh;
+    public CallbackHandler a;
+    public UnitedSchemeEntity b;
 
     static {
         InterceptResult invokeClinit;
@@ -34,67 +45,93 @@ public class gp2 extends lp2 {
                 return;
             }
         }
-        boolean z = tg1.a;
+        c = eh1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gp2(String str) {
-        super(str);
+    public gp2(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, String str2, String str3, String str4, String str5, String str6, String str7) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {callbackHandler, unitedSchemeEntity, str, str2, str3, str4, str5, str6, str7};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = callbackHandler;
+        this.b = unitedSchemeEntity;
+        d = str;
+        e = str2;
+        f = str3;
+        g = str4;
+        h = str5;
+        i = str6;
+        j = str7;
     }
 
-    @Override // com.repackage.lp2
-    public boolean a(bp2 bp2Var, dp2 dp2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j03 j03Var) {
-        InterceptResult invokeCommon;
+    public static gp2 a(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, gp2 gp2Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{bp2Var, dp2Var, context, unitedSchemeEntity, callbackHandler, j03Var})) == null) {
-            jx1.i("video", "open, video id:" + dp2Var.j + " slave id: " + dp2Var.c);
-            bp2Var.l();
-            d(bp2Var, dp2Var, unitedSchemeEntity, callbackHandler);
-            return true;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, callbackHandler, unitedSchemeEntity, str, gp2Var)) == null) {
+            if (str == null) {
+                return gp2Var;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                String optString = jSONObject.optString("onStart");
+                String optString2 = jSONObject.optString(MissionEvent.MESSAGE_PAUSE);
+                String optString3 = jSONObject.optString("onResume");
+                String optString4 = jSONObject.optString(MissionEvent.MESSAGE_STOP);
+                String optString5 = jSONObject.optString("onError");
+                String optString6 = jSONObject.optString("onInterruptionBegin");
+                String optString7 = jSONObject.optString("onInterruptionEnd");
+                if (callbackHandler != null && unitedSchemeEntity != null && !TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString4) && !TextUtils.isEmpty(optString5)) {
+                    return new gp2(callbackHandler, unitedSchemeEntity, optString, optString2, optString3, optString4, optString5, optString6, optString7);
+                }
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            return gp2Var;
         }
-        return invokeCommon.booleanValue;
+        return (gp2) invokeLLLL.objValue;
     }
 
-    @Override // com.repackage.lp2
-    public bp2 b(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3, jSONObject)) == null) {
-            if (TextUtils.isEmpty(str3)) {
-                return null;
-            }
-            hn2 f = in2.f(str, str2, str3);
-            if (f == null) {
-                return new bp2(context, dp2.h(jSONObject, new dp2()));
-            }
-            if (f.i() instanceof bp2) {
-                return (bp2) f.i();
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            c(str, null);
         }
-        return (bp2) invokeLLLLL.objValue;
     }
 
-    public final void d(bp2 bp2Var, dp2 dp2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+    public void c(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, bp2Var, dp2Var, unitedSchemeEntity, callbackHandler) == null) {
-            bp2Var.o(dp2Var);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) || TextUtils.isEmpty(str)) {
+            return;
         }
+        JSONObject wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
+        UnitedSchemeUtility.safeCallback(this.a, this.b, wrapCallbackParams.toString(), str);
+        if (c) {
+            Log.d("AudioStatusCallBack", "Audio callback type is : " + str + " , data is : " + wrapCallbackParams.toString());
+        }
+    }
+
+    public void d(int i2, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, str) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.putOpt(StatConstants.KEY_EXT_ERR_CODE, Integer.valueOf(i2));
+            jSONObject.putOpt(StatConstants.KEY_EXT_ERR_MSG, str);
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+        }
+        c(h, jSONObject);
     }
 }

@@ -1,35 +1,24 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.MotionEvent;
-import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.PBNativeListener;
 import com.win.opensdk.core.Info;
-import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-public class mo9 implements View.OnClickListener, View.OnTouchListener {
+public class mo9 {
     public static /* synthetic */ Interceptable $ic;
+    public static mo9 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public long c;
-    public int d;
-    public int e;
-    public long f;
-    public final /* synthetic */ qo9 g;
+    public ConcurrentHashMap a;
 
-    public mo9(qo9 qo9Var) {
+    public mo9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {qo9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,80 +28,44 @@ public class mo9 implements View.OnClickListener, View.OnTouchListener {
                 return;
             }
         }
-        this.g = qo9Var;
+        this.a = new ConcurrentHashMap();
     }
 
-    public HashMap a() {
+    public static mo9 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("dx", Integer.valueOf(this.a));
-            hashMap.put("dy", Integer.valueOf(this.b));
-            hashMap.put("dts", Long.valueOf(this.c));
-            hashMap.put("ux", Integer.valueOf(this.d));
-            hashMap.put("uy", Integer.valueOf(this.e));
-            hashMap.put("uts", Long.valueOf(this.f));
-            qo9 qo9Var = this.g;
-            wp9.j(hashMap, qo9Var.p, qo9Var.q, qo9Var.r, qo9Var.s, qo9Var.t, qo9Var.u);
-            return hashMap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (mo9.class) {
+                    if (b == null) {
+                        b = new mo9();
+                    }
+                }
+            }
+            return b;
         }
-        return (HashMap) invokeV.objValue;
+        return (mo9) invokeV.objValue;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public Info b(String str) {
+        InterceptResult invokeL;
+        Info info;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            synchronized (mo9.class) {
+                info = (Info) this.a.remove(str);
+            }
+            return info;
         }
+        return (Info) invokeL.objValue;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
-        InterceptResult invokeLL;
+    public void c(String str, Info info) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, motionEvent)) == null) {
-            int action = motionEvent.getAction();
-            if (action == 0) {
-                this.a = (int) motionEvent.getRawX();
-                this.b = (int) motionEvent.getRawY();
-                this.c = System.currentTimeMillis();
-                this.g.p = (int) motionEvent.getX();
-                this.g.q = (int) motionEvent.getY();
-                qo9.e(this.g, view2);
-                return false;
-            } else if (action != 1) {
-                return false;
-            } else {
-                this.d = (int) motionEvent.getRawX();
-                this.e = (int) motionEvent.getRawY();
-                this.f = System.currentTimeMillis();
-                this.g.r = (int) motionEvent.getX();
-                this.g.s = (int) motionEvent.getY();
-                qo9 qo9Var = this.g;
-                Info info = qo9Var.c;
-                if (info == null || !ar9.d(info, qo9Var.h)) {
-                    return false;
-                }
-                this.g.h = System.currentTimeMillis();
-                qo9 qo9Var2 = this.g;
-                Context context = qo9Var2.a;
-                String open = qo9Var2.c.getOpen();
-                qo9 qo9Var3 = this.g;
-                ar9.a(context, open, qo9Var3.c, qo9Var3.g, a().toString());
-                yr9 a = cs9.a(this.g.a);
-                a.h(new gs9(this.g.c), null);
-                a.l("desc", a().toString());
-                a.m();
-                wp9.p(this.g.c, a().toString());
-                PBNativeListener pBNativeListener = this.g.f;
-                if (pBNativeListener != null) {
-                    pBNativeListener.onClicked();
-                    return false;
-                }
-                return false;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, info) == null) {
+            synchronized (mo9.class) {
+                this.a.put(str, info);
             }
         }
-        return invokeLL.booleanValue;
     }
 }

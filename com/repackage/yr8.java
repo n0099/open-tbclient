@@ -1,38 +1,25 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import android.graphics.Bitmap;
+import com.baidu.tieba.video.editvideo.data.PendantData;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class yr8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final List<String> a;
-    public final String b;
+public interface yr8 {
+    void clearFinalVideoPath();
 
-    public yr8(List<String> list, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        if (list != null) {
-            this.a = new ArrayList(list);
-        } else {
-            this.a = new ArrayList();
-        }
-        this.b = str;
-    }
+    void finishPage();
+
+    void onCheckUegFail(String str);
+
+    void onCheckUegSuccess();
+
+    void onGetCoverBitmap(Bitmap bitmap);
+
+    void onNext();
+
+    void onSave();
+
+    void onSaveCover(String str);
+
+    void setPendantData(List<PendantData> list);
 }

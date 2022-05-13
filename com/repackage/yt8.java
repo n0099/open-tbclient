@@ -1,107 +1,166 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.content.Intent;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.data.VideoEasterEggData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.SimpleDateFormat;
-import java.util.List;
-import java.util.TimeZone;
 /* loaded from: classes7.dex */
-public class yt8 extends BdAsyncTask<Void, Void, List<zt8>> {
+public class yt8 implements xt8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public Context b;
-    public int c;
-    public SimpleDateFormat d;
-    public SimpleDateFormat e;
+    public VideoEasterEggData a;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(List<zt8> list);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755130156, "Lcom/repackage/yt8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755130156, "Lcom/repackage/yt8;");
-        }
-    }
-
-    public yt8(Context context) {
+    public yt8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = context;
-        this.c = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07027d);
-        this.e = new SimpleDateFormat("mm:ss");
-        this.d = new SimpleDateFormat("HH:mm:ss");
-        TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
-        this.e.setTimeZone(timeZone);
-        this.d.setTimeZone(timeZone);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
-    public List<zt8> doInBackground(Void... voidArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-            List<zt8> a2 = au8.a(this.b);
-            au8.d("/sdcard", a2, false);
-            au8.d("/sdcard/DCIM", a2, true);
-            au8.e(a2);
-            return a2;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: c */
-    public void onPostExecute(List<zt8> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            super.onPostExecute(list);
-            a aVar = this.a;
-            if (aVar != null) {
-                aVar.a(list);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public void d(a aVar) {
+    @Override // com.repackage.xt8
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.a = aVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            VideoEasterEggData videoEasterEggData = this.a;
+            if (videoEasterEggData == null) {
+                return null;
+            }
+            return videoEasterEggData.getPopText();
         }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.xt8
+    public void b(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) || intent == null) {
+            return;
+        }
+        intent.getStringExtra("from");
+        if (intent.hasExtra(IntentConfig.VIDEO_EASTER_EGG_DATA)) {
+            this.a = (VideoEasterEggData) intent.getSerializableExtra(IntentConfig.VIDEO_EASTER_EGG_DATA);
+        }
+    }
+
+    @Override // com.repackage.xt8
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            VideoEasterEggData videoEasterEggData = this.a;
+            if (videoEasterEggData == null) {
+                return null;
+            }
+            return videoEasterEggData.getActivityID();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.xt8
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            VideoEasterEggData videoEasterEggData = this.a;
+            if (videoEasterEggData == null) {
+                return null;
+            }
+            return videoEasterEggData.getShareTitle();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.xt8
+    public void e(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) || li.isEmpty(g())) {
+            return;
+        }
+        gg.h().m(g(), 10, null, bdUniqueId);
+    }
+
+    @Override // com.repackage.xt8
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            VideoEasterEggData videoEasterEggData = this.a;
+            if (videoEasterEggData == null) {
+                return null;
+            }
+            return videoEasterEggData.getShareUrl();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.xt8
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            VideoEasterEggData videoEasterEggData = this.a;
+            if (videoEasterEggData == null) {
+                return null;
+            }
+            return videoEasterEggData.getPopImageUrl();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.xt8
+    public String getVideoUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            VideoEasterEggData videoEasterEggData = this.a;
+            if (videoEasterEggData == null) {
+                return null;
+            }
+            return videoEasterEggData.getVideoUrl();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.xt8
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            VideoEasterEggData videoEasterEggData = this.a;
+            if (videoEasterEggData == null) {
+                return null;
+            }
+            return videoEasterEggData.getShareImageUrl();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.xt8
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            VideoEasterEggData videoEasterEggData = this.a;
+            if (videoEasterEggData == null) {
+                return null;
+            }
+            return videoEasterEggData.getShareContent();
+        }
+        return (String) invokeV.objValue;
     }
 }

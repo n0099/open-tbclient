@@ -1,15 +1,21 @@
 package com.repackage;
 
+import com.baidu.tbadk.core.data.AlaUserInfoData;
+import com.baidu.tieba.ala.alasquare.special_forum.data.SpecialLiveTabInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class ar5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public tq5 a;
+    public List<SpecialLiveTabInfo> b;
+    public boolean c;
+    public AlaUserInfoData d;
+    public br5 e;
 
     public ar5() {
         Interceptable interceptable = $ic;
@@ -23,20 +29,5 @@ public class ar5 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public void a(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        jSONObject.optLong("user_id");
-        jSONObject.optInt("sign_time");
-        jSONObject.optInt("cont_sign_num");
-        jSONObject.optInt("cout_total_sign_num");
-        jSONObject.optInt("total_resign_num");
-        jSONObject.optInt("miss_sign_num");
-        this.a = jSONObject.optInt("is_sign_in") == 1;
-        jSONObject.optInt("user_sign_rank");
     }
 }

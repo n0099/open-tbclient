@@ -1,20 +1,10 @@
 package com.repackage;
 
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
-import androidx.core.view.InputDeviceCompat;
+import android.webkit.ValueCallback;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.favordata.SwanFavorDataManager;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.searchbox.http.HttpManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,152 +12,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.da2;
+import java.io.File;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
-public class t82 implements xg1, da2 {
+public class t82 implements s82 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean i;
+    public static final boolean f;
+    public static volatile t82 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final d a;
-    public final String b;
-    public w82 c;
-    public s82 d;
-    public yh1 e;
-    public AtomicInteger f;
-    public CopyOnWriteArrayList<String> g;
-    public b92 h;
-
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ t82 a;
-
-        public a(t82 t82Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t82Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = t82Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                qj2.h0().c(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ List a;
-        public final /* synthetic */ boolean b;
-        public final /* synthetic */ da2.b c;
-        public final /* synthetic */ t82 d;
-
-        public b(t82 t82Var, List list, boolean z, da2.b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t82Var, list, Boolean.valueOf(z), bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = t82Var;
-            this.a = list;
-            this.b = z;
-            this.c = bVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.d.h(this.a, this.b, this.c);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c extends ProviderDelegation {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-        public Bundle execCall(Bundle bundle) {
-            InterceptResult invokeL;
-            HashSet hashSet;
-            int i;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-                if (bundle != null) {
-                    hashSet = ne3.a(bundle.getStringArray("key_exclude_ids"));
-                    z = bundle.getBoolean("key_force_clean");
-                    i = bundle.getInt("key_clean_scenes_type");
-                } else {
-                    hashSet = null;
-                    i = 0;
-                    z = false;
-                }
-                t82 d = v82.c().d();
-                ea2 l = ea2.l();
-                l.i(i);
-                d.t(hashSet, z, l.k());
-                return null;
-            }
-            return (Bundle) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public interface d extends r82 {
-    }
+    public HashMap<String, u82> a;
+    public HashMap<String, ArrayList<ValueCallback<String>>> b;
+    public String c;
+    public HttpManager d;
+    public final Object e;
 
     static {
         InterceptResult invokeClinit;
@@ -182,358 +41,153 @@ public class t82 implements xg1, da2 {
                 return;
             }
         }
-        i = tg1.a;
+        f = eh1.a;
     }
 
-    public t82(d dVar) {
+    public t82() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dVar};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = ProcessUtils.getCurProcessName();
-        this.a = dVar;
-        ExecutorUtilsExt.postOnElastic(new a(this), "addLoginStatusChangedListener", 2);
-        this.f = new AtomicInteger(0);
-        this.g = new CopyOnWriteArrayList<>();
-        this.e = rj2.m();
-        this.c = new w82();
-        yh1 yh1Var = this.e;
-        if (yh1Var != null) {
-            this.d = yh1Var.b();
-        }
-        this.h = new b92();
-        if (i) {
-            Log.i("SwanAppPurger", "create : " + toString());
-        }
+        this.a = new HashMap<>();
+        this.b = new HashMap<>();
+        this.e = new Object();
+        this.d = ck2.l().a();
+        this.c = ck2.f().a();
     }
 
-    @Override // com.repackage.xg1
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            String h = qj2.h0().h(this.a.a());
-            if (i) {
-                Log.i("SwanAppPurger", "onLoginStatusChanged : " + toString());
-                Log.i("SwanAppPurger", "onLoginStatusChanged : uid(" + h + ")  -> " + z);
-            }
-            if (z) {
-                q();
-            } else {
-                j();
-            }
-        }
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        this.g.add(str);
-    }
-
-    public final Set<String> c(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            HashSet hashSet = new HashSet();
-            LinkedHashSet<ix2> q = kx2.k().q();
-            if (q.size() < 1) {
-                return hashSet;
-            }
-            Iterator<ix2> it = q.iterator();
-            while (it.hasNext()) {
-                ix2 next = it.next();
-                if (next.S() && (next.D() || next.P())) {
-                    hashSet.add(next.getAppId());
-                    if (i) {
-                        Log.i("SwanAppPurger", "sent msg(" + i2 + ") to active swan(" + next.getAppId() + SmallTailInfo.EMOTION_SUFFIX);
-                    }
-                    zw2 e = zw2.e();
-                    bx2 bx2Var = new bx2(i2);
-                    bx2Var.b(next.b);
-                    e.h(bx2Var);
-                }
-            }
-            return hashSet;
-        }
-        return (Set) invokeI.objValue;
-    }
-
-    public final void d(String str, da2.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, bVar) == null) {
-            ea2.m(bVar).b(str);
-            this.c.a(str);
-            s82 s82Var = this.d;
-            if (s82Var != null) {
-                s82Var.a(str);
-            }
-            z32.n(str);
-        }
-    }
-
-    public void e(@Nullable String str, boolean z, da2.b bVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, Boolean.valueOf(z), bVar}) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(str);
-        f(arrayList, z, bVar);
-    }
-
-    public void f(@Nullable List<String> list, boolean z, da2.b bVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{list, Boolean.valueOf(z), bVar}) == null) || list == null || list.isEmpty()) {
-            return;
-        }
-        g(list, true, z, bVar);
-    }
-
-    public void g(@Nullable List<String> list, boolean z, boolean z2, da2.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{list, Boolean.valueOf(z), Boolean.valueOf(z2), bVar}) == null) {
-            if (!ProcessUtils.isMainProcess()) {
-                if (i) {
-                    Log.w("SwanAppPurger", "非主进程调用，不执行操作");
-                    return;
-                }
-                return;
-            }
-            jx1.l("SwanAppPurger", "deleteSwanApp", new Exception("deleteSwanApp"));
-            if (z2) {
-                i(list);
-            }
-            if (list == null || list.isEmpty()) {
-                return;
-            }
-            o(list);
-            ExecutorUtilsExt.postOnSerial(new b(this, list, z, bVar), "deleteSwanApp");
-        }
-    }
-
-    @WorkerThread
-    public void h(@Nullable List<String> list, boolean z, da2.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{list, Boolean.valueOf(z), bVar}) == null) {
-            if (list == null) {
-                if (i) {
-                    Log.d("SwanAppPurger", "deleteSwanAppAndResetAccreditSync empty");
-                    return;
-                }
-                return;
-            }
-            this.f.incrementAndGet();
-            if (z) {
-                jx1.k("SwanAppPurger", "删除小程序==>开始重置小程序授权");
-                this.c.g(list);
-                int size = list.size();
-                String[] strArr = new String[size];
-                for (int i2 = 0; i2 < size; i2++) {
-                    strArr[i2] = ls1.a(list.get(i2));
-                }
-                o72.b(strArr);
-            }
-            jx1.k("SwanAppPurger", "删除小程序==>清除小程序数据、杀进程");
-            this.c.e(list);
-            for (String str : list) {
-                if (this.g.contains(str) || TextUtils.isEmpty(str)) {
-                    jx1.k("SwanAppPurger", "删除小程序==>删除忽略: " + str);
-                } else {
-                    if (i) {
-                        Log.d("SwanAppPurger", "删除小程序==>删除小程序相关（小程序包、小程序分包）的APS记录: " + str);
-                    }
-                    jx1.k("SwanAppPurger", "删除小程序==>删除小程序文件: " + str);
-                    p(str, bVar);
-                }
-            }
-            if (this.f.decrementAndGet() <= 0) {
-                this.f.set(0);
-                this.g.clear();
-                y82.a();
-            }
-            ea2.m(bVar).j();
-        }
-    }
-
-    public final void i(@Nullable List<String> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) || list == null || list.isEmpty()) {
-            return;
-        }
-        List<SwanFavorItemData> i2 = SwanFavorDataManager.h().i();
-        HashMap hashMap = new HashMap();
-        for (SwanFavorItemData swanFavorItemData : i2) {
-            hashMap.put(swanFavorItemData.getAppKey(), swanFavorItemData);
-        }
-        Set<String> i3 = m72.i(AppRuntime.getAppContext().getContentResolver());
-        Iterator<String> it = list.iterator();
-        while (it.hasNext()) {
-            String next = it.next();
-            boolean contains = i3.contains(next);
-            boolean containsKey = hashMap.containsKey(next);
-            if (!contains && !containsKey) {
-                if (tg1.a) {
-                    Log.d("SwanAppPurger", "清理过滤-不过滤： " + next);
-                }
-            } else {
-                if (tg1.a) {
-                    Log.d("SwanAppPurger", "清理过滤-过滤此App：" + next + "； 历史：" + contains + "； 我的小程序：" + containsKey);
-                }
-                it.remove();
-            }
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            l(k());
-        }
-    }
-
-    public final Set<String> k() {
+    public static t82 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? c(100) : (Set) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (g == null) {
+                synchronized (t82.class) {
+                    if (g == null) {
+                        g = new t82();
+                    }
+                }
+            }
+            return g;
+        }
+        return (t82) invokeV.objValue;
     }
 
-    public final void l(Set<String> set) {
+    @Override // com.repackage.s82
+    public void a(String str, String str2) {
+        ArrayList<ValueCallback<String>> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, set) == null) {
-            b93.j().g("aiapp_", set, true);
-            String w = r73.w();
-            if (!TextUtils.isEmpty(w)) {
-                mg4.k(w);
-            }
-            String y = r73.y();
-            if (!TextUtils.isEmpty(y)) {
-                mg4.k(y);
-            }
-            String n = fj2.n();
-            if (!TextUtils.isEmpty(n)) {
-                mg4.k(n);
-            }
-            yh1 yh1Var = this.e;
-            if (yh1Var != null) {
-                yh1Var.g();
-                this.e.c();
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            synchronized (this.e) {
+                if (f(str) && (arrayList = this.b.get(str)) != null) {
+                    int size = arrayList.size();
+                    for (int i = 0; i < size; i++) {
+                        arrayList.get(i).onReceiveValue(str2);
+                        if (f) {
+                            Log.e("ImageDownloadManager", i + " load success url = " + str + " path = " + str2);
+                        }
+                    }
+                    this.a.remove(str);
+                }
             }
         }
     }
 
-    public boolean m() {
-        InterceptResult invokeV;
+    public final void b(String str, ValueCallback<String> valueCallback) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f.get() > 0 : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, valueCallback) == null) {
+            if (this.b.containsKey(str)) {
+                this.b.get(str).add(valueCallback);
+                return;
+            }
+            ArrayList<ValueCallback<String>> arrayList = new ArrayList<>();
+            arrayList.add(valueCallback);
+            this.b.put(str, arrayList);
+        }
     }
 
-    public boolean n(Map<String, PMSAppInfo> map) {
+    public final void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (f) {
+                Log.d("ImageDownloadManager", "ImageDownloadManager SwanGamePreloadManager url:" + str);
+            }
+            u82 u82Var = new u82(this.d, this.c, str, this);
+            this.a.put(str, u82Var);
+            u82Var.e();
+        }
+    }
+
+    public final String d(String str) throws MalformedURLException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, map)) == null) {
-            if (map == null || map.size() <= 0) {
-                return false;
-            }
-            return (map.size() == 1 && map.containsKey("sc9Tq1iKawTnj5GhG6i77vzeIt4Crt5u")) ? false : true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return this.c + ck2.f().c(str);
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public void o(@Nullable List<String> list) {
+    public final boolean f(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, list) == null) || list == null || list.size() == 0) {
-            return;
-        }
-        Iterator<String> it = list.iterator();
-        while (it.hasNext()) {
-            r83 a2 = x83.a();
-            a2.putInt("bookshelf_insert" + it.next(), 0);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this.a.containsKey(str) : invokeL.booleanValue;
     }
 
-    public final void p(String str, da2.b bVar) {
+    @Override // com.repackage.s82
+    public void fail(int i, String str) {
+        ArrayList<ValueCallback<String>> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048591, this, str, bVar) == null) {
-            if (z82.a() && fj2.f().contains(str)) {
-                jx1.k("SwanAppPurger", "删除小程序==>小程序现在存活: " + str);
-            } else if (y82.c(str)) {
-                jx1.k("SwanAppPurger", "删除小程序==>小程序现正在下载中: " + str);
-            } else {
-                d(str, bVar);
-                jx1.k("SwanAppPurger", "删除小程序==>删除小程序数据库数据: " + str);
-                this.c.f(str);
-                jx1.k("SwanAppPurger", "删除小程序==>清空小程序分包记录: " + str);
-                this.c.d(str);
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) {
+            synchronized (this.e) {
+                if (f(str) && (arrayList = this.b.get(str)) != null) {
+                    int size = arrayList.size();
+                    for (int i2 = 0; i2 < size; i2++) {
+                        arrayList.get(i2).onReceiveValue("");
+                    }
+                    this.a.remove(str);
+                }
             }
         }
     }
 
-    public final void q() {
+    public void g(String str, ValueCallback<String> valueCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            s(r());
-        }
-    }
-
-    public final Set<String> r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? c(103) : (Set) invokeV.objValue;
-    }
-
-    public final void s(Set<String> set) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, set) == null) {
-            b93.j().g("aiapp_setting_", set, true);
-        }
-    }
-
-    public void t(@Nullable Set<String> set, boolean z, da2.b bVar) {
-        b92 b92Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{set, Boolean.valueOf(z), bVar}) == null) || (b92Var = this.h) == null) {
-            return;
-        }
-        b92Var.i(set, z, bVar);
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return "Process<" + this.b + "> " + super.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void u(@Nullable Set<String> set, boolean z, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{set, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                ea2 l = ea2.l();
-                l.i(i2);
-                t(set, z, l.k());
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, valueCallback) == null) {
+            if (TextUtils.isEmpty(str)) {
+                valueCallback.onReceiveValue(null);
                 return;
             }
-            Bundle bundle = new Bundle();
-            if (set != null && set.size() > 0) {
-                bundle.putStringArray("key_exclude_ids", (String[]) set.toArray(new String[0]));
+            try {
+                String d = d(str);
+                if (TextUtils.isEmpty(d)) {
+                    return;
+                }
+                File file = new File(d(str));
+                if (file.exists() && !file.isDirectory()) {
+                    if (valueCallback != null) {
+                        valueCallback.onReceiveValue(d);
+                        return;
+                    }
+                    return;
+                }
+                synchronized (this.e) {
+                    if (!f(str)) {
+                        c(str);
+                    }
+                    b(str, valueCallback);
+                }
+            } catch (Exception e) {
+                if (f) {
+                    e.printStackTrace();
+                }
             }
-            bundle.putBoolean("key_force_clean", z);
-            bundle.putInt("key_clean_scenes_type", i2);
-            ww2.c(c.class, bundle);
         }
     }
 }

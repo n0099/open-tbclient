@@ -1,141 +1,99 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.compatible.EditorHelper;
-import com.baidu.tieba.funAd.strategy.FunAdSidConfigData;
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.net.URLEncoder;
 /* loaded from: classes6.dex */
 public class js6 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile js6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, FunAdSidConfigData> a;
 
-    public js6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        HashMap hashMap = new HashMap();
-        this.a = hashMap;
-        hashMap.clear();
-        this.a.putAll(c());
-    }
+    /* loaded from: classes6.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static js6 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (js6.class) {
-                    if (b == null) {
-                        b = new js6();
-                    }
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            return b;
         }
-        return (js6) invokeV.objValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                js6.e();
+            }
+        }
     }
 
-    public final FunAdSidConfigData a(JSONObject jSONObject) {
+    public static boolean b(NetWork netWork) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, netWork)) == null) {
+            if (netWork == null) {
+                return false;
             }
-            FunAdSidConfigData funAdSidConfigData = new FunAdSidConfigData();
-            funAdSidConfigData.parserJson(jSONObject);
-            return funAdSidConfigData;
+            if ((netWork.isNetSuccess() ? netWork.getServerErrorCode() : netWork.getNetErrorCode()) == 1990055) {
+                d();
+                return true;
+            }
+            return false;
         }
-        return (FunAdSidConfigData) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public FunAdSidConfigData b(String str) {
-        InterceptResult invokeL;
+    public static boolean c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (this.a == null || TextUtils.isEmpty(str) || !this.a.containsKey(str)) {
-                return null;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            switch (i) {
+                case 202001:
+                case 205001:
+                case 309456:
+                case CmdConfigHttp.CMD_CHECK_REAL_NAME /* 1003325 */:
+                    return true;
+                default:
+                    return false;
             }
-            return this.a.get(str);
         }
-        return (FunAdSidConfigData) invokeL.objValue;
+        return invokeI.booleanValue;
     }
 
-    public final Map<String, FunAdSidConfigData> c() {
-        InterceptResult invokeV;
-        FunAdSidConfigData d;
+    public static void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            HashMap hashMap = new HashMap();
-            for (String str : ks6.e().c()) {
-                if (!TextUtils.isEmpty(str) && (d = d(str)) != null) {
-                    hashMap.put(str, d);
-                }
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            if (!mi.B()) {
+                TbadkCoreApplication.getInst().handler.post(new a());
+            } else {
+                e();
             }
-            return hashMap;
         }
-        return (Map) invokeV.objValue;
     }
 
-    public final FunAdSidConfigData d(String str) {
-        InterceptResult invokeL;
+    public static final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            JSONObject jSONObject = null;
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            String string = ks6.g().getString(str, "");
-            if (TextUtils.isEmpty(string)) {
-                return null;
-            }
-            try {
-                jSONObject = new JSONObject(string);
-            } catch (JSONException e) {
-                BdLog.detailException(e);
-            }
-            return a(jSONObject);
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
+            fm4.s(applicationContext, "", UrlSchemaHelper.REAL_NAME_AUTH_URL + "&u=" + URLEncoder.encode(UrlSchemaHelper.FINISH_THIS_WEBVIEW), true, true, true, true, true, false);
         }
-        return (FunAdSidConfigData) invokeL.objValue;
-    }
-
-    public void f(String str, FunAdSidConfigData funAdSidConfigData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, str, funAdSidConfigData) == null) || this.a == null || TextUtils.isEmpty(str)) {
-            return;
-        }
-        this.a.put(str, funAdSidConfigData);
-        g(str);
-    }
-
-    public final void g(String str) {
-        FunAdSidConfigData funAdSidConfigData;
-        JSONObject json;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.a == null || TextUtils.isEmpty(str) || !this.a.containsKey(str) || (funAdSidConfigData = this.a.get(str)) == null || (json = funAdSidConfigData.toJson()) == null) {
-            return;
-        }
-        EditorHelper.putString(ks6.g(), str, json.toString());
     }
 }

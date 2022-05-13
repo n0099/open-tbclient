@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class qk5 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,14 +39,14 @@ public class qk5 implements CustomMessageTask.CustomRunnable<Object> {
             }
             int cmd = customMessage.getCmd();
             if (customMessage.getData() != null && (cmd == 2001179 || cmd == 2001180)) {
-                iy4 iy4Var = (iy4) customMessage.getData();
+                wy4 wy4Var = (wy4) customMessage.getData();
                 if (cmd == 2001179) {
-                    d = sk5.f().a(iy4Var);
+                    d = sk5.f().a(wy4Var);
                 } else {
-                    d = sk5.f().d(iy4Var.e());
+                    d = sk5.f().d(wy4Var.e());
                 }
                 if (!d) {
-                    vt4 k = vt4.k();
+                    iu4 k = iu4.k();
                     k.u("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
                 }
             }

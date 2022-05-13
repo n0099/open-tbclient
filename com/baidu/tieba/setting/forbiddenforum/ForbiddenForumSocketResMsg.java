@@ -7,15 +7,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.de8;
+import com.repackage.tc8;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetDislikeList.GetDislikeListResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ForbiddenForumSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public de8 pageData;
+    public tc8 pageData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForbiddenForumSocketResMsg() {
@@ -35,10 +35,10 @@ public class ForbiddenForumSocketResMsg extends SocketResponsedMessage {
         }
     }
 
-    public de8 getPageData() {
+    public tc8 getPageData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.pageData : (de8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.pageData : (tc8) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,8 +57,8 @@ public class ForbiddenForumSocketResMsg extends SocketResponsedMessage {
             }
             setErrorString(getDislikeListResIdl.error.usermsg);
         }
-        de8 de8Var = new de8();
-        this.pageData = de8Var;
-        de8Var.a(getDislikeListResIdl.data);
+        tc8 tc8Var = new tc8();
+        this.pageData = tc8Var;
+        tc8Var.a(getDislikeListResIdl.data);
     }
 }

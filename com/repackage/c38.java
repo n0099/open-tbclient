@@ -23,7 +23,7 @@ public class c38 {
     public ArrayList<ForumData> d;
     public ArrayList<ForumData> e;
     public ArrayList<ForumData> f;
-    public pp4 g;
+    public aq4 g;
     public int h;
     public int i;
     public int j;
@@ -49,7 +49,7 @@ public class c38 {
         this.d = new ArrayList<>();
         this.f = new ArrayList<>();
         this.e = new ArrayList<>();
-        this.g = new pp4();
+        this.g = new aq4();
         s(false);
     }
 

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kk8;
+import com.repackage.hj8;
 /* loaded from: classes3.dex */
 public class ForumSquareStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -53,8 +53,8 @@ public class ForumSquareStatic {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            kk8.h(309653, ForumSquareSocketResponsedMessage.class, false, false);
-            kk8.c(309653, CmdConfigHttp.CMD_FORUM_SQUARE, TbConfig.URL_FORUM_SQUARE, ForumSquareHttpResponsedMessage.class, false, false, true, false);
+            hj8.h(309653, ForumSquareSocketResponsedMessage.class, false, false);
+            hj8.c(309653, CmdConfigHttp.CMD_FORUM_SQUARE, TbConfig.URL_FORUM_SQUARE, ForumSquareHttpResponsedMessage.class, false, false, true, false);
         }
     }
 }

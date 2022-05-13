@@ -1,82 +1,71 @@
 package com.repackage;
 
-import android.content.Context;
-import android.location.Address;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.pass.ecommerce.bean.SuggestAddrField;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.R;
-import com.baidu.tieba.tbadkCore.location.LocationData;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class en8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final MainTabActivity a;
 
-    public static void a(NetWork netWork, WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, netWork, writeData) == null) && writeData != null && writeData.isHasLocationData()) {
-            netWork.addPostData("is_location", "2");
-            Address j = gf.n().j(false);
-            if (j != null) {
-                netWork.addPostData(SuggestAddrField.KEY_LAT, String.valueOf(j.getLatitude()));
-                netWork.addPostData(SuggestAddrField.KEY_LNG, String.valueOf(j.getLongitude()));
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ en8 a;
+
+        public a(en8 en8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {en8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            LocationData b = bm8.a().b();
-            if (b != null) {
-                netWork.addPostData("name", b.getFormatted_address());
-                netWork.addPostData("sn", b.getSn());
+            this.a = en8Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                xb7.k(this.a.a).F(this.a.a.mCurrentTabIndex.intValue(), 0);
             }
         }
     }
 
-    public static void b(Context context, String str, String str2, String str3) {
+    public en8(MainTabActivity mainTabActivity, tm8 tm8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65537, null, context, str, str2, str3) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06fa, (ViewGroup) null);
-            inflate.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(oi.f(context, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f090947);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091dc9);
-            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0918ca);
-            SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0101);
-            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090687);
-            SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0305);
-            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091dc8);
-            if (imageView != null) {
-                imageView.setBackgroundDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f0809ab, R.color.CAM_X0101, null));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, tm8Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (StringUtils.isNull(str)) {
-                str = context.getString(R.string.obfuscated_res_0x7f0f10ec);
-            }
-            textView.setText(str);
-            if (str2 != null || str3 != null) {
-                findViewById.setVisibility(0);
-                textView2.setText(str2);
-                textView3.setText(str3);
-            }
-            c(context, inflate);
         }
+        this.a = mainTabActivity;
     }
 
-    public static void c(Context context, View view2) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, view2) == null) {
-            Toast toast = new Toast(context);
-            toast.setView(view2);
-            toast.setGravity(17, 0, 0);
-            toast.setDuration(3000);
-            toast.show();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ng.a().postDelayed(new a(this), 400L);
         }
     }
 }

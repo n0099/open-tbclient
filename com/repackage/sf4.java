@@ -1,176 +1,136 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.view.View;
+import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 /* loaded from: classes7.dex */
 public class sf4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public String d;
-    public JSONObject e;
-    public long f;
-    public int g;
-    public String h;
-    public String i;
-    public boolean j;
-    public String k;
+    public Set<String> a;
+    public tf4<List<rf4>> b;
 
-    public sf4(String str, String str2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final sf4 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-15449262, "Lcom/repackage/sf4$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-15449262, "Lcom/repackage/sf4$b;");
+                    return;
+                }
             }
-        }
-        this.d = "";
-        this.j = false;
-        this.k = "";
-        this.a = str;
-        this.b = str;
-        this.c = -1;
-        this.d = str2;
-        this.g = i;
-        if ((i & 2) == 0) {
-            this.f = System.currentTimeMillis();
-        }
-        try {
-            this.e = new JSONObject(this.d);
-        } catch (JSONException unused) {
+            a = new sf4(null);
         }
     }
 
-    public String a() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755322480, "Lcom/repackage/sf4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755322480, "Lcom/repackage/sf4;");
+                return;
+            }
+        }
+        String str = ProcessUtils.getCurProcessName() + ".trace";
+        AppRuntime.getAppContext().getExternalFilesDir(null);
+    }
+
+    public /* synthetic */ sf4(a aVar) {
+        this();
+    }
+
+    public static sf4 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = this.e;
-            return jSONObject != null ? jSONObject.optString("bizId") : "";
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (sf4) invokeV.objValue;
     }
 
-    public void b() {
-        String str;
+    public void a(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (str = this.a) != null && str.equals(this.b) && nf4.g().a(this.a)) {
-            this.h = of4.g().h();
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
         }
     }
 
-    public sf4(String str, JSONObject jSONObject, int i) {
+    public tf4<List<rf4>> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, jSONObject, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (tf4) invokeV.objValue;
+    }
+
+    public Set<String> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Set<String> set = this.a;
+            if (set != null) {
+                return set;
             }
+            HashSet hashSet = new HashSet();
+            this.a = hashSet;
+            hashSet.add("V8JavaScriptContext");
+            this.a.add("main");
+            return this.a;
         }
-        this.d = "";
-        this.j = false;
-        this.k = "";
-        this.a = str;
-        this.b = str;
-        this.c = -1;
-        this.e = jSONObject;
-        this.g = i;
-        if ((i & 2) == 0) {
-            this.f = System.currentTimeMillis();
+        return (Set) invokeV.objValue;
+    }
+
+    @RequiresApi(api = 21)
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
     }
 
-    public sf4(String str, String str2, int i, String str3, int i2) {
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    public sf4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Integer.valueOf(i), str3, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
-        }
-        this.d = "";
-        this.j = false;
-        this.k = "";
-        this.a = str2;
-        this.b = str;
-        this.c = i;
-        this.d = str3;
-        this.g = i2;
-        if ((i2 & 2) == 0) {
-            this.f = System.currentTimeMillis();
-        }
-        try {
-            this.e = new JSONObject(this.d);
-        } catch (JSONException unused) {
-        }
-    }
-
-    public sf4(String str, String str2, int i, String str3, long j, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Integer.valueOf(i), str3, Long.valueOf(j), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.d = "";
-        this.j = false;
-        this.k = "";
-        this.a = str2;
-        this.b = str;
-        this.c = i;
-        this.d = str3;
-        this.g = i2;
-        if ((i2 & 2) == 0) {
-            if (j > 0) {
-                this.f = j;
-            } else {
-                this.f = System.currentTimeMillis();
-            }
-        }
-        if (TextUtils.isEmpty(this.d)) {
-            return;
-        }
-        try {
-            this.e = new JSONObject(this.d);
-        } catch (JSONException unused) {
         }
     }
 }

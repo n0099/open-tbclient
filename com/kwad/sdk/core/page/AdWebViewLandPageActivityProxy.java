@@ -157,17 +157,17 @@ public class AdWebViewLandPageActivityProxy extends com.kwad.sdk.core.e.a<com.kw
 
     /* JADX INFO: Access modifiers changed from: private */
     public void initNativeLandPage() {
-        findViewById(R.id.obfuscated_res_0x7f09101b).setVisibility(0);
-        ComplianceTextView complianceTextView = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f091052);
+        findViewById(R.id.obfuscated_res_0x7f09102a).setVisibility(0);
+        ComplianceTextView complianceTextView = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f091061);
         complianceTextView.setVisibility(0);
         complianceTextView.setAdTemplate(this.mAdTemplate);
-        RoundAngleImageView roundAngleImageView = (RoundAngleImageView) findViewById(R.id.obfuscated_res_0x7f09100d);
-        KSLinearLayout kSLinearLayout = (KSLinearLayout) findViewById(R.id.obfuscated_res_0x7f09108a);
-        KsLogoView ksLogoView = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0910ab);
-        DownloadProgressBar downloadProgressBar = (DownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f091188);
+        RoundAngleImageView roundAngleImageView = (RoundAngleImageView) findViewById(R.id.obfuscated_res_0x7f09101c);
+        KSLinearLayout kSLinearLayout = (KSLinearLayout) findViewById(R.id.obfuscated_res_0x7f091099);
+        KsLogoView ksLogoView = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0910ba);
+        DownloadProgressBar downloadProgressBar = (DownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f091197);
         AdInfo j = com.kwad.sdk.core.response.a.d.j(this.mAdTemplate);
-        setAdTitle((TextView) findViewById(R.id.obfuscated_res_0x7f091022), j);
-        ((TextView) findViewById(R.id.obfuscated_res_0x7f091018)).setText(j.adBaseInfo.adDescription);
+        setAdTitle((TextView) findViewById(R.id.obfuscated_res_0x7f091031), j);
+        ((TextView) findViewById(R.id.obfuscated_res_0x7f091027)).setText(j.adBaseInfo.adDescription);
         roundAngleImageView.setRadius(32.0f);
         if (!TextUtils.isEmpty(com.kwad.sdk.core.response.a.a.au(j))) {
             KSImageLoader.loadImage(roundAngleImageView, com.kwad.sdk.core.response.a.a.au(j), this.mAdTemplate);
@@ -177,13 +177,13 @@ public class AdWebViewLandPageActivityProxy extends com.kwad.sdk.core.e.a<com.kw
     }
 
     private void initView() {
-        this.mRootContainer = (KSRelativeLayout) findViewById(R.id.obfuscated_res_0x7f09112b);
-        this.mKsadVideoContainer = (KSRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091158);
-        this.mDetailVideoView = (DetailVideoView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091171);
-        this.mVideoBlurBg = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091154);
-        this.mBackIcon = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f09103e);
-        this.mCloseIcon = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f09112a);
-        this.mVideoCover = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091163);
+        this.mRootContainer = (KSRelativeLayout) findViewById(R.id.obfuscated_res_0x7f09113a);
+        this.mKsadVideoContainer = (KSRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091167);
+        this.mDetailVideoView = (DetailVideoView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091180);
+        this.mVideoBlurBg = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091163);
+        this.mBackIcon = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f09104d);
+        this.mCloseIcon = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091139);
+        this.mVideoCover = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091172);
         if (this.mAdTemplate.adInfoList.size() > 0) {
             loadBlurImage(com.kwad.sdk.core.response.a.a.h(this.mAdTemplate.adInfoList.get(0)), this.mVideoBlurBg);
         }
@@ -318,7 +318,7 @@ public class AdWebViewLandPageActivityProxy extends com.kwad.sdk.core.e.a<com.kw
         Context wrapContextIfNeed = Wrapper.wrapContextIfNeed(getActivity());
         this.mContext = wrapContextIfNeed;
         showingAdWebViewLandPage = true;
-        setContentView(af.e(wrapContextIfNeed) ? R.layout.obfuscated_res_0x7f0d0410 : R.layout.obfuscated_res_0x7f0d0416);
+        setContentView(af.e(wrapContextIfNeed) ? R.layout.obfuscated_res_0x7f0d0404 : R.layout.obfuscated_res_0x7f0d040a);
         if (!initData()) {
             finish();
             return;

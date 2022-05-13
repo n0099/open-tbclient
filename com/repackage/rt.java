@@ -1,14 +1,14 @@
 package com.repackage;
 
+import com.baidu.bdtask.framework.ui.buoy.BuoyViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.st;
 /* loaded from: classes7.dex */
-public class rt {
+public abstract class rt<D extends BuoyViewData, VM extends st<D>> implements tt, xt<D, VM> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile rt a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public rt() {
@@ -22,29 +22,6 @@ public class rt {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    public static rt a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (rt.class) {
-                    if (a == null) {
-                        a = new rt();
-                    }
-                }
-            }
-            return a;
-        }
-        return (rt) invokeV.objValue;
-    }
-
-    public void b(String str, tt ttVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, ttVar) == null) {
-            wt.b().g(str, ttVar);
         }
     }
 }

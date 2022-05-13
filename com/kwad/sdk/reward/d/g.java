@@ -45,7 +45,7 @@ public class g extends d implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public View a(Context context, CouponInfo couponInfo, ViewGroup viewGroup) {
-        KSCouponLabelTextView kSCouponLabelTextView = (KSCouponLabelTextView) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0466, viewGroup, false);
+        KSCouponLabelTextView kSCouponLabelTextView = (KSCouponLabelTextView) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d045a, viewGroup, false);
         kSCouponLabelTextView.setText(couponInfo.getDisplayName());
         return kSCouponLabelTextView;
     }
@@ -98,14 +98,14 @@ public class g extends d implements View.OnClickListener {
     }
 
     private void b() {
-        this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f09111c);
-        this.c = (KSCornerImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091119);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09111e);
-        this.e = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09110b);
-        this.f = (KsPriceView) this.a.findViewById(R.id.obfuscated_res_0x7f09111b);
-        this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091108);
-        this.h = this.a.findViewById(R.id.obfuscated_res_0x7f09111d);
-        this.i = (KSCornerImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09111a);
+        this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f09112b);
+        this.c = (KSCornerImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091128);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09112d);
+        this.e = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09111a);
+        this.f = (KsPriceView) this.a.findViewById(R.id.obfuscated_res_0x7f09112a);
+        this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091117);
+        this.h = this.a.findViewById(R.id.obfuscated_res_0x7f09112c);
+        this.i = (KSCornerImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091129);
         this.g.setText(com.kwad.sdk.core.config.b.aE());
         this.g.setOnClickListener(this);
         this.c.setOnClickListener(this);

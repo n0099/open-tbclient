@@ -17,7 +17,7 @@ public class b extends g implements d {
     public com.kwad.sdk.core.download.a.b d;
 
     private void a(View view2, final boolean z) {
-        com.kwad.sdk.core.download.a.a.a(new a.C0296a(view2.getContext()).a(this.c).a(new a.b() { // from class: com.kwad.sdk.reward.presenter.platdetail.b.1
+        com.kwad.sdk.core.download.a.a.a(new a.C0295a(view2.getContext()).a(this.c).a(new a.b() { // from class: com.kwad.sdk.reward.presenter.platdetail.b.1
             @Override // com.kwad.sdk.core.download.a.a.b
             public void a() {
                 b.this.b(z);
@@ -67,6 +67,6 @@ public class b extends g implements d {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.b = (DetailVideoView) a(R.id.obfuscated_res_0x7f091171);
+        this.b = (DetailVideoView) a(R.id.obfuscated_res_0x7f091180);
     }
 }

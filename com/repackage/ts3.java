@@ -1,26 +1,24 @@
 package com.repackage;
 
-import android.app.Application;
-import android.net.Uri;
-import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.favordata.SwanFavorItemData;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gl2;
-import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class ts3 extends os3 {
+public class ts3 extends x73 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String v;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ts3() {
-        super("navigateToSwanGame");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -28,58 +26,213 @@ public final class ts3 extends os3 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.repackage.os3
-    public js1 a(JSONObject paramsJson, nd2 callback) {
-        InterceptResult invokeLL;
-        gl2.a V;
-        String I;
-        gl2.a V2;
+    public static String l(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, paramsJson, callback)) == null) {
-            Intrinsics.checkNotNullParameter(paramsJson, "paramsJson");
-            Intrinsics.checkNotNullParameter(callback, "callback");
-            Application c = qj2.c();
-            if (c == null) {
-                callback.onFail(202, "params may be error");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            String optString = paramsJson.optString("appKey");
-            boolean z = false;
-            if (optString == null || optString.length() == 0) {
-                callback.onFail(202, "params may be error");
-                return null;
+            char c = 65535;
+            switch (str.hashCode()) {
+                case -2136141294:
+                    if (str.equals("notifyInstall")) {
+                        c = '\r';
+                        break;
+                    }
+                    break;
+                case -1996849701:
+                    if (str.equals("installHijack")) {
+                        c = 17;
+                        break;
+                    }
+                    break;
+                case -1903789791:
+                    if (str.equals("continueClick")) {
+                        c = '\n';
+                        break;
+                    }
+                    break;
+                case -1768725569:
+                    if (str.equals("notifyClick")) {
+                        c = '\f';
+                        break;
+                    }
+                    break;
+                case -1263222921:
+                    if (str.equals("openApp")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+                case -1165168761:
+                    if (str.equals("notifyList")) {
+                        c = 14;
+                        break;
+                    }
+                    break;
+                case -1164961306:
+                    if (str.equals("notifyShow")) {
+                        c = 11;
+                        break;
+                    }
+                    break;
+                case -625158317:
+                    if (str.equals("deleteDownload")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case -606050596:
+                    if (str.equals("resumeAllDownload")) {
+                        c = 6;
+                        break;
+                    }
+                    break;
+                case -567202649:
+                    if (str.equals("continue")) {
+                        c = '\b';
+                        break;
+                    }
+                    break;
+                case -451216226:
+                    if (str.equals("pauseDownload")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case -263045656:
+                    if (str.equals("installSuccess")) {
+                        c = 15;
+                        break;
+                    }
+                    break;
+                case 66344735:
+                    if (str.equals("authorizeClick")) {
+                        c = '\t';
+                        break;
+                    }
+                    break;
+                case 184711125:
+                    if (str.equals("resumeDownload")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 388113743:
+                    if (str.equals("overTwoDays")) {
+                        c = 16;
+                        break;
+                    }
+                    break;
+                case 900412038:
+                    if (str.equals("installApp")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case 1475610601:
+                    if (str.equals("authorize")) {
+                        c = 7;
+                        break;
+                    }
+                    break;
+                case 1554935562:
+                    if (str.equals("startDownload")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
             }
-            JSONObject jSONObject = new JSONObject();
-            j03 a0 = j03.a0();
-            String str = "";
-            jSONObject.put("pre_source", (a0 == null || (V2 = a0.V()) == null || (r8 = V2.T()) == null) ? "" : "");
-            j03 a02 = j03.a0();
-            if (a02 != null && (V = a02.V()) != null && (I = V.I()) != null) {
-                str = I;
+            switch (c) {
+                case 0:
+                    return "start";
+                case 1:
+                    return "pause";
+                case 2:
+                    return "resume";
+                case 3:
+                    return "cancel";
+                case 4:
+                    return "install";
+                case 5:
+                    return "open";
+                case 6:
+                    return "continue";
+                case 7:
+                    return "authorize";
+                case '\b':
+                    return "guide";
+                case '\t':
+                    return "authorizeclick";
+                case '\n':
+                    return "guideclick";
+                case 11:
+                    return "notifyshow";
+                case '\f':
+                    return "notifyclick";
+                case '\r':
+                    return "notifyinstall";
+                case 14:
+                    return "notifylist";
+                case 15:
+                    return "installsuccess";
+                case 16:
+                    return "overtwodays";
+                case 17:
+                    return "installhijack";
+                default:
+                    return str;
             }
-            jSONObject.put("pre_appid", str);
-            paramsJson.put(UBCCloudControlProcessor.UBC_KEY, jSONObject);
-            String d1 = hl2.d1(optString, 1, paramsJson);
-            Uri parse = (d1 == null || d1.length() == 0) ? true : true ? null : Uri.parse(d1);
-            if (parse == null) {
-                callback.onFail(202, "params may be error");
-                return null;
-            }
-            if (SchemeRouter.invokeScheme(c, parse, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE)) {
-                callback.a(null);
-            } else {
-                callback.onFail(202, "params may be error");
-            }
-            return null;
         }
-        return (js1) invokeLL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.x73, com.repackage.w73
+    public JSONObject f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            this.k = z93.e(TextUtils.equals(this.a, SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME) ? 1 : 0);
+            this.n = SwanAppNetworkUtils.f().type;
+            if (this.h == null) {
+                this.h = new JSONObject();
+            }
+            try {
+                this.h.put("host", bk2.n().a());
+                this.h.put("package", this.v);
+            } catch (JSONException e) {
+                if (w73.j) {
+                    e.printStackTrace();
+                }
+            }
+            return super.f();
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public void m(ss3 ss3Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ss3Var) == null) || ss3Var == null) {
+            return;
+        }
+        if (w73.j) {
+            Log.d("SwanAppUBCEvent", "setCommonData: " + ss3Var.a());
+        }
+        this.a = ss3Var.a;
+        this.f = ss3Var.c;
+        this.c = ss3Var.b;
+        this.o = ss3Var.f;
+        this.p = ss3Var.g;
+        this.s = ss3Var.h;
+        this.u = ss3Var.i;
+        this.l = ss3Var.d;
+        this.m = ss3Var.e;
     }
 }

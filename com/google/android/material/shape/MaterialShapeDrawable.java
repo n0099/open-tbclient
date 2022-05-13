@@ -1168,7 +1168,7 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLF = interceptable.invokeLF(65554, null, context, f)) == null) {
-            int color = MaterialColors.getColor(context, (int) R.attr.obfuscated_res_0x7f04016e, MaterialShapeDrawable.class.getSimpleName());
+            int color = MaterialColors.getColor(context, (int) R.attr.obfuscated_res_0x7f040171, MaterialShapeDrawable.class.getSimpleName());
             MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable();
             materialShapeDrawable.initializeElevationOverlay(context);
             materialShapeDrawable.setFillColor(ColorStateList.valueOf(color));

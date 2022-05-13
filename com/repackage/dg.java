@@ -1,168 +1,352 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.BdLog;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.fluency.tracer.FpsTracer;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidParameterException;
-import java.util.LinkedList;
+import com.kwad.v8.debug.mirror.Frame;
 /* loaded from: classes5.dex */
-public class dg<T> {
+public class dg {
     public static /* synthetic */ Interceptable $ic;
+    public static b a;
+    public static final Object b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public LinkedList<T> c;
-    public eg<T> d;
 
-    public dg(eg<T> egVar, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {egVar, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964042270, "Lcom/repackage/dg;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1964042270, "Lcom/repackage/dg;");
                 return;
             }
         }
-        this.a = 10;
-        this.b = 0;
-        this.c = null;
-        this.d = null;
-        if (egVar != null && i > 0 && i2 <= i) {
-            this.d = egVar;
-            this.a = i;
-            this.b = i2;
-            this.c = new LinkedList<>();
-            a(this.b);
+        a = new b(null);
+        b = new Object();
+    }
+
+    public static ig a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (ki.H()) {
+                return a.d;
+            }
+            if (ki.v()) {
+                return a.c;
+            }
+            if (ki.u()) {
+                return a.b;
+            }
+            return a.a;
+        }
+        return (ig) invokeV.objValue;
+    }
+
+    public static String b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? 1 == i ? "2G" : 2 == i ? "3G" : 3 == i ? "4G" : 4 == i ? "5G" : 5 == i ? "WIFI" : "N" : (String) invokeI.objValue;
+    }
+
+    public static void c(boolean z, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+            synchronized (b) {
+                ig a2 = a();
+                if (z) {
+                    a2.l++;
+                    a2.m += j;
+                }
+            }
+        }
+    }
+
+    public static void d(boolean z, boolean z2, boolean z3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+            ig a2 = a();
+            if (z) {
+                a2.t++;
+            }
+            if (z2) {
+                a2.u++;
+            }
+            if (z3) {
+                a2.v++;
+            }
+        }
+    }
+
+    public static void e(boolean z, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+            ig a2 = a();
+            if (z) {
+                a2.r++;
+                a2.s += j;
+            }
+        }
+    }
+
+    public static void f(boolean z, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+            synchronized (b) {
+                ig a2 = a();
+                a2.d++;
+                if (z) {
+                    a2.e++;
+                    a2.f += j;
+                }
+            }
+        }
+    }
+
+    public static void g() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65543, null) == null) || a.a() <= 10) {
             return;
         }
-        throw new InvalidParameterException("invalid params");
+        if (a.e()) {
+            h(a.d, 5);
+        }
+        if (a.b()) {
+            h(a.c, 3);
+        }
+        if (a.c()) {
+            h(a.b, 2);
+        }
+        if (a.d()) {
+            h(a.a, 1);
+        }
+        a.f();
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r2v3, resolved type: java.util.LinkedList<T> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public final void a(int i) {
+    public static void h(ig igVar, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            synchronized (this) {
-                for (int i2 = 0; i2 < i; i2++) {
-                    Object obj = null;
-                    try {
-                        obj = this.d.a(this.d.d());
-                    } catch (Exception e) {
-                        BdLog.e(e.getMessage());
-                    }
-                    if (obj != null) {
-                        this.c.offer(obj);
-                    }
+        if ((interceptable == null || interceptable.invokeLI(65544, null, igVar, i) == null) && igVar != null && BdBaseApplication.getInst().isSmallFlow()) {
+            sg statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
+            statsItem.b("action", "imgStat");
+            statsItem.b("memoryCount", String.valueOf(igVar.a));
+            statsItem.b("memorySucCount", String.valueOf(igVar.b));
+            statsItem.b("memoryTime", String.valueOf(igVar.c));
+            statsItem.b(Frame.LOCAL_COUNT, String.valueOf(igVar.d));
+            statsItem.b("localSucCount", String.valueOf(igVar.e));
+            statsItem.b("localTime", String.valueOf(igVar.f));
+            statsItem.b("netCount", String.valueOf(igVar.g));
+            statsItem.b("netSucCount", String.valueOf(igVar.h));
+            statsItem.b("netTime", String.valueOf(igVar.i));
+            statsItem.b("taskCount", String.valueOf(igVar.j));
+            statsItem.b("taskTime", String.valueOf(igVar.k));
+            statsItem.b("decodeCount", String.valueOf(igVar.l));
+            statsItem.b("decodeTime", String.valueOf(igVar.m));
+            statsItem.b("saveMemoryCount", String.valueOf(igVar.n));
+            statsItem.b("saveMemoryTime", String.valueOf(igVar.o));
+            statsItem.b("saveLocalCount", String.valueOf(igVar.p));
+            statsItem.b("saveLocalTime", String.valueOf(igVar.q));
+            statsItem.b("memoryHitCount", String.valueOf(igVar.t));
+            statsItem.b("localHitCount", String.valueOf(igVar.u));
+            statsItem.b("netHitCount", String.valueOf(igVar.v));
+            statsItem.b("totalHitCount", String.valueOf(igVar.t + igVar.u + igVar.v));
+            statsItem.b("totalCount", String.valueOf(igVar.r));
+            statsItem.b("totalTime", String.valueOf(igVar.s));
+            statsItem.b("cdnCount", String.valueOf(igVar.w));
+            statsItem.b("ipCount", String.valueOf(igVar.x));
+            statsItem.b("cdnAndIpCount", String.valueOf(igVar.y));
+            statsItem.b("imgSize", String.valueOf(igVar.z));
+            statsItem.b(FpsTracer.UBC_KEY_NET_TYPE, b(i));
+            BdStatisticsManager.getInstance().performance("image", statsItem);
+        }
+    }
+
+    public static void i(boolean z, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+            ig a2 = a();
+            a2.a++;
+            if (z) {
+                a2.b++;
+                a2.c += j;
+            }
+        }
+    }
+
+    public static void j(boolean z, String str, of ofVar, long j, long j2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{Boolean.valueOf(z), str, ofVar, Long.valueOf(j), Long.valueOf(j2)}) == null) && mi.C()) {
+            synchronized (b) {
+                boolean n = n(str);
+                boolean z2 = false;
+                if (ofVar != null && !StringUtils.isNull(ofVar.k)) {
+                    z2 = true;
+                }
+                ig a2 = a();
+                if (n) {
+                    a2.w++;
+                }
+                if (z2) {
+                    a2.x++;
+                }
+                if (n && z2) {
+                    a2.y++;
+                }
+                a2.g++;
+                if (z) {
+                    a2.h++;
+                    a2.i += j;
+                    a2.z += j2;
+                }
+                if (a.a() > 100) {
+                    g();
                 }
             }
         }
     }
 
-    public T b() {
-        InterceptResult invokeV;
-        T t;
+    public static void k(boolean z, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                t = null;
-                try {
-                    if (this.c.size() > 0) {
-                        t = this.d.a(this.c.poll());
-                    } else {
-                        t = this.d.a(this.d.d());
-                    }
-                    a(this.b - this.c.size());
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                }
-            }
-            return t;
-        }
-        return (T) invokeV.objValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                this.c.clear();
-            }
-        }
-    }
-
-    public final void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            synchronized (this) {
-                for (int i2 = 0; i2 < i; i2++) {
-                    try {
-                        this.d.b(this.c.poll());
-                    } catch (Exception e) {
-                        BdLog.e(e.getMessage());
-                    }
+        if (interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+            synchronized (b) {
+                ig a2 = a();
+                if (z) {
+                    a2.p++;
+                    a2.q += j;
                 }
             }
         }
     }
 
-    public void e(T t) {
+    public static void l(boolean z, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-            synchronized (this) {
-                if (this.c.size() < this.a) {
-                    T t2 = null;
-                    try {
-                        t2 = this.d.c(t);
-                    } catch (Exception e) {
-                        BdLog.e(e.getMessage());
-                    }
-                    if (t2 != null) {
-                        this.c.offer(t2);
-                    }
-                } else {
-                    this.d.b(t);
+        if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+            ig a2 = a();
+            if (z) {
+                a2.n++;
+                a2.o += j;
+            }
+        }
+    }
+
+    public static void m(boolean z, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+            synchronized (b) {
+                ig a2 = a();
+                if (z) {
+                    a2.j++;
+                    a2.k += j;
                 }
             }
         }
     }
 
-    public void f(int i) {
+    public static boolean n(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            synchronized (this) {
-                if (i < this.b) {
-                    i = this.b;
-                }
-                if (i <= 0) {
-                    i = 1;
-                }
-                this.a = i;
-                d(this.c.size() - this.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) {
+            if (str == null) {
+                return false;
             }
+            int indexOf = str.indexOf("hiphotos");
+            if (indexOf <= 0 || indexOf >= 20) {
+                int indexOf2 = str.indexOf("tiebapic");
+                return indexOf2 > 0 && indexOf2 < 20;
+            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            synchronized (this) {
-                if (i > this.a) {
-                    i = this.a;
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public ig a;
+        public ig b;
+        public ig c;
+        public ig d;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                this.b = i;
-                a(i - this.c.size());
             }
+            this.a = new ig();
+            this.b = new ig();
+            this.c = new ig();
+            this.d = new ig();
+        }
+
+        public int a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.g + this.b.g + this.c.g + this.d.g : invokeV.intValue;
+        }
+
+        public boolean b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c.g > 0 : invokeV.booleanValue;
+        }
+
+        public boolean c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b.g > 0 : invokeV.booleanValue;
+        }
+
+        public boolean d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.g > 0 : invokeV.booleanValue;
+        }
+
+        public boolean e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d.g > 0 : invokeV.booleanValue;
+        }
+
+        public void f() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                this.a.a();
+                this.b.a();
+                this.c.a();
+                this.d.a();
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
         }
     }
 }

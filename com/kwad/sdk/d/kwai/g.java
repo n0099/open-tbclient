@@ -43,8 +43,8 @@ public class g extends b implements com.kwad.sdk.widget.d {
     public com.kwad.sdk.d.a.c n;
     @Nullable
     public boolean h = false;
-    public final a.InterfaceC0308a o = new a.InterfaceC0308a() { // from class: com.kwad.sdk.d.kwai.g.2
-        @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC0308a
+    public final a.InterfaceC0307a o = new a.InterfaceC0307a() { // from class: com.kwad.sdk.d.kwai.g.2
+        @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC0307a
         public void a(int i, z.a aVar) {
             int i2;
             int i3 = 2;
@@ -63,7 +63,7 @@ public class g extends b implements com.kwad.sdk.widget.d {
             p.a aVar2 = new p.a();
             aVar2.g = aVar;
             aVar2.b = i2;
-            com.kwad.sdk.core.download.a.a.a(new a.C0296a(bb.a(g.this.j)).a(g.this.d).a(g.this.m).a(i3).a(z).c(true).a(aVar2).a(new a.b() { // from class: com.kwad.sdk.d.kwai.g.2.1
+            com.kwad.sdk.core.download.a.a.a(new a.C0295a(bb.a(g.this.j)).a(g.this.d).a(g.this.m).a(i3).a(z).c(true).a(aVar2).a(new a.b() { // from class: com.kwad.sdk.d.kwai.g.2.1
                 @Override // com.kwad.sdk.core.download.a.a.b
                 public void a() {
                     g.this.f();
@@ -222,9 +222,9 @@ public class g extends b implements com.kwad.sdk.widget.d {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.e = (KSFrameLayout) m().findViewById(R.id.obfuscated_res_0x7f091053);
-        this.f = (KSFrameLayout) m().findViewById(R.id.obfuscated_res_0x7f091158);
-        this.l = (ImageView) m().findViewById(R.id.obfuscated_res_0x7f091168);
+        this.e = (KSFrameLayout) m().findViewById(R.id.obfuscated_res_0x7f091062);
+        this.f = (KSFrameLayout) m().findViewById(R.id.obfuscated_res_0x7f091167);
+        this.l = (ImageView) m().findViewById(R.id.obfuscated_res_0x7f091177);
         this.f.setVisibility(4);
         this.a = q();
     }

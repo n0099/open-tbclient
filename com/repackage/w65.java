@@ -1,56 +1,47 @@
 package com.repackage;
 
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.abtest.UbsABTestDataManager;
+import com.baidu.tbadk.mutiprocess.sync.SyncDataEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class w65<T> extends x65<T> {
+public class w65 implements y55<SyncDataEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String b;
-    public Class<T> c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w65(int i, String str, Class<T> cls) {
-        super(i);
+    public w65() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, cls};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = str;
-        this.c = cls;
     }
 
-    public T a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.y55
+    /* renamed from: a */
+    public boolean onEvent(SyncDataEvent syncDataEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                return this.c.newInstance();
-            } catch (ExceptionInInitializerError e) {
-                e.printStackTrace();
-                return null;
-            } catch (IllegalAccessException e2) {
-                e2.printStackTrace();
-                return null;
-            } catch (InstantiationException e3) {
-                e3.printStackTrace();
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, syncDataEvent)) == null) {
+            if (syncDataEvent == null) {
+                return false;
             }
+            TbSingleton.getInstance().setSampleId(syncDataEvent.sampleId);
+            kc5.d().f(syncDataEvent.abtestExtraData);
+            UbsABTestDataManager.getInstance().parseJSONArrayByStr(syncDataEvent.ubsABTest);
+            return true;
         }
-        return (T) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 }

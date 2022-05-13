@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.l65;
+import com.repackage.b75;
 /* loaded from: classes3.dex */
 public class ReadCacheMessage<T> extends CustomMessage<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isNeedUid;
-    public l65 requestData;
+    public b75 requestData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ReadCacheMessage(int i) {
@@ -36,10 +36,10 @@ public class ReadCacheMessage<T> extends CustomMessage<T> {
         this.isNeedUid = true;
     }
 
-    public l65 getRequestData() {
+    public b75 getRequestData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.requestData : (l65) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.requestData : (b75) invokeV.objValue;
     }
 
     public boolean isNeedUid() {
@@ -55,10 +55,10 @@ public class ReadCacheMessage<T> extends CustomMessage<T> {
         }
     }
 
-    public void setRequestData(l65 l65Var) {
+    public void setRequestData(b75 b75Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, l65Var) == null) {
-            this.requestData = l65Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, b75Var) == null) {
+            this.requestData = b75Var;
         }
     }
 }

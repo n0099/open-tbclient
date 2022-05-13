@@ -1,19 +1,41 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import tbclient.GetToken.DataRes;
+import tbclient.GetToken.ToastInfo;
 /* loaded from: classes7.dex */
 public class wj4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final xj4 a;
+    public String a;
+    public String b;
+    public a c;
+
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
 
     public wj4() {
         Interceptable interceptable = $ic;
@@ -25,45 +47,47 @@ public class wj4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new xj4();
     }
 
-    public vj4 a(String str) {
-        InterceptResult invokeL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String str2 = null;
-            if (ni.isEmpty(str)) {
-                return null;
-            }
-            Matcher matcher = Pattern.compile("\\$[0-9A-Za-z@_]{5,200}[#$]", 2).matcher(str);
-            if (matcher.find()) {
-                String group = matcher.group();
-                Matcher matcher2 = Pattern.compile("\\$[0-9A-Za-z@_]{1,100}[!]", 2).matcher(str);
-                String d = matcher2.find() ? zj4.d(matcher2.group()) : null;
-                if (d != null && d.startsWith("Y")) {
-                    yj4.a(d);
-                    str2 = b(group);
-                }
-                return new vj4(group, str2, d);
-            }
-            return null;
-        }
-        return (vj4) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    public final String b(String str) {
-        InterceptResult invokeL;
+    public a b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            return this.a.a(zj4.f(str.replaceAll("\\$", "")));
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (a) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public void d(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, dataRes) == null) || dataRes == null) {
+            return;
         }
-        return (String) invokeL.objValue;
+        this.a = dataRes.title;
+        String str = dataRes.img;
+        String str2 = dataRes.tips;
+        this.b = dataRes.url;
+        String str3 = dataRes.btn_sure;
+        String str4 = dataRes.btn_cancel;
+        if (dataRes.activity_done != null) {
+            a aVar = new a();
+            this.c = aVar;
+            ToastInfo toastInfo = dataRes.activity_done;
+            String str5 = toastInfo.url;
+            aVar.a = toastInfo.btntext;
+            String str6 = toastInfo.message;
+            String str7 = toastInfo.sharetoken;
+        }
     }
 }

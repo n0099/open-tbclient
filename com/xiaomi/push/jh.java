@@ -174,7 +174,7 @@ public class jh extends ix {
                 throw new jc(3, "Thrift string size " + a2 + " out of range!");
             } else if (((jb) this).a.b() >= a2) {
                 try {
-                    String str = new String(((jb) this).a.m569a(), ((jb) this).a.a(), a2, "UTF-8");
+                    String str = new String(((jb) this).a.m570a(), ((jb) this).a.a(), a2, "UTF-8");
                     ((jb) this).a.a(a2);
                     return str;
                 } catch (UnsupportedEncodingException unused) {
@@ -198,7 +198,7 @@ public class jh extends ix {
             }
             c(a2);
             if (((jb) this).a.b() >= a2) {
-                ByteBuffer wrap = ByteBuffer.wrap(((jb) this).a.m569a(), ((jb) this).a.a(), a2);
+                ByteBuffer wrap = ByteBuffer.wrap(((jb) this).a.m570a(), ((jb) this).a.a(), a2);
                 ((jb) this).a.a(a2);
                 return wrap;
             }

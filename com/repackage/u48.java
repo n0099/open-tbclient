@@ -30,14 +30,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.nr4;
 /* loaded from: classes7.dex */
 public class u48 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d18 a;
+    public x08 a;
     public q48 b;
-    public rr8 c;
+    public oq8 c;
     public TbPageContext d;
     public BlackListModel e;
     public boolean f;
@@ -48,7 +48,7 @@ public class u48 implements View.OnClickListener {
     public BdUniqueId k;
     public boolean l;
     public RemoveFansController m;
-    public c18 n;
+    public w08 n;
     public final ya o;
     public final ya p;
     public final CustomMessageListener q;
@@ -87,7 +87,7 @@ public class u48 implements View.OnClickListener {
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) && (socketResponsedMessage instanceof ResponseApplyMessage) && ((ResponseApplyMessage) socketResponsedMessage).getError() != 0) {
-                this.a.d.showToast(StringUtils.isNull(socketResponsedMessage.getErrorString()) ? this.a.d.getResources().getString(R.string.obfuscated_res_0x7f0f0c17) : socketResponsedMessage.getErrorString());
+                this.a.d.showToast(StringUtils.isNull(socketResponsedMessage.getErrorString()) ? this.a.d.getResources().getString(R.string.obfuscated_res_0x7f0f0c2d) : socketResponsedMessage.getErrorString());
             }
         }
     }
@@ -122,9 +122,9 @@ public class u48 implements View.OnClickListener {
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
                 if (z && i != 2260104) {
                     if (StringUtils.isNull(str)) {
-                        oi.N(this.a.d.getPageActivity(), this.a.d.getString(i == 0 ? R.string.obfuscated_res_0x7f0f0f82 : R.string.obfuscated_res_0x7f0f0f80));
+                        mi.N(this.a.d.getPageActivity(), this.a.d.getString(i == 0 ? R.string.obfuscated_res_0x7f0f0f9a : R.string.obfuscated_res_0x7f0f0f98));
                     } else {
-                        oi.N(this.a.d.getPageActivity(), str);
+                        mi.N(this.a.d.getPageActivity(), str);
                     }
                 }
                 u48 u48Var = this.a;
@@ -136,7 +136,7 @@ public class u48 implements View.OnClickListener {
     }
 
     /* loaded from: classes7.dex */
-    public class c implements cr4.e {
+    public class c implements nr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ u48 a;
@@ -159,18 +159,18 @@ public class u48 implements View.OnClickListener {
             this.a = u48Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.nr4.e
+        public void onClick(nr4 nr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, nr4Var) == null) {
                 this.a.m.removeFans(this.a.h);
-                cr4Var.dismiss();
+                nr4Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class d implements cr4.e {
+    public class d implements nr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -190,17 +190,17 @@ public class u48 implements View.OnClickListener {
             }
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.nr4.e
+        public void onClick(nr4 nr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, nr4Var) == null) {
+                nr4Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class e implements cr4.e {
+    public class e implements nr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ u48 a;
@@ -223,10 +223,10 @@ public class u48 implements View.OnClickListener {
             this.a = u48Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.nr4.e
+        public void onClick(nr4 nr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, nr4Var) == null) {
                 u48 u48Var = this.a;
                 if (u48Var.h > 0) {
                     if (u48Var.e.getMaskType() == 1) {
@@ -235,13 +235,13 @@ public class u48 implements View.OnClickListener {
                         this.a.e.addToBlackList(this.a.h);
                     }
                 }
-                cr4Var.dismiss();
+                nr4Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class f implements cr4.e {
+    public class f implements nr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -261,11 +261,11 @@ public class u48 implements View.OnClickListener {
             }
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.nr4.e
+        public void onClick(nr4 nr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, nr4Var) == null) {
+                nr4Var.dismiss();
             }
         }
     }
@@ -316,14 +316,14 @@ public class u48 implements View.OnClickListener {
                 if (responseUpdateMaskInfoMessage.getError() == 0) {
                     if (this.a.e.getMaskType() == 1) {
                         TbPageContext tbPageContext = this.a.d;
-                        tbPageContext.showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f03a5));
+                        tbPageContext.showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f03aa));
                         return;
                     }
                     TbPageContext tbPageContext2 = this.a.d;
-                    tbPageContext2.showToast(tbPageContext2.getString(R.string.obfuscated_res_0x7f0f0f87));
+                    tbPageContext2.showToast(tbPageContext2.getString(R.string.obfuscated_res_0x7f0f0f9f));
                     return;
                 }
-                this.a.d.showToast(StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString()) ? this.a.d.getResources().getString(R.string.obfuscated_res_0x7f0f0c17) : responseUpdateMaskInfoMessage.getErrorString());
+                this.a.d.showToast(StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString()) ? this.a.d.getResources().getString(R.string.obfuscated_res_0x7f0f0c2d) : responseUpdateMaskInfoMessage.getErrorString());
             }
         }
     }
@@ -366,7 +366,7 @@ public class u48 implements View.OnClickListener {
                 if (error == 0) {
                     this.a.f(false);
                 } else {
-                    errorString = StringUtils.isNull(responseDeleteFriendMessage.getErrorString()) ? this.a.d.getResources().getString(R.string.obfuscated_res_0x7f0f0c17) : responseDeleteFriendMessage.getErrorString();
+                    errorString = StringUtils.isNull(responseDeleteFriendMessage.getErrorString()) ? this.a.d.getResources().getString(R.string.obfuscated_res_0x7f0f0c2d) : responseDeleteFriendMessage.getErrorString();
                 }
                 this.a.d.showToast(errorString);
             }
@@ -476,11 +476,11 @@ public class u48 implements View.OnClickListener {
         this.b = q48Var;
         this.e = blackListModel;
         this.k = bdUniqueId;
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921343, rr8.class, tbPageContext.getPageActivity());
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921343, oq8.class, tbPageContext.getPageActivity());
         if (runTask != null) {
-            rr8 rr8Var = (rr8) runTask.getData();
-            this.c = rr8Var;
-            rr8Var.b(bdUniqueId);
+            oq8 oq8Var = (oq8) runTask.getData();
+            this.c = oq8Var;
+            oq8Var.b(bdUniqueId);
         }
         g();
         RemoveFansController removeFansController = new RemoveFansController(tbPageContext, this.k);
@@ -506,11 +506,11 @@ public class u48 implements View.OnClickListener {
             if (y48Var != null) {
                 y48Var.x(z);
             }
-            d18 d18Var = this.a;
-            if (d18Var == null || (blackListModel = this.e) == null) {
+            x08 x08Var = this.a;
+            if (x08Var == null || (blackListModel = this.e) == null) {
                 return;
             }
-            d18Var.n(this.f, blackListModel.getMaskType() == 1, this.l);
+            x08Var.o(this.f, blackListModel.getMaskType() == 1, this.l);
         }
     }
 
@@ -551,36 +551,36 @@ public class u48 implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.g == null) {
             return;
         }
-        cr4 cr4Var = new cr4(this.d.getPageActivity());
-        cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0421, new e(this));
-        cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036e, new f(this));
+        nr4 nr4Var = new nr4(this.d.getPageActivity());
+        nr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0428, new e(this));
+        nr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0374, new f(this));
         if (this.e.getMaskType() == 1) {
-            format = String.format(this.d.getString(R.string.obfuscated_res_0x7f0f030a), this.g);
+            format = String.format(this.d.getString(R.string.obfuscated_res_0x7f0f030f), this.g);
         } else {
-            format = String.format(this.d.getString(R.string.obfuscated_res_0x7f0f030c), this.g);
+            format = String.format(this.d.getString(R.string.obfuscated_res_0x7f0f0311), this.g);
         }
-        cr4Var.setMessage(format);
-        cr4Var.create(this.d);
-        cr4Var.show();
+        nr4Var.setMessage(format);
+        nr4Var.create(this.d);
+        nr4Var.show();
     }
 
     public final void j(boolean z, boolean z2, int i2, boolean z3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2), Boolean.valueOf(z3)}) == null) {
-            d18 d18Var = new d18(this.d, this);
-            this.a = d18Var;
-            d18Var.n(z, z2, z3);
+            x08 x08Var = new x08(this.d, this);
+            this.a = x08Var;
+            x08Var.o(z, z2, z3);
             if (i2 != -1) {
-                this.a.m(i2);
+                this.a.n(i2);
             }
             y48 y48Var = this.j;
             if (y48Var != null && y48Var.j() != null) {
-                this.a.o(this.j.j().getUserName());
+                this.a.q(this.j.j().getUserName());
             }
-            this.a.l();
-            c18 c18Var = new c18(this.d.getPageActivity(), this.a.j());
-            this.n = c18Var;
-            c18Var.show();
+            this.a.m();
+            w08 w08Var = new w08(this.d.getPageActivity(), this.a.k());
+            this.n = w08Var;
+            w08Var.show();
         }
     }
 
@@ -589,12 +589,12 @@ public class u48 implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.h == 0) {
             return;
         }
-        cr4 cr4Var = new cr4(this.d.getPageActivity());
-        cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0421, new c(this));
-        cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036e, new d(this));
-        cr4Var.setMessage(String.format(this.d.getString(R.string.obfuscated_res_0x7f0f0f7f), this.g));
-        cr4Var.create(this.d);
-        cr4Var.show();
+        nr4 nr4Var = new nr4(this.d.getPageActivity());
+        nr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0428, new c(this));
+        nr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0374, new d(this));
+        nr4Var.setMessage(String.format(this.d.getString(R.string.obfuscated_res_0x7f0f0f97), this.g));
+        nr4Var.create(this.d);
+        nr4Var.show();
     }
 
     @Override // android.view.View.OnClickListener
@@ -603,10 +603,10 @@ public class u48 implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeL(1048583, this, view2) == null) || view2 == null) {
             return;
         }
-        rg.a(this.n, this.d.getPageActivity());
+        pg.a(this.n, this.d.getPageActivity());
         if (this.a.e() != null && view2.getId() == this.a.e().getId()) {
             i();
-        } else if (this.a.f() != null && view2.getId() == this.a.f().getId()) {
+        } else if (this.a.g() != null && view2.getId() == this.a.g().getId()) {
             if (this.f) {
                 RequestDeleteFriendMessage requestDeleteFriendMessage = new RequestDeleteFriendMessage();
                 requestDeleteFriendMessage.setFriendId(this.h);
@@ -614,9 +614,9 @@ public class u48 implements View.OnClickListener {
                 return;
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddFriendActivityConfig(this.d.getPageActivity(), String.valueOf(this.h), this.g, this.i, null, false, null)));
-        } else if (this.a.g() != null && view2.getId() == this.a.g().getId()) {
-            if (!mi.z()) {
-                this.d.showToast(R.string.obfuscated_res_0x7f0f0c17);
+        } else if (this.a.h() != null && view2.getId() == this.a.h().getId()) {
+            if (!ki.z()) {
+                this.d.showToast(R.string.obfuscated_res_0x7f0f0c2d);
                 return;
             }
             q48 q48Var = this.b;
@@ -635,15 +635,15 @@ public class u48 implements View.OnClickListener {
                 userMuteAddAndDelCustomMessage2.mId = this.b.f();
                 this.b.j(true, userMuteAddAndDelCustomMessage2, null, this.g);
             }
-        } else if (this.a.i() != null && view2.getId() == this.a.i().getId()) {
+        } else if (this.a.j() != null && view2.getId() == this.a.j().getId()) {
             if (this.c != null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_PERSON_TALK_REPORT_CLICK).param("obj_locate", 1));
                 this.c.c(String.valueOf(this.h));
             }
-        } else if (this.a.h() == null || view2.getId() != this.a.h().getId()) {
+        } else if (this.a.i() == null || view2.getId() != this.a.i().getId()) {
         } else {
-            if (!mi.z()) {
-                oi.M(this.d.getPageActivity(), R.string.obfuscated_res_0x7f0f0c17);
+            if (!ki.z()) {
+                mi.M(this.d.getPageActivity(), R.string.obfuscated_res_0x7f0f0c2d);
             } else {
                 k();
             }

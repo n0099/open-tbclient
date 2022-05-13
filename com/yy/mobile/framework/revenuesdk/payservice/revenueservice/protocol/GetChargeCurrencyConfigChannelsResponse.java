@@ -3,7 +3,6 @@ package com.yy.mobile.framework.revenuesdk.payservice.revenueservice.protocol;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
-import com.baidu.tieba.recapp.report.AdUploadHttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -222,7 +221,7 @@ public class GetChargeCurrencyConfigChannelsResponse implements IBaseJsonRespons
                     productInfo.propsSum = optJSONObject.optInt("propsSum");
                     productInfo.props.addAll(optProps(optJSONObject.optJSONArray("props")));
                     productInfo.chargeRate = Double.valueOf(optJSONObject.optDouble("chargeRate"));
-                    productInfo.productId = optJSONObject.optString(AdUploadHttpRequest.KEY_PRODUCT_ID);
+                    productInfo.productId = optJSONObject.optString("productId");
                     productInfo.expand = optJSONObject.optString("expand");
                     productInfo.currencyCode = optJSONObject.optString("currencyCode");
                     productInfo.otherPrice = optJSONObject.optString("otherPrice");

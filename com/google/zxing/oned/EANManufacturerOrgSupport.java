@@ -4,6 +4,7 @@ import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.ResponseCode;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.down.manage.DownloadConstants;
+import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.download.center.clearcache.UserSettingForceListListener;
@@ -126,7 +127,7 @@ public final class EANManufacturerOrgSupport {
                     add(new int[]{744}, "CR");
                     add(new int[]{745}, "PA");
                     add(new int[]{746}, "DO");
-                    add(new int[]{750}, "MX");
+                    add(new int[]{PassBiometricUtil.k}, "MX");
                     add(new int[]{754, 755}, "CA");
                     add(new int[]{759}, "VE");
                     add(new int[]{AiAppGuideActivity.GIF_WIDTH, ApkSignatureSchemeV2Verifier.SIGNATURE_DSA_WITH_SHA256}, "CH");

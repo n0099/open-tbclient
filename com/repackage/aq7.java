@@ -80,12 +80,12 @@ public class aq7 implements View.OnClickListener, BaseInterestSelectionFragment.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
             if (UbsABTestHelper.isInterestGuideStyleAOrB()) {
-                this.j = InterestedForumStyleAFragment.H0(this.b, this.e);
+                this.j = InterestedForumStyleAFragment.I0(this.b, this.e);
             } else {
-                this.j = InterestedForumFragment.G0(this.b, this.e);
+                this.j = InterestedForumFragment.H0(this.b, this.e);
             }
-            this.j.E0(list);
-            b().beginTransaction().add(R.id.obfuscated_res_0x7f0906e8, this.j).addToBackStack(null).commitAllowingStateLoss();
+            this.j.F0(list);
+            b().beginTransaction().add(R.id.obfuscated_res_0x7f0906e3, this.j).addToBackStack(null).commitAllowingStateLoss();
             vp7.a(b().getFragments().size() == 1 ? 1 : 2, 1, this.b, c(list), "");
         }
     }
@@ -139,13 +139,13 @@ public class aq7 implements View.OnClickListener, BaseInterestSelectionFragment.
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d003f, (ViewGroup) null);
             this.f = inflate;
-            this.i = (NavigationBar) inflate.findViewById(R.id.obfuscated_res_0x7f091515);
+            this.i = (NavigationBar) inflate.findViewById(R.id.obfuscated_res_0x7f091534);
             if (UbsABTestHelper.isInterestGuideStyleB()) {
-                vr4.d(this.i).f(R.color.CAM_X0206);
+                gs4.d(this.i).f(R.color.CAM_X0206);
             }
-            TextView addTextButton = this.i.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(R.string.obfuscated_res_0x7f0f1183));
+            TextView addTextButton = this.i.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(R.string.obfuscated_res_0x7f0f11a0));
             this.h = addTextButton;
-            addTextButton.setId(R.id.obfuscated_res_0x7f090440);
+            addTextButton.setId(R.id.obfuscated_res_0x7f09043b);
             if (!UbsABTestHelper.isInterestGuideStyleA() && !UbsABTestHelper.isInterestGuideStyleB()) {
                 SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0107);
             } else {
@@ -154,27 +154,27 @@ public class aq7 implements View.OnClickListener, BaseInterestSelectionFragment.
             this.g = this.i.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             if (this.c) {
                 if (UbsABTestHelper.isInterestGuideStyleAOrB()) {
-                    this.j = InterestedForumStyleAFragment.G0(this.b, this.c, this.e);
+                    this.j = InterestedForumStyleAFragment.H0(this.b, this.c, this.e);
                 } else {
-                    this.j = InterestedForumFragment.F0(this.b, this.c, this.e);
+                    this.j = InterestedForumFragment.G0(this.b, this.c, this.e);
                 }
                 List<op7> j = j();
                 if (j != null) {
-                    this.j.E0(j);
+                    this.j.F0(j);
                 }
                 fragment = this.j;
                 this.g.setVisibility(4);
             } else {
                 if (UbsABTestHelper.isInterestGuideStyleA()) {
-                    this.k = InterestSelectionStyleAFragment.F0(this.b, this.e);
+                    this.k = InterestSelectionStyleAFragment.G0(this.b, this.e);
                 } else if (UbsABTestHelper.isInterestGuideStyleB()) {
-                    this.k = InterestSelectionStyleBFragment.F0(this.b, this.e);
+                    this.k = InterestSelectionStyleBFragment.G0(this.b, this.e);
                 } else {
-                    this.k = InterestSelectionFragment.F0(this.b, this.e);
+                    this.k = InterestSelectionFragment.G0(this.b, this.e);
                 }
                 fragment = this.k;
             }
-            b().beginTransaction().add(R.id.obfuscated_res_0x7f0906e8, fragment).commitAllowingStateLoss();
+            b().beginTransaction().add(R.id.obfuscated_res_0x7f0906e3, fragment).commitAllowingStateLoss();
             TiebaStatic.log(new StatisticItem("c13681"));
         }
     }
@@ -186,7 +186,7 @@ public class aq7 implements View.OnClickListener, BaseInterestSelectionFragment.
             this.g.setOnClickListener(this);
             BaseInterestSelectionFragment baseInterestSelectionFragment = this.k;
             if (baseInterestSelectionFragment != null) {
-                baseInterestSelectionFragment.E0(this);
+                baseInterestSelectionFragment.F0(this);
             }
         }
     }

@@ -19,7 +19,7 @@ import com.tachikoma.core.component.recyclerview.export.ITKListViewDelegate;
 import com.tachikoma.core.utility.ObjectUtils;
 import com.tachikoma.core.utility.V8Proxy;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKRecyclerAdapter extends RecyclerView.Adapter<TKViewHolder> implements ITKListViewDelegate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public class TKRecyclerAdapter extends RecyclerView.Adapter<TKViewHolder> implem
     public TKJSContext mTKJSContext;
     public V8Object mV8AssociatedObject;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class TKViewHolder extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

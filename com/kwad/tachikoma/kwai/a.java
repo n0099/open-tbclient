@@ -31,7 +31,7 @@ public class a {
 
     /* renamed from: com.kwad.tachikoma.kwai.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0347a {
+    public interface InterfaceC0346a {
         void a();
 
         void a(int i);
@@ -53,11 +53,11 @@ public class a {
         a = new AtomicBoolean(false);
     }
 
-    public static void a(Context context, @NonNull InterfaceC0347a interfaceC0347a) {
+    public static void a(Context context, @NonNull InterfaceC0346a interfaceC0346a) {
         String x;
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, context, interfaceC0347a) == null) || a.get()) {
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, context, interfaceC0346a) == null) || a.get()) {
             return;
         }
         a.set(true);
@@ -81,17 +81,17 @@ public class a {
         bVar.a = str;
         bVar.b = "2.0";
         bVar.g = false;
-        com.kwai.sodler.kwai.b.a(str, bVar, new b.a(interfaceC0347a) { // from class: com.kwad.tachikoma.kwai.a.1
+        com.kwai.sodler.kwai.b.a(str, bVar, new b.a(interfaceC0346a) { // from class: com.kwad.tachikoma.kwai.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ InterfaceC0347a a;
+            public final /* synthetic */ InterfaceC0346a a;
 
             {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {interfaceC0347a};
+                    Object[] objArr = {interfaceC0346a};
                     interceptable2.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -101,7 +101,7 @@ public class a {
                         return;
                     }
                 }
-                this.a = interfaceC0347a;
+                this.a = interfaceC0346a;
             }
 
             /* JADX DEBUG: Method merged with bridge method */

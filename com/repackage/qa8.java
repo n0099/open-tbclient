@@ -1,168 +1,80 @@
 package com.repackage;
 
-import android.net.Uri;
-import android.text.TextUtils;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.adapter.PbAppEmptyHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-/* loaded from: classes7.dex */
-public class qa8 {
+/* loaded from: classes6.dex */
+public class qa8 extends eo<zj8, PbAppEmptyHolder> implements fa8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, pk4> a;
+    public BaseFragmentActivity i;
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public String b;
-        public HashMap<String, String> c;
-
-        public b(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = false;
-            Uri parse = Uri.parse(str);
-            boolean z = !TextUtils.isEmpty(parse.getScheme());
-            this.a = z;
-            if (z) {
-                this.b = parse.getAuthority() + parse.getPath();
-                this.c = new HashMap<>();
-                for (String str2 : parse.getQueryParameterNames()) {
-                    this.c.put(str2, parse.getQueryParameter(str2));
-                }
-                return;
-            }
-            this.b = "";
-            this.c = new HashMap<>();
-        }
-
-        public static b a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? new b(str) : (b) invokeL.objValue;
-        }
-
-        public String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
-        }
-
-        public HashMap<String, String> c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (HashMap) invokeV.objValue;
-        }
-
-        public boolean d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.booleanValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public static qa8 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-77205974, "Lcom/repackage/qa8$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-77205974, "Lcom/repackage/qa8$c;");
-                    return;
-                }
-            }
-            a = new qa8(null);
-        }
-    }
-
-    public /* synthetic */ qa8(a aVar) {
-        this();
-    }
-
-    public static qa8 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.a : (qa8) invokeV.objValue;
-    }
-
-    public void b(mk4 mk4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, mk4Var) == null) {
-            c(mk4Var.c(), mk4Var);
-        }
-    }
-
-    public void c(String str, pk4 pk4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, pk4Var) == null) {
-            this.a.put(str, pk4Var);
-        }
-    }
-
-    public void d(Object obj, String str, HashMap<String, String> hashMap, a9 a9Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, obj, str, hashMap, a9Var) == null) || str == null) {
-            return;
-        }
-        b a2 = b.a(str);
-        pk4 pk4Var = this.a.get(a2.b());
-        if (pk4Var == null || !a2.d()) {
-            return;
-        }
-        if (hashMap != null && !hashMap.isEmpty()) {
-            a2.c().putAll(hashMap);
-        }
-        pk4Var.a(obj, a2.c(), str, a9Var);
-    }
-
-    public qa8() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qa8(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        super(baseFragmentActivity.getPageContext().getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseFragmentActivity, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
+        this.i = baseFragmentActivity;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.eo
+    /* renamed from: Z */
+    public PbAppEmptyHolder M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            View view2 = new View(this.i.getPageContext().getPageActivity());
+            view2.setVisibility(8);
+            return new PbAppEmptyHolder(view2);
+        }
+        return (PbAppEmptyHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.eo
+    /* renamed from: a0 */
+    public View S(int i, View view2, ViewGroup viewGroup, zj8 zj8Var, PbAppEmptyHolder pbAppEmptyHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, zj8Var, pbAppEmptyHolder})) == null) {
+            AdvertAppInfo advertAppInfo = zj8Var.getAdvertAppInfo();
+            if (advertAppInfo != null) {
+                eo4.g(advertAppInfo.i, zj8Var.getPosition(), advertAppInfo.c == -1001);
+            }
+            return pbAppEmptyHolder.b();
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    @Override // com.repackage.fa8
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+        }
     }
 }

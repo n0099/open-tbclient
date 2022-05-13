@@ -6,9 +6,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fg;
-import com.repackage.fo;
-import com.repackage.h35;
+import com.repackage.co;
+import com.repackage.dg;
+import com.repackage.y35;
 /* loaded from: classes3.dex */
 public class SimpleForeverMemoryLoaderProc extends SimpleLoaderProc {
     public static /* synthetic */ Interceptable $ic;
@@ -35,35 +35,35 @@ public class SimpleForeverMemoryLoaderProc extends SimpleLoaderProc {
         }
     }
 
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.repackage.jg
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.repackage.hg
     public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && (obj instanceof fo)) {
-            fo foVar = (fo) obj;
-            if (foVar.u()) {
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && (obj instanceof co)) {
+            co coVar = (co) obj;
+            if (coVar.u()) {
                 long currentTimeMillis = System.currentTimeMillis();
-                foVar.A(i);
-                foVar.z(i2);
-                h35.k().f(str, foVar);
-                fg.l(true, System.currentTimeMillis() - currentTimeMillis);
+                coVar.A(i);
+                coVar.z(i2);
+                y35.k().f(str, coVar);
+                dg.l(true, System.currentTimeMillis() - currentTimeMillis);
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.repackage.jg
-    public fo getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.repackage.hg
+    public co getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            fo o = h35.k().o(str);
+            co o = y35.k().o(str);
             if (z) {
-                fg.i(o != null, System.currentTimeMillis() - currentTimeMillis);
+                dg.i(o != null, System.currentTimeMillis() - currentTimeMillis);
             }
             return o;
         }
-        return (fo) invokeCommon.objValue;
+        return (co) invokeCommon.objValue;
     }
 }

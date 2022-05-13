@@ -1,214 +1,155 @@
 package com.repackage;
 
-import android.animation.Animator;
-import android.animation.ValueAnimator;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import android.text.Layout;
+import android.text.Selection;
+import android.text.Spannable;
+import android.text.method.LinkMovementMethod;
+import android.view.MotionEvent;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
-import com.baidu.tbadk.widget.viewpager.VerticalViewPager;
-import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ov8 implements View.OnClickListener, Animator.AnimatorListener, ValueAnimator.AnimatorUpdateListener {
+public class ov8 extends LinkMovementMethod {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean d;
-    public static boolean e;
+    public static ov8 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TBLottieAnimationView a;
-    public final VerticalViewPager b;
-    public boolean c;
+    public yf5 a;
+    public int b;
+    public int c;
+    public long d;
+    public int e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755426144, "Lcom/repackage/ov8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755426144, "Lcom/repackage/ov8;");
-                return;
-            }
-        }
-        d = vt4.k().h("key_video_guide_up_slide_animated", false);
-        e = vt4.k().h("key_video_guide_left_slide_animated", false);
-    }
-
-    public ov8(TBLottieAnimationView tBLottieAnimationView, VerticalViewPager verticalViewPager) {
+    public ov8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tBLottieAnimationView, verticalViewPager};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = false;
-        this.a = tBLottieAnimationView;
-        this.b = verticalViewPager;
-        f();
+        this.e = -1;
     }
 
-    public static void a() {
+    public static ov8 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            e = true;
-        }
-    }
-
-    public final void b(VerticalViewPager verticalViewPager) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, verticalViewPager) == null) {
-            verticalViewPager.setCurrentItem(verticalViewPager.getCurrentItem() + 1, true);
-        }
-    }
-
-    public void c() {
-        TBLottieAnimationView tBLottieAnimationView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (tBLottieAnimationView = this.a) == null || this.b == null || this.c || !d || e || tBLottieAnimationView.isAnimating()) {
-            return;
-        }
-        this.a.setImageAssetsFolder("lottie_video_guide_left");
-        k(R.raw.obfuscated_res_0x7f110059);
-        e = true;
-        this.c = true;
-        vt4.k().u("key_video_guide_left_slide_animated", true);
-    }
-
-    public void d() {
-        TBLottieAnimationView tBLottieAnimationView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (tBLottieAnimationView = this.a) == null || this.b == null || this.c || d || tBLottieAnimationView.isAnimating()) {
-            return;
-        }
-        this.a.setImageAssetsFolder("lottie_video_guide_up");
-        k(R.raw.obfuscated_res_0x7f11005a);
-        d = true;
-        this.c = true;
-        vt4.k().u("key_video_guide_up_slide_animated", true);
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.a.isAnimating()) {
-                this.a.pauseAnimation();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (f == null) {
+                f = new ov8();
             }
-            this.a.setVisibility(8);
+            return f;
+        }
+        return (ov8) invokeV.objValue;
+    }
+
+    public static boolean c(float f2, float f3, float f4, float f5, long j, long j2, long j3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            return Math.abs(f4 - f2) <= 100.0f && Math.abs(f5 - f3) <= 100.0f && j2 - j >= j3;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public final yf5 b(TextView textView, Spannable spannable, MotionEvent motionEvent) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, textView, spannable, motionEvent)) == null) {
+            if (motionEvent != null && motionEvent.getAction() != 3) {
+                int x = ((int) motionEvent.getX()) - textView.getTotalPaddingLeft();
+                int y = ((int) motionEvent.getY()) - textView.getTotalPaddingTop();
+                int scrollX = x + textView.getScrollX();
+                int scrollY = y + textView.getScrollY();
+                try {
+                    Layout layout = textView.getLayout();
+                    int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical(scrollY), scrollX);
+                    yf5[] yf5VarArr = (yf5[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, yf5.class);
+                    if (yf5VarArr == null || yf5VarArr.length <= 0 || yf5VarArr[0] == null) {
+                        return null;
+                    }
+                    return yf5VarArr[0];
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return this.a;
+                }
+            }
+            return this.a;
+        }
+        return (yf5) invokeLLL.objValue;
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.e = i;
         }
     }
 
-    public final void f() {
-        TBLottieAnimationView tBLottieAnimationView;
+    @Override // android.text.method.LinkMovementMethod, android.text.method.ScrollingMovementMethod, android.text.method.BaseMovementMethod, android.text.method.MovementMethod
+    public boolean onTouchEvent(TextView textView, Spannable spannable, MotionEvent motionEvent) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (tBLottieAnimationView = this.a) == null || this.b == null) {
-            return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, textView, spannable, motionEvent)) == null) {
+            yf5 b = b(textView, spannable, motionEvent);
+            if (b == null && motionEvent.getAction() == 0) {
+                try {
+                    return super.onTouchEvent(textView, spannable, motionEvent);
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return true;
+                }
+            }
+            if (b != null) {
+                this.a = b;
+            }
+            int i = this.e;
+            if (i > -1) {
+                this.a.g(i);
+            }
+            if (motionEvent.getAction() == 0) {
+                this.b = (int) motionEvent.getX();
+                this.c = (int) motionEvent.getY();
+                this.d = System.currentTimeMillis();
+                yf5 yf5Var = this.a;
+                if (yf5Var != null) {
+                    yf5Var.h(1);
+                    Selection.setSelection(spannable, spannable.getSpanStart(this.a), spannable.getSpanEnd(this.a));
+                }
+                textView.invalidate();
+            } else if (motionEvent.getAction() == 2) {
+                if (this.a != null && (Math.abs(this.b - motionEvent.getX()) > 20.0f || Math.abs(this.c - motionEvent.getY()) > 20.0f)) {
+                    this.a.h(2);
+                    textView.invalidate();
+                    Selection.removeSelection(spannable);
+                }
+            } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
+                yf5 yf5Var2 = this.a;
+                if (yf5Var2 != null) {
+                    yf5Var2.h(2);
+                    textView.invalidate();
+                    Selection.removeSelection(spannable);
+                }
+                if (c(this.b, this.c, motionEvent.getX(), motionEvent.getY(), this.d, System.currentTimeMillis(), 500L)) {
+                    return true;
+                }
+            }
+            try {
+                return super.onTouchEvent(textView, spannable, motionEvent);
+            } catch (Exception e2) {
+                BdLog.e(e2);
+                return true;
+            }
         }
-        tBLottieAnimationView.setOnClickListener(this);
-        this.a.addAnimatorUpdateListener(this);
-        this.a.addAnimatorListener(this);
-        this.a.setRepeatCount(2);
-        this.a.setRepeatMode(1);
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.c = false;
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.a == null || this.b == null) {
-            return;
-        }
-        e();
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.a.setVisibility(0);
-            this.a.playAnimation();
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            b(this.b);
-        }
-    }
-
-    public final void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.a.setAnimation(i);
-            i();
-        }
-    }
-
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationCancel(Animator animator) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, animator) == null) {
-        }
-    }
-
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationEnd(Animator animator) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, animator) == null) || this.a == null || this.b == null) {
-            return;
-        }
-        e();
-    }
-
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationRepeat(Animator animator) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, animator) == null) {
-        }
-    }
-
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationStart(Animator animator) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, animator) == null) {
-        }
-    }
-
-    @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-    public void onAnimationUpdate(ValueAnimator valueAnimator) {
-        TBLottieAnimationView tBLottieAnimationView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, valueAnimator) == null) || (tBLottieAnimationView = this.a) == null || this.b == null || !tBLottieAnimationView.isAnimating() || e || !d) {
-            return;
-        }
-        valueAnimator.getAnimatedFraction();
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, view2) == null) {
-            e();
-        }
+        return invokeLLL.booleanValue;
     }
 }

@@ -1,133 +1,127 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.utils.ThirdPartyUtil;
+import com.baidu.tbadk.BdToken.backUser.BackUserHTTPResMsg;
+import com.baidu.tbadk.BdToken.backUser.BackUserReqMsg;
+import com.baidu.tbadk.BdToken.backUser.BackUserSocketResMsg;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public abstract class bk4 implements ak4 {
+public class bk4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdUniqueId a;
+    public wa b;
 
-    public bk4() {
+    /* loaded from: classes5.dex */
+    public class a extends wa {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ bk4 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(bk4 bk4Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bk4Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bk4Var;
+        }
+
+        @Override // com.repackage.wa
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || responsedMessage.getOrginalMessage() == null || this.a.b() != responsedMessage.getOrginalMessage().getTag() || responsedMessage.hasError() || responsedMessage.getError() != 0) {
+                return;
+            }
+            ak4 ak4Var = null;
+            if (responsedMessage instanceof BackUserHTTPResMsg) {
+                ak4Var = ((BackUserHTTPResMsg) responsedMessage).getData();
+            } else if (responsedMessage instanceof BackUserSocketResMsg) {
+                ak4Var = ((BackUserSocketResMsg) responsedMessage).getData();
+            }
+            if (ak4Var == null || !ak4Var.a) {
+                return;
+            }
+            iu4.k().x(iu4.o("pref_key_last_request_mission"), System.currentTimeMillis());
+            gu4.e().i();
+        }
+    }
+
+    public bk4(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.b = new a(this, CmdConfigHttp.CMD_BACK_USER, 309689);
+        this.a = bdUniqueId;
+        c();
+        this.b.setTag(this.a);
+        MessageManager.getInstance().registerListener(this.b);
+    }
+
+    public final boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !UtilHelper.isSameDay(iu4.k().m(iu4.o("pref_key_last_request_mission"), 0L), System.currentTimeMillis()) : invokeV.booleanValue;
+    }
+
+    public BdUniqueId b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (BdUniqueId) invokeV.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            hj8.h(309689, BackUserSocketResMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BACK_USER, hj8.a(TbConfig.URL_BACK_USER, 309689));
+            tbHttpMessageTask.setResponsedClass(BackUserHTTPResMsg.class);
+            tbHttpMessageTask.setIsNeedAddCommenParam(true);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
     }
 
-    public void c(String[] strArr, StringBuilder sb, Map<String, String> map, int i) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(1048576, this, strArr, sb, map, i) == null) || strArr == null || strArr.length <= i || map == null || sb == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && a()) {
+            BackUserReqMsg backUserReqMsg = new BackUserReqMsg();
+            backUserReqMsg.setTag(this.a);
+            MessageManager.getInstance().sendMessage(backUserReqMsg);
         }
-        LinkedHashMap linkedHashMap = new LinkedHashMap();
-        while (i < strArr.length) {
-            String str = "@" + strArr[i];
-            Iterator<Map.Entry<String, String>> it = map.entrySet().iterator();
-            while (true) {
-                if (it.hasNext()) {
-                    Map.Entry<String, String> next = it.next();
-                    if (str.startsWith(next.getKey())) {
-                        String replace = str.replace(next.getKey(), "");
-                        if ("@p".equals(next.getKey())) {
-                            String d = d(replace);
-                            if (!StringUtils.isNull(d)) {
-                                linkedHashMap.put(next.getValue(), d);
-                            }
-                        } else {
-                            linkedHashMap.put(next.getValue(), replace);
-                        }
-                    }
-                }
-            }
-            i++;
-        }
-        for (Map.Entry entry : linkedHashMap.entrySet()) {
-            if (!StringUtils.isNull((String) entry.getKey()) && !StringUtils.isNull((String) entry.getValue())) {
-                sb.append(sb.toString().contains("?") ? "&" : "?");
-                sb.append((String) entry.getKey());
-                sb.append("=");
-                sb.append((String) entry.getValue());
-            }
-        }
-    }
-
-    public final String d(String str) {
-        InterceptResult invokeL;
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            int hashCode = str.hashCode();
-            if (hashCode == 81) {
-                if (str.equals("Q")) {
-                    c = 6;
-                }
-                c = 65535;
-            } else if (hashCode == 104) {
-                if (str.equals("h")) {
-                    c = 3;
-                }
-                c = 65535;
-            } else if (hashCode == 112) {
-                if (str.equals("p")) {
-                    c = 4;
-                }
-                c = 65535;
-            } else if (hashCode == 119) {
-                if (str.equals("w")) {
-                    c = 0;
-                }
-                c = 65535;
-            } else if (hashCode == 122) {
-                if (str.equals("z")) {
-                    c = 5;
-                }
-                c = 65535;
-            } else if (hashCode != 98) {
-                if (hashCode == 99 && str.equals("c")) {
-                    c = 1;
-                }
-                c = 65535;
-            } else {
-                if (str.equals("b")) {
-                    c = 2;
-                }
-                c = 65535;
-            }
-            switch (c) {
-                case 0:
-                    return "wise";
-                case 1:
-                    return ThirdPartyUtil.TYPE_WEIXIN;
-                case 2:
-                    return "shoubai";
-                case 3:
-                    return "tbShareH5";
-                case 4:
-                    return "pc";
-                case 5:
-                    return "zhongjianye";
-                case 6:
-                    return com.tencent.connect.common.Constants.SOURCE_QQ;
-                default:
-                    return null;
-            }
-        }
-        return (String) invokeL.objValue;
     }
 }

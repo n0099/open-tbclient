@@ -14,29 +14,26 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 /* loaded from: classes6.dex */
-public abstract class i87 implements CustomMessageTask.CustomRunnable<LoadHistoryMessage.a> {
+public class i87 implements CustomMessageTask.CustomRunnable<LoadHistoryMessage.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d67 a;
+    public s57 a;
     public int b;
 
-    public i87(d67 d67Var, int i) {
+    public i87() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {d67Var, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = d67Var;
-        this.b = i;
+        b(s57.h(), 2001145);
     }
 
     public final LoadHistoryResponsedMessage a(int i) {
@@ -50,15 +47,26 @@ public abstract class i87 implements CustomMessageTask.CustomRunnable<LoadHistor
         return (LoadHistoryResponsedMessage) invokeI.objValue;
     }
 
+    public final void b(s57 s57Var, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, s57Var, i) == null) {
+            this.a = s57Var;
+            this.b = i;
+        }
+    }
+
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<LoadHistoryMessage.a> customMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customMessage)) == null) {
-            if (customMessage != null && (customMessage instanceof LoadHistoryMessage) && this.a != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, customMessage)) == null) {
+            if (customMessage != null && (customMessage instanceof LoadHistoryMessage)) {
+                if (this.a == null) {
+                    return a(this.b);
+                }
                 LoadHistoryMessage.a data = customMessage.getData();
                 LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(this.b);
-                LinkedList<ChatMessage> g = this.a.g(mg.g(data.d, 0L), data.a, data.b, data.c);
+                LinkedList<ChatMessage> g = this.a.g(data.d, data.a, data.b, data.c);
                 if (g == null) {
                     return a(this.b);
                 }
@@ -68,8 +76,8 @@ public abstract class i87 implements CustomMessageTask.CustomRunnable<LoadHistor
                 } else {
                     aVar.c = false;
                 }
-                aVar.a = data.d;
                 aVar.b = g;
+                aVar.a = data.d;
                 try {
                     loadHistoryResponsedMessage.decodeInBackGround(2001105, aVar);
                 } catch (Exception e) {

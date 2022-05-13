@@ -1,63 +1,50 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.collection.ArraySet;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.qj2;
 /* loaded from: classes7.dex */
-public class v92 extends q92 {
+public class v92 implements t92 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String[] a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v92(@NonNull p92 p92Var) {
-        super(p92Var);
+    public v92() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {p92Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((p92) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new String[]{qj2.i(), qj2.l(), qj2.r(), qj2.b.f(), ny1.f(), ny1.d(), yx1.c(), qj2.f.f(), qj2.f.d(), me2.d};
     }
 
-    @Override // com.repackage.q92
-    public void e() {
+    @Override // com.repackage.t92
+    public ArraySet<String> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            d();
-            h();
-            g();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArraySet<String> arraySet = new ArraySet<>();
+            for (String str : this.a) {
+                String K = xg4.K(str);
+                if (!TextUtils.isEmpty(K)) {
+                    arraySet.add(K);
+                }
+            }
+            ux1.k("SwanSandboxFileCollector", "recovery renameAllFiles:" + arraySet.toString());
+            return arraySet;
         }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            sa2.f(0).f().c();
-            sa2.f(0).e().f();
-            ac2.i(0, true);
-            mg4.M(tb2.a);
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            t93.b(0);
-            r93.b(0);
-            r93.v(true, 0);
-            mg4.L(o93.d(0));
-        }
+        return (ArraySet) invokeV.objValue;
     }
 }

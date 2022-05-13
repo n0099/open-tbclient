@@ -5,18 +5,13 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class n62 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static final boolean d;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public boolean b;
 
     static {
         InterceptResult invokeClinit;
@@ -31,46 +26,51 @@ public class n62 {
                 return;
             }
         }
-        c = tg1.a;
-        qj2.g0().getSwitch("swan_sailor_init_delay", false);
-        d = false;
-    }
-
-    public n62() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = false;
-    }
-
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c) {
-                Log.d("SwanSailorUpdateModel", "isSailorOptABSwitchOn:" + d);
-            }
-            return d;
-        }
-        return invokeV.booleanValue;
+        a = eh1.a;
     }
 
     @NonNull
-    public String toString() {
+    public static l62 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SwanSailorUpdateModel{scene='" + this.a + "'}";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            l62 b = b(c());
+            if (a) {
+                Log.d("PrelinkStrategyFactory", "prelink strategy - " + b.getClass().getSimpleName());
+            }
+            return b;
         }
-        return (String) invokeV.objValue;
+        return (l62) invokeV.objValue;
+    }
+
+    public static l62 b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i == 0) {
+                return new j62();
+            }
+            if (i > 0) {
+                return new m62(i);
+            }
+            if (i == -1) {
+                return new k62();
+            }
+            return new j62();
+        }
+        return (l62) invokeI.objValue;
+    }
+
+    public static int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            bk2.g0().getSwitch("swan_prelink_policy_when_prefetch", 0);
+            if (a) {
+                Log.d("PrelinkStrategyFactory", "swan_prelink_policy_when_prefetch = 0");
+            }
+            return 0;
+        }
+        return invokeV.intValue;
     }
 }

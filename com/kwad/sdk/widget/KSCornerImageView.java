@@ -38,7 +38,7 @@ public class KSCornerImageView extends ImageView {
 
     private void a(Context context, @Nullable AttributeSet attributeSet, int i) {
         i.a aVar = new i.a();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040346, R.attr.obfuscated_res_0x7f040365, R.attr.obfuscated_res_0x7f04036e, R.attr.obfuscated_res_0x7f040392});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04034a, R.attr.obfuscated_res_0x7f040369, R.attr.obfuscated_res_0x7f040372, R.attr.obfuscated_res_0x7f040396});
         aVar.a(obtainStyledAttributes.getBoolean(1, true));
         aVar.b(obtainStyledAttributes.getBoolean(3, true));
         aVar.c(obtainStyledAttributes.getBoolean(2, true));

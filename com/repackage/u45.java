@@ -1,11 +1,7 @@
 package com.repackage;
 
-import java.util.List;
-import tbclient.VideoRedIcon.RedIcon;
-import tbclient.VideoRedIcon.VideoRedIconResIdl;
+import android.view.View;
 /* loaded from: classes7.dex */
 public interface u45 {
-    List<RedIcon> getDataList();
-
-    VideoRedIconResIdl getResData();
+    void a(View view2, View view3, boolean z);
 }

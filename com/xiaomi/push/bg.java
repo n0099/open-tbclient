@@ -143,7 +143,7 @@ public class bg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static NetworkInfo m209a(Context context) {
+    public static NetworkInfo m210a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
@@ -171,24 +171,24 @@ public class bg {
             try {
                 try {
                     try {
-                        HttpURLConnection m211a = m211a(context, m212a(str));
-                        m211a.setConnectTimeout(10000);
-                        m211a.setReadTimeout(15000);
+                        HttpURLConnection m212a = m212a(context, m213a(str));
+                        m212a.setConnectTimeout(10000);
+                        m212a.setReadTimeout(15000);
                         String str4 = str2;
                         if (str2 == 0) {
                             str4 = "GET";
                         }
-                        m211a.setRequestMethod(str4);
+                        m212a.setRequestMethod(str4);
                         if (map != null) {
                             for (String str5 : map.keySet()) {
-                                m211a.setRequestProperty(str5, map.get(str5));
+                                m212a.setRequestProperty(str5, map.get(str5));
                             }
                         }
                         int i = 0;
                         if (!TextUtils.isEmpty(str3)) {
-                            m211a.setDoOutput(true);
+                            m212a.setDoOutput(true);
                             byte[] bytes = str3.getBytes();
-                            OutputStream outputStream = m211a.getOutputStream();
+                            OutputStream outputStream = m212a.getOutputStream();
                             try {
                                 outputStream.write(bytes, 0, bytes.length);
                                 outputStream.flush();
@@ -201,23 +201,23 @@ public class bg {
                                 throw new IOException(th.getMessage());
                             }
                         }
-                        beVar.a = m211a.getResponseCode();
+                        beVar.a = m212a.getResponseCode();
                         Log.d("com.xiaomi.common.Network", "Http POST Response Code: " + beVar.a);
                         while (true) {
-                            String headerFieldKey = m211a.getHeaderFieldKey(i);
-                            String headerField = m211a.getHeaderField(i);
+                            String headerFieldKey = m212a.getHeaderFieldKey(i);
+                            String headerField = m212a.getHeaderField(i);
                             if (headerFieldKey == null && headerField == null) {
                                 try {
                                     break;
                                 } catch (IOException unused) {
-                                    bufferedReader = new BufferedReader(new InputStreamReader(new a(m211a.getErrorStream())));
+                                    bufferedReader = new BufferedReader(new InputStreamReader(new a(m212a.getErrorStream())));
                                 }
                             } else {
                                 beVar.f131a.put(headerFieldKey, headerField);
                                 i = i + 1 + 1;
                             }
                         }
-                        bufferedReader = new BufferedReader(new InputStreamReader(new a(m211a.getInputStream())));
+                        bufferedReader = new BufferedReader(new InputStreamReader(new a(m212a.getInputStream())));
                     } catch (Throwable th2) {
                         th = th2;
                     }
@@ -273,29 +273,29 @@ public class bg {
                     URL url2 = !z ? new URL(a(url.toString())) : url;
                     try {
                         HttpURLConnection.setFollowRedirects(true);
-                        HttpURLConnection m211a = m211a(context, url2);
-                        m211a.setConnectTimeout(10000);
-                        m211a.setReadTimeout(15000);
+                        HttpURLConnection m212a = m212a(context, url2);
+                        m212a.setConnectTimeout(10000);
+                        m212a.setReadTimeout(15000);
                         if (!TextUtils.isEmpty(str)) {
-                            m211a.setRequestProperty("User-Agent", str);
+                            m212a.setRequestProperty("User-Agent", str);
                         }
                         if (str2 != null) {
-                            m211a.setRequestProperty("Cookie", str2);
+                            m212a.setRequestProperty("Cookie", str2);
                         }
                         if (map != null) {
                             for (String str3 : map.keySet()) {
-                                m211a.setRequestProperty(str3, map.get(str3));
+                                m212a.setRequestProperty(str3, map.get(str3));
                             }
                         }
                         if (bVar != null && (url.getProtocol().equals("http") || url.getProtocol().equals("https"))) {
-                            bVar.a = m211a.getResponseCode();
+                            bVar.a = m212a.getResponseCode();
                             if (bVar.f132a == null) {
                                 bVar.f132a = new HashMap();
                             }
                             int i = 0;
                             while (true) {
-                                String headerFieldKey = m211a.getHeaderFieldKey(i);
-                                String headerField = m211a.getHeaderField(i);
+                                String headerFieldKey = m212a.getHeaderFieldKey(i);
+                                String headerField = m212a.getHeaderField(i);
                                 if (headerFieldKey == null && headerField == null) {
                                     break;
                                 }
@@ -305,7 +305,7 @@ public class bg {
                                 i++;
                             }
                         }
-                        return new a(m211a.getInputStream());
+                        return new a(m212a.getInputStream());
                     } catch (IOException e) {
                         throw new IOException("IOException:" + e.getClass().getSimpleName());
                     } catch (Throwable th) {
@@ -320,7 +320,7 @@ public class bg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m210a(Context context) {
+    public static String m211a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
@@ -513,24 +513,24 @@ public class bg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static HttpURLConnection m211a(Context context, URL url) {
+    public static HttpURLConnection m212a(Context context, URL url) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, context, url)) == null) {
-            return (HttpURLConnection) (("http".equals(url.getProtocol()) && m213a(context)) ? url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80))) : url.openConnection());
+            return (HttpURLConnection) (("http".equals(url.getProtocol()) && m214a(context)) ? url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80))) : url.openConnection());
         }
         return (HttpURLConnection) invokeLL.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static URL m212a(String str) {
+    public static URL m213a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) ? new URL(str) : (URL) invokeL.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m213a(Context context) {
+    public static boolean m214a(Context context) {
         InterceptResult invokeL;
         ConnectivityManager connectivityManager;
         Interceptable interceptable = $ic;
@@ -622,8 +622,8 @@ public class bg {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, context)) == null) {
-            NetworkInfo m209a = m209a(context);
-            return m209a != null && m209a.getType() == 0 && 20 == m209a.getSubtype();
+            NetworkInfo m210a = m210a(context);
+            return m210a != null && m210a.getType() == 0 && 20 == m210a.getSubtype();
         }
         return invokeL.booleanValue;
     }
@@ -632,8 +632,8 @@ public class bg {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, context)) == null) {
-            NetworkInfo m209a = m209a(context);
-            return m209a != null && m209a.getType() == 0 && 13 == m209a.getSubtype();
+            NetworkInfo m210a = m210a(context);
+            return m210a != null && m210a.getType() == 0 && 13 == m210a.getSubtype();
         }
         return invokeL.booleanValue;
     }
@@ -642,11 +642,11 @@ public class bg {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, context)) == null) {
-            NetworkInfo m209a = m209a(context);
-            if (m209a != null && m209a.getType() == 0) {
-                String subtypeName = m209a.getSubtypeName();
+            NetworkInfo m210a = m210a(context);
+            if (m210a != null && m210a.getType() == 0) {
+                String subtypeName = m210a.getSubtypeName();
                 if (!"TD-SCDMA".equalsIgnoreCase(subtypeName) && !"CDMA2000".equalsIgnoreCase(subtypeName) && !"WCDMA".equalsIgnoreCase(subtypeName)) {
-                    switch (m209a.getSubtype()) {
+                    switch (m210a.getSubtype()) {
                         case 3:
                         case 5:
                         case 6:
@@ -676,9 +676,9 @@ public class bg {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, context)) == null) {
-            NetworkInfo m209a = m209a(context);
-            if (m209a != null && m209a.getType() == 0) {
-                int subtype = m209a.getSubtype();
+            NetworkInfo m210a = m210a(context);
+            if (m210a != null && m210a.getType() == 0) {
+                int subtype = m210a.getSubtype();
                 return subtype == 1 || subtype == 2 || subtype == 4 || subtype == 7 || subtype == 11;
             }
             return false;

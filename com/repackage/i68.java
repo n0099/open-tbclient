@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class i68 extends tw5<g58> {
+public class i68 extends uw5<g58> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View i;
@@ -43,14 +43,14 @@ public class i68 extends tw5<g58> {
         s(k());
     }
 
-    @Override // com.repackage.tw5
+    @Override // com.repackage.uw5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01af : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01aa : invokeV.intValue;
     }
 
-    @Override // com.repackage.tw5
+    @Override // com.repackage.uw5
     public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
@@ -73,14 +73,14 @@ public class i68 extends tw5<g58> {
     public final void s(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.i = view2.findViewById(R.id.obfuscated_res_0x7f090565);
-            this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090564);
-            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090566);
+            this.i = view2.findViewById(R.id.obfuscated_res_0x7f090562);
+            this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090561);
+            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090563);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.tw5
+    @Override // com.repackage.uw5
     /* renamed from: t */
     public void l(g58 g58Var) {
         String string;
@@ -95,14 +95,14 @@ public class i68 extends tw5<g58> {
             }
             if (StringUtils.isNull(this.l)) {
                 TextView textView = this.k;
-                String string2 = this.c.getString(R.string.obfuscated_res_0x7f0f0e29);
+                String string2 = this.c.getString(R.string.obfuscated_res_0x7f0f0e47);
                 Object[] objArr = new Object[1];
                 if (g58Var.a) {
-                    string = this.c.getString(R.string.obfuscated_res_0x7f0f15b7);
+                    string = this.c.getString(R.string.obfuscated_res_0x7f0f15e3);
                 } else if (g58Var.b == 2) {
-                    string = this.c.getString(R.string.obfuscated_res_0x7f0f1157);
+                    string = this.c.getString(R.string.obfuscated_res_0x7f0f1173);
                 } else {
-                    string = this.c.getString(R.string.obfuscated_res_0x7f0f0819);
+                    string = this.c.getString(R.string.obfuscated_res_0x7f0f0821);
                 }
                 objArr[0] = string;
                 textView.setText(String.format(string2, objArr));

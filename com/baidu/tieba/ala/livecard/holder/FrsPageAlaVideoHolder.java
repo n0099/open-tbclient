@@ -6,21 +6,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mt5;
+import com.repackage.nt5;
 /* loaded from: classes3.dex */
 public class FrsPageAlaVideoHolder extends AutoLiveViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public mt5 b;
+    public nt5 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsPageAlaVideoHolder(mt5 mt5Var) {
-        super(mt5Var.k());
+    public FrsPageAlaVideoHolder(nt5 nt5Var) {
+        super(nt5Var.k());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mt5Var};
+            Object[] objArr = {nt5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,7 +31,7 @@ public class FrsPageAlaVideoHolder extends AutoLiveViewHolder {
                 return;
             }
         }
-        this.b = mt5Var;
-        this.a = mt5Var.P();
+        this.b = nt5Var;
+        this.a = nt5Var.P();
     }
 }

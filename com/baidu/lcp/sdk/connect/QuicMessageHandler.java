@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.e80;
-import com.repackage.f80;
-import com.repackage.g80;
+import com.repackage.h80;
+import com.repackage.i80;
+import com.repackage.j80;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes2.dex */
-public class QuicMessageHandler extends f80 implements QuicEventCallbackListener {
+public class QuicMessageHandler extends i80 implements QuicEventCallbackListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -57,7 +57,7 @@ public class QuicMessageHandler extends f80 implements QuicEventCallbackListener
         initGlobalRef(this);
     }
 
-    @Override // com.repackage.f80
+    @Override // com.repackage.i80
     public InputStream b() throws EOFException, IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -67,16 +67,16 @@ public class QuicMessageHandler extends f80 implements QuicEventCallbackListener
         return (InputStream) invokeV.objValue;
     }
 
-    @Override // com.repackage.f80
-    public void c(g80 g80Var) {
+    @Override // com.repackage.i80
+    public void c(j80 j80Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, g80Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j80Var) == null) {
         }
     }
 
     public native void closeStream(int i);
 
-    @Override // com.repackage.f80
+    @Override // com.repackage.i80
     public boolean d() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -86,22 +86,22 @@ public class QuicMessageHandler extends f80 implements QuicEventCallbackListener
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.f80
-    public g80 e(String str, int i) {
+    @Override // com.repackage.i80
+    public j80 e(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, str, i)) == null) {
             return null;
         }
-        return (g80) invokeLI.objValue;
+        return (j80) invokeLI.objValue;
     }
 
     public native void enableQuicCache(boolean z, String str);
 
-    @Override // com.repackage.f80
-    public void f(e80 e80Var) throws IOException {
+    @Override // com.repackage.i80
+    public void f(h80 h80Var) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, e80Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, h80Var) == null) {
         }
     }
 

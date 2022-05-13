@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.o95;
+import com.repackage.fa5;
 /* loaded from: classes3.dex */
 public abstract class BaseTemplatePageActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public o95 mPageLoader;
+    public fa5 mPageLoader;
     public ViewGroup mRootLayout;
 
     public BaseTemplatePageActivity() {
@@ -30,7 +30,7 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
         }
     }
 
-    public abstract o95 buildPageTemplate();
+    public abstract fa5 buildPageTemplate();
 
     public abstract int getLayoutR();
 
@@ -39,9 +39,9 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            o95 o95Var = this.mPageLoader;
-            if (o95Var != null) {
-                o95Var.h(i);
+            fa5 fa5Var = this.mPageLoader;
+            if (fa5Var != null) {
+                fa5Var.h(i);
             }
         }
     }
@@ -63,9 +63,9 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            o95 o95Var = this.mPageLoader;
-            if (o95Var != null) {
-                o95Var.i();
+            fa5 fa5Var = this.mPageLoader;
+            if (fa5Var != null) {
+                fa5Var.i();
             }
         }
     }
@@ -75,9 +75,9 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onPause();
-            o95 o95Var = this.mPageLoader;
-            if (o95Var != null) {
-                o95Var.j();
+            fa5 fa5Var = this.mPageLoader;
+            if (fa5Var != null) {
+                fa5Var.j();
             }
         }
     }
@@ -87,9 +87,9 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onResume();
-            o95 o95Var = this.mPageLoader;
-            if (o95Var != null) {
-                o95Var.k();
+            fa5 fa5Var = this.mPageLoader;
+            if (fa5Var != null) {
+                fa5Var.k();
             }
         }
     }

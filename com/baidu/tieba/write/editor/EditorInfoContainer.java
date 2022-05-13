@@ -26,16 +26,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
-import com.repackage.i05;
-import com.repackage.lu4;
-import com.repackage.oi;
-import com.repackage.v05;
-import com.repackage.vt4;
-import com.repackage.y15;
-import com.repackage.zz8;
+import com.repackage.iu4;
+import com.repackage.j15;
+import com.repackage.mi;
+import com.repackage.n25;
+import com.repackage.nr4;
+import com.repackage.w05;
+import com.repackage.wy8;
+import com.repackage.yu4;
 /* loaded from: classes4.dex */
-public class EditorInfoContainer extends RelativeLayout implements v05 {
+public class EditorInfoContainer extends RelativeLayout implements j15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LocationInfoView a;
@@ -53,15 +53,15 @@ public class EditorInfoContainer extends RelativeLayout implements v05 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ g a;
-        public final /* synthetic */ cr4 b;
+        public final /* synthetic */ nr4 b;
         public final /* synthetic */ EditorInfoContainer c;
 
-        public a(EditorInfoContainer editorInfoContainer, g gVar, cr4 cr4Var) {
+        public a(EditorInfoContainer editorInfoContainer, g gVar, nr4 nr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {editorInfoContainer, gVar, cr4Var};
+                Object[] objArr = {editorInfoContainer, gVar, nr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -73,7 +73,7 @@ public class EditorInfoContainer extends RelativeLayout implements v05 {
             }
             this.c = editorInfoContainer;
             this.a = gVar;
-            this.b = cr4Var;
+            this.b = nr4Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -94,15 +94,15 @@ public class EditorInfoContainer extends RelativeLayout implements v05 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ g a;
-        public final /* synthetic */ cr4 b;
+        public final /* synthetic */ nr4 b;
         public final /* synthetic */ EditorInfoContainer c;
 
-        public b(EditorInfoContainer editorInfoContainer, g gVar, cr4 cr4Var) {
+        public b(EditorInfoContainer editorInfoContainer, g gVar, nr4 nr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {editorInfoContainer, gVar, cr4Var};
+                Object[] objArr = {editorInfoContainer, gVar, nr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -114,7 +114,7 @@ public class EditorInfoContainer extends RelativeLayout implements v05 {
             }
             this.c = editorInfoContainer;
             this.a = gVar;
-            this.b = cr4Var;
+            this.b = nr4Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -159,7 +159,7 @@ public class EditorInfoContainer extends RelativeLayout implements v05 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 3));
-                this.a.d(new i05(18, -1, null));
+                this.a.g(new w05(18, -1, null));
             }
         }
     }
@@ -192,7 +192,7 @@ public class EditorInfoContainer extends RelativeLayout implements v05 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.d(new i05(43, -1, null));
+                this.a.g(new w05(43, -1, null));
             }
         }
     }
@@ -245,7 +245,7 @@ public class EditorInfoContainer extends RelativeLayout implements v05 {
                         int i = ((Integer) this.a.b.b.a).intValue() == 0 ? 1 : 0;
                         this.a.b.u(i);
                         if ("2".equals(this.a.b.g)) {
-                            zz8.b(this.a.b.i, i);
+                            wy8.b(this.a.b.i, i);
                         }
                     }
                 }
@@ -283,7 +283,7 @@ public class EditorInfoContainer extends RelativeLayout implements v05 {
     }
 
     /* loaded from: classes4.dex */
-    public class f implements zz8.c {
+    public class f implements wy8.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EditorInfoContainer a;
@@ -306,7 +306,7 @@ public class EditorInfoContainer extends RelativeLayout implements v05 {
             this.a = editorInfoContainer;
         }
 
-        @Override // com.repackage.zz8.c
+        @Override // com.repackage.wy8.c
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -341,58 +341,58 @@ public class EditorInfoContainer extends RelativeLayout implements v05 {
         }
     }
 
-    @Override // com.repackage.v05
-    public void b() {
+    @Override // com.repackage.j15
+    public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.f) {
                 this.f = false;
-                d(new i05(18, -1, Config.TRACE_VISIT_FIRST));
+                g(new w05(18, -1, Config.TRACE_VISIT_FIRST));
             }
             setVisibility(0);
         }
     }
 
-    @Override // com.repackage.v05
-    public void d(i05 i05Var) {
+    @Override // com.repackage.j15
+    public void g(w05 w05Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i05Var) == null) || (editorTools = this.d) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, w05Var) == null) || (editorTools = this.d) == null) {
             return;
         }
-        editorTools.A(i05Var);
+        editorTools.A(w05Var);
     }
 
-    @Override // com.repackage.v05
+    @Override // com.repackage.j15
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : invokeV.intValue;
     }
 
-    @Override // com.repackage.v05
+    @Override // com.repackage.j15
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            j();
+            i();
             setVisibility(8);
         }
     }
 
-    @Override // com.repackage.v05
-    public void init() {
+    public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
         }
     }
 
-    public void j() {
+    @Override // com.repackage.j15
+    public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
     }
 
-    public void k() {
+    public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
         }
@@ -401,21 +401,21 @@ public class EditorInfoContainer extends RelativeLayout implements v05 {
     public final void l(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, oi.f(getContext(), R.dimen.tbds62));
-            layoutParams.addRule(1, R.id.obfuscated_res_0x7f09086d);
-            lu4 lu4Var = new lu4();
-            lu4Var.p(R.color.CAM_X0209, R.color.CAM_X0105);
-            lu4Var.h(R.color.CAM_X0110);
-            lu4Var.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
-            lu4Var.m(oi.f(getContext(), R.dimen.M_W_X004), oi.f(getContext(), R.dimen.M_W_X004));
-            lu4Var.n(oi.f(getContext(), R.dimen.M_H_X002));
-            lu4Var.i(R.drawable.obfuscated_res_0x7f080611, 0, TBSpecificationButtonConfig.IconType.WEBP);
-            lu4Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, mi.f(getContext(), R.dimen.tbds62));
+            layoutParams.addRule(1, R.id.obfuscated_res_0x7f090865);
+            yu4 yu4Var = new yu4();
+            yu4Var.p(R.color.CAM_X0209, R.color.CAM_X0105);
+            yu4Var.h(R.color.CAM_X0110);
+            yu4Var.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
+            yu4Var.m(mi.f(getContext(), R.dimen.M_W_X004), mi.f(getContext(), R.dimen.M_W_X004));
+            yu4Var.n(mi.f(getContext(), R.dimen.M_H_X002));
+            yu4Var.i(R.drawable.obfuscated_res_0x7f080600, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            yu4Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
             TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(context);
             this.c = tBSpecificationBtn;
-            tBSpecificationBtn.setConfig(lu4Var);
+            tBSpecificationBtn.setConfig(yu4Var);
             this.c.setTextSize(R.dimen.T_X09);
-            this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f00d2));
+            this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f00d4));
             this.c.setOnClickListener(new d(this));
             addView(this.c, layoutParams);
         }
@@ -426,7 +426,7 @@ public class EditorInfoContainer extends RelativeLayout implements v05 {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
             LocationInfoView locationInfoView = new LocationInfoView(context);
             this.a = locationInfoView;
-            locationInfoView.setId(R.id.obfuscated_res_0x7f09086d);
+            locationInfoView.setId(R.id.obfuscated_res_0x7f090865);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.rightMargin = getResources().getDimensionPixelSize(R.dimen.M_W_X006);
             this.a.setLocationClickListener(new c(this));
@@ -437,18 +437,18 @@ public class EditorInfoContainer extends RelativeLayout implements v05 {
     public final void n(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, context) == null) {
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, oi.f(getContext(), R.dimen.tbds62));
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, mi.f(getContext(), R.dimen.tbds62));
             layoutParams.addRule(11);
-            lu4 lu4Var = new lu4();
-            lu4Var.p(R.color.CAM_X0209, R.color.CAM_X0105);
-            lu4Var.h(R.color.CAM_X0302);
-            lu4Var.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
-            lu4Var.m(oi.f(getContext(), R.dimen.M_W_X004), oi.f(getContext(), R.dimen.M_W_X004));
-            lu4Var.n(oi.f(getContext(), R.dimen.M_H_X002));
-            lu4Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
+            yu4 yu4Var = new yu4();
+            yu4Var.p(R.color.CAM_X0209, R.color.CAM_X0105);
+            yu4Var.h(R.color.CAM_X0302);
+            yu4Var.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
+            yu4Var.m(mi.f(getContext(), R.dimen.M_W_X004), mi.f(getContext(), R.dimen.M_W_X004));
+            yu4Var.n(mi.f(getContext(), R.dimen.M_H_X002));
+            yu4Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
             TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(context);
             this.b = tBSpecificationBtn;
-            tBSpecificationBtn.setConfig(lu4Var);
+            tBSpecificationBtn.setConfig(yu4Var);
             this.b.setTextSize(R.dimen.T_X09);
             u(0);
             this.b.setLayoutParams(layoutParams);
@@ -461,26 +461,26 @@ public class EditorInfoContainer extends RelativeLayout implements v05 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048586, this, str, i) == null) && "2".equals(this.g)) {
             this.i = str;
-            zz8.a(str, i, new f(this));
+            wy8.a(str, i, new f(this));
         }
     }
 
-    @Override // com.repackage.j05
-    public void onAction(i05 i05Var) {
+    @Override // com.repackage.x05
+    public void onAction(w05 w05Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, i05Var) == null) || i05Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, w05Var) == null) || w05Var == null) {
             return;
         }
-        int i = i05Var.a;
+        int i = w05Var.a;
         if (i == 19) {
             LocationInfoView locationInfoView = this.a;
             if (locationInfoView == null) {
                 return;
             }
-            Object obj = i05Var.c;
-            if (obj instanceof y15) {
-                y15 y15Var = (y15) obj;
-                locationInfoView.setState(y15Var.a, y15Var.b);
+            Object obj = w05Var.c;
+            if (obj instanceof n25) {
+                n25 n25Var = (n25) obj;
+                locationInfoView.setState(n25Var.a, n25Var.b);
                 return;
             }
             locationInfoView.setState(0, null);
@@ -491,14 +491,14 @@ public class EditorInfoContainer extends RelativeLayout implements v05 {
             }
             locationInfoView2.setState(0, null);
         } else if (i == 54) {
-            d(new i05(55, -1, Boolean.valueOf(r())));
+            g(new w05(55, -1, Boolean.valueOf(r())));
         } else if (i != 57) {
         } else {
-            d(new i05(58, -1, Boolean.FALSE));
+            g(new w05(58, -1, Boolean.FALSE));
         }
     }
 
-    @Override // com.repackage.v05
+    @Override // com.repackage.j15
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
@@ -558,7 +558,7 @@ public class EditorInfoContainer extends RelativeLayout implements v05 {
         tBSpecificationBtn.setVisibility(z ? 0 : 8);
     }
 
-    @Override // com.repackage.v05
+    @Override // com.repackage.j15
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, editorTools) == null) {
@@ -573,7 +573,7 @@ public class EditorInfoContainer extends RelativeLayout implements v05 {
         }
     }
 
-    @Override // com.repackage.v05
+    @Override // com.repackage.j15
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
@@ -584,7 +584,7 @@ public class EditorInfoContainer extends RelativeLayout implements v05 {
     public final void t(Context context, int i, g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048597, this, context, i, gVar) == null) {
-            boolean h = vt4.k().h("show_privacy_dialog", false);
+            boolean h = iu4.k().h("show_privacy_dialog", false);
             if (i == 1 || h) {
                 if (gVar != null) {
                     gVar.a(true);
@@ -592,22 +592,22 @@ public class EditorInfoContainer extends RelativeLayout implements v05 {
                 }
                 return;
             }
-            vt4.k().u("show_privacy_dialog", true);
+            iu4.k().u("show_privacy_dialog", true);
             BaseActivity baseActivity = (BaseActivity) context;
-            cr4 cr4Var = new cr4(baseActivity);
-            cr4Var.setCancelable(false);
-            cr4Var.setPositiveButton((String) null, (cr4.e) null);
-            cr4Var.setNegativeButton((String) null, (cr4.e) null);
-            cr4Var.setContentViewSize(6);
+            nr4 nr4Var = new nr4(baseActivity);
+            nr4Var.setCancelable(false);
+            nr4Var.setPositiveButton((String) null, (nr4.e) null);
+            nr4Var.setNegativeButton((String) null, (nr4.e) null);
+            nr4Var.setContentViewSize(6);
             CustomPrivacyDialogView customPrivacyDialogView = new CustomPrivacyDialogView(context);
-            customPrivacyDialogView.setMessageTextViewMessage(context.getString(R.string.obfuscated_res_0x7f0f158f));
+            customPrivacyDialogView.setMessageTextViewMessage(context.getString(R.string.obfuscated_res_0x7f0f15bb));
             customPrivacyDialogView.setMessageTextViewColor(SkinManager.getColor(R.color.CAM_X0107));
-            customPrivacyDialogView.setPrivacyDialogCancelButtonText(context.getString(R.string.obfuscated_res_0x7f0f158d));
-            customPrivacyDialogView.setPrivacyDialogConfirmButtonText(context.getString(R.string.obfuscated_res_0x7f0f158e));
-            customPrivacyDialogView.setPrivacyDialogCancelButtonListener(new a(this, gVar, cr4Var));
-            customPrivacyDialogView.setPrivacyDialogConfirmButtonListener(new b(this, gVar, cr4Var));
-            cr4Var.setContentView(customPrivacyDialogView);
-            cr4Var.create(baseActivity.getPageContext()).show();
+            customPrivacyDialogView.setPrivacyDialogCancelButtonText(context.getString(R.string.obfuscated_res_0x7f0f15b9));
+            customPrivacyDialogView.setPrivacyDialogConfirmButtonText(context.getString(R.string.obfuscated_res_0x7f0f15ba));
+            customPrivacyDialogView.setPrivacyDialogCancelButtonListener(new a(this, gVar, nr4Var));
+            customPrivacyDialogView.setPrivacyDialogConfirmButtonListener(new b(this, gVar, nr4Var));
+            nr4Var.setContentView(customPrivacyDialogView);
+            nr4Var.create(baseActivity.getPageContext()).show();
             TiebaStatic.log(new StatisticItem("c13804"));
         }
     }
@@ -615,8 +615,8 @@ public class EditorInfoContainer extends RelativeLayout implements v05 {
     public final void u(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
-            this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0ef3));
-            this.b.getStyleConfig().i(i == 0 ? R.drawable.obfuscated_res_0x7f080963 : R.drawable.obfuscated_res_0x7f080962, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0f11));
+            this.b.getStyleConfig().i(i == 0 ? R.drawable.obfuscated_res_0x7f080977 : R.drawable.obfuscated_res_0x7f080976, 0, TBSpecificationButtonConfig.IconType.WEBP);
             this.b.getStyleConfig().h(i == 0 ? R.color.CAM_X0302 : R.color.CAM_X0110);
             this.b.a = Integer.valueOf(i);
         }

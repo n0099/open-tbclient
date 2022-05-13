@@ -1,42 +1,21 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class j50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public q50 a;
 
-    public j50() {
+    public static byte[] a(byte[] bArr, c50 c50Var) throws Exception {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, bArr, c50Var)) == null) {
+            r40 b = r40.b();
+            b.c(2, c50Var);
+            return b.a(bArr);
         }
-        this.a = new q50(32);
-    }
-
-    public byte[] a(byte[] bArr) throws Exception {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) ? this.a.j(bArr) : (byte[]) invokeL.objValue;
-    }
-
-    public byte[] b(byte[] bArr) throws Exception {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) ? this.a.m(bArr) : (byte[]) invokeL.objValue;
+        return (byte[]) invokeLL.objValue;
     }
 }

@@ -179,7 +179,7 @@ public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.setupViews();
-            setTitleText(R.string.obfuscated_res_0x7f0f1058);
+            setTitleText(R.string.obfuscated_res_0x7f0f1070);
             RelativeLayout relativeLayout = this.rootView;
             if (relativeLayout != null) {
                 relativeLayout.setVisibility(4);

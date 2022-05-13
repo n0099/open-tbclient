@@ -1,22 +1,22 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import java.io.File;
-import java.util.HashMap;
+import com.baidu.webkit.sdk.VideoPlayerFactory;
+import com.repackage.vz1;
 /* loaded from: classes7.dex */
 public interface xk1 {
+    int a();
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void onResult(String str);
-    }
+    VideoPlayerFactory b();
 
-    void a(HashMap<String, String> hashMap, File file, a aVar, String str);
+    int c();
 
-    void b(Context context, String str, String str2, String str3);
+    void d(boolean z);
 
-    void c(HashMap<String, String> hashMap, File file, a aVar);
+    boolean e();
 
-    void d(Bitmap bitmap, HashMap<String, String> hashMap, File[] fileArr, a aVar);
+    boolean f();
+
+    void g(int i);
+
+    void h(vz1.c cVar);
 }

@@ -5,12 +5,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.switchs.LaunchUpApplicationSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.s85;
-import com.repackage.y85;
+import com.repackage.j95;
+import com.repackage.p95;
 /* loaded from: classes3.dex */
 public class TiebaMainApplication extends TiebaBaseApplication {
     public static /* synthetic */ Interceptable $ic;
@@ -37,7 +38,7 @@ public class TiebaMainApplication extends TiebaBaseApplication {
             long currentTimeMillis = System.currentTimeMillis();
             super.attachBaseContext(context);
             TbadkApplication.sApp = this;
-            s85.b().t(currentTimeMillis);
+            j95.b().t(currentTimeMillis);
         }
     }
 
@@ -47,15 +48,17 @@ public class TiebaMainApplication extends TiebaBaseApplication {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setPageStayOpen(true);
             super.onCreate();
-            if (getSplash() != null) {
-                getSplash().a();
+            if (!LaunchUpApplicationSwitch.getIsOn()) {
+                if (getSplash() != null) {
+                    getSplash().a();
+                }
+                if (p95.a(getContext())) {
+                    TiebaStatic.log(new StatisticItem("c13616").param("obj_type", 1));
+                } else {
+                    TiebaStatic.log(new StatisticItem("c13616").param("obj_type", 2));
+                }
             }
-            if (y85.a(getContext())) {
-                TiebaStatic.log(new StatisticItem("c13616").param("obj_type", 1));
-            } else {
-                TiebaStatic.log(new StatisticItem("c13616").param("obj_type", 2));
-            }
-            s85.b().F(System.currentTimeMillis());
+            j95.b().F(System.currentTimeMillis());
         }
     }
 }

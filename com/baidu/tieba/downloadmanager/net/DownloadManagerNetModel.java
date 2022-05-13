@@ -12,28 +12,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.h36;
+import com.repackage.e75;
 import com.repackage.i36;
-import com.repackage.o65;
+import com.repackage.j36;
 /* loaded from: classes3.dex */
-public class DownloadManagerNetModel<T> extends NetAutoModel<h36, i36, T> {
+public class DownloadManagerNetModel<T> extends NetAutoModel<i36, j36, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DownloadManagerNetModel(TbPageContext<T> tbPageContext, h36 h36Var) {
-        super(tbPageContext, h36Var);
+    public DownloadManagerNetModel(TbPageContext<T> tbPageContext, i36 i36Var) {
+        super(tbPageContext, i36Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, h36Var};
+            Object[] objArr = {tbPageContext, i36Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (o65) objArr2[1]);
+                super((TbPageContext) objArr2[0], (e75) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -80,9 +80,9 @@ public class DownloadManagerNetModel<T> extends NetAutoModel<h36, i36, T> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<i36> getResponseDataClass() {
+    public Class<j36> getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? i36.class : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? j36.class : (Class) invokeV.objValue;
     }
 }

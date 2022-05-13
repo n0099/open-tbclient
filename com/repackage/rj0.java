@@ -185,7 +185,7 @@ public class rj0 {
                     }
                 } else if (pk0.b(rj0Var.d)) {
                     rj0Var.c = AdDownloadStatus.INSTALLED;
-                } else if (!pk0.f(rj0Var.h)) {
+                } else if (!pk0.e(rj0Var.h)) {
                     ej0.b().a(rj0Var);
                     rj0Var.f();
                 }

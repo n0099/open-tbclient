@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cf6;
-import com.repackage.uo;
+import com.repackage.he6;
+import com.repackage.ro;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -20,9 +20,9 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
     public int alaLiveCount;
     public int errCode;
     public String errMsg;
-    public ArrayList<uo> mAltList;
-    public ArrayList<uo> mThreadList;
-    public cf6 pageInfo;
+    public ArrayList<ro> mAltList;
+    public ArrayList<ro> mThreadList;
+    public he6 pageInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsPageAlaTabResponseMessage(int i) {
@@ -57,9 +57,9 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
             this.errMsg = jSONObject.optString("errmsg");
             this.alaLiveCount = jSONObject.optInt("ala_live_count");
             JSONObject optJSONObject = jSONObject.optJSONObject("page");
-            cf6 cf6Var = new cf6();
-            this.pageInfo = cf6Var;
-            cf6Var.g = optJSONObject.optInt("has_more") == 1;
+            he6 he6Var = new he6();
+            this.pageInfo = he6Var;
+            he6Var.g = optJSONObject.optInt("has_more") == 1;
             this.pageInfo.c = optJSONObject.optInt(Config.PACKAGE_NAME);
             if (getOrginalMessage() instanceof FrsPageAlaTabRequestMessage) {
                 FrsPageAlaTabRequestMessage frsPageAlaTabRequestMessage = (FrsPageAlaTabRequestMessage) getOrginalMessage();

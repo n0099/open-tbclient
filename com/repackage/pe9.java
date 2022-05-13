@@ -1,43 +1,45 @@
 package com.repackage;
 
+import android.util.Base64;
+import com.baidu.searchbox.retrieve.file.util.AESUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.yalog.LoggerManager;
+import java.nio.charset.Charset;
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes6.dex */
 public class pe9 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile LoggerManager.c a;
-    public static qe9 b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755412659, "Lcom/repackage/pe9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755412659, "Lcom/repackage/pe9;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755412659, "Lcom/repackage/pe9;")) == null) {
+            return;
         }
-        b = new qe9();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755412659, "Lcom/repackage/pe9;");
+        }
     }
 
-    public static LoggerManager.c a() {
-        InterceptResult invokeV;
+    public static String a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                a = b.a();
-            }
-            return a;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            Charset forName = Charset.forName("UTF-8");
+            SecretKeySpec secretKeySpec = new SecretKeySpec(Base64.decode(str2.getBytes(forName), 0), "AES");
+            Cipher cipher = Cipher.getInstance(AESUtil.ECB_TRANSFORMATION);
+            cipher.init(2, secretKeySpec);
+            return new String(cipher.doFinal(Base64.decode(str.getBytes(forName), 0)), forName);
         }
-        return (LoggerManager.c) invokeV.objValue;
+        return (String) invokeLL.objValue;
     }
 }

@@ -1,17 +1,19 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class hh2 extends de2<fh2> {
+public class hh2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public String b;
+    public int c;
 
     public hh2() {
         Interceptable interceptable = $ic;
@@ -27,22 +29,20 @@ public class hh2 extends de2<fh2> {
         }
     }
 
-    @Override // com.repackage.de2
-    @NonNull
-    public String b() {
+    public JSONObject a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "release" : (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.de2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull fh2 fh2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, fh2Var) == null) {
-            d(fh2Var, command.what, null, false);
-            fh2Var.release();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("userId", this.a);
+                jSONObject.put("displayName", this.b);
+                jSONObject.put("volumeLevel", this.c);
+                return jSONObject;
+            } catch (JSONException unused) {
+                return null;
+            }
         }
+        return (JSONObject) invokeV.objValue;
     }
 }

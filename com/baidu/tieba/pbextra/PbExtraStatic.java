@@ -3,9 +3,6 @@ package com.baidu.tieba.pbextra;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.EmotionEditActivityConfig;
-import com.baidu.tieba.pbextra.emotion.EmotionEditActivity;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,8 +11,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.p08;
-import com.repackage.rk8;
+import com.repackage.m08;
+import com.repackage.oj8;
 /* loaded from: classes3.dex */
 public class PbExtraStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -50,8 +47,8 @@ public class PbExtraStatic {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2004015 && (customResponsedMessage.getData() instanceof rk8)) {
-                ((rk8) customResponsedMessage.getData()).a().add(new p08(null, PostData.B0));
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2004015 && (customResponsedMessage.getData() instanceof oj8)) {
+                ((oj8) customResponsedMessage.getData()).a().add(new m08(null, PostData.B0));
             }
         }
     }
@@ -69,7 +66,6 @@ public class PbExtraStatic {
                 return;
             }
         }
-        TbadkCoreApplication.getInst().RegisterIntent(EmotionEditActivityConfig.class, EmotionEditActivity.class);
         MessageManager.getInstance().registerListener(new a(2004015));
         PostData.E0 = true;
     }

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vm;
+import com.repackage.sm;
 /* loaded from: classes.dex */
 public class ContentResolverProxy extends ContentResolver {
     public static /* synthetic */ Interceptable $ic;
@@ -89,7 +89,7 @@ public class ContentResolverProxy extends ContentResolver {
                 if (ContentProviderProxy.queryContentProvider(str) != null) {
                     str = ContentProviderProxy.PROVIDER_AUTHOR;
                 }
-                return (IContentProvider) vm.a(this.mContentResolver, "acquireExistingProvider", new Object[]{context, str});
+                return (IContentProvider) sm.a(this.mContentResolver, "acquireExistingProvider", new Object[]{context, str});
             } catch (Exception e) {
                 BdLog.e(e);
                 return null;
@@ -106,7 +106,7 @@ public class ContentResolverProxy extends ContentResolver {
                 if (ContentProviderProxy.queryContentProvider(str) != null) {
                     str = ContentProviderProxy.PROVIDER_AUTHOR;
                 }
-                return (IContentProvider) vm.a(this.mContentResolver, "acquireProvider", new Object[]{context, str});
+                return (IContentProvider) sm.a(this.mContentResolver, "acquireProvider", new Object[]{context, str});
             } catch (Exception e) {
                 BdLog.e(e);
                 return null;
@@ -123,7 +123,7 @@ public class ContentResolverProxy extends ContentResolver {
                 str = ContentProviderProxy.PROVIDER_AUTHOR;
             }
             try {
-                return (IContentProvider) vm.a(this.mContentResolver, "acquireUnstableProvider", new Object[]{context, str});
+                return (IContentProvider) sm.a(this.mContentResolver, "acquireUnstableProvider", new Object[]{context, str});
             } catch (Exception e) {
                 BdLog.e(e);
                 return null;
@@ -137,7 +137,7 @@ public class ContentResolverProxy extends ContentResolver {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, iContentProvider)) == null) {
             try {
-                return ((Boolean) vm.a(this.mContentResolver, "releaseProvider", new Object[]{iContentProvider})).booleanValue();
+                return ((Boolean) sm.a(this.mContentResolver, "releaseProvider", new Object[]{iContentProvider})).booleanValue();
             } catch (Exception e) {
                 BdLog.e(e);
                 return false;
@@ -151,7 +151,7 @@ public class ContentResolverProxy extends ContentResolver {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, iContentProvider)) == null) {
             try {
-                return ((Boolean) vm.a(this.mContentResolver, "releaseUnstableProvider", new Object[]{iContentProvider})).booleanValue();
+                return ((Boolean) sm.a(this.mContentResolver, "releaseUnstableProvider", new Object[]{iContentProvider})).booleanValue();
             } catch (Exception e) {
                 BdLog.e(e);
                 return false;
@@ -164,7 +164,7 @@ public class ContentResolverProxy extends ContentResolver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, iContentProvider) == null) {
             try {
-                vm.a(this.mContentResolver, "unstableProviderDied", new Object[]{iContentProvider});
+                sm.a(this.mContentResolver, "unstableProviderDied", new Object[]{iContentProvider});
             } catch (Exception e) {
                 BdLog.e(e);
             }

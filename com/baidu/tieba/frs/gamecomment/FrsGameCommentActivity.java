@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mi;
+import com.repackage.ki;
 /* loaded from: classes3.dex */
 public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity> {
     public static /* synthetic */ Interceptable $ic = null;
@@ -74,13 +74,13 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (!mi.z()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f06f1);
+                if (!ki.z()) {
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f06fa);
                     return;
                 }
                 this.a.closeLoadingDialog();
                 FrsGameCommentActivity frsGameCommentActivity = this.a;
-                frsGameCommentActivity.showLoadingDialog(frsGameCommentActivity.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f06cb));
+                frsGameCommentActivity.showLoadingDialog(frsGameCommentActivity.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f06d4));
                 this.a.publishComment();
             }
         }
@@ -271,33 +271,33 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d0315);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f090b03);
+            setContentView(R.layout.obfuscated_res_0x7f0d030c);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f090af1);
             this.mNavBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.mTitle = this.mNavBar.setCenterTextTitle(getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f06cd));
+            this.mTitle = this.mNavBar.setCenterTextTitle(getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f06d6));
             this.mNavBar.showBottomLine(true);
             TextView addCreateGroupButton = this.mNavBar.addCreateGroupButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, new a(this));
             this.mPublish = addCreateGroupButton;
-            addCreateGroupButton.setText(getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f10e8));
+            addCreateGroupButton.setText(getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f1102));
             this.mPublish.setTextColor(getPageContext().getPageActivity().getResources().getColor(R.color.CAM_X0110));
             this.mPublish.setEnabled(false);
-            RadioButton radioButton = (RadioButton) findViewById(R.id.obfuscated_res_0x7f090afe);
+            RadioButton radioButton = (RadioButton) findViewById(R.id.obfuscated_res_0x7f090aec);
             this.mGrade1 = radioButton;
             radioButton.setOnClickListener(this.mOnClickListener);
-            RadioButton radioButton2 = (RadioButton) findViewById(R.id.obfuscated_res_0x7f090aff);
+            RadioButton radioButton2 = (RadioButton) findViewById(R.id.obfuscated_res_0x7f090aed);
             this.mGrade2 = radioButton2;
             radioButton2.setOnClickListener(this.mOnClickListener);
-            RadioButton radioButton3 = (RadioButton) findViewById(R.id.obfuscated_res_0x7f090b00);
+            RadioButton radioButton3 = (RadioButton) findViewById(R.id.obfuscated_res_0x7f090aee);
             this.mGrade3 = radioButton3;
             radioButton3.setOnClickListener(this.mOnClickListener);
-            RadioButton radioButton4 = (RadioButton) findViewById(R.id.obfuscated_res_0x7f090b01);
+            RadioButton radioButton4 = (RadioButton) findViewById(R.id.obfuscated_res_0x7f090aef);
             this.mGrade4 = radioButton4;
             radioButton4.setOnClickListener(this.mOnClickListener);
-            RadioButton radioButton5 = (RadioButton) findViewById(R.id.obfuscated_res_0x7f090b02);
+            RadioButton radioButton5 = (RadioButton) findViewById(R.id.obfuscated_res_0x7f090af0);
             this.mGrade5 = radioButton5;
             radioButton5.setOnClickListener(this.mOnClickListener);
-            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f090afd);
+            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f090aeb);
             this.mCommentEdit = editText;
             editText.addTextChangedListener(this.mCommentChangeListener);
             int i = this.mScore;

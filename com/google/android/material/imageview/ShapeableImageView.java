@@ -312,7 +312,7 @@ public class ShapeableImageView extends AppCompatImageView implements Shapeable 
         this.destination = new RectF();
         this.maskRect = new RectF();
         this.maskPath = new Path();
-        TypedArray obtainStyledAttributes = context2.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040589, R.attr.obfuscated_res_0x7f04058c, R.attr.obfuscated_res_0x7f0405ce, R.attr.obfuscated_res_0x7f0405cf}, i, obfuscated_res_0x7f100379);
+        TypedArray obtainStyledAttributes = context2.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04058f, R.attr.obfuscated_res_0x7f040592, R.attr.obfuscated_res_0x7f0405d5, R.attr.obfuscated_res_0x7f0405d6}, i, obfuscated_res_0x7f100379);
         this.strokeColor = MaterialResources.getColorStateList(context2, obtainStyledAttributes, 2);
         this.strokeWidth = obtainStyledAttributes.getDimensionPixelSize(3, 0);
         Paint paint2 = new Paint();

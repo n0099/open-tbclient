@@ -1,193 +1,66 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import com.baidu.sapi2.stat.ShareLoginStat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.data.PersonPrivateData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
 public class rn4 {
     public static /* synthetic */ Interceptable $ic;
+    public static HashMap<String, Integer> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
-    public String c;
-    public String d;
-    public float e;
-    public String f;
-    @Nullable
-    public b g;
-    @Nullable
-    public a h;
-    public String i;
-    public String j;
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-
-        public a() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755344583, "Lcom/repackage/rn4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
             }
-        }
-
-        @Nullable
-        public static a a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
-                }
-                a aVar = new a();
-                aVar.a = jSONObject.optString("desc", "权限");
-                String optString = jSONObject.optString("url");
-                aVar.b = optString;
-                if (TextUtils.isEmpty(optString)) {
-                    aVar.b = jSONObject.optString("cmd");
-                }
-                aVar.c = jSONObject.optString("cmd");
-                return aVar;
-            }
-            return (a) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Nullable
-        public static b a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
-                }
-                b bVar = new b();
-                bVar.a = jSONObject.optString("desc", "隐私");
-                String optString = jSONObject.optString("url");
-                bVar.b = optString;
-                if (TextUtils.isEmpty(optString)) {
-                    bVar.b = jSONObject.optString("cmd");
-                }
-                bVar.c = jSONObject.optString("cmd");
-                return bVar;
-            }
-            return (b) invokeL.objValue;
-        }
-    }
-
-    public rn4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755344583, "Lcom/repackage/rn4;");
                 return;
             }
         }
-        this.e = -1.0f;
+        a = new HashMap<>();
     }
 
-    public static boolean a(rn4 rn4Var) {
-        InterceptResult invokeL;
-        b bVar;
-        a aVar;
+    public static int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, rn4Var)) == null) {
-            if (rn4Var == null) {
-                return false;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            String str = TbadkCoreApplication.getCurrentAccount() + "@" + i;
+            if (a.containsKey(str)) {
+                return a.get(str).intValue();
             }
-            return (TextUtils.isEmpty(rn4Var.f) && TextUtils.isEmpty(rn4Var.d) && ((bVar = rn4Var.g) == null || TextUtils.isEmpty(bVar.a)) && ((aVar = rn4Var.h) == null || TextUtils.isEmpty(aVar.a))) ? false : true;
+            a.put(str, 1);
+            return 1;
         }
-        return invokeL.booleanValue;
+        return invokeI.intValue;
     }
 
-    @Nullable
-    public static rn4 b(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public static void b(PersonPrivateData personPrivateData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            rn4 rn4Var = new rn4();
-            rn4Var.a = TextUtils.equals(jSONObject.optString("strict_mode", "1"), "1");
-            rn4Var.b = jSONObject.optString("app_icon");
-            rn4Var.c = jSONObject.optString("app_name");
-            rn4Var.d = jSONObject.optString("developer_name");
-            rn4Var.f = jSONObject.optString("version");
-            rn4Var.g = b.a(jSONObject.optJSONObject("privacy"));
-            rn4Var.h = a.a(jSONObject.optJSONObject(ShareLoginStat.GetShareListStat.KEY_PERMISSION));
-            rn4Var.i = jSONObject.optString("apk_size");
-            rn4Var.j = jSONObject.optString("apk_url");
-            try {
-                float parseFloat = Float.parseFloat(jSONObject.optString("score"));
-                if (parseFloat <= 5.0f && parseFloat >= 0.0f) {
-                    rn4Var.e = parseFloat;
-                } else {
-                    rn4Var.e = -1.0f;
-                }
-            } catch (NumberFormatException unused) {
-                rn4Var.e = -1.0f;
-            }
-            return rn4Var;
+        if (!(interceptable == null || interceptable.invokeL(65538, null, personPrivateData) == null) || personPrivateData == null) {
+            return;
         }
-        return (rn4) invokeL.objValue;
+        String str = TbadkCoreApplication.getCurrentAccount() + "@2";
+        int y = personPrivateData.y();
+        if (a.containsKey(str)) {
+            return;
+        }
+        a.put(str, Integer.valueOf(y));
     }
 
-    public static boolean c(rn4 rn4Var) {
-        InterceptResult invokeL;
-        b bVar;
-        a aVar;
+    public static void c(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, rn4Var)) == null) {
-            if (rn4Var != null && rn4Var.a) {
-                return (TextUtils.isEmpty(rn4Var.f) || TextUtils.isEmpty(rn4Var.d) || (bVar = rn4Var.g) == null || TextUtils.isEmpty(bVar.b) || (aVar = rn4Var.h) == null || TextUtils.isEmpty(aVar.b)) ? false : true;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeII(65539, null, i, i2) == null) {
+            a.put(TbadkCoreApplication.getCurrentAccount() + "@" + i, Integer.valueOf(i2));
         }
-        return invokeL.booleanValue;
     }
 }

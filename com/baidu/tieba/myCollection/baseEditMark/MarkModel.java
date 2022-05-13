@@ -19,11 +19,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.kt4;
-import com.repackage.ml4;
-import com.repackage.ni8;
+import com.repackage.lh8;
 import com.repackage.rm7;
 import com.repackage.tm7;
+import com.repackage.xl4;
+import com.repackage.xt4;
 /* loaded from: classes3.dex */
 public class MarkModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
@@ -31,7 +31,7 @@ public class MarkModel extends BdBaseModel {
     public boolean a;
     public MarkData b;
     public a c;
-    public ml4.a d;
+    public xl4.a d;
 
     /* loaded from: classes3.dex */
     public class a extends BdAsyncTask<Boolean, Integer, Boolean> {
@@ -121,14 +121,14 @@ public class MarkModel extends BdBaseModel {
             if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
                 try {
                     if (this.c != null) {
-                        kt4.a("collection", 0L, 0, "add_collection_thread", this.c.a(), this.c.b(), new Object[0]);
+                        xt4.a("collection", 0L, 0, "add_collection_thread", this.c.a(), this.c.b(), new Object[0]);
                     }
                     if (bool.booleanValue()) {
                         if (this.d.d != null) {
                             this.d.d.a(true, this.b, null);
                             if (TbadkCoreApplication.isLogin() && TbSingleton.getInstance().showStampMissionDialog && UbsABTestHelper.isStampMissionDialogABTestB()) {
-                                ni8.r().A(0, 3);
-                                ni8.r().G();
+                                lh8.r().A(0, 3);
+                                lh8.r().G();
                             }
                         }
                     } else if (this.d.d != null) {
@@ -238,7 +238,7 @@ public class MarkModel extends BdBaseModel {
         }
     }
 
-    public void I(ml4.a aVar) {
+    public void I(xl4.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
             this.d = aVar;

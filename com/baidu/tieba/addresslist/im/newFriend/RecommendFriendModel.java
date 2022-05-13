@@ -16,11 +16,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ad5;
 import com.repackage.b9;
-import com.repackage.dd5;
-import com.repackage.ic5;
 import com.repackage.jk5;
+import com.repackage.sd5;
+import com.repackage.vd5;
+import com.repackage.zc5;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
@@ -39,7 +39,7 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
 
         /* renamed from: com.baidu.tieba.addresslist.im.newFriend.RecommendFriendModel$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0178a extends ad5<Void> {
+        public class C0178a extends sd5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ List a;
@@ -63,7 +63,7 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.ad5
+            @Override // com.repackage.sd5
             /* renamed from: a */
             public Void doInBackground() {
                 InterceptResult invokeV;
@@ -81,7 +81,7 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
         }
 
         /* loaded from: classes3.dex */
-        public class b implements ic5<Void> {
+        public class b implements zc5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
@@ -107,7 +107,7 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.ic5
+            @Override // com.repackage.zc5
             /* renamed from: a */
             public void onReturnDataInUI(Void r5) {
                 Interceptable interceptable = $ic;
@@ -159,7 +159,7 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
                     }
                     return;
                 }
-                dd5.c(new C0178a(this, recommendFriendResponseMessage.getDatas()), new b(this, errMsg));
+                vd5.c(new C0178a(this, recommendFriendResponseMessage.getDatas()), new b(this, errMsg));
             }
         }
     }

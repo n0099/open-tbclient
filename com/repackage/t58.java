@@ -37,7 +37,7 @@ public class t58 extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
     public ReportThemeActivity b;
-    public ArrayList<uo> c;
+    public ArrayList<ro> c;
     public ViewGroup d;
     public ArrayList<String> e;
     public int f;
@@ -162,7 +162,7 @@ public class t58 extends BaseAdapter {
                 view2.setTag(Boolean.valueOf(!((Boolean) view2.getTag()).booleanValue()));
                 if (((Boolean) view2.getTag()).booleanValue()) {
                     if (this.d.e.size() < 10) {
-                        this.a.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809a2, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
+                        this.a.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809b7, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
                         this.d.e.add(this.b);
                         TiebaStatic.log(new StatisticItem("c14574").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", this.c.getFid()).param("fname", this.c.getForum_name()).param("tid", this.c.getTid()));
                     } else {
@@ -170,7 +170,7 @@ public class t58 extends BaseAdapter {
                         t58Var.f = t58Var.e.size() + 1;
                     }
                 } else {
-                    this.a.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809a1, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL));
+                    this.a.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809b6, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL));
                     this.d.e.remove(this.b);
                 }
                 new a(this).start();
@@ -210,7 +210,7 @@ public class t58 extends BaseAdapter {
         }
     }
 
-    public t58(ReportThemeActivity reportThemeActivity, ArrayList<uo> arrayList) {
+    public t58(ReportThemeActivity reportThemeActivity, ArrayList<ro> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -233,40 +233,40 @@ public class t58 extends BaseAdapter {
         this.c = arrayList;
     }
 
-    public final c e(Object obj, uo uoVar) {
+    public final c e(Object obj, ro roVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, uoVar)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, roVar)) == null) {
             if (obj == null) {
-                return f(uoVar);
+                return f(roVar);
             }
             return (c) obj;
         }
         return (c) invokeLL.objValue;
     }
 
-    public final c f(uo uoVar) {
+    public final c f(ro roVar) {
         InterceptResult invokeL;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uoVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, roVar)) == null) {
             c cVar = new c(this, null);
-            if (uoVar instanceof xx5) {
-                View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0733, (ViewGroup) null);
+            if (roVar instanceof yx5) {
+                View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0726, (ViewGroup) null);
                 cVar.a = inflate;
                 cVar.b = (LinearLayout) inflate.findViewById(R.id.list_item);
-                cVar.c = (TbImageView) cVar.a.findViewById(R.id.obfuscated_res_0x7f090710);
-                cVar.d = (TextView) cVar.a.findViewById(R.id.obfuscated_res_0x7f09201a);
-                cVar.e = (ImageView) cVar.a.findViewById(R.id.obfuscated_res_0x7f09060f);
-                cVar.f = (LinearLayout) cVar.a.findViewById(R.id.obfuscated_res_0x7f090610);
-                vr4.d(cVar.a).k(R.color.CAM_X0101);
-                vr4 d = vr4.d(cVar.b);
+                cVar.c = (TbImageView) cVar.a.findViewById(R.id.obfuscated_res_0x7f09070d);
+                cVar.d = (TextView) cVar.a.findViewById(R.id.obfuscated_res_0x7f092078);
+                cVar.e = (ImageView) cVar.a.findViewById(R.id.obfuscated_res_0x7f090608);
+                cVar.f = (LinearLayout) cVar.a.findViewById(R.id.obfuscated_res_0x7f090609);
+                gs4.d(cVar.a).k(R.color.CAM_X0101);
+                gs4 d = gs4.d(cVar.b);
                 d.n(R.string.J_X05);
                 d.f(R.color.CAM_X0206);
-                vr4 d2 = vr4.d(cVar.d);
+                gs4 d2 = gs4.d(cVar.d);
                 d2.v(R.color.CAM_X0107);
                 d2.z(R.dimen.T_X07);
-                ThreadData threadData = ((xx5) uoVar).getThreadData();
+                ThreadData threadData = ((yx5) roVar).getThreadData();
                 String tid = threadData.getTid();
                 cVar.d.setText(threadData.getTitle());
                 if (threadData != null) {
@@ -277,7 +277,7 @@ public class t58 extends BaseAdapter {
                     } else if (threadData.threadType == 0 && threadData.getMedias().size() != 0) {
                         cVar.c.K(threadData.getMedias().get(0).small_pic_url, 33, false);
                     } else {
-                        cVar.c.K(String.valueOf((int) R.drawable.obfuscated_res_0x7f0806fe), 24, false);
+                        cVar.c.K(String.valueOf((int) R.drawable.obfuscated_res_0x7f0806e6), 24, false);
                     }
                 }
                 cVar.b.setOnClickListener(new a(this, threadData.getThreadType(), threadData));
@@ -290,9 +290,9 @@ public class t58 extends BaseAdapter {
                 }
                 cVar.f.setTag(Boolean.valueOf(z));
                 if (((Boolean) cVar.f.getTag()).booleanValue()) {
-                    cVar.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809a2, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
+                    cVar.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809b7, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
                 } else {
-                    cVar.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809a1, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL));
+                    cVar.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809b6, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL));
                 }
                 cVar.f.setOnClickListener(new b(this, cVar, tid, threadData));
             }
@@ -304,10 +304,10 @@ public class t58 extends BaseAdapter {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: g */
-    public uo getItem(int i) {
+    public ro getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.c.get(i) : (uo) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.c.get(i) : (ro) invokeI.objValue;
     }
 
     @Override // android.widget.Adapter
@@ -315,7 +315,7 @@ public class t58 extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList<uo> arrayList = this.c;
+            ArrayList<ro> arrayList = this.c;
             if (arrayList == null) {
                 return 0;
             }
@@ -343,7 +343,7 @@ public class t58 extends BaseAdapter {
             if (this.d == null) {
                 this.d = viewGroup;
             }
-            uo item = getItem(i);
+            ro item = getItem(i);
             if (item != null) {
                 cVar = e(view2 != null ? view2.getTag() : null, item);
             } else {
@@ -379,7 +379,7 @@ public class t58 extends BaseAdapter {
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoRecommentPlayActivityConfig));
     }
 
-    public void j(ArrayList<uo> arrayList) {
+    public void j(ArrayList<ro> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, arrayList) == null) {
             this.c = arrayList;

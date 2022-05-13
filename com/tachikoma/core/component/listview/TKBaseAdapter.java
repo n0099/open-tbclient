@@ -24,7 +24,7 @@ import com.tachikoma.core.utility.V8Proxy;
 import java.util.ArrayList;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKBaseAdapter extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public class TKBaseAdapter extends BaseAdapter {
     public final V8Object mV8Adapter;
     public final List<V8Object> v8Objects;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public final class ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,7 +83,7 @@ public class TKBaseAdapter extends BaseAdapter {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, view2, i)) == null) {
-            V8Proxy.executeJsFunction(this.mV8Adapter, this.mTKJSContext, "convertView", ((ViewHolder) view2.getTag(R.id.obfuscated_res_0x7f090d6a)).jsObj, Integer.valueOf(i));
+            V8Proxy.executeJsFunction(this.mV8Adapter, this.mTKJSContext, "convertView", ((ViewHolder) view2.getTag(R.id.obfuscated_res_0x7f090d5a)).jsObj, Integer.valueOf(i));
             return view2;
         }
         return (View) invokeLI.objValue;
@@ -148,7 +148,7 @@ public class TKBaseAdapter extends BaseAdapter {
             viewHolder.base = tKBase;
             viewHolder.jsObj = twin;
             this.v8Objects.add(twin);
-            view2.setTag(R.id.obfuscated_res_0x7f090d6a, viewHolder);
+            view2.setTag(R.id.obfuscated_res_0x7f090d5a, viewHolder);
             Log.e("test1", "consumer time :: " + (System.currentTimeMillis() - currentTimeMillis));
             return view2;
         }

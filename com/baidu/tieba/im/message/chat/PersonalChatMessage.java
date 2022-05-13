@@ -30,6 +30,18 @@ public class PersonalChatMessage extends ChatMessage {
         }
     }
 
+    private String getRequestContent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            if (getMsgType() != 33 && getMsgType() != 32) {
+                return getContent();
+            }
+            return getEncodeContent();
+        }
+        return (String) invokeV.objValue;
+    }
+
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
     public Object encode() {
         InterceptResult invokeV;
@@ -37,7 +49,7 @@ public class PersonalChatMessage extends ChatMessage {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                builder.content = getContent();
+                builder.content = getRequestContent();
                 builder.toUid = Long.valueOf(getToUserId());
                 builder.msgType = Integer.valueOf(getMsgType());
                 builder.recordId = Long.valueOf(getRecordId());

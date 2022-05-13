@@ -5,7 +5,6 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import com.baidu.android.util.devices.RomUtils;
-import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -67,7 +66,7 @@ public final class NetworkUtils {
             }
             if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
                 if (activeNetworkInfo.getType() == 1) {
-                    return CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
+                    return "WIFI";
                 }
                 if (activeNetworkInfo.getType() == 0) {
                     int subtype = activeNetworkInfo.getSubtype();

@@ -1,43 +1,24 @@
 package com.repackage;
 
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.image.gif2.GifImageView;
 /* loaded from: classes5.dex */
-public class du9 implements Runnable {
+public class du9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ GifImageView a;
 
-    public du9(GifImageView gifImageView) {
+    public static String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {gifImageView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            try {
+                return eu9.c(context);
+            } catch (Exception unused) {
+                return "";
             }
         }
-        this.a = gifImageView;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            GifImageView gifImageView = this.a;
-            gifImageView.b = null;
-            gifImageView.a = null;
-            gifImageView.g = null;
-            gifImageView.f = false;
-        }
+        return (String) invokeL.objValue;
     }
 }

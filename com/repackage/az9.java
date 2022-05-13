@@ -1,9 +1,11 @@
 package com.repackage;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface az9 {
-    void onCompleted();
+public final class az9<T, R> extends cy9<T> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void onError(Throwable th);
-
-    void onSubscribe(iz9 iz9Var);
+    public abstract void g();
 }

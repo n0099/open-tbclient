@@ -1,10 +1,11 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.os.Bundle;
+import android.os.Message;
+import android.os.RemoteException;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,74 +13,115 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import com.repackage.kx2;
+import java.util.ArrayDeque;
+import java.util.Deque;
 /* loaded from: classes7.dex */
-public final class qx2 extends g23 {
+public class qx2 implements kx2.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Deque<Message> a;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755364826, "Lcom/repackage/qx2;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755364826, "Lcom/repackage/qx2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755364826, "Lcom/repackage/qx2;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755364826, "Lcom/repackage/qx2;");
-        }
+        boolean z = eh1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qx2(g13 dispatcher) {
-        super(dispatcher, "/swanAPI/community/closeCommunityEditor");
+    public qx2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dispatcher};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(dispatcher, "dispatcher");
+        this.a = new ArrayDeque();
     }
 
-    @Override // com.repackage.g23
-    public boolean d(Context context, UnitedSchemeEntity entity, CallbackHandler callbackHandler, j03 j03Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.repackage.kx2.c
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, entity, callbackHandler, j03Var)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(entity, "entity");
-            if (j03Var != null) {
-                wl2 U = wl2.U();
-                Intrinsics.checkNotNullExpressionValue(U, "SwanAppController.getInstance()");
-                sz1 V = U.V();
-                if (V != null) {
-                    pz1 m = V.m();
-                    if (m instanceof nx2) {
-                        ((nx2) m).p3();
-                        entity.result = UnitedSchemeUtility.wrapCallbackParams(0, "");
-                        return true;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            px2 P = px2.P();
+            while (P.N() && !this.a.isEmpty()) {
+                Message peek = this.a.peek();
+                if (peek == null || e(peek)) {
+                    this.a.poll();
+                }
+            }
+        }
+    }
+
+    @Override // com.repackage.kx2.c
+    public void b(@NonNull mx2 mx2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mx2Var) == null) {
+            Message h = mx2Var.h();
+            h.arg1 = SwanAppProcessInfo.current().index;
+            if (t03.J().D()) {
+                Object obj = h.obj;
+                if (obj instanceof Bundle) {
+                    Bundle bundle = (Bundle) obj;
+                    if (!bundle.containsKey("ai_apps_id")) {
+                        bundle.putString("ai_apps_id", t03.J().getAppId());
                     }
                 }
-                entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "top is not publisher");
+            }
+            if (e(h) || !mx2Var.n()) {
+                return;
+            }
+            this.a.offer(h);
+            px2.P().b0();
+        }
+    }
+
+    @Override // com.repackage.kx2.c
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        }
+    }
+
+    @Override // com.repackage.kx2.c
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+        }
+    }
+
+    public final boolean e(Message message) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, message)) == null) {
+            px2 P = px2.P();
+            if (message == null || !P.N()) {
                 return false;
             }
-            entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal app info");
-            return false;
+            try {
+                P.R().send(message);
+                return true;
+            } catch (RemoteException e) {
+                P.T();
+                ux1.l("SwanMsgSenderOfClient", " sendMsgToService msg = " + message.toString(), e);
+                return false;
+            }
         }
-        return invokeLLLL.booleanValue;
+        return invokeL.booleanValue;
     }
 }

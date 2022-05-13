@@ -26,13 +26,13 @@ public class a implements b.a {
 
     /* renamed from: com.kwad.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0281a {
+    public static class C0280a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ZipFile a;
         public ZipEntry b;
 
-        public C0281a(ZipFile zipFile, ZipEntry zipEntry) {
+        public C0280a(ZipFile zipFile, ZipEntry zipEntry) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -85,7 +85,7 @@ public class a implements b.a {
         }
     }
 
-    private C0281a a(Context context, String[] strArr, String str, c cVar) {
+    private C0280a a(Context context, String[] strArr, String str, c cVar) {
         InterceptResult invokeLLLL;
         int i;
         Interceptable interceptable = $ic;
@@ -128,7 +128,7 @@ public class a implements b.a {
                             cVar.a("Looking for %s in APK %s...", objArr);
                             ZipEntry entry = zipFile.getEntry(str3);
                             if (entry != null) {
-                                return new C0281a(zipFile, entry);
+                                return new C0280a(zipFile, entry);
                             }
                             i7++;
                             c = 0;
@@ -142,7 +142,7 @@ public class a implements b.a {
             }
             return null;
         }
-        return (C0281a) invokeLLLL.objValue;
+        return (C0280a) invokeLLLL.objValue;
     }
 
     private void a(Closeable closeable) {
@@ -182,10 +182,10 @@ public class a implements b.a {
         if (interceptable != null && interceptable.invokeLLLLL(1048576, this, context, strArr, str, file, cVar) != null) {
             return;
         }
-        C0281a c0281a = null;
+        C0280a c0280a = null;
         Closeable closeable2 = null;
         try {
-            C0281a a2 = a(context, strArr, str, cVar);
+            C0280a a2 = a(context, strArr, str, cVar);
             try {
                 if (a2 == null) {
                     throw new RuntimeException(str);
@@ -279,11 +279,11 @@ public class a implements b.a {
                 }
             } catch (Throwable th4) {
                 th = th4;
-                c0281a = a2;
-                if (c0281a != null) {
+                c0280a = a2;
+                if (c0280a != null) {
                     try {
-                        if (c0281a.a != null) {
-                            c0281a.a.close();
+                        if (c0280a.a != null) {
+                            c0280a.a.close();
                         }
                     } catch (IOException unused10) {
                     }

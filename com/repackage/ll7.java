@@ -20,7 +20,7 @@ public class ll7 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a extends hg<fo> {
+    public class a extends fg<co> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EditText a;
@@ -52,13 +52,13 @@ public class ll7 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.hg
-        public void onLoaded(fo foVar, String str, int i) {
+        @Override // com.repackage.fg
+        public void onLoaded(co coVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, foVar, str, i) == null) {
-                super.onLoaded((a) foVar, str, i);
-                if (foVar != null) {
-                    this.e.c(this.a, this.b, this.c, foVar, this.d);
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, coVar, str, i) == null) {
+                super.onLoaded((a) coVar, str, i);
+                if (coVar != null) {
+                    this.e.c(this.a, this.b, this.c, coVar, this.d);
                 }
             }
         }
@@ -78,25 +78,25 @@ public class ll7 {
         }
     }
 
-    public void b(BdBaseActivity<?> bdBaseActivity, EditText editText, zw4 zw4Var) {
+    public void b(BdBaseActivity<?> bdBaseActivity, EditText editText, mx4 mx4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, bdBaseActivity, editText, zw4Var) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, bdBaseActivity, editText, mx4Var) == null) {
             if (((ImageSpan[]) editText.getText().getSpans(0, editText.getText().length(), ImageSpan.class)).length >= 10) {
-                Toast.makeText(bdBaseActivity.getPageContext().getPageActivity(), (int) R.string.obfuscated_res_0x7f0f1403, 0).show();
+                Toast.makeText(bdBaseActivity.getPageContext().getPageActivity(), (int) R.string.obfuscated_res_0x7f0f142b, 0).show();
                 return;
             }
-            String c = zw4Var.c();
-            EmotionGroupType type = zw4Var.getType();
-            if (c != null) {
-                ig.h().k(c, 20, new a(this, editText, new SpannableStringBuilder(c), editText.getSelectionStart(), type), 0, 0, bdBaseActivity.getUniqueId(), null, c, Boolean.FALSE, null);
+            String d = mx4Var.d();
+            EmotionGroupType type = mx4Var.getType();
+            if (d != null) {
+                gg.h().k(d, 20, new a(this, editText, new SpannableStringBuilder(d), editText.getSelectionStart(), type), 0, 0, bdBaseActivity.getUniqueId(), null, d, Boolean.FALSE, null);
             }
         }
     }
 
-    public final void c(EditText editText, SpannableStringBuilder spannableStringBuilder, int i, fo foVar, EmotionGroupType emotionGroupType) {
+    public final void c(EditText editText, SpannableStringBuilder spannableStringBuilder, int i, co coVar, EmotionGroupType emotionGroupType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{editText, spannableStringBuilder, Integer.valueOf(i), foVar, emotionGroupType}) == null) {
-            Bitmap p = foVar.p();
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{editText, spannableStringBuilder, Integer.valueOf(i), coVar, emotionGroupType}) == null) {
+            Bitmap p = coVar.p();
             BitmapDrawable bitmapDrawable = new BitmapDrawable(p);
             int width = p.getWidth();
             if (emotionGroupType == EmotionGroupType.LOCAL) {

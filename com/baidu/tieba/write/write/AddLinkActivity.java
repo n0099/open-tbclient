@@ -29,9 +29,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gj8;
-import com.repackage.ni;
-import com.repackage.vr4;
+import com.repackage.di8;
+import com.repackage.gs4;
+import com.repackage.li;
 /* loaded from: classes4.dex */
 public class AddLinkActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -225,10 +225,10 @@ public class AddLinkActivity extends BaseActivity {
                 return;
             }
             String obj = this.a.mLinkEditView.getText().toString();
-            if (!ni.isEmpty(obj) && UrlManager.getInstance().isUrlValid(obj)) {
+            if (!li.isEmpty(obj) && UrlManager.getInstance().isUrlValid(obj)) {
                 this.a.closePageWithData(obj);
             } else {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f09e4);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f09ea);
             }
         }
     }
@@ -354,7 +354,7 @@ public class AddLinkActivity extends BaseActivity {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (ni.isEmpty(this.a.mBubbleNewLinkContent)) {
+                if (li.isEmpty(this.a.mBubbleNewLinkContent)) {
                     this.a.showNewLinkBubble(UtilHelper.getClipBoardContent());
                     return;
                 }
@@ -400,7 +400,7 @@ public class AddLinkActivity extends BaseActivity {
                 }
                 WriteTipBubbleController writeTipBubbleController = this.b.mFindNewLinkBubbleController;
                 EditText editText = this.b.mLinkEditView;
-                writeTipBubbleController.d(editText, this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f0618) + "\n" + this.a, this.a, WriteTipBubbleController.ANCHOR_VIEW_FROM.FROM_EDIT_TEXT);
+                writeTipBubbleController.d(editText, this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f061e) + "\n" + this.a, this.a, WriteTipBubbleController.ANCHOR_VIEW_FROM.FROM_EDIT_TEXT);
             }
         }
     }
@@ -455,18 +455,18 @@ public class AddLinkActivity extends BaseActivity {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d007d);
+            setContentView(R.layout.obfuscated_res_0x7f0d0079);
             setActivityBgTransparent();
             setSwipeBackEnabled(false);
-            this.mRootLayout = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09011d);
-            this.mContentLayout = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09011e);
-            this.mCancelBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f092173);
-            this.mTitleText = (TextView) findViewById(R.id.obfuscated_res_0x7f092203);
-            this.mCompleteBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f092179);
-            this.mEditAreaLayout = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09011f);
-            this.mLinkEditView = (EditText) findViewById(R.id.obfuscated_res_0x7f090918);
-            this.mDelBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fc8);
-            this.mAddLinkTip = (TextView) findViewById(R.id.obfuscated_res_0x7f090120);
+            this.mRootLayout = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090113);
+            this.mContentLayout = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090114);
+            this.mCancelBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f0921c9);
+            this.mTitleText = (TextView) findViewById(R.id.obfuscated_res_0x7f09225b);
+            this.mCompleteBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f0921d0);
+            this.mEditAreaLayout = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090115);
+            this.mLinkEditView = (EditText) findViewById(R.id.obfuscated_res_0x7f090910);
+            this.mDelBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fd5);
+            this.mAddLinkTip = (TextView) findViewById(R.id.obfuscated_res_0x7f090116);
             this.mRootLayout.setOnClickListener(new c(this));
             this.mContentLayout.setClickable(true);
             this.mCancelBtn.setOnClickListener(new d(this));
@@ -493,14 +493,14 @@ public class AddLinkActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65551, this) == null) {
             int color = SkinManager.getColor(R.color.CAM_X0302);
-            this.mCompleteBtn.setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{gj8.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), gj8.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
+            this.mCompleteBtn.setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{di8.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), di8.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showNewLinkBubble(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65552, this, str) == null) || this.mLinkEditView == null || ni.isEmpty(str) || !UrlManager.getInstance().isUrlValid(str)) {
+        if (!(interceptable == null || interceptable.invokeL(65552, this, str) == null) || this.mLinkEditView == null || li.isEmpty(str) || !UrlManager.getInstance().isUrlValid(str)) {
             return;
         }
         this.mLinkEditView.post(new i(this, str));
@@ -533,10 +533,10 @@ public class AddLinkActivity extends BaseActivity {
             setCompleteBtnColor();
             SkinManager.setViewTextColor(this.mLinkEditView, (int) R.color.CAM_X0105);
             this.mLinkEditView.setHintTextColor(SkinManager.getColor(R.color.CAM_X0109));
-            vr4 d2 = vr4.d(this.mEditAreaLayout);
+            gs4 d2 = gs4.d(this.mEditAreaLayout);
             d2.n(R.string.J_X01);
             d2.f(R.color.CAM_X0209);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mDelBtn, R.drawable.obfuscated_res_0x7f080989, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mDelBtn, R.drawable.obfuscated_res_0x7f08099e, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             SkinManager.setViewTextColor(this.mAddLinkTip, (int) R.color.CAM_X0110);
         }
     }

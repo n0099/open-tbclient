@@ -49,17 +49,17 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.h.a implements c.a {
 
         /* renamed from: com.kwad.sdk.core.page.AdWebViewActivityProxy$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static class C0303a {
+        public static class C0302a {
             public String a;
             public String b;
             public AdTemplate c;
 
-            public C0303a a(AdTemplate adTemplate) {
+            public C0302a a(AdTemplate adTemplate) {
                 this.c = adTemplate;
                 return this;
             }
 
-            public C0303a a(String str) {
+            public C0302a a(String str) {
                 this.a = str;
                 return this;
             }
@@ -68,7 +68,7 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.h.a implements c.a {
                 return new a(this.a, this.b, this.c);
             }
 
-            public C0303a b(String str) {
+            public C0302a b(String str) {
                 this.b = str;
                 return this;
             }
@@ -252,10 +252,10 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.h.a implements c.a {
             this.landingPageViewHelper = cVar2;
             cVar2.a(this);
             cVar = this.landingPageViewHelper;
-            a2 = new c.C0304c().b(com.kwad.sdk.core.response.a.b.j(this.mAdTemplate) ? com.kwad.sdk.core.response.a.b.i(this.mAdTemplate) : com.kwad.sdk.core.response.a.a.G(j)).a();
+            a2 = new c.C0303c().b(com.kwad.sdk.core.response.a.b.j(this.mAdTemplate) ? com.kwad.sdk.core.response.a.b.i(this.mAdTemplate) : com.kwad.sdk.core.response.a.a.G(j)).a();
         } else {
             this.mNormalMode = true;
-            a2 = new c.C0304c().a(true).b(false).a(stringExtra2).b(stringExtra3).a();
+            a2 = new c.C0303c().a(true).b(false).a(stringExtra2).b(stringExtra3).a();
             c cVar3 = new c(this.mContext, this.mAdTemplate, 1, false);
             this.landingPageViewHelper = cVar3;
             cVar3.a(this);

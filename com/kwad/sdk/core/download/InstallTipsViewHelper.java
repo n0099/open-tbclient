@@ -62,11 +62,11 @@ public class InstallTipsViewHelper implements View.OnClickListener {
         }
 
         public static InstallTipsData newInstallInstance(Context context, AdTemplate adTemplate) {
-            return new InstallTipsData(context, 1, adTemplate, R.string.obfuscated_res_0x7f0f0997);
+            return new InstallTipsData(context, 1, adTemplate, R.string.obfuscated_res_0x7f0f099b);
         }
 
         public static InstallTipsData newLaunchInstance(Context context, AdTemplate adTemplate) {
-            return new InstallTipsData(context, 2, adTemplate, R.string.obfuscated_res_0x7f0f0998);
+            return new InstallTipsData(context, 2, adTemplate, R.string.obfuscated_res_0x7f0f099c);
         }
 
         public int getClickAction() {
@@ -99,7 +99,7 @@ public class InstallTipsViewHelper implements View.OnClickListener {
         this.a = adInfo;
         this.b = adTemplate;
         this.c = z ? InstallTipsData.newInstallInstance(wrapContextIfNeed, adTemplate) : InstallTipsData.newLaunchInstance(wrapContextIfNeed, adTemplate);
-        View inflate = LayoutInflater.from(this.k).inflate(R.layout.obfuscated_res_0x7f0d043f, (ViewGroup) null, false);
+        View inflate = LayoutInflater.from(this.k).inflate(R.layout.obfuscated_res_0x7f0d0433, (ViewGroup) null, false);
         this.d = inflate;
         a(this.k, inflate);
         InstallTipsData installTipsData = this.c;
@@ -130,10 +130,10 @@ public class InstallTipsViewHelper implements View.OnClickListener {
     private void a(Context context, View view2) {
         String clickButtonText;
         ViewCompat.setElevation(view2, context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070362));
-        this.e = view2.findViewById(R.id.obfuscated_res_0x7f09108b);
-        this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09108d);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09108c);
-        this.h = (Button) view2.findViewById(R.id.obfuscated_res_0x7f09108e);
+        this.e = view2.findViewById(R.id.obfuscated_res_0x7f09109a);
+        this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09109c);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09109b);
+        this.h = (Button) view2.findViewById(R.id.obfuscated_res_0x7f09109d);
         InstallTipsData installTipsData = this.c;
         if (installTipsData != null && (clickButtonText = installTipsData.getClickButtonText()) != null) {
             this.h.setText(clickButtonText);
@@ -241,7 +241,7 @@ public class InstallTipsViewHelper implements View.OnClickListener {
         InstallTipsData installTipsData = this.c;
         int clickAction = installTipsData != null ? installTipsData.getClickAction() : 1;
         int id = view2.getId();
-        if (id == R.id.obfuscated_res_0x7f09108e) {
+        if (id == R.id.obfuscated_res_0x7f09109d) {
             b();
             if (clickAction == 1) {
                 d();
@@ -254,7 +254,7 @@ public class InstallTipsViewHelper implements View.OnClickListener {
             }
             adTemplate = this.b;
             i = 47;
-        } else if (id != R.id.obfuscated_res_0x7f09108b) {
+        } else if (id != R.id.obfuscated_res_0x7f09109a) {
             return;
         } else {
             b();

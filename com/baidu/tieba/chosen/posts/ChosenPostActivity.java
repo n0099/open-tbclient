@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.i65;
-import com.repackage.r65;
-import com.repackage.ry5;
-import com.repackage.s65;
-import com.repackage.vy5;
+import com.repackage.h75;
+import com.repackage.i75;
+import com.repackage.sy5;
+import com.repackage.wy5;
+import com.repackage.y65;
 /* loaded from: classes3.dex */
-public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> implements r65 {
+public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> implements h75 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EVENT_ID_PICTURE_CLICK = 4096;
     public static final int EVENT_ID_RELOAD_DATA = 4100;
@@ -29,7 +29,7 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
     public static final int EVENT_ID_UNLIKE_RESULT = 4102;
     public transient /* synthetic */ FieldHolder $fh;
     public ChosenPostModelController mModelController;
-    public ry5 mViewController;
+    public sy5 mViewController;
     public ViewEventCenter mViewEventController;
 
     public ChosenPostActivity() {
@@ -46,12 +46,12 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
         }
     }
 
-    private void handlePictureClick(s65 s65Var) {
+    private void handlePictureClick(i75 i75Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, this, s65Var) == null) {
-            i65 a = s65Var.a();
-            if (a instanceof vy5) {
-                sendMessage(((vy5) a).a(getPageContext().getPageActivity()));
+        if (interceptable == null || interceptable.invokeL(65537, this, i75Var) == null) {
+            y65 a = i75Var.a();
+            if (a instanceof wy5) {
+                sendMessage(((wy5) a).a(getPageContext().getPageActivity()));
             }
         }
     }
@@ -80,19 +80,19 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
         return (ChosenPostModelController) invokeV.objValue;
     }
 
-    public ry5 getViewController() {
+    public sy5 getViewController() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (this.mViewController == null) {
-                this.mViewController = new ry5(this);
+                this.mViewController = new sy5(this);
             }
             return this.mViewController;
         }
-        return (ry5) invokeV.objValue;
+        return (sy5) invokeV.objValue;
     }
 
-    @Override // com.repackage.r65
+    @Override // com.repackage.h75
     public boolean isEventMustSelf() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -107,7 +107,7 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             super.onChangeSkinType(i);
-            getViewController().p(getPageContext(), i);
+            getViewController().r(getPageContext(), i);
         }
     }
 
@@ -126,22 +126,22 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
             } else {
                 this.mModelController.D(null);
             }
-            setContentView(this.mViewController.r());
-            this.mViewController.t();
-            this.mViewController.p(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+            setContentView(this.mViewController.s());
+            this.mViewController.u();
+            this.mViewController.r(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             adjustResizeForSoftInput();
         }
     }
 
-    @Override // com.repackage.r65
-    public boolean onEventDispatch(s65 s65Var) {
+    @Override // com.repackage.h75
+    public boolean onEventDispatch(i75 i75Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, s65Var)) == null) {
-            if (s65Var.b() == 4096) {
-                handlePictureClick(s65Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, i75Var)) == null) {
+            if (i75Var.b() == 4096) {
+                handlePictureClick(i75Var);
             }
-            return getViewController().s(s65Var) || getModelController().F(s65Var);
+            return getViewController().t(i75Var) || getModelController().F(i75Var);
         }
         return invokeL.booleanValue;
     }

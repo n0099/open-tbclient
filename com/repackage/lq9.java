@@ -1,13 +1,41 @@
 package com.repackage;
 
-import com.win.opensdk.PBListener;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes6.dex */
-public interface lq9 extends PBListener {
-    void c(boolean z, long j);
+public final class lq9 implements ThreadFactory {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final AtomicInteger a;
 
-    void d(String str);
+    public lq9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new AtomicInteger(1);
+    }
 
-    void f();
-
-    void g();
+    @Override // java.util.concurrent.ThreadFactory
+    public Thread newThread(Runnable runnable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+            return new Thread(runnable, "T#" + this.a.getAndIncrement());
+        }
+        return (Thread) invokeL.objValue;
+    }
 }

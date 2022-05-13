@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class by5 extends fy5 {
+public class by5 extends gy5 {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId N0;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,26 +50,20 @@ public class by5 extends fy5 {
         this.a = threadData;
     }
 
-    public static boolean Z(ThreadData threadData) {
+    public static boolean W(ThreadData threadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) {
-            if (threadData == null) {
-                return false;
-            }
-            return threadData.isBJHNormalThreadType();
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) ? threadData != null && threadData.getType() == ThreadData.TYPE_ARTICLE : invokeL.booleanValue;
     }
 
-    @Override // com.repackage.fy5, com.repackage.xx5, com.repackage.pn4
+    @Override // com.repackage.gy5, com.repackage.yx5, com.repackage.zn4
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ThreadData) invokeV.objValue;
     }
 
-    @Override // com.repackage.fy5, com.baidu.tieba.card.data.BaseCardInfo, com.repackage.uo
+    @Override // com.repackage.gy5, com.baidu.tieba.card.data.BaseCardInfo, com.repackage.ro
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

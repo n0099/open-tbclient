@@ -1,51 +1,53 @@
 package com.repackage;
 
-import android.content.Intent;
-import android.text.TextUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.switchs.AdToMainTabActivitySwitch;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.tblauncher.MainTabActivity;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class vn8 {
+public class vn8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final MainTabActivity a;
+    public final tm8 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755225295, "Lcom/repackage/vn8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vn8(MainTabActivity mainTabActivity, tm8 tm8Var) {
+        super(2921348);
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, tm8Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755225295, "Lcom/repackage/vn8;");
-        }
+        this.a = mainTabActivity;
+        this.b = tm8Var;
     }
 
-    public static void a(MainTabActivity mainTabActivity, Intent intent) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        tm8 tm8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, mainTabActivity, intent) == null) || a || !AdToMainTabActivitySwitch.getIsOn() || mainTabActivity == null || !mainTabActivity.isTaskRoot() || intent == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Boolean) || (tm8Var = this.b) == null || tm8Var.z() == null) {
             return;
         }
-        String action = intent.getAction();
-        Set<String> categories = intent.getCategories();
-        if (action == null || categories == null || !TextUtils.equals(action, "android.intent.action.MAIN") || !categories.contains("android.intent.category.LAUNCHER")) {
-            return;
+        if (!((Boolean) customResponsedMessage.getData()).booleanValue()) {
+            this.b.z().getTabWrapper().animate().translationY(this.b.z().getTabWrapper().getHeight()).setDuration(200L).start();
+        } else {
+            this.b.z().getTabWrapper().animate().translationY(0.0f).setDuration(400L).start();
         }
-        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOST_START).param("obj_param1", 2).param(TiebaStatic.Params.OBJ_PARAM2, TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, TbadkCoreApplication.getInst().getCanShowSplash()));
-        a = true;
     }
 }

@@ -50,31 +50,31 @@ public abstract class jq7 {
         }
         this.a = tbPageContext;
         this.b = view2;
-        NavigationBar navigationBar = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f091515);
+        NavigationBar navigationBar = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f091534);
         this.c = navigationBar;
         View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.d = addSystemImageButton;
-        addSystemImageButton.setId(R.id.obfuscated_res_0x7f090416);
-        TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, tbPageContext.getString(R.string.obfuscated_res_0x7f0f1183));
+        addSystemImageButton.setId(R.id.obfuscated_res_0x7f090412);
+        TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, tbPageContext.getString(R.string.obfuscated_res_0x7f0f11a0));
         this.e = addTextButton;
-        addTextButton.setId(R.id.obfuscated_res_0x7f090440);
-        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920b3);
-        this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920b2);
-        ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090eba);
+        addTextButton.setId(R.id.obfuscated_res_0x7f09043b);
+        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09210e);
+        this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09210d);
+        ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ec6);
         this.f = imageView;
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) imageView.getLayoutParams();
-        layoutParams.topMargin = oi.i(tbPageContext.getPageActivity()) / 4;
+        layoutParams.topMargin = mi.i(tbPageContext.getPageActivity()) / 4;
         this.f.setLayoutParams(layoutParams);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09132b);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09133a);
         this.g = textView;
         RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) textView.getLayoutParams();
-        layoutParams2.topMargin = (oi.i(tbPageContext.getPageActivity()) / 2) + oi.f(tbPageContext.getPageActivity(), R.dimen.tbds239);
+        layoutParams2.topMargin = (mi.i(tbPageContext.getPageActivity()) / 2) + mi.f(tbPageContext.getPageActivity(), R.dimen.tbds239);
         this.g.setLayoutParams(layoutParams2);
-        this.h = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091982);
-        this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09243a);
-        this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09243d);
-        this.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0924aa);
-        this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091444);
+        this.h = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0919da);
+        this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09248a);
+        this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09248d);
+        this.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0924ff);
+        this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09145b);
     }
 
     public void a(int i) {
@@ -84,20 +84,20 @@ public abstract class jq7 {
             SkinManager.setBackgroundColor(this.c, R.color.CAM_X0201, i);
             SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201, i);
             SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0107);
-            vr4 d = vr4.d(this.m);
+            gs4 d = gs4.d(this.m);
             d.v(R.color.CAM_X0105);
             d.z(R.dimen.T_X03);
             d.A(R.string.F_X02);
-            vr4 d2 = vr4.d(this.n);
+            gs4 d2 = gs4.d(this.n);
             d2.v(R.color.CAM_X0107);
             d2.z(R.dimen.T_X08);
             d2.A(R.string.F_X01);
             if (i == 0) {
-                WebPManager.setMaskDrawable(this.f, R.drawable.obfuscated_res_0x7f08082a, null);
+                WebPManager.setMaskDrawable(this.f, R.drawable.obfuscated_res_0x7f08081a, null);
             } else {
-                WebPManager.setMaskDrawable(this.f, R.drawable.obfuscated_res_0x7f08082b, null);
+                WebPManager.setMaskDrawable(this.f, R.drawable.obfuscated_res_0x7f08081b, null);
             }
-            vr4 d3 = vr4.d(this.g);
+            gs4 d3 = gs4.d(this.g);
             d3.v(R.color.CAM_X0101);
             d3.z(R.dimen.T_X05);
             d3.A(R.string.F_X01);

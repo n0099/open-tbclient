@@ -5,7 +5,6 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,14 +12,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m85;
-import com.repackage.mg;
-import com.repackage.mi;
-import com.repackage.q85;
-import com.repackage.r85;
-import com.repackage.s85;
-import com.repackage.t85;
-import com.repackage.vt4;
+import com.repackage.d95;
+import com.repackage.h95;
+import com.repackage.i95;
+import com.repackage.iu4;
+import com.repackage.j95;
+import com.repackage.k95;
+import com.repackage.kg;
+import com.repackage.ki;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes3.dex */
@@ -70,7 +69,7 @@ public class PerformanceLoggerHelper {
         this.isSmallFlow = false;
         this.maxIntervalForOnce = 86400L;
         this.smallFlowInterval = 0L;
-        this.startSmallFlowTime = vt4.k().m(TB_PERFOR_SMALLFLOW_TIME, 0L);
+        this.startSmallFlowTime = iu4.k().m(TB_PERFOR_SMALLFLOW_TIME, 0L);
         BdBaseApplication.getInst().setStartSmallFlowTime(this.startSmallFlowTime);
         this.smallFlowInterval = this.maxIntervalForOnce;
         BdBaseApplication.getInst().setSmallFlowInterval(this.smallFlowInterval);
@@ -95,7 +94,7 @@ public class PerformanceLoggerHelper {
     public static String getNetStringWithType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? 1 == i ? "2G" : 2 == i ? "3G" : 3 == i ? "4G" : 4 == i ? "5G" : 5 == i ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : "N" : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? 1 == i ? "2G" : 2 == i ? "3G" : 3 == i ? "4G" : 4 == i ? "5G" : 5 == i ? "WIFI" : "N" : (String) invokeI.objValue;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:51:0x009b */
@@ -169,7 +168,7 @@ public class PerformanceLoggerHelper {
                                         str2 = str;
                                         if (str2 != null) {
                                         }
-                                        return mg.e(str2, -1);
+                                        return kg.e(str2, -1);
                                     }
                                 }
                                 if (bufferedReader != null) {
@@ -178,7 +177,7 @@ public class PerformanceLoggerHelper {
                                 str2 = str;
                                 if (str2 != null) {
                                 }
-                                return mg.e(str2, -1);
+                                return kg.e(str2, -1);
                             } catch (Throwable th) {
                                 th = th;
                                 if (process != null) {
@@ -235,7 +234,7 @@ public class PerformanceLoggerHelper {
                     str2 = split2[0];
                 }
             }
-            return mg.e(str2, -1);
+            return kg.e(str2, -1);
         }
         return invokeV.intValue;
     }
@@ -349,72 +348,72 @@ public class PerformanceLoggerHelper {
         return invokeV.longValue;
     }
 
-    public r85 getLoggerWithType(int i) {
+    public i95 getLoggerWithType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             if (isSmallFlow()) {
                 switch (i) {
                     case 1000:
-                        t85 t85Var = new t85();
-                        t85Var.a = "frs";
-                        return t85Var;
+                        k95 k95Var = new k95();
+                        k95Var.a = "frs";
+                        return k95Var;
                     case 1001:
-                        t85 t85Var2 = new t85();
-                        t85Var2.a = "pb";
-                        return t85Var2;
+                        k95 k95Var2 = new k95();
+                        k95Var2.a = "pb";
+                        return k95Var2;
                     case 1002:
-                        q85 q85Var = new q85();
-                        q85Var.a = "im";
-                        return q85Var;
+                        h95 h95Var = new h95();
+                        h95Var.a = "im";
+                        return h95Var;
                     case 1003:
                     case 1006:
                     case 1007:
                     default:
                         return null;
                     case 1004:
-                        t85 t85Var3 = new t85();
-                        t85Var3.a = "photo_live";
-                        return t85Var3;
+                        k95 k95Var3 = new k95();
+                        k95Var3.a = "photo_live";
+                        return k95Var3;
                     case 1005:
-                        m85 m85Var = new m85();
-                        m85Var.a = "home_page";
-                        return m85Var;
+                        d95 d95Var = new d95();
+                        d95Var.a = "home_page";
+                        return d95Var;
                     case 1008:
-                        t85 t85Var4 = new t85();
-                        t85Var4.a = "user_center";
-                        return t85Var4;
+                        k95 k95Var4 = new k95();
+                        k95Var4.a = "user_center";
+                        return k95Var4;
                     case 1009:
-                        t85 t85Var5 = new t85();
-                        t85Var5.a = "sign_all";
-                        return t85Var5;
+                        k95 k95Var5 = new k95();
+                        k95Var5.a = "sign_all";
+                        return k95Var5;
                     case 1010:
-                        t85 t85Var6 = new t85();
-                        t85Var6.a = "person_center";
-                        return t85Var6;
+                        k95 k95Var6 = new k95();
+                        k95Var6.a = "person_center";
+                        return k95Var6;
                     case 1011:
-                        t85 t85Var7 = new t85();
-                        t85Var7.a = "person_center_home";
-                        return t85Var7;
+                        k95 k95Var7 = new k95();
+                        k95Var7.a = "person_center_home";
+                        return k95Var7;
                     case 1012:
-                        t85 t85Var8 = new t85();
-                        t85Var8.a = "person_center_post";
-                        return t85Var8;
+                        k95 k95Var8 = new k95();
+                        k95Var8.a = "person_center_post";
+                        return k95Var8;
                     case 1013:
-                        t85 t85Var9 = new t85();
-                        t85Var9.a = "person_center_dynamic";
-                        return t85Var9;
+                        k95 k95Var9 = new k95();
+                        k95Var9.a = "person_center_dynamic";
+                        return k95Var9;
                 }
             }
             return null;
         }
-        return (r85) invokeI.objValue;
+        return (i95) invokeI.objValue;
     }
 
     public String getNetType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? !mi.z() ? "N" : mi.H() ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : mi.v() ? "4G" : mi.u() ? "3G" : mi.t() ? "2G" : "N" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? !ki.z() ? "N" : ki.H() ? "WIFI" : ki.v() ? "4G" : ki.u() ? "3G" : ki.t() ? "2G" : "N" : (String) invokeV.objValue;
     }
 
     public boolean isSmallFlow() {
@@ -438,17 +437,17 @@ public class PerformanceLoggerHelper {
                 if (0 == j || currentTimeMillis - j >= this.smallFlowInterval) {
                     this.startSmallFlowTime = currentTimeMillis;
                     BdBaseApplication.getInst().setStartSmallFlowTime(this.startSmallFlowTime);
-                    vt4.k().x(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
+                    iu4.k().x(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
                 }
             } else {
                 this.startSmallFlowTime = 0L;
                 BdBaseApplication.getInst().setStartSmallFlowTime(0L);
-                vt4.k().x(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
+                iu4.k().x(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
             }
             this.isSmallFlow = z;
             BdBaseApplication.getInst().setIsSmallFlow(z);
             if (BdStatisticsManager.getInstance().isMainProcess()) {
-                s85.b().f();
+                j95.b().f();
             }
         }
     }

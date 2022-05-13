@@ -1,77 +1,99 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import tbclient.NewFloorInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class xa7 {
+public class xa7 extends eo<wa7, CardViewHolder<bb7>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<?> i;
+    public ux5 j;
+    public String k;
 
-    public static void a(oa7 oa7Var, int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xa7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getContext(), bdUniqueId);
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65536, null, oa7Var, i) == null) || oa7Var == null || oa7Var.B() == null || ListUtils.isEmpty(oa7Var.k()) || oa7Var.k().size() < 2) {
-            return;
-        }
-        List<NewFloorInfo> k = oa7Var.k();
-        if (k.size() > 2) {
-            if (StringHelper.equals(oa7Var.B().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
-                if (k.get(1) != null) {
-                    if (k.get(1).is_floor.intValue() == 0) {
-                        b(oa7Var, 12, i);
-                        return;
-                    } else if (k.get(1).is_floor.intValue() == 1) {
-                        b(oa7Var, 13, i);
-                        return;
-                    } else {
-                        return;
-                    }
-                }
-                return;
-            } else if (k.get(1) != null) {
-                if (k.get(1).is_floor.intValue() == 0) {
-                    if (oa7Var.v() != null) {
-                        if (StringHelper.equals(oa7Var.v().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
-                            b(oa7Var, 14, i);
-                            return;
-                        } else {
-                            b(oa7Var, 15, i);
-                            return;
-                        }
-                    }
-                    return;
-                } else if (k.get(1).is_floor.intValue() == 1) {
-                    b(oa7Var, 16, i);
-                    return;
-                } else {
-                    return;
-                }
-            } else {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b(oa7Var, 11, i);
+        this.i = tbPageContext;
     }
 
-    public static void b(oa7 oa7Var, int i, int i2) {
+    @Override // com.repackage.eo
+    public bp A() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65537, null, oa7Var, i, i2) == null) || oa7Var == null || oa7Var.y() == null || oa7Var.m() == null) {
-            return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? super.A() : (bp) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.eo
+    /* renamed from: Z */
+    public CardViewHolder<bb7> M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            bb7 bb7Var = new bb7(this.i, viewGroup);
+            ux5 ux5Var = this.j;
+            if (ux5Var != null) {
+                bb7Var.n(ux5Var);
+            }
+            return new CardViewHolder<>(bb7Var);
         }
-        StatisticItem statisticItem = new StatisticItem("c12928");
-        statisticItem.param("tid", oa7Var.m().f);
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-        statisticItem.param("fid", oa7Var.m().e);
-        statisticItem.param("fname", oa7Var.m().d);
-        statisticItem.param("pid", oa7Var.r());
-        statisticItem.param("obj_type", i);
-        statisticItem.param("obj_locate", i2);
-        TiebaStatic.log(statisticItem);
+        return (CardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.eo
+    /* renamed from: a0 */
+    public View S(int i, View view2, ViewGroup viewGroup, wa7 wa7Var, CardViewHolder<bb7> cardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wa7Var, cardViewHolder})) == null) {
+            if (wa7Var == null || cardViewHolder == null || cardViewHolder.c() == null) {
+                return null;
+            }
+            cardViewHolder.c().y(this.k);
+            cardViewHolder.c().z(i == 0);
+            cardViewHolder.c().l(wa7Var);
+            return cardViewHolder.b();
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public void b0(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.k = str;
+        }
+    }
+
+    public void c0(ux5 ux5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, ux5Var) == null) {
+            this.j = ux5Var;
+        }
     }
 }

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ty9;
+import com.repackage.ox9;
 import java.io.File;
 import java.io.IOException;
 import org.webrtc.VideoTrack;
@@ -84,7 +84,7 @@ public class RTCMediaRecorderImpl implements IMediaRecord {
                                 return;
                             }
                         }
-                        RTCVideoFileRenderer rTCVideoFileRenderer = new RTCVideoFileRenderer(file.getAbsolutePath(), mediaEncodeParams, ty9.a().getEglBaseContext(), this.audioInterceptor != null, recorderCallback);
+                        RTCVideoFileRenderer rTCVideoFileRenderer = new RTCVideoFileRenderer(file.getAbsolutePath(), mediaEncodeParams, ox9.a().getEglBaseContext(), this.audioInterceptor != null, recorderCallback);
                         this.videoFileRenderer = rTCVideoFileRenderer;
                         this.videoTrack.addSink(rTCVideoFileRenderer);
                         if (this.audioInterceptor != null) {

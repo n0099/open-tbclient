@@ -1,25 +1,43 @@
 package com.repackage;
 
-import com.baidu.ugc.download.exception.DownloadException;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface s99 {
-    void a(DownloadException downloadException);
+public class s99 {
+    public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(DownloadException downloadException);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755365570, "Lcom/repackage/s99;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755365570, "Lcom/repackage/s99;");
+        }
+    }
 
-    void onConnectCanceled();
+    public static void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) && a) {
+            Log.d(str, "-----------------" + str2);
+        }
+    }
 
-    void onConnected(long j, long j2, boolean z);
-
-    void onConnecting();
-
-    void onDownloadCanceled();
-
-    void onDownloadCompleted(String str);
-
-    void onDownloadPaused();
-
-    void onDownloadProgress(long j, long j2, int i);
-
-    void onStarted();
+    public static void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && a) {
+            Log.d("muxer_publish_progress", str + "---" + str2);
+        }
+    }
 }

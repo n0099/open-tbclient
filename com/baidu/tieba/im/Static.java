@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.h77;
+import com.repackage.x67;
 import com.repackage.ya;
 import com.repackage.z87;
 /* loaded from: classes3.dex */
@@ -101,7 +101,7 @@ public class Static {
                 RequestAddGroupMessage requestAddGroupMessage = (RequestAddGroupMessage) responseAddGroupMessage.getOrginalMessage();
                 ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
                 imMessageCenterPojo.setGroup_name(requestAddGroupMessage.getName());
-                imMessageCenterPojo.setCustomGroupType(h77.a(requestAddGroupMessage.getGroupType()));
+                imMessageCenterPojo.setCustomGroupType(x67.a(requestAddGroupMessage.getGroupType()));
                 AddGroupInfoData addGroupInfo = responseAddGroupMessage.getAddGroupInfo();
                 if (addGroupInfo == null) {
                     return;

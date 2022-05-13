@@ -1,52 +1,34 @@
 package com.repackage;
 
-import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class av9 implements Runnable {
+public final class av9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ ev9 a;
 
-    public av9(ev9 ev9Var) {
+    public static int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ev9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (i >= 12) {
+                return (i - 12) + 1;
             }
+            return 0;
         }
-        this.a = ev9Var;
+        return invokeI.intValue;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    public static int b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                View rootView = this.a.a.getRootView();
-                if (rootView != null && rootView.getVisibility() == 0 && rootView.isShown()) {
-                    yr9 a = cs9.a(this.a.b.a);
-                    a.d(new gs9(this.a.b.c), this.a.a.getWidth(), this.a.a.getHeight());
-                    a.m();
-                    wp9.n(this.a.b.c);
-                    if (this.a.b.f != null) {
-                        this.a.b.f.onDisplayed();
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            if (i <= 9) {
+                return (i - 1) + 1;
             }
+            return 0;
         }
+        return invokeI.intValue;
     }
 }

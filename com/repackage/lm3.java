@@ -1,50 +1,15 @@
 package com.repackage;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.unitedscheme.SchemeConfig;
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
-import com.baidu.swan.facade.init.SwanAppInitHelper;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class lm3 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface lm3 {
+    void a(r13 r13Var);
 
-    public static void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            if (!SwanAppInitHelper.entranceOK()) {
-                Log.w("SwanAppLaunchHelper", "entrance not open");
-                b03.g(AppRuntime.getAppContext(), "not support for this android version").G();
-            } else if (TextUtils.isEmpty(str)) {
-                b03.g(AppRuntime.getAppContext(), "url is empty").G();
-            } else if (str.startsWith(SchemeConfig.getSchemeHead())) {
-                b(str);
-            } else if (str.startsWith("bdswan")) {
-                b(str.replace("bdswan", SchemeConfig.getSchemeHead()));
-            } else if (!str.startsWith("https") && !str.startsWith("http")) {
-                b03.g(AppRuntime.getAppContext(), "not support this uri").G();
-            } else {
-                c(str);
-            }
-        }
-    }
+    @Nullable
+    Map<String, Object> b(@NonNull vo1 vo1Var);
 
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            SchemeRouter.invokeSchemeForInner(AppRuntime.getAppContext(), Uri.parse(str));
-        }
-    }
-
-    public static void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            km3.e(str);
-        }
-    }
+    @Nullable
+    Map<String, Object> c(@NonNull vo1 vo1Var);
 }

@@ -2,133 +2,175 @@ package com.repackage;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Base64;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.upload.action.CommonUtils;
-import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
-import com.baidu.android.imsdk.upload.action.track.Connection;
-import com.baidu.android.imsdk.upload.action.track.Request;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.gslbsdk.db.ProbeTB;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
-import org.apache.http.cookie.ClientCookie;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class v70 {
-    public static /* synthetic */ Interceptable $ic;
+public class v70 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String g = "Flow";
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public final long c;
+    public long d;
+    public Context e;
+    public Map<String, String> f;
 
-    public v70() {
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public final /* synthetic */ v70 c;
+
+        public a(v70 v70Var, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v70Var, str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = v70Var;
+            this.a = str;
+            this.b = str2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.c.f.put(this.a, this.b);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755278398, "Lcom/repackage/v70;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755278398, "Lcom/repackage/v70;");
+        }
+    }
+
+    public v70(Context context, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.d = 0L;
+        this.e = context;
+        this.a = i;
+        this.b = i2;
+        this.c = System.currentTimeMillis();
+        this.f = new ConcurrentHashMap();
     }
 
-    public static IMPushPb.Action b(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public v70 b(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) ? IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.NEWCONNECTION).setNewConnection(IMPushPb.NewConnection.newBuilder().setAliasId(601110L).setConnectErrorCode(jSONObject.optString("con_err_code", "")).setTokenBegin(jSONObject.optLong("token_begin", 0L)).setTokenEnd(jSONObject.optLong("token_end", 0L)).setDnsBegin(jSONObject.optLong("dns_begin", 0L)).setDnsEnd(jSONObject.optLong("dns_end", 0L)).setSocketBegin(jSONObject.optLong("socket_begin", 0L)).setSocketEnd(jSONObject.optLong("socket_end", 0L)).setLcpLoginBegin(jSONObject.optLong("login_begin", 0L)).setLcpLoginEnd(jSONObject.optLong("login_end", 0L)).setConnectSource(jSONObject.optString("source", "")).setConnectState(jSONObject.optLong("connect_state", -1L)).setEndTime(jSONObject.optLong("flow_end_time", 0L)).setStartTime(jSONObject.optLong("flow_start_time", 0L)).setRetry(jSONObject.optInt("retry_cout", 0)).setExt(jSONObject.toString()).setNetInfo(IMPushPb.LcpNetInfo.newBuilder().setDomain(jSONObject.optString("domain", "")).setIp(jSONObject.optString("ip", "")).setPort(jSONObject.optString(ClientCookie.PORT_ATTR, "")).setProtocol(jSONObject.optString(ProbeTB.PROTOCOL, "")).build()).build()).build() : (IMPushPb.Action) invokeL.objValue;
-    }
-
-    public static IMPushPb.Action d(String str, String str2, long j, long j2, long j3, String str3, long j4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str3, Long.valueOf(j4)})) == null) ? IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.REQUEST).setRequest(IMPushPb.Request.newBuilder().setMethod(str).setRequestId(str2).setTimestamp(j).setResponseTime(j2).setErrorCode(j3).setExt(str3).setAliasId(j4).build()).build() : (IMPushPb.Action) invokeCommon.objValue;
-    }
-
-    public static IMPushPb.Action e(long j, long j2, String str, long j3, long j4, String str2, long j5) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, Long.valueOf(j3), Long.valueOf(j4), str2, Long.valueOf(j5)})) == null) ? IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.CONNECTION).setConnection(IMPushPb.Connection.newBuilder().setStartTime(j).setStopTime(j2).setReason(str).setRetryTime(j3).setRetryCount(j4).setExt(str2).setAliasId(j5).build()).build() : (IMPushPb.Action) invokeCommon.objValue;
-    }
-
-    public static void f(Context context, Connection connection) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, connection) == null) {
-            try {
-                HashSet hashSet = new HashSet(w70.b(context));
-                hashSet.add(Base64.encodeToString(e(connection.startTime, connection.stopTime, connection.reason, connection.retryTime, connection.retryCount, connection.ext, connection.aliasId).toByteArray(), 0));
-                w70.k(context, hashSet);
-            } catch (Exception e) {
-                y80.c("TrackPbGenerator", "putIMConnectionToActions :", e);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                t70.h(this.e).f().execute(new a(this, str, String.valueOf(i)));
             }
+            String str2 = g;
+            b90.a(str2, "flow addEvent id:" + str + ",value:" + i);
+            return this;
         }
+        return (v70) invokeLI.objValue;
     }
 
-    public static void g(Context context, Request request) {
+    public v70 c(String str, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, context, request) == null) {
-            try {
-                HashSet hashSet = new HashSet(w70.d(context));
-                hashSet.add(Base64.encodeToString(d(request.method, request.requestId, request.timestamp, request.responseTime, request.errorCode, request.ext, request.aliasId).toByteArray(), 0));
-                w70.o(context, hashSet);
-            } catch (Exception e) {
-                y80.c("TrackPbGenerator", "putIMRequestToActions :", e);
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                t70.h(this.e).f().execute(new a(this, str, String.valueOf(j)));
             }
+            String str2 = g;
+            b90.a(str2, "flow addEvent id:" + str + ",value:" + j);
+            return this;
         }
+        return (v70) invokeLJ.objValue;
     }
 
-    public final List<String> a(String str, List<x70> list) {
+    public v70 d(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (list != null && !TextUtils.isEmpty(str) && list.size() > 0) {
-                y80.a("TrackPbGenerator", "flow upload details list");
-                for (x70 x70Var : list) {
-                    if (x70Var != null) {
-                        String a = x70Var.a();
-                        if (!TextUtils.isEmpty(a) && a.length() > 0) {
-                            arrayList.add(a);
-                        }
-                    }
-                }
-                y80.a("TrackPbGenerator", "flow upload detal list:" + arrayList.toString());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && str2 != null) {
+                t70.h(this.e).f().execute(new a(this, str, str2));
             }
-            return arrayList;
+            String str3 = g;
+            b90.a(str3, "flow addEvent id:" + str + ",value:" + str2);
+            return this;
         }
-        return (List) invokeLL.objValue;
+        return (v70) invokeLL.objValue;
     }
 
-    public byte[] c(Context context, String str, List<x70> list, int i) {
-        InterceptResult invokeLLLI;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, list, i)) == null) {
-            list.addAll(j80.j(context).g(str, i));
-            List<String> a = a(str, list);
-            if (a != null) {
-                try {
-                    if (a.size() > 0) {
-                        CopyOnWriteArrayList copyOnWriteArrayList = new CopyOnWriteArrayList();
-                        if (a.size() > 0) {
-                            for (String str2 : a) {
-                                copyOnWriteArrayList.add(b(new JSONObject(str2)));
-                            }
-                        }
-                        return IMPushPb.PushImClient.newBuilder().setCommon(CommonUtils.getIMCommon(context, z80.e(context))).setSdkName("lcp").setSdkVersion(2280016L).addAllActions(copyOnWriteArrayList).build().toByteArray();
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.d = System.currentTimeMillis();
+            t70.h(this.e).e(this);
         }
-        return (byte[]) invokeLLLI.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                for (Map.Entry<String, String> entry : this.f.entrySet()) {
+                    jSONObject.put(entry.getKey(), entry.getValue());
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Map<String, String> g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : (Map) invokeV.objValue;
     }
 }

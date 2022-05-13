@@ -67,7 +67,7 @@ public class g38 implements p48 {
                     return;
                 }
                 if (this.a.b != null) {
-                    this.a.b.showToast(R.string.obfuscated_res_0x7f0f0ecb);
+                    this.a.b.showToast(R.string.obfuscated_res_0x7f0f0ee9);
                 }
                 this.a.e = 1;
                 this.a.a.e();
@@ -149,10 +149,10 @@ public class g38 implements p48 {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (!mi.z()) {
+            if (!ki.z()) {
                 TbPageContext tbPageContext = this.b;
                 if (tbPageContext != null) {
-                    tbPageContext.showToast(R.string.obfuscated_res_0x7f0f0c17);
+                    tbPageContext.showToast(R.string.obfuscated_res_0x7f0f0c2d);
                     return;
                 }
                 return;

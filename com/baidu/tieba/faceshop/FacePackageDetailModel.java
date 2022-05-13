@@ -17,9 +17,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.br4;
-import com.repackage.ni;
-import com.repackage.oi;
+import com.repackage.li;
+import com.repackage.mi;
+import com.repackage.mr4;
 import com.repackage.qe;
 /* loaded from: classes3.dex */
 public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivity> {
@@ -68,8 +68,8 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
         this.l = null;
         this.h = null;
         TbadkApplication inst = TbadkApplication.getInst();
-        this.i = oi.k(inst);
-        this.j = oi.i(inst);
+        this.i = mi.k(inst);
+        this.j = mi.i(inst);
         this.k = inst.getResources().getDisplayMetrics().density;
     }
 
@@ -246,8 +246,8 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
         public final void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                br4.f();
-                qe<String> g = br4.g("tb_face_package");
+                mr4.f();
+                qe<String> g = mr4.g("tb_face_package");
                 if (g != null) {
                     g.e(TbadkCoreApplication.getCurrentAccount() + this.c.d, str, 604800000L);
                 }
@@ -268,11 +268,11 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
                 if (this.c.d == null || this.c.d.length() <= 0 || this.b) {
                     return null;
                 }
-                br4.f();
-                qe<String> g = br4.g("tb_face_package");
+                mr4.f();
+                qe<String> g = mr4.g("tb_face_package");
                 if (g != null) {
                     String str = g.get(TbadkCoreApplication.getCurrentAccount() + this.c.d);
-                    if (!ni.isEmpty(str)) {
+                    if (!li.isEmpty(str)) {
                         publishProgress(str);
                     }
                 }

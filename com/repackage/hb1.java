@@ -1,23 +1,42 @@
 package com.repackage;
 
-import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class hb1 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "";
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Context a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? hi0.b() : (Context) invokeV.objValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755654118, "Lcom/repackage/hb1;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755654118, "Lcom/repackage/hb1;");
+        }
     }
 
-    public static String b() {
-        InterceptResult invokeV;
+    public static void a(@NonNull String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? "baiduNaSplash" : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+        }
+    }
+
+    public static void b(@NonNull mb1 mb1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, mb1Var) == null) {
+            a = mb1Var.d;
+        }
     }
 }

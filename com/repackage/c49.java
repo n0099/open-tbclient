@@ -1,30 +1,89 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.HashSet;
 /* loaded from: classes5.dex */
 public class c49 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public j49 a;
-    public HashSet<String> b;
-    public HashSet<String> c;
-    public HashSet<String> d;
-    public HashSet<String> e;
-    public HashSet<String> f;
-    public HashSet<String> g;
-    public HashMap<String, Integer> h;
-    public HashMap<String, String> i;
-    public HashMap<String, i49> j;
-    public HashSet<String> k;
-    public HashSet<String> l;
-    public HashMap<String, Integer> m;
-    public HashMap<String, Integer> n;
-    public HashMap<String, Integer> o;
+
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final c49 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-519542773, "Lcom/repackage/c49$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-519542773, "Lcom/repackage/c49$b;");
+                    return;
+                }
+            }
+            a = new c49(null);
+        }
+    }
+
+    public /* synthetic */ c49(a aVar) {
+        this();
+    }
+
+    public static c49 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (c49) invokeV.objValue;
+    }
+
+    public int b(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) ? t39.f(str, i) : invokeLI.intValue;
+    }
+
+    public long c(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j)) == null) ? t39.g(str, j) : invokeLJ.longValue;
+    }
+
+    public void d(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
+            t39.n(str, i);
+        }
+    }
+
+    public void e(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048579, this, str, j) == null) {
+            t39.o(str, j);
+        }
+    }
+
+    public void f(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
+            t39.p(str, str2);
+        }
+    }
 
     public c49() {
         Interceptable interceptable = $ic;
@@ -36,23 +95,7 @@ public class c49 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new j49();
-        this.b = new HashSet<>();
-        this.c = new HashSet<>();
-        this.d = new HashSet<>();
-        this.e = new HashSet<>();
-        this.f = new HashSet<>();
-        this.g = new HashSet<>();
-        this.h = new HashMap<>();
-        this.i = new HashMap<>();
-        this.j = new HashMap<>();
-        this.k = new HashSet<>();
-        this.l = new HashSet<>();
-        this.m = new HashMap<>();
-        this.n = new HashMap<>();
-        this.o = new HashMap<>();
     }
 }

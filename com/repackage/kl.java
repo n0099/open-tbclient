@@ -1,14 +1,12 @@
 package com.repackage;
 
-import com.baidu.nps.interfa.IWebViewDataDirectoryManager;
-import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
 /* loaded from: classes6.dex */
-public class kl implements IWebViewDataDirectoryManager {
+public class kl extends ol {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,10 +24,10 @@ public class kl implements IWebViewDataDirectoryManager {
         }
     }
 
-    @Override // com.baidu.nps.interfa.IWebViewDataDirectoryManager
-    public void setDataDirectorySuffix() {
+    @Override // com.repackage.ol
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "medialive" : (String) invokeV.objValue;
     }
 }

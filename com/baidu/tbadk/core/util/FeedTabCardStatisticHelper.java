@@ -9,7 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lp4;
+import com.repackage.wp4;
+import com.repackage.zd5;
 /* loaded from: classes3.dex */
 public class FeedTabCardStatisticHelper {
     public static /* synthetic */ Interceptable $ic = null;
@@ -61,6 +62,7 @@ public class FeedTabCardStatisticHelper {
                 baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM4, threadData.getBaijiahaoData().oriUgcNid);
             }
             baseThreadStatisticLog.param(TiebaStatic.Params.IS_FULL, threadData.isShowFullThread() ? 1 : 0);
+            baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_TO, zd5.c() ? 1 : 2);
             return baseThreadStatisticLog;
         }
         return (StatisticItem) invokeLL.objValue;
@@ -96,15 +98,15 @@ public class FeedTabCardStatisticHelper {
         return (StatisticItem) invokeLL.objValue;
     }
 
-    public static StatisticItem clickThreadNEGFeedbackStatisticLog(lp4 lp4Var, String str) {
+    public static StatisticItem clickThreadNEGFeedbackStatisticLog(wp4 wp4Var, String str) {
         InterceptResult invokeLL;
         StatisticItem statisticItem;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, lp4Var, str)) == null) {
-            if (lp4Var == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, wp4Var, str)) == null) {
+            if (wp4Var == null) {
                 return null;
             }
-            int i = lp4Var.o;
+            int i = wp4Var.o;
             if (i != 2 && i != 6 && i != 8) {
                 statisticItem = new StatisticItem(KEY_TAB_FEED_PICTURE_TEXT_THREAD_NEG_FEEDBACK_CLICK);
                 statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, 1);
@@ -113,8 +115,8 @@ public class FeedTabCardStatisticHelper {
                 statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, 2);
             }
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("tid", lp4Var.f());
-            statisticItem.param("fid", lp4Var.c());
+            statisticItem.param("tid", wp4Var.f());
+            statisticItem.param("fid", wp4Var.c());
             statisticItem.param(TiebaStatic.Params.RESOURCE_ID, str);
             return statisticItem;
         }

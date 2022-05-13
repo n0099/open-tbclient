@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.am4;
+import com.repackage.lm4;
 /* loaded from: classes4.dex */
 public class YoungsterVerifyActivity extends TbWebViewActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -56,7 +56,7 @@ public class YoungsterVerifyActivity extends TbWebViewActivity {
         }
 
         @Override // com.baidu.tieba.setting.more.youngster.model.YoungsterVerifyModel.b
-        public void onError(ErrorData errorData) {
+        public void a(ErrorData errorData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, errorData) == null) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921489));
@@ -155,9 +155,9 @@ public class YoungsterVerifyActivity extends TbWebViewActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
-            am4 am4Var = this.mView;
-            if (am4Var != null) {
-                am4Var.H();
+            lm4 lm4Var = this.mView;
+            if (lm4Var != null) {
+                lm4Var.H();
             }
         }
     }
@@ -167,9 +167,9 @@ public class YoungsterVerifyActivity extends TbWebViewActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            am4 am4Var = this.mView;
-            if (am4Var != null) {
-                am4Var.H();
+            lm4 lm4Var = this.mView;
+            if (lm4Var != null) {
+                lm4Var.H();
             }
             BridgeWebView bridgeWebView = this.mWebView;
             if (bridgeWebView != null) {

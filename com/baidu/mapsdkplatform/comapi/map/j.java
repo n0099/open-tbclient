@@ -26,7 +26,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.MonitorType;
-import com.repackage.py;
 import java.util.List;
 import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
@@ -576,7 +575,7 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
                         jSONObject = new JSONObject(a2);
                         try {
                             jSONObject.put("px", (int) motionEvent.getX());
-                            jSONObject.put(py.c, (int) motionEvent.getY());
+                            jSONObject.put("py", (int) motionEvent.getY());
                         } catch (JSONException e) {
                             e = e;
                             jSONObject2 = jSONObject;

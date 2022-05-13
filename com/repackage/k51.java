@@ -4,152 +4,141 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.model.AdOperator;
-import com.baidu.nadcore.widget.view.NadExpressNaBaseView;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.g51;
+import com.repackage.i51;
 /* loaded from: classes6.dex */
-public class k51 {
+public class k51 extends g51 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final NadExpressNaBaseView a;
-    public final Context b;
+    public FrameLayout i;
+    public a j;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    public static class a extends g51.b {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
+        public View g;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-289824403, "Lcom/repackage/k51$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-289824403, "Lcom/repackage/k51$a;");
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(Context context) {
+            super(context);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Context) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            int[] iArr = new int[AdOperator.TYPE.values().length];
-            a = iArr;
-            try {
-                iArr[AdOperator.TYPE.DOWNLOAD.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
+        }
+
+        @Override // com.repackage.g51.b, com.repackage.i51.a
+        public i51 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                k51 k51Var = (k51) super.a();
+                k51Var.o(this);
+                return k51Var;
             }
-            try {
-                a[AdOperator.TYPE.CHECK.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
+            return (i51) invokeV.objValue;
+        }
+
+        @Override // com.repackage.i51.a
+        public i51 f(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? new k51(context) : (i51) invokeL.objValue;
+        }
+
+        @Override // com.repackage.i51.a
+        public /* bridge */ /* synthetic */ i51.a q(int i) {
+            y(i);
+            return this;
+        }
+
+        public a x(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
+                this.g = view2;
+                return this;
             }
+            return (a) invokeL.objValue;
+        }
+
+        public a y(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+                super.q(i);
+                return this;
+            }
+            return (a) invokeI.objValue;
         }
     }
 
-    public k51(NadExpressNaBaseView nadExpressNaBaseView) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k51(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {nadExpressNaBaseView};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = nadExpressNaBaseView;
-        this.b = nadExpressNaBaseView.getContext();
     }
 
-    public final boolean a(AdBaseModel adBaseModel, int i) {
-        InterceptResult invokeLI;
-        AdOperator adOperator;
+    @Override // com.repackage.g51
+    public View i(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, adBaseModel, i)) == null) {
-            if (adBaseModel == null || (adOperator = adBaseModel.h) == null) {
-                return false;
-            }
-            int i2 = a.a[adOperator.a.ordinal()];
-            if (i2 != 1) {
-                return i2 == 2 && i == 2;
-            }
-            mo0 mo0Var = adBaseModel.i;
-            return (mo0Var == null || !mo0Var.k) ? i == 1 : i == 3;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.e).inflate(R.layout.obfuscated_res_0x7f0d05d3, viewGroup, false);
+            this.i = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091dd1);
+            n();
+            return inflate;
         }
-        return invokeLI.booleanValue;
+        return (View) invokeL.objValue;
     }
 
-    public final void b(View view2, float f) {
+    public final void n() {
+        a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, f) == null) || view2 == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.j) == null) {
             return;
         }
-        r11.a(view2.getContext(), view2, f);
+        this.i.addView(aVar.g);
     }
 
-    public j51 c(AdBaseModel adBaseModel) {
-        InterceptResult invokeL;
-        AdOperator adOperator;
+    public void o(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adBaseModel)) == null) {
-            j51 operateBar = this.a.getOperateBar();
-            if (j51.d(adBaseModel) && (adOperator = adBaseModel.h) != null) {
-                if (operateBar == null || !a(adBaseModel, operateBar.a)) {
-                    RelativeLayout relativeLayout = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0914b7);
-                    relativeLayout.removeAllViews();
-                    AdOperator.TYPE type = adOperator.a;
-                    AdOperator.TYPE type2 = AdOperator.TYPE.DOWNLOAD;
-                    if (type == type2) {
-                        tn0 tn0Var = adBaseModel.l;
-                        if (tn0Var == null || !tn0Var.e) {
-                            return null;
-                        }
-                        int i = R.layout.obfuscated_res_0x7f0d05c4;
-                        lo0 lo0Var = adBaseModel.p;
-                        if (lo0Var != null && lo0Var.b(type2) != 0) {
-                            i = adBaseModel.p.b(AdOperator.TYPE.DOWNLOAD);
-                        }
-                        mo0 mo0Var = adBaseModel.i;
-                        if (mo0Var != null && mo0Var.k) {
-                            View inflate = LayoutInflater.from(this.b).inflate(i, (ViewGroup) relativeLayout, true);
-                            b(inflate.findViewById(R.id.obfuscated_res_0x7f0914b6), 6.0f);
-                            return new l51(3, inflate);
-                        }
-                        View inflate2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d05c6, (ViewGroup) relativeLayout, true);
-                        b(inflate2.findViewById(R.id.obfuscated_res_0x7f0914b6), 6.0f);
-                        return new n51(1, inflate2);
-                    }
-                    AdOperator.TYPE type3 = AdOperator.TYPE.CHECK;
-                    if (type == type3) {
-                        int i2 = R.layout.obfuscated_res_0x7f0d05c5;
-                        lo0 lo0Var2 = adBaseModel.p;
-                        if (lo0Var2 != null && lo0Var2.b(type3) != 0) {
-                            i2 = adBaseModel.p.b(AdOperator.TYPE.CHECK);
-                        }
-                        View inflate3 = LayoutInflater.from(this.b).inflate(i2, (ViewGroup) relativeLayout, true);
-                        b(inflate3.findViewById(R.id.obfuscated_res_0x7f0914b5), 6.0f);
-                        return new m51(2, inflate3);
-                    }
-                    return null;
-                }
-                return operateBar;
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.j = aVar;
         }
-        return (j51) invokeL.objValue;
     }
 }

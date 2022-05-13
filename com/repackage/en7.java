@@ -9,7 +9,7 @@ public interface en7 {
 
     void c(int i);
 
-    void d(a47 a47Var);
+    void d(a37 a37Var);
 
     void destroy();
 
@@ -21,7 +21,7 @@ public interface en7 {
 
     View getRootView();
 
-    a47 h();
+    a37 h();
 
     void i();
 
@@ -33,11 +33,11 @@ public interface en7 {
 
     void m();
 
-    void n(a47 a47Var);
+    void n(a37 a37Var);
 
     void o(long j, long j2, int i);
 
-    z37 p(int i);
+    z27 p(int i);
 
     void pause();
 
@@ -49,5 +49,5 @@ public interface en7 {
 
     void s(int i);
 
-    void t(z37 z37Var, boolean z, int i);
+    void t(z27 z27Var, boolean z, int i);
 }

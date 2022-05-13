@@ -469,7 +469,7 @@ public class PopupWindow {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final int p(int i) {
+    public final int q(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
@@ -521,7 +521,7 @@ public class PopupWindow {
             } else {
                 layoutParams.format = -3;
             }
-            layoutParams.flags = p(layoutParams.flags);
+            layoutParams.flags = q(layoutParams.flags);
             layoutParams.type = this.H;
             layoutParams.token = iBinder;
             layoutParams.softInputMode = this.i;
@@ -643,9 +643,9 @@ public class PopupWindow {
                 layoutParams.windowAnimations = o;
                 z = true;
             }
-            int p = p(layoutParams.flags);
-            if (p != layoutParams.flags) {
-                layoutParams.flags = p;
+            int q = q(layoutParams.flags);
+            if (q != layoutParams.flags) {
+                layoutParams.flags = q;
             } else {
                 z2 = z;
             }
@@ -820,7 +820,7 @@ public class PopupWindow {
         this.M = new a(this);
         this.a = context;
         this.b = (WindowManager) context.getSystemService("window");
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843126, 16843465, R.attr.overlapAnchor, R.attr.obfuscated_res_0x7f0404d9, R.attr.obfuscated_res_0x7f0404da}, i, i2);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843126, 16843465, R.attr.overlapAnchor, R.attr.obfuscated_res_0x7f0404de, R.attr.obfuscated_res_0x7f0404df}, i, i2);
         this.D = obtainStyledAttributes.getDrawable(4);
         int resourceId = obtainStyledAttributes.getResourceId(3, -1);
         this.K = resourceId != 16973824 ? resourceId : -1;
@@ -889,9 +889,9 @@ public class PopupWindow {
                 layoutParams.windowAnimations = o;
                 z = true;
             }
-            int p = p(layoutParams.flags);
-            if (p != layoutParams.flags) {
-                layoutParams.flags = p;
+            int q = q(layoutParams.flags);
+            if (q != layoutParams.flags) {
+                layoutParams.flags = q;
             } else {
                 z2 = z;
             }

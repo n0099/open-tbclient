@@ -14,6 +14,7 @@ public class GetFriendAndStrangerSwitchResMsg extends JsonHttpResponsedMessage {
     public static final int INVALID_TYPE = -1;
     public transient /* synthetic */ FieldHolder $fh;
     public int mMaskType;
+    public int mPushType;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetFriendAndStrangerSwitchResMsg() {
@@ -32,6 +33,7 @@ public class GetFriendAndStrangerSwitchResMsg extends JsonHttpResponsedMessage {
             }
         }
         this.mMaskType = -1;
+        this.mPushType = -1;
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -40,6 +42,7 @@ public class GetFriendAndStrangerSwitchResMsg extends JsonHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             try {
                 this.mMaskType = jSONObject.getInt("data");
+                this.mPushType = jSONObject.getInt("need_push");
             } catch (Exception e) {
                 BdLog.e(e);
             }

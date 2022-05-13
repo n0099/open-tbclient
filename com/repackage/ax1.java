@@ -1,155 +1,50 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import androidx.annotation.IntRange;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ax1 {
+public final class ax1 extends dw1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static int c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int[] a;
+    public boolean u;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755841513, "Lcom/repackage/ax1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755841513, "Lcom/repackage/ax1;");
-                return;
-            }
-        }
-        b = tg1.a;
-        c = 5;
-    }
-
-    public ax1(@IntRange(from = 1) int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ax1() {
+        super("coverImage", "viewId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (String) objArr[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        c(i, false);
+        this.u = false;
     }
 
-    public final int a(int i) {
-        InterceptResult invokeI;
+    @Override // com.repackage.dw1, com.repackage.iw1, com.repackage.kw1, com.repackage.tq2
+    public void a(JSONObject jSONObject) throws JSONException {
+        JSONObject jSONObject2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i >> c : invokeI.intValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public boolean b(@IntRange(from = 0) int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i < 0) {
-                jx1.c("Component-DiffBitMap", "diff < 0: " + i);
-                if (b) {
-                    throw new IndexOutOfBoundsException("diff < 0: " + i);
-                }
-                return false;
-            }
-            int[] iArr = this.a;
-            int length = (iArr.length << c) - 1;
-            if (i <= length) {
-                return ((1 << i) & iArr[a(i)]) != 0;
-            }
-            String str = "diff > " + length + ": " + i;
-            jx1.c("Component-DiffBitMap", str);
-            if (b) {
-                throw new IndexOutOfBoundsException(str);
-            }
-            return false;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-        return invokeI.booleanValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public final void c(@IntRange(from = 1) int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            if (i <= 0) {
-                String str = "number <= 0: " + i;
-                jx1.c("Component-DiffBitMap", str);
-                if (b) {
-                    throw new NegativeArraySizeException(str);
-                }
-                i = 500;
-            }
-            int[] iArr = new int[a(i - 1) + 1];
-            this.a = iArr;
-            int length = iArr.length;
-            if (z) {
-                for (int i2 = 0; i2 < length; i2++) {
-                    this.a[i2] = -1;
-                }
-            }
+        super.a(jSONObject);
+        this.u = jSONObject.optBoolean("loadState", false);
+        ar2 ar2Var = this.h;
+        if (ar2Var == null || (jSONObject2 = this.j) == null) {
+            return;
         }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public void d(@IntRange(from = 0) int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            if (i < 0) {
-                jx1.c("Component-DiffBitMap", "diff < 0: " + i);
-                if (b) {
-                    throw new IndexOutOfBoundsException("diff < 0: " + i);
-                }
-                return;
-            }
-            int[] iArr = this.a;
-            int length = (iArr.length << c) - 1;
-            if (i > length) {
-                String str = "diff > " + length + ": " + i;
-                jx1.c("Component-DiffBitMap", str);
-                if (b) {
-                    throw new IndexOutOfBoundsException(str);
-                }
-                return;
-            }
-            int a = a(i);
-            iArr[a] = (1 << i) | iArr[a];
-        }
-    }
-
-    public ax1(@IntRange(from = 1) int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        c(i, z);
+        ar2Var.i(jSONObject2.optBoolean("fixed", false));
     }
 }

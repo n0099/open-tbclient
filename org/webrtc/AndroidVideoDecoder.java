@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vy9;
+import com.repackage.qx9;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.concurrent.BlockingDeque;
@@ -493,7 +493,7 @@ public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
     @Override // org.webrtc.VideoDecoder
     @CalledByNative
     public /* synthetic */ long createNativeVideoDecoder() {
-        return vy9.$default$createNativeVideoDecoder(this);
+        return qx9.$default$createNativeVideoDecoder(this);
     }
 
     public SurfaceTextureHelper createSurfaceTextureHelper() {

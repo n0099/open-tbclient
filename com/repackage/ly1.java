@@ -1,36 +1,20 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.searchbox.unitedscheme.SchemeCollecter;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.TKBase;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ly1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean h;
-    public static String i;
-    public static String j;
-    public static String k;
-    public static String l;
+    public static final boolean a;
+    public static String b;
+    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    @SuppressLint({"BDOfflineUrl"})
-    public String b;
-    public boolean c;
-    public boolean d;
-    public int e;
-    public int f;
-    public boolean g;
 
     static {
         InterceptResult invokeClinit;
@@ -45,65 +29,63 @@ public class ly1 {
                 return;
             }
         }
-        h = tg1.a;
-        i = "V8Master";
-        j = "page";
-        k = "runtime/index.js";
-        l = "ws://localhost:4000";
+        a = eh1.a;
     }
 
-    public ly1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = String.valueOf(System.currentTimeMillis());
-        this.b = "http://chrome-devtools-frontend.appspot.com/serve_rev/@74dd8d5ea19a92d0e6092e59a0c8bd3a40877b71/inspector.html?ws=localhost:4000";
-        this.c = false;
-        this.d = true;
-        this.e = 0;
-        this.f = 0;
-        this.g = true;
-    }
-
-    public String toString() {
+    public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject.putOpt("title", i);
-                jSONObject.putOpt("type", j);
-                jSONObject.putOpt("url", k);
-                jSONObject.putOpt("webSocketDebuggerUrl", l);
-                jSONObject.putOpt("id", this.a);
-                jSONObject.putOpt("devtoolsFrontendUrl", this.b);
-                jSONObject.putOpt("swanJsVersion", o93.h(0));
-                jSONObject.putOpt("appVersion", de3.D());
-                jSONObject2.putOpt("attached", Boolean.valueOf(this.c));
-                jSONObject2.putOpt(SchemeCollecter.CLASSIFY_EMPTY, Boolean.valueOf(this.d));
-                jSONObject2.putOpt("screenX", Integer.valueOf(this.e));
-                jSONObject2.putOpt("screenY", Integer.valueOf(this.f));
-                jSONObject2.putOpt(TKBase.VISIBILITY_VISIBLE, Boolean.valueOf(this.g));
-                jSONObject.putOpt("description", jSONObject2.toString());
-                jSONArray.put(jSONObject);
-            } catch (JSONException e) {
-                if (h) {
-                    Log.e("V8Module", "Build V8 module fail", e);
-                }
-            }
-            return jSONArray.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return b + "/swan-core/master/master.html";
         }
         return (String) invokeV.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b + "/swan-core/slaves/slaves.html";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? TextUtils.equals(c, "update_tag_by_remote_debug") : invokeV.booleanValue;
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? !TextUtils.isEmpty(b) : invokeV.booleanValue;
+    }
+
+    public static void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
+            if (a) {
+                Log.d("RemoteDebugger", "Current launch mode is " + str);
+            }
+            c = str;
+            if (TextUtils.equals(str, "update_tag_by_activity_on_new_intent")) {
+                ky1.g().o();
+            }
+        }
+    }
+
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            c = "update_tag_by_remote_debug";
+        }
+    }
+
+    public static void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
+            b = str;
+        }
     }
 }

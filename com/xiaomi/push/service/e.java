@@ -78,12 +78,12 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, faVar)) == null) {
-            Collection<av.b> m639a = av.a().m639a(Integer.toString(faVar.a()));
-            if (m639a.isEmpty()) {
+            Collection<av.b> m640a = av.a().m640a(Integer.toString(faVar.a()));
+            if (m640a.isEmpty()) {
                 return null;
             }
-            Iterator<av.b> it = m639a.iterator();
-            if (m639a.size() == 1) {
+            Iterator<av.b> it = m640a.iterator();
+            if (m640a.size() == 1) {
                 return it.next();
             }
             String g = faVar.g();
@@ -106,12 +106,12 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gcVar)) == null) {
-            Collection<av.b> m639a = av.a().m639a(gcVar.k());
-            if (m639a.isEmpty()) {
+            Collection<av.b> m640a = av.a().m640a(gcVar.k());
+            if (m640a.isEmpty()) {
                 return null;
             }
-            Iterator<av.b> it = m639a.iterator();
-            if (m639a.size() == 1) {
+            Iterator<av.b> it = m640a.iterator();
+            if (m640a.size() == 1) {
                 return it.next();
             }
             String m = gcVar.m();
@@ -166,7 +166,7 @@ public class e {
             sb.append("peer may died: ");
             String str = bVar.f895b;
             sb.append(str.substring(str.lastIndexOf(64)));
-            com.xiaomi.channel.commonutils.logger.b.m108a(sb.toString());
+            com.xiaomi.channel.commonutils.logger.b.m109a(sb.toString());
         }
     }
 
@@ -227,13 +227,13 @@ public class e {
                 intent.setAction("com.xiaomi.push.new_msg");
                 intent.setPackage(str2);
                 intent.putExtra("ext_chid", str);
-                intent.putExtra("ext_raw_packet", faVar.m345a(a.h));
+                intent.putExtra("ext_raw_packet", faVar.m346a(a.h));
                 intent.putExtra(az.D, a.i);
                 intent.putExtra(az.w, a.h);
                 if (a.f886a != null) {
                     try {
                         a.f886a.send(Message.obtain(null, 17, intent));
-                        com.xiaomi.channel.commonutils.logger.b.m108a("message was sent by messenger for chid=" + str);
+                        com.xiaomi.channel.commonutils.logger.b.m109a("message was sent by messenger for chid=" + str);
                         return;
                     } catch (RemoteException unused) {
                         a.f886a = null;
@@ -241,13 +241,13 @@ public class e {
                         sb.append("peer may died: ");
                         String str3 = a.f895b;
                         sb.append(str3.substring(str3.lastIndexOf(64)));
-                        com.xiaomi.channel.commonutils.logger.b.m108a(sb.toString());
+                        com.xiaomi.channel.commonutils.logger.b.m109a(sb.toString());
                     }
                 }
                 if ("com.xiaomi.xmsf".equals(str2)) {
                     return;
                 }
-                com.xiaomi.channel.commonutils.logger.b.m108a("broadcast message to " + str2 + ", chid=" + str);
+                com.xiaomi.channel.commonutils.logger.b.m109a("broadcast message to " + str2 + ", chid=" + str);
                 a(xMPushService, intent, a);
             }
         }

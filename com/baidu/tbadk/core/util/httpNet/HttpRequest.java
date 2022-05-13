@@ -18,14 +18,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ag;
-import com.repackage.en4;
-import com.repackage.ew4;
-import com.repackage.gn4;
-import com.repackage.js4;
-import com.repackage.m55;
-import com.repackage.mi;
-import com.repackage.vt4;
+import com.repackage.c65;
+import com.repackage.iu4;
+import com.repackage.ki;
+import com.repackage.on4;
+import com.repackage.qn4;
+import com.repackage.rw4;
+import com.repackage.us4;
+import com.repackage.yf;
 /* loaded from: classes3.dex */
 public class HttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
@@ -97,10 +97,10 @@ public class HttpRequest {
             } else if (!TbadkCoreApplication.getInst().isRemoteProcess()) {
                 return;
             } else {
-                b = m55.b();
+                b = c65.b();
             }
             if (TbadkCoreApplication.getInst().isRemoteProcess() && TextUtils.isEmpty(b)) {
-                currentAccountInfo = en4.e();
+                currentAccountInfo = on4.e();
                 if (currentAccountInfo == null) {
                     return;
                 }
@@ -110,7 +110,7 @@ public class HttpRequest {
                 return;
             }
             iNetWorkCore.addPostData(BDUSS, b);
-            String a = gn4.a(currentAccountInfo);
+            String a = qn4.a(currentAccountInfo);
             if (StringUtils.isNull(a)) {
                 return;
             }
@@ -146,9 +146,9 @@ public class HttpRequest {
             if (from != null && from.length() > 0) {
                 iNetWorkCore.addPostData("from", from);
             }
-            int I = mi.I();
+            int I = ki.I();
             iNetWorkCore.addPostData("net_type", String.valueOf(I));
-            String a = ew4.b().a();
+            String a = rw4.b().a();
             if (TbSingleton.getInstance().isVisitPreviewServer()) {
                 a = a + "pub_env=" + TbSingleton.getInstance().getPubEnvValue() + ";";
             }
@@ -165,11 +165,11 @@ public class HttpRequest {
                 }
                 z = false;
             }
-            ag.s(z);
-            ag.n(a + "BAIDUID=" + TbSingleton.getInstance().getBaiduIdForAnti());
+            yf.s(z);
+            yf.n(a + "BAIDUID=" + TbSingleton.getInstance().getBaiduIdForAnti());
             if (this.mIsNeedTbs) {
                 if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
-                    iNetWorkCore.addPostData(TBS, m55.f());
+                    iNetWorkCore.addPostData(TBS, c65.f());
                 } else {
                     iNetWorkCore.addPostData(TBS, TbadkCoreApplication.getInst().getTbs());
                 }
@@ -184,9 +184,9 @@ public class HttpRequest {
             iNetWorkCore.addPostData(TiebaStatic.Params.CUID_GID, TbadkCoreApplication.getInst().getCuidGid());
             iNetWorkCore.addPostData("timestamp", Long.toString(System.currentTimeMillis()));
             iNetWorkCore.addPostData("model", Build.MODEL);
-            iNetWorkCore.addPostData("brand", Build.BRAND);
+            iNetWorkCore.addPostData(com.xiaomi.mipush.sdk.Constants.PHONE_BRAND, Build.BRAND);
             iNetWorkCore.addPostData("baiduid", TbSingleton.getInstance().getBaiduIdForAnti());
-            if (vt4.k().l("android_safe_sdk_open", 0) == 1) {
+            if (iu4.k().l("android_safe_sdk_open", 0) == 1) {
                 iNetWorkCore.addPostData("z_id", TbadkCoreApplication.getInst().getZid());
             }
             if (ComplianceParmasHelper.isNeedChange(this.netWorkParam.mUrl)) {
@@ -205,8 +205,8 @@ public class HttpRequest {
             iNetWorkCore.addPostData("event_day", TbSingleton.getInstance().getData());
             iNetWorkCore.addPostData(CommonUrlParamManager.PARAM_CMODE, PermissionUtil.isAgreePrivacyPolicy() ? "1" : "2");
             iNetWorkCore.addPostData("is_teenager", "0");
-            iNetWorkCore.addPostData("start_type", js4.f + "");
-            iNetWorkCore.addPostData("start_scheme", js4.e());
+            iNetWorkCore.addPostData("start_type", us4.f + "");
+            iNetWorkCore.addPostData("start_scheme", us4.e());
         }
     }
 

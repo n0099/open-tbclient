@@ -1,18 +1,105 @@
 package com.repackage;
 
-import android.content.Context;
-import android.os.Build;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class eh4 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+/* loaded from: classes5.dex */
+public class eh4<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<hh4<T>> a;
 
-    public static boolean a(Context context, String str) {
-        InterceptResult invokeLL;
+    public eh4() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) ? Build.VERSION.SDK_INT < 23 || context.checkSelfPermission(str) == 0 : invokeLL.booleanValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ArrayList(6);
+    }
+
+    public void a(hh4<T> hh4Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, hh4Var) == null) || hh4Var == null || this.a.contains(hh4Var)) {
+            return;
+        }
+        this.a.add(hh4Var);
+    }
+
+    public T b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ArrayList<hh4> arrayList = new ArrayList();
+            Iterator<hh4<T>> it = this.a.iterator();
+            T t = null;
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                hh4<T> next = it.next();
+                T t2 = next.get();
+                if (c(t2)) {
+                    t = t2;
+                    break;
+                }
+                arrayList.add(next);
+                t = t2;
+            }
+            if (arrayList.size() > 0) {
+                for (hh4 hh4Var : arrayList) {
+                    hh4Var.put(t);
+                }
+            }
+            return t;
+        }
+        return (T) invokeV.objValue;
+    }
+
+    public final boolean c(T t) {
+        InterceptResult invokeL;
+        char[] charArray;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
+            if (t != null && (t instanceof String)) {
+                String str = (String) t;
+                if (str.length() != 32) {
+                    return false;
+                }
+                for (char c : str.toCharArray()) {
+                    if ((c < 'A' || c > 'Z') && (c < '0' || c > '9')) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void d(T t) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, t) == null) || c(t)) {
+            return;
+        }
+        for (hh4<T> hh4Var : this.a) {
+            if (hh4Var.a()) {
+                hh4Var.put(t);
+            }
+        }
     }
 }

@@ -4,7 +4,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import android.text.TextUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class DownloadHandleService extends Service {
     public static final String a = DownloadHandleService.class.getSimpleName();
 

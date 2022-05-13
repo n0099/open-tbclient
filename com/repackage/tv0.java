@@ -56,12 +56,12 @@ public class tv0 extends mv0 {
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
         layoutParams.gravity = 80;
-        layoutParams.bottomMargin = b21.b(-4.0f);
+        layoutParams.bottomMargin = l21.b(-4.0f);
         BdThumbSeekBar bdThumbSeekBar = new BdThumbSeekBar(this.c, 2);
         this.f = bdThumbSeekBar;
         bdThumbSeekBar.setThumbScaleVisible(false);
         this.f.setDragable(false);
-        this.f.setProgressColor(this.c.getResources().getColor(R.color.obfuscated_res_0x7f060854));
+        this.f.setProgressColor(this.c.getResources().getColor(R.color.obfuscated_res_0x7f06085d));
         this.e.addView(this.f, layoutParams);
     }
 

@@ -17,11 +17,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ki;
 import com.repackage.mi;
-import com.repackage.oi;
-import com.repackage.uo;
-import com.repackage.up5;
-import com.repackage.vo5;
+import com.repackage.ro;
+import com.repackage.vp5;
+import com.repackage.wo5;
 import com.yy.hiidostatis.inner.FlushManager;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -33,7 +33,7 @@ public class AlaLiveTabYanzhiModel extends BdBaseModel {
     public boolean c;
     public boolean d;
     public BdUniqueId e;
-    public up5 f;
+    public vp5 f;
     public long g;
     public String h;
     public String i;
@@ -78,9 +78,9 @@ public class AlaLiveTabYanzhiModel extends BdBaseModel {
                         this.a.j.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.d);
                     }
                 } else {
-                    vo5 vo5Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
+                    wo5 wo5Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
                     if (this.a.d) {
-                        this.a.f.a(vo5Var);
+                        this.a.f.a(wo5Var);
                         AlaLiveTabYanzhiModel.E(this.a);
                     } else {
                         AlaLiveTabFragment.j++;
@@ -88,7 +88,7 @@ public class AlaLiveTabYanzhiModel extends BdBaseModel {
                             this.a.f.b();
                         }
                         AlaLiveTabYanzhiModel alaLiveTabYanzhiModel = this.a;
-                        alaLiveTabYanzhiModel.f = new up5(vo5Var, alaLiveTabYanzhiModel.h, this.a.i);
+                        alaLiveTabYanzhiModel.f = new vp5(wo5Var, alaLiveTabYanzhiModel.h, this.a.i);
                     }
                     AlaLiveTabYanzhiModel alaLiveTabYanzhiModel2 = this.a;
                     alaLiveTabYanzhiModel2.c = alaLiveTabYanzhiModel2.f.f();
@@ -103,7 +103,7 @@ public class AlaLiveTabYanzhiModel extends BdBaseModel {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(boolean z, List<uo> list);
+        void a(boolean z, List<ro> list);
 
         void b(int i, String str, boolean z);
     }
@@ -141,19 +141,19 @@ public class AlaLiveTabYanzhiModel extends BdBaseModel {
             HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_TAB_LIVE_INFO);
             httpMessage.addParam("tab_id", 2);
             String str = "N";
-            if (mi.z()) {
-                if (mi.H()) {
+            if (ki.z()) {
+                if (ki.H()) {
                     str = "1_0";
-                } else if (mi.v()) {
+                } else if (ki.v()) {
                     str = "0_13";
-                } else if (mi.u()) {
+                } else if (ki.u()) {
                     str = "0_3";
-                } else if (mi.t()) {
+                } else if (ki.t()) {
                     str = "0_2";
                 }
             }
             httpMessage.addParam("network", str);
-            httpMessage.addParam("ua_str", oi.k(this.a.getPageActivity()) + "_" + oi.i(this.a.getPageActivity()) + "_android_" + TbConfig.getVersion());
+            httpMessage.addParam("ua_str", mi.k(this.a.getPageActivity()) + "_" + mi.i(this.a.getPageActivity()) + "_android_" + TbConfig.getVersion());
             httpMessage.addParam("session_id", this.g);
             httpMessage.addParam("refresh_type", i2);
             httpMessage.addParam("big_refresh_count", i3);

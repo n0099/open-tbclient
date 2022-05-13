@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.om;
-import com.repackage.zl;
+import com.repackage.lm;
+import com.repackage.wl;
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileInputStream;
@@ -40,7 +40,7 @@ public abstract class PluginBaseService extends PluginContextWrapper {
     public static final int START_STICKY = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public Service mService;
-    public zl mServiceProxy;
+    public wl mServiceProxy;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PluginBaseService() {
@@ -96,7 +96,7 @@ public abstract class PluginBaseService extends PluginContextWrapper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             String pluginPackageName = getPluginPackageName();
-            PluginSetting g = om.h().g(pluginPackageName);
+            PluginSetting g = lm.h().g(pluginPackageName);
             if (g != null && g.isThird) {
                 Service service = this.mService;
                 return service.getFileStreamPath(pluginPackageName + str);
@@ -125,10 +125,10 @@ public abstract class PluginBaseService extends PluginContextWrapper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, str, i)) == null) {
             String pluginPackageName = getPluginPackageName();
-            PluginSetting g = om.h().g(pluginPackageName);
+            PluginSetting g = lm.h().g(pluginPackageName);
             if (g != null && g.isThird) {
-                zl zlVar = this.mServiceProxy;
-                return zlVar.proxyGetSharedPreferences(pluginPackageName + str, i);
+                wl wlVar = this.mServiceProxy;
+                return wlVar.proxyGetSharedPreferences(pluginPackageName + str, i);
             }
             return this.mServiceProxy.proxyGetSharedPreferences(str, i);
         }
@@ -196,7 +196,7 @@ public abstract class PluginBaseService extends PluginContextWrapper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
             String pluginPackageName = getPluginPackageName();
-            PluginSetting g = om.h().g(pluginPackageName);
+            PluginSetting g = lm.h().g(pluginPackageName);
             if (g != null && g.isThird) {
                 Service service = this.mService;
                 return service.openFileInput(pluginPackageName + str);
@@ -212,7 +212,7 @@ public abstract class PluginBaseService extends PluginContextWrapper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048594, this, str, i)) == null) {
             String pluginPackageName = getPluginPackageName();
-            PluginSetting g = om.h().g(pluginPackageName);
+            PluginSetting g = lm.h().g(pluginPackageName);
             if (g != null && g.isThird) {
                 Service service = this.mService;
                 return service.openFileOutput(pluginPackageName + str, i);
@@ -228,7 +228,7 @@ public abstract class PluginBaseService extends PluginContextWrapper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048595, this, str, i, cursorFactory)) == null) {
             String pluginPackageName = getPluginPackageName();
-            PluginSetting g = om.h().g(pluginPackageName);
+            PluginSetting g = lm.h().g(pluginPackageName);
             if (g != null && g.isThird) {
                 Service service = this.mService;
                 return service.openOrCreateDatabase(pluginPackageName + str, i, cursorFactory);
@@ -246,11 +246,11 @@ public abstract class PluginBaseService extends PluginContextWrapper {
         }
     }
 
-    public void setServiceProxy(zl zlVar) {
+    public void setServiceProxy(wl wlVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, zlVar) == null) {
-            this.mService = zlVar.getService();
-            this.mServiceProxy = zlVar;
+        if (interceptable == null || interceptable.invokeL(1048598, this, wlVar) == null) {
+            this.mService = wlVar.getService();
+            this.mServiceProxy = wlVar;
         }
     }
 

@@ -1,248 +1,77 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.net.Uri;
-import android.text.TextUtils;
-import android.webkit.URLUtil;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.BDPTask;
-import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.executors.CallerThreadExecutor;
-import com.facebook.common.references.CloseableReference;
-import com.facebook.datasource.BaseDataSubscriber;
-import com.facebook.datasource.DataSource;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.imagepipeline.image.CloseableBitmap;
-import com.facebook.imagepipeline.image.CloseableImage;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import com.repackage.zq;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes6.dex */
 public class jk4 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a implements cu {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-
-        public a(Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-        }
-
-        @Override // com.repackage.cu
-        public void a(String str, bu buVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, str, buVar) == null) {
-                jk4.d(this.a, str, buVar);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements eu {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.repackage.eu
-        public void a(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
-                jk4.c(str);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c implements au {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-
-        public c(Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-        }
-
-        @Override // com.repackage.au
-        @Nullable
-        public Map<String, Object> a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                String zid = TbadkCoreApplication.getInst().getZid(this.a, null, 0, null);
-                HashMap hashMap = new HashMap();
-                hashMap.put("zid", zid);
-                return hashMap;
-            }
-            return (Map) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class d extends BaseDataSubscriber<CloseableReference<CloseableImage>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bu a;
-
-        public d(bu buVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {buVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = buVar;
-        }
-
-        @Override // com.facebook.datasource.BaseDataSubscriber
-        public void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
-                this.a.onError();
-            }
-        }
-
-        @Override // com.facebook.datasource.BaseDataSubscriber
-        public void onNewResultImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
-            Throwable th;
-            CloseableReference<CloseableImage> closeableReference;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource) != null) {
-                return;
-            }
-            try {
-                closeableReference = dataSource.getResult();
-                if (closeableReference != null) {
-                    try {
-                        CloseableImage closeableImage = closeableReference.get();
-                        if (closeableImage instanceof CloseableBitmap) {
-                            Bitmap underlyingBitmap = ((CloseableBitmap) closeableImage).getUnderlyingBitmap();
-                            if (underlyingBitmap != null && !underlyingBitmap.isRecycled()) {
-                                this.a.a(underlyingBitmap.copy(underlyingBitmap.getConfig(), true));
-                            } else {
-                                this.a.onError();
-                            }
-                        } else {
-                            this.a.onError();
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        CloseableReference.closeSafely(closeableReference);
-                        throw th;
-                    }
-                }
-                CloseableReference.closeSafely(closeableReference);
-            } catch (Throwable th3) {
-                th = th3;
-                closeableReference = null;
-            }
-        }
-    }
-
-    public static void c(String str) {
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-        if (currentActivity instanceof TbPageContextSupport) {
-            if (!URLUtil.isHttpUrl(str) && !URLUtil.isHttpsUrl(str)) {
-                Uri parse = Uri.parse(str);
-                if (parse != null) {
-                    UtilHelper.dealOneScheme(currentActivity, parse.toString());
-                    return;
-                }
-                return;
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            StatisticItem addParam = new StatisticItem("c14570").addParam("obj_type", 2).addParam("obj_source", 1).addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            if (!StringUtils.isNull(str)) {
+                addParam.addParam("obj_locate", str);
             }
-            UrlManager.getInstance().dealOneLink(((TbPageContextSupport) currentActivity).getPageContext(), new String[]{str});
+            addParam.eventStat();
         }
     }
 
-    public static void d(Context context, String str, bu buVar) {
+    public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65539, null, context, str, buVar) == null) || context == null || TextUtils.isEmpty(str) || buVar == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            StatisticItem addParam = new StatisticItem("c14570").addParam("obj_type", 2).addParam("obj_source", 2).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam(TiebaStatic.Params.OBJ_PARAM3, str2);
+            if (!StringUtils.isNull(str)) {
+                addParam.addParam("obj_locate", str);
+            }
+            addParam.eventStat();
         }
-        Fresco.getImagePipeline().fetchDecodedImage(ImageRequestBuilder.newBuilderWithSource(Uri.parse(str)).setProgressiveRenderingEnabled(true).build(), context).subscribe(new d(buVar), CallerThreadExecutor.getInstance());
     }
 
-    public static void e(Context context) {
+    public static void c(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) || context == null) {
-            return;
+        if (interceptable == null || interceptable.invokeII(65538, null, i, i2) == null) {
+            StatisticItem addParam = new StatisticItem("c14570").addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_type", 1).addParam("obj_source", 3).addParam("obj_param1", i).addParam(TiebaStatic.Params.OBJ_PARAM2, i2);
+            if (!StringUtils.isNull(b)) {
+                addParam.addParam(TiebaStatic.Params.OBJ_PARAM3, b);
+            }
+            if (!StringUtils.isNull(a)) {
+                addParam.addParam("obj_locate", a);
+            }
+            addParam.eventStat();
+            b = null;
         }
-        zq.b bVar = new zq.b(context);
-        bVar.b(false);
-        bVar.g(vw.d());
-        bVar.c(vw.c());
-        bVar.d(new c(context));
-        bVar.f(new b());
-        bVar.e(new a(context));
-        BDPTask.m.x(bVar.a());
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            StatisticItem addParam = new StatisticItem("c14570").addParam("obj_type", 1).addParam("obj_source", 1).addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            if (!StringUtils.isNull(str)) {
+                addParam.addParam("obj_locate", str);
+            }
+            a = str;
+            addParam.eventStat();
+        }
+    }
+
+    public static void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            StatisticItem addParam = new StatisticItem("c14570").addParam("obj_type", 1).addParam("obj_source", 2).addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            if (!StringUtils.isNull(a)) {
+                addParam.addParam("obj_locate", a);
+            }
+            a = null;
+            addParam.eventStat();
+        }
     }
 }

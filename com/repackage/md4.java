@@ -1,22 +1,9 @@
 package com.repackage;
 
-import androidx.annotation.Nullable;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Closeable;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class md4 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface md4 {
+    void l(JSONObject jSONObject);
 
-    public static void a(@Nullable Closeable closeable) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65536, null, closeable) == null) || closeable == null) {
-            return;
-        }
-        try {
-            closeable.close();
-        } catch (Exception unused) {
-        }
-    }
+    void p();
 }

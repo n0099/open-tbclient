@@ -1,19 +1,17 @@
 package com.repackage;
 
-import com.baidu.tbadk.album.MediaFileInfo;
-import com.baidu.tbadk.album.VideoFileInfo;
+import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes6.dex */
 public class hl4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<bl4> a;
-    public List<MediaFileInfo> b;
-    public List<VideoFileInfo> c;
+    public AlaUserInfoData a;
+    public int b;
+    public boolean c;
 
     public hl4() {
         Interceptable interceptable = $ic;

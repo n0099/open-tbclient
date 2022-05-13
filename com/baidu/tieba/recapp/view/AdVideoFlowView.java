@@ -21,6 +21,7 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
@@ -46,30 +47,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ad8;
-import com.repackage.bd8;
-import com.repackage.db8;
-import com.repackage.dc5;
-import com.repackage.dd8;
-import com.repackage.ed7;
-import com.repackage.fd8;
-import com.repackage.gj8;
+import com.repackage.ac8;
+import com.repackage.bc8;
+import com.repackage.di8;
+import com.repackage.es4;
+import com.repackage.ez0;
+import com.repackage.gi0;
+import com.repackage.hi0;
+import com.repackage.ia8;
 import com.repackage.k78;
 import com.repackage.ka8;
-import com.repackage.kd8;
-import com.repackage.lc8;
-import com.repackage.ld8;
+import com.repackage.kb8;
+import com.repackage.kd7;
+import com.repackage.kg;
 import com.repackage.m78;
-import com.repackage.mg;
-import com.repackage.na8;
-import com.repackage.nc8;
-import com.repackage.oz5;
+import com.repackage.mb8;
+import com.repackage.pz5;
 import com.repackage.r78;
-import com.repackage.tr4;
-import com.repackage.z98;
+import com.repackage.uc5;
+import com.repackage.vb8;
+import com.repackage.wb8;
+import com.repackage.xa8;
+import com.repackage.y98;
 import com.tachikoma.core.component.anim.AnimationProperty;
-/* loaded from: classes4.dex */
-public class AdVideoFlowView extends RelativeLayout implements z98, View.OnClickListener, OnStatusChangedListener {
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes3.dex */
+public class AdVideoFlowView extends RelativeLayout implements y98, View.OnClickListener, OnStatusChangedListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AdvertAppInfo A;
@@ -80,13 +84,13 @@ public class AdVideoFlowView extends RelativeLayout implements z98, View.OnClick
     public VideoItemModel F;
     public boolean G;
     public ViewGroup H;
-    public ld8 I;
-    public kd8 J;
-    public nc8 K;
-    public dc5 L;
+    public bc8 I;
+    public ac8 J;
+    public mb8 K;
+    public uc5 L;
     public int M;
     public int N;
-    public db8.a O;
+    public xa8.a O;
     public int P;
     public Handler Q;
     public boolean R;
@@ -143,32 +147,32 @@ public class AdVideoFlowView extends RelativeLayout implements z98, View.OnClick
         this.T = null;
         this.U = null;
         this.Q = new Handler();
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0078, this);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0074, this);
         this.a = inflate;
-        this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0902fb);
-        this.m = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091851);
-        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09124a);
-        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091ccc);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090698);
-        this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091248);
-        this.h = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091cad);
-        this.g = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090695);
-        this.i = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091245);
-        this.k = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091ca6);
-        this.j = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09068b);
-        this.n = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092288);
-        this.o = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09229d);
-        this.p = (AdTagTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090099);
-        this.q = (FrameLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0908dc);
-        this.r = (FrameLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0908dd);
-        this.H = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f091ec0);
-        TbVideoViewContainer tbVideoViewContainer = (TbVideoViewContainer) this.a.findViewById(R.id.obfuscated_res_0x7f09237c);
+        this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0902f5);
+        this.m = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0918a9);
+        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091257);
+        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091d21);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090693);
+        this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091255);
+        this.h = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091cfc);
+        this.g = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090690);
+        this.i = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091252);
+        this.k = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091cf3);
+        this.j = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090686);
+        this.n = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0922de);
+        this.o = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0922f3);
+        this.p = (AdTagTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090096);
+        this.q = (FrameLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0908d4);
+        this.r = (FrameLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0908d5);
+        this.H = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f091f18);
+        TbVideoViewContainer tbVideoViewContainer = (TbVideoViewContainer) this.a.findViewById(R.id.obfuscated_res_0x7f0923cd);
         this.l = tbVideoViewContainer;
         tbVideoViewContainer.getControl().setStageType("23");
         this.l.getControl().setContinuePlayEnable(true);
         this.l.getControl().setVideoStatusChangeListener(this);
         this.s = new AdEnhanceButtonView(context, this.q, this.r);
-        VideoMiddleNiaiControllerView videoMiddleNiaiControllerView = (VideoMiddleNiaiControllerView) this.a.findViewById(R.id.obfuscated_res_0x7f0913ba);
+        VideoMiddleNiaiControllerView videoMiddleNiaiControllerView = (VideoMiddleNiaiControllerView) this.a.findViewById(R.id.obfuscated_res_0x7f0913ce);
         this.t = videoMiddleNiaiControllerView;
         videoMiddleNiaiControllerView.setPlayer(this.l.getControl());
         this.t.setLoading(true);
@@ -285,7 +289,7 @@ public class AdVideoFlowView extends RelativeLayout implements z98, View.OnClick
                     this.a.M = 3;
                     this.a.y(34, -1);
                     if (this.a.I != null) {
-                        this.a.I.e();
+                        this.a.I.d();
                     }
                 }
             }
@@ -437,23 +441,23 @@ public class AdVideoFlowView extends RelativeLayout implements z98, View.OnClick
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.K = this.B.tailFrame;
             if (this.J == null) {
-                kd8 kd8Var = new kd8(this.z.getPageActivity(), this.H);
-                this.J = kd8Var;
-                kd8Var.a = 2;
+                ac8 ac8Var = new ac8(this.z.getPageActivity(), this.H);
+                this.J = ac8Var;
+                ac8Var.a = 2;
             }
-            ld8 b = this.J.b(this.K, this.I);
+            bc8 b = this.J.b(this.K, this.I);
             this.I = b;
             if (b != null) {
-                b.j(this.z);
-                this.I.i(this.B);
-                ld8 ld8Var = this.I;
-                if (ld8Var instanceof fd8) {
-                    ((fd8) ld8Var).z(true);
+                b.h(this.z);
+                this.I.g(this.B);
+                bc8 bc8Var = this.I;
+                if (bc8Var instanceof wb8) {
+                    ((wb8) bc8Var).m(true);
                 }
-                this.I.g(this.A);
-                this.I.d(this.K);
-                this.I.f();
-                this.I.k(new View.OnClickListener(this) { // from class: com.baidu.tieba.recapp.view.AdVideoFlowView.4
+                this.I.f(this.A);
+                this.I.c(this.K);
+                this.I.e();
+                this.I.i(new View.OnClickListener(this) { // from class: com.baidu.tieba.recapp.view.AdVideoFlowView.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ AdVideoFlowView a;
@@ -485,7 +489,7 @@ public class AdVideoFlowView extends RelativeLayout implements z98, View.OnClick
                         }
                     }
                 });
-                this.I.m(new CountDownTextView.c(this) { // from class: com.baidu.tieba.recapp.view.AdVideoFlowView.5
+                this.I.j(new CountDownTextView.c(this) { // from class: com.baidu.tieba.recapp.view.AdVideoFlowView.5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ AdVideoFlowView a;
@@ -515,7 +519,7 @@ public class AdVideoFlowView extends RelativeLayout implements z98, View.OnClick
                             if (this.a.O != null) {
                                 this.a.O.a(this.a.P);
                             }
-                            this.a.I.f();
+                            this.a.I.e();
                         }
                     }
                 });
@@ -529,7 +533,7 @@ public class AdVideoFlowView extends RelativeLayout implements z98, View.OnClick
             this.t.q(getVideoControllerStyle());
             this.m.setImageDrawable(this.u);
             this.b.setVisibility(8);
-            this.d.setTextColor(gj8.a(SkinManager.getColor(R.color.CAM_X0104), tr4.a(R.string.A_X03)));
+            this.d.setTextColor(di8.a(SkinManager.getColor(R.color.CAM_X0104), es4.a(R.string.A_X03)));
             this.g.setImageDrawable(this.x);
             this.h.setImageDrawable(this.y);
             Drawable drawable = this.w;
@@ -538,15 +542,15 @@ public class AdVideoFlowView extends RelativeLayout implements z98, View.OnClick
                 drawable = TextUtils.equals(this.F.getVideoItemData().is_agreed, "1") ? this.v : this.w;
             }
             this.f.setImageDrawable(drawable);
-            lc8 lc8Var = this.B.threadInfo;
-            int i = lc8Var.a;
+            kb8 kb8Var = this.B.threadInfo;
+            int i = kb8Var.a;
             VideoItemData videoItemData = this.F.getVideoItemData();
             if (videoItemData != null) {
-                i = TextUtils.equals(videoItemData.is_agreed, "1") ? lc8Var.a + 1 : lc8Var.a;
+                i = TextUtils.equals(videoItemData.is_agreed, "1") ? kb8Var.a + 1 : kb8Var.a;
             }
             this.c.setText(String.valueOf(i));
-            this.d.setText(String.valueOf(lc8Var.c));
-            this.e.setText(String.valueOf(lc8Var.b));
+            this.d.setText(String.valueOf(kb8Var.c));
+            this.e.setText(String.valueOf(kb8Var.b));
         }
     }
 
@@ -564,10 +568,6 @@ public class AdVideoFlowView extends RelativeLayout implements z98, View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onAttachedToWindow();
-            ld8 ld8Var = this.I;
-            if (ld8Var instanceof fd8) {
-                ((fd8) ld8Var).x();
-            }
         }
     }
 
@@ -575,25 +575,25 @@ public class AdVideoFlowView extends RelativeLayout implements z98, View.OnClick
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f091245) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f091252) {
                 u();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091ca6) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091cf3) {
                 v();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0902fb) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0902f5) {
                 TbPageContext<BaseFragmentActivity> tbPageContext = this.z;
                 if (tbPageContext == null || tbPageContext.getPageActivity() == null) {
                     return;
                 }
                 this.z.getPageActivity().finish();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f09237c) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0923cd) {
                 w();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0908dc || view2.getId() == R.id.obfuscated_res_0x7f090099 || view2.getId() == R.id.obfuscated_res_0x7f092288 || view2.getId() == R.id.obfuscated_res_0x7f09229d) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0908d4 || view2.getId() == R.id.obfuscated_res_0x7f090096 || view2.getId() == R.id.obfuscated_res_0x7f0922de || view2.getId() == R.id.obfuscated_res_0x7f0922f3) {
                 s();
             }
         }
     }
 
-    @Override // com.repackage.z98
+    @Override // com.repackage.y98
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -607,10 +607,6 @@ public class AdVideoFlowView extends RelativeLayout implements z98, View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDetachedFromWindow();
-            ld8 ld8Var = this.I;
-            if (ld8Var instanceof fd8) {
-                ((fd8) ld8Var).C();
-            }
         }
     }
 
@@ -619,9 +615,9 @@ public class AdVideoFlowView extends RelativeLayout implements z98, View.OnClick
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             if (z) {
                 this.R = true;
-                dc5 dc5Var = new dc5(10000L, 1000L);
-                this.L = dc5Var;
-                dc5Var.q(new dc5.b(this) { // from class: com.baidu.tieba.recapp.view.AdVideoFlowView.7
+                uc5 uc5Var = new uc5(10000L, 1000L);
+                this.L = uc5Var;
+                uc5Var.n(new uc5.b(this) { // from class: com.baidu.tieba.recapp.view.AdVideoFlowView.7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ AdVideoFlowView a;
@@ -644,7 +640,7 @@ public class AdVideoFlowView extends RelativeLayout implements z98, View.OnClick
                         this.a = this;
                     }
 
-                    @Override // com.repackage.dc5.b
+                    @Override // com.repackage.uc5.b
                     public void onCountDown(long j, long j2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
@@ -652,29 +648,29 @@ public class AdVideoFlowView extends RelativeLayout implements z98, View.OnClick
                         }
                     }
 
-                    @Override // com.repackage.dc5.b
+                    @Override // com.repackage.uc5.b
                     public void onCountDownFinish(long j) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
                         }
                     }
                 });
-                this.L.r();
+                this.L.o();
                 this.s.update(0);
                 return;
             }
-            dc5 dc5Var2 = this.L;
-            if (dc5Var2 != null) {
-                dc5Var2.s();
+            uc5 uc5Var2 = this.L;
+            if (uc5Var2 != null) {
+                uc5Var2.p();
             }
-            this.s.u();
+            this.s.r();
             this.s.i(this.A);
             this.l.getControl().stopPlayback();
             this.l.getControl().seekTo(0);
         }
     }
 
-    @Override // com.repackage.z98
+    @Override // com.repackage.y98
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -683,7 +679,7 @@ public class AdVideoFlowView extends RelativeLayout implements z98, View.OnClick
         }
     }
 
-    @Override // com.repackage.z98
+    @Override // com.repackage.y98
     public void onPrimary(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
@@ -718,7 +714,7 @@ public class AdVideoFlowView extends RelativeLayout implements z98, View.OnClick
         }
     }
 
-    @Override // com.repackage.z98
+    @Override // com.repackage.y98
     public void onUserVisibleHint(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
@@ -735,28 +731,28 @@ public class AdVideoFlowView extends RelativeLayout implements z98, View.OnClick
         }
     }
 
-    @Override // com.repackage.z98
+    @Override // com.repackage.y98
     public void onViewClick() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
         }
     }
 
-    @Override // com.repackage.z98
+    @Override // com.repackage.y98
     public void onViewDoubleClick() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
         }
     }
 
-    @Override // com.repackage.z98
+    @Override // com.repackage.y98
     public void onViewDragToRight() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
         }
     }
 
-    public final void p() {
+    public final void q() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || this.a == null || this.G) {
             return;
@@ -765,7 +761,7 @@ public class AdVideoFlowView extends RelativeLayout implements z98, View.OnClick
         TBLottieAnimationView tBLottieAnimationView = new TBLottieAnimationView(this.a.getContext());
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.z.getResources().getDimensionPixelOffset(R.dimen.tbds396), this.z.getResources().getDimensionPixelOffset(R.dimen.tbds396));
         layoutParams.addRule(13);
-        SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.obfuscated_res_0x7f11001c);
+        SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.obfuscated_res_0x7f11001d);
         View view2 = this.a;
         if (view2 instanceof RelativeLayout) {
             ((RelativeLayout) view2).addView(tBLottieAnimationView, layoutParams);
@@ -847,20 +843,20 @@ public class AdVideoFlowView extends RelativeLayout implements z98, View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             String str = this.B.scheme;
-            if (na8.C(this.A, str)) {
+            if (!hi0.n(this.A.q) ? gi0.b(this.z.getPageActivity(), this.A.p) : false) {
                 i = 3;
             } else {
-                i = na8.e(this.z, str, this.A.i() ? this.B.getDownloadId() : this.B.adId, this.B.getExtInfo(), this.B.cmdScheme);
+                i = ka8.b(this.z, str, this.A.i() ? this.B.getDownloadId() : this.B.adId, this.B.getExtInfo(), this.B.cmdScheme);
             }
             if (i == 0) {
                 return;
             }
-            if (na8.q(i)) {
-                ad8.f(this.A, i);
+            if (ka8.h(i)) {
+                vb8.e(this.A, i);
             } else {
-                ad8.n(this.A);
+                vb8.l(this.A);
             }
-            ed7.h(ed7.e(this.A));
+            kd7.c(this.A);
         }
     }
 
@@ -869,7 +865,7 @@ public class AdVideoFlowView extends RelativeLayout implements z98, View.OnClick
         if (!(interceptable == null || interceptable.invokeL(1048594, this, advertAppInfo) == null) || advertAppInfo == null) {
             return;
         }
-        AdvertAppInfo.ILegoAdvert iLegoAdvert = advertAppInfo.i;
+        AdvertAppInfo.ILegoAdvert iLegoAdvert = advertAppInfo.h;
         if (iLegoAdvert instanceof AdCard) {
             this.A = advertAppInfo;
             AdCard adCard = (AdCard) iLegoAdvert;
@@ -892,7 +888,7 @@ public class AdVideoFlowView extends RelativeLayout implements z98, View.OnClick
         }
     }
 
-    @Override // com.repackage.z98
+    @Override // com.repackage.y98
     public void setDrawables(Drawable drawable, Drawable drawable2, Drawable drawable3, Drawable drawable4, Drawable drawable5, Drawable drawable6) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{drawable, drawable2, drawable3, drawable4, drawable5, drawable6}) == null) {
@@ -904,8 +900,8 @@ public class AdVideoFlowView extends RelativeLayout implements z98, View.OnClick
         }
     }
 
-    @Override // com.repackage.z98
-    public void setPageChangeHandler(db8.a aVar, int i) {
+    @Override // com.repackage.y98
+    public void setPageChangeHandler(xa8.a aVar, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048596, this, aVar, i) == null) {
             this.O = aVar;
@@ -927,9 +923,9 @@ public class AdVideoFlowView extends RelativeLayout implements z98, View.OnClick
             if (imageView != null) {
                 imageView.setVisibility(8);
             }
-            ld8 ld8Var = this.I;
-            if (ld8Var != null) {
-                ld8Var.f();
+            bc8 bc8Var = this.I;
+            if (bc8Var != null) {
+                bc8Var.e();
             }
             o(true);
             TbVideoViewContainer tbVideoViewContainer = this.l;
@@ -1007,7 +1003,7 @@ public class AdVideoFlowView extends RelativeLayout implements z98, View.OnClick
     public final void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            new ka8(this.A, this.B.closeInfo, this.z.getPageActivity(), getRootView(), 80, PlaceId.VIDEO_FLOW).q();
+            new ia8(this.A, this.B.closeInfo, this.z.getPageActivity(), getRootView(), 80, PlaceId.VIDEO_FLOW).q();
         }
     }
 
@@ -1021,14 +1017,14 @@ public class AdVideoFlowView extends RelativeLayout implements z98, View.OnClick
         String str = TextUtils.equals(videoItemData.is_agreed, "1") ? "0" : "1";
         videoItemData.is_agreed = str;
         if (TextUtils.equals(str, "1")) {
-            p();
+            q();
         }
         int i = TextUtils.equals(videoItemData.is_agreed, "1") ? 1 : -1;
         this.f.setImageDrawable(TextUtils.equals(videoItemData.is_agreed, "1") ? this.v : this.w);
-        this.c.setText(String.valueOf(mg.e(String.valueOf(this.c.getText()), 0) + i));
+        this.c.setText(String.valueOf(kg.e(String.valueOf(this.c.getText()), 0) + i));
     }
 
-    @Override // com.repackage.z98
+    @Override // com.repackage.y98
     public void updateTiebaData(int i, VideoItemModel videoItemModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048602, this, i, videoItemModel) == null) {
@@ -1042,18 +1038,20 @@ public class AdVideoFlowView extends RelativeLayout implements z98, View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
             ShareItem shareItem = new ShareItem();
-            shareItem.r = this.B.getTitle();
-            shareItem.D = this.B.getTitle();
-            shareItem.t = this.B.getShareLink();
-            shareItem.F = 3;
+            shareItem.t = this.B.getTitle();
+            shareItem.F = this.B.getTitle();
+            shareItem.v = this.B.getShareLink();
+            shareItem.H = 3;
             shareItem.f = true;
+            shareItem.n = true;
             String imageUrl = this.B.getImageUrl();
             Uri parse = imageUrl == null ? null : Uri.parse(imageUrl);
             if (parse != null) {
-                shareItem.v = parse;
+                shareItem.x = parse;
             }
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.z.getPageActivity(), shareItem, true, true);
             shareDialogConfig.showDisLike = true;
+            shareDialogConfig.mIsAd = true;
             shareDialogConfig.disLikeListener = new View.OnClickListener(this) { // from class: com.baidu.tieba.recapp.view.AdVideoFlowView.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -1087,7 +1085,7 @@ public class AdVideoFlowView extends RelativeLayout implements z98, View.OnClick
             };
             shareDialogConfig.setIsAlaLive(false);
             shareDialogConfig.setFrom(ShareDialogConfig.From.VideoMiddlePageVertical);
-            oz5.c().l(shareDialogConfig);
+            pz5.c().l(shareDialogConfig);
         }
     }
 
@@ -1124,7 +1122,27 @@ public class AdVideoFlowView extends RelativeLayout implements z98, View.OnClick
         if (!(interceptable == null || interceptable.invokeII(1048606, this, i, i2) == null) || this.A == null || this.B.videoInfo == null) {
             return;
         }
-        bd8.b().d(dd8.l(this.A, i, 0, this.N, this.B.videoInfo.video_duration.intValue(), this.l.getControl().getCurrentPosition(), i2));
+        int currentPosition = this.l.getControl().getCurrentPosition();
+        ClogBuilder clogBuilder = new ClogBuilder();
+        clogBuilder.t(this.A.j).x(String.valueOf(i)).o(String.valueOf(this.A.position + 1)).n(this.A.g).i(String.valueOf(this.N)).j(String.valueOf(Math.round(currentPosition / 1000.0f))).k(String.valueOf(this.B.videoInfo.video_duration));
+        if (i2 != -1 && i == 32) {
+            clogBuilder.m(String.valueOf(i2));
+        }
+        if (i == 34) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("duration", this.B.videoInfo.video_duration);
+                jSONObject.put("position", currentPosition);
+                jSONObject.put("start_type", this.N);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            clogBuilder.y(jSONObject.toString());
+        }
+        if (i == 102) {
+            clogBuilder.h("replaybtn");
+        }
+        ez0.c(clogBuilder);
     }
 
     public final void z() {

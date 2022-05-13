@@ -34,7 +34,7 @@ public class bv extends ai.a {
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo222a() {
+    public String mo223a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "10052" : (String) invokeV.objValue;

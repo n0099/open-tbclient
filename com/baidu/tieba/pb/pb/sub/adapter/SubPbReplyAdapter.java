@@ -15,11 +15,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ly7;
+import com.repackage.iy7;
+import com.repackage.my7;
 import com.repackage.ot7;
-import com.repackage.py7;
 /* loaded from: classes3.dex */
-public class SubPbReplyAdapter extends ly7<py7, SubPbReplyViewHolder> {
+public class SubPbReplyAdapter extends iy7<my7, SubPbReplyViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean k;
@@ -51,8 +51,8 @@ public class SubPbReplyAdapter extends ly7<py7, SubPbReplyViewHolder> {
                 }
             }
             this.c = 3;
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0909e9);
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f0909ea);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0909e2);
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f0909e3);
         }
 
         public void d() {
@@ -100,22 +100,22 @@ public class SubPbReplyAdapter extends ly7<py7, SubPbReplyViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
+    @Override // com.repackage.eo
     /* renamed from: Z */
     public SubPbReplyViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new SubPbReplyViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07ae, viewGroup, false)) : (SubPbReplyViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new SubPbReplyViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07a7, viewGroup, false)) : (SubPbReplyViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ly7, com.repackage.ho
+    @Override // com.repackage.iy7, com.repackage.eo
     /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, py7 py7Var, SubPbReplyViewHolder subPbReplyViewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, my7 my7Var, SubPbReplyViewHolder subPbReplyViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, py7Var, subPbReplyViewHolder})) == null) {
-            String format = String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f11f3), String.valueOf(py7Var == null ? 0 : py7Var.a()));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, my7Var, subPbReplyViewHolder})) == null) {
+            String format = String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1211), String.valueOf(my7Var == null ? 0 : my7Var.a()));
             subPbReplyViewHolder.e(this.k);
             ((SubPbReplyViewHolder) this.g).a.setText(format);
             ((SubPbReplyViewHolder) this.g).d();

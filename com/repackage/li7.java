@@ -113,23 +113,23 @@ public class li7 implements ShareService {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, view2, str, str2, str3, str4, str5, iOnSocialListener}) == null) {
             ShareItem shareItem = new ShareItem();
-            shareItem.r = str;
-            shareItem.s = str2;
-            shareItem.w = str4;
-            shareItem.t = str3;
+            shareItem.t = str;
+            shareItem.u = str2;
+            shareItem.y = str4;
+            shareItem.v = str3;
             try {
                 JSONObject jSONObject = new JSONObject(str5);
                 String optString = jSONObject.optString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_YY_ANCHOR_BDUID);
-                shareItem.U = jSONObject.optLong("roomid");
-                shareItem.V = jSONObject.optString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_VOICE_ROOM_TYPE);
+                shareItem.W = jSONObject.optLong("roomid");
+                shareItem.X = jSONObject.optString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_VOICE_ROOM_TYPE);
                 if (TextUtils.isEmpty(optString)) {
                     String optString2 = jSONObject.optString("liveId");
                     String optString3 = jSONObject.optString("userId");
-                    shareItem.q = optString2;
-                    shareItem.r0 = optString3;
+                    shareItem.s = optString2;
+                    shareItem.v0 = optString3;
                 } else {
                     if (jSONObject.optInt("yy_show_tieba_entrance", 1) == 1) {
-                        shareItem.z = optString;
+                        shareItem.B = optString;
                     }
                 }
             } catch (JSONException e) {

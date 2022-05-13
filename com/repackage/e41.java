@@ -1,130 +1,383 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.ActivityOptions;
-import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.NinePatch;
-import android.graphics.Rect;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.NinePatchDrawable;
+import android.net.http.SslError;
 import android.os.Build;
-import android.text.TextUtils;
+import android.os.Message;
+import android.view.KeyEvent;
+import android.webkit.ClientCertRequest;
+import android.webkit.HttpAuthHandler;
+import android.webkit.RenderProcessGoneDetail;
+import android.webkit.SslErrorHandler;
+import android.webkit.WebResourceError;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Method;
-import java.lang.reflect.Proxy;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class e41 {
+public class e41 extends WebViewClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final WebView a;
+    public final WebViewClient b;
 
-    @SuppressLint({"DiscouragedPrivateApi"})
-    public static void a(Activity activity, d41 d41Var) {
-        Class<?>[] declaredClasses;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, activity, d41Var) == null) {
-            try {
-                Method declaredMethod = Activity.class.getDeclaredMethod("getActivityOptions", new Class[0]);
-                declaredMethod.setAccessible(true);
-                Object invoke = declaredMethod.invoke(activity, new Object[0]);
-                Class<?> cls = null;
-                for (Class<?> cls2 : Activity.class.getDeclaredClasses()) {
-                    if (cls2.getSimpleName().contains("TranslucentConversionListener")) {
-                        cls = cls2;
-                    }
+    /* loaded from: classes5.dex */
+    public class a implements z31 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ WebView a;
+        public final /* synthetic */ SslErrorHandler b;
+        public final /* synthetic */ SslError c;
+        public final /* synthetic */ e41 d;
+
+        public a(e41 e41Var, WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {e41Var, webView, sslErrorHandler, sslError};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                Object newProxyInstance = Proxy.newProxyInstance(Activity.class.getClassLoader(), new Class[]{cls}, new f41(d41Var));
-                Method declaredMethod2 = Activity.class.getDeclaredMethod("convertToTranslucent", cls, ActivityOptions.class);
-                declaredMethod2.setAccessible(true);
-                declaredMethod2.invoke(activity, newProxyInstance, invoke);
-            } catch (Throwable unused) {
-                if (d41Var != null) {
-                    d41Var.onTranslucent(false);
+            }
+            this.d = e41Var;
+            this.a = webView;
+            this.b = sslErrorHandler;
+            this.c = sslError;
+        }
+
+        @Override // com.repackage.z31
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.d.b == null) {
+                return;
+            }
+            this.d.b.onReceivedSslError(this.a, this.b, this.c);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements w31 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ WebView a;
+        public final /* synthetic */ HttpAuthHandler b;
+
+        public b(e41 e41Var, WebView webView, HttpAuthHandler httpAuthHandler) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {e41Var, webView, httpAuthHandler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.a = webView;
+            this.b = httpAuthHandler;
+        }
+
+        @Override // com.repackage.w31
+        public void a(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+                this.b.proceed(str, str2);
+            }
+        }
+
+        @Override // com.repackage.w31
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.b.cancel();
+            }
+        }
+
+        @Override // com.repackage.w31
+        public void setHttpAuthUsernamePassword(String str, String str2, String str3, String str4) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3, str4) == null) {
+                this.a.setHttpAuthUsernamePassword(str, str2, str3, str4);
             }
         }
     }
 
-    public static void b(Activity activity, d41 d41Var) {
-        Class<?>[] declaredClasses;
+    public e41(WebView webView, WebViewClient webViewClient, ci0 ci0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, activity, d41Var) == null) {
-            try {
-                Class<?> cls = null;
-                for (Class<?> cls2 : Activity.class.getDeclaredClasses()) {
-                    if (cls2.getSimpleName().contains("TranslucentConversionListener")) {
-                        cls = cls2;
-                    }
-                }
-                Method declaredMethod = Activity.class.getDeclaredMethod("convertToTranslucent", cls);
-                declaredMethod.setAccessible(true);
-                declaredMethod.invoke(activity, null);
-                if (d41Var != null) {
-                    d41Var.onTranslucent(true);
-                }
-            } catch (Throwable unused) {
-                if (d41Var != null) {
-                    d41Var.onTranslucent(false);
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {webView, webViewClient, ci0Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = webView;
+        this.b = webViewClient;
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void doUpdateVisitedHistory(WebView webView, String str, boolean z) {
+        WebViewClient webViewClient;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, webView, str, z) == null) || (webViewClient = this.b) == null) {
+            return;
+        }
+        webViewClient.doUpdateVisitedHistory(webView, str, z);
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void onFormResubmission(WebView webView, Message message, Message message2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, message, message2) == null) {
+            WebViewClient webViewClient = this.b;
+            if (webViewClient != null) {
+                webViewClient.onFormResubmission(webView, message, message2);
+            } else {
+                super.onFormResubmission(webView, message, message2);
             }
         }
     }
 
-    public static void c(Activity activity, d41 d41Var) {
+    @Override // android.webkit.WebViewClient
+    public void onLoadResource(WebView webView, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, activity, d41Var) == null) {
-            try {
-                Method declaredMethod = Activity.class.getDeclaredMethod("convertFromTranslucent", new Class[0]);
-                declaredMethod.setAccessible(true);
-                declaredMethod.invoke(activity, new Object[0]);
-                if (d41Var != null) {
-                    d41Var.onTranslucent(false);
-                }
-            } catch (Throwable unused) {
-                if (d41Var != null) {
-                    d41Var.onTranslucent(true);
-                }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str) == null) {
+            super.onLoadResource(webView, str);
+            WebViewClient webViewClient = this.b;
+            if (webViewClient != null) {
+                webViewClient.onLoadResource(webView, str);
             }
         }
     }
 
-    public static void d(Activity activity, d41 d41Var) {
+    @Override // android.webkit.WebViewClient
+    public void onPageCommitVisible(WebView webView, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, activity, d41Var) == null) {
-            try {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, webView, str) == null) {
+            super.onPageCommitVisible(webView, str);
+            WebViewClient webViewClient = this.b;
+            if (webViewClient == null || Build.VERSION.SDK_INT < 23) {
+                return;
+            }
+            webViewClient.onPageCommitVisible(webView, str);
+        }
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void onPageFinished(WebView webView, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, webView, str) == null) {
+            super.onPageFinished(webView, str);
+            if (webView != null) {
+                webView.loadUrl("javascript:(function go_back_js_interface_name(){window.history.back=function(){javascript:(function(){if(typeof(window.go_back_js_interface_name)=='undefined'){window.prompt('BdboxApp:'+JSON.stringify({obj:'go_back_js_interface_name',func:'onGoBack',args:[]}));}else{window.go_back_js_interface_name.onGoBack();}})()};})()");
+            }
+            WebViewClient webViewClient = this.b;
+            if (webViewClient != null) {
+                webViewClient.onPageFinished(webView, str);
+            }
+            c31.a().a(this.a.getContext(), str);
+        }
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, webView, str, bitmap) == null) {
+            super.onPageStarted(webView, str, bitmap);
+            WebViewClient webViewClient = this.b;
+            if (webViewClient != null) {
+                webViewClient.onPageStarted(webView, str, bitmap);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void onReceivedClientCertRequest(WebView webView, ClientCertRequest clientCertRequest) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, webView, clientCertRequest) == null) {
+            WebViewClient webViewClient = this.b;
+            if (webViewClient != null) {
                 if (Build.VERSION.SDK_INT >= 21) {
-                    a(activity, d41Var);
-                } else {
-                    b(activity, d41Var);
+                    webViewClient.onReceivedClientCertRequest(webView, clientCertRequest);
+                    return;
                 }
-            } catch (Throwable unused) {
-                if (d41Var != null) {
-                    d41Var.onTranslucent(false);
-                }
+                return;
+            }
+            super.onReceivedClientCertRequest(webView, clientCertRequest);
+        }
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048583, this, webView, webResourceRequest, webResourceError) == null) {
+            super.onReceivedError(webView, webResourceRequest, webResourceError);
+            WebViewClient webViewClient = this.b;
+            if (webViewClient == null || Build.VERSION.SDK_INT < 23) {
+                return;
+            }
+            webViewClient.onReceivedError(webView, webResourceRequest, webResourceError);
+        }
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void onReceivedHttpAuthRequest(WebView webView, HttpAuthHandler httpAuthHandler, String str, String str2) {
+        String str3;
+        String[] httpAuthUsernamePassword;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView, httpAuthHandler, str, str2) == null) {
+            String str4 = null;
+            if (!httpAuthHandler.useHttpAuthUsernamePassword() || webView == null || (httpAuthUsernamePassword = webView.getHttpAuthUsernamePassword(str, str2)) == null || httpAuthUsernamePassword.length != 2) {
+                str3 = null;
+            } else {
+                str4 = httpAuthUsernamePassword[0];
+                str3 = httpAuthUsernamePassword[1];
+            }
+            if (str4 != null && str3 != null) {
+                httpAuthHandler.proceed(str4, str3);
+            } else if (webView != null && webView.isShown()) {
+                new p31(webView.getContext()).q(new b(this, webView, httpAuthHandler), str, str2);
+            } else {
+                httpAuthHandler.cancel();
             }
         }
     }
 
-    public static Drawable e(Context context, String str) {
-        InterceptResult invokeLL;
-        Bitmap decodeFile;
+    @Override // android.webkit.WebViewClient
+    public void onReceivedHttpError(WebView webView, WebResourceRequest webResourceRequest, WebResourceResponse webResourceResponse) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
-            if (context == null || TextUtils.isEmpty(str) || (decodeFile = BitmapFactory.decodeFile(str)) == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeLLL(1048585, this, webView, webResourceRequest, webResourceResponse) == null) {
+            super.onReceivedHttpError(webView, webResourceRequest, webResourceResponse);
+            WebViewClient webViewClient = this.b;
+            if (webViewClient == null || Build.VERSION.SDK_INT < 23) {
+                return;
             }
-            byte[] ninePatchChunk = decodeFile.getNinePatchChunk();
-            if (NinePatch.isNinePatchChunk(ninePatchChunk)) {
-                return new NinePatchDrawable(context.getResources(), decodeFile, ninePatchChunk, new Rect(), null);
-            }
-            return new BitmapDrawable(context.getResources(), decodeFile);
+            webViewClient.onReceivedHttpError(webView, webResourceRequest, webResourceResponse);
         }
-        return (Drawable) invokeLL.objValue;
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void onReceivedLoginRequest(WebView webView, String str, @Nullable String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048586, this, webView, str, str2, str3) == null) {
+            super.onReceivedLoginRequest(webView, str, str2, str3);
+            WebViewClient webViewClient = this.b;
+            if (webViewClient != null) {
+                webViewClient.onReceivedLoginRequest(webView, str, str2, str3);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048587, this, webView, sslErrorHandler, sslError) == null) {
+            if (webView.isShown()) {
+                new p31(webView.getContext()).v(new a(this, webView, sslErrorHandler, sslError), sslErrorHandler, sslError);
+                return;
+            }
+            sslErrorHandler.cancel();
+        }
+    }
+
+    @Override // android.webkit.WebViewClient
+    public boolean onRenderProcessGone(WebView webView, RenderProcessGoneDetail renderProcessGoneDetail) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, webView, renderProcessGoneDetail)) == null) {
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void onScaleChanged(WebView webView, float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{webView, Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            super.onScaleChanged(webView, f, f2);
+            WebViewClient webViewClient = this.b;
+            if (webViewClient != null) {
+                webViewClient.onScaleChanged(webView, f, f2);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void onUnhandledKeyEvent(WebView webView, KeyEvent keyEvent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048590, this, webView, keyEvent) == null) {
+            super.onUnhandledKeyEvent(webView, keyEvent);
+            WebViewClient webViewClient = this.b;
+            if (webViewClient != null) {
+                webViewClient.onUnhandledKeyEvent(webView, keyEvent);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebViewClient
+    @Nullable
+    public WebResourceResponse shouldInterceptRequest(WebView webView, WebResourceRequest webResourceRequest) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, webView, webResourceRequest)) == null) {
+            WebViewClient webViewClient = this.b;
+            if (webViewClient != null && Build.VERSION.SDK_INT >= 21) {
+                return webViewClient.shouldInterceptRequest(webView, webResourceRequest);
+            }
+            return super.shouldInterceptRequest(webView, webResourceRequest);
+        }
+        return (WebResourceResponse) invokeLL.objValue;
+    }
+
+    @Override // android.webkit.WebViewClient
+    public boolean shouldOverrideKeyEvent(WebView webView, KeyEvent keyEvent) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, webView, keyEvent)) == null) {
+            WebViewClient webViewClient = this.b;
+            if (webViewClient == null || !webViewClient.shouldOverrideKeyEvent(webView, keyEvent)) {
+                return super.shouldOverrideKeyEvent(webView, keyEvent);
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebViewClient
+    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, webView, str)) == null) {
+            WebViewClient webViewClient = this.b;
+            if (webViewClient == null || !webViewClient.shouldOverrideUrlLoading(webView, str)) {
+                return super.shouldOverrideUrlLoading(webView, str);
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
     }
 }

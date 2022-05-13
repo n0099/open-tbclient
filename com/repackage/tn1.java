@@ -1,45 +1,47 @@
 package com.repackage;
 
-import android.os.Bundle;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class tn1 extends ProviderDelegation {
+public class tn1 extends SwanAppDownloadAction {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public tn1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tn1(r13 r13Var) {
+        super(r13Var, "/swanAPI/installApp4Ad");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {r13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((r13) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(Bundle bundle) {
-        InterceptResult invokeL;
+    @Override // com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction
+    public boolean l(@NonNull UnitedSchemeEntity unitedSchemeEntity, @Nullable u03 u03Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            boolean z = bundle == null ? false : bundle.getBoolean("status");
-            for (xg1 xg1Var : SwanAppAllianceLoginHelper.d.e()) {
-                if (xg1Var != null) {
-                    xg1Var.a(z);
-                }
-            }
-            return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, unitedSchemeEntity, u03Var)) == null) {
+            return false;
         }
-        return (Bundle) invokeL.objValue;
+        return invokeLL.booleanValue;
     }
 }

@@ -1,93 +1,28 @@
 package com.repackage;
 
+import android.content.Context;
+import android.widget.BaseAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class y5a {
+public abstract class y5a<T> extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ProductInfo a;
-    public int b;
-    public boolean c;
-    public boolean d;
-    public int e;
+    public List<T> a;
+    public Context b;
 
-    public y5a(boolean z) {
+    public y5a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.b = Integer.MIN_VALUE;
-        this.e = -1;
-        this.c = z;
-    }
-
-    public double a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ProductInfo productInfo = this.a;
-            if (productInfo != null) {
-                return productInfo.destAmount / 100.0d;
-            }
-            return 0.0d;
-        }
-        return invokeV.doubleValue;
-    }
-
-    public double b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ProductInfo productInfo = this.a;
-            if (productInfo != null) {
-                return productInfo.srcAmount;
-            }
-            return 0.0d;
-        }
-        return invokeV.doubleValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("PayAmount{currencyType=");
-            sb.append(this.b);
-            sb.append(", srcAmount=");
-            ProductInfo productInfo = this.a;
-            sb.append(productInfo != null ? productInfo.srcAmount : 0.0d);
-            sb.append(", dstAmount=");
-            ProductInfo productInfo2 = this.a;
-            sb.append(productInfo2 != null ? productInfo2.destAmount : 0L);
-            sb.append('}');
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public y5a(ProductInfo productInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {productInfo};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -97,29 +32,60 @@ public class y5a {
                 return;
             }
         }
-        this.b = Integer.MIN_VALUE;
-        this.e = -1;
-        this.a = productInfo;
+        this.a = new ArrayList();
+        this.b = context;
     }
 
-    public y5a(ProductInfo productInfo, int i) {
+    public List<T> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {productInfo, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
+    }
+
+    public void b(List<T> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            c(list, true);
         }
-        this.b = Integer.MIN_VALUE;
-        this.e = -1;
-        this.a = productInfo;
-        this.b = i;
+    }
+
+    public final void c(List<T> list, boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, list, z) == null) || list == null || list.size() == 0) {
+            return;
+        }
+        if (z) {
+            this.a.clear();
+        }
+        this.a.addAll(list);
+        notifyDataSetChanged();
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.size() : invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public T getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            if (this.a.size() == 0) {
+                return null;
+            }
+            List<T> list = this.a;
+            return list.get(i % list.size());
+        }
+        return (T) invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
     }
 }

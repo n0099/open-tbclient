@@ -13,8 +13,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ki;
 import com.repackage.mi;
-import com.repackage.oi;
 /* loaded from: classes3.dex */
 public class AlaNewSquareSubListRequestMessage extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
@@ -65,9 +65,9 @@ public class AlaNewSquareSubListRequestMessage extends HttpMessage {
     public void setHttpParams() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int k = oi.k(TbadkCoreApplication.getInst());
-            int i = oi.i(TbadkCoreApplication.getInst());
-            float h = oi.h(TbadkCoreApplication.getInst());
+            int k = mi.k(TbadkCoreApplication.getInst());
+            int i = mi.i(TbadkCoreApplication.getInst());
+            float h = mi.h(TbadkCoreApplication.getInst());
             addParam("entry_name", this.entryName);
             addParam(Config.PACKAGE_NAME, this.pn);
             addParam("ps", this.ps);
@@ -80,14 +80,14 @@ public class AlaNewSquareSubListRequestMessage extends HttpMessage {
             addParam(SuggestAddrField.KEY_LAT, this.lat);
             addParam(SuggestAddrField.KEY_LNG, this.lng);
             String str = "N";
-            if (mi.z()) {
-                if (mi.H()) {
+            if (ki.z()) {
+                if (ki.H()) {
                     str = "1_0";
-                } else if (mi.v()) {
+                } else if (ki.v()) {
                     str = "0_13";
-                } else if (mi.u()) {
+                } else if (ki.u()) {
                     str = "0_3";
-                } else if (mi.t()) {
+                } else if (ki.t()) {
                     str = "0_2";
                 }
             }

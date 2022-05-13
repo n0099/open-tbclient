@@ -1,245 +1,108 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.pm.ActivityInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import android.os.Bundle;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.session.XRSessionAnchor;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.ArCoreApk;
-import com.google.ar.core.InstallActivity;
-import com.google.ar.core.exceptions.FatalException;
+import com.opensource.svgaplayer.entities.SVGAVideoShapeEntity;
+import com.opensource.svgaplayer.proto.FrameEntity;
+import com.opensource.svgaplayer.proto.SpriteEntity;
+import java.util.ArrayList;
+import java.util.List;
+import kotlin.collections.CollectionsKt__CollectionsKt;
+import kotlin.collections.CollectionsKt__IterablesKt;
+import kotlin.collections.CollectionsKt___CollectionsKt;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class im9 extends ArCoreApk {
+public final class im9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final im9 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public Exception a;
-    public ArCoreApk.Availability b;
-    public boolean c;
-    public om9 d;
-    public boolean e;
-    public boolean f;
-    public int g;
+    public final String a;
+    public final List<jm9> b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755613508, "Lcom/repackage/im9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755613508, "Lcom/repackage/im9;");
-                return;
-            }
-        }
-        h = new im9();
-    }
-
-    public im9() {
+    public im9(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = jSONObject.optString("imageKey");
+        ArrayList arrayList = new ArrayList();
+        JSONArray optJSONArray = jSONObject.optJSONArray("frames");
+        if (optJSONArray != null) {
+            int length = optJSONArray.length();
+            for (int i3 = 0; i3 < length; i3++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
+                if (optJSONObject != null) {
+                    jm9 jm9Var = new jm9(optJSONObject);
+                    if ((!jm9Var.d().isEmpty()) && ((SVGAVideoShapeEntity) CollectionsKt___CollectionsKt.first((List<? extends Object>) jm9Var.d())).e() && arrayList.size() > 0) {
+                        jm9Var.f(((jm9) CollectionsKt___CollectionsKt.last((List<? extends Object>) arrayList)).d());
+                    }
+                    arrayList.add(jm9Var);
+                }
+            }
+        }
+        this.b = CollectionsKt___CollectionsKt.toList(arrayList);
     }
 
-    public static im9 d() {
+    public final List<jm9> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? h : (im9) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (List) invokeV.objValue;
     }
 
-    public static boolean i() {
+    public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? Build.VERSION.SDK_INT >= 24 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    public static int k(Context context) {
-        InterceptResult invokeL;
+    public im9(SpriteEntity spriteEntity) {
+        List<jm9> emptyList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            try {
-                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(XRSessionAnchor.apkinfo, 4);
-                int i = packageInfo.versionCode;
-                if (i == 0) {
-                    if (packageInfo.services != null) {
-                        if (packageInfo.services.length == 0) {
-                        }
-                    }
-                    return -1;
-                }
-                return i;
-            } catch (PackageManager.NameNotFoundException unused) {
-                return -1;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {spriteEntity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeL.intValue;
-    }
-
-    @Override // com.google.ar.core.ArCoreApk
-    public final ArCoreApk.Availability a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (!i()) {
-                return ArCoreApk.Availability.UNSUPPORTED_DEVICE_NOT_CAPABLE;
+        this.a = spriteEntity.imageKey;
+        List<FrameEntity> list = spriteEntity.frames;
+        if (list != null) {
+            emptyList = new ArrayList<>(CollectionsKt__IterablesKt.collectionSizeOrDefault(list, 10));
+            jm9 jm9Var = null;
+            for (FrameEntity it : list) {
+                Intrinsics.checkExpressionValueIsNotNull(it, "it");
+                jm9 jm9Var2 = new jm9(it);
+                if ((!jm9Var2.d().isEmpty()) && ((SVGAVideoShapeEntity) CollectionsKt___CollectionsKt.first((List<? extends Object>) jm9Var2.d())).e() && jm9Var != null) {
+                    jm9Var2.f(jm9Var.d());
+                }
+                emptyList.add(jm9Var2);
+                jm9Var = jm9Var2;
             }
-            try {
-                if (h(context)) {
-                    g();
-                    return hm9.c(context);
-                }
-                synchronized (this) {
-                    if ((this.b == null || this.b.isUnknown()) && !this.c) {
-                        this.c = true;
-                        hm9 hm9Var = new hm9(this);
-                        if (h(context)) {
-                            hm9Var.a(ArCoreApk.Availability.SUPPORTED_INSTALLED);
-                        } else if (k(context) != -1) {
-                            hm9Var.a(ArCoreApk.Availability.SUPPORTED_APK_TOO_OLD);
-                        } else if (j(context)) {
-                            hm9Var.a(ArCoreApk.Availability.SUPPORTED_NOT_INSTALLED);
-                        } else {
-                            e(context).e(context, hm9Var);
-                        }
-                    }
-                    if (this.b != null) {
-                        return this.b;
-                    }
-                    if (this.c) {
-                        return ArCoreApk.Availability.UNKNOWN_CHECKING;
-                    }
-                    Log.e("ARCore-ArCoreApk", "request not running but result is null?");
-                    return ArCoreApk.Availability.UNKNOWN_ERROR;
-                }
-            } catch (FatalException e) {
-                Log.e("ARCore-ArCoreApk", "Error while checking app details and ARCore status", e);
-                return ArCoreApk.Availability.UNKNOWN_ERROR;
-            }
+        } else {
+            emptyList = CollectionsKt__CollectionsKt.emptyList();
         }
-        return (ArCoreApk.Availability) invokeL.objValue;
-    }
-
-    public final synchronized om9 e(Context context) {
-        InterceptResult invokeL;
-        om9 om9Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            synchronized (this) {
-                if (this.d == null) {
-                    om9 om9Var2 = new om9((byte) 0);
-                    om9Var2.d(context.getApplicationContext());
-                    this.d = om9Var2;
-                }
-                om9Var = this.d;
-            }
-            return om9Var;
-        }
-        return (om9) invokeL.objValue;
-    }
-
-    public final synchronized void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                Exception exc = this.a;
-                if (this.d != null) {
-                    this.d.a();
-                    this.d = null;
-                }
-            }
-        }
-    }
-
-    public final boolean h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            l(context);
-            return k(context) == 0 || k(context) >= this.g;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean j(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            l(context);
-            return this.f;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final synchronized void l(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            synchronized (this) {
-                if (this.e) {
-                    return;
-                }
-                PackageManager packageManager = context.getPackageManager();
-                String packageName = context.getPackageName();
-                try {
-                    Bundle bundle = packageManager.getApplicationInfo(packageName, 128).metaData;
-                    if (bundle.containsKey(XRSessionAnchor.apkinfo)) {
-                        this.f = bundle.getString(XRSessionAnchor.apkinfo).equals("required");
-                        if (bundle.containsKey("com.google.ar.core.min_apk_version")) {
-                            this.g = bundle.getInt("com.google.ar.core.min_apk_version");
-                            try {
-                                ActivityInfo[] activityInfoArr = packageManager.getPackageInfo(packageName, 1).activities;
-                                String canonicalName = InstallActivity.class.getCanonicalName();
-                                int length = activityInfoArr.length;
-                                boolean z = false;
-                                int i = 0;
-                                while (true) {
-                                    if (i >= length) {
-                                        break;
-                                    } else if (canonicalName.equals(activityInfoArr[i].name)) {
-                                        z = true;
-                                        break;
-                                    } else {
-                                        i++;
-                                    }
-                                }
-                                if (!z) {
-                                    String valueOf = String.valueOf(canonicalName);
-                                    throw new FatalException(valueOf.length() != 0 ? "Application manifest must contain activity ".concat(valueOf) : new String("Application manifest must contain activity "));
-                                } else {
-                                    this.e = true;
-                                    return;
-                                }
-                            } catch (PackageManager.NameNotFoundException e) {
-                                throw new FatalException("Could not load application package info", e);
-                            }
-                        }
-                        throw new FatalException("Application manifest must contain meta-data com.google.ar.core.min_apk_version");
-                    }
-                    throw new FatalException("Application manifest must contain meta-data com.google.ar.core");
-                } catch (PackageManager.NameNotFoundException e2) {
-                    throw new FatalException("Could not load application package metadata", e2);
-                }
-            }
-        }
+        this.b = emptyList;
     }
 }

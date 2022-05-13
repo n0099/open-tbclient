@@ -245,7 +245,7 @@ public class MaterialCardViewHelper {
             if (this.clickableForegroundDrawable == null) {
                 LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{this.rippleDrawable, this.foregroundContentDrawable, createCheckedIconLayer()});
                 this.clickableForegroundDrawable = layerDrawable;
-                layerDrawable.setId(2, R.id.obfuscated_res_0x7f091463);
+                layerDrawable.setId(2, R.id.obfuscated_res_0x7f09147d);
             }
             return this.clickableForegroundDrawable;
         }
@@ -599,7 +599,7 @@ public class MaterialCardViewHelper {
                 DrawableCompat.setTintList(wrap, this.checkedIconTint);
             }
             if (this.clickableForegroundDrawable != null) {
-                this.clickableForegroundDrawable.setDrawableByLayerId(R.id.obfuscated_res_0x7f091463, createCheckedIconLayer());
+                this.clickableForegroundDrawable.setDrawableByLayerId(R.id.obfuscated_res_0x7f09147d, createCheckedIconLayer());
             }
         }
     }

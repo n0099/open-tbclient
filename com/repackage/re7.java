@@ -1,340 +1,380 @@
 package com.repackage;
 
-import android.app.Application;
 import android.content.Context;
-import android.net.Uri;
-import android.text.TextUtils;
+import android.os.Handler;
+import android.os.Message;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.viewpager.widget.ViewPager;
+import com.baidu.adp.widget.IndicatorView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
+import com.baidu.tbadk.widget.viewpager.ListViewPager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.WebChromeClient;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class re7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<ve7> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public ListViewPager a;
+    public IndicatorView b;
+    public zd7 c;
+    public TextView d;
+    public BdBaseViewPagerAdapter e;
+    public dw4 f;
+    public boolean g;
+    public boolean h;
+    public int i;
+    public Context j;
+    public List<ro> k;
+    public ViewPager.OnPageChangeListener l;
+    public long m;
+    public final Handler.Callback n;
+    public final Handler o;
+    public ViewPager.OnPageChangeListener p;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755353139, "Lcom/repackage/re7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class a implements Handler.Callback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ re7 a;
+
+        public a(re7 re7Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755353139, "Lcom/repackage/re7;");
-                return;
-            }
-        }
-        a = new ArrayList();
-    }
-
-    public static void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            lg7.j().D(context, "");
-        }
-    }
-
-    public static void b(Context context, String str, HashMap<String, Object> hashMap) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, context, str, hashMap) == null) {
-            if (hashMap != null) {
-                String str3 = (String) hashMap.get("enterroom_type");
-                String str4 = (String) hashMap.get("live_activity_type");
-                String str5 = (String) hashMap.get("extra");
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("live_activity_type", str4);
-                    jSONObject.put("extra", str5);
-                    str2 = jSONObject.toString();
-                } catch (JSONException unused) {
-                    str2 = "";
-                }
-                if ("1".equals(str3)) {
-                    lg7.j().H(context, str2);
-                    return;
-                } else {
-                    lg7.j().D(context, "");
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {re7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            lg7.j().D(context, "");
+            this.a = re7Var;
+        }
+
+        @Override // android.os.Handler.Callback
+        public boolean handleMessage(Message message) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
+                if (message.what == 1 && this.a.k()) {
+                    this.a.i();
+                    return false;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:58:0x017e  */
-    /* JADX WARN: Removed duplicated region for block: B:59:0x0190  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void c(Context context, String str, Map<String, Object> map) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, context, str, map) == null) {
-            String str3 = (String) map.get("enterroom_type");
-            String str4 = (String) map.get("room_id");
-            String str5 = (String) map.get("live_id");
-            String str6 = (String) map.get("username");
-            String str7 = (String) map.get("userrec");
-            String str8 = (String) map.get(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
-            String str9 = (String) map.get(AlaLiveRoomActivityConfig.SDK_LIVE_URL_KEY);
-            String str10 = (String) map.get("screen_direction");
-            String str11 = (String) map.get("open_giftlist");
-            String str12 = (String) map.get("tab");
-            String str13 = (String) map.get("tag");
-            String str14 = (String) map.get("source");
-            String str15 = (String) map.get("from");
-            String str16 = (String) map.get("extra");
-            String str17 = (String) map.get("audioUrl");
-            String str18 = (String) map.get("audio_bg");
-            String str19 = (String) map.get("chat_mcast_id");
-            String str20 = (String) map.get("open_msgpanel");
-            JSONObject jSONObject = new JSONObject();
-            try {
-                if (!TextUtils.isEmpty(str12)) {
-                    jSONObject.put("tab", str12);
+    /* loaded from: classes7.dex */
+    public class b implements ViewPager.OnPageChangeListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ re7 a;
+
+        public b(re7 re7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {re7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                if (!TextUtils.isEmpty(str13)) {
-                    jSONObject.put("tag", str13);
-                }
-                if (!TextUtils.isEmpty(str14)) {
-                    jSONObject.put("source", str14);
-                }
-                if (!TextUtils.isEmpty(str15)) {
-                    jSONObject.put("from", str15);
-                }
-                if (!TextUtils.isEmpty(str8)) {
-                    jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, str8);
-                }
-                if (!TextUtils.isEmpty(str9)) {
-                    jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_URL_KEY, str9);
-                }
-                if (!TextUtils.isEmpty(str10)) {
-                    jSONObject.put("screen_direction", str10);
-                }
-                if (!TextUtils.isEmpty(str4)) {
-                    jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_ENTER_ROOM_ID_KEY, str4);
-                }
-                if (TextUtils.isEmpty(str5)) {
-                    str2 = str5;
-                } else {
-                    str2 = str5;
-                    try {
-                        jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_ENTER_LIVE_ID_KEY, str2);
-                    } catch (JSONException e) {
-                        e = e;
-                        e.printStackTrace();
-                        if (!"1".equals(str3)) {
-                        }
-                    }
-                }
-                if (!TextUtils.isEmpty(str16)) {
-                    jSONObject.put("extra", str16);
-                }
-                if (!TextUtils.isEmpty(str17)) {
-                    jSONObject.put("audioUrl", str17);
-                }
-                if (!TextUtils.isEmpty(str18)) {
-                    jSONObject.put("audio_bg", str18);
-                }
-                if (!TextUtils.isEmpty(str19)) {
-                    jSONObject.put("chat_mcast_id", str19);
-                }
-                if (!TextUtils.isEmpty(str20)) {
-                    jSONObject.put("open_msgpanel", str20);
-                }
-            } catch (JSONException e2) {
-                e = e2;
-                str2 = str5;
             }
-            if (!"1".equals(str3)) {
-                lg7.j().y(context, str, jSONObject.toString(), map);
+            this.a = re7Var;
+        }
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageScrollStateChanged(int i) {
+            int count;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (this.a.l != null) {
+                    this.a.l.onPageScrollStateChanged(i);
+                }
+                if (i == 1) {
+                    this.a.s();
+                } else if (i != 0 || (count = this.a.e.getCount()) < 2) {
+                } else {
+                    int currentItem = this.a.a.getCurrentItem();
+                    int i2 = count - 2;
+                    if (currentItem < 1) {
+                        this.a.a.setCurrentItem(i2, false);
+                    } else if (currentItem > i2) {
+                        this.a.a.setCurrentItem(1, false);
+                    }
+                    this.a.r();
+                }
+            }
+        }
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageScrolled(int i, float f, int i2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) || this.a.l == null) {
                 return;
             }
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("user_name", str6);
-                jSONObject2.put("open_giftlist", str11);
-            } catch (JSONException e3) {
-                e3.printStackTrace();
-            }
-            JSONObject jSONObject3 = new JSONObject();
-            try {
-                jSONObject3.put("live_id", str2);
-                jSONObject3.put("useRecommend", true);
-                jSONObject3.put("otherParams", jSONObject);
-            } catch (JSONException e4) {
-                e4.printStackTrace();
-            }
-            lg7.j().x(context, jSONObject3.toString());
+            this.a.l.onPageScrolled(i, f, i2);
         }
-    }
 
-    public static void d(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) {
-            lg7.j().h(context, str);
-        }
-    }
-
-    public static void e(Context context, ze7 ze7Var, ve7 ve7Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65541, null, context, ze7Var, ve7Var) == null) || context == null) {
-            return;
-        }
-        JSONObject jSONObject = new JSONObject();
-        if (ze7Var != null) {
-            try {
-                if (!TextUtils.isEmpty(ze7Var.a)) {
-                    jSONObject.put(WebChromeClient.KEY_ARG_CALLBACK, ze7Var.a);
-                    if (ve7Var != null) {
-                        a.add(ve7Var);
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageSelected(int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && this.a.f != null && this.a.f.a(i) == i) {
+                if (this.a.b != null) {
+                    this.a.b.setPosition(this.a.f.c(i));
+                    if (this.a.c != null) {
+                        this.a.b.setVisibility(8);
+                        this.a.c.b(this.a.f.c(i));
                     }
                 }
-                jSONObject.put("isTranslucent", ze7Var.b);
-                if (!TextUtils.isEmpty(ze7Var.c)) {
-                    jSONObject.put("from", ze7Var.c);
+                if (this.a.l != null) {
+                    this.a.l.onPageSelected(this.a.f.c(i));
                 }
-            } catch (JSONException unused) {
             }
         }
-        lg7.j().B(context, jSONObject.toString());
     }
 
-    public static void f(Context context) {
+    public re7(Context context, ListViewPager listViewPager, IndicatorView indicatorView, TextView textView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
-            lg7.j().q(context);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, listViewPager, indicatorView, textView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
+        this.g = false;
+        this.h = true;
+        this.i = 2;
+        this.k = new ArrayList();
+        this.m = 5000L;
+        this.n = new a(this);
+        this.o = new Handler(this.n);
+        this.p = new b(this);
+        j(context, listViewPager, indicatorView, textView);
     }
 
-    public static void g(Context context, long j, int i) {
+    public final void i() {
+        int count;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i)}) == null) {
-            lg7.j().v(context, j, i);
-        }
-    }
-
-    public static void h(Context context, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65544, null, context, str, i) == null) {
-            lg7.j().s(context, str, i);
-        }
-    }
-
-    public static void i(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
-            lg7.j().t(context);
-        }
-    }
-
-    public static void j(Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65546, null, context, str, str2) == null) {
-            lg7.j().u(context, str, str2);
-        }
-    }
-
-    public static void k(Context context, String str, AlaLiveInfoCoreData alaLiveInfoCoreData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65547, null, context, str, alaLiveInfoCoreData) == null) || alaLiveInfoCoreData == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null || this.e == null) {
             return;
         }
-        long j = alaLiveInfoCoreData.liveID;
-        String str2 = alaLiveInfoCoreData.userName;
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("from", str);
-            jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, alaLiveInfoCoreData.liveCover);
-            jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_ENTER_LIVE_ID_KEY, j);
-            jSONObject.put("user_name", str2);
-            jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_URL_KEY, alaLiveInfoCoreData.rtmpUrl);
-            jSONObject.put("screen_direction", alaLiveInfoCoreData.screenDirection);
-            jSONObject.put("open_giftlist", "0");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        JSONObject jSONObject2 = new JSONObject();
-        try {
-            jSONObject2.put("live_id", j);
-            jSONObject2.put("useRecommend", true);
-            jSONObject2.put("otherParams", jSONObject);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-        }
-        lg7.j().x(context, jSONObject2.toString());
-    }
-
-    public static void l(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, context) == null) {
-            lg7.j().z(context);
-        }
-    }
-
-    public static void m(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65549, null, context, str) == null) {
-            lg7.j().A(context, str);
-        }
-    }
-
-    public static void n(Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65550, null, context, str, str2) == null) {
-            lg7.j().C(context, str, str2);
-        }
-    }
-
-    public static void o(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65551, null, jSONObject) == null) {
-            for (int i = 0; i < a.size(); i++) {
-                a.get(i).onCallback(jSONObject);
+        e9 c = f9.c(this.j);
+        if ((c == null || !c.isScroll()) && (count = this.e.getCount()) >= 2) {
+            int currentItem = this.a.getCurrentItem();
+            int i = count - 2;
+            if (currentItem < 1) {
+                this.a.setCurrentItem(i, false);
+            } else if (currentItem > i) {
+                this.a.setCurrentItem(1, false);
+            } else {
+                this.a.setCurrentItem(currentItem + 1);
             }
-            a.clear();
         }
     }
 
-    public static void p(String str, boolean z) {
+    public final void j(Context context, ListViewPager listViewPager, IndicatorView indicatorView, TextView textView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65552, null, str, z) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("uid", str);
-            hashMap.put("isSubscribe", Boolean.valueOf(z));
-            lg7.j().g(TbadkCoreApplication.getInst(), "setAttentionChanged", hashMap);
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, listViewPager, indicatorView, textView) == null) {
+            this.a = listViewPager;
+            this.b = indicatorView;
+            this.d = textView;
+            this.j = context;
+            BdBaseViewPagerAdapter bdBaseViewPagerAdapter = new BdBaseViewPagerAdapter(context);
+            this.e = bdBaseViewPagerAdapter;
+            ListViewPager listViewPager2 = this.a;
+            if (listViewPager2 != null) {
+                listViewPager2.setAdapter(bdBaseViewPagerAdapter);
+                this.a.setOnPageChangeListener(this.p);
+            }
         }
     }
 
-    public static void q(long j) {
+    public final boolean k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65553, null, j) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("uid", Long.valueOf(j));
-            lg7.j().g(TbadkCoreApplication.getInst(), "shareSuccess", hashMap);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ListViewPager listViewPager = this.a;
+            if (listViewPager == null) {
+                return false;
+            }
+            int[] iArr = new int[2];
+            listViewPager.getLocationOnScreen(iArr);
+            int measuredHeight = iArr[1] + (this.a.getMeasuredHeight() / 2);
+            return measuredHeight > 0 && measuredHeight < mi.i(this.j);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void l(Context context, cw4<?, ?> cw4Var) {
+        BdBaseViewPagerAdapter bdBaseViewPagerAdapter;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, context, cw4Var) == null) || (bdBaseViewPagerAdapter = this.e) == null) {
+            return;
+        }
+        bdBaseViewPagerAdapter.g(context, cw4Var);
+    }
+
+    public void m(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            if (j < 0) {
+                j = 0;
+            }
+            this.m = j;
         }
     }
 
-    public static void r(Application application, String str, Uri uri) {
+    public void n(List<ro> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65554, null, application, str, uri) == null) {
-            lg7.j().r(application, str, uri);
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, list) == null) || ListUtils.getCount(list) == 0) {
+            return;
+        }
+        this.k = list;
+        dw4 dw4Var = new dw4(list, this.g, this.i);
+        this.f = dw4Var;
+        dw4Var.i(2);
+        boolean z = true;
+        this.f.g(1);
+        this.e.h(this.f.e());
+        this.e.notifyDataSetChanged();
+        this.a.setCurrentItem(this.f.d(), false);
+        if (this.f.b() <= 0) {
+            return;
+        }
+        if (this.f.b() > this.i) {
+            TextView textView = this.d;
+            if (textView != null) {
+                textView.setVisibility(0);
+                this.d.setOnClickListener(null);
+                IndicatorView indicatorView = this.b;
+                if (indicatorView != null) {
+                    indicatorView.setVisibility(8);
+                }
+            }
+            if (this.b != null && this.d == null && this.g) {
+                z = false;
+            }
+            if (!z) {
+                this.b.setVisibility(8);
+                int count = this.b.getCount();
+                int i = this.i;
+                if (count != i) {
+                    this.b.setCount(i);
+                }
+            }
+            r();
+        }
+        if (this.f.b() >= 2 && this.f.b() <= this.i) {
+            TextView textView2 = this.d;
+            if (textView2 != null) {
+                textView2.setVisibility(8);
+            }
+            IndicatorView indicatorView2 = this.b;
+            if (indicatorView2 != null) {
+                indicatorView2.setVisibility(0);
+                if (this.b.getCount() != this.f.b()) {
+                    this.b.setCount(this.f.b());
+                    zd7 zd7Var = this.c;
+                    if (zd7Var != null) {
+                        zd7Var.a(this.f.b());
+                        this.b.setVisibility(8);
+                    }
+                } else {
+                    zd7 zd7Var2 = this.c;
+                    if (zd7Var2 != null) {
+                        zd7Var2.a(this.f.b());
+                        this.b.setVisibility(8);
+                    }
+                }
+            }
+            r();
+        }
+        if (this.f.b() < 2) {
+            TextView textView3 = this.d;
+            if (textView3 != null) {
+                textView3.setVisibility(8);
+            }
+            IndicatorView indicatorView3 = this.b;
+            if (indicatorView3 != null) {
+                indicatorView3.setVisibility(8);
+            }
+            s();
+        }
+    }
+
+    public void o(zd7 zd7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, zd7Var) == null) {
+            if (zd7Var != null) {
+                this.b.setVisibility(8);
+            } else {
+                this.b.setVisibility(0);
+            }
+            this.c = zd7Var;
+        }
+    }
+
+    public void p(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.i = i;
+            dw4 dw4Var = this.f;
+            if (dw4Var != null) {
+                dw4Var.h(i);
+            }
+        }
+    }
+
+    public void q(ViewPager.OnPageChangeListener onPageChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onPageChangeListener) == null) {
+            this.l = onPageChangeListener;
+        }
+    }
+
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            if (this.h) {
+                this.o.removeMessages(1);
+                this.o.sendEmptyMessageDelayed(1, this.m);
+                return;
+            }
+            this.o.removeMessages(1);
+        }
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.o.removeMessages(1);
         }
     }
 }

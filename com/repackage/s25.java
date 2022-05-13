@@ -1,64 +1,118 @@
 package com.repackage;
 
-import android.content.Context;
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.graphics.Rect;
+import android.os.Build;
+import android.util.Log;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import androidx.annotation.ColorRes;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.editortools.RawLayout;
-import com.baidu.tbadk.editortools.sendtool.SendView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class s25 extends u05 {
+public class s25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public final View b;
+    public final int c;
+    public final boolean d;
+    public o25 e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s25(Context context) {
-        super(context, (String) null, 4);
+    public s25(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.m = false;
-        this.l = 2;
-        this.n = new int[]{4, 12, 10, 13, 11, 28, 29, 39, 9};
-        this.k = new SendView(context);
-        RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(-2, -2);
-        ((LinearLayout.LayoutParams) layoutParams).gravity = 80;
-        ((View) this.k).setLayoutParams(layoutParams);
+        this.a = -1;
+        this.b = view2;
+        this.c = v25.a(view2.getContext());
+        this.d = w25.c((Activity) view2.getContext());
     }
 
-    public void f(int i) {
-        v05 v05Var;
+    public final o25 a(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (v05Var = this.k) != null && (v05Var instanceof TextView)) {
-            ((TextView) v05Var).setText(i);
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, view2)) != null) {
+            return (o25) invokeL.objValue;
+        }
+        o25 o25Var = this.e;
+        if (o25Var != null) {
+            return o25Var;
+        }
+        if (view2 instanceof o25) {
+            o25 o25Var2 = (o25) view2;
+            this.e = o25Var2;
+            return o25Var2;
+        } else if (!(view2 instanceof ViewGroup)) {
+            return null;
+        } else {
+            int i = 0;
+            while (true) {
+                ViewGroup viewGroup = (ViewGroup) view2;
+                if (i >= viewGroup.getChildCount()) {
+                    return null;
+                }
+                o25 a = a(viewGroup.getChildAt(i));
+                if (a != null) {
+                    this.e = a;
+                    return a;
+                }
+                i++;
+            }
         }
     }
 
-    public void g(@ColorRes int i) {
-        v05 v05Var;
+    @TargetApi(16)
+    public void b(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (v05Var = this.k) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            if (this.d && Build.VERSION.SDK_INT >= 16 && this.b.getFitsSystemWindows()) {
+                Rect rect = new Rect();
+                this.b.getWindowVisibleDisplayFrame(rect);
+                i2 = rect.bottom - rect.top;
+            }
+            Log.d("KPSRootLayoutHandler", "onMeasure, width: " + i + " height: " + i2);
+            if (i2 < 0) {
+                return;
+            }
+            int i3 = this.a;
+            if (i3 < 0) {
+                this.a = i2;
+                return;
+            }
+            int i4 = i3 - i2;
+            if (i4 == 0) {
+                Log.d("KPSRootLayoutHandler", "" + i4 + " == 0 break;");
+            } else if (Math.abs(i4) == this.c) {
+                Log.w("KPSRootLayoutHandler", String.format("offset just equal statusBar height %d", Integer.valueOf(i4)));
+            } else {
+                this.a = i2;
+                o25 a = a(this.b);
+                if (a == null) {
+                    Log.w("KPSRootLayoutHandler", "can't find the valid panel conflict layout, give up!");
+                } else if (Math.abs(i4) < u25.f(this.b.getContext())) {
+                    Log.w("KPSRootLayoutHandler", "system bottom-menu-bar(such as HuaWei Mate7) causes layout changed");
+                } else if (i4 > 0) {
+                    a.handleHide();
+                } else if (a.b() && a.isVisible()) {
+                    a.handleShow();
+                }
+            }
         }
-        ((SendView) v05Var).setTextColor(i);
     }
 }

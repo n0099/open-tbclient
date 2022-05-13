@@ -9,11 +9,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mg;
-import com.repackage.rc5;
+import com.repackage.jd5;
+import com.repackage.kg;
 import tbclient.GetPrivateInfo.GetPrivateInfoReqIdl;
 import tbclient.GetPrivateInfo.ReqData;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PrivateInfoNetMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,9 +43,9 @@ public class PrivateInfoNetMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             ReqData.Builder builder = new ReqData.Builder();
-            builder.user_id = Long.valueOf(mg.g(TbadkCoreApplication.getCurrentAccount(), 0L));
+            builder.user_id = Long.valueOf(kg.g(TbadkCoreApplication.getCurrentAccount(), 0L));
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                rc5.a(builder, true);
+                jd5.a(builder, true);
             }
             GetPrivateInfoReqIdl.Builder builder2 = new GetPrivateInfoReqIdl.Builder();
             builder2.data = builder.build(false);

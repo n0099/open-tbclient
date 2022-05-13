@@ -1,26 +1,25 @@
 package com.repackage;
 
-import com.baidu.bdtask.framework.ui.dialog.TaskDialogData;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mu;
-import com.repackage.nu;
 /* loaded from: classes7.dex */
-public final class rr<VD extends TaskDialogData, VM extends mu<VD>, View extends nu<VM>> {
+public abstract class rr implements fs {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final View a;
-    public final VM b;
-    public final VD c;
+    public final String a;
+    public Integer b;
+    public String c;
 
-    public rr(View view2, VM vm, VD vd) {
+    public rr(String str, Integer num, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, vm, vd};
+            Object[] objArr = {str, num, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,16 +29,51 @@ public final class rr<VD extends TaskDialogData, VM extends mu<VD>, View extends
                 return;
             }
         }
-        this.a = view2;
-        this.b = vm;
-        this.c = vd;
+        this.a = str;
+        this.b = num;
+        this.c = str2;
     }
 
-    public final void a() {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.a(this.b);
-            this.b.b(this.c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Integer num = this.b;
+            if (num != null) {
+                return num.intValue();
+            }
+            return 0;
         }
+        return invokeV.intValue;
+    }
+
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.b = Integer.valueOf(i);
+        }
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            String str = this.c;
+            return str != null ? str : "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 }

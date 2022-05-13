@@ -1,6 +1,5 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,16 +34,7 @@ public interface tl0 {
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) ? i : invokeLI.intValue;
         }
-
-        @Override // com.repackage.tl0
-        public int b(String str, String str2, int i) {
-            InterceptResult invokeLLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, i)) == null) ? i : invokeLLI.intValue;
-        }
     }
 
     int a(String str, int i);
-
-    int b(String str, String str2, int i);
 }

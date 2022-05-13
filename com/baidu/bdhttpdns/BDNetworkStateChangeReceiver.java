@@ -11,8 +11,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wq;
-import com.repackage.xq;
+import com.repackage.fq;
+import com.repackage.gq;
 import java.net.DatagramSocket;
 import java.net.InetSocketAddress;
 import java.net.SocketException;
@@ -70,7 +70,7 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
                 } catch (SocketException unused2) {
                     this.a.e = false;
                 }
-                xq.a("isIPv4Reachable(%s), isIPv6Reachable(%s)", Boolean.valueOf(this.a.f), Boolean.valueOf(this.a.e));
+                gq.a("isIPv4Reachable(%s), isIPv6Reachable(%s)", Boolean.valueOf(this.a.f), Boolean.valueOf(this.a.e));
                 return null;
             }
             return invokeV.objValue;
@@ -101,7 +101,7 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
     private void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, context) == null) {
-            xq.a("Network change, clearCache(%b) httpDnsPrefetch(%b)", Boolean.valueOf(this.b), Boolean.valueOf(this.c));
+            gq.a("Network change, clearCache(%b) httpDnsPrefetch(%b)", Boolean.valueOf(this.b), Boolean.valueOf(this.c));
             i b = i.b();
             b.r();
             BDHttpDns j = BDHttpDns.j(context);
@@ -113,10 +113,10 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
             }
             if (this.c) {
                 if (isIPv6Only()) {
-                    xq.a("Now the network is Ipv6 Only, Will not send prefetch request. ", new Object[0]);
+                    gq.a("Now the network is Ipv6 Only, Will not send prefetch request. ", new Object[0]);
                 } else if (e == null || e.isEmpty()) {
                 } else {
-                    b.o(e, new wq(context));
+                    b.o(e, new fq(context));
                 }
             }
         }
@@ -197,7 +197,7 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
             } else if (networkInfo2 == null || networkInfo2.getState() != NetworkInfo.State.CONNECTED) {
                 str = "";
                 if (!this.d.equals(str) && str != "") {
-                    xq.a("Current net type: %s.", str);
+                    gq.a("Current net type: %s.", str);
                     a(context);
                 }
                 this.d = str;
@@ -206,7 +206,7 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
             }
             str = extraInfo.toString();
             if (!this.d.equals(str)) {
-                xq.a("Current net type: %s.", str);
+                gq.a("Current net type: %s.", str);
                 a(context);
             }
             this.d = str;

@@ -1,794 +1,253 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.pm.PackageManager;
+import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.util.devices.RomUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.RandomAccessFile;
-import java.lang.ref.WeakReference;
-import java.nio.channels.FileChannel;
-import java.nio.channels.FileLock;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipException;
-import java.util.zip.ZipFile;
+import java.io.InputStreamReader;
+import java.util.Locale;
 /* loaded from: classes7.dex */
-public final class v11 {
+public class v11 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set<String> b;
-    public static final List<File> c;
-    public static Map<String, WeakReference<Lock>> d;
+    public static String a;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
-    public StringBuilder a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755284133, "Lcom/repackage/v11;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public static String a() {
+        InterceptResult invokeV;
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            String lowerCase = Build.MANUFACTURER.toLowerCase(Locale.getDefault());
+            switch (lowerCase.hashCode()) {
+                case -1443430368:
+                    if (lowerCase.equals(RomUtils.MANUFACTURER_SMARTISAN)) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -1245779295:
+                    if (lowerCase.equals(RomUtils.MANUFACTURER_GIONEE)) {
+                        c = 5;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -1206476313:
+                    if (lowerCase.equals(RomUtils.MANUFACTURER_HUAWEI)) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -759499589:
+                    if (lowerCase.equals(RomUtils.MANUFACTURER_XIAOMI)) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 3418016:
+                    if (lowerCase.equals(RomUtils.MANUFACTURER_OPPO)) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 3620012:
+                    if (lowerCase.equals(RomUtils.MANUFACTURER_VIVO)) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 103777484:
+                    if (lowerCase.equals("meizu")) {
+                        c = 7;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 105170387:
+                    if (lowerCase.equals(RomUtils.MANUFACTURER_NUBIA)) {
+                        c = 6;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755284133, "Lcom/repackage/v11;");
-                return;
+            switch (c) {
+                case 0:
+                    String e = e("ro.build.version.emui");
+                    b = e;
+                    if (!TextUtils.isEmpty(e)) {
+                        a = "EMUI";
+                        return "EMUI";
+                    }
+                    return d();
+                case 1:
+                    String e2 = e("ro.miui.ui.version.name");
+                    b = e2;
+                    if (!TextUtils.isEmpty(e2)) {
+                        a = "MIUI";
+                        return "MIUI";
+                    }
+                    return d();
+                case 2:
+                    String e3 = e("ro.build.version.opporom");
+                    b = e3;
+                    if (!TextUtils.isEmpty(e3)) {
+                        a = "OPPO";
+                        return "OPPO";
+                    }
+                    return d();
+                case 3:
+                    String e4 = e("ro.vivo.os.version");
+                    b = e4;
+                    if (!TextUtils.isEmpty(e4)) {
+                        a = "VIVO";
+                        return "VIVO";
+                    }
+                    return d();
+                case 4:
+                    String e5 = e("ro.smartisan.version");
+                    b = e5;
+                    if (!TextUtils.isEmpty(e5)) {
+                        a = "SMARTISAN";
+                        return "SMARTISAN";
+                    }
+                    return d();
+                case 5:
+                    String e6 = e(RomUtils.KEY_VERSION_GIONEE);
+                    b = e6;
+                    if (!TextUtils.isEmpty(e6)) {
+                        a = RomUtils.ROM_GIONEE;
+                        return RomUtils.ROM_GIONEE;
+                    }
+                    return d();
+                case 6:
+                    String e7 = e(RomUtils.KEY_VERSION_NUBIA);
+                    b = e7;
+                    if (!TextUtils.isEmpty(e7)) {
+                        a = RomUtils.ROM_NUBIA;
+                        return RomUtils.ROM_NUBIA;
+                    }
+                    return d();
+                case 7:
+                    if (Build.DISPLAY.toUpperCase(Locale.getDefault()).contains("FLYME")) {
+                        a = "FLYME";
+                        return "FLYME";
+                    }
+                    return d();
+                default:
+                    return d();
             }
         }
-        b = Collections.synchronizedSet(new HashSet());
-        c = new ArrayList();
-        d = new ConcurrentHashMap();
+        return (String) invokeV.objValue;
     }
 
-    public v11() {
+    public static String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Build.PRODUCT : (String) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            String str = a;
+            return str == null ? a() : str;
         }
-        this.a = new StringBuilder();
+        return (String) invokeV.objValue;
     }
 
-    public static synchronized Lock e(String str) {
-        InterceptResult invokeL;
-        Lock reentrantLock;
+    public static String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            synchronized (v11.class) {
-                WeakReference<Lock> weakReference = d.get(str);
-                if (weakReference == null || (reentrantLock = weakReference.get()) == null) {
-                    reentrantLock = new ReentrantLock();
-                    d.put(str, new WeakReference<>(reentrantLock));
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            String str = Build.DISPLAY;
+            b = str;
+            if (str.toUpperCase(Locale.getDefault()).contains("FLYME")) {
+                a = "FLYME";
+            } else {
+                b = "unknown";
+                a = Build.MANUFACTURER.toUpperCase(Locale.getDefault());
             }
-            return reentrantLock;
+            return a;
         }
-        return (Lock) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static File g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? new File(context.getFilesDir(), "lib") : (File) invokeL.objValue;
-    }
-
-    public static void l(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) || b.contains(str)) {
-            return;
-        }
-        m(context, str, null);
-    }
-
-    public static void m(Context context, String str, u11 u11Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, null, context, str, u11Var) == null) {
-            if (u11Var == null) {
-                u11Var = t11.a();
-            }
-            v11 v11Var = new v11();
-            if (c.size() == 0) {
-                v11Var.j(context);
-            }
-            if (v11Var.r(context, str, u11Var)) {
-                b.add(str);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r1v5, resolved type: java.util.List<java.io.File> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public final void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new File(f(context)));
-            arrayList.add(new File(context.getFilesDir(), "lib"));
-            for (int i = 0; i < arrayList.size(); i++) {
-                if (!c.contains(arrayList.get(i))) {
-                    c.add(arrayList.get(i));
-                }
-            }
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            String str = System.getenv("LD_LIBRARY_PATH");
-            if (str == null) {
-                str = "/vendor/lib:/system/lib";
-            }
-            for (String str2 : str.split(":")) {
-                File file = new File(str2);
-                if (!c.contains(file)) {
-                    c.add(file);
-                }
-            }
-        }
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:59:0x009b */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.titan.sdk.runtime.Interceptable */
-    /* JADX DEBUG: Multi-variable search result rejected for r3v5, resolved type: java.nio.channels.FileChannel */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x0078 A[Catch: IOException -> 0x007c, TRY_ENTER, TRY_LEAVE, TryCatch #11 {IOException -> 0x007c, blocks: (B:40:0x0078, B:57:0x0097), top: B:93:0x001b }] */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x0097 A[Catch: IOException -> 0x007c, TRY_ENTER, TRY_LEAVE, TryCatch #11 {IOException -> 0x007c, blocks: (B:40:0x0078, B:57:0x0097), top: B:93:0x001b }] */
-    /* JADX WARN: Removed duplicated region for block: B:75:0x008d A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:77:0x006e A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:83:0x00a8 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:87:0x009e A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r3v1, types: [java.lang.Object[]] */
-    /* JADX WARN: Type inference failed for: r3v3 */
+    /* JADX WARN: Not initialized variable reg: 2, insn: 0x0064: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:26:0x0064 */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x0067 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final boolean c(Context context, ZipFile zipFile, String str, String str2, long j) {
-        FileChannel fileChannel;
-        InterceptResult invokeCommon;
-        FileChannel fileChannel2;
-        Interceptable interceptable = $ic;
-        if (interceptable == 0 || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, (fileChannel = new Object[]{context, zipFile, str, str2, Long.valueOf(j)}))) == null) {
-            boolean z = false;
-            if (zipFile == null) {
-                return false;
-            }
-            File g = g(context);
-            if (!g.exists()) {
-                g.mkdirs();
-            }
-            File file = new File(g, str);
-            FileLock fileLock = null;
-            try {
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            try {
-                try {
-                    File file2 = new File(g, str + ".lock");
-                    if (!file2.exists()) {
-                        try {
-                            file2.createNewFile();
-                        } catch (IOException e2) {
-                            e2.printStackTrace();
-                        }
-                    }
-                    try {
-                        fileChannel2 = new RandomAccessFile(file2, "rw").getChannel();
-                    } catch (FileNotFoundException e3) {
-                        e = e3;
-                        fileChannel2 = null;
-                    }
-                    try {
-                        try {
-                            fileLock = fileChannel2.lock();
-                        } catch (IOException e4) {
-                            try {
-                                e4.printStackTrace();
-                            } catch (FileNotFoundException e5) {
-                                e = e5;
-                                e.printStackTrace();
-                                if (fileLock != null) {
-                                    v(j, str, g);
-                                }
-                                if (fileLock != null) {
-                                }
-                                if (fileChannel2 != null) {
-                                }
-                                return z;
-                            }
-                        }
-                        if (fileLock != null && fileLock.isValid() && (z = u(zipFile, file, str2))) {
-                            v(j, str, g);
-                        }
-                        if (fileLock != null) {
-                            try {
-                                fileLock.release();
-                            } catch (IOException e6) {
-                                e6.printStackTrace();
-                            }
-                        }
-                    } catch (Exception e7) {
-                        e = e7;
-                        e.printStackTrace();
-                        if (fileLock != null) {
-                            try {
-                                fileLock.release();
-                            } catch (IOException e8) {
-                                e8.printStackTrace();
-                            }
-                        }
-                        if (fileChannel2 != null) {
-                            fileChannel2.close();
-                        }
-                        return z;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    if (0 != 0) {
-                        try {
-                            fileLock.release();
-                        } catch (IOException e9) {
-                            e9.printStackTrace();
-                        }
-                    }
-                    if (fileChannel != 0) {
-                        try {
-                            fileChannel.close();
-                        } catch (IOException e10) {
-                            e10.printStackTrace();
-                        }
-                    }
-                    throw th;
-                }
-            } catch (Exception e11) {
-                e = e11;
-                fileChannel2 = null;
-                e.printStackTrace();
-                if (fileLock != null) {
-                }
-                if (fileChannel2 != null) {
-                }
-                return z;
-            } catch (Throwable th2) {
-                th = th2;
-                fileChannel = 0;
-                if (0 != 0) {
-                }
-                if (fileChannel != 0) {
-                }
-                throw th;
-            }
-            if (fileChannel2 != null) {
-                fileChannel2.close();
-            }
-            return z;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public final String d(String str) {
+    public static String e(String str) {
         InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            int lastIndexOf = str.lastIndexOf(".");
-            if (lastIndexOf != -1) {
-                str = str.substring(0, lastIndexOf);
-            }
-            return str + "_crc";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final String f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            try {
-                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.nativeLibraryDir;
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final long h(ZipFile zipFile, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, zipFile, str)) == null) {
-            if (zipFile != null) {
-                try {
-                    ZipEntry entry = zipFile.getEntry(str);
-                    if (entry != null) {
-                        return entry.getCrc();
-                    }
-                    return 0L;
-                } catch (Exception unused) {
-                    return 0L;
-                }
-            }
-            return 0L;
-        }
-        return invokeLL.longValue;
-    }
-
-    public final long i(ZipFile zipFile, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, zipFile, str)) == null) {
-            if (zipFile != null) {
-                try {
-                    ZipEntry entry = zipFile.getEntry(str);
-                    if (entry != null) {
-                        return entry.getSize();
-                    }
-                    return 0L;
-                } catch (Exception unused) {
-                    return 0L;
-                }
-            }
-            return 0L;
-        }
-        return invokeLL.longValue;
-    }
-
-    public final void j(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
-            b();
-            a(context);
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:53:0x0071 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final boolean k(String str, long j, long j2) {
-        InterceptResult invokeCommon;
         BufferedReader bufferedReader;
-        String str2;
+        BufferedReader bufferedReader2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)})) != null) {
-            return invokeCommon.booleanValue;
+        if (interceptable != null && (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) != null) {
+            return (String) invokeL.objValue;
         }
-        File file = new File(str);
-        if (!file.exists()) {
-            return false;
-        }
-        BufferedReader bufferedReader2 = null;
-        r1 = null;
-        r1 = null;
-        String str3 = null;
         BufferedReader bufferedReader3 = null;
         try {
-            File file2 = new File(file.getParentFile(), d(file.getName()));
-            if (file2.exists()) {
-                bufferedReader = new BufferedReader(new FileReader(file2));
+            try {
+                bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop " + str).getInputStream()));
                 try {
+                    String readLine = bufferedReader.readLine();
+                    bufferedReader.close();
                     try {
-                        bufferedReader3 = bufferedReader;
-                        str2 = bufferedReader.readLine();
-                    } catch (Exception e) {
-                        e = e;
+                        bufferedReader.close();
+                    } catch (IOException e) {
                         e.printStackTrace();
-                        if (bufferedReader != null) {
-                            try {
-                                bufferedReader.close();
-                            } catch (Exception e2) {
-                                e2.printStackTrace();
-                            }
-                        }
-                        return !TextUtils.equals(String.valueOf(j), str3) ? false : false;
                     }
-                } catch (Throwable th) {
-                    th = th;
-                    bufferedReader2 = bufferedReader;
-                    if (bufferedReader2 != null) {
-                        try {
-                            bufferedReader2.close();
-                        } catch (Exception e3) {
-                            e3.printStackTrace();
-                        }
-                    }
-                    throw th;
-                }
-            } else {
-                str2 = null;
-            }
-            if (bufferedReader3 != null) {
-                try {
-                    bufferedReader3.close();
-                } catch (Exception e4) {
-                    e4.printStackTrace();
-                }
-            }
-            str3 = str2;
-        } catch (Exception e5) {
-            e = e5;
-            bufferedReader = null;
-        } catch (Throwable th2) {
-            th = th2;
-            if (bufferedReader2 != null) {
-            }
-            throw th;
-        }
-        if (!TextUtils.equals(String.valueOf(j), str3) && j2 == file.length()) {
-            return true;
-        }
-    }
-
-    public final boolean n(u11 u11Var, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, u11Var, str, str2)) == null) {
-            try {
-                u11Var.load(str);
-                return true;
-            } catch (Throwable th) {
-                StringBuilder sb = this.a;
-                sb.append(str2 + ":::" + str + ":" + Log.getStackTraceString(th));
-                return false;
-            }
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public final boolean o(Context context, u11 u11Var, String str, long j, String str2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{context, u11Var, str, Long.valueOf(j), str2})) == null) {
-            File file = new File(f(context), str);
-            return file.exists() && file.length() == j && n(u11Var, file.getAbsolutePath(), "SO_NATIVE_LIB_LOAD");
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public final boolean p(Context context, u11 u11Var, String str, ZipFile zipFile, String str2, long j) {
-        InterceptResult invokeCommon;
-        long h;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{context, u11Var, str, zipFile, str2, Long.valueOf(j)})) == null) {
-            String absolutePath = new File(g(context), str).getAbsolutePath();
-            Lock e = e(str);
-            e.lock();
-            try {
-                try {
-                    h = h(zipFile, str2);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-                if (q(u11Var, absolutePath, h, j)) {
-                    return true;
-                }
-                if (c(context, zipFile, str, str2, h)) {
-                    if (q(u11Var, absolutePath, h, j)) {
-                        return true;
-                    }
-                }
-                e.unlock();
-                return false;
-            } finally {
-                e.unlock();
-            }
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public final boolean q(u11 u11Var, String str, long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{u11Var, str, Long.valueOf(j), Long.valueOf(j2)})) == null) ? k(str, j, j2) && n(u11Var, str, "SO_RELEASE_LIB_LOAD") : invokeCommon.booleanValue;
-    }
-
-    public final boolean r(Context context, String str, u11 u11Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048589, this, context, str, u11Var)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                if (t(u11Var, str, "SO_LOAD_LIBRARY")) {
-                    return true;
-                }
-                return s(context, str, u11Var);
-            }
-            throw new IllegalArgumentException("load so library argument error,soName is null.");
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:15:0x003b A[Catch: all -> 0x00bc, TRY_ENTER, TRY_LEAVE, TryCatch #7 {all -> 0x00bc, blocks: (B:15:0x003b, B:22:0x0050, B:31:0x0095, B:39:0x00a7), top: B:73:0x0039 }] */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0050 A[Catch: all -> 0x00bc, TRY_ENTER, TRY_LEAVE, TryCatch #7 {all -> 0x00bc, blocks: (B:15:0x003b, B:22:0x0050, B:31:0x0095, B:39:0x00a7), top: B:73:0x0039 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final boolean s(Context context, String str, u11 u11Var) {
-        InterceptResult invokeLLL;
-        Throwable th;
-        ZipFile zipFile;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048590, this, context, str, u11Var)) == null) {
-            String b2 = w11.b(str);
-            ZipFile zipFile2 = null;
-            try {
-            } catch (Throwable th2) {
-                th = th2;
-            }
-            try {
-                try {
-                    try {
-                        zipFile = new ZipFile(new File(context.getApplicationInfo().sourceDir));
-                    } catch (ZipException e) {
-                        this.a.append(Log.getStackTraceString(e));
-                        e.printStackTrace();
-                        zipFile = null;
-                        if (zipFile == null) {
-                        }
-                    }
+                    return readLine;
                 } catch (IOException e2) {
-                    this.a.append(Log.getStackTraceString(e2));
-                    e2.printStackTrace();
-                    zipFile = null;
-                    if (zipFile == null) {
-                    }
-                }
-                if (zipFile == null) {
-                    w11.f(this.a.toString());
-                    if (zipFile != null) {
+                    e = e2;
+                    Log.e("Rom", "Unable to read prop " + str, e);
+                    if (bufferedReader != null) {
                         try {
-                            zipFile.close();
+                            bufferedReader.close();
                         } catch (IOException e3) {
                             e3.printStackTrace();
                         }
                     }
-                    return false;
-                }
-                int i = !w11.d() ? 1 : 0;
-                String str2 = w11.b[i] + File.separator + b2;
-                long i2 = i(zipFile, str2);
-                if (o(context, u11Var, b2, i2, str2)) {
-                    if (zipFile != null) {
-                        try {
-                            zipFile.close();
-                        } catch (IOException e4) {
-                            e4.printStackTrace();
-                        }
-                    }
-                    return true;
-                } else if (p(context, u11Var, b2, zipFile, str2, i2)) {
-                    if (zipFile != null) {
-                        try {
-                            zipFile.close();
-                        } catch (IOException e5) {
-                            e5.printStackTrace();
-                        }
-                    }
-                    return true;
-                } else {
-                    w11.f(this.a.toString());
-                    if (zipFile != null) {
-                        try {
-                            zipFile.close();
-                        } catch (IOException e6) {
-                            e6.printStackTrace();
-                        }
-                    }
-                    return false;
-                }
-            } catch (Throwable th3) {
-                th = th3;
-                zipFile2 = zipFile;
-                if (zipFile2 != null) {
-                    try {
-                        zipFile2.close();
-                    } catch (IOException e7) {
-                        e7.printStackTrace();
-                    }
-                }
-                throw th;
-            }
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public final boolean t(u11 u11Var, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048591, this, u11Var, str, str2)) == null) {
-            String c2 = w11.c(str);
-            try {
-                u11Var.loadLibrary(c2);
-                return true;
-            } catch (Throwable th) {
-                StringBuilder sb = this.a;
-                sb.append(str2 + ":::" + c2 + ":" + Log.getStackTraceString(th));
-                return false;
-            }
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public final boolean u(ZipFile zipFile, File file, String str) {
-        InterceptResult invokeLLL;
-        FileOutputStream fileOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048592, this, zipFile, file, str)) == null) {
-            File file2 = new File(file.getAbsoluteFile() + ".tmp");
-            InputStream inputStream = null;
-            try {
-                if (zipFile != null) {
-                    try {
-                        InputStream inputStream2 = zipFile.getInputStream(zipFile.getEntry(str));
-                        try {
-                            fileOutputStream = new FileOutputStream(file2);
-                            try {
-                                if (w11.a(inputStream2, fileOutputStream, 256) > 0) {
-                                    boolean renameTo = file2.renameTo(file);
-                                    if (inputStream2 != null) {
-                                        try {
-                                            inputStream2.close();
-                                        } catch (Exception e) {
-                                            e.printStackTrace();
-                                        }
-                                    }
-                                    try {
-                                        fileOutputStream.close();
-                                    } catch (Exception e2) {
-                                        e2.printStackTrace();
-                                    }
-                                    return renameTo;
-                                }
-                                inputStream = inputStream2;
-                            } catch (Exception unused) {
-                                inputStream = inputStream2;
-                                if (inputStream != null) {
-                                    try {
-                                        inputStream.close();
-                                    } catch (Exception e3) {
-                                        e3.printStackTrace();
-                                    }
-                                }
-                                if (fileOutputStream != null) {
-                                    fileOutputStream.close();
-                                    return false;
-                                }
-                                return false;
-                            } catch (Throwable th) {
-                                th = th;
-                                inputStream = inputStream2;
-                                if (inputStream != null) {
-                                    try {
-                                        inputStream.close();
-                                    } catch (Exception e4) {
-                                        e4.printStackTrace();
-                                    }
-                                }
-                                if (fileOutputStream != null) {
-                                    try {
-                                        fileOutputStream.close();
-                                    } catch (Exception e5) {
-                                        e5.printStackTrace();
-                                    }
-                                }
-                                throw th;
-                            }
-                        } catch (Exception unused2) {
-                            fileOutputStream = null;
-                        } catch (Throwable th2) {
-                            th = th2;
-                            fileOutputStream = null;
-                        }
-                    } catch (Exception unused3) {
-                        fileOutputStream = null;
-                    } catch (Throwable th3) {
-                        th = th3;
-                        fileOutputStream = null;
-                    }
-                } else {
-                    fileOutputStream = null;
-                }
-                if (inputStream != null) {
-                    try {
-                        inputStream.close();
-                    } catch (Exception e6) {
-                        e6.printStackTrace();
-                    }
-                }
-                if (fileOutputStream != null) {
-                    fileOutputStream.close();
-                    return false;
-                }
-                return false;
-            } catch (Exception e7) {
-                e7.printStackTrace();
-                return false;
-            }
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public final boolean v(long j, String str, File file) {
-        InterceptResult invokeCommon;
-        BufferedWriter bufferedWriter;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{Long.valueOf(j), str, file})) == null) {
-            BufferedWriter bufferedWriter2 = null;
-            try {
-                try {
-                    bufferedWriter = new BufferedWriter(new FileWriter(new File(file, d(str))));
-                } catch (Exception e) {
-                    e = e;
+                    return null;
                 }
             } catch (Throwable th) {
                 th = th;
-            }
-            try {
-                bufferedWriter.write(String.valueOf(j));
-                try {
-                    bufferedWriter.close();
-                    return true;
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                    return true;
-                }
-            } catch (Exception e3) {
-                e = e3;
-                bufferedWriter2 = bufferedWriter;
-                e.printStackTrace();
-                if (bufferedWriter2 != null) {
+                bufferedReader3 = bufferedReader2;
+                if (bufferedReader3 != null) {
                     try {
-                        bufferedWriter2.close();
-                    } catch (Exception e4) {
+                        bufferedReader3.close();
+                    } catch (IOException e4) {
                         e4.printStackTrace();
-                    }
-                }
-                return false;
-            } catch (Throwable th2) {
-                th = th2;
-                bufferedWriter2 = bufferedWriter;
-                if (bufferedWriter2 != null) {
-                    try {
-                        bufferedWriter2.close();
-                    } catch (Exception e5) {
-                        e5.printStackTrace();
                     }
                 }
                 throw th;
             }
+        } catch (IOException e5) {
+            e = e5;
+            bufferedReader = null;
+        } catch (Throwable th2) {
+            th = th2;
+            if (bufferedReader3 != null) {
+            }
+            throw th;
         }
-        return invokeCommon.booleanValue;
     }
 }

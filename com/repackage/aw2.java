@@ -1,134 +1,138 @@
 package com.repackage;
 
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ro1;
-import com.repackage.s53;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class aw2 extends wv2 {
+public class aw2 extends y32 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public g22<Boolean> c;
+    public String d;
+    public String e;
+    public long f;
+    public final j84<t94> g;
 
     /* loaded from: classes5.dex */
-    public class a implements cf3<m53<s53.d>> {
+    public class a extends z32<aw2> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v12 a;
-        public final /* synthetic */ uv2 b;
-        public final /* synthetic */ v53 c;
+        public final /* synthetic */ aw2 b;
 
-        public a(aw2 aw2Var, v12 v12Var, uv2 uv2Var, v53 v53Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(aw2 aw2Var, aw2 aw2Var2) {
+            super(aw2Var2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aw2Var, v12Var, uv2Var, v53Var};
+                Object[] objArr = {aw2Var, aw2Var2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((y32) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = v12Var;
-            this.b = uv2Var;
-            this.c = v53Var;
+            this.b = aw2Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.cf3
-        /* renamed from: a */
-        public void onCallback(m53<s53.d> m53Var) {
+        @Override // com.repackage.z32
+        public void r(@NonNull t94 t94Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, m53Var) == null) {
-                if (m53Var != null && m53Var.c() && !TextUtils.isEmpty(m53Var.a.a)) {
-                    JSONObject jSONObject = this.c.g;
-                    if (jSONObject != null) {
-                        try {
-                            jSONObject.put("code", m53Var.a.a);
-                            this.b.d = true;
-                        } catch (JSONException e) {
-                            if (tg1.a) {
-                                bw2.b(Log.getStackTraceString(e));
-                            }
-                        }
-                        this.b.e = jSONObject.toString();
-                    }
-                    this.a.a(this.b);
-                    return;
-                }
-                bw2.b("login failure, can't get login code");
-                this.a.a(this.b);
+            if (interceptable == null || interceptable.invokeL(1048576, this, t94Var) == null) {
+                this.b.c.a(Boolean.TRUE);
+            }
+        }
+
+        @Override // com.repackage.z32
+        public void u(t94 t94Var, nc3 nc3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t94Var, nc3Var) == null) {
+                this.b.c.a(Boolean.FALSE);
             }
         }
     }
 
-    public aw2() {
+    public aw2(String str, String str2, long j, g22<Boolean> g22Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, Long.valueOf(j), g22Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.repackage.xv2
-    public js1 b(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            return null;
-        }
-        return (js1) invokeL.objValue;
-    }
-
-    @Override // com.repackage.xv2
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "snsapi_userinfo" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.xv2
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "SwanPluginUserInfoFunPage" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.wv2
-    public void p(SwanAppActivity swanAppActivity, String str, tv2 tv2Var, v53 v53Var, v12<uv2> v12Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048579, this, swanAppActivity, str, tv2Var, v53Var, v12Var) == null) {
-            uv2 uv2Var = new uv2(tv2Var.f);
-            uv2Var.a = tv2Var.e;
-            if (v53Var != null && v53Var.j.a() == 0) {
-                bw2.b("obtain user info detail, get login code");
-                ro1.d dVar = new ro1.d(tv2Var.g);
-                Bundle bundle = new Bundle();
-                bundle.putString("__plugin__", tv2Var.a);
-                i03.J().r().d0().r(swanAppActivity, dVar, bundle, new a(this, v12Var, uv2Var, v53Var), "SwanPluginUserInfoFunPage");
                 return;
             }
-            bw2.b("open data result failure");
-            v12Var.a(uv2Var);
         }
+        this.g = new a(this, this);
+        this.c = g22Var;
+        this.d = str;
+        this.e = str2;
+        this.f = j;
+    }
+
+    @Override // com.repackage.n84
+    public void D(m94 m94Var) {
+        t94 p;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, m94Var) == null) {
+            super.D(m94Var);
+            if (m94Var != null) {
+                if (m94Var.a == 1010 && (p = bw2.p(this.d, this.e, this.f)) != null) {
+                    p.d = p.b();
+                    p84.i().x(p);
+                }
+                mw2.b("fetch plugin error: " + m94Var.toString());
+            } else {
+                mw2.b("fetch plugin error");
+            }
+            this.c.a(Boolean.FALSE);
+        }
+    }
+
+    @Override // com.repackage.n84
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.F();
+            mw2.b("fetch plugin success");
+        }
+    }
+
+    @Override // com.repackage.n84
+    public void G() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.G();
+            mw2.b("no package");
+            this.c.a(Boolean.FALSE);
+        }
+    }
+
+    @Override // com.repackage.n84
+    public void H(ae4 ae4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, ae4Var) == null) {
+            super.H(ae4Var);
+        }
+    }
+
+    @Override // com.repackage.n84
+    public j84<t94> y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g : (j84) invokeV.objValue;
     }
 }

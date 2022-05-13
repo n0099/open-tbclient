@@ -7,8 +7,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pn4;
-import com.repackage.uo;
+import com.repackage.ro;
+import com.repackage.zn4;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -32,17 +32,17 @@ public abstract class AbsGroupUbsABTest {
         }
     }
 
-    public static void setCardInfoUbsABTest(List<uo> list) {
+    public static void setCardInfoUbsABTest(List<ro> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65537, null, list) == null) || list == null) {
             return;
         }
         HashMap hashMap = new HashMap(UbsABTestHelper.getUbsABTestMap());
-        for (uo uoVar : list) {
-            if (uoVar instanceof pn4) {
-                pn4 pn4Var = (pn4) uoVar;
+        for (ro roVar : list) {
+            if (roVar instanceof zn4) {
+                zn4 zn4Var = (zn4) roVar;
                 for (Map.Entry entry : hashMap.entrySet()) {
-                    pn4Var.setABTest((BdUniqueId) entry.getKey(), (UsbAbTestSwitch) entry.getValue());
+                    zn4Var.setABTest((BdUniqueId) entry.getKey(), (UsbAbTestSwitch) entry.getValue());
                 }
             }
         }

@@ -1,92 +1,36 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.constants.PmsConstant;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.so.SoLoader;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class n63 implements m63<JSONObject> {
+public final class n63 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONArray b;
 
-    public n63() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = new JSONArray();
-    }
-
-    public void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            if (TextUtils.isEmpty(str)) {
-                if (m63.a) {
-                    Log.d("LaunchTraceCollector", "event is empty");
-                    return;
-                }
-                return;
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("actionId", str);
-                jSONObject.put(PmsConstant.Statistic.Key.REV_TIMESTAMP, String.valueOf(System.currentTimeMillis()));
-                jSONObject.put("info", str2);
-                b(jSONObject);
-            } catch (JSONException e) {
-                if (m63.a) {
-                    Log.w("LaunchTraceCollector", Log.getStackTraceString(e));
-                }
-            }
-        }
-    }
-
-    public void b(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        this.b.put(jSONObject);
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b = new JSONArray();
-        }
-    }
-
-    public JSONObject d() {
+    public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("launchLog", this.b);
-            } catch (JSONException e) {
-                if (m63.a) {
-                    Log.e("LaunchTraceCollector", Log.getStackTraceString(e));
-                }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? bk2.e0().c() : (String) invokeV.objValue;
+    }
+
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? SoLoader.load(AppRuntime.getAppContext(), "audioengine") : invokeV.booleanValue;
+    }
+
+    public static p63 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (!bk2.w0().d()) {
+                return u62.c(false);
             }
-            return jSONObject;
+            return SoLoader.loadV8EngineSo(AppRuntime.getAppContext());
         }
-        return (JSONObject) invokeV.objValue;
+        return (p63) invokeV.objValue;
     }
 }

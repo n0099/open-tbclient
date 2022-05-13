@@ -1,74 +1,37 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class kc4 {
+public class kc4 extends ac4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final Set<String> b;
 
-    public kc4(String str, Set<String> set) {
+    public kc4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, set};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = str;
-        this.b = set;
     }
 
-    public static kc4 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        JSONObject optJSONObject;
-        JSONArray optJSONArray;
+    @Override // com.repackage.ac4, com.repackage.dc4
+    public void b(JSONObject jSONObject, n84 n84Var, @Nullable n84 n84Var2, @Nullable n84 n84Var3) {
+        hc4 d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null || (optJSONArray = optJSONObject.optJSONArray("appkeys")) == null) {
-                return null;
-            }
-            String optString = jSONObject.optString("version");
-            HashSet hashSet = new HashSet();
-            int length = optJSONArray.length();
-            for (int i = 0; i < length; i++) {
-                String optString2 = optJSONArray.optString(i);
-                if (!TextUtils.isEmpty(optString2)) {
-                    hashSet.add(optString2);
-                }
-            }
-            return new kc4(optString, hashSet);
+        if (!(interceptable == null || interceptable.invokeLLLL(1048576, this, jSONObject, n84Var, n84Var2, n84Var3) == null) || jSONObject == null || (d = ic4.c().d(jSONObject)) == null) {
+            return;
         }
-        return (kc4) invokeL.objValue;
-    }
-
-    public Set<String> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Set) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+        d84.b().D(d);
     }
 }

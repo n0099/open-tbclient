@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cf7;
+import com.repackage.ff7;
 import com.squareup.wire.Wire;
 import tbclient.GetSuggestionByAddrName.GetSuggestionByAddrNameResIdl;
 /* loaded from: classes3.dex */
 public class LocationSearchHttpResponsedMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public cf7 mLocationData;
+    public ff7 mLocationData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LocationSearchHttpResponsedMessage(int i) {
@@ -38,16 +38,16 @@ public class LocationSearchHttpResponsedMessage extends HttpResponsedMessage {
         }
     }
 
-    public cf7 getLocationData() {
+    public ff7 getLocationData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mLocationData : (cf7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mLocationData : (ff7) invokeV.objValue;
     }
 
-    public void setLocationData(cf7 cf7Var) {
+    public void setLocationData(ff7 ff7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, cf7Var) == null) {
-            this.mLocationData = cf7Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, ff7Var) == null) {
+            this.mLocationData = ff7Var;
         }
     }
 
@@ -62,9 +62,9 @@ public class LocationSearchHttpResponsedMessage extends HttpResponsedMessage {
             if (getError() != 0) {
                 return;
             }
-            cf7 cf7Var = new cf7();
-            this.mLocationData = cf7Var;
-            cf7Var.b(getSuggestionByAddrNameResIdl.data);
+            ff7 ff7Var = new ff7();
+            this.mLocationData = ff7Var;
+            ff7Var.b(getSuggestionByAddrNameResIdl.data);
             BdLog.detailException(null);
         }
     }

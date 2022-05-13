@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class n68 extends c45 {
+public class n68 extends t45 {
     public static /* synthetic */ Interceptable $ic;
     public static final int j;
     public static final int k;

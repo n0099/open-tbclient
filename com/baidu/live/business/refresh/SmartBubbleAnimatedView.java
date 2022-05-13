@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rb0;
+import com.repackage.ub0;
 /* loaded from: classes2.dex */
 public class SmartBubbleAnimatedView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -289,7 +289,7 @@ public class SmartBubbleAnimatedView extends View {
             this.d.addUpdateListener(new a(this));
             this.d.setDuration(400L);
             this.d.start();
-            rb0.a().postDelayed(new b(this), this.b);
+            ub0.a().postDelayed(new b(this), this.b);
         }
     }
 

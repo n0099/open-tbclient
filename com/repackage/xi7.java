@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class xi7 extends u05 {
+public class xi7 extends i15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public xi7(Context context) {
-        super(context, context.getString(R.string.obfuscated_res_0x7f0f0528), 12);
+        super(context, context.getString(R.string.obfuscated_res_0x7f0f052e), 12);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -31,17 +31,17 @@ public class xi7 extends u05 {
                 return;
             }
         }
-        this.d = R.drawable.obfuscated_res_0x7f080961;
-        this.f = R.drawable.icon_pure_post_more_bubble64;
-        this.e = R.drawable.obfuscated_res_0x7f080813;
-        this.p = R.drawable.obfuscated_res_0x7f08095d;
-        this.g = false;
-        this.h = true;
-        this.m = true;
+        this.d = R.drawable.obfuscated_res_0x7f080975;
+        this.h = R.drawable.icon_pure_post_more_bubble64;
+        this.e = R.drawable.obfuscated_res_0x7f080803;
+        this.r = R.drawable.obfuscated_res_0x7f080971;
+        this.i = false;
+        this.j = true;
+        this.o = true;
         CommonTabHost commonTabHost = new CommonTabHost(context);
-        this.k = commonTabHost;
-        commonTabHost.k(new wi7());
-        this.l = 6;
-        this.n = new int[]{1};
+        this.m = commonTabHost;
+        commonTabHost.j(new wi7());
+        this.n = 6;
+        this.p = new int[]{1};
     }
 }

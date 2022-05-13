@@ -22,14 +22,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ba7;
-import com.repackage.r65;
-import com.repackage.s65;
+import com.repackage.h75;
+import com.repackage.i75;
+import com.repackage.ia7;
 /* loaded from: classes3.dex */
-public class ChatAggregationFragment extends BaseFragment implements r65, NoNetworkView.b {
+public class ChatAggregationFragment extends BaseFragment implements h75, NoNetworkView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ba7 a;
+    public ia7 a;
     public ViewEventCenter b;
     public CustomMessageListener c;
     public CustomMessageListener d;
@@ -67,12 +67,11 @@ public class ChatAggregationFragment extends BaseFragment implements r65, NoNetw
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
                 if (this.a.a != null) {
-                    this.a.a.r0(true);
+                    this.a.a.t0(true);
                 }
                 MentionActivityConfig.newJumpIn = true;
                 if (this.a.a != null) {
-                    this.a.a.S();
-                    this.a.a.x0(TbadkCoreApplication.isLogin(), true ^ TbadkCoreApplication.isLogin());
+                    this.a.a.T();
                 }
             }
         }
@@ -112,7 +111,7 @@ public class ChatAggregationFragment extends BaseFragment implements r65, NoNetw
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
                 Intent intent = (Intent) customResponsedMessage.getData();
                 if (this.a.a != null) {
-                    this.a.a.Y(intent);
+                    this.a.a.Z(intent);
                 }
             }
         }
@@ -135,7 +134,7 @@ public class ChatAggregationFragment extends BaseFragment implements r65, NoNetw
         this.d = new b(this, 2016321);
     }
 
-    public ViewEventCenter C0() {
+    public ViewEventCenter D0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -147,7 +146,7 @@ public class ChatAggregationFragment extends BaseFragment implements r65, NoNetw
         return (ViewEventCenter) invokeV.objValue;
     }
 
-    public final boolean D0(Intent intent) {
+    public final boolean E0(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent)) == null) ? (intent == null || intent.getIntExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, -1) == -1) ? false : true : invokeL.booleanValue;
@@ -155,15 +154,15 @@ public class ChatAggregationFragment extends BaseFragment implements r65, NoNetw
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.b
     public void d(boolean z) {
-        ba7 ba7Var;
+        ia7 ia7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (ba7Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (ia7Var = this.a) == null) {
             return;
         }
-        ba7Var.X(z);
+        ia7Var.Y(z);
     }
 
-    @Override // com.repackage.r65
+    @Override // com.repackage.h75
     public boolean isEventMustSelf() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -173,13 +172,13 @@ public class ChatAggregationFragment extends BaseFragment implements r65, NoNetw
         return invokeV.booleanValue;
     }
 
-    public void m() {
-        ba7 ba7Var;
+    public void l() {
+        ia7 ia7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (ba7Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (ia7Var = this.a) == null) {
             return;
         }
-        ba7Var.m0();
+        ia7Var.m0();
     }
 
     @Override // androidx.fragment.app.Fragment
@@ -207,12 +206,12 @@ public class ChatAggregationFragment extends BaseFragment implements r65, NoNetw
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        ba7 ba7Var;
+        ia7 ia7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i) == null) || (ba7Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048582, this, i) == null) || (ia7Var = this.a) == null) {
             return;
         }
-        ba7Var.T(getPageContext(), i);
+        ia7Var.U(getPageContext(), i);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -220,19 +219,15 @@ public class ChatAggregationFragment extends BaseFragment implements r65, NoNetw
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, layoutInflater, viewGroup, bundle)) == null) {
-            ba7 ba7Var = new ba7(this);
-            this.a = ba7Var;
-            if (bundle != null) {
-                ba7Var.P(bundle);
-            } else {
-                ba7Var.P(null);
-            }
-            View V = this.a.V();
-            this.a.T(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-            C0().addEventDelegate(this);
+            ia7 ia7Var = new ia7(this);
+            this.a = ia7Var;
+            ia7Var.Q(bundle);
+            View W = this.a.W();
+            this.a.U(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+            D0().addEventDelegate(this);
             registerListener(this.c);
             registerListener(this.d);
-            return V;
+            return W;
         }
         return (View) invokeLLL.objValue;
     }
@@ -244,18 +239,18 @@ public class ChatAggregationFragment extends BaseFragment implements r65, NoNetw
             super.onDestroy();
             MessageManager.getInstance().unRegisterListener(this.c);
             MessageManager.getInstance().unRegisterListener(this.d);
-            ba7 ba7Var = this.a;
-            if (ba7Var != null) {
-                ba7Var.Q();
+            ia7 ia7Var = this.a;
+            if (ia7Var != null) {
+                ia7Var.S();
             }
         }
     }
 
-    @Override // com.repackage.r65
-    public boolean onEventDispatch(s65 s65Var) {
+    @Override // com.repackage.h75
+    public boolean onEventDispatch(i75 i75Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, s65Var)) == null) ? s65Var == null : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, i75Var)) == null) ? i75Var == null : invokeL.booleanValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -263,9 +258,10 @@ public class ChatAggregationFragment extends BaseFragment implements r65, NoNetw
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onPrimary();
-            ba7 ba7Var = this.a;
-            if (ba7Var != null) {
-                ba7Var.I();
+            ia7 ia7Var = this.a;
+            if (ia7Var != null) {
+                ia7Var.K();
+                this.a.A0(isPrimary());
             }
         }
     }
@@ -282,10 +278,10 @@ public class ChatAggregationFragment extends BaseFragment implements r65, NoNetw
     public void onViewCreated(View view2, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, view2, bundle) == null) {
-            if (getActivity() != null && D0(getActivity().getIntent())) {
-                this.a.Y(getActivity().getIntent());
+            if (getActivity() != null && E0(getActivity().getIntent())) {
+                this.a.Z(getActivity().getIntent());
             } else {
-                this.a.S();
+                this.a.T();
             }
             super.onViewCreated(view2, bundle);
         }

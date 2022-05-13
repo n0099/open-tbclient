@@ -1,43 +1,27 @@
 package com.repackage;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface ux3 {
-    String a();
+public class ux3 {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile tx3 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    String b();
-
-    String c();
-
-    String d();
-
-    String e();
-
-    String f();
-
-    String g();
-
-    String h();
-
-    String i();
-
-    String j();
-
-    String k();
-
-    String l();
-
-    String m();
-
-    String n();
-
-    String o();
-
-    String p();
-
-    String q();
-
-    String r();
-
-    String s();
-
-    String t();
+    public static synchronized tx3 a() {
+        InterceptResult invokeV;
+        tx3 tx3Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (ux3.class) {
+                if (a == null) {
+                    a = new tx3();
+                }
+                tx3Var = a;
+            }
+            return tx3Var;
+        }
+        return (tx3) invokeV.objValue;
+    }
 }

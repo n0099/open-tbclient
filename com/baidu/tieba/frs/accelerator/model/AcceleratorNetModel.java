@@ -92,7 +92,7 @@ public class AcceleratorNetModel extends BdBaseModel {
         }
         this.b = false;
         this.c = new a(this, CmdConfigHttp.CMD_GET_ACCELERATOR_INFO);
-        B();
+        registerHttpTask();
         registerListener();
     }
 
@@ -107,18 +107,9 @@ public class AcceleratorNetModel extends BdBaseModel {
         this.b = true;
     }
 
-    public final void B() {
+    public void B(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_ACCELERATOR_INFO, TbConfig.SERVER_ADDRESS + "c/f/forum/getItemTornadoInfo");
-            tbHttpMessageTask.setResponsedClass(GetAcceleratorInfoRespondedMessage.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public void C(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             this.a = bVar;
         }
     }
@@ -127,7 +118,7 @@ public class AcceleratorNetModel extends BdBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -135,7 +126,7 @@ public class AcceleratorNetModel extends BdBaseModel {
 
     public void destroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_ACCELERATOR_INFO);
             MessageManager.getInstance().unRegisterListener(this.c);
         }
@@ -145,10 +136,19 @@ public class AcceleratorNetModel extends BdBaseModel {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
+    }
+
+    public final void registerHttpTask() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_ACCELERATOR_INFO, TbConfig.SERVER_ADDRESS + "c/f/forum/getItemTornadoInfo");
+            tbHttpMessageTask.setResponsedClass(GetAcceleratorInfoRespondedMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
     }
 
     public final void registerListener() {

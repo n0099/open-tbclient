@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.mo0;
-import com.repackage.qh0;
+import com.repackage.th0;
 /* loaded from: classes2.dex */
 public class SimpleAdInfoView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -69,7 +69,7 @@ public class SimpleAdInfoView extends FrameLayout {
             }
             int id = view2.getId();
             String str2 = "";
-            if (id == R.id.obfuscated_res_0x7f091499) {
+            if (id == R.id.obfuscated_res_0x7f0914b7) {
                 mo0.b bVar = this.a.e.g;
                 if (bVar != null) {
                     str2 = bVar.b;
@@ -77,22 +77,22 @@ public class SimpleAdInfoView extends FrameLayout {
                 }
                 str = "";
             } else {
-                if (id == R.id.obfuscated_res_0x7f091498) {
+                if (id == R.id.obfuscated_res_0x7f0914b6) {
                     mo0.a aVar = this.a.e.h;
                     if (aVar != null) {
                         str2 = aVar.b;
                         str = ClogBuilder.Area.APP_PERMISSION.type;
                     }
-                } else if (id == R.id.obfuscated_res_0x7f0914c4) {
+                } else if (id == R.id.obfuscated_res_0x7f0914e2) {
                     Toast.makeText(this.a.getContext(), this.a.e.d, 1).show();
                     return;
-                } else if (id == R.id.obfuscated_res_0x7f09149a) {
+                } else if (id == R.id.obfuscated_res_0x7f0914b8) {
                     Toast.makeText(this.a.getContext(), this.a.e.f, 1).show();
                     return;
                 }
                 str = "";
             }
-            qh0.c(str2, this.a.getContext());
+            th0.c(str2, this.a.getContext());
             c cVar = this.a.f;
             if (cVar != null) {
                 cVar.a(str);
@@ -174,7 +174,7 @@ public class SimpleAdInfoView extends FrameLayout {
             }
         }
         this.g = new a(this);
-        this.h = R.layout.obfuscated_res_0x7f0d05c3;
+        this.h = R.layout.obfuscated_res_0x7f0d05b6;
         a(null);
     }
 
@@ -183,7 +183,7 @@ public class SimpleAdInfoView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeL(65539, this, attributeSet) == null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403bf});
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403c3});
         this.h = obtainStyledAttributes.getResourceId(0, -1);
         obtainStyledAttributes.recycle();
     }
@@ -196,10 +196,10 @@ public class SimpleAdInfoView extends FrameLayout {
                 return;
             }
             LayoutInflater.from(getContext()).inflate(getLayoutId(), this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09149a);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0914c4);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091499);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091498);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0914b8);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0914e2);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0914b7);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0914b6);
             TextView textView = this.c;
             if (textView != null) {
                 textView.setOnClickListener(this.g);
@@ -301,7 +301,7 @@ public class SimpleAdInfoView extends FrameLayout {
             }
         }
         this.g = new a(this);
-        this.h = R.layout.obfuscated_res_0x7f0d05c3;
+        this.h = R.layout.obfuscated_res_0x7f0d05b6;
         a(attributeSet);
     }
 
@@ -325,7 +325,7 @@ public class SimpleAdInfoView extends FrameLayout {
             }
         }
         this.g = new a(this);
-        this.h = R.layout.obfuscated_res_0x7f0d05c3;
+        this.h = R.layout.obfuscated_res_0x7f0d05b6;
         a(attributeSet);
     }
 }

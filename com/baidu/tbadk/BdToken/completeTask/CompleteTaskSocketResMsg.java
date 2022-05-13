@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rj4;
+import com.repackage.ck4;
 import com.squareup.wire.Wire;
 import tbclient.CompleteTask.CompleteTaskResIdl;
 import tbclient.CompleteTask.DataRes;
@@ -16,7 +16,7 @@ import tbclient.Error;
 public class CompleteTaskSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rj4 mData;
+    public ck4 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CompleteTaskSocketResMsg() {
@@ -36,10 +36,10 @@ public class CompleteTaskSocketResMsg extends SocketResponsedMessage {
         }
     }
 
-    public rj4 getData() {
+    public ck4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (rj4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (ck4) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -56,31 +56,31 @@ public class CompleteTaskSocketResMsg extends SocketResponsedMessage {
             setErrorString(completeTaskResIdl.error.usermsg);
         }
         if (completeTaskResIdl.data != null) {
-            rj4 rj4Var = new rj4();
-            this.mData = rj4Var;
-            rj4Var.c = completeTaskResIdl.data.show_type.intValue();
+            ck4 ck4Var = new ck4();
+            this.mData = ck4Var;
+            ck4Var.c = completeTaskResIdl.data.show_type.intValue();
             this.mData.d = completeTaskResIdl.data.ahead_type.intValue();
-            rj4 rj4Var2 = this.mData;
+            ck4 ck4Var2 = this.mData;
             DataRes dataRes = completeTaskResIdl.data;
-            rj4Var2.e = dataRes.message;
-            rj4Var2.f = dataRes.btn_text;
-            rj4Var2.g = dataRes.btn_confirm;
-            rj4Var2.h = dataRes.btn_cancel;
-            rj4Var2.i = dataRes.toast_duration.intValue();
-            rj4 rj4Var3 = this.mData;
+            ck4Var2.e = dataRes.message;
+            ck4Var2.f = dataRes.btn_text;
+            ck4Var2.g = dataRes.btn_confirm;
+            ck4Var2.h = dataRes.btn_cancel;
+            ck4Var2.i = dataRes.toast_duration.intValue();
+            ck4 ck4Var3 = this.mData;
             DataRes dataRes2 = completeTaskResIdl.data;
-            rj4Var3.j = dataRes2.img_url;
-            rj4Var3.k = dataRes2.url;
-            rj4Var3.l = dataRes2.schema;
-            rj4Var3.m = dataRes2.token;
-            rj4Var3.a = dataRes2.activity_id.intValue();
+            ck4Var3.j = dataRes2.img_url;
+            ck4Var3.k = dataRes2.url;
+            ck4Var3.l = dataRes2.schema;
+            ck4Var3.m = dataRes2.token;
+            ck4Var3.a = dataRes2.activity_id.intValue();
             this.mData.b = completeTaskResIdl.data.mission_id.intValue();
-            rj4 rj4Var4 = this.mData;
+            ck4 ck4Var4 = this.mData;
             DataRes dataRes3 = completeTaskResIdl.data;
-            rj4Var4.o = dataRes3.btn_color;
-            rj4Var4.p = dataRes3.message_color;
-            rj4Var4.q = dataRes3.btn_text_color;
-            rj4Var4.r = dataRes3.interface_type.intValue();
+            ck4Var4.o = dataRes3.btn_color;
+            ck4Var4.p = dataRes3.message_color;
+            ck4Var4.q = dataRes3.btn_text_color;
+            ck4Var4.r = dataRes3.interface_type.intValue();
             this.mData.n = completeTaskResIdl.data.opacity.doubleValue();
             this.mData.x = completeTaskResIdl.data.is_not_complete.intValue();
         }

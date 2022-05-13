@@ -32,13 +32,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ad5;
-import com.repackage.b57;
+import com.repackage.b47;
 import com.repackage.b67;
-import com.repackage.b77;
-import com.repackage.dd5;
-import com.repackage.o67;
-import com.repackage.v77;
+import com.repackage.l77;
+import com.repackage.n57;
+import com.repackage.r67;
+import com.repackage.sd5;
+import com.repackage.vd5;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -50,7 +50,7 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
     public boolean hasFake;
     public CustomMessageListener mCustomMessageListener;
     public int mUserType;
-    public b67 officialBarMenuDatas;
+    public n57 officialBarMenuDatas;
 
     /* loaded from: classes3.dex */
     public static class MsgContent extends OrmObject {
@@ -156,9 +156,9 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
             }
             int i = this.mUserType;
             if (i == 1) {
-                format = String.format(this.mActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0ca5), this.mUser.getUserName());
+                format = String.format(this.mActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0cbf), this.mUser.getUserName());
             } else {
-                format = i == 4 ? String.format(this.mActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0ca4), this.mUser.getUserName()) : "";
+                format = i == 4 ? String.format(this.mActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0cbe), this.mUser.getUserName()) : "";
             }
             HashMap hashMap = new HashMap();
             hashMap.put(TbEnum.SystemMessage.KEY_EVENT_ID, TbEnum.SystemMessage.EVENT_ID_FAKE);
@@ -253,7 +253,7 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, chatMessage) == null) || this.mUser == null || chatMessage == null) {
             return;
         }
-        dd5.c(new ad5<Boolean>(this, chatMessage) { // from class: com.baidu.tieba.im.model.OfficialBarMsglistModel.1
+        vd5.c(new sd5<Boolean>(this, chatMessage) { // from class: com.baidu.tieba.im.model.OfficialBarMsglistModel.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ OfficialBarMsglistModel this$0;
@@ -280,11 +280,11 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.repackage.ad5
+            @Override // com.repackage.sd5
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(o67.t().c(String.valueOf(this.this$0.mUser.getUserId()), String.valueOf(this.val$msg.getMsgId()))) : (Boolean) invokeV.objValue;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(b67.v().c(String.valueOf(this.this$0.mUser.getUserId()), String.valueOf(this.val$msg.getMsgId()))) : (Boolean) invokeV.objValue;
             }
         }, null);
     }
@@ -342,13 +342,13 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
     public long getMaxMid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? b77.p().q(String.valueOf(v77.j), -9) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? r67.p().q(String.valueOf(l77.j), -9) : invokeV.longValue;
     }
 
-    public b67 getOfficialBarMenuDatas() {
+    public n57 getOfficialBarMenuDatas() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.officialBarMenuDatas : (b67) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.officialBarMenuDatas : (n57) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
@@ -368,10 +368,10 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public boolean loadFirst(b57 b57Var) {
+    public boolean loadFirst(b47 b47Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, b57Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, b47Var)) == null) {
             if (this.mUser == null) {
                 return false;
             }
@@ -399,7 +399,7 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
             aVar.c = 10;
             MsgPageData msgPageData = this.mDatas;
             long j2 = 0;
-            if (msgPageData == null || msgPageData.getChatMessages() == null || this.mDatas.getChatMessages().size() <= 0 || this.mDatas.getChatMessages().get(0) == null) {
+            if (msgPageData == null || msgPageData.getChatMessages() == null || this.mDatas.size() <= 0 || this.mDatas.getChatMessages().get(0) == null) {
                 j = 0;
             } else {
                 j2 = this.mDatas.getChatMessages().get(0).getMsgId();
@@ -420,7 +420,7 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
         if (!(interceptable == null || interceptable.invokeL(1048585, this, chatMessage) == null) || this.mUser == null || chatMessage == null) {
             return;
         }
-        dd5.c(new ad5<Boolean>(this, chatMessage) { // from class: com.baidu.tieba.im.model.OfficialBarMsglistModel.2
+        vd5.c(new sd5<Boolean>(this, chatMessage) { // from class: com.baidu.tieba.im.model.OfficialBarMsglistModel.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ OfficialBarMsglistModel this$0;
@@ -447,11 +447,11 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.repackage.ad5
+            @Override // com.repackage.sd5
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(o67.t().n(String.valueOf(this.this$0.mUser.getUserId()), String.valueOf(this.val$msg.getMsgId()))) : (Boolean) invokeV.objValue;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(b67.v().o(String.valueOf(this.this$0.mUser.getUserId()), String.valueOf(this.val$msg.getMsgId()))) : (Boolean) invokeV.objValue;
             }
         }, null);
     }
@@ -513,10 +513,10 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
         }
     }
 
-    public void setOfficialBarMenuDatas(b67 b67Var) {
+    public void setOfficialBarMenuDatas(n57 n57Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, b67Var) == null) {
-            this.officialBarMenuDatas = b67Var;
+        if (interceptable == null || interceptable.invokeL(1048591, this, n57Var) == null) {
+            this.officialBarMenuDatas = n57Var;
         }
     }
 

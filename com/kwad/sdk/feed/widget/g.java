@@ -41,16 +41,16 @@ public class g extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
 
     @Override // com.kwad.sdk.feed.widget.base.a
     public void c() {
-        ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f091053)).setRatio(0.56f);
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09100e);
-        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091014);
-        this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f091010);
-        this.h = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091080);
+        ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f091062)).setRatio(0.56f);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09101d);
+        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091023);
+        this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f09101f);
+        this.h = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09108f);
     }
 
     @Override // com.kwad.sdk.feed.widget.base.a
     public int getLayoutId() {
-        return R.layout.obfuscated_res_0x7f0d0437;
+        return R.layout.obfuscated_res_0x7f0d042b;
     }
 
     @Override // android.view.View.OnClickListener

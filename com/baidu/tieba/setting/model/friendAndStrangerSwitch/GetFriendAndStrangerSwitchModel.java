@@ -17,11 +17,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.vt4;
+import com.repackage.iu4;
 /* loaded from: classes4.dex */
 public class GetFriendAndStrangerSwitchModel extends BdBaseModel<MoreActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static int FRIEND_AND_STRANGER_MASK_TYPE = -1;
+    public static int FRIEND_PRIVATE_MESSAGE_PUSH_TYPE = -1;
     public transient /* synthetic */ FieldHolder $fh;
     public HttpMessageListener a;
 
@@ -53,13 +54,21 @@ public class GetFriendAndStrangerSwitchModel extends BdBaseModel<MoreActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            GetFriendAndStrangerSwitchResMsg getFriendAndStrangerSwitchResMsg;
-            int i;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof GetFriendAndStrangerSwitchResMsg) && (i = (getFriendAndStrangerSwitchResMsg = (GetFriendAndStrangerSwitchResMsg) httpResponsedMessage).mMaskType) > -1) {
-                GetFriendAndStrangerSwitchModel.FRIEND_AND_STRANGER_MASK_TYPE = i;
-                vt4 k = vt4.k();
-                k.w(TbadkCoreApplication.getCurrentAccount() + "key_friend_type", getFriendAndStrangerSwitchResMsg.mMaskType);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof GetFriendAndStrangerSwitchResMsg)) {
+                GetFriendAndStrangerSwitchResMsg getFriendAndStrangerSwitchResMsg = (GetFriendAndStrangerSwitchResMsg) httpResponsedMessage;
+                int i = getFriendAndStrangerSwitchResMsg.mMaskType;
+                if (i > -1) {
+                    GetFriendAndStrangerSwitchModel.FRIEND_AND_STRANGER_MASK_TYPE = i;
+                    iu4 k = iu4.k();
+                    k.w(TbadkCoreApplication.getCurrentAccount() + "key_friend_type", getFriendAndStrangerSwitchResMsg.mMaskType);
+                }
+                int i2 = getFriendAndStrangerSwitchResMsg.mPushType;
+                if (i2 > -1) {
+                    GetFriendAndStrangerSwitchModel.FRIEND_PRIVATE_MESSAGE_PUSH_TYPE = i2;
+                    iu4 k2 = iu4.k();
+                    k2.w(TbadkCoreApplication.getCurrentAccount() + "key_friend_private_message_type", getFriendAndStrangerSwitchResMsg.mPushType);
+                }
             }
         }
     }

@@ -1,19 +1,27 @@
 package com.repackage;
 
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class i14 extends j14 {
+public class i14 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String b;
-    public int c;
+    public long a;
+    public long b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public int i;
+    public String j;
+    public String k;
+    public String l;
+    public int m;
 
     public i14() {
         Interceptable interceptable = $ic;
@@ -29,20 +37,12 @@ public class i14 extends j14 {
         }
     }
 
-    @Override // com.repackage.j14
-    public JSONObject a() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("packageName", this.b);
-                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, this.c);
-                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, this.a);
-            } catch (JSONException unused) {
-            }
-            return jSONObject;
+            return "{ clipMaxDuration=" + this.a + " , clipMinDuration=" + this.b + " , topicSource=" + this.c + " , publishURL=" + this.e + " , publishType=" + this.k + " , publishTitle=" + this.d + " , atURL=" + this.g + " , topicURL=" + this.h + " , musicURL=" + this.f + " , sourceFrom=" + this.j + " , sourceType=" + this.i + ",target=" + this.l + ",showToast=" + this.m + " }";
         }
-        return (JSONObject) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 }

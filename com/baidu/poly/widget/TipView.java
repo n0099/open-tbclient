@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.g81;
+import com.repackage.r81;
 /* loaded from: classes2.dex */
 public class TipView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -58,9 +58,9 @@ public class TipView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             setOrientation(1);
             setGravity(17);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d089c, (ViewGroup) this, true);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f092007);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09200b);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0891, (ViewGroup) this, true);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f092065);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092069);
         }
     }
 
@@ -93,7 +93,7 @@ public class TipView extends LinearLayout {
                 layoutParams.width = dimensionPixelOffset;
                 layoutParams.height = dimensionPixelOffset;
             }
-            g81.b().a(this.a, str);
+            r81.b().a(this.a, str);
             this.b.setText(str2);
         }
     }

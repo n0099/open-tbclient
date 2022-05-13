@@ -6,21 +6,21 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ala.alasquare.special_forum.subtab.view.RecommendActivityView;
+import com.baidu.tieba.ala.alasquare.special_forum.subtab.view.ConcernTabRecommendTitleView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class qq5 extends ho<uq5, RecommendActivityView.ViewHolder> {
+public class qq5 extends eo<zq5, ConcernTabRecommendTitleView.ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public qq5(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), uq5.b);
+        super(tbPageContext.getPageActivity(), zq5.c);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -41,25 +41,24 @@ public class qq5 extends ho<uq5, RecommendActivityView.ViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
+    @Override // com.repackage.eo
     /* renamed from: Z */
-    public RecommendActivityView.ViewHolder M(ViewGroup viewGroup) {
+    public ConcernTabRecommendTitleView.ViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new RecommendActivityView.ViewHolder(new RecommendActivityView(this.i, viewGroup)) : (RecommendActivityView.ViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new ConcernTabRecommendTitleView.ViewHolder(new ConcernTabRecommendTitleView(this.i, viewGroup).k()) : (ConcernTabRecommendTitleView.ViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
+    @Override // com.repackage.eo
     /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, uq5 uq5Var, RecommendActivityView.ViewHolder viewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, zq5 zq5Var, ConcernTabRecommendTitleView.ViewHolder viewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, uq5Var, viewHolder})) == null) {
-            if (viewHolder == null || uq5Var == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, zq5Var, viewHolder})) == null) {
+            if (viewHolder == null || zq5Var == null) {
                 return null;
             }
-            viewHolder.a.l(uq5Var);
             return viewHolder.b();
         }
         return (View) invokeCommon.objValue;

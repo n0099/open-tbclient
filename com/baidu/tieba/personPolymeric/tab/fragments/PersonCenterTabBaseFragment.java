@@ -31,19 +31,19 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
         }
     }
 
-    public abstract void B0(boolean z);
+    public abstract void C0(boolean z);
 
-    public abstract int C0();
+    public abstract int D0();
 
-    public abstract boolean D0();
+    public abstract boolean E0();
 
-    public void E0(MetaData metaData) {
+    public void F0(MetaData metaData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, metaData) == null) {
         }
     }
 
-    public abstract void F0(User user);
+    public abstract void G0(User user);
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void hideNetRefreshView(View view2) {
@@ -74,9 +74,9 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
             if (this.a == null) {
                 n68 n68Var = new n68(getPageContext().getPageActivity(), getNetRefreshListener());
                 this.a = n68Var;
-                n68Var.e(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0f69));
+                n68Var.e(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0f84));
                 this.a.d(null);
-                this.a.c(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0f68));
+                this.a.c(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0f83));
                 this.a.f();
                 this.a.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             }

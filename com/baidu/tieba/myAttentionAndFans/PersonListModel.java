@@ -31,8 +31,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.by4;
-import com.repackage.wp4;
+import com.repackage.hq4;
+import com.repackage.py4;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class PersonListModel extends BdBaseModel<PersonListActivity> {
@@ -52,7 +52,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
     public d d;
     public int e;
     public PersonListActivity f;
-    public by4 g;
+    public py4 g;
     public int h;
     public HttpMessageListener httpListener;
     public int i;
@@ -147,7 +147,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
                 if (statusCode != 200 || error != 0) {
                     if (this.a.d != null) {
                         if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                            errorString = this.a.f.getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
+                            errorString = this.a.f.getResources().getString(R.string.obfuscated_res_0x7f0f0c2d);
                         } else {
                             errorString = httpResponsedMessage.getErrorString();
                         }
@@ -156,7 +156,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
                     }
                     return;
                 }
-                wp4 data = ((ResponseNetPersonListMessage) httpResponsedMessage).getData();
+                hq4 data = ((ResponseNetPersonListMessage) httpResponsedMessage).getData();
                 if (data != null) {
                     if (!StringUtils.isNull(data.g)) {
                         this.a.j = data.g;
@@ -204,7 +204,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof ResponseLocalPersonListMessage)) {
-                wp4 data2 = ((ResponseLocalPersonListMessage) customResponsedMessage).getData2();
+                hq4 data2 = ((ResponseLocalPersonListMessage) customResponsedMessage).getData2();
                 if (data2 == null) {
                     if (this.a.d != null) {
                         this.a.d.b("", true);
@@ -227,7 +227,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
 
     /* loaded from: classes3.dex */
     public interface d {
-        wp4 a(wp4 wp4Var, boolean z);
+        hq4 a(hq4 hq4Var, boolean z);
 
         void b(String str, boolean z);
     }
@@ -316,9 +316,9 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         this.httpListener = new b(this, CmdConfigHttp.PIC_PERSONAL_LIST);
         this.customListener = new c(this, 2001188);
         this.f = personListActivity;
-        by4 by4Var = new by4(personListActivity.getPageContext());
-        this.g = by4Var;
-        by4Var.j(this.mLoadDataCallBack);
+        py4 py4Var = new py4(personListActivity.getPageContext());
+        this.g = py4Var;
+        py4Var.j(this.mLoadDataCallBack);
         this.a = true;
         this.b = null;
         this.d = dVar;

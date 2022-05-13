@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.compatible.menukey.MenuKeyUtils;
-import com.repackage.oi;
+import com.repackage.mi;
 /* loaded from: classes3.dex */
 public class ViewCommonUtil {
     public static /* synthetic */ Interceptable $ic;
@@ -47,7 +47,7 @@ public class ViewCommonUtil {
                     iArr[1] = iArr[1] - findViewById.getHeight();
                 }
             }
-            int[] p = oi.p(activity);
+            int[] p = mi.p(activity);
             if (iArr[0] == 0 || iArr[1] == 0) {
                 iArr[0] = p[0];
                 iArr[1] = p[1];
@@ -68,8 +68,8 @@ public class ViewCommonUtil {
             if (windowVisibility != 8) {
                 rect.top = 0;
             }
-            int r = oi.r(activity);
-            int d = MenuKeyUtils.hasSmartBar() ? oi.d(activity, 48.0f) : 0;
+            int r = mi.r(activity);
+            int d = MenuKeyUtils.hasSmartBar() ? mi.d(activity, 48.0f) : 0;
             int i = UtilHelper.canUseStyleImmersiveSticky() ? 0 : r;
             rect.bottom -= d;
             rect.top += i;

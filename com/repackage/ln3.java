@@ -1,14 +1,15 @@
 package com.repackage;
 
-import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ln3 implements mn3 {
+public class ln3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
 
     public ln3() {
         Interceptable interceptable = $ic;
@@ -21,13 +22,6 @@ public class ln3 implements mn3 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    @Override // com.repackage.mn3
-    public void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
         }
     }
 }

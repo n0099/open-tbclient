@@ -1,29 +1,36 @@
 package com.repackage;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.nio.charset.Charset;
+import org.apache.commons.base.CharEncoding;
 /* loaded from: classes7.dex */
-public final class u69 {
+public class u69 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Charset a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-            if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
-                if (!b79.i() || e79.f(context) == 1) {
-                    return v69.c(v69.b(str, "http://absample.baidu.com/appabapp/appapi/applog"), null);
-                }
-                return false;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755308871, "Lcom/repackage/u69;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return false;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755308871, "Lcom/repackage/u69;");
+                return;
+            }
         }
-        return invokeLL.booleanValue;
+        Charset.forName("ISO-8859-1");
+        Charset.forName("US-ASCII");
+        Charset.forName("UTF-16");
+        Charset.forName(CharEncoding.UTF_16BE);
+        Charset.forName(CharEncoding.UTF_16LE);
+        a = Charset.forName("UTF-8");
     }
 }

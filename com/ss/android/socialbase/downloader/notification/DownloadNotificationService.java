@@ -23,7 +23,7 @@ import com.ss.android.socialbase.downloader.h.g;
 import com.ss.android.socialbase.downloader.i.f;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class DownloadNotificationService extends Service {
     public static volatile long f;
     public static volatile long g;

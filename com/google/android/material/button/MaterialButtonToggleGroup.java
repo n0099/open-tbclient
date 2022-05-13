@@ -803,7 +803,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MaterialButtonToggleGroup(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040449);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f04044e);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -885,7 +885,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
             }
         };
         this.skipCheckedStateTracker = false;
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(getContext(), attributeSet, new int[]{R.attr.obfuscated_res_0x7f040126, R.attr.obfuscated_res_0x7f04057f, R.attr.obfuscated_res_0x7f04059e}, i, DEF_STYLE_RES, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(getContext(), attributeSet, new int[]{R.attr.obfuscated_res_0x7f040129, R.attr.obfuscated_res_0x7f040584, R.attr.obfuscated_res_0x7f0405a4}, i, DEF_STYLE_RES, new int[0]);
         setSingleSelection(obtainStyledAttributes.getBoolean(2, false));
         this.checkedId = obtainStyledAttributes.getResourceId(0, -1);
         this.selectionRequired = obtainStyledAttributes.getBoolean(1, false);

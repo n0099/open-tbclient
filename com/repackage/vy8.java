@@ -1,16 +1,24 @@
 package com.repackage;
 
-import android.animation.Animator;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public abstract class vy8 implements Animator.AnimatorListener {
+public class vy8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public final ArrayList<MetaData> a;
+    public HashMap<String, String> b;
 
     public vy8() {
         Interceptable interceptable = $ic;
@@ -25,36 +33,54 @@ public abstract class vy8 implements Animator.AnimatorListener {
                 return;
             }
         }
-        this.a = false;
+        this.a = new ArrayList<>();
+        this.b = null;
     }
 
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationCancel(Animator animator) {
+    public ArrayList<MetaData> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-            this.a = true;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
+    }
+
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            try {
+                c(new JSONObject(str), true);
+            } catch (Exception e) {
+                BdLog.detailException(e);
+            }
         }
     }
 
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationEnd(Animator animator) {
+    public void c(JSONObject jSONObject, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, jSONObject, z) == null) || jSONObject == null) {
+            return;
         }
-    }
-
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationRepeat(Animator animator) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
+        if (z) {
+            try {
+                if (this.b == null) {
+                    this.b = new HashMap<>();
+                }
+            } catch (Exception e) {
+                BdLog.detailException(e);
+                return;
+            }
         }
-    }
-
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationStart(Animator animator) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-            this.a = false;
+        JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
+        if (optJSONArray != null) {
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                MetaData metaData = new MetaData();
+                metaData.parserJson(optJSONArray.getJSONObject(i));
+                if (!TextUtils.isEmpty(metaData.getName_show())) {
+                    this.a.add(metaData);
+                    if (z) {
+                        this.b.put(metaData.getName_show(), metaData.getPortrait());
+                    }
+                }
+            }
         }
     }
 }

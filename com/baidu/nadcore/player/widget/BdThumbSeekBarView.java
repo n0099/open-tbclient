@@ -772,20 +772,20 @@ public class BdThumbSeekBarView extends View {
         Paint paint = new Paint();
         this.b = paint;
         paint.setAntiAlias(true);
-        this.b.setColor(getResources().getColor(R.color.obfuscated_res_0x7f0607f2));
+        this.b.setColor(getResources().getColor(R.color.obfuscated_res_0x7f0607fb));
         Paint paint2 = new Paint();
         this.o = paint2;
         paint2.setAntiAlias(true);
-        this.o.setColor(getResources().getColor(R.color.obfuscated_res_0x7f0607f4));
+        this.o.setColor(getResources().getColor(R.color.obfuscated_res_0x7f0607fd));
         Paint paint3 = new Paint();
         this.p = paint3;
         paint3.setAntiAlias(true);
-        this.p.setColor(getResources().getColor(R.color.obfuscated_res_0x7f0607f3));
+        this.p.setColor(getResources().getColor(R.color.obfuscated_res_0x7f0607fc));
         this.l = 100.0f;
         this.m = 0.0f;
         this.n = 0;
         if (this.h == null) {
-            this.h = BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080d87);
+            this.h = BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080da1);
         }
         this.i = wx0.a(this, 0.0f);
         if (this.j == null) {

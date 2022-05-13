@@ -16,12 +16,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a63;
-import com.repackage.d63;
-import com.repackage.e63;
-import com.repackage.mg4;
-import com.repackage.tg1;
-import com.repackage.z53;
+import com.repackage.eh1;
+import com.repackage.k63;
+import com.repackage.l63;
+import com.repackage.o63;
+import com.repackage.p63;
+import com.repackage.xg4;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -61,7 +61,7 @@ public final class SoLoader {
                 return;
             }
         }
-        DEBUG = tg1.a;
+        DEBUG = eh1.a;
         sLoadedLibraries = Collections.synchronizedSet(new HashSet());
         soSources = new ArrayList();
     }
@@ -187,8 +187,8 @@ public final class SoLoader {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (sLoadedLibraries.contains(d63.c())) {
-                String d = d63.d();
+            if (sLoadedLibraries.contains(o63.c())) {
+                String d = o63.d();
                 if (DEBUG) {
                     Log.i("SoLoader", "getV8SoDependentFilePath:" + d);
                 }
@@ -225,7 +225,7 @@ public final class SoLoader {
             if (sLoadedLibraries.contains(str)) {
                 return true;
             }
-            boolean load = load(context, str, (a63) null, true);
+            boolean load = load(context, str, (l63) null, true);
             if (load) {
                 sLoadedLibraries.add(str);
             }
@@ -235,28 +235,28 @@ public final class SoLoader {
     }
 
     @SuppressLint({"BDThrowableCheck"})
-    private boolean loadInternal(Context context, String str, a63 a63Var, boolean z) {
+    private boolean loadInternal(Context context, String str, l63 l63Var, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, this, new Object[]{context, str, a63Var, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, this, new Object[]{context, str, l63Var, Boolean.valueOf(z)})) == null) {
             if (TextUtils.isEmpty(str)) {
                 if (DEBUG) {
                     throw new IllegalArgumentException("load so library argument error,soName is null.");
                 }
                 return false;
-            } else if (loadLibrary(a63Var, str, "SO_LOAD_LIBRARY")) {
+            } else if (loadLibrary(l63Var, str, "SO_LOAD_LIBRARY")) {
                 return true;
             } else {
-                return loadInternalFromLocal(context, str, a63Var, z);
+                return loadInternalFromLocal(context, str, l63Var, z);
             }
         }
         return invokeCommon.booleanValue;
     }
 
-    private boolean loadInternalFromLocal(Context context, String str, a63 a63Var, boolean z) {
+    private boolean loadInternalFromLocal(Context context, String str, l63 l63Var, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, this, new Object[]{context, str, a63Var, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, this, new Object[]{context, str, l63Var, Boolean.valueOf(z)})) == null) {
             String fullName = SoUtils.getFullName(str);
             ZipFile apkZipFile = getApkZipFile(context);
             if (apkZipFile == null) {
@@ -266,11 +266,11 @@ public final class SoLoader {
             try {
                 String str2 = SoUtils.uris[0] + File.separator + fullName;
                 File file = new File(getNativeLibraryDir(context), fullName);
-                if (file.exists() && file.length() == getSoSize(apkZipFile, str2) && load(a63Var, fullName, file.getAbsolutePath(), "SO_NATIVE_LIB_LOAD")) {
+                if (file.exists() && file.length() == getSoSize(apkZipFile, str2) && load(l63Var, fullName, file.getAbsolutePath(), "SO_NATIVE_LIB_LOAD")) {
                     return true;
                 }
                 File file2 = new File(getReleaseSoFilePath(context), fullName);
-                if (file2.exists() && file2.length() == getSoSize(apkZipFile, str2) && load(a63Var, fullName, file2.getAbsolutePath(), "SO_RELEASE_LIB_LOAD")) {
+                if (file2.exists() && file2.length() == getSoSize(apkZipFile, str2) && load(l63Var, fullName, file2.getAbsolutePath(), "SO_RELEASE_LIB_LOAD")) {
                     return true;
                 }
                 if (!z) {
@@ -278,26 +278,26 @@ public final class SoLoader {
                     return false;
                 }
                 for (int i = 0; i < SoUtils.uris.length; i++) {
-                    if (executeRelease(apkZipFile, fullName, SoUtils.uris[i], new File(getReleaseSoFilePath(context), fullName)) && load(a63Var, fullName, file2.getAbsolutePath(), "SO_RELEASE_EXECUTE_LOAD")) {
+                    if (executeRelease(apkZipFile, fullName, SoUtils.uris[i], new File(getReleaseSoFilePath(context), fullName)) && load(l63Var, fullName, file2.getAbsolutePath(), "SO_RELEASE_EXECUTE_LOAD")) {
                         return true;
                     }
                 }
                 SoUtils.sendLog(this.sb.toString());
                 return false;
             } finally {
-                mg4.d(apkZipFile);
+                xg4.d(apkZipFile);
             }
         }
         return invokeCommon.booleanValue;
     }
 
-    private boolean loadLibrary(a63 a63Var, String str, String str2) {
+    private boolean loadLibrary(l63 l63Var, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65553, this, a63Var, str, str2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65553, this, l63Var, str, str2)) == null) {
             String simpleName = SoUtils.getSimpleName(str);
             try {
-                a63Var.loadLibrary(simpleName);
+                l63Var.loadLibrary(simpleName);
                 return true;
             } catch (Throwable th) {
                 if (DEBUG) {
@@ -311,21 +311,21 @@ public final class SoLoader {
         return invokeLLL.booleanValue;
     }
 
-    public static e63 loadV8EngineSo(Context context) {
+    public static p63 loadV8EngineSo(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, context)) == null) {
-            String c = d63.c();
+            String c = o63.c();
             if (sLoadedLibraries.contains(c)) {
-                return e63.e();
+                return p63.e();
             }
-            e63 h = d63.h(context, new SoLoader());
+            p63 h = o63.h(context, new SoLoader());
             if (h.b()) {
                 sLoadedLibraries.add(c);
             }
             return h;
         }
-        return (e63) invokeL.objValue;
+        return (p63) invokeL.objValue;
     }
 
     private boolean releaseFileFromApk(ZipFile zipFile, File file, String str) {
@@ -358,8 +358,8 @@ public final class SoLoader {
                 try {
                     if (SoUtils.copyStream(inputStream, fileOutputStream, 256) > 0) {
                         boolean renameTo = file2.renameTo(file);
-                        mg4.d(inputStream);
-                        mg4.d(fileOutputStream);
+                        xg4.d(inputStream);
+                        xg4.d(fileOutputStream);
                         return renameTo;
                     }
                     inputStream2 = inputStream;
@@ -370,27 +370,27 @@ public final class SoLoader {
                         if (DEBUG) {
                             Log.e("SoLoader", "SoLoader releaseFileFromApk exception.", e);
                         }
-                        mg4.d(inputStream2);
-                        mg4.d(fileOutputStream);
+                        xg4.d(inputStream2);
+                        xg4.d(fileOutputStream);
                         return false;
                     } catch (Throwable th3) {
                         th = th3;
-                        mg4.d(inputStream2);
-                        mg4.d(fileOutputStream);
+                        xg4.d(inputStream2);
+                        xg4.d(fileOutputStream);
                         throw th;
                     }
                 } catch (Throwable th4) {
                     th = th4;
                     inputStream2 = inputStream;
-                    mg4.d(inputStream2);
-                    mg4.d(fileOutputStream);
+                    xg4.d(inputStream2);
+                    xg4.d(fileOutputStream);
                     throw th;
                 }
             } else {
                 fileOutputStream = null;
             }
-            mg4.d(inputStream2);
-            mg4.d(fileOutputStream);
+            xg4.d(inputStream2);
+            xg4.d(fileOutputStream);
             return false;
         }
         return invokeLLL.booleanValue;
@@ -464,7 +464,7 @@ public final class SoLoader {
                                 }
                                 if (fileLock != null) {
                                 }
-                                mg4.d(fileChannel);
+                                xg4.d(fileChannel);
                                 return z;
                             }
                         }
@@ -477,7 +477,7 @@ public final class SoLoader {
                             } catch (IOException e5) {
                                 e = e5;
                                 e.printStackTrace();
-                                mg4.d(fileChannel);
+                                xg4.d(fileChannel);
                                 return z;
                             }
                         }
@@ -491,11 +491,11 @@ public final class SoLoader {
                             } catch (IOException e7) {
                                 e = e7;
                                 e.printStackTrace();
-                                mg4.d(fileChannel);
+                                xg4.d(fileChannel);
                                 return z;
                             }
                         }
-                        mg4.d(fileChannel);
+                        xg4.d(fileChannel);
                         return z;
                     }
                 } catch (Throwable th) {
@@ -507,7 +507,7 @@ public final class SoLoader {
                             e8.printStackTrace();
                         }
                     }
-                    mg4.d(parentFile);
+                    xg4.d(parentFile);
                     throw th;
                 }
             } catch (Exception e9) {
@@ -518,10 +518,10 @@ public final class SoLoader {
                 parentFile = 0;
                 if (0 != 0) {
                 }
-                mg4.d(parentFile);
+                xg4.d(parentFile);
                 throw th;
             }
-            mg4.d(fileChannel);
+            xg4.d(fileChannel);
             return z;
         }
         return invokeLLLL.booleanValue;
@@ -557,7 +557,7 @@ public final class SoLoader {
         if (!(interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{context, str, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || sLoadedLibraries.contains(str)) {
             return;
         }
-        z53 a = z53.a();
+        k63 a = k63.a();
         if (!z) {
             load = new SoLoader().loadInternalFromLocal(context, str, a, z2);
         } else {
@@ -568,28 +568,28 @@ public final class SoLoader {
         }
     }
 
-    public static boolean load(Context context, String str, a63 a63Var, boolean z) {
+    public static boolean load(Context context, String str, l63 l63Var, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{context, str, a63Var, Boolean.valueOf(z)})) == null) {
-            if (a63Var == null) {
-                a63Var = z53.a();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{context, str, l63Var, Boolean.valueOf(z)})) == null) {
+            if (l63Var == null) {
+                l63Var = k63.a();
             }
             SoLoader soLoader = new SoLoader();
             if (soSources.size() == 0) {
                 soLoader.initSoSource(context);
             }
-            return soLoader.loadInternal(context, str, a63Var, z);
+            return soLoader.loadInternal(context, str, l63Var, z);
         }
         return invokeCommon.booleanValue;
     }
 
-    private boolean load(a63 a63Var, String str, String str2, String str3) {
+    private boolean load(l63 l63Var, String str, String str2, String str3) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65550, this, a63Var, str, str2, str3)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65550, this, l63Var, str, str2, str3)) == null) {
             try {
-                a63Var.load(str2);
+                l63Var.load(str2);
                 return true;
             } catch (Throwable th) {
                 if (DEBUG) {

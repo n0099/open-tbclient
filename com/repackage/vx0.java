@@ -42,7 +42,7 @@ public class vx0 {
         public void onInstallError(int i, int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, str) == null) {
-                zi0.c("BdCyberUtils", "onInstallError: type=" + i + ", errorType=" + i2 + ", detail=" + str);
+                cj0.c("BdCyberUtils", "onInstallError: type=" + i + ", errorType=" + i2 + ", detail=" + str);
             }
         }
 
@@ -57,7 +57,7 @@ public class vx0 {
         public void onInstallSuccess(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
-                zi0.c("BdCyberUtils", "onInstallSuccess: type=" + i + ", ver=" + str);
+                cj0.c("BdCyberUtils", "onInstallSuccess: type=" + i + ", ver=" + str);
             }
         }
 
@@ -78,7 +78,7 @@ public class vx0 {
         if (interceptable == null || interceptable.invokeLI(65537, null, installListener, i) == null) {
             HashMap hashMap = new HashMap();
             hashMap.put(CyberPlayerManager.INSTALL_OPT_CRASHPAD_INSTALL_TYPE, "2");
-            ey0.a(hi0.a().b(), ly0.m(), i, hashMap, installListener, null);
+            ey0.a(ki0.a().b(), ly0.m(), i, hashMap, installListener, null);
         }
     }
 }

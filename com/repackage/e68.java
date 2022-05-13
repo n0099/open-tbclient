@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class e68 extends tw5<b58> {
+public class e68 extends uw5<b58> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView i;
@@ -102,37 +102,37 @@ public class e68 extends tw5<b58> {
         this.s = tbPageContext;
         View k = k();
         u();
-        this.q = k.findViewById(R.id.obfuscated_res_0x7f0903cb);
-        this.j = (TextView) k.findViewById(R.id.obfuscated_res_0x7f091430);
-        this.i = (TextView) k.findViewById(R.id.obfuscated_res_0x7f090764);
-        this.k = (TextView) k.findViewById(R.id.obfuscated_res_0x7f090e4f);
-        this.l = (TextView) k.findViewById(R.id.obfuscated_res_0x7f0902d0);
-        ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) k.findViewById(R.id.obfuscated_res_0x7f090d3a);
+        this.q = k.findViewById(R.id.obfuscated_res_0x7f0903c5);
+        this.j = (TextView) k.findViewById(R.id.obfuscated_res_0x7f091447);
+        this.i = (TextView) k.findViewById(R.id.obfuscated_res_0x7f090761);
+        this.k = (TextView) k.findViewById(R.id.obfuscated_res_0x7f090e3e);
+        this.l = (TextView) k.findViewById(R.id.obfuscated_res_0x7f0902c7);
+        ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) k.findViewById(R.id.obfuscated_res_0x7f090d27);
         this.m = clickableHeaderImageView;
-        clickableHeaderImageView.setRadius(oi.f(this.s.getPageActivity(), R.dimen.obfuscated_res_0x7f07019a));
+        clickableHeaderImageView.setRadius(mi.f(this.s.getPageActivity(), R.dimen.obfuscated_res_0x7f07019a));
         this.m.setAutoChangeStyle(true);
         this.m.setOnClickListener(this.t);
-        ClickableHeaderImageView clickableHeaderImageView2 = (ClickableHeaderImageView) k.findViewById(R.id.obfuscated_res_0x7f090d3b);
+        ClickableHeaderImageView clickableHeaderImageView2 = (ClickableHeaderImageView) k.findViewById(R.id.obfuscated_res_0x7f090d28);
         this.n = clickableHeaderImageView2;
-        clickableHeaderImageView2.setRadius(oi.f(this.s.getPageActivity(), R.dimen.obfuscated_res_0x7f07019a));
+        clickableHeaderImageView2.setRadius(mi.f(this.s.getPageActivity(), R.dimen.obfuscated_res_0x7f07019a));
         this.n.setAutoChangeStyle(true);
         this.n.setOnClickListener(this.t);
-        ClickableHeaderImageView clickableHeaderImageView3 = (ClickableHeaderImageView) k.findViewById(R.id.obfuscated_res_0x7f090d3c);
+        ClickableHeaderImageView clickableHeaderImageView3 = (ClickableHeaderImageView) k.findViewById(R.id.obfuscated_res_0x7f090d29);
         this.o = clickableHeaderImageView3;
-        clickableHeaderImageView3.setRadius(oi.f(this.s.getPageActivity(), R.dimen.obfuscated_res_0x7f07019a));
+        clickableHeaderImageView3.setRadius(mi.f(this.s.getPageActivity(), R.dimen.obfuscated_res_0x7f07019a));
         this.o.setAutoChangeStyle(true);
         this.o.setOnClickListener(this.t);
-        this.p = (TextView) k.findViewById(R.id.obfuscated_res_0x7f09091d);
+        this.p = (TextView) k.findViewById(R.id.obfuscated_res_0x7f090915);
     }
 
-    @Override // com.repackage.tw5
+    @Override // com.repackage.uw5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d06be : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d06b6 : invokeV.intValue;
     }
 
-    @Override // com.repackage.tw5
+    @Override // com.repackage.uw5
     public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
@@ -164,7 +164,7 @@ public class e68 extends tw5<b58> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.tw5
+    @Override // com.repackage.uw5
     /* renamed from: v */
     public void l(b58 b58Var) {
         Interceptable interceptable = $ic;
@@ -185,14 +185,14 @@ public class e68 extends tw5<b58> {
             this.i.setVisibility(b58Var.b ? 0 : 4);
             this.j.setVisibility(b58Var.b ? 0 : 4);
             if (b58Var.a) {
-                this.k.setText(this.s.getString(R.string.obfuscated_res_0x7f0f0a99));
+                this.k.setText(this.s.getString(R.string.obfuscated_res_0x7f0f0aa0));
             } else {
                 this.k.setText(StringHelper.getUserDescByGender(b58Var.e));
             }
             int count = ListUtils.getCount(b58Var.f);
             if (count > 3) {
                 this.p.setVisibility(0);
-                this.p.setText(String.format(this.s.getString(R.string.obfuscated_res_0x7f0f02a5), Integer.valueOf(count)));
+                this.p.setText(String.format(this.s.getString(R.string.obfuscated_res_0x7f0f02aa), Integer.valueOf(count)));
             } else {
                 this.p.setVisibility(8);
             }

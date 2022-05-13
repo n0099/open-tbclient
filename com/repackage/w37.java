@@ -1,75 +1,47 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.TiebaIMConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Hottopic.CommonInteraction;
 /* loaded from: classes7.dex */
-public class w37 implements uo {
+public class w37 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId f;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public int b;
-    public long c;
-    public long d;
-    public int e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755252234, "Lcom/repackage/w37;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755252234, "Lcom/repackage/w37;");
-                return;
+    public static ba5 a(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, cls)) == null) {
+            try {
+                ba5 ba5Var = new ba5(i, cls.newInstance());
+                MessageManager.getInstance().registerTask(ba5Var);
+                return ba5Var;
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+                return null;
+            } catch (InstantiationException e2) {
+                e2.printStackTrace();
+                return null;
             }
         }
-        f = BdUniqueId.gen();
+        return (ba5) invokeIL.objValue;
     }
 
-    public w37() {
+    public static ca5 b(int i, Class<? extends SocketResponsedMessage> cls, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z)})) == null) {
+            ca5 ca5Var = new ca5(i);
+            ca5Var.setResponsedClass(cls);
+            ca5Var.h(z);
+            ca5Var.setParallel(TiebaIMConfig.getParallel());
+            MessageManager.getInstance().registerTask(ca5Var);
+            return ca5Var;
         }
-    }
-
-    public void a(CommonInteraction commonInteraction) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, commonInteraction) == null) || commonInteraction == null) {
-            return;
-        }
-        String str = commonInteraction.module_name;
-        String str2 = commonInteraction.ques_desc;
-        this.a = commonInteraction.total_num.longValue();
-        this.b = commonInteraction.has_clicked.intValue();
-        String str3 = commonInteraction.before_click_pic;
-        String str4 = commonInteraction.after_click_pic;
-        this.c = commonInteraction.pk_id.longValue();
-        this.d = commonInteraction.user_pk_id.longValue();
-    }
-
-    @Override // com.repackage.uo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f : (BdUniqueId) invokeV.objValue;
+        return (ca5) invokeCommon.objValue;
     }
 }

@@ -1,13 +1,11 @@
 package com.repackage;
 
-import com.baidu.adp.widget.refresh.IRefreshable$State;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+@Target({ElementType.TYPE})
+@Retention(RetentionPolicy.RUNTIME)
 /* loaded from: classes6.dex */
-public interface lp {
-    void a(IRefreshable$State iRefreshable$State);
-
-    void b();
-
-    void c();
-
-    void d();
+public @interface lp {
 }

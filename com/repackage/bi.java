@@ -1,66 +1,44 @@
 package com.repackage;
 
 import android.content.Context;
-import android.os.Build;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.text.ClipboardManager;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
 /* loaded from: classes5.dex */
 public class bi {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(@Nullable File file) {
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, file) == null) && file != null && file.exists()) {
-            if (file.isDirectory()) {
-                File[] listFiles = file.listFiles();
-                if (listFiles != null) {
-                    for (File file2 : listFiles) {
-                        a(file2);
-                    }
-                    return;
-                }
-                return;
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            if (str == null) {
+                str = "";
             }
-            String absolutePath = file.getAbsolutePath();
-            if (file.delete()) {
-                BdLog.v("Abi64WebViewCompat:Delete[" + absolutePath + PreferencesUtil.RIGHT_MOUNT);
-                return;
+            try {
+                ((ClipboardManager) BdBaseApplication.getInst().getApp().getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).setText(str);
+            } catch (Throwable th) {
+                BdLog.e(th);
             }
-            BdLog.e("Abi64WebViewCompat:Delete[" + absolutePath + "]Error!");
         }
     }
 
-    public static void b(@NonNull Context context) {
-        File[] listFiles;
+    public static int b(Context context) {
+        InterceptResult invokeL;
+        int identifier;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, context) == null) || Build.VERSION.SDK_INT < 24) {
-            return;
-        }
-        try {
-            context.getApplicationContext().getSharedPreferences("WebViewChromiumPrefs", 0).edit().clear().apply();
-            File filesDir = context.getFilesDir();
-            if (filesDir == null || filesDir.getParent() == null) {
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (context != null && (identifier = context.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.h, EMABTest.TYPE_DIMEN, "android")) > 0) {
+                return context.getResources().getDimensionPixelSize(identifier);
             }
-            File file = new File(filesDir.getParent());
-            if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
-                for (File file2 : listFiles) {
-                    String absolutePath = file2.getAbsolutePath();
-                    if (!TextUtils.isEmpty(absolutePath) && absolutePath.toLowerCase().contains(AlbumActivityConfig.FROM_WEB_VIEW)) {
-                        a(file2);
-                    }
-                }
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+            return 0;
         }
+        return invokeL.intValue;
     }
 }

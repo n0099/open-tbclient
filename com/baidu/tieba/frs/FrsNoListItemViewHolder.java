@@ -147,9 +147,9 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
         this.i = new a(this, 2921397);
         this.b = view2;
         this.a = viewGroup;
-        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906d2);
-        this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0908be);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091582);
+        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906cd);
+        this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0908b6);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09159f);
         SkinManager.setImageResource(this.e, R.drawable.new_pic_emotion_06);
         this.i.setTag(j);
         MessageManager.getInstance().registerListener(this.i);

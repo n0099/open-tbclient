@@ -102,17 +102,17 @@ public class wl7 {
                     }
                     sb.append(new String(bArr, 0, read));
                 }
-                lg.c(fileInputStream);
+                jg.c(fileInputStream);
             } catch (Exception e2) {
                 e = e2;
                 fileInputStream2 = fileInputStream;
                 e.printStackTrace();
-                lg.c(fileInputStream2);
+                jg.c(fileInputStream2);
                 return sb.toString();
             } catch (Throwable th2) {
                 th = th2;
                 fileInputStream2 = fileInputStream;
-                lg.c(fileInputStream2);
+                jg.c(fileInputStream2);
                 throw th;
             }
             return sb.toString();
@@ -147,18 +147,18 @@ public class wl7 {
             try {
                 fileOutputStream.write(str.getBytes());
                 fileOutputStream.flush();
-                lg.d(fileOutputStream);
+                jg.d(fileOutputStream);
                 return true;
             } catch (Exception e2) {
                 e = e2;
                 fileOutputStream2 = fileOutputStream;
                 e.printStackTrace();
-                lg.d(fileOutputStream2);
+                jg.d(fileOutputStream2);
                 return false;
             } catch (Throwable th2) {
                 th = th2;
                 fileOutputStream2 = fileOutputStream;
-                lg.d(fileOutputStream2);
+                jg.d(fileOutputStream2);
                 throw th;
             }
         }

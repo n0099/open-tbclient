@@ -19,7 +19,7 @@ public class dr7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
             if (TextUtils.isEmpty(a)) {
-                a = vt4.k().q("nick_name_activity_link", "");
+                a = iu4.k().q("nick_name_activity_link", "");
             }
             return a;
         }
@@ -33,10 +33,10 @@ public class dr7 {
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
             spannableStringBuilder.append((CharSequence) str);
             int length = spannableStringBuilder.length();
-            Drawable drawable = context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08087c);
+            Drawable drawable = context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08087f);
             drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
             spannableStringBuilder.append((CharSequence) "tag");
-            spannableStringBuilder.setSpan(new ju4(drawable), length, spannableStringBuilder.length(), 33);
+            spannableStringBuilder.setSpan(new wu4(drawable), length, spannableStringBuilder.length(), 33);
             return spannableStringBuilder;
         }
         return (SpannableStringBuilder) invokeLL.objValue;

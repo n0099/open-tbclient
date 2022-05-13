@@ -1,6 +1,7 @@
 package com.repackage;
 
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
@@ -163,7 +165,9 @@ public class yj7 {
                     TiebaStatic.log(new StatisticItem("c13200").param("obj_type", i2).param("obj_locate", i));
                 } else if (view2 != this.a.e) {
                     if (view2 == this.a.g) {
-                        UrlManager.getInstance().dealOneLink(this.a.a, new String[]{yj7.F});
+                        Bundle bundle = new Bundle();
+                        bundle.putBoolean(WebViewActivityConfig.TAG_TEXT_AUTO_SIZE, true);
+                        UrlManager.getInstance().dealOneLink(this.a.a, new String[]{yj7.F}, false, bundle);
                     }
                 } else {
                     UrlManager.getInstance().dealOneLink(this.a.a, new String[]{yj7.G});
@@ -221,9 +225,9 @@ public class yj7 {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ck7.d b2 = this.m.b();
             if (b2 == null) {
-                oi.M(this.a.getPageActivity(), R.string.obfuscated_res_0x7f0f136c);
+                mi.M(this.a.getPageActivity(), R.string.obfuscated_res_0x7f0f138e);
             } else if (b2.n == 1 && b2.o) {
-                oi.M(this.a.getPageActivity(), R.string.obfuscated_res_0x7f0f13e6);
+                mi.M(this.a.getPageActivity(), R.string.obfuscated_res_0x7f0f140b);
             } else {
                 t(b2.i, b2.j / 100, b2.l, b2.n);
                 if (this.B == 26) {
@@ -267,28 +271,28 @@ public class yj7 {
             ArrayList<ak7> arrayList = new ArrayList<>();
             LinkedHashMap linkedHashMap = new LinkedHashMap();
             int i = this.x;
-            Integer valueOf = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08061f);
-            Integer valueOf2 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08061d);
-            Integer valueOf3 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08061e);
-            Integer valueOf4 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08061a);
-            Integer valueOf5 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08061c);
+            Integer valueOf = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08060e);
+            Integer valueOf2 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08060c);
+            Integer valueOf3 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08060d);
+            Integer valueOf4 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080609);
+            Integer valueOf5 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08060b);
             if (i == 1) {
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0aaf), valueOf5);
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0aad), valueOf4);
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0aab), valueOf3);
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0ab0), valueOf2);
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0aae), valueOf);
+                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0ab6), valueOf5);
+                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0ab4), valueOf4);
+                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0ab2), valueOf3);
+                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0ab7), valueOf2);
+                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0ab5), valueOf);
             } else if (i == 2) {
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0aaf), valueOf5);
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0aad), valueOf4);
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0aa8), Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080617));
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0aa7), Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080616));
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0aaa), Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080619));
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0aac), Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080618));
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0aab), valueOf3);
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0ab0), valueOf2);
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0aae), valueOf);
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0aa9), Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08061b));
+                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0ab6), valueOf5);
+                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0ab4), valueOf4);
+                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0aaf), Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080606));
+                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0aae), Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080605));
+                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0ab1), Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080608));
+                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0ab3), Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080607));
+                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0ab2), valueOf3);
+                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0ab7), valueOf2);
+                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0ab5), valueOf);
+                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0ab0), Integer.valueOf((int) R.drawable.obfuscated_res_0x7f08060a));
             }
             for (Map.Entry entry : linkedHashMap.entrySet()) {
                 ak7 ak7Var = new ak7();
@@ -304,19 +308,19 @@ public class yj7 {
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.c = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091ac8);
-            this.d = (HListView) this.b.findViewById(R.id.obfuscated_res_0x7f0918df);
-            this.i = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091a32);
-            this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091a33);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091907);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091900);
-            this.h = (GridView) this.b.findViewById(R.id.obfuscated_res_0x7f0918f6);
-            this.k = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f0923af);
-            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0913d7);
-            this.l = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0921b7);
-            this.d.setBackgroundResource(R.drawable.obfuscated_res_0x7f08120b);
+            this.c = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091b16);
+            this.d = (HListView) this.b.findViewById(R.id.obfuscated_res_0x7f091937);
+            this.i = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091a82);
+            this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091a83);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09195f);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091958);
+            this.h = (GridView) this.b.findViewById(R.id.obfuscated_res_0x7f09194e);
+            this.k = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f0923ff);
+            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0913ec);
+            this.l = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09220e);
+            this.d.setBackgroundResource(R.drawable.obfuscated_res_0x7f081221);
             this.d.setOnItemClickListener(this.D);
-            this.d.setSelector(this.a.getPageActivity().getResources().getDrawable(R.drawable.obfuscated_res_0x7f08120b));
+            this.d.setSelector(this.a.getPageActivity().getResources().getDrawable(R.drawable.obfuscated_res_0x7f081221));
             this.h.setVerticalSpacing(this.a.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds58));
             this.h.setHorizontalSpacing(this.a.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds108));
             this.j.setOnClickListener(this.E);
@@ -408,12 +412,12 @@ public class yj7 {
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i)}) == null) {
             PayConfig payConfig = new PayConfig(1, "0", String.valueOf(j), String.valueOf(j2), String.valueOf(j3), true, this.C.booleanValue(), PageDialogHelper$PayForm.NOT_SET, this.z, this.A);
             payConfig.setTitle(this.v);
-            payConfig.setOrderName(this.w + this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0aa6, new Object[]{String.valueOf(j3)}));
+            payConfig.setOrderName(this.w + this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0aad, new Object[]{String.valueOf(j3)}));
             payConfig.setAutoPay(i);
             if (this.B == 23) {
                 payConfig.paymentPosKey = PayConfig.PAYMENT_POS_KEY_MANGA;
             }
-            e85.c().a(payConfig, this.a.getPageActivity());
+            v85.c().a(payConfig, this.a.getPageActivity());
         }
     }
 
@@ -471,7 +475,7 @@ public class yj7 {
     public final void x(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
-            this.j.setText(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f136a, "" + (j / 100)));
+            this.j.setText(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f138c, "" + (j / 100)));
         }
     }
 
@@ -482,21 +486,21 @@ public class yj7 {
             int i = this.x;
             if (2 == i) {
                 if (this.y == 2) {
-                    string = this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0436, new Object[]{this.t});
+                    string = this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f043e, new Object[]{this.t});
                 } else {
-                    string = this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0509, new Object[]{this.t});
+                    string = this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f050f, new Object[]{this.t});
                 }
                 this.w = this.t;
             } else if (1 == i) {
                 long j = this.y;
                 if (j == 1) {
-                    string = this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0436, new Object[]{this.u});
+                    string = this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f043e, new Object[]{this.u});
                 } else {
-                    string = j == 0 ? this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0509, new Object[]{this.u}) : null;
+                    string = j == 0 ? this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f050f, new Object[]{this.u}) : null;
                 }
                 this.w = this.u;
             } else {
-                string = this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0509, new Object[]{this.u});
+                string = this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f050f, new Object[]{this.u});
                 this.w = this.u;
             }
             this.v = string;

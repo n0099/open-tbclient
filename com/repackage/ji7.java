@@ -81,27 +81,27 @@ public class ji7 implements ShareChannelService {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
             if (i == 2 || i == 3) {
-                boolean b = gk8.b(TbadkCoreApplication.getInst(), "com.tencent.mm");
+                boolean b = dj8.b(TbadkCoreApplication.getInst(), "com.tencent.mm");
                 if (b) {
                     return b;
                 }
-                oi.N(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1155));
+                mi.N(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1171));
                 return b;
             } else if (i == 6) {
-                boolean b2 = gk8.b(TbadkCoreApplication.getInst(), "com.sina.weibo");
+                boolean b2 = dj8.b(TbadkCoreApplication.getInst(), "com.sina.weibo");
                 if (b2) {
                     return b2;
                 }
-                oi.N(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f114e));
+                mi.N(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f116a));
                 return b2;
             } else if (i != 8) {
                 return false;
             } else {
-                boolean b3 = gk8.b(TbadkCoreApplication.getInst(), "com.tencent.mobileqq");
+                boolean b3 = dj8.b(TbadkCoreApplication.getInst(), "com.tencent.mobileqq");
                 if (b3) {
                     return b3;
                 }
-                oi.N(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1130));
+                mi.N(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f114c));
                 return b3;
             }
         }
@@ -140,12 +140,12 @@ public class ji7 implements ShareChannelService {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, shareEntity)) == null) {
             if (shareEntity != null) {
                 ShareItem shareItem = new ShareItem();
-                shareItem.r = shareEntity.title;
-                shareItem.s = shareEntity.content;
-                shareItem.w = shareEntity.imageUrl;
-                shareItem.t = shareEntity.linkUrl;
-                shareItem.q = String.valueOf(shareEntity.liveId);
-                shareItem.r0 = String.valueOf(shareEntity.userId);
+                shareItem.t = shareEntity.title;
+                shareItem.u = shareEntity.content;
+                shareItem.y = shareEntity.imageUrl;
+                shareItem.v = shareEntity.linkUrl;
+                shareItem.s = String.valueOf(shareEntity.liveId);
+                shareItem.v0 = String.valueOf(shareEntity.userId);
                 return shareItem;
             }
             return null;

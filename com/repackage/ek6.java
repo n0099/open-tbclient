@@ -1,64 +1,52 @@
 package com.repackage;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.game.strategy.view.FrsGameStrategyItemView;
+import com.baidu.tbadk.core.view.PbListView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class ek6 extends ho<tj6, FrsGameStrategyItemView.FrsGameStrategyItemViewHolder> {
+/* loaded from: classes5.dex */
+public class ek6 extends PbListView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext i;
+    public TbPageContext<?> E;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ek6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public ek6(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = tbPageContext;
+        this.E = tbPageContext;
+        b().setPadding(0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701be), 0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702ff));
+        z();
+        y();
+        v();
+        G(R.dimen.obfuscated_res_0x7f070201);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: Z */
-    public FrsGameStrategyItemView.FrsGameStrategyItemViewHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tbadk.core.view.PbListView
+    public void f() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new FrsGameStrategyItemView.FrsGameStrategyItemViewHolder(new FrsGameStrategyItemView(this.i)) : (FrsGameStrategyItemView.FrsGameStrategyItemViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, tj6 tj6Var, FrsGameStrategyItemView.FrsGameStrategyItemViewHolder frsGameStrategyItemViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, tj6Var, frsGameStrategyItemViewHolder})) == null) {
-            frsGameStrategyItemViewHolder.a.l(tj6Var);
-            return frsGameStrategyItemViewHolder.b();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.f();
+            C(this.E.getResources().getString(R.string.obfuscated_res_0x7f0f09ee));
+            b().setVisibility(0);
         }
-        return (View) invokeCommon.objValue;
     }
 }

@@ -74,7 +74,7 @@ public abstract class ep extends en {
         }
         this.f309a = str;
         this.a = i;
-        m328c();
+        m329c();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -96,13 +96,13 @@ public abstract class ep extends en {
             }
         }
         this.f309a = str;
-        m328c();
+        m329c();
     }
 
     private Bitmap a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? com.xiaomi.push.service.ac.a(g.m375a(a(), this.f309a)) : (Bitmap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? com.xiaomi.push.service.ac.a(g.m376a(a(), this.f309a)) : (Bitmap) invokeV.objValue;
     }
 
     private String c() {
@@ -117,12 +117,12 @@ public abstract class ep extends en {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    private void m328c() {
+    private void m329c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             int a = a(a().getResources(), c(), TtmlNode.TAG_LAYOUT, a().getPackageName());
             if (a == 0) {
-                com.xiaomi.channel.commonutils.logger.b.m108a("create RemoteViews failed, no such layout resource was found");
+                com.xiaomi.channel.commonutils.logger.b.m109a("create RemoteViews failed, no such layout resource was found");
                 return;
             }
             this.f307a = new RemoteViews(a().getPackageName(), a);
@@ -131,7 +131,7 @@ public abstract class ep extends en {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    private boolean m329c() {
+    private boolean m330c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
@@ -151,7 +151,7 @@ public abstract class ep extends en {
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    private boolean m330d() {
+    private boolean m331d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? (TextUtils.isEmpty(b()) || TextUtils.isEmpty(this.f309a)) ? false : true : invokeV.booleanValue;
@@ -160,16 +160,16 @@ public abstract class ep extends en {
     private boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) ? m330d() && f() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) ? m331d() && f() : invokeV.booleanValue;
     }
 
     private boolean f() {
         InterceptResult invokeV;
-        List<StatusBarNotification> m635b;
+        List<StatusBarNotification> m636b;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
-            if (Build.VERSION.SDK_INT >= 20 && (m635b = com.xiaomi.push.service.ao.a(a(), this.f309a).m635b()) != null && !m635b.isEmpty()) {
-                for (StatusBarNotification statusBarNotification : m635b) {
+            if (Build.VERSION.SDK_INT >= 20 && (m636b = com.xiaomi.push.service.ao.a(a(), this.f309a).m636b()) != null && !m636b.isEmpty()) {
+                for (StatusBarNotification statusBarNotification : m636b) {
                     if (statusBarNotification.getId() == this.a) {
                         Notification notification = statusBarNotification.getNotification();
                         if (notification == null) {
@@ -279,16 +279,16 @@ public abstract class ep extends en {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            super.m327a();
+            super.m328a();
             Bundle bundle = new Bundle();
-            if (m330d()) {
+            if (m331d()) {
                 bundle.putBoolean("mipush.customCopyLayout", this.f312b);
             } else {
                 bundle.putBoolean("mipush.customCopyLayout", false);
             }
             bundle.putBoolean("miui.customHeight", false);
             addExtras(bundle);
-            if (m329c() || !com.xiaomi.push.service.ap.m636a(a().getContentResolver())) {
+            if (m330c() || !com.xiaomi.push.service.ap.m637a(a().getContentResolver())) {
                 d();
             }
         }
@@ -313,7 +313,7 @@ public abstract class ep extends en {
     public abstract boolean a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public final boolean m331a(int i) {
+    public final boolean m332a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) ? ((((double) Color.red(i)) * 0.299d) + (((double) Color.green(i)) * 0.587d)) + (((double) Color.blue(i)) * 0.114d) < 192.0d : invokeI.booleanValue;
@@ -335,7 +335,7 @@ public abstract class ep extends en {
     public abstract String b();
 
     /* renamed from: b  reason: collision with other method in class */
-    public final void m332b() {
+    public final void m333b() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || Build.VERSION.SDK_INT < 11) {
             return;
@@ -349,7 +349,7 @@ public abstract class ep extends en {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public final boolean m333b() {
+    public final boolean m334b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f311a : invokeV.booleanValue;

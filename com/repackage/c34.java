@@ -1,74 +1,124 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import android.webkit.JavascriptInterface;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class c34 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public a34 a;
 
-    public static boolean a(View view2, pq2 pq2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, view2, pq2Var)) == null) {
-            ai1 X = wl2.U().X();
-            return X != null && X.c(view2, pq2Var);
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SwanAppActivity a;
+
+        public a(c34 c34Var, SwanAppActivity swanAppActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c34Var, swanAppActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = swanAppActivity;
         }
-        return invokeLL.booleanValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ce3.a(this.a);
+            }
+        }
     }
 
-    public static Context b() {
+    public c34(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jsObject};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = a34.d(bt1.F(jsObject));
+        z24.a().f(this);
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x0053, code lost:
+        if (r1.equals("checkForUpdate") != false) goto L16;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void a(b34 b34Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, b34Var) == null) && this.a != null && JSEvent.isValid(b34Var)) {
+            char c = 0;
+            ux1.i("UpdateManagerApi", String.format("dispatchEvent : eventType = %s; hasUpdate = %s", b34Var.type, Boolean.valueOf(b34Var.hasUpdate)));
+            String str = b34Var.type;
+            int hashCode = str.hashCode();
+            if (hashCode == -1330233754) {
+                if (str.equals("updateFailed")) {
+                    c = 2;
+                }
+                c = 65535;
+            } else if (hashCode != -1317168438) {
+                if (hashCode == -585906598 && str.equals("updateReady")) {
+                    c = 1;
+                }
+                c = 65535;
+            }
+            if (c == 0) {
+                this.a.a(b34Var);
+            } else if (c == 1) {
+                this.a.c();
+            } else if (c != 2) {
+            } else {
+                this.a.b();
+            }
+        }
+    }
+
+    @JavascriptInterface
+    public boolean applyUpdate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            ai1 X = wl2.U().X();
-            if (X != null) {
-                return X.getContext();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            SwanAppActivity activity = hm2.U().getActivity();
+            if (activity == null) {
+                ux1.c("UpdateManagerApi", "applyUpdate activity is null");
+                return false;
+            } else if (activity.isDestroyed() || activity.getIntent() == null) {
+                return false;
+            } else {
+                oe3.e0(new a(this, activity));
+                return true;
             }
-            return null;
         }
-        return (Context) invokeV.objValue;
-    }
-
-    public static void c(if3 if3Var) {
-        ai1 X;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, if3Var) == null) || (X = wl2.U().X()) == null) {
-            return;
-        }
-        X.e(if3Var);
-    }
-
-    public static boolean d(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
-            ai1 X = wl2.U().X();
-            return X != null && X.removeView(view2);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void e(if3 if3Var) {
-        ai1 X;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, if3Var) == null) || (X = wl2.U().X()) == null) {
-            return;
-        }
-        X.f(if3Var);
-    }
-
-    public static boolean f(View view2, pq2 pq2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, view2, pq2Var)) == null) {
-            ai1 X = wl2.U().X();
-            return X != null && X.a(view2, pq2Var);
-        }
-        return invokeLL.booleanValue;
+        return invokeV.booleanValue;
     }
 }

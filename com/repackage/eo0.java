@@ -6,6 +6,7 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.model.ParseError;
+import com.baidu.searchbox.launch.LaunchStatsUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -219,7 +220,7 @@ public class eo0 {
                 JSONObject optJSONObject = uy0.c(str).optJSONObject(UriUtil.LOCAL_RESOURCE_SCHEME);
                 if (optJSONObject != null) {
                     if (optJSONObject.optInt("status", 0) == 0) {
-                        JSONArray optJSONArray = optJSONObject.optJSONArray("ad");
+                        JSONArray optJSONArray = optJSONObject.optJSONArray(LaunchStatsUtils.AD);
                         if (optJSONArray != null) {
                             int length = optJSONArray.length();
                             ArrayList arrayList = new ArrayList();

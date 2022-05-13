@@ -1,23 +1,31 @@
 package com.repackage;
 
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.tbadk.TbPageContext;
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class pd6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ln6 a;
+    public final List<d55> a;
+    public Context b;
+    public String c;
+    public String d;
+    public String e;
 
-    public pd6(TbPageContext tbPageContext, ln6 ln6Var) {
+    public pd6(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, ln6Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,27 +35,71 @@ public class pd6 {
                 return;
             }
         }
-        this.a = ln6Var;
+        this.a = new LinkedList();
+        this.b = context;
     }
 
-    public void a(eh5 eh5Var) {
-        ln6 ln6Var;
+    public void a(d55 d55Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, eh5Var) == null) || (ln6Var = this.a) == null || ln6Var.b0() == null || this.a.b0().f0() == null || this.a.w0() == null || eh5Var == null || this.a.w0().c0() == null || this.a.N() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, d55Var) == null) || d55Var == null || d55Var.b() == null) {
             return;
         }
-        BdTypeRecyclerView c0 = this.a.w0().c0();
-        int i = eh5Var.a;
-        if (i != 2) {
-            if (i == 3 && eh5Var.a() != null) {
-                c0.removeHeaderView(eh5Var.a());
-                this.a.N().e0(0);
+        for (d55 d55Var2 : this.a) {
+            if (d55Var2 != null && d55Var2.b() != null && d55Var2.b().e == d55Var.b().e) {
+                return;
             }
-        } else if (eh5Var.a() == null) {
-        } else {
-            c0.removeHeaderView(eh5Var.a());
-            c0.t(eh5Var.a(), c0.getHeaderViewsCount() - 1);
-            this.a.N().e0(8);
+        }
+        this.a.add(d55Var);
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (String) invokeV.objValue;
+    }
+
+    public List<d55> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (List) invokeV.objValue;
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b : (Context) invokeV.objValue;
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.d = str;
         }
     }
 }

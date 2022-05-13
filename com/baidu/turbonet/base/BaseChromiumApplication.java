@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j39;
-import com.repackage.k39;
+import com.repackage.e29;
+import com.repackage.f29;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -27,7 +27,7 @@ public class BaseChromiumApplication extends Application {
     public static final String TOOLBAR_CALLBACK_WRAPPER_CLASS = "androidx.appcompat.app.ToolbarActionBar$ToolbarCallbackWrapper";
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean mShouldInitializeApplicationStatusTracking;
-    public j39<c> mWindowFocusListeners;
+    public e29<c> mWindowFocusListeners;
 
     /* loaded from: classes4.dex */
     public class a implements Application.ActivityLifecycleCallbacks {
@@ -208,7 +208,7 @@ public class BaseChromiumApplication extends Application {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             super.attachBaseContext(context);
-            k39.b(this);
+            f29.b(this);
         }
     }
 
@@ -258,7 +258,7 @@ public class BaseChromiumApplication extends Application {
                 return;
             }
         }
-        this.mWindowFocusListeners = new j39<>();
+        this.mWindowFocusListeners = new e29<>();
         this.mShouldInitializeApplicationStatusTracking = z;
     }
 }

@@ -34,13 +34,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.h95;
-import com.repackage.oi;
+import com.repackage.mi;
+import com.repackage.y95;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class RelevanceItemSearchView implements h95, ViewPager.OnPageChangeListener {
+public class RelevanceItemSearchView implements y95, ViewPager.OnPageChangeListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String[] a;
@@ -288,7 +288,7 @@ public class RelevanceItemSearchView implements h95, ViewPager.OnPageChangeListe
         }
     }
 
-    @Override // com.repackage.h95
+    @Override // com.repackage.y95
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -315,7 +315,7 @@ public class RelevanceItemSearchView implements h95, ViewPager.OnPageChangeListe
                 c cVar = new c(this);
                 RelevanceItemListFragment relevanceItemListFragment = new RelevanceItemListFragment();
                 cVar.a = relevanceItemListFragment;
-                relevanceItemListFragment.H0(str);
+                relevanceItemListFragment.I0(str);
                 cVar.b = str;
                 this.k.add(cVar);
             }
@@ -323,7 +323,7 @@ public class RelevanceItemSearchView implements h95, ViewPager.OnPageChangeListe
         }
     }
 
-    @Override // com.repackage.h95
+    @Override // com.repackage.y95
     public boolean isOnViewCancel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -333,7 +333,7 @@ public class RelevanceItemSearchView implements h95, ViewPager.OnPageChangeListe
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.h95
+    @Override // com.repackage.y95
     public boolean isOnViewTop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -353,19 +353,19 @@ public class RelevanceItemSearchView implements h95, ViewPager.OnPageChangeListe
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.c.setCenterTextTitle(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0f6e));
+            this.c.setCenterTextTitle(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0f89));
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
-            layoutParams.height = oi.f(this.b.getContext(), R.dimen.tbds60);
-            layoutParams.topMargin = oi.f(this.b.getContext(), R.dimen.tbds15);
+            layoutParams.height = mi.f(this.b.getContext(), R.dimen.tbds60);
+            layoutParams.topMargin = mi.f(this.b.getContext(), R.dimen.tbds15);
         }
     }
 
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.h = this.b.findViewById(R.id.obfuscated_res_0x7f091c13);
-            this.j = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091c25);
-            EditText editText = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f091c3b);
+            this.h = this.b.findViewById(R.id.obfuscated_res_0x7f091c60);
+            this.j = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091c72);
+            EditText editText = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f091c88);
             this.i = editText;
             editText.addTextChangedListener(new b(this));
         }
@@ -374,18 +374,18 @@ public class RelevanceItemSearchView implements h95, ViewPager.OnPageChangeListe
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            TbTabLayout tbTabLayout = (TbTabLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091e47);
+            TbTabLayout tbTabLayout = (TbTabLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091e9f);
             this.e = tbTabLayout;
-            tbTabLayout.setTabTextSize(oi.f(this.d, R.dimen.tbds46));
-            this.e.setSelectedTabTextSize(oi.f(this.d, R.dimen.tbds52));
-            this.e.setSelectedIndicatorBottomMargin(oi.f(this.d, R.dimen.tbds11));
+            tbTabLayout.setTabTextSize(mi.f(this.d, R.dimen.tbds46));
+            this.e.setSelectedTabTextSize(mi.f(this.d, R.dimen.tbds52));
+            this.e.setSelectedIndicatorBottomMargin(mi.f(this.d, R.dimen.tbds11));
         }
     }
 
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            LayoutInflater.from(this.b.getContext()).inflate(R.layout.obfuscated_res_0x7f0d072d, (ViewGroup) this.b, true);
+            LayoutInflater.from(this.b.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0720, (ViewGroup) this.b, true);
             this.d.showLoadingView(this.b);
             l();
             k();
@@ -397,7 +397,7 @@ public class RelevanceItemSearchView implements h95, ViewPager.OnPageChangeListe
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            CustomViewPager customViewPager = (CustomViewPager) this.b.findViewById(R.id.obfuscated_res_0x7f0923c2);
+            CustomViewPager customViewPager = (CustomViewPager) this.b.findViewById(R.id.obfuscated_res_0x7f092412);
             this.f = customViewPager;
             customViewPager.addOnPageChangeListener(this);
             FragmentAdapter fragmentAdapter = new FragmentAdapter(this.d.getSupportFragmentManager());
@@ -435,7 +435,7 @@ public class RelevanceItemSearchView implements h95, ViewPager.OnPageChangeListe
         }
     }
 
-    @Override // com.repackage.h95
+    @Override // com.repackage.y95
     public void onViewChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {

@@ -27,7 +27,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @TK_EXPORT_CLASS
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class Network implements NativeModule {
     public static /* synthetic */ Interceptable $ic = null;
     public static String METHOD_GET = "GET";

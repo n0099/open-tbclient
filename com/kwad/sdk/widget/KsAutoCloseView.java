@@ -60,9 +60,9 @@ public class KsAutoCloseView extends LinearLayout implements View.OnClickListene
     }
 
     private void a(Context context, @Nullable AttributeSet attributeSet, int i) {
-        LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0441, this);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09103d);
-        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09103c);
+        LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0435, this);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09104c);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09104b);
         this.d = imageView;
         imageView.setOnClickListener(this);
     }

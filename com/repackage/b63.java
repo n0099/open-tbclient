@@ -1,83 +1,81 @@
 package com.repackage;
 
-import android.os.Build;
-import android.text.TextUtils;
-import android.util.Log;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.so.SoLoader;
-import com.baidu.swan.apps.so.SoUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.http.request.HttpRequest;
+import com.baidu.swan.apps.statistic.interfacestability.SwanInterfaceType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.r63;
-import java.io.File;
-import java.util.Arrays;
-import java.util.Locale;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class b63 implements SoUtils.a {
+public class b63 extends f63<JSONObject> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Context m;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755875086, "Lcom/repackage/b63;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755875086, "Lcom/repackage/b63;");
-                return;
-            }
-        }
-        a = tg1.a;
-    }
-
-    public b63() {
+    public b63(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.m = context;
     }
 
-    public final String a(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.r53
+    /* renamed from: P */
+    public JSONObject m(JSONObject jSONObject) throws JSONException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            File findSoFilesInLibrary = SoLoader.findSoFilesInLibrary(qj2.c(), str);
-            return String.format(Locale.CHINA, "[%s:%s,size:%d]", str, findSoFilesInLibrary == null ? null : findSoFilesInLibrary.getAbsolutePath(), Long.valueOf(findSoFilesInLibrary == null ? 0L : findSoFilesInLibrary.length()));
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) ? s53.c(jSONObject) : (JSONObject) invokeL.objValue;
     }
 
-    @Override // com.baidu.swan.apps.so.SoUtils.a
-    public void onEvent(String str, String str2) {
+    @Override // com.repackage.r53
+    public boolean j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || TextUtils.isEmpty(str2)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            u03 L = u03.L();
+            if (L != null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("ma_id", L.N());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                v("data", jSONObject.toString());
+                return true;
+            }
+            return true;
         }
-        String[] strArr = {Build.CPU_ABI, Build.CPU_ABI2};
-        String str3 = Arrays.toString(strArr) + "\n" + ug1.a() + "\n" + a("v8.engine") + "\n" + a("zeusv8") + "\n" + str2;
-        if (a) {
-            Log.d("SoUbcDefaultImpl", "reportSoLoadInfo: " + str3);
-        }
-        r63.b bVar = new r63.b(10007);
-        bVar.j(str);
-        bVar.i(str3);
-        bVar.h(j03.f0());
-        bVar.m();
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.f63
+    public HttpRequest w(f63 f63Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, f63Var)) == null) ? bk2.o().M(this.m, f63Var.B()) : (HttpRequest) invokeL.objValue;
+    }
+
+    @Override // com.repackage.f63
+    public SwanInterfaceType z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? SwanInterfaceType.OPEN_ID : (SwanInterfaceType) invokeV.objValue;
     }
 }

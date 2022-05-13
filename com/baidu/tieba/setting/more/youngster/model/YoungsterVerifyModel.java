@@ -67,7 +67,7 @@ public class YoungsterVerifyModel extends BdBaseModel {
             if (!StringUtils.isNull(this.a.mErrorString)) {
                 str = this.a.mErrorString;
             } else {
-                str = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
+                str = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c2d);
             }
             ErrorData errorData = new ErrorData();
             errorData.setError_code(this.a.mErrorCode);
@@ -76,14 +76,14 @@ public class YoungsterVerifyModel extends BdBaseModel {
             if (youngsterVerifyHttpResponsedMessage != null && youngsterVerifyHttpResponsedMessage.getData() != null && youngsterVerifyHttpResponsedMessage.getData().a) {
                 this.a.a.onSuccess();
             } else {
-                this.a.a.onError(errorData);
+                this.a.a.a(errorData);
             }
         }
     }
 
     /* loaded from: classes4.dex */
     public interface b {
-        void onError(ErrorData errorData);
+        void a(ErrorData errorData);
 
         void onSuccess();
     }

@@ -17,8 +17,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gx7;
-import com.repackage.pg;
+import com.repackage.dx7;
+import com.repackage.ng;
 /* loaded from: classes3.dex */
 public class SuggestEmotionModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
@@ -101,7 +101,7 @@ public class SuggestEmotionModel extends BdBaseModel {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                pg.a().post(new RunnableC0225a(this, customResponsedMessage));
+                ng.a().post(new RunnableC0225a(this, customResponsedMessage));
             }
         }
     }
@@ -150,7 +150,7 @@ public class SuggestEmotionModel extends BdBaseModel {
 
     /* loaded from: classes3.dex */
     public interface c {
-        void a(gx7 gx7Var);
+        void a(dx7 dx7Var);
 
         void onFail(int i, String str);
     }

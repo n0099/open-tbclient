@@ -232,23 +232,23 @@ public class f38 extends BaseAdapter {
             if (view2 == null) {
                 bVar = new b(this, null);
                 if (getItemViewType(i) == 0) {
-                    view3 = LayoutInflater.from(this.b.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06c8, (ViewGroup) null);
-                    HeadImageView headImageView = (HeadImageView) view3.findViewById(R.id.obfuscated_res_0x7f091824);
+                    view3 = LayoutInflater.from(this.b.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06c0, (ViewGroup) null);
+                    HeadImageView headImageView = (HeadImageView) view3.findViewById(R.id.obfuscated_res_0x7f09187a);
                     bVar.a = headImageView;
                     headImageView.setIsRound(false);
                     bVar.a.setAutoChangeStyle(true);
-                    bVar.e = (LinearLayout) view3.findViewById(R.id.obfuscated_res_0x7f090ef0);
-                    bVar.b = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f0914e5);
-                    bVar.g = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f0902bc);
-                    bVar.c = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f090f42);
-                    bVar.d = (ImageView) view3.findViewById(R.id.obfuscated_res_0x7f0905fd);
-                    bVar.h = (ImageView) view3.findViewById(R.id.obfuscated_res_0x7f0907df);
+                    bVar.e = (LinearLayout) view3.findViewById(R.id.obfuscated_res_0x7f090efd);
+                    bVar.b = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091504);
+                    bVar.g = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f0902b2);
+                    bVar.c = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f090f4f);
+                    bVar.d = (ImageView) view3.findViewById(R.id.obfuscated_res_0x7f0905f7);
+                    bVar.h = (ImageView) view3.findViewById(R.id.obfuscated_res_0x7f0907d6);
                     bVar.d.setOnClickListener(this.h);
                 } else {
-                    view3 = LayoutInflater.from(this.b.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0600, (ViewGroup) null);
-                    bVar.b = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f0916eb);
+                    view3 = LayoutInflater.from(this.b.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d05f4, (ViewGroup) null);
+                    bVar.b = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091713);
                     view3.setOnClickListener(this.i);
-                    ProgressBar progressBar = (ProgressBar) view3.findViewById(R.id.obfuscated_res_0x7f09191d);
+                    ProgressBar progressBar = (ProgressBar) view3.findViewById(R.id.obfuscated_res_0x7f091975);
                     bVar.f = progressBar;
                     this.d.add(progressBar);
                 }
@@ -281,7 +281,7 @@ public class f38 extends BaseAdapter {
                     bVar.d.setTag(Integer.valueOf(i));
                 }
             } else {
-                bVar.b.setText(this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f0a2e));
+                bVar.b.setText(this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f0a34));
                 bVar.f.setVisibility(0);
             }
             a(view3);

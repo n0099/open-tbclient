@@ -10,7 +10,7 @@ import android.view.Display;
 import android.view.WindowManager;
 import com.meizu.cloud.pushsdk.c.f.e;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
-import com.repackage.ym9;
+import com.repackage.tl9;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes5.dex */
@@ -44,7 +44,7 @@ public class c {
         if (aVar.a != null) {
             a(aVar.a);
         }
-        ym9.d(a, "Subject created successfully.");
+        tl9.d(a, "Subject created successfully.");
     }
 
     private void a(Context context, long j) {
@@ -105,7 +105,7 @@ public class c {
     private void e(Context context) {
         Location c = e.c(context);
         if (c == null) {
-            ym9.b(a, "Location information not available.");
+            tl9.b(a, "Location information not available.");
             return;
         }
         b(b.B, Double.valueOf(c.getLongitude()));
@@ -158,11 +158,11 @@ public class c {
             display.getSize(point);
             a(point.x, point.y);
         } catch (Exception unused) {
-            ym9.b(a, "Display.getSize isn't available on older devices.");
+            tl9.b(a, "Display.getSize isn't available on older devices.");
             if (display != null) {
                 a(display.getWidth(), display.getHeight());
             } else {
-                ym9.b(a, "error get display");
+                tl9.b(a, "error get display");
             }
         }
     }

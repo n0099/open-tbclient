@@ -1,14 +1,31 @@
 package com.repackage;
 
-import android.view.KeyEvent;
-import android.view.MotionEvent;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface iz1 {
-    boolean dispatchTouchEvent(MotionEvent motionEvent);
+public abstract class iz1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean onKeyDown(int i, KeyEvent keyEvent);
+    public iz1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void onScrollChanged(int i, int i2, int i3, int i4);
-
-    boolean onTouchEvent(MotionEvent motionEvent);
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+        }
+    }
 }

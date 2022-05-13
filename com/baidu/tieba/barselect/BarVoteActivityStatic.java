@@ -28,9 +28,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.er7;
-import com.repackage.kk8;
-import com.repackage.mg;
-import com.repackage.nd5;
+import com.repackage.ge5;
+import com.repackage.hj8;
+import com.repackage.kg;
 /* loaded from: classes3.dex */
 public class BarVoteActivityStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -202,7 +202,7 @@ public class BarVoteActivityStatic {
                 if (tbPageContext != null && strArr != null && strArr.length != 0) {
                     String str = strArr[0];
                     if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_BAR_VOTE)) {
-                        long g = mg.g(nd5.c(str, "fid="), 0L);
+                        long g = kg.g(ge5.c(str, "fid="), 0L);
                         if (g != 0) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2921408, new BarVoteActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(g, 4)));
                             return 0;
@@ -242,7 +242,7 @@ public class BarVoteActivityStatic {
                 if (tbPageContext != null && strArr != null && strArr.length != 0) {
                     String str = strArr[0];
                     if (str.startsWith(UrlSchemaHelper.SCHEME_TYPE_ID_CARD)) {
-                        long g = mg.g(nd5.c(str, "fid="), 0L);
+                        long g = kg.g(ge5.c(str, "fid="), 0L);
                         if (g != 0) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2921413, new IdentityReviewActivityConfig(tbPageContext.getPageActivity(), g, 25042)));
                             return 0;
@@ -357,8 +357,8 @@ public class BarVoteActivityStatic {
     public static void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, null) == null) {
-            kk8.h(309642, VoteElectionSocketResMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BAR_ELECTION, kk8.a("c/f/bawu/electionInfo", 309642));
+            hj8.h(309642, VoteElectionSocketResMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BAR_ELECTION, hj8.a("c/f/bawu/electionInfo", 309642));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setIsNeedLogin(true);
             tbHttpMessageTask.setResponsedClass(VoteElectionHttpResMessage.class);

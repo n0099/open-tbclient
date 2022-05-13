@@ -1,176 +1,96 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class jb4 extends nb4 {
+public class jb4 extends y94<pb4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String d;
-    public long e;
-    public String f;
-    public long g;
-    public String h;
-    public String i;
-    public long j;
-    public long k;
-    public long l;
+    public final String d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jb4(String str, int i) {
-        super(i);
+    public jb4(String str, n84 n84Var, yb4 yb4Var) {
+        super(n84Var, yb4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i)};
+            Object[] objArr = {str, n84Var, yb4Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((n84) objArr2[0], (yb4) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = -1L;
-        this.g = -1L;
-        this.j = -1L;
-        this.k = 0L;
         this.d = str;
     }
 
-    public long f() {
+    @Override // com.repackage.y94
+    public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.g : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getpkg" : (String) invokeV.objValue;
     }
 
-    public String g() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.y94
+    /* renamed from: v */
+    public boolean f(pb4 pb4Var) {
+        InterceptResult invokeL;
+        List<s94> list;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
-    public long h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.l : invokeV.longValue;
-    }
-
-    public long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.j : invokeV.longValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.h : (String) invokeV.objValue;
-    }
-
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : (String) invokeV.objValue;
-    }
-
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.i : (String) invokeV.objValue;
-    }
-
-    public long m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.e : invokeV.longValue;
-    }
-
-    public long n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.k : invokeV.longValue;
-    }
-
-    public jb4 o(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
-            this.g = j;
-            return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, pb4Var)) == null) {
+            if (pb4Var == null || (list = pb4Var.a) == null) {
+                return false;
+            }
+            for (s94 s94Var : list) {
+                if (!s94Var.a()) {
+                    return false;
+                }
+            }
+            return true;
         }
-        return (jb4) invokeJ.objValue;
+        return invokeL.booleanValue;
     }
 
-    public void p(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
-            this.l = j;
-        }
-    }
-
-    public jb4 q(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
-            this.j = j;
-            return this;
-        }
-        return (jb4) invokeJ.objValue;
-    }
-
-    public jb4 r(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.y94
+    /* renamed from: w */
+    public m94 t(pb4 pb4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            this.h = str;
-            return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, pb4Var)) == null) {
+            this.a.F();
+            ae4 ae4Var = new ae4();
+            p(pb4Var.a, ae4Var);
+            if (ae4Var.n() == 0) {
+                this.a.G();
+                return null;
+            }
+            this.a.H(ae4Var);
+            da4.d(pb4Var, this.a);
+            return null;
         }
-        return (jb4) invokeL.objValue;
+        return (m94) invokeL.objValue;
     }
 
-    public jb4 s(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.y94
+    /* renamed from: x */
+    public pb4 u(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            this.f = str;
-            return this;
-        }
-        return (jb4) invokeL.objValue;
-    }
-
-    public jb4 t(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            this.i = str;
-            return this;
-        }
-        return (jb4) invokeL.objValue;
-    }
-
-    public jb4 u(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048591, this, j)) == null) {
-            this.e = j;
-            return this;
-        }
-        return (jb4) invokeJ.objValue;
-    }
-
-    public void v(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
-            this.k = j;
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) ? zd4.i(this.d, jSONObject) : (pb4) invokeL.objValue;
     }
 }

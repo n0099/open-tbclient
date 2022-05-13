@@ -73,7 +73,7 @@ public class jl0 implements tl0 {
         this();
     }
 
-    public static jl0 d() {
+    public static jl0 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (jl0) invokeV.objValue;
@@ -88,7 +88,7 @@ public class jl0 implements tl0 {
             if (TextUtils.isEmpty(str)) {
                 return i;
             }
-            g(NodeJS.GLOBAL);
+            f(NodeJS.GLOBAL);
             if (vy0.a(this.b.a(), str) && (str2 = (String) vy0.b(this.b.a(), str)) != null) {
                 try {
                     return Integer.parseInt(str2);
@@ -100,37 +100,16 @@ public class jl0 implements tl0 {
         return invokeLI.intValue;
     }
 
-    @Override // com.repackage.tl0
-    public int b(String str, String str2, int i) {
-        InterceptResult invokeLLI;
-        String str3;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, i)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                g(str);
-                Map map = (Map) vy0.b(this.b.b(), str);
-                if (map != null && vy0.a(map, str2) && (str3 = (String) vy0.b(map, str2)) != null) {
-                    try {
-                        return Integer.parseInt(str3);
-                    } catch (NumberFormatException unused) {
-                    }
-                }
-            }
-            return i;
-        }
-        return invokeLLI.intValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.b.d = true;
         }
     }
 
-    public void e(@Nullable String str) throws ADConfigError {
+    public void d(@Nullable String str) throws ADConfigError {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             if (str != null && !TextUtils.isEmpty(str)) {
                 JSONObject c = uy0.c(str);
                 if (c.has("error_code")) {
@@ -167,18 +146,18 @@ public class jl0 implements tl0 {
         }
     }
 
-    public void f() {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.b.d = false;
         }
     }
 
-    public final void g(String str) {
+    public final void f(String str) {
         Map<String, ?> all;
         Map<String, ?> all2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             bz0 a2 = bz0.a();
             yy0 b2 = a2.b("nad.launch.config." + str);
             if (NodeJS.GLOBAL.equals(str)) {

@@ -1,251 +1,127 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.clientupdate.download.DownloadManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.core.prefetch.image.config.image.SystemStrategyImpl;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import com.facebook.common.executors.UiThreadImmediateExecutorService;
+import com.facebook.common.references.CloseableReference;
+import com.facebook.datasource.DataSource;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber;
+import com.facebook.imagepipeline.image.CloseableImage;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
 /* loaded from: classes6.dex */
 public class o42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public q42 a;
-    public p42 b;
-    public File c;
-    public long d;
-    public int e;
-    public int f;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    public static class a extends BaseBitmapDataSubscriber {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ b a;
+        public final /* synthetic */ int b;
 
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public q42 a;
-        public p42 b;
-        public File c;
-        public long d;
-        public int e;
-        public int f;
-
-        public b() {
+        public a(b bVar, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.e = 0;
-            this.f = 0;
+            this.a = bVar;
+            this.b = i;
         }
 
-        public b g(q42 q42Var) {
-            InterceptResult invokeL;
+        @Override // com.facebook.datasource.BaseDataSubscriber, com.facebook.datasource.DataSubscriber
+        public void onCancellation(DataSource<CloseableReference<CloseableImage>> dataSource) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, q42Var)) == null) {
-                this.a = q42Var;
-                return this;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
+                super.onCancellation(dataSource);
+                o42.b(this.b, this.a, "download icon fail: onCancellation");
             }
-            return (b) invokeL.objValue;
         }
 
-        public b h(p42 p42Var) {
-            InterceptResult invokeL;
+        @Override // com.facebook.datasource.BaseDataSubscriber
+        public void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p42Var)) == null) {
-                this.b = p42Var;
-                return this;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource) == null) {
+                o42.b(this.b, this.a, "download icon fail: onFailureImpl");
             }
-            return (b) invokeL.objValue;
         }
 
-        public b i(long j) {
-            InterceptResult invokeJ;
+        @Override // com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber
+        public void onNewResultImpl(Bitmap bitmap) {
+            Bitmap copy;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-                this.d = j;
-                return this;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap) == null) {
+                if (bitmap == null || bitmap.isRecycled()) {
+                    o42.b(this.b, this.a, "download icon fail: bitmap is null or is recycled");
+                    return;
+                }
+                try {
+                    if (bitmap.getConfig() == null) {
+                        copy = bitmap.copy(Bitmap.Config.ARGB_8888, true);
+                    } else {
+                        copy = bitmap.copy(bitmap.getConfig(), true);
+                    }
+                    if (this.a != null) {
+                        this.a.a(copy);
+                    }
+                } catch (Exception e) {
+                    int i = this.b;
+                    b bVar = this.a;
+                    o42.b(i, bVar, "download icon fail: " + e.getMessage());
+                }
             }
-            return (b) invokeJ.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public static final o42 a;
-        public transient /* synthetic */ FieldHolder $fh;
+    public interface b {
+        void a(Bitmap bitmap);
+    }
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-176201467, "Lcom/repackage/o42$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-176201467, "Lcom/repackage/o42$c;");
-                    return;
-                }
+    public static void b(int i, b bVar, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(65537, null, i, bVar, str) == null) {
+            nc3 nc3Var = new nc3();
+            nc3Var.k(4L);
+            nc3Var.i(10L);
+            nc3Var.f(str);
+            rc3.a().f(nc3Var);
+            v73 v73Var = new v73();
+            v73Var.p(nc3Var);
+            v73Var.q(n73.n(i));
+            n73.R(v73Var);
+            if (bVar != null) {
+                bVar.a(null);
             }
-            a = new o42(null);
         }
     }
 
-    public /* synthetic */ o42(a aVar) {
-        this();
-    }
-
-    public static o42 a() {
-        InterceptResult invokeV;
+    public static void c(String str, int i, b bVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.a : (o42) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return AppRuntime.getAppContext().getExternalCacheDir() + File.separator + "swan_hybrid";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public File b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.c == null) {
-                String o = mg4.o();
-                if (TextUtils.isEmpty(o)) {
-                    return null;
-                }
-                this.c = new File(o, "swan_hybrid");
+        if (interceptable == null || interceptable.invokeLIL(65538, null, str, i, bVar) == null) {
+            Uri C = oe3.C(str);
+            if (C == null) {
+                b(i, bVar, "download icon fail: icon url is null");
+                return;
             }
-            return this.c;
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public q42 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a == null) {
-                this.a = new r42();
-            }
-            return this.a;
-        }
-        return (q42) invokeV.objValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.e <= 0) {
-                this.e = 60000;
-            }
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public p42 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.b == null) {
-                this.b = new SystemStrategyImpl();
-            }
-            return this.b;
-        }
-        return (p42) invokeV.objValue;
-    }
-
-    public long g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.d <= 0) {
-                this.d = DownloadManager.MIN_LEFT_SIZE;
-            }
-            return this.d;
-        }
-        return invokeV.longValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f <= 0) {
-                this.f = 60000;
-            }
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public void i(b bVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) || bVar == null) {
-            return;
-        }
-        this.a = bVar.a;
-        this.b = bVar.b;
-        this.c = bVar.c;
-        this.d = bVar.d;
-        this.e = bVar.e;
-        this.f = bVar.f;
-        if (s42.a) {
-            Log.d("HybridIntercept", toString());
-        }
-    }
-
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return "SwanHybridInterceptConfig{CacheKeyProvider=" + this.a + ", InterceptStrategy=" + this.b + ", CacheFolder=" + this.c + ", MaxCacheSize=" + (this.d / 1048576) + "MB, ConnectTimeout=" + this.e + ", ReadTimeout=" + this.f + '}';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public o42() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            Fresco.getImagePipeline().fetchDecodedImage(ImageRequestBuilder.newBuilderWithSource(C).build(), AppRuntime.getAppContext()).subscribe(new a(bVar, i), UiThreadImmediateExecutorService.getInstance());
         }
     }
 }

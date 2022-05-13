@@ -20,15 +20,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dq5;
-import com.repackage.ja0;
-import com.repackage.na0;
-import com.repackage.oe6;
+import com.repackage.eq5;
+import com.repackage.g55;
+import com.repackage.ma0;
+import com.repackage.qa0;
+import com.repackage.td6;
 /* loaded from: classes3.dex */
-public class AlaLiveTabFeedPageFragment extends BaseFragment implements oe6 {
+public class AlaLiveTabFeedPageFragment extends BaseFragment implements td6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public na0 a;
+    public qa0 a;
 
     public AlaLiveTabFeedPageFragment() {
         Interceptable interceptable = $ic;
@@ -44,49 +45,41 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements oe6 {
         }
     }
 
-    @Override // com.repackage.oe6
-    public void A() {
+    @Override // com.repackage.td6
+    public void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            B0("onPageOutEnd");
+            C0(CommonTbJsBridge.CHANGE_SKIN_TYPE);
+            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public final void B0(String str) {
+    public final void C0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             LiveFeedPageSdk.m("TbLiveFeedPage   " + str);
         }
     }
 
-    @Override // com.repackage.oe6
-    public void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            B0(CommonTbJsBridge.CHANGE_SKIN_TYPE);
-            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.v75
+    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.m85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            B0("getCurrentPageKey");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            C0("getCurrentPageKey");
             return "a083";
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.oe6
-    public void m() {
+    @Override // com.repackage.td6
+    public void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            B0("refreshPage");
-            na0 na0Var = this.a;
-            if (na0Var != null) {
-                na0Var.h();
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            C0("refreshPage");
+            qa0 qa0Var = this.a;
+            if (qa0Var != null) {
+                qa0Var.h();
             }
         }
     }
@@ -94,14 +87,14 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements oe6 {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            B0("onChangeSkinType");
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            C0("onChangeSkinType");
             super.onChangeSkinType(i);
             String str = i == 1 ? SkinManager.SKIN_TYPE_STR_NIGHT : i == 4 ? "dark" : Config.TRACE_VISIT_RECENT_DAY;
             LiveFeedPageSdk.f().r(str);
-            na0 na0Var = this.a;
-            if (na0Var != null) {
-                na0Var.a(str);
+            qa0 qa0Var = this.a;
+            if (qa0Var != null) {
+                qa0Var.a(str);
             }
         }
     }
@@ -109,12 +102,12 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements oe6 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.ALA_LIVE_TAB_ON_CREATE_START_STAMP_KEY);
             super.onCreate(null);
-            B0("onCreate");
-            dq5.a().c(TbadkCoreApplication.getInst());
-            this.a = new ja0();
+            C0("onCreate");
+            eq5.a().c(TbadkCoreApplication.getInst());
+            this.a = new ma0();
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.ALA_LIVE_TAB_ON_CREATE_END_STAMP_KEY);
         }
     }
@@ -123,11 +116,11 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements oe6 {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, layoutInflater, viewGroup, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, layoutInflater, viewGroup, bundle)) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(5038);
-            B0("onCreateView");
+            C0("onCreateView");
             if (this.a == null) {
-                this.a = new ja0();
+                this.a = new ma0();
             }
             View i = this.a.i(getFragmentActivity(), this, "live_tab", "", null, null, false);
             if (i.getParent() instanceof ViewGroup) {
@@ -146,22 +139,22 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements oe6 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            B0(MissionEvent.MESSAGE_DESTROY);
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            C0(MissionEvent.MESSAGE_DESTROY);
             super.onDestroy();
-            na0 na0Var = this.a;
-            if (na0Var != null) {
-                na0Var.b();
+            qa0 qa0Var = this.a;
+            if (qa0Var != null) {
+                qa0Var.b();
             }
-            TbadkCoreApplication.getInst().getPersonalizeViewData().a();
+            g55.e().b();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            B0("onLazyLoad");
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            C0("onLazyLoad");
             super.onLazyLoad();
             this.a.f();
         }
@@ -170,12 +163,12 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements oe6 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            B0(MissionEvent.MESSAGE_PAUSE);
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            C0(MissionEvent.MESSAGE_PAUSE);
             super.onPause();
-            na0 na0Var = this.a;
-            if (na0Var != null) {
-                na0Var.e();
+            qa0 qa0Var = this.a;
+            if (qa0Var != null) {
+                qa0Var.e();
             }
             if (isPrimary()) {
                 this.a.onUserVisibleHint(false);
@@ -186,12 +179,12 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements oe6 {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onPrimary();
-            B0("onPrimary " + isPrimary());
-            na0 na0Var = this.a;
-            if (na0Var != null) {
-                na0Var.onUserVisibleHint(isPrimary());
+            C0("onPrimary " + isPrimary());
+            qa0 qa0Var = this.a;
+            if (qa0Var != null) {
+                qa0Var.onUserVisibleHint(isPrimary());
             }
         }
     }
@@ -199,13 +192,13 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements oe6 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(5040);
-            B0("onResume");
+            C0("onResume");
             super.onResume();
-            na0 na0Var = this.a;
-            if (na0Var != null) {
-                na0Var.g();
+            qa0 qa0Var = this.a;
+            if (qa0Var != null) {
+                qa0Var.g();
             }
             if (isPrimary()) {
                 this.a.onUserVisibleHint(true);
@@ -217,12 +210,12 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements oe6 {
     @Override // androidx.fragment.app.Fragment
     public void onStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            B0("onStart");
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            C0("onStart");
             super.onStart();
-            na0 na0Var = this.a;
-            if (na0Var != null) {
-                na0Var.d();
+            qa0 qa0Var = this.a;
+            if (qa0Var != null) {
+                qa0Var.d();
             }
         }
     }
@@ -230,21 +223,29 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements oe6 {
     @Override // androidx.fragment.app.Fragment
     public void onStop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            B0(MissionEvent.MESSAGE_STOP);
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            C0(MissionEvent.MESSAGE_STOP);
             super.onStop();
-            na0 na0Var = this.a;
-            if (na0Var != null) {
-                na0Var.c();
+            qa0 qa0Var = this.a;
+            if (qa0Var != null) {
+                qa0Var.c();
             }
         }
     }
 
-    @Override // com.repackage.oe6
-    public void r() {
+    @Override // com.repackage.td6
+    public void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            C0("onPageStartIn");
+        }
+    }
+
+    @Override // com.repackage.td6
+    public void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            B0("onPageStartIn");
+            C0("onPageOutEnd");
         }
     }
 }

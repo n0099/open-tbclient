@@ -13,16 +13,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.u25;
+import com.repackage.k35;
 import java.util.LinkedList;
 /* loaded from: classes5.dex */
-public class al7 extends u25 {
+public class al7 extends k35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<p05> m;
+    public LinkedList<d15> m;
 
     /* loaded from: classes5.dex */
-    public class a implements u25.a {
+    public class a implements k35.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ al7 a;
@@ -45,7 +45,7 @@ public class al7 extends u25 {
             this.a = al7Var;
         }
 
-        @Override // com.repackage.u25.a
+        @Override // com.repackage.k35.a
         public View getView(int i, View view2, ViewGroup viewGroup) {
             InterceptResult invokeILL;
             Interceptable interceptable = $ic;
@@ -74,7 +74,7 @@ public class al7 extends u25 {
         }
     }
 
-    public void C(LinkedList<p05> linkedList) {
+    public void C(LinkedList<d15> linkedList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, linkedList) == null) {
             this.m = linkedList;
@@ -85,7 +85,7 @@ public class al7 extends u25 {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i < 0 || i >= f()) {
+            if (i < 0 || i >= c()) {
                 return null;
             }
             return (DLauncher) this.m.get(i);
@@ -93,9 +93,9 @@ public class al7 extends u25 {
         return (DLauncher) invokeI.objValue;
     }
 
-    @Override // com.repackage.u25
+    @Override // com.repackage.k35
     public void a() {
-        LinkedList<p05> linkedList;
+        LinkedList<d15> linkedList;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (linkedList = this.m) == null) {
             return;
@@ -104,12 +104,12 @@ public class al7 extends u25 {
         this.m = null;
     }
 
-    @Override // com.repackage.u25
-    public int f() {
+    @Override // com.repackage.k35
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            LinkedList<p05> linkedList = this.m;
+            LinkedList<d15> linkedList = this.m;
             if (linkedList != null) {
                 return linkedList.size();
             }
@@ -118,14 +118,14 @@ public class al7 extends u25 {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.j05
-    public void onAction(i05 i05Var) {
+    @Override // com.repackage.x05
+    public void onAction(w05 w05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, i05Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, w05Var) == null) {
         }
     }
 
-    @Override // com.repackage.u25
+    @Override // com.repackage.k35
     public void q(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
@@ -135,7 +135,7 @@ public class al7 extends u25 {
             w(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
             x(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
             A(new a(this));
-            k().b(this);
+            j().b(this);
         }
     }
 }

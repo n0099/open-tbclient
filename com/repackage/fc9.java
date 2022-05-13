@@ -1,94 +1,55 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class fc9 {
+public class fc9 extends dc9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static <T> boolean a(List<T> list, List<T> list2) {
-        InterceptResult invokeLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fc9(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, list, list2)) == null) {
-            if (e(list2) || list == null) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return list.addAll(list2);
         }
-        return invokeLL.booleanValue;
+        this.d = "";
+        this.b = false;
+        this.c = false;
+        this.g = -100;
     }
 
-    public static <T> int b(List<T> list) {
-        InterceptResult invokeL;
+    @Override // com.repackage.cc9
+    public cc9 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            if (list == null || list.isEmpty()) {
-                return 0;
-            }
-            return list.size();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            i();
+            return this;
         }
-        return invokeL.intValue;
+        return (cc9) invokeV.objValue;
     }
 
-    public static <T> T c(List<T> list, int i) {
-        InterceptResult invokeLI;
+    public cc9 i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, list, i)) == null) {
-            if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
-                return null;
-            }
-            return list.get(i);
-        }
-        return (T) invokeLI.objValue;
-    }
-
-    public static <T> T d(List<T> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
-            if (list == null || list.isEmpty()) {
-                return null;
-            }
-            return (T) c(list, list.size() - 1);
-        }
-        return (T) invokeL.objValue;
-    }
-
-    public static <T> boolean e(List<T> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) ? b(list) <= 0 : invokeL.booleanValue;
-    }
-
-    public static <T> boolean f(Map map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, map)) == null) ? map == null || map.isEmpty() : invokeL.booleanValue;
-    }
-
-    public static <T> T g(List<T> list, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, list, i)) == null) {
-            if (e(list) || list == null || i < 0 || i >= list.size()) {
-                return null;
-            }
-            return list.remove(i);
-        }
-        return (T) invokeLI.objValue;
-    }
-
-    public static <T> void h(List<T> list, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65543, null, list, i, i2) == null) || e(list) || i < 0 || i2 < 0 || i > b(list) - 1 || i2 > b(list) - 1) {
-            return;
-        }
-        Collections.swap(list, i, i2);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this : (cc9) invokeV.objValue;
     }
 }

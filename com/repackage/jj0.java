@@ -173,7 +173,7 @@ public class jj0 implements mj0 {
                 try {
                     this.a.run();
                 } catch (Throwable th) {
-                    if (!yf0.a) {
+                    if (!bg0.a) {
                         Log.d("AdDownloadDBHelper", "wrapExecutor", th);
                         return;
                     }
@@ -214,9 +214,9 @@ public class jj0 implements mj0 {
                 this.a = th;
                 if (this.a != null) {
                     HashMap hashMap = new HashMap();
-                    hashMap.put("v", "5.2.0.3");
+                    hashMap.put("v", "5.2.0.21");
                     hashMap.put("e", this.a.toString());
-                    ez0.b(new ClogBuilder().s(ClogBuilder.LogType.CHECK).i("12").j("4000").k(new JSONObject(hashMap).toString()));
+                    ez0.c(new ClogBuilder().w(ClogBuilder.LogType.CHECK).i("12").j("4000").k(new JSONObject(hashMap).toString()));
                 }
             }
 
@@ -255,7 +255,7 @@ public class jj0 implements mj0 {
                 }
             }
             try {
-                if (j11.b()) {
+                if (t11.b()) {
                     a = new jj0(null);
                 } else {
                     a = b(null);
@@ -304,7 +304,7 @@ public class jj0 implements mj0 {
     public final void e(@NonNull Runnable runnable, @NonNull String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, runnable, str, i) == null) {
-            b01.c(new d(this, runnable), str, i);
+            c01.c(new d(this, runnable), str, i);
         }
     }
 
@@ -332,7 +332,7 @@ public class jj0 implements mj0 {
         lj0 lj0Var = new lj0();
         lj0Var.getReadableDatabase();
         lj0Var.close();
-        SQLiteDatabase openDatabase = SQLiteDatabase.openDatabase(hi0.b().getDatabasePath("nad.core.download.db").getPath(), null, 0);
+        SQLiteDatabase openDatabase = SQLiteDatabase.openDatabase(ki0.b().getDatabasePath("nad.core.download.db").getPath(), null, 0);
         openDatabase.setLocale(Locale.US);
         this.a = new nj0(openDatabase);
     }

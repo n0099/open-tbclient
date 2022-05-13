@@ -1,37 +1,41 @@
 package com.repackage;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
+import kotlin.jvm.JvmField;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class s24 implements nh1 {
+public final class s24 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @V8JavascriptField
+    @JvmField
+    public final byte[] message;
+    @V8JavascriptField
+    @JvmField
+    public final Object remoteInfo;
 
-    public s24() {
+    public s24(byte[] message, Object remoteInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {message, remoteInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.repackage.nh1
-    public Class<? extends pz1> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? fw3.class : (Class) invokeV.objValue;
+        Intrinsics.checkNotNullParameter(message, "message");
+        Intrinsics.checkNotNullParameter(remoteInfo, "remoteInfo");
+        this.message = message;
+        this.remoteInfo = remoteInfo;
     }
 }

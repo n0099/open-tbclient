@@ -23,12 +23,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hj4;
+import com.repackage.an4;
+import com.repackage.e55;
 import com.repackage.lm7;
 import com.repackage.mm7;
-import com.repackage.n45;
 import com.repackage.nm7;
-import com.repackage.pm4;
+import com.repackage.sj4;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class CollectTabActivity extends BaseFragmentActivity {
@@ -114,12 +114,12 @@ public class CollectTabActivity extends BaseFragmentActivity {
         Map<String, String> paramPair = UrlManager.getParamPair(decode);
         if (paramPair != null) {
             StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE).param("obj_locate", paramPair.get("obj_locate")).param("obj_type", 1).param("obj_source", paramPair.get("obj_source")).param(TiebaStatic.Params.OBJ_PARAM2, paramPair.get(TiebaStatic.Params.OBJ_PARAM2)).param(TiebaStatic.Params.OBJ_TO, 4).param("obj_name", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, 1);
-            hj4.b(param, paramPair);
+            sj4.b(param, paramPair);
             TiebaStatic.log(param);
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.v75
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.m85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -129,17 +129,17 @@ public class CollectTabActivity extends BaseFragmentActivity {
     public void initTabsOnActivityCreated() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            pm4 pm4Var = new pm4(getPageContext().getPageActivity());
+            an4 an4Var = new an4(getPageContext().getPageActivity());
             ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
-            pm4Var.a(threadDelegateStatic);
-            if (pm4Var.getContext() != null) {
-                n45 b = threadDelegateStatic.b();
+            an4Var.a(threadDelegateStatic);
+            if (an4Var.getContext() != null) {
+                e55 b = threadDelegateStatic.b();
                 if (b == null) {
                     return;
                 }
                 b.a.setArguments(new Bundle());
             }
-            this.mController.h(pm4Var.b());
+            this.mController.h(an4Var.b());
         }
     }
 
@@ -181,7 +181,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d01f0);
+            setContentView(R.layout.obfuscated_res_0x7f0d01e9);
             this.mController = new lm7(this);
             registerListener(this.mEditorEnableListener);
             initTabsOnActivityCreated();

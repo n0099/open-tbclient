@@ -1,83 +1,65 @@
 package com.repackage;
 
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.facade.init.SwanAppInitHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes7.dex */
-public class um3 {
+public class um3 implements ql1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final char[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755256202, "Lcom/repackage/um3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755256202, "Lcom/repackage/um3;");
-                return;
+    public um3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    @Override // com.repackage.ql1
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            Signature b = b(str);
-            if (b == null) {
-                return null;
-            }
-            try {
-                return c(MessageDigest.getInstance("MD5").digest(b.toByteArray()));
-            } catch (NoSuchAlgorithmException e) {
-                e.printStackTrace();
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            d();
         }
-        return (String) invokeL.objValue;
     }
 
-    public static Signature b(String str) {
-        InterceptResult invokeL;
+    @Override // com.repackage.ql1
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            try {
-                return AppRuntime.getAppContext().getPackageManager().getPackageInfo(str, 64).signatures[0];
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            d();
         }
-        return (Signature) invokeL.objValue;
     }
 
-    public static String c(byte[] bArr) {
-        InterceptResult invokeL;
+    @Override // com.repackage.ql1
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            char[] cArr = new char[bArr.length * 2];
-            for (int i = 0; i < bArr.length; i++) {
-                byte b = bArr[i];
-                int i2 = i * 2;
-                char[] cArr2 = a;
-                cArr[i2] = cArr2[(b >>> 4) & 15];
-                cArr[i2 + 1] = cArr2[b & 15];
-            }
-            return new String(cArr);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            d();
         }
-        return (String) invokeL.objValue;
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (SwanAppInitHelper.class) {
+                if (SwanAppInitHelper.isDelayInit()) {
+                    SwanAppInitHelper.initModules(AppRuntime.getApplication(), false);
+                }
+            }
+        }
     }
 }

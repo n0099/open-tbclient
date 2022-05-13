@@ -1,16 +1,13 @@
 package com.repackage;
 
-import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class r85 {
+public abstract class r85 implements t85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
     public r85() {
         Interceptable interceptable = $ic;
@@ -22,15 +19,9 @@ public class r85 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = null;
     }
 
-    public static ug a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? BdStatisticsManager.getInstance().getStatsItem("pfmonitor") : (ug) invokeV.objValue;
-    }
+    public abstract void b(byte b);
 }

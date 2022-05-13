@@ -24,7 +24,7 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.MessageLite;
 import com.google.protobuf.MessageLiteOrBuilder;
 import com.google.protobuf.Parser;
-import com.repackage.o80;
+import com.repackage.r80;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
@@ -248,7 +248,7 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-                RpcMetaPb$RpcMeta rpcMetaPb$RpcMeta = new RpcMetaPb$RpcMeta(this, (o80) null);
+                RpcMetaPb$RpcMeta rpcMetaPb$RpcMeta = new RpcMetaPb$RpcMeta(this, (r80) null);
                 int i = this.a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
                 rpcMetaPb$RpcMeta.request_ = this.b;
@@ -544,7 +544,7 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
         rpcMetaPb$RpcMeta.initFields();
     }
 
-    public /* synthetic */ RpcMetaPb$RpcMeta(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, o80 o80Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ RpcMetaPb$RpcMeta(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, r80 r80Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -803,7 +803,7 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
         }
     }
 
-    public /* synthetic */ RpcMetaPb$RpcMeta(GeneratedMessageLite.Builder builder, o80 o80Var) {
+    public /* synthetic */ RpcMetaPb$RpcMeta(GeneratedMessageLite.Builder builder, r80 r80Var) {
         this(builder);
     }
 

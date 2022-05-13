@@ -1,97 +1,144 @@
 package com.repackage;
 
 import android.content.Context;
-import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.anim.AnimationProperty;
-import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class d54 extends u44<xm2> {
+public class d54 implements vk2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755816434, "Lcom/repackage/d54;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755816434, "Lcom/repackage/d54;");
-                return;
-            }
-        }
-        boolean z = tg1.a;
-    }
 
     public d54() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static d54 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new d54() : (d54) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.u44
-    /* renamed from: d */
-    public boolean b(Context context, xm2 xm2Var, sm2 sm2Var, j03 j03Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, xm2Var, sm2Var, j03Var, jSONObject)) == null) ? g(context, xm2Var, sm2Var, j03Var) : invokeLLLLL.booleanValue;
-    }
-
-    public final Bundle f(xm2 xm2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xm2Var)) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("slaveId", xm2Var.c);
-            bundle.putDouble("latitude", xm2Var.j.a);
-            bundle.putDouble("longitude", xm2Var.j.b);
-            bundle.putDouble(AnimationProperty.SCALE, xm2Var.k);
-            bundle.putString("name", xm2Var.z);
-            bundle.putString("address", xm2Var.A);
-            bundle.putStringArrayList("ignoredApps", xm2Var.B);
-            return bundle;
-        }
-        return (Bundle) invokeL.objValue;
-    }
-
-    public final boolean g(Context context, xm2 xm2Var, sm2 sm2Var, j03 j03Var) {
+    @Override // com.repackage.vk2
+    public boolean a(Context context, kn2 kn2Var, dn2 dn2Var, u03 u03Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, context, xm2Var, sm2Var, j03Var)) == null) {
-            jx1.i("map", "OpenLocationAction start");
-            if (!xm2Var.isValid()) {
-                jx1.c("map", "model is invalid");
-                return false;
-            }
-            p54.q3(f(xm2Var)).u3();
-            jx1.i("map", "OpenLocationAction end");
-            return true;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, kn2Var, dn2Var, u03Var)) == null) {
+            return false;
         }
         return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.repackage.vk2
+    public boolean b(Context context, fn2 fn2Var, dn2 dn2Var, u03 u03Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, fn2Var, dn2Var, u03Var)) == null) ? m54.e().c(context, fn2Var, dn2Var, u03Var) : invokeLLLL.booleanValue;
+    }
+
+    @Override // com.repackage.vk2
+    public boolean c(Context context, gn2 gn2Var, dn2 dn2Var, u03 u03Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, gn2Var, dn2Var, u03Var)) == null) ? l54.d().c(context, gn2Var, dn2Var, u03Var) : invokeLLLL.booleanValue;
+    }
+
+    @Override // com.repackage.vk2
+    public void d(an1 an1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, an1Var) == null) {
+            c54.h(an1Var);
+        }
+    }
+
+    @Override // com.repackage.vk2
+    public boolean e(Context context, en2 en2Var, dn2 dn2Var, u03 u03Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, context, en2Var, dn2Var, u03Var)) == null) ? j64.h().c(context, en2Var, dn2Var, u03Var) : invokeLLLL.booleanValue;
+    }
+
+    @Override // com.repackage.vk2
+    public void f(an1 an1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, an1Var) == null) {
+            c54.d(an1Var);
+        }
+    }
+
+    @Override // com.repackage.vk2
+    public boolean g(Context context, gn2 gn2Var, dn2 dn2Var, u03 u03Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, context, gn2Var, dn2Var, u03Var)) == null) ? g54.e().c(context, gn2Var, dn2Var, u03Var) : invokeLLLL.booleanValue;
+    }
+
+    @Override // com.repackage.vk2
+    public boolean h(Context context, in2 in2Var, dn2 dn2Var, u03 u03Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, context, in2Var, dn2Var, u03Var)) == null) ? o54.e().c(context, in2Var, dn2Var, u03Var) : invokeLLLL.booleanValue;
+    }
+
+    @Override // com.repackage.vk2
+    public void i(an1 an1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, an1Var) == null) {
+            c54.e(an1Var);
+        }
+    }
+
+    @Override // com.repackage.vk2
+    public boolean j(Context context, jn2 jn2Var, dn2 dn2Var, u03 u03Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048585, this, context, jn2Var, dn2Var, u03Var)) == null) ? p54.e().c(context, jn2Var, dn2Var, u03Var) : invokeLLLL.booleanValue;
+    }
+
+    @Override // com.repackage.vk2
+    public boolean k(Context context, gn2 gn2Var, dn2 dn2Var, u03 u03Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048586, this, context, gn2Var, dn2Var, u03Var)) == null) ? j54.d().c(context, gn2Var, dn2Var, u03Var) : invokeLLLL.booleanValue;
+    }
+
+    @Override // com.repackage.vk2
+    public boolean l(Context context, gn2 gn2Var, dn2 dn2Var, u03 u03Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048587, this, context, gn2Var, dn2Var, u03Var)) == null) ? h54.d().c(context, gn2Var, dn2Var, u03Var) : invokeLLLL.booleanValue;
+    }
+
+    @Override // com.repackage.vk2
+    public boolean m(Context context, gn2 gn2Var, dn2 dn2Var, u03 u03Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048588, this, context, gn2Var, dn2Var, u03Var)) == null) ? n54.f().c(context, gn2Var, dn2Var, u03Var) : invokeLLLL.booleanValue;
+    }
+
+    @Override // com.repackage.vk2
+    public boolean n(Context context, gn2 gn2Var, dn2 dn2Var, u03 u03Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048589, this, context, gn2Var, dn2Var, u03Var)) == null) ? k54.d().c(context, gn2Var, dn2Var, u03Var) : invokeLLLL.booleanValue;
+    }
+
+    @Override // com.repackage.vk2
+    public boolean update(Context context, gn2 gn2Var, dn2 dn2Var, u03 u03Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048590, this, context, gn2Var, dn2Var, u03Var)) == null) ? i54.d().c(context, gn2Var, dn2Var, u03Var) : invokeLLLL.booleanValue;
     }
 }

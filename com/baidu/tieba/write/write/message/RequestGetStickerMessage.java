@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rc5;
+import com.repackage.jd5;
 import tbclient.CommonReq;
 import tbclient.GetSticker.DataReq;
 import tbclient.GetSticker.GetStickerReqIdl;
@@ -19,7 +19,7 @@ public class RequestGetStickerMessage extends NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f1013common;
+    public CommonReq f1011common;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RequestGetStickerMessage() {
@@ -46,9 +46,9 @@ public class RequestGetStickerMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f1189common = this.f1013common;
+            builder.f1187common = this.f1011common;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                rc5.a(builder, true);
+                jd5.a(builder, true);
             }
             GetStickerReqIdl.Builder builder2 = new GetStickerReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -60,7 +60,7 @@ public class RequestGetStickerMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, commonReq) == null) {
-            this.f1013common = commonReq;
+            this.f1011common = commonReq;
         }
     }
 }

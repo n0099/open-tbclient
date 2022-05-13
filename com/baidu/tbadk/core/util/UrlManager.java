@@ -22,9 +22,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ff5;
-import com.repackage.oi;
-import com.repackage.pg;
+import com.repackage.mi;
+import com.repackage.ng;
+import com.repackage.yf5;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -129,7 +129,7 @@ public class UrlManager {
                     group2 = group2 + " ";
                 }
                 int length = group2.length();
-                spannableString.setSpan(new ff5(2, group), matcher.start(), (length + start) - 1, 33);
+                spannableString.setSpan(new yf5(2, group), matcher.start(), (length + start) - 1, 33);
             }
             return spannableString;
         }
@@ -263,10 +263,10 @@ public class UrlManager {
     public void addListener(UrlDealListener urlDealListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, urlDealListener) == null) {
-            if (oi.B()) {
+            if (mi.B()) {
                 addListenerInner(urlDealListener);
             } else {
-                pg.a().post(new Runnable(this, urlDealListener) { // from class: com.baidu.tbadk.core.util.UrlManager.2
+                ng.a().post(new Runnable(this, urlDealListener) { // from class: com.baidu.tbadk.core.util.UrlManager.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ UrlManager this$0;

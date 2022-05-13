@@ -1,20 +1,30 @@
 package com.repackage;
 
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
+import com.baidu.nps.utils.ContextHolder;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
 /* loaded from: classes5.dex */
-public final class d71 {
+public class d71 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Inject
-    public static n71 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? m71.a() : (n71) invokeV.objValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755814605, "Lcom/repackage/d71;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755814605, "Lcom/repackage/d71;");
+                return;
+            }
+        }
+        a = ContextHolder.getApplicationContext().getPackageName() + ".nps.process.kill";
     }
 }

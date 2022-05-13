@@ -1,29 +1,25 @@
 package com.repackage;
 
+import android.content.ComponentName;
+import android.content.ServiceConnection;
+import android.os.IBinder;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.PidLoader;
-import com.fun.ad.sdk.internal.api.PidLoaderCreator;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes6.dex */
-public class ll9 {
+public final class ll9 implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, PidLoaderCreator> a;
-    public final Map<Ssp.Pid, PidLoader> b;
+    public final /* synthetic */ jl9 a;
 
-    public ll9(Map<String, PidLoaderCreator> map) {
+    public ll9(jl9 jl9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {map};
+            Object[] objArr = {jl9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,34 +29,22 @@ public class ll9 {
                 return;
             }
         }
-        this.b = new HashMap();
-        this.a = map;
+        this.a = jl9Var;
     }
 
-    public PidLoader a(Ssp.Pid pid) {
-        InterceptResult invokeL;
+    @Override // android.content.ServiceConnection
+    public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
-            synchronized (this.b) {
-                PidLoader pidLoader = this.b.get(pid);
-                if (pidLoader != null) {
-                    return pidLoader;
-                }
-                PidLoaderCreator pidLoaderCreator = this.a.get(pid.ssp.type);
-                if (pidLoaderCreator == null) {
-                    LogPrinter.d("Cannot create PidLoader, because the ssp of pid.type:%s hasn't initialized.", pid.type);
-                    return null;
-                }
-                PidLoader create = pidLoaderCreator.create(pid);
-                if (create == null) {
-                    LogPrinter.d("The creator of ssp:%s should't create null for pid:%s", pid.ssp.type, pid.type);
-                    return null;
-                }
-                cl9 cl9Var = new cl9(create);
-                this.b.put(pid, cl9Var);
-                return cl9Var;
-            }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
+            this.a.f(iBinder);
         }
-        return (PidLoader) invokeL.objValue;
+    }
+
+    @Override // android.content.ServiceConnection
+    public final void onServiceDisconnected(ComponentName componentName) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
+            this.a.q();
+        }
     }
 }

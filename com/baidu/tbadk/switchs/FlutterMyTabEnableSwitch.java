@@ -1,6 +1,5 @@
 package com.baidu.tbadk.switchs;
 
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -33,7 +32,10 @@ public class FlutterMyTabEnableSwitch extends xe {
     public static boolean isOn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? SwitchManager.getInstance().findType(KEY) == 1 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.repackage.xe

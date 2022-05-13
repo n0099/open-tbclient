@@ -23,9 +23,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
-import com.repackage.uw8;
-import com.repackage.y76;
+import com.repackage.h76;
+import com.repackage.mi;
+import com.repackage.rv8;
 /* loaded from: classes4.dex */
 public class PersonHeaderAttentionView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -41,7 +41,7 @@ public class PersonHeaderAttentionView extends LinearLayout {
     public TextView i;
     public TextView j;
     public int k;
-    public uw8 l;
+    public rv8 l;
     public UserData m;
     public View n;
     public View o;
@@ -52,7 +52,7 @@ public class PersonHeaderAttentionView extends LinearLayout {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public y76 a;
+        public h76 a;
         public final /* synthetic */ PersonHeaderAttentionView b;
 
         public a(PersonHeaderAttentionView personHeaderAttentionView) {
@@ -71,7 +71,7 @@ public class PersonHeaderAttentionView extends LinearLayout {
                 }
             }
             this.b = personHeaderAttentionView;
-            this.a = new y76();
+            this.a = new h76();
         }
 
         @Override // android.view.View.OnClickListener
@@ -162,23 +162,23 @@ public class PersonHeaderAttentionView extends LinearLayout {
             this.a = context;
             setOrientation(0);
             setGravity(16);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d040b, (ViewGroup) this, true);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0917bf);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0917bc);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0917c0);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0917b7);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0917b4);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0917ba);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0917b9);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0917cc);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03ff, (ViewGroup) this, true);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091815);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091812);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091816);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09180d);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09180a);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091810);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09180f);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091821);
             this.i = textView;
             textView.setVisibility(8);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0917cb);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091820);
             this.j = textView2;
             textView2.setVisibility(8);
-            this.n = findViewById(R.id.obfuscated_res_0x7f0907fb);
-            this.o = findViewById(R.id.obfuscated_res_0x7f0907f9);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0907fa);
+            this.n = findViewById(R.id.obfuscated_res_0x7f0907f2);
+            this.o = findViewById(R.id.obfuscated_res_0x7f0907f0);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0907f1);
             this.p = findViewById;
             findViewById.setVisibility(8);
         }
@@ -208,7 +208,7 @@ public class PersonHeaderAttentionView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             Context context = this.a;
-            BdToast.i(context, String.format(context.getString(R.string.obfuscated_res_0x7f0f0e2d), StringHelper.getUserDescByGender(i)), R.drawable.obfuscated_res_0x7f0809a9, true).q();
+            BdToast.i(context, String.format(context.getString(R.string.obfuscated_res_0x7f0f0e4b), StringHelper.getUserDescByGender(i)), R.drawable.obfuscated_res_0x7f0809be, true).q();
         }
     }
 
@@ -227,25 +227,25 @@ public class PersonHeaderAttentionView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048581, this, userData) == null) {
             this.m = userData;
             if (userData.getConcernNum() >= 9999000) {
-                this.b.setTextSize(0, oi.f(this.a, R.dimen.obfuscated_res_0x7f070207));
+                this.b.setTextSize(0, mi.f(this.a, R.dimen.obfuscated_res_0x7f070207));
             }
             if (this.m.getFansNum() >= 9999000) {
-                this.d.setTextSize(0, oi.f(this.a, R.dimen.obfuscated_res_0x7f070207));
+                this.d.setTextSize(0, mi.f(this.a, R.dimen.obfuscated_res_0x7f070207));
             }
             if (this.m.getLike_bars() >= 9999000) {
-                this.g.setTextSize(0, oi.f(this.a, R.dimen.obfuscated_res_0x7f070207));
+                this.g.setTextSize(0, mi.f(this.a, R.dimen.obfuscated_res_0x7f070207));
             }
             if (this.m.getPosts_num() >= 9999000) {
-                this.i.setTextSize(0, oi.f(this.a, R.dimen.obfuscated_res_0x7f070207));
+                this.i.setTextSize(0, mi.f(this.a, R.dimen.obfuscated_res_0x7f070207));
             }
             o(StringHelper.numFormatOverWanNa(this.m.getConcernNum()), StringHelper.numFormatOverWanNa(this.m.getFansNum()), StringHelper.numFormatOverWanNa(this.m.getPosts_num()), StringHelper.numFormatOverWanNa(this.m.getLike_bars()));
         }
     }
 
-    public void setOnViewResponseListener(uw8 uw8Var) {
+    public void setOnViewResponseListener(rv8 rv8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, uw8Var) == null) {
-            this.l = uw8Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, rv8Var) == null) {
+            this.l = rv8Var;
         }
     }
 

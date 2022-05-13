@@ -1,442 +1,129 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.os.Build;
-import android.os.Environment;
-import android.os.Process;
-import android.provider.Settings;
-import android.system.Os;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.util.DeviceId;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.List;
-import java.util.Random;
+import java.security.InvalidKeyException;
 /* loaded from: classes7.dex */
-public class t00 {
+public class t00 extends v00 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public q00 b;
+    public byte[] d;
+    public byte[] e;
+    public byte[] f;
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static boolean a(String str, int i) {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
-                if (Build.VERSION.SDK_INT >= 21) {
-                    try {
-                        Os.chmod(str, i);
-                        return true;
-                    } catch (Exception e) {
-                        h20.c(e);
-                        return false;
-                    }
-                }
-                return true;
-            }
-            return invokeLI.booleanValue;
-        }
-    }
-
-    public t00(Context context, q00 q00Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t00(r00 r00Var) {
+        super(r00Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, q00Var};
+            Object[] objArr = {r00Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((r00) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
-        this.b = q00Var;
+        this.f = null;
+        int i3 = this.b;
+        this.e = new byte[i3];
+        this.d = new byte[i3];
     }
 
-    public static void d(String str, String str2) {
-        File file;
+    @Override // com.repackage.v00
+    public void a(boolean z, String str, byte[] bArr, byte[] bArr2) throws InvalidKeyException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        File file2 = new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig");
-        File file3 = new File(file2, ".cuid");
-        try {
-            if (file2.exists() && !file2.isDirectory()) {
-                Random random = new Random();
-                File parentFile = file2.getParentFile();
-                String name = file2.getName();
-                do {
-                    file = new File(parentFile, name + random.nextInt() + ".tmp");
-                } while (file.exists());
-                file2.renameTo(file);
-                file.delete();
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, bArr, bArr2}) == null) {
+            if (bArr == null || bArr2 == null || bArr2.length != this.b) {
+                throw new InvalidKeyException("Internal error");
             }
-            file2.mkdirs();
-            FileWriter fileWriter = new FileWriter(file3, false);
-            byte[] a2 = n10.a();
-            fileWriter.write(b20.a(j10.d(a2, a2, (str + "=" + str2).getBytes()), IMAudioTransRequest.CHARSET));
-            fileWriter.flush();
-            fileWriter.close();
-        } catch (IOException | Exception unused) {
+            this.c = bArr2;
+            f();
+            this.a.f(z, str, bArr);
         }
     }
 
-    public static void m(String str) {
-        File file;
+    @Override // com.repackage.v00
+    public void b(byte[] bArr, int i, int i2, byte[] bArr2, int i3) {
+        int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            File file2 = new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig");
-            File file3 = new File(file2, ".cuid2");
-            try {
-                if (file2.exists() && !file2.isDirectory()) {
-                    Random random = new Random();
-                    File parentFile = file2.getParentFile();
-                    String name = file2.getName();
-                    do {
-                        file = new File(parentFile, name + random.nextInt() + ".tmp");
-                    } while (file.exists());
-                    file2.renameTo(file);
-                    file.delete();
-                }
-                file2.mkdirs();
-                FileWriter fileWriter = new FileWriter(file3, false);
-                fileWriter.write(str);
-                fileWriter.flush();
-                fileWriter.close();
-            } catch (IOException | Exception unused) {
-            }
-        }
-    }
-
-    public final s00 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? s00.b(l("com.baidu.deviceid"), l("bd_setting_i")) : (s00) invokeV.objValue;
-    }
-
-    public final s00 b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            List<p00> h = this.b.h(context);
-            s00 s00Var = null;
-            if (h != null) {
-                String str = "files";
-                File filesDir = context.getFilesDir();
-                if (!"files".equals(filesDir.getName())) {
-                    Log.e("CuidV266Manager", "fetal error:: app files dir name is unexpectedly :: " + filesDir.getAbsolutePath());
-                    str = filesDir.getName();
-                }
-                for (p00 p00Var : h) {
-                    if (!p00Var.d) {
-                        File file = new File(new File(p00Var.a.dataDir, str), "libcuid.so");
-                        if (file.exists() && (s00Var = s00.a(h20.a(file))) != null) {
-                            break;
-                        }
-                    }
-                }
-            }
-            return s00Var;
-        }
-        return (s00) invokeL.objValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x0034, code lost:
-        if (r0 == null) goto L59;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x0060, code lost:
-        if (r2 == null) goto L20;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x0090, code lost:
-        if (r2 == null) goto L31;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:16:0x003f  */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x006d  */
-    /* JADX WARN: Removed duplicated region for block: B:39:0x0097  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void c(s00 s00Var) {
-        boolean j;
-        boolean e;
-        s00 k;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, s00Var) == null) {
-            File file = new File(this.a.getFilesDir(), "libcuid.so");
-            String j2 = s00Var.j();
-            if (file.exists()) {
-                s00 a2 = s00.a(h20.a(file));
-                if (a2 != null) {
-                    if (a2.c()) {
-                        n(a2.j());
-                    }
-                }
-                j = j();
-                if (j) {
-                    String l = l("com.baidu.deviceid.v2");
-                    if (!TextUtils.isEmpty(l)) {
-                        s00 a3 = s00.a(l);
-                        if (a3 != null) {
-                            if (a3.c()) {
-                                h("com.baidu.deviceid.v2", a3.j());
-                            }
-                        }
-                    }
-                    h("com.baidu.deviceid.v2", j2);
-                }
-                e = e("android.permission.WRITE_EXTERNAL_STORAGE");
-                if (e) {
-                    if (new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid2").exists()) {
-                        s00 f = f();
-                        if (f != null) {
-                            if (f.c()) {
-                                j2 = f.j();
-                            }
-                        }
-                    }
-                    m(j2);
-                }
-                if (j) {
-                    String l2 = l("bd_setting_i");
-                    if (s00.d(TextUtils.isEmpty(l2) ? 0 : l2.length())) {
-                        str = "O";
-                    } else {
-                        str = s00.m(l2) ? "0" : "0";
-                    }
-                    h("bd_setting_i", str);
-                }
-                if (e || !new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid").exists() || (k = k(i(""))) == null || !k.c()) {
-                    return;
-                }
-                d(k.b, k.a);
-                return;
-            }
-            n(j2);
-            j = j();
-            if (j) {
-            }
-            e = e("android.permission.WRITE_EXTERNAL_STORAGE");
-            if (e) {
-            }
-            if (j) {
-            }
-            if (e) {
-            }
-        }
-    }
-
-    public final boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.a.checkPermission(str, Process.myPid(), Process.myUid()) == 0 : invokeL.booleanValue;
-    }
-
-    public final s00 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            File file = new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid2");
-            if (file.exists()) {
-                return s00.a(h20.a(file));
-            }
-            return null;
-        }
-        return (s00) invokeV.objValue;
-    }
-
-    public s00 g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            s00 b = b(this.a);
-            if (b == null) {
-                b = s00.a(l("com.baidu.deviceid.v2"));
-            }
-            boolean e = e("android.permission.READ_EXTERNAL_STORAGE");
-            if (b == null && e) {
-                b = f();
-            }
-            if (b == null) {
-                b = a();
-            }
-            boolean z = false;
-            if (b == null && e) {
-                z = true;
-                b = k(i(""));
-            }
-            if (!z) {
-                i("");
-            }
-            if (b != null) {
-                b.c();
-            }
-            return b;
-        }
-        return (s00) invokeL.objValue;
-    }
-
-    public final boolean h(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
-            try {
-                return Settings.System.putString(this.a.getContentResolver(), str, str2);
-            } catch (Exception e) {
-                h20.c(e);
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final String i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) ? "0" : (String) invokeL.objValue;
-    }
-
-    public final boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? e("android.permission.WRITE_SETTINGS") : invokeV.booleanValue;
-    }
-
-    public final s00 k(String str) {
-        InterceptResult invokeL;
-        String str2;
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            String str3 = "";
-            File file = new File(Environment.getExternalStorageDirectory(), "baidu/.cuid");
-            if (!file.exists()) {
-                file = new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid");
-            }
-            try {
-                BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
-                StringBuilder sb = new StringBuilder();
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2, Integer.valueOf(i3)}) == null) {
+            int i5 = i2 + i;
+            byte[] bArr3 = (bArr != bArr2 || i < i3 || i - i3 >= this.b) ? null : (byte[]) bArr.clone();
+            while (i < i5) {
+                this.a.g(bArr, i, this.e, 0);
+                int i6 = 0;
                 while (true) {
-                    String readLine = bufferedReader.readLine();
-                    if (readLine == null) {
+                    i4 = this.b;
+                    if (i6 >= i4) {
                         break;
                     }
-                    sb.append(readLine);
-                    sb.append("\r\n");
+                    bArr2[i6 + i3] = (byte) (this.e[i6] ^ this.d[i6]);
+                    i6++;
                 }
-                bufferedReader.close();
-                byte[] a2 = n10.a();
-                split = new String(j10.c(a2, a2, b20.b(sb.toString().getBytes()))).split("=");
-            } catch (FileNotFoundException | IOException | Exception unused) {
-            }
-            if (split != null && split.length == 2) {
-                str2 = split[0];
-                try {
-                    str3 = split[1];
-                } catch (FileNotFoundException | IOException | Exception unused2) {
+                byte[] bArr4 = this.d;
+                if (bArr3 == null) {
+                    System.arraycopy(bArr, i, bArr4, 0, i4);
+                } else {
+                    System.arraycopy(bArr3, i, bArr4, 0, i4);
                 }
-                return s00.b(str3, str2);
+                int i7 = this.b;
+                i += i7;
+                i3 += i7;
             }
-            str2 = "";
-            return s00.b(str3, str2);
         }
-        return (s00) invokeL.objValue;
     }
 
-    public final String l(String str) {
-        InterceptResult invokeL;
+    @Override // com.repackage.v00
+    public void d(byte[] bArr, int i, int i2, byte[] bArr2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            try {
-                return Settings.System.getString(this.a.getContentResolver(), str);
-            } catch (Exception e) {
-                h20.c(e);
-                return null;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2, Integer.valueOf(i3)}) == null) {
+            int i4 = i2 + i;
+            while (i < i4) {
+                for (int i5 = 0; i5 < this.b; i5++) {
+                    this.e[i5] = (byte) (bArr[i5 + i] ^ this.d[i5]);
+                }
+                this.a.i(this.e, 0, bArr2, i3);
+                System.arraycopy(bArr2, i3, this.d, 0, this.b);
+                int i6 = this.b;
+                i += i6;
+                i3 += i6;
             }
         }
-        return (String) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    @SuppressLint({"NewApi"})
-    public final boolean n(String str) {
-        InterceptResult invokeL;
-        String absolutePath;
-        int i;
+    @Override // com.repackage.v00
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            int i2 = (!DeviceId.sDataCuidInfoShable || Build.VERSION.SDK_INT >= 24) ? 0 : 1;
-            FileOutputStream fileOutputStream = null;
-            try {
-                try {
-                    fileOutputStream = this.a.openFileOutput("libcuid.so", i2);
-                    fileOutputStream.write(str.getBytes());
-                    fileOutputStream.flush();
-                    if (fileOutputStream != null) {
-                        try {
-                            fileOutputStream.close();
-                        } catch (Exception e) {
-                            h20.c(e);
-                        }
-                    }
-                    if (Build.VERSION.SDK_INT >= 21) {
-                        if (i2 == 0 && DeviceId.sDataCuidInfoShable) {
-                            absolutePath = new File(this.a.getFilesDir(), "libcuid.so").getAbsolutePath();
-                            i = 436;
-                        } else if (!DeviceId.sDataCuidInfoShable) {
-                            absolutePath = new File(this.a.getFilesDir(), "libcuid.so").getAbsolutePath();
-                            i = 432;
-                        }
-                        return a.a(absolutePath, i);
-                    }
-                    return true;
-                } catch (Exception e2) {
-                    h20.c(e2);
-                    if (fileOutputStream != null) {
-                        try {
-                            fileOutputStream.close();
-                        } catch (Exception e3) {
-                            h20.c(e3);
-                        }
-                    }
-                    return false;
-                }
-            } catch (Throwable th) {
-                if (fileOutputStream != null) {
-                    try {
-                        fileOutputStream.close();
-                    } catch (Exception e4) {
-                        h20.c(e4);
-                    }
-                }
-                throw th;
-            }
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            System.arraycopy(this.c, 0, this.d, 0, this.b);
         }
-        return invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.v00
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            System.arraycopy(this.f, 0, this.d, 0, this.b);
+        }
+    }
+
+    @Override // com.repackage.v00
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (this.f == null) {
+                this.f = new byte[this.b];
+            }
+            System.arraycopy(this.d, 0, this.f, 0, this.b);
+        }
     }
 }

@@ -16,10 +16,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ho;
-import com.repackage.hv5;
+import com.repackage.eo;
+import com.repackage.iv5;
 /* loaded from: classes3.dex */
-public class AlaEnterEffectCategoryAdapter extends ho<hv5, ViewHolder> {
+public class AlaEnterEffectCategoryAdapter extends eo<iv5, ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -48,14 +48,14 @@ public class AlaEnterEffectCategoryAdapter extends ho<hv5, ViewHolder> {
                     return;
                 }
             }
-            this.a = (TextView) b().findViewById(R.id.obfuscated_res_0x7f0908e0);
-            this.b = b().findViewById(R.id.obfuscated_res_0x7f0901d3);
+            this.a = (TextView) b().findViewById(R.id.obfuscated_res_0x7f0908d8);
+            this.b = b().findViewById(R.id.obfuscated_res_0x7f0901c9);
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaEnterEffectCategoryAdapter(Context context) {
-        super(context, hv5.b);
+        super(context, iv5.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -85,23 +85,23 @@ public class AlaEnterEffectCategoryAdapter extends ho<hv5, ViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
+    @Override // com.repackage.eo
     /* renamed from: a0 */
     public ViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new ViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d00f1, (ViewGroup) null)) : (ViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new ViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d00ed, (ViewGroup) null)) : (ViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
+    @Override // com.repackage.eo
     /* renamed from: b0 */
-    public View S(int i, View view2, ViewGroup viewGroup, hv5 hv5Var, ViewHolder viewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, iv5 iv5Var, ViewHolder viewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, hv5Var, viewHolder})) == null) {
-            if (hv5Var != null) {
-                viewHolder.a.setText(hv5Var.a);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, iv5Var, viewHolder})) == null) {
+            if (iv5Var != null) {
+                viewHolder.a.setText(iv5Var.a);
             }
             if (i == 0) {
                 viewHolder.b.setVisibility(8);

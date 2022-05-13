@@ -49,8 +49,8 @@ public class wq7 extends z8<PayVcodeActivity> {
             }
         }
         this.a = payVcodeActivity;
-        payVcodeActivity.setContentView(R.layout.obfuscated_res_0x7f0d066e);
-        j(payVcodeActivity);
+        payVcodeActivity.setContentView(R.layout.obfuscated_res_0x7f0d0661);
+        k(payVcodeActivity);
     }
 
     public View e() {
@@ -59,43 +59,43 @@ public class wq7 extends z8<PayVcodeActivity> {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (View) invokeV.objValue;
     }
 
-    public TextView f() {
+    public TextView g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.g : (TextView) invokeV.objValue;
     }
 
-    public TextView g() {
+    public TextView h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (TextView) invokeV.objValue;
     }
 
-    public ViewGroup h() {
+    public ViewGroup i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (ViewGroup) invokeV.objValue;
     }
 
-    public BaseWebView i() {
+    public BaseWebView j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : (BaseWebView) invokeV.objValue;
     }
 
-    public final void j(PayVcodeActivity payVcodeActivity) {
+    public final void k(PayVcodeActivity payVcodeActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, payVcodeActivity) == null) {
-            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f09167c);
-            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091676);
+            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0916a3);
+            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09169d);
             this.e = textView;
             SkinManager.setBackgroundResource(textView, R.drawable.s_navbar_button_bg);
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0101, 1);
-            this.f = (BaseWebView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0922d2);
-            this.g = (TextView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f09242e);
-            this.c = payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f09167a);
-            this.d = (ViewGroup) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f09167b);
-            this.h = (ProgressBar) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f09167d);
+            this.f = (BaseWebView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f092328);
+            this.g = (TextView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f09247e);
+            this.c = payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0916a1);
+            this.d = (ViewGroup) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0916a2);
+            this.h = (ProgressBar) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0916a4);
             this.f.setHorizontalScrollBarEnabled(false);
             this.f.setHorizontalScrollbarOverlay(false);
             this.f.setScrollBarStyle(33554432);
@@ -103,14 +103,14 @@ public class wq7 extends z8<PayVcodeActivity> {
         }
     }
 
-    public void k(boolean z) {
+    public void l(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             this.g.setVisibility(z ? 0 : 8);
         }
     }
 
-    public void l(boolean z) {
+    public void m(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             this.h.setVisibility(z ? 0 : 8);
@@ -120,7 +120,7 @@ public class wq7 extends z8<PayVcodeActivity> {
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            f95.a(this.a.getPageContext(), this.b);
+            w95.a(this.a.getPageContext(), this.b);
             SkinManager.setBgColor(this.g, i);
             SkinManager.setBackgroundResource(this.e, R.drawable.s_navbar_button_bg);
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0101, 1);

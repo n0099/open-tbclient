@@ -1,6 +1,8 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,11 +11,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class lz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public ItemData b;
-    public String c;
-    public int d;
-    public int e;
 
     public lz4() {
         Interceptable interceptable = $ic;
@@ -25,7 +22,28 @@ public class lz4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        SkinManager.getColor(R.color.CAM_X0101);
+        SkinManager.getColor(R.color.CAM_X0305);
+    }
+
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        }
+    }
+
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+        }
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
         }
     }
 }

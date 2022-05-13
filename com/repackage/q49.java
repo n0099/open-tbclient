@@ -1,5 +1,12 @@
 package com.repackage;
-/* loaded from: classes7.dex */
+
+import android.util.JsonWriter;
+import java.io.IOException;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
 public interface q49 {
-    void a(boolean z, k49 k49Var);
+    JSONObject a() throws JSONException;
+
+    void b(JsonWriter jsonWriter) throws IOException;
 }

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mg;
+import com.repackage.kg;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class NovelPayResponse extends JsonHttpResponsedMessage {
@@ -50,7 +50,7 @@ public class NovelPayResponse extends JsonHttpResponsedMessage {
     public int getYYCoin() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? mg.e(this.yyCoin, -1) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? kg.e(this.yyCoin, -1) : invokeV.intValue;
     }
 
     public boolean isSuccessful() {

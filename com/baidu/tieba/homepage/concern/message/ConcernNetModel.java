@@ -16,10 +16,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.kk8;
-import com.repackage.l95;
-import com.repackage.ni;
-import com.repackage.vb5;
+import com.repackage.ca5;
+import com.repackage.hj8;
+import com.repackage.li;
+import com.repackage.mc5;
 import com.repackage.wa;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes3.dex */
@@ -71,7 +71,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
             if (responsedMessage.getOrginalMessage() != null) {
                 Object extra = responsedMessage.getOrginalMessage().getExtra();
                 if (extra instanceof ConcernPageRequestMessage) {
-                    z = ni.isEmpty(((ConcernPageRequestMessage) extra).getPageTag());
+                    z = li.isEmpty(((ConcernPageRequestMessage) extra).getPageTag());
                 }
             }
             if (responsedMessage.getError() != 0) {
@@ -177,8 +177,8 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
         this.d = new a(this, CmdConfigHttp.CMD_CONCERN_PAGE, 309474);
         this.e = new b(this, CmdConfigHttp.CMD_CONCERN_CHECK_RED_NOTIFY, 309476);
         setUniqueId(bdUniqueId);
+        registerHttpTask();
         D();
-        E();
         registerListener(this.d);
         registerListener(this.e);
     }
@@ -193,57 +193,43 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public void C(String str, vb5 vb5Var) {
+    public void C(String str, mc5 mc5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, vb5Var) == null) || this.c) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, mc5Var) == null) || this.c) {
             return;
         }
         this.c = true;
         ConcernPageRequestMessage concernPageRequestMessage = new ConcernPageRequestMessage();
         concernPageRequestMessage.setPageTag(str);
         concernPageRequestMessage.setTag(getUniqueId());
-        concernPageRequestMessage.setAdInfo(vb5Var);
+        concernPageRequestMessage.setAdInfo(mc5Var);
         sendMessage(concernPageRequestMessage);
     }
 
     public final void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_PAGE, kk8.a(TbConfig.URL_CONCERN_PAGE, 309474));
-            tbHttpMessageTask.setIsNeedAddCommenParam(true);
-            tbHttpMessageTask.setResponsedClass(ConcernPageHttpResMessage.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_CHECK_RED_NOTIFY, kk8.a(TbConfig.URL_CONCERN_CHECK_RED_NOTIFY, 309476));
-            tbHttpMessageTask2.setIsNeedAddCommenParam(true);
-            tbHttpMessageTask2.setResponsedClass(CheckRedNotifyHttpResMessage.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask2);
+            ca5 ca5Var = new ca5(309474);
+            ca5Var.setResponsedClass(ConcernPageSocketResMessage.class);
+            ca5Var.g(true);
+            MessageManager.getInstance().registerTask(ca5Var);
+            ca5 ca5Var2 = new ca5(309476);
+            ca5Var2.setResponsedClass(CheckRedNotifySocketResMessage.class);
+            ca5Var2.g(true);
+            MessageManager.getInstance().registerTask(ca5Var2);
         }
     }
 
-    public final void E() {
+    public void E(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            l95 l95Var = new l95(309474);
-            l95Var.setResponsedClass(ConcernPageSocketResMessage.class);
-            l95Var.g(true);
-            MessageManager.getInstance().registerTask(l95Var);
-            l95 l95Var2 = new l95(309476);
-            l95Var2.setResponsedClass(CheckRedNotifySocketResMessage.class);
-            l95Var2.g(true);
-            MessageManager.getInstance().registerTask(l95Var2);
-        }
-    }
-
-    public void F(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
             this.b = cVar;
         }
     }
 
-    public void G(d dVar) {
+    public void F(d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, dVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
             this.a = dVar;
         }
     }
@@ -252,7 +238,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             this.c = false;
             cancelMessage();
             return false;
@@ -264,7 +250,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             if (this.c) {
                 return true;
             }
@@ -273,5 +259,19 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
             return true;
         }
         return invokeV.booleanValue;
+    }
+
+    public final void registerHttpTask() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_PAGE, hj8.a(TbConfig.URL_CONCERN_PAGE, 309474));
+            tbHttpMessageTask.setIsNeedAddCommenParam(true);
+            tbHttpMessageTask.setResponsedClass(ConcernPageHttpResMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+            TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_CHECK_RED_NOTIFY, hj8.a(TbConfig.URL_CONCERN_CHECK_RED_NOTIFY, 309476));
+            tbHttpMessageTask2.setIsNeedAddCommenParam(true);
+            tbHttpMessageTask2.setResponsedClass(CheckRedNotifyHttpResMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask2);
+        }
     }
 }

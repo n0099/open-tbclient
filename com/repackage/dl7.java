@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.nr4;
 /* loaded from: classes5.dex */
 public class dl7 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
@@ -138,7 +138,7 @@ public class dl7 extends BaseAdapter {
             }
             if (!this.a.b.g()) {
                 dl7 dl7Var = this.a;
-                dl7Var.i(dl7Var.a.getString(R.string.obfuscated_res_0x7f0f02f9));
+                dl7Var.i(dl7Var.a.getString(R.string.obfuscated_res_0x7f0f02fe));
                 return;
             }
             TailData b = ((gl7) view2.getTag()).b();
@@ -147,7 +147,7 @@ public class dl7 extends BaseAdapter {
     }
 
     /* loaded from: classes5.dex */
-    public class d implements cr4.e {
+    public class d implements nr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ dl7 a;
@@ -170,11 +170,11 @@ public class dl7 extends BaseAdapter {
             this.a = dl7Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.nr4.e
+        public void onClick(nr4 nr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, nr4Var) == null) {
+                nr4Var.dismiss();
                 MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(this.a.a, 1, false, 6);
                 memberPayActivityConfig.setSceneId("4009001001");
                 memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_POSTING, MemberPayStatistic.CLICK_ZONE_TAILS_POP_UPS_OPENDE_RENEWALFEE_BUTTON);
@@ -184,7 +184,7 @@ public class dl7 extends BaseAdapter {
     }
 
     /* loaded from: classes5.dex */
-    public class e implements cr4.e {
+    public class e implements nr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -204,11 +204,11 @@ public class dl7 extends BaseAdapter {
             }
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.nr4.e
+        public void onClick(nr4 nr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, nr4Var) == null) {
+                nr4Var.dismiss();
             }
         }
     }
@@ -244,7 +244,7 @@ public class dl7 extends BaseAdapter {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, num}) == null) {
                 if (z) {
-                    oi.N(this.a.a, str);
+                    mi.N(this.a.a, str);
                 } else if (num != null && this.a.b.i() != null && this.a.b.i().size() != 0) {
                     for (TailData tailData : this.a.b.i()) {
                         if (tailData.getId() == num.intValue()) {
@@ -291,7 +291,7 @@ public class dl7 extends BaseAdapter {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, r7}) == null) {
                 if (z) {
-                    oi.N(this.a.a, str);
+                    mi.N(this.a.a, str);
                 } else {
                     this.a.notifyDataSetChanged();
                 }
@@ -481,8 +481,8 @@ public class dl7 extends BaseAdapter {
         if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || (a2 = f9.a(this.a)) == null) {
             return;
         }
-        cr4 cr4Var = new cr4(a2.getPageActivity());
-        cr4Var.setButtonTextColor(R.color.CAM_X0305);
-        cr4Var.setMessage(str).setNegativeButton(this.a.getString(R.string.obfuscated_res_0x7f0f036e), new e(this)).setPositiveButton(this.a.getString(R.string.obfuscated_res_0x7f0f0ccb), new d(this)).create(a2).show();
+        nr4 nr4Var = new nr4(a2.getPageActivity());
+        nr4Var.setButtonTextColor(R.color.CAM_X0305);
+        nr4Var.setMessage(str).setNegativeButton(this.a.getString(R.string.obfuscated_res_0x7f0f0374), new e(this)).setPositiveButton(this.a.getString(R.string.obfuscated_res_0x7f0f0ce6), new d(this)).create(a2).show();
     }
 }

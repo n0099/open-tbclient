@@ -2,7 +2,6 @@ package com.google.zxing.client.result;
 
 import com.baidu.browser.sailor.BdSailorConfig;
 import com.baidu.down.manage.DownloadConstants;
-import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -51,7 +50,7 @@ public final class ParsedResultType {
         TEL = new ParsedResultType("TEL", 6);
         SMS = new ParsedResultType("SMS", 7);
         CALENDAR = new ParsedResultType("CALENDAR", 8);
-        WIFI = new ParsedResultType(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 9);
+        WIFI = new ParsedResultType("WIFI", 9);
         ISBN = new ParsedResultType("ISBN", 10);
         ParsedResultType parsedResultType = new ParsedResultType("VIN", 11);
         VIN = parsedResultType;

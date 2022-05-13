@@ -1,145 +1,144 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ad.statis.CustomALSHttpMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.os.IBinder;
+import android.view.View;
+import android.view.Window;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tieba.R;
+import com.baidu.tieba.ad.download.rectify.DownloadRectifyView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ak5 implements aj8 {
+public class ak5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
+    public static class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ AlertDialog a;
+        public final /* synthetic */ Activity b;
 
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static ak5 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-526126584, "Lcom/repackage/ak5$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-526126584, "Lcom/repackage/ak5$b;");
+        public a(AlertDialog alertDialog, Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {alertDialog, activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new ak5(null);
+            this.a = alertDialog;
+            this.b = activity;
         }
-    }
 
-    public /* synthetic */ ak5(a aVar) {
-        this();
-    }
-
-    public static ak5 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (ak5) invokeV.objValue;
-    }
-
-    @Override // com.repackage.aj8
-    public void a(long j, String str, String str2, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), str, str2, Long.valueOf(j2)}) == null) {
-            CustomALSHttpMessage init = new CustomALSHttpMessage().init("1001", "every_log");
-            init.addParam("f1", "pagetime");
-            init.addParam("f2", str2);
-            init.addParam("f3", j + "");
-            init.addParam("f4", str);
-            init.addParam("f5", j2);
-            init.send();
-        }
-    }
-
-    @Override // com.repackage.aj8
-    public void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            CustomALSHttpMessage init = new CustomALSHttpMessage().init("1001", "every_log");
-            init.addParam("f1", "fullvideoshow");
-            init.addParam("f2", str2);
-            init.addParam("extf", str);
-            init.send();
-        }
-    }
-
-    @Override // com.repackage.aj8
-    public void c(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            CustomALSHttpMessage init = new CustomALSHttpMessage().init("1001", "every_log");
-            init.addParam("f1", "cardclick");
-            init.addParam("f2", str2);
-            init.addParam("extf", str);
-            init.send();
-        }
-    }
-
-    @Override // com.repackage.aj8
-    public void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            CustomALSHttpMessage init = new CustomALSHttpMessage().init("1001", "every_log");
-            init.addParam("f1", "cardshow");
-            init.addParam("f2", str2);
-            init.addParam("extf", str);
-            init.send();
-        }
-    }
-
-    @Override // com.repackage.aj8
-    public void e(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, str3) == null) {
-            CustomALSHttpMessage init = new CustomALSHttpMessage().init("1001", "every_log");
-            init.addParam("f1", "alert_click");
-            init.addParam("f2", str);
-            init.addParam("f5", str2);
-            init.addParam("extf", str3);
-            init.send();
-        }
-    }
-
-    @Override // com.repackage.aj8
-    public void f(long j, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), str, str2}) == null) {
-            CustomALSHttpMessage init = new CustomALSHttpMessage().init("1001", "every_log");
-            init.addParam("f1", "pageshow");
-            init.addParam("f2", str2);
-            init.addParam("f3", j + "");
-            init.addParam("f4", str);
-            init.send();
-        }
-    }
-
-    public ak5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                ak5.a(this.a, this.b);
             }
         }
+    }
+
+    public static final boolean a(Dialog dialog, Activity activity) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dialog, activity)) == null) {
+            if (dialog == null || activity == null || activity.isFinishing() || activity.getWindow() == null || !b(activity.getWindow().getDecorView())) {
+                return false;
+            }
+            dialog.dismiss();
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static final boolean b(View view2) {
+        InterceptResult invokeL;
+        IBinder windowToken;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            if (view2 == null || (windowToken = view2.getWindowToken()) == null) {
+                return false;
+            }
+            try {
+                if (windowToken.isBinderAlive()) {
+                    return windowToken.pingBinder();
+                }
+                return false;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static final boolean c(Dialog dialog, Activity activity) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, dialog, activity)) == null) {
+            if (dialog == null || activity == null || activity.isFinishing()) {
+                return false;
+            }
+            if (activity.getWindow() != null && !activity.getWindow().isActive()) {
+                try {
+                    dialog.show();
+                    return true;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            if (activity.getWindow() != null && b(activity.getWindow().getDecorView())) {
+                try {
+                    dialog.show();
+                    return true;
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static Dialog d(@NonNull zj5 zj5Var, @NonNull View view2, @NonNull Activity activity, @Nullable DialogInterface.OnDismissListener onDismissListener, @Nullable DialogInterface.OnShowListener onShowListener) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65539, null, zj5Var, view2, activity, onDismissListener, onShowListener)) == null) {
+            AlertDialog create = new AlertDialog.Builder(activity, R.style.obfuscated_res_0x7f100104).create();
+            create.setCanceledOnTouchOutside(true);
+            create.setOnDismissListener(onDismissListener);
+            create.setOnShowListener(onShowListener);
+            DownloadRectifyView downloadRectifyView = new DownloadRectifyView(activity);
+            downloadRectifyView.a(zj5Var);
+            downloadRectifyView.setDownloadView(view2);
+            downloadRectifyView.setOnCloseClickListener(new a(create, activity));
+            c(create, activity);
+            Window window = create.getWindow();
+            if (window != null) {
+                window.setGravity(80);
+                window.setLayout(-1, -2);
+                window.setContentView(downloadRectifyView);
+            }
+            return create;
+        }
+        return (Dialog) invokeLLLLL.objValue;
     }
 }

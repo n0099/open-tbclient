@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.mi;
 /* loaded from: classes3.dex */
 public class HeadImageView extends TbClipImageView {
     public static /* synthetic */ Interceptable $ic;
@@ -70,7 +70,7 @@ public class HeadImageView extends TbClipImageView {
     private void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.x0 = oi.f(getContext(), R.dimen.tbds36);
+            this.x0 = mi.f(getContext(), R.dimen.tbds36);
             setDrawerType(1);
             setGifIconSupport(false);
             setDrawBorder(true);
@@ -278,7 +278,7 @@ public class HeadImageView extends TbClipImageView {
         if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
             setIsRound(true);
             if (i > 0) {
-                this.w0 = oi.f(getContext(), i);
+                this.w0 = mi.f(getContext(), i);
             }
             invalidate();
         }
@@ -295,7 +295,7 @@ public class HeadImageView extends TbClipImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
             if (i > 0) {
-                this.x0 = oi.f(getContext(), i);
+                this.x0 = mi.f(getContext(), i);
             }
             invalidate();
         }
@@ -387,7 +387,7 @@ public class HeadImageView extends TbClipImageView {
     public void setUserName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048608, this, str) == null) {
-            setUserName(str, str + getResources().getString(R.string.obfuscated_res_0x7f0f118c));
+            setUserName(str, str + getResources().getString(R.string.obfuscated_res_0x7f0f11a9));
         }
     }
 
@@ -448,7 +448,7 @@ public class HeadImageView extends TbClipImageView {
         this.C0 = null;
         this.D0 = null;
         this.E0 = null;
-        this.G0 = R.drawable.obfuscated_res_0x7f08120b;
+        this.G0 = R.drawable.obfuscated_res_0x7f081221;
         this.H0 = R.color.CAM_X0209;
         this.I0 = R.drawable.ic_icon_mask_shen20_n;
         this.J0 = 0;

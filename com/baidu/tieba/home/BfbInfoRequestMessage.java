@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rc5;
+import com.repackage.jd5;
 import tbclient.GetUserBfbInfo.DataReq;
 import tbclient.GetUserBfbInfo.GetUserBfbInfoReqIdl;
 /* loaded from: classes3.dex */
@@ -42,7 +42,7 @@ public class BfbInfoRequestMessage extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                rc5.a(builder, true);
+                jd5.a(builder, true);
             }
             GetUserBfbInfoReqIdl.Builder builder2 = new GetUserBfbInfoReqIdl.Builder();
             builder2.data = builder.build(false);

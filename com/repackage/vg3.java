@@ -1,12 +1,15 @@
 package com.repackage;
 
-import android.content.Context;
+import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class vg3 implements vj1 {
+public class vg3 extends ActivityDelegation implements nf3<Bundle> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,11 +27,31 @@ public class vg3 implements vj1 {
         }
     }
 
-    @Override // com.repackage.vj1
-    public void a(Context context) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.nf3
+    /* renamed from: b */
+    public void onCallback(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            hh3.i(context);
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            this.mResult.putBundle("result", bundle);
+            finish();
         }
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public boolean onExec() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            boolean c = td3.c(this.mParams, "isRealName", false);
+            String g = td3.g(this.mParams, "swanAppId");
+            if (c) {
+                ug3.H(getAgent(), g, this);
+            } else {
+                ug3.K(getAgent(), g, this);
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

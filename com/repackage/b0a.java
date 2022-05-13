@@ -1,23 +1,24 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bz9;
 /* loaded from: classes5.dex */
-public final class b0a<T, R> implements bz9.a<R> {
+public final class b0a<T> extends cy9<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final bz9.a<T> a;
-    public final bz9.b<? extends R, ? super T> b;
+    public final ky9<? super T> e;
+    public final ky9<Throwable> f;
+    public final jy9 g;
 
-    public b0a(bz9.a<T> aVar, bz9.b<? extends R, ? super T> bVar) {
+    public b0a(ky9<? super T> ky9Var, ky9<Throwable> ky9Var2, jy9 jy9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, bVar};
+            Object[] objArr = {ky9Var, ky9Var2, jy9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,26 +28,32 @@ public final class b0a<T, R> implements bz9.a<R> {
                 return;
             }
         }
-        this.a = aVar;
-        this.b = bVar;
+        this.e = ky9Var;
+        this.f = ky9Var2;
+        this.g = jy9Var;
     }
 
-    @Override // com.repackage.bz9.a, com.repackage.pz9
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((hz9) ((hz9) obj));
-    }
-
-    public void call(hz9<? super R> hz9Var) {
+    @Override // com.repackage.xx9
+    public void onCompleted() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hz9Var) == null) {
-            try {
-                hz9 hz9Var2 = (hz9) j3a.n(this.b).call(hz9Var);
-                hz9Var2.d();
-                this.a.call(hz9Var2);
-            } catch (Throwable th) {
-                nz9.e(th);
-                hz9Var.onError(th);
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.g.call();
+        }
+    }
+
+    @Override // com.repackage.xx9
+    public void onError(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+            this.f.call(th);
+        }
+    }
+
+    @Override // com.repackage.xx9
+    public void onNext(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+            this.e.call(t);
         }
     }
 }

@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nv4;
+import com.repackage.aw4;
 import java.util.ArrayList;
 import java.util.Iterator;
 @SuppressLint({"ResourceAsColor"})
@@ -76,7 +76,7 @@ public class im7 extends hm7 {
                 return;
             }
             if (layout.getEllipsisCount(layout.getLineCount() - 1) <= 0) {
-                this.a.c.setCompoundDrawablePadding(oi.f(this.b.d, R.dimen.tbds10));
+                this.a.c.setCompoundDrawablePadding(mi.f(this.b.d, R.dimen.tbds10));
             } else {
                 this.a.c.setCompoundDrawablePadding(0);
             }
@@ -84,7 +84,7 @@ public class im7 extends hm7 {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements nv4.f {
+    public class b implements aw4.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ im7 a;
@@ -107,14 +107,14 @@ public class im7 extends hm7 {
             this.a = im7Var;
         }
 
-        @Override // com.repackage.nv4.f
+        @Override // com.repackage.aw4.f
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (z) {
-                    oi.M(this.a.d, R.string.obfuscated_res_0x7f0f02ac);
+                    mi.M(this.a.d, R.string.obfuscated_res_0x7f0f02b1);
                 } else {
-                    oi.M(this.a.d, R.string.obfuscated_res_0x7f0f146d);
+                    mi.M(this.a.d, R.string.obfuscated_res_0x7f0f1495);
                 }
             }
         }
@@ -132,7 +132,7 @@ public class im7 extends hm7 {
         public LinearLayout f;
         public LinearLayout g;
         public NewMyFansUserLikeButton h;
-        public nv4 i;
+        public aw4 i;
         public ImageView j;
         public ProgressBar k;
         public TextView l;
@@ -188,12 +188,12 @@ public class im7 extends hm7 {
     }
 
     @Override // com.repackage.hm7
-    public void a(wp4 wp4Var) {
+    public void a(hq4 hq4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, wp4Var) == null) || wp4Var == null || wp4Var.b() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, hq4Var) == null) || hq4Var == null || hq4Var.b() == null) {
             return;
         }
-        Iterator<UserData> it = wp4Var.b().iterator();
+        Iterator<UserData> it = hq4Var.b().iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -207,7 +207,7 @@ public class im7 extends hm7 {
         if (this.a == null) {
             this.a = new ArrayList<>();
         }
-        arrayList.addAll(wp4Var.b());
+        arrayList.addAll(hq4Var.b());
         if (!ListUtils.isEmpty(this.a)) {
             ArrayList<UserData> arrayList2 = this.a;
             if (arrayList2.get(arrayList2.size() - 1) != null) {
@@ -339,48 +339,48 @@ public class im7 extends hm7 {
             } else {
                 cVar = new c(this, null);
                 if (itemViewType == 0) {
-                    inflate = LayoutInflater.from(this.d.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06c7, (ViewGroup) null);
-                    ViewGroup viewGroup2 = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f090fad);
+                    inflate = LayoutInflater.from(this.d.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06bf, (ViewGroup) null);
+                    ViewGroup viewGroup2 = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f090fbc);
                     cVar.a = viewGroup2;
                     viewGroup2.setOnClickListener(this.h);
-                    ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091824);
+                    ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09187a);
                     cVar.b = clickableHeaderImageView;
-                    clickableHeaderImageView.setRadius(oi.f(this.d.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07030b));
+                    clickableHeaderImageView.setRadius(mi.f(this.d.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07030b));
                     cVar.b.setAutoChangeStyle(true);
                     cVar.b.setClickable(false);
-                    ((ViewGroup.MarginLayoutParams) cVar.b.getLayoutParams()).setMargins(oi.f(this.d, R.dimen.obfuscated_res_0x7f07020f), 0, 0, 0);
-                    cVar.f = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090ef0);
-                    cVar.g = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091eb0);
-                    EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914e5);
+                    ((ViewGroup.MarginLayoutParams) cVar.b.getLayoutParams()).setMargins(mi.f(this.d, R.dimen.obfuscated_res_0x7f07020f), 0, 0, 0);
+                    cVar.f = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090efd);
+                    cVar.g = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091f08);
+                    EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f091504);
                     cVar.c = eMTextView;
                     eMTextView.getViewTreeObserver().addOnGlobalLayoutListener(new a(this, cVar));
-                    View a2 = xk4.b().a(this.d.getPageContext().getPageActivity(), 5);
+                    View a2 = il4.b().a(this.d.getPageContext().getPageActivity(), 5);
                     cVar.d = a2;
                     if (a2 != null) {
                         a2.setVisibility(8);
                         cVar.g.addView(cVar.d, 1);
                     }
-                    cVar.l = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0902bc);
-                    cVar.e = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f090f42);
-                    NewMyFansUserLikeButton newMyFansUserLikeButton = (NewMyFansUserLikeButton) inflate.findViewById(R.id.obfuscated_res_0x7f0902c7);
+                    cVar.l = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0902b2);
+                    cVar.e = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f090f4f);
+                    NewMyFansUserLikeButton newMyFansUserLikeButton = (NewMyFansUserLikeButton) inflate.findViewById(R.id.obfuscated_res_0x7f0902be);
                     cVar.h = newMyFansUserLikeButton;
                     newMyFansUserLikeButton.setContext(this.d.getPageContext());
-                    ((LinearLayout.LayoutParams) cVar.h.getLayoutParams()).setMargins(0, 0, oi.f(this.d, R.dimen.obfuscated_res_0x7f07020f), 0);
-                    nv4 nv4Var = new nv4(this.d.getPageContext(), cVar.h);
-                    cVar.i = nv4Var;
-                    nv4Var.n((lv4) ListUtils.getItem(this.a, i));
+                    ((LinearLayout.LayoutParams) cVar.h.getLayoutParams()).setMargins(0, 0, mi.f(this.d, R.dimen.obfuscated_res_0x7f07020f), 0);
+                    aw4 aw4Var = new aw4(this.d.getPageContext(), cVar.h);
+                    cVar.i = aw4Var;
+                    aw4Var.n((yv4) ListUtils.getItem(this.a, i));
                     cVar.i.o(new b(this));
                     cVar.k = null;
                     cVar.m = null;
-                    cVar.j = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0907df);
+                    cVar.j = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0907d6);
                 } else if (itemViewType == 2) {
-                    inflate = LayoutInflater.from(this.d.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d058f, (ViewGroup) null);
-                    cVar.m = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091493);
+                    inflate = LayoutInflater.from(this.d.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0582, (ViewGroup) null);
+                    cVar.m = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914b1);
                 } else {
-                    inflate = LayoutInflater.from(this.d.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0600, (ViewGroup) null);
-                    cVar.c = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f0916eb);
+                    inflate = LayoutInflater.from(this.d.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d05f4, (ViewGroup) null);
+                    cVar.c = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f091713);
                     inflate.setOnClickListener(this.g);
-                    cVar.k = (ProgressBar) inflate.findViewById(R.id.obfuscated_res_0x7f09191d);
+                    cVar.k = (ProgressBar) inflate.findViewById(R.id.obfuscated_res_0x7f091975);
                     cVar.m = null;
                 }
                 inflate.setTag(cVar);
@@ -394,15 +394,15 @@ public class im7 extends hm7 {
                     cVar.f.setVisibility(8);
                     cVar.l.setVisibility(0);
                     if (this.e) {
-                        cVar.l.setText(R.string.obfuscated_res_0x7f0f0c73);
+                        cVar.l.setText(R.string.obfuscated_res_0x7f0f0c8c);
                     } else {
                         int i2 = this.f;
                         if (i2 == 2) {
-                            cVar.l.setText(R.string.obfuscated_res_0x7f0f0823);
+                            cVar.l.setText(R.string.obfuscated_res_0x7f0f082b);
                         } else if (i2 == 1) {
-                            cVar.l.setText(R.string.obfuscated_res_0x7f0f0826);
+                            cVar.l.setText(R.string.obfuscated_res_0x7f0f082e);
                         } else {
-                            cVar.l.setText(R.string.obfuscated_res_0x7f0f0c38);
+                            cVar.l.setText(R.string.obfuscated_res_0x7f0f0c4e);
                         }
                     }
                 } else {
@@ -421,13 +421,13 @@ public class im7 extends hm7 {
                             cVar.d.setVisibility(8);
                         } else {
                             cVar.d.setVisibility(0);
-                            wk4 wk4Var = new wk4();
-                            wk4Var.a = userData.getAlaUserData();
-                            wk4Var.b = 5;
-                            cVar.d.setTag(wk4Var);
+                            hl4 hl4Var = new hl4();
+                            hl4Var.a = userData.getAlaUserData();
+                            hl4Var.b = 5;
+                            cVar.d.setTag(hl4Var);
                         }
                     }
-                    if (ni.isEmpty(userData.getIntro())) {
+                    if (li.isEmpty(userData.getIntro())) {
                         cVar.e.setVisibility(8);
                     } else {
                         cVar.e.setVisibility(0);
@@ -446,21 +446,21 @@ public class im7 extends hm7 {
                 }
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) cVar.j.getLayoutParams();
                 if (ListUtils.getItem(this.a, i) != null && ((UserData) ListUtils.getItem(this.a, i)).isLastNewFan) {
-                    layoutParams.height = oi.f(this.d, R.dimen.obfuscated_res_0x7f07023e);
+                    layoutParams.height = mi.f(this.d, R.dimen.obfuscated_res_0x7f07023e);
                     layoutParams.setMargins(0, 0, 0, 0);
                     cVar.j.setVisibility(0);
                 } else {
                     cVar.j.setVisibility(8);
-                    layoutParams.height = oi.f(this.d, R.dimen.obfuscated_res_0x7f070198);
-                    layoutParams.setMargins(oi.f(this.d, R.dimen.obfuscated_res_0x7f07020f), 0, oi.f(this.d, R.dimen.obfuscated_res_0x7f07020f), 0);
+                    layoutParams.height = mi.f(this.d, R.dimen.obfuscated_res_0x7f070198);
+                    layoutParams.setMargins(mi.f(this.d, R.dimen.obfuscated_res_0x7f07020f), 0, mi.f(this.d, R.dimen.obfuscated_res_0x7f07020f), 0);
                 }
                 cVar.j.setLayoutParams(layoutParams);
                 cVar.k = null;
             } else if (itemViewType == 2) {
-                cVar.m.setText(R.string.obfuscated_res_0x7f0f0c1b);
+                cVar.m.setText(R.string.obfuscated_res_0x7f0f0c31);
                 cVar.m.setVisibility(0);
             } else {
-                cVar.c.setText(this.d.getPageContext().getString(R.string.obfuscated_res_0x7f0f0a2e));
+                cVar.c.setText(this.d.getPageContext().getString(R.string.obfuscated_res_0x7f0f0a34));
                 cVar.k.setVisibility(0);
             }
             h(inflate, cVar);

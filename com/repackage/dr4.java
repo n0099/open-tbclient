@@ -1,31 +1,26 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.os.Build;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+import tbclient.Topic;
 /* loaded from: classes5.dex */
 public class dr4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlertDialog a;
-    public Activity b;
-    public View c;
+    public int a;
+    public String b;
 
-    public dr4(Activity activity) {
+    public dr4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,58 +30,43 @@ public class dr4 {
                 return;
             }
         }
-        this.b = activity;
+        this.a = 0;
+        this.b = "";
     }
 
-    public void a() {
-        AlertDialog alertDialog;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (alertDialog = this.a) != null && alertDialog.isShowing()) {
-            this.a.dismiss();
-        }
-    }
-
-    public int b() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Build.VERSION.SDK_INT >= 19 ? 5894 : 1280 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    public void c(View view2) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            this.c = view2;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
-    public void d() {
+    public void c(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.b == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        if (this.a == null) {
-            AlertDialog create = new AlertDialog.Builder(this.b).create();
-            this.a = create;
-            create.requestWindowFeature(b());
+        try {
+            this.a = jSONObject.optInt("is_lpost", 0);
+            jSONObject.optInt(TiebaStatic.Params.TOPIC_TYPE, 0);
+            this.b = jSONObject.optString("link", "");
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
-        if (this.a.isShowing()) {
-            this.a.dismiss();
+    }
+
+    public void d(Topic topic) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, topic) == null) || topic == null) {
+            return;
         }
-        this.a.setCancelable(true);
-        this.a.show();
-        Window window = this.a.getWindow();
-        window.getDecorView().setSystemUiVisibility(b());
-        window.addFlags(Integer.MIN_VALUE);
-        window.setStatusBarColor(0);
-        WindowManager.LayoutParams attributes = window.getAttributes();
-        attributes.width = -1;
-        attributes.height = -1;
-        window.setNavigationBarColor(0);
-        window.setAttributes(attributes);
-        window.setDimAmount(0.0f);
-        View view2 = this.c;
-        if (view2 != null) {
-            this.a.setContentView(view2);
-        }
+        this.a = topic.is_lpost.intValue();
+        topic.topic_type.intValue();
+        this.b = topic.link;
     }
 }

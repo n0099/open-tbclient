@@ -25,6 +25,7 @@ public class ShareEntity implements Parcelable {
     public String extLiveInfo;
     public String fName;
     public Uri imageUri;
+    public boolean isFromDuXiaoMan;
     public boolean isVideoThread;
     public String linkUrl;
     public String localFile;
@@ -90,6 +91,7 @@ public class ShareEntity implements Parcelable {
                 shareEntity.setReadCount(parcel.readLong());
                 shareEntity.setIsVideoThread(parcel.readByte() == 1);
                 shareEntity.extLiveInfo = parcel.readString();
+                shareEntity.setFromDuXiaoMan(parcel.readByte() == 1);
                 return shareEntity;
             }
             return (ShareEntity) invokeL.objValue;
@@ -290,10 +292,16 @@ public class ShareEntity implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.fName : (String) invokeV.objValue;
     }
 
+    public boolean isFromDuXiaoMan() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.isFromDuXiaoMan : invokeV.booleanValue;
+    }
+
     public boolean needCheckStoragePermission() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
             if (this.shareType != 0) {
                 int i = this.shareTo;
                 return i == 8 || i == 4 || i == 3 || i == 2;
@@ -305,112 +313,119 @@ public class ShareEntity implements Parcelable {
 
     public void setContent(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
             this.content = str;
         }
     }
 
     public void setExtLiveInfo(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
             this.extLiveInfo = str;
+        }
+    }
+
+    public void setFromDuXiaoMan(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
+            this.isFromDuXiaoMan = z;
         }
     }
 
     public void setImageUri(Uri uri) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, uri) == null) {
+        if (interceptable == null || interceptable.invokeL(1048602, this, uri) == null) {
             this.imageUri = uri;
         }
     }
 
     public void setIsVideoThread(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
             this.isVideoThread = z;
         }
     }
 
     public void setLinkUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
             this.linkUrl = str;
         }
     }
 
     public void setLocalFile(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
             this.localFile = str;
         }
     }
 
     public void setLocation(Location location) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, location) == null) {
+        if (interceptable == null || interceptable.invokeL(1048606, this, location) == null) {
             this.location = location;
         }
     }
 
     public void setPreferImageToLink(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
             this.shareType = i;
         }
     }
 
     public void setReadCount(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048606, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048608, this, j) == null) {
             this.readCount = j;
         }
     }
 
     public void setShareTo(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
             this.shareTo = i;
         }
     }
 
     public void setStats(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048608, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048610, this, bundle) == null) {
             this.stats = bundle;
         }
     }
 
     public void setTid(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048611, this, str) == null) {
             this.tid = str;
         }
     }
 
     public void setTitle(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048610, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048612, this, str) == null) {
             this.title = str;
         }
     }
 
     public void setTypeShareToSmallApp(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048613, this, i) == null) {
             this.typeShareToSmallApp = i;
         }
     }
 
     public void setVideoUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048612, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048614, this, str) == null) {
             this.videoUrl = str;
         }
     }
 
     public void setfName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048613, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048615, this, str) == null) {
             this.fName = str;
         }
     }
@@ -418,7 +433,7 @@ public class ShareEntity implements Parcelable {
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048614, this, parcel, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048616, this, parcel, i) == null) {
             parcel.writeString(this.title);
             parcel.writeString(this.content);
             parcel.writeString(this.linkUrl);
@@ -439,6 +454,7 @@ public class ShareEntity implements Parcelable {
             parcel.writeLong(this.readCount);
             parcel.writeByte(this.isVideoThread ? (byte) 1 : (byte) 0);
             parcel.writeString(this.extLiveInfo);
+            parcel.writeByte(this.isFromDuXiaoMan ? (byte) 1 : (byte) 0);
         }
     }
 }

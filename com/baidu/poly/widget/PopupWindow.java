@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.l91;
+import com.repackage.w91;
 import java.lang.ref.WeakReference;
 /* loaded from: classes2.dex */
 public class PopupWindow {
@@ -248,7 +248,7 @@ public class PopupWindow {
                 return;
             }
         }
-        P = l91.d;
+        P = w91.d;
         Q = new int[]{16842922};
     }
 
@@ -747,7 +747,7 @@ public class PopupWindow {
         this.M = new a(this);
         this.a = context;
         this.b = (WindowManager) context.getSystemService("window");
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843126, 16843465, R.attr.overlapAnchor, R.attr.obfuscated_res_0x7f0404d9, R.attr.obfuscated_res_0x7f0404da}, i, i2);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843126, 16843465, R.attr.overlapAnchor, R.attr.obfuscated_res_0x7f0404de, R.attr.obfuscated_res_0x7f0404df}, i, i2);
         this.D = obtainStyledAttributes.getDrawable(4);
         int resourceId = obtainStyledAttributes.getResourceId(3, -1);
         this.K = resourceId != 16973824 ? resourceId : -1;

@@ -30,7 +30,7 @@ public final class uq0 {
                 jSONArray.put(jSONObject2);
                 jSONObject.put("hosts", jSONArray);
             } catch (Exception e) {
-                zi0.c("AuthStrategyHelper", e.toString());
+                cj0.c("AuthStrategyHelper", e.toString());
             }
             String jSONObject3 = jSONObject.toString();
             Intrinsics.checkNotNullExpressionValue(jSONObject3, "defaultHostAuthConfig.toString()");
@@ -71,7 +71,7 @@ public final class uq0 {
                                 }
                             }
                         } catch (Exception e) {
-                            zi0.a("AuthStrategyHelper", e.getMessage());
+                            cj0.a("AuthStrategyHelper", e.getMessage());
                         }
                         return null;
                     }

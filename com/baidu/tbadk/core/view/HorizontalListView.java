@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.mi;
 import java.util.LinkedList;
 import java.util.Queue;
 /* loaded from: classes3.dex */
@@ -450,7 +450,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                 this.g = Integer.MAX_VALUE;
                 this.i = new Scroller(getContext());
                 this.j = new GestureDetector(getContext(), this.z);
-                this.q = oi.k(getContext()) / 2;
+                this.q = mi.k(getContext()) / 2;
                 this.a = ViewConfigurationCompat.getScaledPagingTouchSlop(ViewConfiguration.get(getContext()));
             }
         }

@@ -41,7 +41,7 @@ public class a68 {
     public b48 e;
     public PersonCenterTabBaseFragment f;
     public NoDataView g;
-    public j85 h;
+    public a95 h;
     public int i;
 
     /* loaded from: classes5.dex */
@@ -119,7 +119,7 @@ public class a68 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i) == null) {
                 if (this.a.h == null) {
-                    this.a.h = new j85();
+                    this.a.h = new a95();
                     this.a.h.a(this.a.i);
                 }
                 if (i == 0) {
@@ -184,7 +184,7 @@ public class a68 {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.c.findViewById(R.id.obfuscated_res_0x7f091550);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.c.findViewById(R.id.obfuscated_res_0x7f09156d);
             this.b = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new a(this, bdTypeRecyclerView.getContext()));
             this.b.addOnScrollListener(new b(this));
@@ -192,16 +192,16 @@ public class a68 {
             this.d = pbListView;
             pbListView.a();
             this.d.p(R.color.CAM_X0205);
-            this.d.t(oi.f(this.a.getPageActivity(), R.dimen.tbds182));
+            this.d.t(mi.f(this.a.getPageActivity(), R.dimen.tbds182));
             this.d.x();
             this.d.G(R.dimen.tbfontsize33);
             this.d.E(SkinManager.getColor(R.color.CAM_X0107));
             this.d.A(R.color.CAM_X0110);
             b48 b48Var = new b48(this.a, this.b, this.f.getUniqueId());
             this.e = b48Var;
-            b48Var.d(this.f.D0());
+            b48Var.d(this.f.E0());
             this.e.h(32);
-            if (this.f.D0()) {
+            if (this.f.E0()) {
                 PersonCenterTabBaseFragment personCenterTabBaseFragment = this.f;
                 if (personCenterTabBaseFragment instanceof PersonCenterDynamicTabFragment) {
                     i = 4;
@@ -209,11 +209,11 @@ public class a68 {
                     i = 6;
                 }
                 this.e.f(i);
-                this.e.g(this.f.C0());
+                this.e.g(this.f.D0());
             }
             i = 0;
             this.e.f(i);
-            this.e.g(this.f.C0());
+            this.e.g(this.f.D0());
         }
     }
 
@@ -240,9 +240,9 @@ public class a68 {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            j85 j85Var = this.h;
-            if (j85Var != null) {
-                j85Var.c();
+            a95 a95Var = this.h;
+            if (a95Var != null) {
+                a95Var.c();
             }
             this.b.setOnSrollToBottomListener(null);
         }
@@ -269,13 +269,13 @@ public class a68 {
         }
     }
 
-    public void n(List<uo> list) {
+    public void n(List<ro> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
             if (ListUtils.isEmpty(list)) {
                 g();
                 if (this.b.getHeaderViewsCount() == 0) {
-                    p(R.string.obfuscated_res_0x7f0f0dee);
+                    p(R.string.obfuscated_res_0x7f0f0e0b);
                 }
             } else {
                 NoDataView noDataView = this.g;
@@ -284,7 +284,7 @@ public class a68 {
                 }
             }
             this.b.setData(list);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921435, Integer.valueOf(this.f.C0())));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921435, Integer.valueOf(this.f.D0())));
         }
     }
 
@@ -301,13 +301,13 @@ public class a68 {
         String string;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            if (this.f.C0() == 1) {
-                string = this.f.getResources().getString(R.string.obfuscated_res_0x7f0f0dec);
+            if (this.f.D0() == 1) {
+                string = this.f.getResources().getString(R.string.obfuscated_res_0x7f0f0e09);
             } else {
-                string = this.f.getResources().getString(R.string.obfuscated_res_0x7f0f0ded);
+                string = this.f.getResources().getString(R.string.obfuscated_res_0x7f0f0e0a);
             }
             if (this.g == null) {
-                this.g = NoDataViewFactory.a(this.a.getPageActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.SINGALL, oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070264)), NoDataViewFactory.e.d(null, string), null);
+                this.g = NoDataViewFactory.a(this.a.getPageActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.SINGALL, mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070264)), NoDataViewFactory.e.d(null, string), null);
             }
             this.g.f(this.a, TbadkApplication.getInst().getSkinType());
             this.g.setVisibility(0);
@@ -323,7 +323,7 @@ public class a68 {
             this.b.setNextPage(this.d);
             this.d.L(0);
             this.d.f();
-            this.d.C(this.a.getString(R.string.obfuscated_res_0x7f0f09e8));
+            this.d.C(this.a.getString(R.string.obfuscated_res_0x7f0f09ee));
         }
     }
 

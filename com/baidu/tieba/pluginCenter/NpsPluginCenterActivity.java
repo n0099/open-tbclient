@@ -20,10 +20,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a75;
-import com.repackage.b75;
-import com.repackage.el;
-import com.repackage.v65;
+import com.repackage.bl;
+import com.repackage.l75;
+import com.repackage.q75;
+import com.repackage.r75;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -34,7 +34,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
     public int mFromType;
     public NavigationBar mNavigationBar;
     public NoDataView mNoDataView;
-    public b75<Object, v65, a75<Object, v65>> mPluginCenterAdapter;
+    public r75<Object, l75, q75<Object, l75>> mPluginCenterAdapter;
     public View mRootView;
     public List<Object> mShowList;
     @NonNull
@@ -100,9 +100,9 @@ public class NpsPluginCenterActivity extends BaseActivity {
             if (getIntent() != null) {
                 this.mFromType = getIntent().getIntExtra("key_from_type", 0);
             }
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ad);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923fd);
             this.mNavigationBar = navigationBar;
-            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0e59));
+            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0e77));
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         }
     }
@@ -110,12 +110,12 @@ public class NpsPluginCenterActivity extends BaseActivity {
     private void initScrollContent() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091bfb);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c48);
             this.whiteList.add("com.baidu.searchbox.bjhlivenps");
             this.whiteList.add("com.baidu.live.media.business");
             this.whiteList.add(LiveNPSPluginManager.NPS_PLUGIN_PKG_NAME);
             this.whiteList.add("com.baidu.searchbox.yylive.extlib");
-            for (BundleInfo bundleInfo : el.e().c()) {
+            for (BundleInfo bundleInfo : bl.e().c()) {
                 if (this.whiteList.contains(bundleInfo.getPackageName())) {
                     TbSettingTextTipView makeTipView = makeTipView();
                     makeTipView.setText(bundleInfo.getName());
@@ -165,7 +165,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0630);
+            setContentView(R.layout.obfuscated_res_0x7f0d0624);
             initNavigationBar();
             initScrollContent();
         }

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qg;
+import com.repackage.og;
 /* loaded from: classes3.dex */
 public class ImagesInvalidReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
@@ -34,7 +34,7 @@ public class ImagesInvalidReceiver extends BroadcastReceiver {
         if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
             Intent intent = new Intent(BdBaseApplication.getInst().getContext(), ImagesInvalidReceiver.class);
             intent.putExtra("success", z);
-            qg.a(BdBaseApplication.getInst().getContext(), intent);
+            og.a(BdBaseApplication.getInst().getContext(), intent);
         }
     }
 

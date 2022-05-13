@@ -35,7 +35,7 @@ public abstract class hm7 extends BaseAdapter {
         this.c = false;
     }
 
-    public abstract void a(wp4 wp4Var);
+    public abstract void a(hq4 hq4Var);
 
     public void b() {
         Interceptable interceptable = $ic;

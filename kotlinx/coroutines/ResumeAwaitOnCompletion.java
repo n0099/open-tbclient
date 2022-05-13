@@ -40,12 +40,12 @@ public final class ResumeAwaitOnCompletion<T> extends JobNode<JobSupport> {
             CancellableContinuationImpl<T> cancellableContinuationImpl = this.continuation;
             Throwable th2 = ((CompletedExceptionally) state$kotlinx_coroutines_core).cause;
             Result.Companion companion = Result.Companion;
-            cancellableContinuationImpl.resumeWith(Result.m688constructorimpl(ResultKt.createFailure(th2)));
+            cancellableContinuationImpl.resumeWith(Result.m689constructorimpl(ResultKt.createFailure(th2)));
             return;
         }
         CancellableContinuationImpl<T> cancellableContinuationImpl2 = this.continuation;
         Object unboxState = JobSupportKt.unboxState(state$kotlinx_coroutines_core);
         Result.Companion companion2 = Result.Companion;
-        cancellableContinuationImpl2.resumeWith(Result.m688constructorimpl(unboxState));
+        cancellableContinuationImpl2.resumeWith(Result.m689constructorimpl(unboxState));
     }
 }

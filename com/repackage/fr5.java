@@ -1,14 +1,11 @@
 package com.repackage;
 
+import android.graphics.drawable.ColorDrawable;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,15 +13,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class fr5 extends er5 {
+public abstract class fr5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ViewGroup f;
-    public TbImageView g;
+    public int a;
+    public int b;
+    public TbPageContext c;
+    public tq5 d;
+    public View e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public fr5(TbPageContext tbPageContext) {
-        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -34,111 +32,86 @@ public class fr5 extends er5 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        e();
+        this.c = tbPageContext;
+        int k = mi.k(tbPageContext.getPageActivity());
+        this.a = k;
+        this.b = (int) ((k * 9.0d) / 16.0d);
     }
 
-    @Override // com.repackage.er5
-    public void b(sq5 sq5Var) {
+    public void a(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sq5Var) == null) {
-            super.b(sq5Var);
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) || viewGroup == null) {
+            return;
+        }
+        viewGroup.removeAllViews();
+        viewGroup.addView(c());
+    }
+
+    public void b(tq5 tq5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tq5Var) == null) {
+            this.d = tq5Var;
         }
     }
 
-    @Override // com.repackage.er5
-    public View c() {
+    public abstract View c();
+
+    public abstract void d();
+
+    public View e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (View) invokeV.objValue;
-    }
-
-    @Override // com.repackage.er5
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f = new FrameLayout(this.c.getPageActivity());
-            this.g = new TbImageView(this.c.getPageActivity());
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.a, this.b);
-            this.g.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f39);
-            this.g.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.g.setLayoutParams(layoutParams);
-            this.f.addView(this.g);
-            this.e.setVisibility(8);
-            this.f.addView(this.e);
-            this.g.setClickable(false);
-            i(TbadkCoreApplication.getInst().getSkinType());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            this.e = new View(this.c.getPageActivity());
+            this.e.setLayoutParams(new FrameLayout.LayoutParams(this.a, this.b));
+            this.e.setBackgroundDrawable(new ColorDrawable(this.c.getPageActivity().getResources().getColor(R.color.black_alpha30)));
+            return this.e;
         }
+        return (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.er5
-    public boolean f(sq5 sq5Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sq5Var)) == null) {
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
+    public abstract boolean f(tq5 tq5Var);
 
-    @Override // com.repackage.er5
-    public void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-        }
-    }
+    public abstract void g(boolean z);
 
-    @Override // com.repackage.er5
     public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.h();
-            TbImageView tbImageView = this.g;
-            if (tbImageView != null) {
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) tbImageView.getLayoutParams();
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            int k = mi.k(this.c.getPageActivity());
+            this.a = k;
+            this.b = (int) ((k * 9.0d) / 16.0d);
+            View view2 = this.e;
+            if (view2 != null) {
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view2.getLayoutParams();
                 layoutParams.width = this.a;
                 layoutParams.height = this.b;
-                this.g.setLayoutParams(layoutParams);
+                this.e.setLayoutParams(layoutParams);
             }
         }
     }
 
-    @Override // com.repackage.er5
-    public void i(int i) {
+    public abstract void i(int i);
+
+    public abstract void j();
+
+    public void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            if (1 == i) {
-                this.e.setVisibility(0);
-            } else {
-                this.e.setVisibility(8);
-            }
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
         }
     }
 
-    @Override // com.repackage.er5
-    public void j() {
+    public void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.g = null;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
         }
     }
 
-    @Override // com.repackage.er5
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-        }
-    }
+    public abstract void m();
 
-    @Override // com.repackage.er5
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-        }
-    }
+    public abstract void n();
 }

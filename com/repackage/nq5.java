@@ -1,66 +1,77 @@
 package com.repackage;
 
 import android.content.Context;
-import android.view.View;
+import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ala.alasquare.special_forum.subtab.view.ConcernTabEmptyView;
+import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
+import com.baidu.tieba.R;
+import com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class nq5 extends ho<wq5, ConcernTabEmptyView.ViewHolder> {
+public class nq5 extends d55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext i;
+    public SpecialLiveFragment c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nq5(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), wq5.b);
+    public nq5(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = tbPageContext;
+        this.c = SpecialLiveFragment.D1(str, str2);
+        b().a = this.c;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: Z */
-    public ConcernTabEmptyView.ViewHolder M(ViewGroup viewGroup) {
+    @Override // com.repackage.d55
+    public e55 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            e55 e55Var = new e55();
+            e55Var.e = 4;
+            e55Var.b = R.string.obfuscated_res_0x7f0f021e;
+            e55Var.i = e55.k;
+            return e55Var;
+        }
+        return (e55) invokeV.objValue;
+    }
+
+    @Override // com.repackage.d55
+    public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new ConcernTabEmptyView.ViewHolder(new ConcernTabEmptyView(this.i, viewGroup).k()) : (ConcernTabEmptyView.ViewHolder) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ef, (ViewGroup) null);
+            this.b = fragmentTabIndicator;
+            fragmentTabIndicator.setTextSize(2.0f);
+            return this.b;
+        }
+        return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, wq5 wq5Var, ConcernTabEmptyView.ViewHolder viewHolder) {
-        InterceptResult invokeCommon;
+    @Override // com.repackage.d55
+    public boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wq5Var, viewHolder})) == null) {
-            if (viewHolder == null) {
-                return null;
-            }
-            return viewHolder.b();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
         }
-        return (View) invokeCommon.objValue;
+        return invokeV.booleanValue;
     }
 }

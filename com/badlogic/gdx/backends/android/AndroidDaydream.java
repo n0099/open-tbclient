@@ -500,7 +500,7 @@ public class AndroidDaydream extends DreamService implements d2 {
             boolean d = this.graphics.d();
             this.graphics.u(true);
             this.graphics.r();
-            this.input.y();
+            this.input.x();
             this.graphics.h();
             this.graphics.j();
             this.graphics.u(d);

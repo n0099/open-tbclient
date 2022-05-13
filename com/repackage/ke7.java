@@ -1,11 +1,222 @@
 package com.repackage;
 
-import com.squareup.wire.Message;
+import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.AdapterView;
+import android.widget.GridView;
+import android.widget.ListAdapter;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
-public interface ke7 {
-    void a(boolean z, Message message, boolean z2, long j, String str, int i);
+public class ke7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Animation a;
+    public Animation b;
+    public View c;
+    public ViewGroup d;
+    public c e;
+    public je7 f;
+    public boolean g;
 
-    void b(long j, String str, String str2, int i);
+    /* loaded from: classes6.dex */
+    public class a implements AdapterView.OnItemClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ ke7 b;
 
-    void c(long j, String str, Message message, boolean z);
+        public a(ke7 ke7Var, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ke7Var, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ke7Var;
+            this.a = context;
+        }
+
+        @Override // android.widget.AdapterView.OnItemClickListener
+        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                he7 item = this.b.f.getItem(i);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016448));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016449, item));
+                this.b.f(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends mg {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ke7 a;
+
+        public b(ke7 ke7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ke7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ke7Var;
+        }
+
+        @Override // com.repackage.mg, android.view.animation.Animation.AnimationListener
+        public void onAnimationEnd(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
+                this.a.g = false;
+                if (this.a.e != null) {
+                    this.a.e.a();
+                }
+                this.a.d.removeView(this.a.c);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface c {
+        void a();
+    }
+
+    public ke7(ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {viewGroup};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.g = false;
+        this.d = viewGroup;
+    }
+
+    public void f(Context context) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || (view2 = this.c) == null) {
+            return;
+        }
+        view2.startAnimation(i(context));
+    }
+
+    public final View g(Context context, List<he7> list, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, list, i)) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04e5, (ViewGroup) null);
+            GridView gridView = (GridView) inflate.findViewById(R.id.obfuscated_res_0x7f091c49);
+            gridView.setSelector(new ColorDrawable(context.getResources().getColor(17170445)));
+            je7 je7Var = new je7(context, i);
+            this.f = je7Var;
+            je7Var.b(list);
+            gridView.setAdapter((ListAdapter) this.f);
+            gridView.setOnItemClickListener(new a(this, context));
+            return inflate;
+        }
+        return (View) invokeLLI.objValue;
+    }
+
+    public final Animation h(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            if (this.a == null) {
+                this.a = AnimationUtils.loadAnimation(context, R.anim.obfuscated_res_0x7f01005f);
+            }
+            return this.a;
+        }
+        return (Animation) invokeL.objValue;
+    }
+
+    public final Animation i(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            if (this.b == null) {
+                this.b = AnimationUtils.loadAnimation(context, R.anim.obfuscated_res_0x7f010060);
+            }
+            this.b.setAnimationListener(new b(this));
+            return this.b;
+        }
+        return (Animation) invokeL.objValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g : invokeV.booleanValue;
+    }
+
+    public void k(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0111);
+            je7 je7Var = this.f;
+            if (je7Var != null) {
+                je7Var.notifyDataSetChanged();
+            }
+        }
+    }
+
+    public void l(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
+            this.e = cVar;
+        }
+    }
+
+    public void m(Context context, List<he7> list, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLI(1048583, this, context, list, i) == null) || this.g) {
+            return;
+        }
+        this.g = true;
+        View g = g(context, list, i);
+        this.c = g;
+        this.d.addView(g);
+        SkinManager.setBackgroundColor(this.c, R.color.CAM_X0111);
+        this.c.startAnimation(h(context));
+    }
 }

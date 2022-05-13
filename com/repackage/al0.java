@@ -51,9 +51,17 @@ public class al0 {
         }
 
         @Override // com.repackage.cl0
+        public <T extends bl0> void c(@NonNull Object obj, int i, @NonNull el0<T> el0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, obj, i, el0Var) == null) {
+                b(obj, el0Var);
+            }
+        }
+
+        @Override // com.repackage.cl0
         public void unregister(@NonNull Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
             }
         }
     }

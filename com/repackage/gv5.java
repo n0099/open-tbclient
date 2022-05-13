@@ -1,37 +1,145 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.content.Context;
+import android.widget.RelativeLayout;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.ala.AlaCmdConfigCustom;
+import com.baidu.ala.gift.AlaDynamicGift;
+import com.baidu.ala.gift.AlaDynamicGiftAndNativeData;
+import com.baidu.ala.gift.AlaDynamicGiftConfigInfo;
+import com.baidu.ala.gift.AlaDynamicGiftLocalInfoConfig;
+import com.baidu.ala.gift.IFrameCallback;
+import com.baidu.ala.gift.IImageFramePlayerViewController;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.ala.personcenter.privilege.entereffect.adapter.AlaEnterEffectAdapter;
-import com.baidu.tieba.ala.personcenter.privilege.entereffect.adapter.AlaEnterEffectCategoryAdapter;
+import com.baidu.tieba.R;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaEffectPreviewView;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
 public class gv5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public BdTypeListView b;
-    public List<ho> c;
-    public AlaEnterEffectAdapter d;
-    public AlaEnterEffectCategoryAdapter e;
-    public List<uo> f;
+    public Context a;
+    public RelativeLayout b;
+    public IImageFramePlayerViewController c;
+    public AlaEffectPreviewView d;
+    public AlaEnterEffectData e;
+    public int f;
+    public IFrameCallback g;
+    public c h;
 
-    public gv5(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
+    /* loaded from: classes6.dex */
+    public class a implements IFrameCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gv5 a;
+
+        public a(gv5 gv5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gv5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gv5Var;
+        }
+
+        @Override // com.baidu.ala.gift.IFrameCallback
+        public void onFrameEnd() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                gv5.b(this.a);
+                if (this.a.f > 0 || this.a.e == null) {
+                    return;
+                }
+                gv5 gv5Var = this.a;
+                gv5Var.g(gv5Var.e);
+            }
+        }
+
+        @Override // com.baidu.ala.gift.IFrameCallback
+        public void onFrameStart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.ala.gift.IFrameCallback
+        public void onFrameUpdate(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gv5 a;
+
+        public b(gv5 gv5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gv5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gv5Var;
+        }
+
+        @Override // com.repackage.gv5.c
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                gv5.b(this.a);
+                if (this.a.e != null) {
+                    if (this.a.e.type != 1 || this.a.f > 0) {
+                        if (this.a.e.type == 0) {
+                            gv5 gv5Var = this.a;
+                            gv5Var.g(gv5Var.e);
+                            return;
+                        }
+                        return;
+                    }
+                    gv5 gv5Var2 = this.a;
+                    gv5Var2.g(gv5Var2.e);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface c {
+        void a();
+    }
+
+    public gv5(Context context, RelativeLayout relativeLayout) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeListView};
+            Object[] objArr = {context, relativeLayout};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,94 +149,94 @@ public class gv5 {
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = bdTypeListView;
-        a();
+        this.f = 2;
+        this.g = new a(this);
+        this.h = new b(this);
+        this.a = context;
+        this.b = relativeLayout;
     }
 
-    public final void a() {
+    public static /* synthetic */ int b(gv5 gv5Var) {
+        int i = gv5Var.f;
+        gv5Var.f = i - 1;
+        return i;
+    }
+
+    public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c = new ArrayList();
-            AlaEnterEffectAdapter alaEnterEffectAdapter = new AlaEnterEffectAdapter(this.a.getPageActivity());
-            this.d = alaEnterEffectAdapter;
-            this.c.add(alaEnterEffectAdapter);
-            AlaEnterEffectCategoryAdapter alaEnterEffectCategoryAdapter = new AlaEnterEffectCategoryAdapter(this.a.getPageActivity());
-            this.e = alaEnterEffectCategoryAdapter;
-            this.c.add(alaEnterEffectCategoryAdapter);
-            this.b.a(this.c);
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (ho hoVar : this.c) {
-                hoVar.H();
+            IImageFramePlayerViewController iImageFramePlayerViewController = this.c;
+            if (iImageFramePlayerViewController != null) {
+                iImageFramePlayerViewController.onDestroy();
+            }
+            AlaEffectPreviewView alaEffectPreviewView = this.d;
+            if (alaEffectPreviewView != null) {
+                alaEffectPreviewView.f();
             }
         }
     }
 
-    public void c(List<uo> list) {
+    public final void e(AlaEnterEffectData alaEnterEffectData) {
+        AlaDynamicGiftConfigInfo alaDynamicGiftConfigInfo;
+        CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        this.b.setData(list);
-        this.f = this.b.getData();
-    }
-
-    public void d(String str, int i) {
-        List<uo> list;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) || StringUtils.isNull(str) || (list = this.f) == null) {
-            return;
-        }
-        for (uo uoVar : list) {
-            if (uoVar instanceof AlaEnterEffectData) {
-                AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) uoVar;
-                if (alaEnterEffectData.type == 1 && str.equals(alaEnterEffectData.gift.giftId)) {
-                    alaEnterEffectData.downLoadStatus = i;
-                    b();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, alaEnterEffectData) == null) {
+            if (this.c == null && (runTask = MessageManager.getInstance().runTask(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER, IImageFramePlayerViewController.class, this.a)) != null && runTask.getData() != null) {
+                IImageFramePlayerViewController iImageFramePlayerViewController = (IImageFramePlayerViewController) runTask.getData();
+                this.c = iImageFramePlayerViewController;
+                iImageFramePlayerViewController.setFrameCallback(this.g);
+            }
+            IImageFramePlayerViewController iImageFramePlayerViewController2 = this.c;
+            if (iImageFramePlayerViewController2 != null) {
+                if (iImageFramePlayerViewController2.getAnimView().getParent() == null) {
+                    this.b.addView(this.c.getAnimView(), new RelativeLayout.LayoutParams(-1, mi.i(this.a)));
                 }
+                AlaDynamicGiftAndNativeData alaDynamicGiftAndNativeData = new AlaDynamicGiftAndNativeData();
+                AlaDynamicGift alaDynamicGift = alaEnterEffectData.gift;
+                alaDynamicGiftAndNativeData.mAlaDynamicGift = alaDynamicGift;
+                if (alaDynamicGift != null && (alaDynamicGiftConfigInfo = alaDynamicGift.configInfo) != null) {
+                    alaDynamicGiftConfigInfo.isBottomMargin = 1;
+                    alaDynamicGiftConfigInfo.oppositeY = 0.6499999761581421d;
+                }
+                alaDynamicGiftAndNativeData.upZipDirPath = AlaDynamicGiftLocalInfoConfig.DIR_PATH + alaEnterEffectData.gift.giftZip.zipName;
+                this.c.setData(alaDynamicGiftAndNativeData);
+                this.c.startAnim();
             }
         }
     }
 
-    public void e(String str, boolean z) {
-        List<uo> list;
+    public final void f(AlaEnterEffectData alaEnterEffectData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) || TextUtils.isEmpty(str) || (list = this.f) == null) {
-            return;
-        }
-        for (uo uoVar : list) {
-            if (uoVar instanceof AlaEnterEffectData) {
-                AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) uoVar;
-                if (str.equals(alaEnterEffectData.id)) {
-                    alaEnterEffectData.isOwn = z;
-                    b();
-                    return;
-                }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, alaEnterEffectData) == null) {
+            if (this.d == null) {
+                AlaEffectPreviewView alaEffectPreviewView = new AlaEffectPreviewView(this.a);
+                this.d = alaEffectPreviewView;
+                alaEffectPreviewView.setAnimCompleteCallback(this.h);
             }
+            if (this.d.getParent() == null) {
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+                layoutParams.addRule(2, R.id.obfuscated_res_0x7f090868);
+                layoutParams.bottomMargin = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702d8);
+                this.b.addView(this.d, layoutParams);
+            }
+            this.d.setData(alaEnterEffectData);
+            this.d.g();
         }
     }
 
-    public void f(String str, boolean z) {
-        List<uo> list;
+    public void g(AlaEnterEffectData alaEnterEffectData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048581, this, str, z) == null) || TextUtils.isEmpty(str) || (list = this.f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, alaEnterEffectData) == null) || alaEnterEffectData == null) {
             return;
         }
-        for (uo uoVar : list) {
-            if (uoVar instanceof AlaEnterEffectData) {
-                AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) uoVar;
-                if (str.equals(alaEnterEffectData.id)) {
-                    alaEnterEffectData.use_status = z ? 1 : 0;
-                } else {
-                    alaEnterEffectData.use_status = 0;
-                }
-                b();
-            }
+        this.e = alaEnterEffectData;
+        int i = alaEnterEffectData.type;
+        if (i == 1) {
+            this.f = 2;
+            e(alaEnterEffectData);
+            f(alaEnterEffectData);
+        } else if (i == 0) {
+            f(alaEnterEffectData);
         }
     }
 }

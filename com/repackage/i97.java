@@ -1,6 +1,10 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,37 +14,133 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class i97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jy4 a;
-    public long b;
 
-    public i97(jy4 jy4Var, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jy4Var, Long.valueOf(j)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes6.dex */
+    public static class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: com.repackage.i97$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class C0430a extends sd5<Integer> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ boolean a;
+
+            public C0430a(a aVar, boolean z) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, Boolean.valueOf(z)};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = z;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // com.repackage.sd5
+            public Integer doInBackground() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    if (!this.a) {
+                        r57.a().b();
+                    }
+                    return 0;
+                }
+                return (Integer) invokeV.objValue;
             }
         }
-        this.a = jy4Var;
-        this.b = j;
+
+        /* loaded from: classes6.dex */
+        public class b implements zc5<Integer> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public b(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.repackage.zc5
+            /* renamed from: a */
+            public void onReturnDataInUI(Integer num) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, num) == null) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005018, null));
+                }
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2005016 || customResponsedMessage.getData() == null) {
+                return;
+            }
+            boolean isNull = StringUtils.isNull(((AccountData) customResponsedMessage.getData()).getAccount());
+            if (!isNull) {
+                ky4.h0().g0(new uy4());
+                ky4.h0().c0(0);
+                ky4.h0().a0(0);
+                ky4.h0().Z(0);
+                ky4.h0().d0(0);
+                ky4.h0().e0(0);
+                ky4.h0().a();
+                vd5.a();
+                c67.v().q();
+                b67.v().q();
+            }
+            vd5.c(new C0430a(this, isNull), new b(this));
+        }
     }
 
-    public jy4 a() {
-        InterceptResult invokeV;
+    public static void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (jy4) invokeV.objValue;
-    }
-
-    public long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.longValue;
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            MessageManager.getInstance().registerListener(2005016, new a(0));
+        }
     }
 }

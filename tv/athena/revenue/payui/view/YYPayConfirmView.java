@@ -20,11 +20,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a7a;
-import com.repackage.c7a;
-import com.repackage.g6a;
-import com.repackage.q6a;
-import com.repackage.v6a;
+import com.repackage.a5a;
+import com.repackage.k5a;
+import com.repackage.p5a;
+import com.repackage.u5a;
+import com.repackage.w5a;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagItemInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
@@ -32,19 +32,19 @@ import java.util.ArrayList;
 import java.util.List;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
 /* loaded from: classes9.dex */
-public class YYPayConfirmView extends LinearLayout implements a7a {
+public class YYPayConfirmView extends LinearLayout implements u5a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
-    public a7a.a c;
+    public u5a.a c;
     public GridView d;
     public TextView e;
     public View f;
     public Button g;
     public TextView h;
     public PayUIKitConfig i;
-    public c7a j;
+    public w5a j;
     public GiftBagsInfo k;
     public List<GiftBagItemInfo> l;
 
@@ -104,7 +104,7 @@ public class YYPayConfirmView extends LinearLayout implements a7a {
         this.b = i2;
         this.i = payUIKitConfig;
         c(context);
-        g6a.d(this.a, this.b, "15", "", "", "");
+        a5a.d(this.a, this.b, "15", "", "", "");
     }
 
     public final boolean b() {
@@ -120,20 +120,20 @@ public class YYPayConfirmView extends LinearLayout implements a7a {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(new ContextThemeWrapper(context, v6a.a.a(this.i))).inflate(R.layout.obfuscated_res_0x7f0d0666, (ViewGroup) this, true);
-            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f090419);
+            LayoutInflater.from(new ContextThemeWrapper(context, p5a.a.a(this.i))).inflate(R.layout.obfuscated_res_0x7f0d0659, (ViewGroup) this, true);
+            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f090415);
             this.g = button;
             button.setOnClickListener(new a(this));
-            GridView gridView = (GridView) findViewById(R.id.obfuscated_res_0x7f090cf4);
+            GridView gridView = (GridView) findViewById(R.id.obfuscated_res_0x7f090ce0);
             this.d = gridView;
             gridView.setSelector(new ColorDrawable(0));
-            c7a c7aVar = new c7a(context, this.l, this.i);
-            this.j = c7aVar;
-            this.d.setAdapter((ListAdapter) c7aVar);
+            w5a w5aVar = new w5a(context, this.l, this.i);
+            this.j = w5aVar;
+            this.d.setAdapter((ListAdapter) w5aVar);
             this.d.setVisibility(b() ? 0 : 8);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092184);
-            this.f = findViewById(R.id.obfuscated_res_0x7f091ab8);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f092202);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0921dc);
+            this.f = findViewById(R.id.obfuscated_res_0x7f091b06);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09225a);
         }
     }
 
@@ -141,11 +141,11 @@ public class YYPayConfirmView extends LinearLayout implements a7a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             RLog.info("YYPayConfirmView", "onContinueBtnClick");
-            a7a.a aVar = this.c;
+            u5a.a aVar = this.c;
             if (aVar != null) {
                 aVar.a();
             }
-            g6a.d(this.a, this.b, "16", "", "", "");
+            a5a.d(this.a, this.b, "16", "", "", "");
         }
     }
 
@@ -181,14 +181,14 @@ public class YYPayConfirmView extends LinearLayout implements a7a {
         }
     }
 
-    @Override // com.repackage.y6a
+    @Override // com.repackage.s5a
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.y6a
+    @Override // com.repackage.s5a
     public void refreshView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -207,7 +207,7 @@ public class YYPayConfirmView extends LinearLayout implements a7a {
                 this.l.clear();
                 this.l.addAll(this.k.giftbag);
                 this.j.notifyDataSetChanged();
-                q6a.a(this.l.size(), this.f, this.d);
+                k5a.a(this.l.size(), this.f, this.d);
                 g();
                 f();
                 e();
@@ -217,15 +217,15 @@ public class YYPayConfirmView extends LinearLayout implements a7a {
         }
     }
 
-    @Override // com.repackage.a7a
-    public void setCallback(a7a.a aVar) {
+    @Override // com.repackage.u5a
+    public void setCallback(u5a.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
             this.c = aVar;
         }
     }
 
-    @Override // com.repackage.a7a
+    @Override // com.repackage.u5a
     public void setGiftBagsInfo(GiftBagsInfo giftBagsInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, giftBagsInfo) == null) {

@@ -17,7 +17,7 @@ public class o88 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<a> a;
-    public pp4 b;
+    public aq4 b;
 
     /* loaded from: classes6.dex */
     public static class a {
@@ -62,7 +62,7 @@ public class o88 {
             }
         }
         this.a = new ArrayList();
-        this.b = new pp4();
+        this.b = new aq4();
     }
 
     public boolean a() {
@@ -79,8 +79,8 @@ public class o88 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            pp4 pp4Var = this.b;
-            return pp4Var != null && pp4Var.b() == 1;
+            aq4 aq4Var = this.b;
+            return aq4Var != null && aq4Var.b() == 1;
         }
         return invokeV.booleanValue;
     }

@@ -1,173 +1,76 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tachikoma.core.component.anim.AnimationProperty;
 import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class in2 {
+public class in2 extends gn2 {
     public static /* synthetic */ Interceptable $ic;
-    public static ArrayList<hn2> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public String A;
+    public ArrayList<String> B;
+    public String z;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755612764, "Lcom/repackage/in2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755612764, "Lcom/repackage/in2;");
+    public in2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new ArrayList<>();
+        this.z = "";
+        this.A = "";
     }
 
-    public static void a(hn2 hn2Var) {
+    @Override // com.repackage.gn2, com.repackage.kw1, com.repackage.tq2
+    public void a(JSONObject jSONObject) throws JSONException {
+        JSONArray optJSONArray;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, hn2Var) == null) || hn2Var == null || a.contains(hn2Var)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        a.add(hn2Var);
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            a.clear();
+        super.a(jSONObject);
+        if (jSONObject.has(AnimationProperty.SCALE)) {
+            this.k = jSONObject.optDouble(AnimationProperty.SCALE, 18.0d);
         }
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            for (int size = a.size() - 1; size >= 0; size--) {
-                hn2 hn2Var = a.get(size);
-                if (hn2Var != null) {
-                    hn2Var.onDestroy();
-                }
+        if (jSONObject.has("name")) {
+            this.z = jSONObject.optString("name");
+        }
+        if (jSONObject.has("address")) {
+            this.A = jSONObject.optString("address");
+        }
+        if (jSONObject.has("ignoredApps") && (optJSONArray = jSONObject.optJSONArray("ignoredApps")) != null) {
+            int length = optJSONArray.length();
+            this.B = new ArrayList<>();
+            for (int i = 0; i < length; i++) {
+                this.B.add(optJSONArray.optString(i));
             }
         }
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        for (int size = a.size() - 1; size >= 0; size--) {
-            hn2 hn2Var = a.get(size);
-            if (hn2Var != null && TextUtils.equals(str, hn2Var.b())) {
-                hn2Var.onDestroy();
-            }
+        if (jSONObject.has("naviPreference")) {
+            jSONObject.optInt("naviPreference", -1);
         }
     }
 
-    public static hn2 e(String str) {
-        InterceptResult invokeL;
+    @Override // com.repackage.kw1, com.repackage.tq2
+    public boolean isValid() {
+        InterceptResult invokeV;
+        nn2 nn2Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            for (int size = a.size() - 1; size >= 0; size--) {
-                hn2 hn2Var = a.get(size);
-                if (hn2Var != null && TextUtils.equals(str, hn2Var.c())) {
-                    return hn2Var;
-                }
-            }
-            return null;
-        }
-        return (hn2) invokeL.objValue;
-    }
-
-    public static hn2 f(@Nullable String str, @Nullable String str2, @NonNull String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, str, str2, str3)) == null) {
-            if (TextUtils.isEmpty(str3)) {
-                return null;
-            }
-            for (int size = a.size() - 1; size >= 0; size--) {
-                hn2 hn2Var = a.get(size);
-                if (hn2Var != null && ((TextUtils.isEmpty(str) || TextUtils.equals(str, hn2Var.b())) && ((!TextUtils.isEmpty(str2) && TextUtils.equals(str2, hn2Var.f())) || TextUtils.equals(str3, hn2Var.c())))) {
-                    return hn2Var;
-                }
-            }
-            return null;
-        }
-        return (hn2) invokeLLL.objValue;
-    }
-
-    public static boolean g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            for (int size = a.size() - 1; size >= 0; size--) {
-                hn2 hn2Var = a.get(size);
-                if (hn2Var != null && TextUtils.equals(str, hn2Var.b()) && hn2Var.onBackPressed()) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65544, null, z) == null) {
-            for (int size = a.size() - 1; size >= 0; size--) {
-                hn2 hn2Var = a.get(size);
-                if (hn2Var != null) {
-                    hn2Var.j(z);
-                }
-            }
-        }
-    }
-
-    public static void i(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(65545, null, str, z) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        for (int size = a.size() - 1; size >= 0; size--) {
-            hn2 hn2Var = a.get(size);
-            if (hn2Var != null && TextUtils.equals(str, hn2Var.b())) {
-                hn2Var.k(z);
-            }
-        }
-    }
-
-    public static void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65546, null, z) == null) {
-            for (int size = a.size() - 1; size >= 0; size--) {
-                hn2 hn2Var = a.get(size);
-                if (hn2Var != null) {
-                    hn2Var.k(z);
-                }
-            }
-        }
-    }
-
-    public static void k(hn2 hn2Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65547, null, hn2Var) == null) || hn2Var == null) {
-            return;
-        }
-        a.remove(hn2Var);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.c) || (nn2Var = this.j) == null || !nn2Var.isValid()) ? false : true : invokeV.booleanValue;
     }
 }

@@ -23,7 +23,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.py;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONException;
@@ -408,7 +407,7 @@ public class ac extends TextureView implements GestureDetector.OnDoubleTapListen
                 }
                 try {
                     jSONObject.put("px", (int) motionEvent.getX());
-                    jSONObject.put(py.c, (int) motionEvent.getY());
+                    jSONObject.put("py", (int) motionEvent.getY());
                 } catch (JSONException e2) {
                     e = e2;
                     jSONObject2 = jSONObject;

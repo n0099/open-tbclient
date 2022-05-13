@@ -1,272 +1,335 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.graphics.Matrix;
-import android.graphics.Point;
-import android.graphics.Rect;
-import android.graphics.RectF;
+import android.os.Build;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.webkit.WebSettings;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLDecoder;
 /* loaded from: classes6.dex */
 public class ge5 {
     public static /* synthetic */ Interceptable $ic;
+    public static BaseWebView a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final RectF a;
-    public final Rect b;
-    public final RectF c;
-    public final int d;
-    public final int e;
-    public float f;
-    public final List<fe5> g;
-    public final int h;
-    public fe5 i;
-    public final Rect j;
-    public final Matrix k;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755680902, "Lcom/repackage/ge5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755680902, "Lcom/repackage/ge5;");
-        }
-    }
+    /* loaded from: classes6.dex */
+    public static class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ BaseWebView a;
 
-    public ge5(int i, int i2, int[] iArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), iArr};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i, BaseWebView baseWebView) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), baseWebView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = baseWebView;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            BaseWebView baseWebView;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921024 || (baseWebView = this.a) == null) {
                 return;
             }
-        }
-        this.a = new RectF();
-        this.b = new Rect();
-        this.f = 1.0f;
-        this.g = new ArrayList();
-        this.k = new Matrix();
-        this.e = i2;
-        this.d = i;
-        this.c = new RectF(0.0f, 0.0f, i, i2);
-        this.j = new Rect(0, 0, iArr[0], iArr[1]);
-        this.h = i / 2;
-    }
-
-    public void a(Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, rect) == null) {
-            if (rect.left < 0) {
-                rect.left = 0;
-            }
-            if (rect.top < 0) {
-                rect.top = 0;
-            }
-            int i = rect.right;
-            int i2 = this.j.right;
-            if (i > i2) {
-                rect.right = i2;
-            }
-            int i3 = rect.bottom;
-            int i4 = this.j.bottom;
-            if (i3 > i4) {
-                rect.bottom = i4;
-            }
+            baseWebView.reload();
         }
     }
 
-    public boolean b(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3)) == null) {
-            if (i3 == k()) {
-                return j(i, i2, i3).intersect(this.b);
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+
+        public b(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return false;
+            this.a = "";
+            this.b = "";
+            this.a = str;
+            this.b = str2;
         }
-        return invokeIII.booleanValue;
+
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                if (this == obj) {
+                    return true;
+                }
+                if (obj != null && b.class == obj.getClass()) {
+                    b bVar = (b) obj;
+                    String str = this.a;
+                    if (str == null) {
+                        if (bVar.a != null) {
+                            return false;
+                        }
+                    } else if (!str.equals(bVar.a)) {
+                        return false;
+                    }
+                    String str2 = this.b;
+                    if (str2 == null) {
+                        if (bVar.b != null) {
+                            return false;
+                        }
+                    } else if (!str2.equals(bVar.b)) {
+                        return false;
+                    }
+                    return true;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public int hashCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                String str = this.a;
+                int hashCode = ((str == null ? 0 : str.hashCode()) + 31) * 31;
+                String str2 = this.b;
+                return hashCode + (str2 != null ? str2.hashCode() : 0);
+            }
+            return invokeV.intValue;
+        }
     }
 
-    public fe5 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new fe5(this.h) : (fe5) invokeV.objValue;
-    }
-
-    public List<fe5> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.g : (List) invokeV.objValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.h : invokeV.intValue;
-    }
-
-    public Rect f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.j : (Rect) invokeV.objValue;
-    }
-
-    public Rect g(fe5 fe5Var) {
+    public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, fe5Var)) == null) {
-            if (fe5Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (li.isEmpty(str) || str.contains("page_type")) {
+                return str;
+            }
+            StringBuilder sb = new StringBuilder(str);
+            if (str.contains("?")) {
+                sb.append("&");
+            } else {
+                sb.append("?");
+            }
+            sb.append("page_type");
+            sb.append("=");
+            sb.append(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 17) {
+                StringBuilder sb = new StringBuilder();
+                String q = iu4.k().q("key_default_useragent", "");
+                try {
+                    if (TextUtils.isEmpty(q)) {
+                        q = WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst());
+                        iu4.k().y("key_default_useragent", q);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                sb.append(q);
+                sb.append(" tieba/");
+                sb.append(TbConfig.getVersion());
+                return sb.toString();
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String c(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            int indexOf = str.indexOf(str2);
+            if (indexOf != -1) {
+                int length = indexOf + str2.length();
+                int i = length;
+                while (i < str.length() && str.charAt(i) != '&') {
+                    i++;
+                }
+                try {
+                    return URLDecoder.decode(str.substring(length, i));
+                } catch (Exception e) {
+                    BdLog.e(e.toString());
+                    return "";
+                }
+            }
+            return "";
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String d(String str, String str2) {
+        InterceptResult invokeLL;
+        String[] split;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            String str3 = "";
+            if (!StringUtils.isNull(str) && !StringUtils.isNull(str2) && (split = str.split("[?]")) != null && split.length >= 2) {
+                for (int i = 1; i < split.length; i++) {
+                    String[] split2 = split[i].split("&");
+                    if (split2 != null && split2.length > 0) {
+                        int length = split2.length;
+                        int i2 = 0;
+                        while (true) {
+                            if (i2 < length) {
+                                String[] split3 = split2[i2].split("=");
+                                if (split3.length == 2) {
+                                    String str4 = split3[0];
+                                    String str5 = split3[1];
+                                    if (str2.equals(str4)) {
+                                        try {
+                                            str3 = URLDecoder.decode(str5);
+                                            break;
+                                        } catch (Exception unused) {
+                                            str3 = str5;
+                                        }
+                                    }
+                                }
+                                i2++;
+                            }
+                        }
+                    }
+                }
+            }
+            return str3;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    @Deprecated
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            f();
+            BaseWebView baseWebView = a;
+            if (baseWebView == null || baseWebView.getSettings() == null) {
                 return null;
             }
-            return fe5Var.e();
+            return a.getSettings().getUserAgentString();
         }
-        return (Rect) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public int h() {
-        InterceptResult invokeV;
+    public static void f() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.e : invokeV.intValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.d : invokeV.intValue;
-    }
-
-    public Rect j(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048585, this, i, i2, i3)) == null) {
-            int i4 = this.h;
-            int i5 = i4 * i3 * i2;
-            int i6 = i4 * i3 * i;
-            return new Rect(i5, i6, (i3 * i4) + i5, (i3 * i4) + i6);
-        }
-        return (Rect) invokeIII.objValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            int i = 1;
-            while (i < Math.round(this.f)) {
-                i *= 2;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            try {
+                if (a == null) {
+                    a = new BaseWebView(TbadkCoreApplication.getInst());
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public float l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f : invokeV.floatValue;
-    }
-
-    public Point[] m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            o();
-            int k = k();
-            Rect rect = this.b;
-            int i = this.h;
-            int i2 = (rect.top / k) / i;
-            int i3 = (rect.left / k) / i;
-            Point point = new Point();
-            point.y = i2;
-            point.x = i3;
-            Point point2 = new Point();
-            point2.y = (((rect.bottom / k) / i) * k) + 1;
-            point2.x = (((rect.right / k) / i) * k) + 1;
-            return new Point[]{point, point2};
-        }
-        return (Point[]) invokeV.objValue;
-    }
-
-    public fe5 n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.i : (fe5) invokeV.objValue;
-    }
-
-    public Rect o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            this.k.mapRect(this.a, this.c);
-            u(this.b, this.a);
-            return this.b;
-        }
-        return (Rect) invokeV.objValue;
-    }
-
-    public void p(float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            this.k.postTranslate(f, f2);
         }
     }
 
-    public void q(float f) {
+    public static void g(BaseWebView baseWebView, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048592, this, f) == null) {
-            this.k.postScale(f, f);
-        }
-    }
-
-    public void r(float f, float f2, float f3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            this.k.postScale(f, f, f2, f3);
-        }
-    }
-
-    public void s(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048594, this, f) == null) {
-            this.f = f;
-        }
-    }
-
-    public void t(Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048595, this, bitmap) == null) || bitmap == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65542, null, baseWebView, bdUniqueId) == null) || baseWebView == null) {
             return;
         }
-        fe5 fe5Var = new fe5(bitmap);
-        this.i = fe5Var;
-        fe5Var.i(0, 0, this.d, this.e);
+        a aVar = new a(2921024, baseWebView);
+        if (bdUniqueId != null) {
+            aVar.setTag(bdUniqueId);
+            MessageManager.getInstance().registerListener(aVar);
+        }
     }
 
-    public final void u(Rect rect, RectF rectF) {
+    public static boolean h(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048596, this, rect, rectF) == null) {
-            rect.set(Math.round(rectF.left), Math.round(rectF.top), Math.round(rectF.right), Math.round(rectF.bottom));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return str.toLowerCase().startsWith("http://") || str.toLowerCase().startsWith("https://");
         }
+        return invokeL.booleanValue;
+    }
+
+    public static Bundle i(String str) {
+        InterceptResult invokeL;
+        URL url;
+        String query;
+        String[] split;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
+            }
+            Bundle bundle = new Bundle();
+            try {
+                url = new URL(str);
+                query = url.getQuery();
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+            if (StringUtils.isNull(query) || StringUtils.isNull(url.getPath()) || (split = query.split("&")) == null) {
+                return null;
+            }
+            bundle.putString("path", url.getPath());
+            for (String str2 : split) {
+                String[] split2 = str2.split("=");
+                if (split2 != null && split2.length == 2 && !StringUtils.isNull(split2[0])) {
+                    bundle.putString(split2[0], split2[1]);
+                }
+            }
+            return bundle;
+        }
+        return (Bundle) invokeL.objValue;
     }
 }

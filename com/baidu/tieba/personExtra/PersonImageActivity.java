@@ -26,8 +26,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.er4;
-import com.repackage.oi;
+import com.repackage.mi;
+import com.repackage.pr4;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
@@ -38,7 +38,7 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
     public HashMap<String, ImageUrlData> assistUrls;
     public String curImgUrl;
     public Context mContext;
-    public er4.c mDialogClickListener;
+    public pr4.c mDialogClickListener;
     public MultiImageView mMultiImageView;
     public View.OnClickListener mOnClickListener;
     public View.OnLongClickListener mOnLongClickListener;
@@ -108,7 +108,7 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-                String[] strArr = {this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1064)};
+                String[] strArr = {this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f107c)};
                 PersonImageActivity personImageActivity = this.a;
                 personImageActivity.createListMenu(strArr, personImageActivity.mDialogClickListener);
                 this.a.showListMenu();
@@ -119,7 +119,7 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements er4.c {
+    public class c implements pr4.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonImageActivity a;
@@ -142,10 +142,10 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
             this.a = personImageActivity;
         }
 
-        @Override // com.repackage.er4.c
-        public void a(er4 er4Var, int i, View view2) {
+        @Override // com.repackage.pr4.c
+        public void a(pr4 pr4Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLIL(1048576, this, er4Var, i, view2) == null) && er4Var == this.a.getListMenu()) {
+            if ((interceptable == null || interceptable.invokeLIL(1048576, this, pr4Var, i, view2) == null) && pr4Var == this.a.getListMenu()) {
                 if (i == 0) {
                     try {
                         byte[] currentImageData = this.a.mMultiImageView.getCurrentImageData();
@@ -155,13 +155,13 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
                             this.a.mSaveImageTask.execute(new String[0]);
                             this.a.mProgress.setVisibility(0);
                         } else {
-                            this.a.showToast(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c2d));
+                            this.a.showToast(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c43));
                         }
                     } catch (Exception e) {
                         BdLog.e(e.getMessage());
                     }
                 }
-                er4Var.e();
+                pr4Var.e();
             }
         }
     }
@@ -255,9 +255,9 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
                 int saveImageFileByUser = FileHelper.saveImageFileByUser(this.a, this.b, this.c.getPageContext().getPageActivity());
                 if (saveImageFileByUser != -2) {
                     if (saveImageFileByUser != 0) {
-                        return this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f1069);
+                        return this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f1081);
                     }
-                    return this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f106a);
+                    return this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f1082);
                 }
                 return FileHelper.getSdErrorString();
             }
@@ -322,10 +322,10 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
             this.mOnLongClickListener = new b(this);
             this.mDialogClickListener = new c(this);
             this.mOnscOnScrollOutListener = new d(this);
-            this.mProgress = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f09191d);
-            MultiImageView multiImageView = (MultiImageView) findViewById(R.id.obfuscated_res_0x7f0923c2);
+            this.mProgress = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091975);
+            MultiImageView multiImageView = (MultiImageView) findViewById(R.id.obfuscated_res_0x7f092412);
             this.mMultiImageView = multiImageView;
-            multiImageView.setPageMargin(oi.d(getPageContext().getPageActivity(), 8.0f));
+            multiImageView.setPageMargin(mi.d(getPageContext().getPageActivity(), 8.0f));
             this.mMultiImageView.setOffscreenPageLimit(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
             this.mMultiImageView.setItemOnclickListener(this.mOnClickListener);
             this.mMultiImageView.setItemOnLongClickListener(this.mOnLongClickListener);
@@ -382,7 +382,7 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             TbadkCoreApplication.getInst().addRemoteActivity(this);
-            setContentView(R.layout.obfuscated_res_0x7f0d06bd);
+            setContentView(R.layout.obfuscated_res_0x7f0d06b5);
             initData(bundle);
             initUI();
             ArrayList<String> arrayList = new ArrayList<>();

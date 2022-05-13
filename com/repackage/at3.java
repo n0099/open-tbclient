@@ -1,11 +1,9 @@
 package com.repackage;
 
-import android.content.ComponentName;
-import android.content.Intent;
-import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.util.devices.RomUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,13 +11,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Locale;
+import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class at3 extends os3 {
+public class at3 implements pm1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, zs3> a;
 
     static {
         InterceptResult invokeClinit;
@@ -34,12 +33,10 @@ public class at3 extends os3 {
                 return;
             }
         }
-        c = tg1.a;
+        b = eh1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public at3() {
-        super("startPermissionsPage");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,45 +44,75 @@ public class at3 extends os3 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = new HashMap<>();
+        c();
     }
 
-    @Override // com.repackage.os3
-    public js1 a(JSONObject jSONObject, nd2 nd2Var) {
-        InterceptResult invokeLL;
+    @Override // com.repackage.pm1
+    public us1 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull yd2 yd2Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, nd2Var)) == null) {
-            j03 a0 = j03.a0();
-            if (a0 != null && a0.x() != null) {
-                String str = Build.MANUFACTURER;
-                if (!TextUtils.isEmpty(str)) {
-                    str = str.toLowerCase(Locale.US);
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, jSONObject, yd2Var)) == null) ? b(str, jSONObject, yd2Var) : (us1) invokeLLL.objValue;
+    }
+
+    public final us1 b(String str, JSONObject jSONObject, yd2 yd2Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject, yd2Var)) == null) {
+            zs3 zs3Var = this.a.get(str);
+            if (zs3Var != null) {
+                if (b) {
+                    Log.i("GameCenterDispatcher", "action: " + str + " params: " + jSONObject);
                 }
-                if (TextUtils.equals(str, RomUtils.MANUFACTURER_OPPO)) {
-                    try {
-                        Intent intent = new Intent(a0.x().getPackageName());
-                        intent.setComponent(new ComponentName("com.oppo.launcher", "com.oppo.launcher.shortcut.ShortcutSettingsActivity"));
-                        a0.x().startActivity(intent);
-                    } catch (Exception e) {
-                        if (c) {
-                            e.printStackTrace();
-                        }
-                        nd3.f(a0.x());
-                    }
-                } else {
-                    nd3.g(a0.x());
-                }
-                nd2Var.a(null);
-            } else if (c) {
-                Log.d("StartPermissionsPage", "swan or activity is null");
+                return zs3Var.a(jSONObject, yd2Var);
             }
-            return null;
+            if (b) {
+                Log.i("GameCenterDispatcher", "action has not found: " + str + ", params: " + jSONObject);
+            }
+            return new us1(10002, "no such api.");
         }
-        return (js1) invokeLL.objValue;
+        return (us1) invokeLLL.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            d(new xs3());
+            d(new ys3());
+            d(new vr3());
+            d(new zr3());
+            d(new wr3());
+            d(new ot3());
+            d(new xr3());
+            d(new et3());
+            d(new lt3());
+            d(new ur3());
+            d(new bs3());
+            d(new yr3());
+            d(new as3());
+            d(new ht3());
+            d(new nt3());
+            d(new it3());
+            d(new kt3());
+            d(new jt3());
+        }
+    }
+
+    public void d(zs3 zs3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, zs3Var) == null) {
+            if (b && TextUtils.isEmpty(zs3Var.a)) {
+                throw new IllegalArgumentException("action name is null");
+            }
+            if (b && this.a.containsKey(zs3Var.a)) {
+                throw new IllegalArgumentException("duplicate action: " + zs3Var);
+            }
+            this.a.put(zs3Var.a, zs3Var);
+        }
     }
 }

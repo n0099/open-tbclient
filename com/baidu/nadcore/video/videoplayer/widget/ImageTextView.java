@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b21;
+import com.repackage.l21;
 /* loaded from: classes2.dex */
 public class ImageTextView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -36,7 +36,7 @@ public class ImageTextView extends LinearLayout {
                 return;
             }
         }
-        d = b21.a(4.0f);
+        d = l21.a(4.0f);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

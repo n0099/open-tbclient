@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.os;
+import com.repackage.xr;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
@@ -14,17 +14,17 @@ import kotlin.jvm.internal.Lambda;
 /* loaded from: classes.dex */
 public final class TaskBusinessEventManager$dispatchBusinessEvent$1$1 extends Lambda implements Function0<String> {
     public static /* synthetic */ Interceptable $ic;
-    public final /* synthetic */ os $event;
+    public final /* synthetic */ xr $event;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TaskBusinessEventManager$dispatchBusinessEvent$1$1(os osVar) {
+    public TaskBusinessEventManager$dispatchBusinessEvent$1$1(xr xrVar) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {osVar};
+            Object[] objArr = {xrVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,7 +35,7 @@ public final class TaskBusinessEventManager$dispatchBusinessEvent$1$1 extends La
                 return;
             }
         }
-        this.$event = osVar;
+        this.$event = xrVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

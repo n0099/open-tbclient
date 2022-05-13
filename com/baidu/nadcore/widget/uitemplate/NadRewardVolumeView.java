@@ -83,7 +83,7 @@ public class NadRewardVolumeView extends AdImageView {
         }
     }
 
-    public final void p() {
+    public final void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setVolumeState(this.d);
@@ -103,7 +103,7 @@ public class NadRewardVolumeView extends AdImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             this.d = z;
-            setImageDrawable(getContext().getResources().getDrawable(z ? R.drawable.obfuscated_res_0x7f080dd5 : R.drawable.obfuscated_res_0x7f080dd4));
+            setImageDrawable(getContext().getResources().getDrawable(z ? R.drawable.obfuscated_res_0x7f080def : R.drawable.obfuscated_res_0x7f080dee));
             invalidate();
         }
     }
@@ -149,6 +149,6 @@ public class NadRewardVolumeView extends AdImageView {
             }
         }
         this.d = false;
-        p();
+        init();
     }
 }

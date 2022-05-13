@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kk8;
+import com.repackage.hj8;
 /* loaded from: classes3.dex */
 public class SearchLocationActivityStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -51,7 +51,7 @@ public class SearchLocationActivityStatic {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null) {
                     customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), SearchLocationActivity.class);
-                    customMessage.getData().startActivityForResult(customMessage.getData().getIntent().getIntExtra("request_code", 0));
+                    customMessage.getData().startActivityForResult(customMessage.getData().getIntent().getIntExtra("request_code", 0), SearchLocationActivity.class);
                 }
                 return null;
             }
@@ -76,7 +76,7 @@ public class SearchLocationActivityStatic {
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
         a();
-        kk8.f(303018, LocationSearchResponseMessage.class, false);
+        hj8.f(303018, LocationSearchResponseMessage.class, false);
         TbadkCoreApplication.getInst().RegisterIntent(SelectLocationActivityConfig.class, SelectLocationActivity.class);
     }
 
@@ -97,7 +97,7 @@ public class SearchLocationActivityStatic {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_SUGGESTLOCSTION_BY_NAME, kk8.a(TbConfig.GET_SUGGEST_LOCATION_BY_NAME, 303018));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_SUGGESTLOCSTION_BY_NAME, hj8.a(TbConfig.GET_SUGGEST_LOCATION_BY_NAME, 303018));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);

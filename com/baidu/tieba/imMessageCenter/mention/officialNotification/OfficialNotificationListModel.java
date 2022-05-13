@@ -18,10 +18,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ad5;
-import com.repackage.b57;
-import com.repackage.dd5;
-import com.repackage.o67;
+import com.repackage.b47;
+import com.repackage.b67;
+import com.repackage.sd5;
+import com.repackage.vd5;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
 public class OfficialNotificationListModel extends CommonPersonalMsglistModel {
@@ -30,7 +30,7 @@ public class OfficialNotificationListModel extends CommonPersonalMsglistModel {
     public CustomMessageListener a;
 
     /* loaded from: classes3.dex */
-    public class a extends ad5<Boolean> {
+    public class a extends sd5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatMessage a;
@@ -57,11 +57,11 @@ public class OfficialNotificationListModel extends CommonPersonalMsglistModel {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.repackage.ad5
+        @Override // com.repackage.sd5
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(o67.t().c(String.valueOf(this.b.mUser.getUserId()), String.valueOf(this.a.getMsgId()))) : (Boolean) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(b67.v().c(String.valueOf(this.b.mUser.getUserId()), String.valueOf(this.a.getMsgId()))) : (Boolean) invokeV.objValue;
         }
     }
 
@@ -134,7 +134,7 @@ public class OfficialNotificationListModel extends CommonPersonalMsglistModel {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, chatMessage) == null) || this.mUser == null || chatMessage == null) {
             return;
         }
-        dd5.c(new a(this, chatMessage), null);
+        vd5.c(new a(this, chatMessage), null);
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
@@ -178,10 +178,10 @@ public class OfficialNotificationListModel extends CommonPersonalMsglistModel {
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public boolean loadFirst(b57 b57Var) {
+    public boolean loadFirst(b47 b47Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, b57Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, b47Var)) == null) {
             if (this.mUser == null) {
                 return false;
             }
@@ -209,7 +209,7 @@ public class OfficialNotificationListModel extends CommonPersonalMsglistModel {
             aVar.c = 20;
             MsgPageData msgPageData = this.mDatas;
             long j2 = 0;
-            if (msgPageData == null || msgPageData.getChatMessages() == null || this.mDatas.getChatMessages().size() <= 0 || this.mDatas.getChatMessages().get(0) == null) {
+            if (msgPageData == null || msgPageData.getChatMessages() == null || this.mDatas.size() <= 0 || this.mDatas.getChatMessages().get(0) == null) {
                 j = 0;
             } else {
                 j2 = this.mDatas.getChatMessages().get(0).getMsgId();

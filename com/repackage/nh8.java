@@ -1,328 +1,155 @@
 package com.repackage;
 
-import android.graphics.drawable.ColorDrawable;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import android.widget.PopupWindow;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import androidx.viewpager.widget.ViewPager;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.R;
-import com.baidu.tieba.square.flist.ForumListActivity;
+import android.text.TextUtils;
+import com.baidu.tieba.stampmission.message.StampMissionHttpRequestMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class nh8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ProgressBar A;
-    public boolean B;
-    public int C;
-    public LinearLayout a;
-    public final View b;
-    public final View c;
-    public ViewPager d;
-    public LinearLayout e;
-    public NavigationBar f;
-    public TextView g;
-    public ImageView h;
-    public BdListView i;
-    public BdListView j;
-    public TextView k;
-    public TextView l;
-    public LinearLayout m;
-    public TextView n;
-    public ImageView o;
-    public LinearLayout p;
-    public TextView q;
-    public ImageView r;
-    public du4 s;
-    public du4 t;
-    public PopupWindow u;
-    public View v;
-    public ForumListActivity w;
-    public ListView x;
-    public lh8 y;
-    public LinearLayout z;
+    public long a;
+    public long b;
+    public String c;
+    public String d;
+    public int e;
+    public int f;
+    public int g;
+    public b h;
+    public String i;
 
     /* loaded from: classes6.dex */
-    public class a implements View.OnKeyListener {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nh8 a;
+        public String a;
+        public String b;
 
-        public a(nh8 nh8Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nh8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = nh8Var;
         }
 
-        @Override // android.view.View.OnKeyListener
-        public boolean onKey(View view2, int i, KeyEvent keyEvent) {
-            InterceptResult invokeLIL;
+        public static a a(JSONObject jSONObject) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, view2, i, keyEvent)) == null) {
-                if (i == 4 && this.a.u.isShowing()) {
-                    nh8 nh8Var = this.a;
-                    rg.d(nh8Var.u, nh8Var.w.getPageContext().getPageActivity());
-                    return false;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return null;
                 }
-                return false;
+                a aVar = new a();
+                aVar.a = jSONObject.optString("name");
+                jSONObject.optString("title");
+                aVar.b = jSONObject.optString("pic");
+                return aVar;
             }
-            return invokeLIL.booleanValue;
+            return (a) invokeL.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements View.OnTouchListener {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nh8 a;
+        public a a;
+        public a b;
+        public a c;
 
-        public b(nh8 nh8Var) {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nh8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = nh8Var;
         }
 
-        @Override // android.view.View.OnTouchListener
-        public boolean onTouch(View view2, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
+        public static b a(JSONObject jSONObject) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                if (this.a.u.isShowing()) {
-                    nh8 nh8Var = this.a;
-                    rg.d(nh8Var.u, nh8Var.w.getPageContext().getPageActivity());
-                    return false;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return null;
                 }
-                return false;
+                b bVar = new b();
+                bVar.a = a.a(jSONObject.optJSONObject("follow_icon"));
+                bVar.b = a.a(jSONObject.optJSONObject("like_icon"));
+                bVar.c = a.a(jSONObject.optJSONObject("reply_icon"));
+                return bVar;
             }
-            return invokeLL.booleanValue;
+            return (b) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class c implements PopupWindow.OnDismissListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nh8 a;
-
-        public c(nh8 nh8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nh8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nh8Var;
-        }
-
-        @Override // android.widget.PopupWindow.OnDismissListener
-        public void onDismiss() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.B = false;
-            }
-        }
-    }
-
-    public nh8(ForumListActivity forumListActivity) {
+    public nh8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {forumListActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.B = false;
-        this.C = 0;
-        this.a = (LinearLayout) forumListActivity.findViewById(R.id.obfuscated_res_0x7f090a5f);
-        ViewPager viewPager = (ViewPager) forumListActivity.findViewById(R.id.obfuscated_res_0x7f0923b2);
-        this.d = viewPager;
-        viewPager.setOnPageChangeListener(forumListActivity);
-        this.e = (LinearLayout) forumListActivity.findViewById(R.id.obfuscated_res_0x7f091e39);
-        NavigationBar navigationBar = (NavigationBar) forumListActivity.findViewById(R.id.obfuscated_res_0x7f0923ad);
-        this.f = navigationBar;
-        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        LinearLayout linearLayout = (LinearLayout) this.f.setTitleView(R.layout.obfuscated_res_0x7f0d05e9, (View.OnClickListener) null);
-        this.z = linearLayout;
-        this.g = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09203f);
-        this.h = (ImageView) this.z.findViewById(R.id.obfuscated_res_0x7f090a62);
-        TextView textView = (TextView) forumListActivity.findViewById(R.id.obfuscated_res_0x7f091e38);
-        this.k = textView;
-        textView.setOnClickListener(forumListActivity);
-        TextView textView2 = (TextView) forumListActivity.findViewById(R.id.obfuscated_res_0x7f091e31);
-        this.l = textView2;
-        textView2.setOnClickListener(forumListActivity);
-        this.s = new du4(forumListActivity.getPageContext());
-        this.t = new du4(forumListActivity.getPageContext());
-        LinearLayout linearLayout2 = (LinearLayout) LayoutInflater.from(forumListActivity.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02bc, (ViewGroup) null);
-        this.m = linearLayout2;
-        this.b = linearLayout2.findViewById(R.id.obfuscated_res_0x7f090a10);
-        this.n = (TextView) this.m.findViewById(R.id.obfuscated_res_0x7f090a14);
-        this.o = (ImageView) this.m.findViewById(R.id.obfuscated_res_0x7f090a13);
-        LinearLayout linearLayout3 = (LinearLayout) LayoutInflater.from(forumListActivity.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02bc, (ViewGroup) null);
-        this.p = linearLayout3;
-        this.c = linearLayout3.findViewById(R.id.obfuscated_res_0x7f090a10);
-        this.q = (TextView) this.p.findViewById(R.id.obfuscated_res_0x7f090a14);
-        this.r = (ImageView) this.p.findViewById(R.id.obfuscated_res_0x7f090a13);
-        this.A = (ProgressBar) forumListActivity.findViewById(R.id.obfuscated_res_0x7f0912fe);
-        this.B = false;
-        this.w = forumListActivity;
-        this.y = new lh8(this.w.getPageContext().getContext());
-    }
-
-    public View b(int i, AdapterView.OnItemClickListener onItemClickListener) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, onItemClickListener)) == null) {
-            View inflate = LayoutInflater.from(this.w.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02b8, (ViewGroup) null);
-            ListView listView = (ListView) inflate.findViewById(R.id.obfuscated_res_0x7f0907c6);
-            this.x = listView;
-            listView.setOnItemClickListener(onItemClickListener);
-            inflate.setBackgroundResource(R.drawable.bg_allsproutpop_dropdown);
-            this.C = this.y.getCount();
-            this.x.setAdapter((ListAdapter) this.y);
-            return inflate;
-        }
-        return (View) invokeIL.objValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e.setVisibility(8);
-        }
-    }
-
-    public void d() {
-        BdListView bdListView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ProgressBar progressBar = this.A;
-            if (progressBar != null) {
-                progressBar.setVisibility(8);
-            }
-            ViewPager viewPager = this.d;
-            if (viewPager == null) {
-                return;
-            }
-            if (viewPager.getCurrentItem() == 0 && (bdListView = this.i) != null) {
-                bdListView.A(0L);
-                return;
-            }
-            BdListView bdListView2 = this.j;
-            if (bdListView2 != null) {
-                bdListView2.A(0L);
             }
         }
     }
 
-    public void e() {
+    public static nh8 a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.h.setVisibility(4);
-            this.z.setClickable(false);
-            this.z.setOnClickListener(null);
-        }
-    }
-
-    public void f(AdapterView.OnItemClickListener onItemClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onItemClickListener) == null) {
-            if (!this.B) {
-                this.B = true;
-                if (this.v == null) {
-                    this.v = b(0, onItemClickListener);
-                }
-                int d = (oi.d(this.w.getPageContext().getPageActivity(), 160.0f) - this.z.getWidth()) / 2;
-                if (this.u == null) {
-                    PopupWindow popupWindow = new PopupWindow(this.v, oi.d(this.w.getPageContext().getPageActivity(), 160.0f), -2, true);
-                    this.u = popupWindow;
-                    popupWindow.setBackgroundDrawable(new ColorDrawable(17170445));
-                    if (this.C > 6) {
-                        this.u.setHeight(oi.d(this.w.getPageContext().getPageActivity(), 272.0f));
-                    }
-                }
-                this.u.setOutsideTouchable(true);
-                this.u.setFocusable(true);
-                this.v.setFocusable(true);
-                this.v.setFocusableInTouchMode(true);
-                rg.l(this.u, this.z, 0 - d, oi.d(this.w.getPageContext().getPageActivity(), 0.0f));
-                this.v.setOnKeyListener(new a(this));
-                this.v.setOnTouchListener(new b(this));
-                this.u.setOnDismissListener(new c(this));
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            rg.d(this.u, this.w.getPageContext().getPageActivity());
-            this.B = false;
+            try {
+                return b(new JSONObject(str));
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return null;
+            }
         }
+        return (nh8) invokeL.objValue;
     }
 
-    public void g() {
+    public static nh8 b(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.e.setVisibility(0);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            nh8 nh8Var = new nh8();
+            nh8Var.a = jSONObject.optLong("effect_time", 0L);
+            nh8Var.b = jSONObject.optLong("invalid_time", 0L);
+            nh8Var.e = jSONObject.optInt(StampMissionHttpRequestMessage.TASK_FOLLOW, 0);
+            nh8Var.f = jSONObject.optInt(StampMissionHttpRequestMessage.TASK_LIKE, 0);
+            nh8Var.g = jSONObject.optInt(StampMissionHttpRequestMessage.TASK_REPLY, 0);
+            nh8Var.c = jSONObject.optString("type");
+            nh8Var.d = jSONObject.optString(StampMissionHttpRequestMessage.KEY_TASK_TYPE);
+            nh8Var.h = b.a(jSONObject.optJSONObject("icon_info"));
+            nh8Var.i = jSONObject.toString();
+            return nh8Var;
         }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.h.setVisibility(0);
-        }
+        return (nh8) invokeL.objValue;
     }
 }

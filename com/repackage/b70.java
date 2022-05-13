@@ -1,8 +1,52 @@
 package com.repackage;
 
 import com.baidu.searchbox.network.outback.core.Request;
-import okhttp3.Dns;
+import com.baidu.searchbox.network.outback.core.Response;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.n60;
+import java.io.IOException;
+import java.net.URISyntaxException;
 /* loaded from: classes5.dex */
-public interface b70 {
-    Dns a(Request request, a70 a70Var);
+public class b70 implements n60 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public b70() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.repackage.n60
+    public Response a(n60.a aVar) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+            Request request = aVar.request();
+            try {
+                return aVar.a(request);
+            } catch (RuntimeException e) {
+                if (e.getCause() != null && (e.getCause() instanceof URISyntaxException)) {
+                    throw new IOException(e);
+                }
+                if ((e instanceof IllegalStateException) && e.getMessage().contains("Unexpected readData call. Buffer is null")) {
+                    throw new IOException(e);
+                }
+                throw new RuntimeException(e.getMessage() + " request url == " + request.url(), e);
+            }
+        }
+        return (Response) invokeL.objValue;
+    }
 }

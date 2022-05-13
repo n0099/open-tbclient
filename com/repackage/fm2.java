@@ -1,91 +1,114 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.util.Pair;
+import android.view.View;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.aop.annotation.DebugTrace;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.console.property.SwanAppPropertyWindow;
+import com.baidu.swan.apps.res.ui.FullScreenFloatView;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import com.repackage.gm2;
 /* loaded from: classes6.dex */
-public class fm2 implements gm2 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+public interface fm2 extends gm2.b {
+    cn1 A(String str);
 
-    public fm2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = -2;
-        this.b = -2;
-    }
+    View B(String str);
 
-    @Override // com.repackage.gm2
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
-    }
+    String C();
 
-    @Override // com.repackage.gm2
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
+    u03 D();
 
-    @Override // com.repackage.gm2
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.b == -2) {
-                qj2.g0().getSwitch("swan_webview_pause_control", 3);
-                this.b = 3;
-            }
-            return (this.b & 2) == 2;
-        }
-        return invokeV.booleanValue;
-    }
+    void E(rl2 rl2Var, oj2 oj2Var);
 
-    @Override // com.repackage.gm2
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.b == -2) {
-                qj2.g0().getSwitch("swan_webview_pause_control", 3);
-                this.b = 3;
-            }
-            return (this.b & 1) == 1;
-        }
-        return invokeV.booleanValue;
-    }
+    ii1 F();
 
-    @Override // com.repackage.gm2
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.a == -2) {
-                qj2.g0().getSwitch("swan_webview_backstage_optimize", -1);
-                this.a = -1;
-            }
-            return this.a > -1;
-        }
-        return invokeV.booleanValue;
-    }
+    @NonNull
+    x83 G();
+
+    c02 H();
+
+    void I();
+
+    SwanAppPropertyWindow J(Activity activity);
+
+    void K(String str);
+
+    li1 L();
+
+    SwanCoreVersion M();
+
+    boolean N();
+
+    void O();
+
+    li1 P();
+
+    void a();
+
+    String b();
+
+    void c();
+
+    void d(rl2 rl2Var, oj2 oj2Var);
+
+    @NonNull
+    j13 e(String str, SwanAppConfigData swanAppConfigData, String str2);
+
+    void exit();
+
+    @NonNull
+    j13 f(String str);
+
+    String g();
+
+    SwanAppActivity getActivity();
+
+    bn1 i();
+
+    @NonNull
+    j13 j(String str);
+
+    boolean k();
+
+    void l(SwanAppActivity swanAppActivity);
+
+    void m(String str, ua2 ua2Var);
+
+    FullScreenFloatView n(Activity activity);
+
+    void o();
+
+    void p();
+
+    @DebugTrace
+    zm1 q();
+
+    @NonNull
+    Pair<Integer, Integer> r();
+
+    void registerReceiver(Context context);
+
+    SwanAppConfigData s();
+
+    void t(Intent intent);
+
+    void u(ua2 ua2Var);
+
+    void unregisterReceiver(Context context);
+
+    void v();
+
+    void w();
+
+    @NonNull
+    Pair<Integer, Integer> x();
+
+    void y(xa2 xa2Var, boolean z);
+
+    String z();
 }

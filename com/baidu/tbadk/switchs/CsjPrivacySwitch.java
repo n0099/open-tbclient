@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vt4;
+import com.repackage.iu4;
 import com.repackage.xe;
 /* loaded from: classes3.dex */
 public class CsjPrivacySwitch extends xe {
@@ -35,7 +35,7 @@ public class CsjPrivacySwitch extends xe {
     public static boolean isOpen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? vt4.k().l("pref_key_splash_csj_privacy_enable", 0) == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? iu4.k().l("pref_key_splash_csj_privacy_enable", 0) == 1 : invokeV.booleanValue;
     }
 
     @Override // com.repackage.xe

@@ -43,21 +43,30 @@ public class pz0 implements qz0 {
     @Override // com.repackage.qz0
     public qz0.a a(xz0 xz0Var, oz0... oz0VarArr) {
         InterceptResult invokeLL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, xz0Var, oz0VarArr)) == null) {
-            this.a.beginTransaction();
-            try {
-                int update = update(xz0Var, oz0VarArr);
-                long insert = update == 0 ? insert(xz0Var) : 0L;
-                this.a.setTransactionSuccessful();
-                this.a.endTransaction();
-                return new qz0.a(insert, update);
-            } catch (Throwable th) {
-                this.a.endTransaction();
-                throw th;
-            }
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(1048576, this, xz0Var, oz0VarArr)) != null) {
+            return (qz0.a) invokeLL.objValue;
         }
-        return (qz0.a) invokeLL.objValue;
+        try {
+            this.a.beginTransaction();
+            i = update(xz0Var, oz0VarArr);
+            r0 = i == 0 ? insert(xz0Var) : 0L;
+            this.a.setTransactionSuccessful();
+        } catch (Exception unused) {
+            i = 0;
+        } catch (Throwable th) {
+            try {
+                this.a.endTransaction();
+            } catch (Exception unused2) {
+            }
+            throw th;
+        }
+        try {
+            this.a.endTransaction();
+        } catch (Exception unused3) {
+            return new qz0.a(r0, i);
+        }
     }
 
     public final Column[] b(xz0 xz0Var, oz0... oz0VarArr) {
@@ -143,12 +152,12 @@ public class pz0 implements qz0 {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, xz0Var, yz0Var)) == null) {
-            Cursor rawQuery = this.b.rawQuery("SELECT " + tz0.d(xz0Var.b().d()) + " FROM " + xz0Var.b().g() + yz0Var.k(), yz0Var.e());
-            boolean moveToFirst = rawQuery.moveToFirst();
+            a01 a01Var = new a01(this.b.rawQuery("SELECT " + tz0.d(xz0Var.b().d()) + " FROM " + xz0Var.b().g() + yz0Var.k(), yz0Var.e()));
+            boolean moveToFirst = a01Var.moveToFirst();
             if (moveToFirst) {
-                vz0.a(rawQuery, xz0Var);
+                vz0.a(a01Var, xz0Var);
             }
-            rawQuery.close();
+            a01Var.close();
             return moveToFirst;
         }
         return invokeLL.booleanValue;
@@ -234,7 +243,7 @@ public class pz0 implements qz0 {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, str, oz0VarArr, yz0Var)) == null) {
-            return this.b.rawQuery("SELECT " + tz0.d(oz0VarArr) + " FROM " + str + yz0Var.k(), yz0Var.e());
+            return new a01(this.b.rawQuery("SELECT " + tz0.d(oz0VarArr) + " FROM " + str + yz0Var.k(), yz0Var.e()));
         }
         return (Cursor) invokeLLL.objValue;
     }
@@ -257,7 +266,7 @@ public class pz0 implements qz0 {
     public Cursor query(zz0 zz0Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, zz0Var)) == null) ? this.b.rawQuery(zz0Var.b(), zz0Var.a()) : (Cursor) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, zz0Var)) == null) ? new a01(this.b.rawQuery(zz0Var.b(), zz0Var.a())) : (Cursor) invokeL.objValue;
     }
 
     public int update(String str, Column[] columnArr, yz0 yz0Var) {

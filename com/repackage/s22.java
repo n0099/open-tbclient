@@ -1,6 +1,10 @@
 package com.repackage;
 
+import android.content.Context;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.SwanAppWebViewManager;
+import com.baidu.swan.apps.core.container.NgWebView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,11 +13,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class s22 {
+public class s22 extends SwanAppWebViewManager implements Object<NgWebView>, q22 {
     public static /* synthetic */ Interceptable $ic;
-    public static s22 b;
+    public static final boolean x;
     public transient /* synthetic */ FieldHolder $fh;
-    public l22 a;
+    public final String w;
 
     static {
         InterceptResult invokeClinit;
@@ -28,46 +32,90 @@ public class s22 {
                 return;
             }
         }
-        b = new s22();
+        x = eh1.a;
     }
 
-    public s22() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public s22(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.w = a32.b();
     }
 
-    public static s22 b() {
-        InterceptResult invokeV;
+    @Override // com.repackage.q22
+    public void F(i72 i72Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (s22) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, i72Var) == null) || i72Var == null) {
+            return;
+        }
+        if (x) {
+            Log.d("SwanAppMasterManager", "pathList item: " + i72Var.b);
+        }
+        this.b.getSettings().setCodeCacheSetting(nz1.a("appjs", i72Var.b));
     }
 
-    public l22 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
+    public void O0() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (l22) invokeV.objValue;
-    }
-
-    public void c(l22 l22Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l22Var) == null) {
-            this.a = l22Var;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
     }
 
-    public void d() {
+    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
+    public void Y0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a = null;
+        }
+    }
+
+    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.repackage.cn1
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.w : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.q22
+    public sz1 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? u() : (sz1) invokeV.objValue;
+    }
+
+    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.repackage.cn1
+    public void loadUrl(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            super.loadUrl(str);
+        }
+    }
+
+    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.repackage.cn1
+    public void onJSLoaded() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            o72.U().w0(true);
+        }
+    }
+
+    @Override // com.repackage.q22
+    public void r(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
         }
     }
 }

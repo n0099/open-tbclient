@@ -1,143 +1,52 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.net.Uri;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes7.dex */
-public final class w72 {
+public class w72 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile w72 c;
+    public static final String a;
+    public static final String b;
+    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Lock a;
-    public ArrayList<a82> b;
 
-    public w72() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755248545, "Lcom/repackage/w72;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755248545, "Lcom/repackage/w72;");
                 return;
             }
         }
-        this.a = new ReentrantLock();
-        this.b = new ArrayList<>();
+        a = "content://" + t72.b + "/history_with_app";
+        b = "content://" + t72.b + "/history";
+        c = "content://" + t72.b + "/history_with_aps_pms";
     }
 
-    public static w72 i() {
+    public static Uri a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (w72.class) {
-                    if (c == null) {
-                        c = new w72();
-                    }
-                }
-            }
-            return c;
-        }
-        return (w72) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Uri.parse(b) : (Uri) invokeV.objValue;
     }
 
-    public final Object[] a() {
+    public static Uri b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                this.a.lock();
-                return this.b.size() > 0 ? this.b.toArray() : null;
-            } finally {
-                this.a.unlock();
-            }
-        }
-        return (Object[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Uri.parse(a) : (Uri) invokeV.objValue;
     }
 
-    public void b(r72 r72Var) {
-        Object[] a;
+    public static Uri c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r72Var) == null) || (a = a()) == null) {
-            return;
-        }
-        for (Object obj : a) {
-            ((a82) obj).d(r72Var);
-        }
-    }
-
-    public void c(r72 r72Var) {
-        Object[] a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, r72Var) == null) || (a = a()) == null) {
-            return;
-        }
-        for (Object obj : a) {
-            ((a82) obj).b(r72Var);
-        }
-    }
-
-    public void d(r72 r72Var) {
-        Object[] a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, r72Var) == null) || (a = a()) == null) {
-            return;
-        }
-        for (Object obj : a) {
-            ((a82) obj).f(r72Var);
-        }
-    }
-
-    public void e(r72 r72Var) {
-        Object[] a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, r72Var) == null) || (a = a()) == null) {
-            return;
-        }
-        for (Object obj : a) {
-            ((a82) obj).c(r72Var);
-        }
-    }
-
-    public void f(r72 r72Var) {
-        Object[] a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, r72Var) == null) || (a = a()) == null) {
-            return;
-        }
-        for (Object obj : a) {
-            ((a82) obj).g(r72Var);
-        }
-    }
-
-    public void g(r72 r72Var) {
-        Object[] a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, r72Var) == null) || (a = a()) == null) {
-            return;
-        }
-        for (Object obj : a) {
-            ((a82) obj).a(r72Var);
-        }
-    }
-
-    public void h(r72 r72Var) {
-        Object[] a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, r72Var) == null) || (a = a()) == null) {
-            return;
-        }
-        for (Object obj : a) {
-            ((a82) obj).e(r72Var);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? Uri.parse(c) : (Uri) invokeV.objValue;
     }
 }

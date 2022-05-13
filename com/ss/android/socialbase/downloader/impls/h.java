@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import com.ss.android.socialbase.downloader.downloader.DownloadService;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class h extends com.ss.android.socialbase.downloader.downloader.a {
     public static final String e = "h";
 

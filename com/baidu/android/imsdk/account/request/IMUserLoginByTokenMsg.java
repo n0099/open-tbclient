@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.p70;
+import com.repackage.r70;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -199,7 +199,7 @@ public class IMUserLoginByTokenMsg extends Message {
                             }
                         }
                     }
-                    if (!p70.e) {
+                    if (!r70.e) {
                         ChatMsgManagerImpl.getInstance(this.mContext).fetchConfigMsg(this.mContext, 0L, 20L);
                     }
                 } catch (Exception e) {

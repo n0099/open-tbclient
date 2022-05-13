@@ -104,9 +104,9 @@ public class KsPriceView extends TextView implements b {
 
     private void a(Context context, @Nullable AttributeSet attributeSet, int i) {
         setMaxLines(1);
-        this.a.a = context.getResources().getColor(R.color.obfuscated_res_0x7f060760);
+        this.a.a = context.getResources().getColor(R.color.obfuscated_res_0x7f060763);
         this.a.b = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07039f);
-        this.a.c = context.getResources().getColor(R.color.obfuscated_res_0x7f060762);
+        this.a.c = context.getResources().getColor(R.color.obfuscated_res_0x7f060765);
         this.a.d = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07039e);
     }
 

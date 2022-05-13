@@ -34,10 +34,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hi5;
-import com.repackage.ki5;
-import com.repackage.qt4;
-import com.repackage.rg;
+import com.repackage.aj5;
+import com.repackage.cj5;
+import com.repackage.du4;
+import com.repackage.pg;
 import java.io.File;
 /* loaded from: classes3.dex */
 public class UpdateDialog extends BaseActivity<UpdateDialog> {
@@ -53,7 +53,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
     public boolean mIsDownloading;
     public boolean mIsForceUpdate;
     public PermissionJudgePolicy mPermissionJudgement;
-    public hi5 mSupportDialog;
+    public aj5 mSupportDialog;
     public f mUpadateBroadcast;
 
     /* loaded from: classes3.dex */
@@ -124,7 +124,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             public void run() {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a.mData.forceUpdate()) {
-                    qt4.e(this.a.a.getPageContext().getPageActivity(), 200);
+                    du4.e(this.a.a.getPageContext().getPageActivity(), 200);
                 }
             }
         }
@@ -230,7 +230,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
     }
 
     /* loaded from: classes3.dex */
-    public class e implements hi5.f {
+    public class e implements aj5.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UpdateDialog a;
@@ -253,16 +253,16 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             this.a = updateDialog;
         }
 
-        @Override // com.repackage.hi5.f
+        @Override // com.repackage.aj5.f
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 TiebaStatic.log(new StatisticItem("c14382").addParam("obj_locate", 1));
                 this.a.mIsDownloading = true;
                 UpdateDialog updateDialog = this.a;
-                if (updateDialog.startUpdate(true, false, z && ki5.c(updateDialog.getPageContext().getPageActivity(), this.a.mCombineDownload))) {
+                if (updateDialog.startUpdate(true, false, z && cj5.c(updateDialog.getPageContext().getPageActivity(), this.a.mCombineDownload))) {
                     this.a.mSupportDialog.t(false);
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f04ec);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f04f2);
                     if (this.a.mIsForceUpdate) {
                         return;
                     }
@@ -272,7 +272,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             }
         }
 
-        @Override // com.repackage.hi5.f
+        @Override // com.repackage.aj5.f
         public void b(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
@@ -282,7 +282,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
                     return;
                 }
                 UpdateDialog updateDialog = this.a;
-                updateDialog.startUpdate(false, true, z && ki5.c(updateDialog.getPageContext().getPageActivity(), this.a.mCombineDownload));
+                updateDialog.startUpdate(false, true, z && cj5.c(updateDialog.getPageContext().getPageActivity(), this.a.mCombineDownload));
                 if (this.a.mIsForceUpdate) {
                     return;
                 }
@@ -291,7 +291,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             }
         }
 
-        @Override // com.repackage.hi5.f
+        @Override // com.repackage.aj5.f
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -300,7 +300,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             }
         }
 
-        @Override // com.repackage.hi5.f
+        @Override // com.repackage.aj5.f
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -310,7 +310,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             }
         }
 
-        @Override // com.repackage.hi5.f
+        @Override // com.repackage.aj5.f
         public void stopService() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -353,7 +353,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
                 this.this$0.mIsBackgroundDownloading = intent.getBooleanExtra("action_background_downloading", false);
                 if (this.this$0.mIsBackgroundDownloading) {
-                    this.this$0.showToast(R.string.obfuscated_res_0x7f0f02c0);
+                    this.this$0.showToast(R.string.obfuscated_res_0x7f0f02c5);
                     this.this$0.mSupportDialog.dismiss();
                     this.this$0.finish();
                 } else if (intent.getBooleanExtra("action_update_complete", false)) {
@@ -362,7 +362,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
                 } else if (intent.getBooleanExtra("action_update_progress_interrupted", false)) {
                     this.this$0.mSupportDialog.dismiss();
                     UpdateDialog updateDialog = this.this$0;
-                    updateDialog.showToast(updateDialog.getPageContext().getString(R.string.obfuscated_res_0x7f0f148c));
+                    updateDialog.showToast(updateDialog.getPageContext().getString(R.string.obfuscated_res_0x7f0f14b7));
                     this.this$0.finish();
                     this.this$0.stopUpdataService();
                 } else {
@@ -477,9 +477,9 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             if (versionData3 != null) {
                 this.mIsForceUpdate = versionData3.forceUpdate();
             }
-            hi5 hi5Var = new hi5(getPageContext().getPageActivity(), R.style.obfuscated_res_0x7f10039f);
-            this.mSupportDialog = hi5Var;
-            hi5Var.setCancelable(false);
+            aj5 aj5Var = new aj5(getPageContext().getPageActivity(), R.style.obfuscated_res_0x7f10039f);
+            this.mSupportDialog = aj5Var;
+            aj5Var.setCancelable(false);
             this.mSupportDialog.q(this.mData, this.mCombineDownload, new e(this, null));
             this.mSupportDialog.setOnCancelListener(new a(this));
             this.mSupportDialog.setOnDismissListener(new b(this));
@@ -488,7 +488,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             if (isFinishing()) {
                 return;
             }
-            rg.j(this.mSupportDialog, getPageContext());
+            pg.j(this.mSupportDialog, getPageContext());
         }
     }
 
@@ -579,9 +579,9 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            hi5 hi5Var = this.mSupportDialog;
-            if (hi5Var != null) {
-                hi5Var.m(getPageContext(), i);
+            aj5 aj5Var = this.mSupportDialog;
+            if (aj5Var != null) {
+                aj5Var.m(getPageContext(), i);
             }
         }
     }
@@ -606,9 +606,9 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            hi5 hi5Var = this.mSupportDialog;
-            if (hi5Var != null) {
-                hi5Var.dismiss();
+            aj5 aj5Var = this.mSupportDialog;
+            if (aj5Var != null) {
+                aj5Var.dismiss();
             }
             f fVar = this.mUpadateBroadcast;
             if (fVar != null) {

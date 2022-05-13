@@ -1,118 +1,361 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
+import android.os.Build;
+import android.os.StatFs;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.searchbox.pms.constants.ErrorConstant;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.io.File;
+import java.util.Objects;
+import java.util.concurrent.atomic.AtomicBoolean;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ua4 extends n94<ab4> {
+public class ua4<T> implements Runnable {
     public static /* synthetic */ Interceptable $ic;
+    public static final ud4 g;
     public transient /* synthetic */ FieldHolder $fh;
+    public ta4 a;
+    public T b;
+    public File c;
+    public AtomicBoolean d;
+    public ra4<T> e;
+    public boolean f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ua4(c84 c84Var, nb4 nb4Var) {
-        super(c84Var, nb4Var);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755267703, "Lcom/repackage/ua4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755267703, "Lcom/repackage/ua4;");
+                return;
+            }
+        }
+        g = ud4.e();
+    }
+
+    public ua4(ta4 ta4Var, T t, ra4<T> ra4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c84Var, nb4Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {ta4Var, t, ra4Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((c84) objArr2[0], (nb4) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.d = new AtomicBoolean(false);
+        this.a = ta4Var;
+        this.b = t;
+        this.e = ra4Var;
     }
 
-    @Override // com.repackage.n94
-    public String h() {
+    public final void a(int i, q94 q94Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, q94Var) == null) || q94Var == null) {
+            return;
+        }
+        JSONObject jSONObject = new JSONObject();
+        if (i == 2200) {
+            i = 0;
+        } else {
+            try {
+                jSONObject.put("response", q94Var.toString());
+            } catch (JSONException e) {
+                g.g("PMSDownloadTask", "#addStatistic json put data出错", e);
+            }
+        }
+        if (q94Var instanceof r94) {
+            jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, q94Var.g);
+        }
+        sd4.a(q94Var.h, "pkg_download", null, i, jSONObject);
+    }
+
+    public boolean b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            q94 q94Var = this.a.b;
+            if (q94Var.e != i) {
+                q94Var.e = i;
+                if (i != 2 && i != 3 && i != 10) {
+                    s(false);
+                } else {
+                    s(true);
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "getdeplist" : (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.n94
-    /* renamed from: v */
-    public b94 e(String str, ab4 ab4Var) {
-        InterceptResult invokeLL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, ab4Var)) == null) {
-            if (ab4Var != null && (i = ab4Var.a) != 0) {
-                return new b94(i, ab4Var.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!TextUtils.isEmpty(this.a.b.a)) {
+                g.i("PMSDownloadTask", "#checkAndCreateFile mParam.pmsPackage.filePath 为空");
+                return true;
             }
-            return super.e(str, ab4Var);
-        }
-        return (b94) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Removed duplicated region for block: B:15:0x001f  */
-    @Override // com.repackage.n94
-    /* renamed from: w */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean f(ab4 ab4Var) {
-        InterceptResult invokeL;
-        List<i94> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, ab4Var)) == null) {
-            if (ab4Var == null || (list = ab4Var.c) == null || list.isEmpty()) {
+            File c = yd4.c(this.e.d(this.b), this.a.b.l);
+            this.c = c;
+            if (c == null) {
+                String absolutePath = k74.b().getAppContext().getCacheDir().getAbsolutePath();
+                ud4 ud4Var = g;
+                ud4Var.i("PMSDownloadTask", "#checkAndCreateFile mLocalFile=null cacheDir=" + absolutePath);
+                this.c = yd4.c(absolutePath, this.a.b.l);
+            }
+            File file = this.c;
+            if (file == null) {
+                g.i("PMSDownloadTask", "#checkAndCreateFile generateFilePath=null");
+                this.e.e(this.b, new m94(2203, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_PATH));
                 return false;
             }
-            for (i94 i94Var : ab4Var.c) {
-                if (i94Var == null || !i94Var.a()) {
-                    return false;
-                }
-                while (r1.hasNext()) {
-                }
+            this.a.b.a = file.getAbsolutePath();
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean d(ua4<T> ua4Var) {
+        InterceptResult invokeL;
+        ta4 ta4Var;
+        q94 q94Var;
+        ta4 ta4Var2;
+        q94 q94Var2;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, ua4Var)) == null) ? (ua4Var == null || (ta4Var = ua4Var.a) == null || (q94Var = ta4Var.b) == null || (ta4Var2 = this.a) == null || (q94Var2 = ta4Var2.b) == null || !q94Var2.equals(q94Var)) ? false : true : invokeL.booleanValue;
+    }
+
+    public j84<T> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : (j84) invokeV.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (super.equals(obj)) {
+                return true;
             }
-            nb4 nb4Var = this.b;
-            return !(nb4Var instanceof gb4) || ((gb4) nb4Var).f().size() == ab4Var.c.size();
+            if (obj != null && (obj instanceof ua4)) {
+                return d((ua4) obj);
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.n94
-    /* renamed from: x */
-    public b94 t(ab4 ab4Var) {
-        InterceptResult invokeL;
+    public T f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, ab4Var)) == null) {
-            this.a.F();
-            pd4 pd4Var = new pd4();
-            n(ab4Var.c, pd4Var);
-            if (pd4Var.n() == 0) {
-                this.a.G();
-                return null;
-            }
-            this.a.H(pd4Var);
-            s94.f(ab4Var.c, this.a);
-            return null;
-        }
-        return (b94) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : (T) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.n94
-    /* renamed from: y */
-    public ab4 u(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public int g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject)) == null) ? od4.e(jSONObject) : (ab4) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? new ga4().a(this.e.k()).intValue() : invokeV.intValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            ra4<T> ra4Var = this.e;
+            if (ra4Var != null) {
+                return ra4Var.g();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? Objects.hash(this.a.b) : invokeV.intValue;
+    }
+
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.a.b.e : invokeV.intValue;
+    }
+
+    @SuppressLint({"ObsoleteSdkInt"})
+    public boolean j(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
+            String d = this.e.d(this.b);
+            if (d == null) {
+                return false;
+            }
+            try {
+                StatFs statFs = new StatFs(d);
+                return Build.VERSION.SDK_INT >= 18 ? statFs.getBlockSizeLong() * statFs.getAvailableBlocksLong() > j : ((long) statFs.getBlockSize()) * ((long) statFs.getAvailableBlocks()) > j;
+            } catch (Throwable th) {
+                g.g("PMSDownloadTask", "#hasSpaceToWrite 异常或者磁盘空间不足", th);
+                return false;
+            }
+        }
+        return invokeJ.booleanValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f : invokeV.booleanValue;
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            this.e.a(this.b);
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            b(3);
+            this.e.e(this.b, this.a.a);
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            b(10);
+            this.e.i(this.b);
+        }
+    }
+
+    public void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            this.f = true;
+            s(true);
+        }
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            b(1);
+            this.e.c(this.b);
+        }
+    }
+
+    public void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            b(2);
+            this.e.j(this.b);
+        }
+    }
+
+    public void r(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
+            if (z) {
+                this.a.b.b = 0L;
+            }
+            b(0);
+            s(false);
+            this.f = false;
+        }
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(1048596, this) != null) {
+            return;
+        }
+        String q94Var = this.a.b.toString();
+        g.i("PMSDownloadTask", "#run 开始下包 pkg=" + q94Var);
+        ya4 ya4Var = new ya4(this, h());
+        while (true) {
+            m94 m94Var = this.a.a;
+            if (m94Var != null && m94Var.a == 2200) {
+                return;
+            }
+            if (this.d.get()) {
+                g.i("PMSDownloadTask", "#run 已经取消下包 pkg=" + q94Var);
+                q();
+                return;
+            }
+            ya4Var.b();
+            m94 m94Var2 = this.a.a;
+            if (m94Var2 != null) {
+                if (m94Var2.a != 2200) {
+                    if (this.d.get()) {
+                        g.i("PMSDownloadTask", "#run 运行中取消下包 pkg=" + q94Var);
+                        q();
+                        return;
+                    }
+                    this.e.b++;
+                    g.i("PMSDownloadTask", "#run 下载出错 pkg=" + q94Var + " retryCount=" + this.e.b);
+                    if (this.e.b < 3) {
+                        try {
+                            if (!this.d.get()) {
+                                Thread.sleep(this.e.b * 1000);
+                            }
+                        } catch (InterruptedException unused) {
+                        }
+                    } else {
+                        m();
+                        ta4 ta4Var = this.a;
+                        a(ta4Var.a.a, ta4Var.b);
+                        return;
+                    }
+                } else {
+                    g.i("PMSDownloadTask", "#run 下包成功 pkg=" + q94Var);
+                    n();
+                    return;
+                }
+            }
+        }
+    }
+
+    public void s(boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048597, this, z) == null) || this.d.get() == z) {
+            return;
+        }
+        this.d.set(z);
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return "downloadUrl:" + this.a.b.n + ",versionName:" + this.a.b.j + ",versionCode:" + this.a.b.i + "md5:" + this.a.b.l + "bundleId:" + this.a.b.g;
+        }
+        return (String) invokeV.objValue;
     }
 }

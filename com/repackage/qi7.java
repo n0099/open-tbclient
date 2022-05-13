@@ -21,14 +21,14 @@ import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class qi7 implements ThirdPartWxRechargeService {
     public static /* synthetic */ Interceptable $ic;
     public static BroadcastReceiver b;
     public transient /* synthetic */ FieldHolder $fh;
     public IWXAPI a;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

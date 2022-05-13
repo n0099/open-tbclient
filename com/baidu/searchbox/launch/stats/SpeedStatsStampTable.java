@@ -15,6 +15,7 @@ public final class SpeedStatsStampTable {
     public static final int AD_LOAD_METHOD_END_STAMP_KEY = 3302;
     public static final int AD_LOAD_METHOD_START_STAMP_KEY = 3301;
     public static final int AD_LOAD_PROLOGUE_END_STAMP_KEY = 3303;
+    public static final int AD_PRELOAD_BEAR_START_STAMP_KEY = 3313;
     public static final int AD_SHOW_END_STAMP_KEY = 3311;
     public static final int AD_SHOW_POLICY_SO_END = 3309;
     public static final int AD_SHOW_START_STAMP_KEY = 3310;
@@ -139,6 +140,13 @@ public final class SpeedStatsStampTable {
     public static final int PERSONALIZE_TAB_ON_RESUME_END_STAMP_KEY = 5053;
     public static final int PERSONALIZE_TAB_ON_RESUME_START_STAMP_KEY = 5052;
     public static final int PERSONALIZE_TAB_START_STAMP_KEY = 5046;
+    public static final int PUSH_SCHEME_LANDING_ACTIVITY_DATABACK_STAMP_KEY = 5205;
+    public static final int PUSH_SCHEME_LANDING_ACTIVITY_DRAW_DISPATCH_STAMP_KEY = 5206;
+    public static final int PUSH_SCHEME_LANDING_ACTIVITY_ONCREATE_END_STAMP_KEY = 5203;
+    public static final int PUSH_SCHEME_LANDING_ACTIVITY_ONCREATE_START_STAMP_KEY = 5202;
+    public static final int PUSH_SCHEME_LANDING_ACTIVITY_ONRESUME_STAMP_KEY = 5204;
+    public static final int PUSH_SCHEME_MID_ACTIVITY_ONCREATE_END_STAMP_KEY = 5201;
+    public static final int PUSH_SCHEME_MID_ACTIVITY_ONCREATE_START_STAMP_KEY = 5200;
     public static final int REG_RECEIVER_END_STAMP_KEY = 3019;
     public static final int REG_RECEIVER_START_STAMP_KEY = 3018;
     public static final int RUNTIME_INIT_END_STAMP_KEY = 1004;

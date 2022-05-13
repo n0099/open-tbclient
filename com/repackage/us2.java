@@ -1,40 +1,72 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public abstract class us2 extends mo1 {
+public final class us2 extends ts2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final boolean b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public us2(@NonNull ko1 ko1Var) {
-        super(ko1Var);
+    public us2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ko1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ko1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = "SwanAppPayCheckNode";
     }
 
-    @Override // com.repackage.mo1
-    public String h() {
+    @Override // com.repackage.ts2
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Payment" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "payinfo" : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.ts2
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b) {
+            Log.d(this.a, "onFail: ");
+        }
+    }
+
+    @Override // com.repackage.ts2
+    public void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.b) {
+            Log.d(this.a, "onFiltered: ");
+        }
+    }
+
+    @Override // com.repackage.ts2
+    public void d(String str, JSONObject jSONObject, String str2) {
+        u03 a0;
+        d53 d0;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, jSONObject, str2) == null) {
+            if (this.b) {
+                Log.d(this.a, "onUpdate: ");
+            }
+            if (jSONObject == null || (a0 = u03.a0()) == null || (d0 = a0.d0()) == null) {
+                return;
+            }
+            d0.B("note_data_pay_check_list", jSONObject.toString());
+        }
     }
 }

@@ -1,20 +1,25 @@
 package com.repackage;
 
-import android.os.Bundle;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.collection.ArraySet;
+import androidx.core.util.Pair;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.io.File;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public class f92 extends ProviderDelegation {
+public class f92 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,58 +37,160 @@ public class f92 extends ProviderDelegation {
                 return;
             }
         }
-        qj2.g0().getSwitch("swan_recovery_enable", true);
-        a = true;
+        a = eh1.a;
     }
 
-    public f92() {
+    @Nullable
+    public static Set<String> a(int i, List<String> list) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static void b(p92 p92Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, p92Var) == null) && a && p92Var != null) {
-            if (ProcessUtils.isMainProcess()) {
-                g92.a(p92Var).b();
-                o92.b().a(p92Var.a);
-                return;
-            }
-            Bundle bundle = new Bundle();
-            bundle.putInt("recovery_level", p92Var.a);
-            bundle.putStringArrayList("recovery_app_list", p92Var.b);
-            DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), f92.class, bundle);
-        }
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            if (a) {
-                int i = bundle.getInt("recovery_level", -1);
-                ArrayList<String> stringArrayList = bundle.getStringArrayList("recovery_app_list");
-                p92 p92Var = new p92();
-                p92Var.a = i;
-                if (stringArrayList != null) {
-                    p92Var.b = stringArrayList;
-                }
-                g92.a(p92Var).b();
-                o92.b().a(p92Var.a);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, list)) == null) {
+            if (list == null || list.isEmpty()) {
                 return null;
             }
-            return null;
+            HashSet hashSet = new HashSet();
+            for (tx2 tx2Var : vx2.k().q()) {
+                String appId = tx2Var.getAppId();
+                if (TextUtils.isEmpty(appId)) {
+                    appId = tx2Var.M();
+                }
+                boolean z = tx2Var.D() || tx2Var.P();
+                if (tx2Var.S() && z && list.contains(appId)) {
+                    kx2 e = kx2.e();
+                    mx2 mx2Var = new mx2(i);
+                    mx2Var.b(tx2Var.b);
+                    e.h(mx2Var);
+                    hashSet.add(appId);
+                    if (a) {
+                        Log.i("PurgerUtils", "sent msg(" + i + ") to active swan(" + appId + SmallTailInfo.EMOTION_SUFFIX);
+                    }
+                }
+            }
+            return hashSet;
         }
-        return (Bundle) invokeL.objValue;
+        return (Set) invokeIL.objValue;
+    }
+
+    public static void b(@NonNull File file, @NonNull String str, @NonNull String str2, Set<String> set, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{file, str, str2, set, Boolean.valueOf(z)}) == null) {
+            c(file, str, str2, set, z, null);
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:43:0x0077  */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x008f  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00a6  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void c(@NonNull File file, @NonNull String str, @NonNull String str2, Set<String> set, boolean z, @Nullable cl3<Pair<String, File>> cl3Var) {
+        File[] listFiles;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{file, str, str2, set, Boolean.valueOf(z), cl3Var}) == null) && file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
+            for (File file2 : listFiles) {
+                String name = file2.getName();
+                if (!name.isEmpty() && file2.isFile() && name.startsWith(str) && name.endsWith(str2)) {
+                    int length = name.length();
+                    int length2 = str.length();
+                    int length3 = str2.length();
+                    if (length >= length2 + length3) {
+                        String substring = name.substring(length2, length - length3);
+                        if (set == null) {
+                            set = Collections.emptySet();
+                        }
+                        if (!TextUtils.isEmpty(substring)) {
+                            if (z) {
+                                if (set.contains(substring)) {
+                                }
+                                if (a) {
+                                    Log.i("PurgerUtils", "clearByDeleteFiles : " + substring);
+                                }
+                                if (cl3Var == null) {
+                                    cl3Var.run(Pair.create(str + substring, file2));
+                                } else {
+                                    xg4.L(file2);
+                                }
+                            } else {
+                                if (!set.contains(substring)) {
+                                }
+                                if (a) {
+                                }
+                                if (cl3Var == null) {
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @Nullable
+    public static Set<String> d(List<String> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
+            if (list == null || list.isEmpty()) {
+                return null;
+            }
+            return a(106, list);
+        }
+        return (Set) invokeL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:43:0x0080  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00a8  */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x00ab A[SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static ArraySet<String> e(@NonNull File file, @NonNull String str, @NonNull String str2, Set<String> set, boolean z) {
+        InterceptResult invokeCommon;
+        File[] listFiles;
+        String J;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{file, str, str2, set, Boolean.valueOf(z)})) == null) {
+            ArraySet<String> arraySet = new ArraySet<>();
+            if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
+                for (File file2 : listFiles) {
+                    String name = file2.getName();
+                    if (!name.isEmpty() && file2.isFile() && name.startsWith(str) && name.endsWith(str2)) {
+                        int length = name.length();
+                        int length2 = str.length();
+                        int length3 = str2.length();
+                        if (length >= length2 + length3) {
+                            String substring = name.substring(length2, length - length3);
+                            if (set == null) {
+                                set = Collections.emptySet();
+                            }
+                            if (!TextUtils.isEmpty(substring)) {
+                                if (z) {
+                                    if (set.contains(substring)) {
+                                    }
+                                    J = xg4.J(file2);
+                                    if (a) {
+                                        Log.i("PurgerUtils", "originFile:" + file2.getAbsolutePath() + ", renameFile:" + J);
+                                    }
+                                    if (TextUtils.isEmpty(J)) {
+                                        arraySet.add(J);
+                                    }
+                                } else {
+                                    if (!set.contains(substring)) {
+                                    }
+                                    J = xg4.J(file2);
+                                    if (a) {
+                                    }
+                                    if (TextUtils.isEmpty(J)) {
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return arraySet;
+        }
+        return (ArraySet) invokeCommon.objValue;
     }
 }

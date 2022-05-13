@@ -1,179 +1,239 @@
 package com.repackage;
 
 import android.text.TextUtils;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.bdtask.framework.utils.DebugTrace;
+import com.baidu.searchbox.http.HttpManager;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.http.cookie.CookieManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.util.HashMap;
+import okhttp3.Headers;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
+import okio.Buffer;
 /* loaded from: classes5.dex */
-public final class bt implements kt {
+public class bt<T> extends ct {
     public static /* synthetic */ Interceptable $ic;
-    public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public byte[] b;
+    public String c;
+    public String d;
+    public ResponseCallback<T> e;
+    public int f;
 
     /* loaded from: classes5.dex */
-    public static final class a {
+    public class a extends ResponseCallback<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public T a;
+        public final /* synthetic */ bt b;
 
-        public a() {
+        public a(bt btVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {btVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = btVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public String parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, response, i)) == null) {
+                Headers headers = response.headers();
+                if (headers != null && TextUtils.equals(headers.get("Bdtls"), "recovery")) {
+                    ft.b().i().b(0);
+                    return "recovery";
+                }
+                bt btVar = this.b;
+                if (!btVar.a) {
+                    if (btVar.e != null) {
+                        this.a = (T) this.b.e.parseResponse(response, i);
+                        return "";
+                    }
+                    return "";
+                }
+                ResponseBody body = response.body();
+                String g = this.b.g(body.bytes());
+                DebugTrace debugTrace = DebugTrace.a;
+                debugTrace.a("BdtlsPostRequest parseResponse=" + g);
+                if (this.b.b == 1) {
+                    Buffer buffer = new Buffer();
+                    buffer.writeString(g, Charset.forName(IMAudioTransRequest.CHARSET));
+                    Response build = response.newBuilder().body(ResponseBody.create(body.contentType(), buffer.size(), buffer)).build();
+                    if (this.b.e != null) {
+                        this.a = (T) this.b.e.parseResponse(build, i);
+                    }
+                }
+                return g;
+            }
+            return (String) invokeLI.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: b */
+        public void onSuccess(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i) == null) {
+                DebugTrace debugTrace = DebugTrace.a;
+                debugTrace.a("BdtlsPostRequest onSuccess=" + str);
+                if (TextUtils.equals(str, "recovery")) {
+                    if (!ft.b().i().m()) {
+                        this.b.e.onFail(new Exception("Exceeded the limit of continuous downgrade"));
+                        return;
+                    }
+                    ft.b().i().f();
+                    this.b.e(true);
+                    this.b.k();
+                    return;
+                }
+                ft.b().i().n();
+                bt btVar = this.b;
+                if (!btVar.a) {
+                    if (btVar.e != null) {
+                        this.b.e.onSuccess(this.a, i);
+                        this.b.f = 0;
+                    }
+                } else if (btVar.b == 1) {
+                    if (btVar.e != null) {
+                        this.b.e.onSuccess(this.a, i);
+                    }
+                    this.b.f = 0;
+                } else if (bt.m(btVar) >= 3) {
+                    ResponseCallback responseCallback = this.b.e;
+                    responseCallback.onFail(new IOException("request fail : " + this.a));
+                    this.b.f = 0;
+                } else {
+                    bt btVar2 = this.b;
+                    btVar2.j(btVar2.c, this.b.d, this.b.e);
                 }
             }
         }
 
-        @JvmStatic
-        public final bt a(String str) {
-            InterceptResult invokeL;
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                if (str == null || TextUtils.isEmpty(str)) {
-                    return null;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
+                DebugTrace debugTrace = DebugTrace.a;
+                debugTrace.a("BdtlsPostRequest onFail=" + exc.getMessage());
+                if (this.b.e != null) {
+                    this.b.e.onFail(exc);
                 }
-                JSONObject jSONObject = new JSONObject(str);
-                return new bt(jSONObject.optInt("Level"), fv.b(jSONObject.optString("Description")));
             }
-            return (bt) invokeL.objValue;
-        }
-
-        @JvmStatic
-        public final bt b(byte[] bArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) ? a(fv.a(bArr)) : (bt) invokeL.objValue;
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964043789, "Lcom/repackage/bt;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1964043789, "Lcom/repackage/bt;");
-                return;
-            }
-        }
-        c = new a(null);
-    }
-
-    public bt(int i, byte[] bArr) {
+    public bt() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), bArr};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = bArr;
+        this.c = null;
+        this.d = null;
+        this.e = null;
     }
 
-    @JvmStatic
-    public static final bt a(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) ? c.b(bArr) : (bt) invokeL.objValue;
+    public static /* synthetic */ int m(bt btVar) {
+        int i = btVar.f;
+        btVar.f = i + 1;
+        return i;
     }
 
-    public final String b() {
+    @Override // com.repackage.ct
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String a2 = fv.a(fv.d(this.b));
-            Intrinsics.checkExpressionValueIsNotNull(a2, "StringUtils.bytes2Str(St…ase64Decode(description))");
-            return a2;
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "POST" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.kt
-    public JSONObject c() {
-        InterceptResult invokeV;
+    @Override // com.repackage.ct
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.putOpt("Level", Integer.valueOf(this.a));
-            jSONObject.putOpt("Description", this.b);
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public final int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof bt) {
-                    bt btVar = (bt) obj;
-                    if (!(this.a == btVar.a) || !Intrinsics.areEqual(this.b, btVar.b)) {
-                    }
-                }
-                return false;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            DebugTrace debugTrace = DebugTrace.a;
+            debugTrace.a("onRequestError=" + i);
+            ResponseCallback<T> responseCallback = this.e;
+            if (responseCallback != null) {
+                responseCallback.onFail(new Exception("request error  code : " + i));
             }
-            return true;
         }
-        return invokeL.booleanValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
+    @Override // com.repackage.ct
+    public void c(IOException iOException) {
+        ResponseCallback<T> responseCallback;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i = this.a * 31;
-            byte[] bArr = this.b;
-            return i + (bArr != null ? Arrays.hashCode(bArr) : 0);
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iOException) == null) || (responseCallback = this.e) == null) {
+            return;
         }
-        return invokeV.intValue;
+        responseCallback.onFail(iOException);
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    @Override // com.repackage.ct
+    public void f(byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "Alert(level=" + this.a + ", description=" + Arrays.toString(this.b) + SmallTailInfo.EMOTION_SUFFIX;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) {
+            String str = this.c;
+            HashMap hashMap = new HashMap();
+            hashMap.put("Content-Type", "application/json");
+            if (this.a) {
+                hashMap.put("Bdtls", "Bdtls");
+                hashMap.put("Bdtls-Content-Type", "json");
+            }
+            DebugTrace debugTrace = DebugTrace.a;
+            debugTrace.a("BdtlsPostRequest url=" + str);
+            HttpManager.getDefault(js.c.h().getAppContext()).postByteRequest().mediaType("application/json").url(str).cookieManager(CookieManager.WEBKIT_COOKIES).headers(hashMap).content(bArr).build().executeAsync(new a(this));
         }
-        return (String) invokeV.objValue;
+    }
+
+    public void j(String str, String str2, ResponseCallback<T> responseCallback) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, responseCallback) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        this.c = str;
+        this.d = str2;
+        this.e = responseCallback;
+        DebugTrace debugTrace = DebugTrace.a;
+        debugTrace.a("requestPost url=" + str);
+        DebugTrace debugTrace2 = DebugTrace.a;
+        debugTrace2.a("requestPost body=" + str2);
+        d(this.d);
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            j(this.c, this.d, this.e);
+        }
     }
 }

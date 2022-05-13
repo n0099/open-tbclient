@@ -1,11 +1,7 @@
 package com.repackage;
 
-import com.baidu.tieba.lego.activity.LegoListFragment;
+import com.baidu.tieba.interestlabel.model.LabelRequestEnum;
 /* loaded from: classes5.dex */
 public interface ec7 {
-    qd7 getFloatVideoContainer();
-
-    LegoListFragment getLegoListFragment();
-
-    xd7 getPlaySwitchController();
+    void a(LabelRequestEnum labelRequestEnum, dc7 dc7Var, int i);
 }

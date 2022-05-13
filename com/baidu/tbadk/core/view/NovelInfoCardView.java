@@ -35,14 +35,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ec9;
-import com.repackage.k75;
-import com.repackage.l75;
-import com.repackage.m75;
-import com.repackage.oi;
-import com.repackage.qz4;
-import com.repackage.vr4;
-import com.repackage.vt4;
+import com.repackage.b85;
+import com.repackage.c85;
+import com.repackage.d85;
+import com.repackage.e05;
+import com.repackage.gs4;
+import com.repackage.iu4;
+import com.repackage.mi;
+import com.repackage.za9;
 /* loaded from: classes3.dex */
 public class NovelInfoCardView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -62,8 +62,8 @@ public class NovelInfoCardView extends LinearLayout implements View.OnClickListe
     public TextView m;
     public TextView n;
     public TextView o;
-    public qz4 p;
-    public k75 q;
+    public e05 p;
+    public b85 q;
     public TbPageContext<?> r;
     public long s;
     public long t;
@@ -104,20 +104,20 @@ public class NovelInfoCardView extends LinearLayout implements View.OnClickListe
             if (!(interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) || z) {
                 return;
             }
-            this.a.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f46);
+            this.a.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f5c);
         }
 
         @Override // com.baidu.tbadk.widget.TbImageView.g
         public void onCancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f46);
+                this.a.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f5c);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b implements k75.d {
+    public class b implements b85.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NovelInfoCardView a;
@@ -140,7 +140,7 @@ public class NovelInfoCardView extends LinearLayout implements View.OnClickListe
             this.a = novelInfoCardView;
         }
 
-        @Override // com.repackage.k75.d
+        @Override // com.repackage.b85.d
         public void a(NovelResult novelResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, novelResult) == null) {
@@ -148,19 +148,19 @@ public class NovelInfoCardView extends LinearLayout implements View.OnClickListe
                 if (i == 4) {
                     BdTopToast bdTopToast = new BdTopToast(this.a.getContext());
                     bdTopToast.i(false);
-                    bdTopToast.h(this.a.r.getString(R.string.obfuscated_res_0x7f0f0c93));
+                    bdTopToast.h(this.a.r.getString(R.string.obfuscated_res_0x7f0f0cac));
                     bdTopToast.j((ViewGroup) this.a.getRootView());
                 } else if (i != 5) {
                 } else {
                     BdTopToast bdTopToast2 = new BdTopToast(this.a.getContext());
                     bdTopToast2.i(true);
-                    bdTopToast2.h(this.a.r.getString(R.string.obfuscated_res_0x7f0f0c95));
+                    bdTopToast2.h(this.a.r.getString(R.string.obfuscated_res_0x7f0f0cae));
                     bdTopToast2.j((ViewGroup) this.a.getRootView());
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921658, Boolean.TRUE));
                     this.a.p.m(true);
                     if (this.a.w) {
                         this.a.x = true;
-                        this.a.p(true);
+                        this.a.q(true);
                     }
                     NovelInfoCardView novelInfoCardView = this.a;
                     novelInfoCardView.setReadingProgress(novelInfoCardView.s);
@@ -243,7 +243,7 @@ public class NovelInfoCardView extends LinearLayout implements View.OnClickListe
         if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || this.p == null) {
             return;
         }
-        String b2 = l75.b(String.valueOf(this.p.h()), TbadkCoreApplication.getCurrentAccount());
+        String b2 = c85.b(String.valueOf(this.p.h()), TbadkCoreApplication.getCurrentAccount());
         ReadRecordsData readRecordsData = (ReadRecordsData) OrmObject.objectWithJsonStr(b2, ReadRecordsData.class);
         if (StringUtils.isNull(b2) || readRecordsData == null) {
             readRecordsData = new ReadRecordsData();
@@ -251,7 +251,7 @@ public class NovelInfoCardView extends LinearLayout implements View.OnClickListe
             readRecordsData.A(String.valueOf(this.s / 100));
         }
         if (this.w) {
-            this.x = vt4.k().h("key_pb_free_novel_paid_data", false);
+            this.x = iu4.k().h("key_pb_free_novel_paid_data", false);
         }
         setReadingProgress(readRecordsData.y());
         setCid(readRecordsData.z());
@@ -278,7 +278,7 @@ public class NovelInfoCardView extends LinearLayout implements View.OnClickListe
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            double a2 = ec9.a(str, 0.0d) / 100.0d;
+            double a2 = za9.a(str, 0.0d) / 100.0d;
             String str2 = (a2 < 0.0d || a2 > 0.49d) ? (a2 <= 0.49d || a2 > 1.0d) ? (a2 <= 1.0d || a2 > 6.6d) ? (a2 <= 6.6d || a2 > 9.9d) ? a2 > 9.9d ? "58.8" : "0.0" : "49.9" : "36.6" : "19.9" : "16.6";
             return !StringUtils.isNull(str2) ? str2 : str;
         }
@@ -315,23 +315,23 @@ public class NovelInfoCardView extends LinearLayout implements View.OnClickListe
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d062f, (ViewGroup) this, true);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0915ca);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0623, (ViewGroup) this, true);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0915e0);
             this.b = tbImageView;
             tbImageView.setConrers(15);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0915c7);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0915c0);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0915c8);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0915c4);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0915c5);
-            this.h = findViewById(R.id.obfuscated_res_0x7f0915cc);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0915cf);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f0915d0);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0915ce);
-            this.l = findViewById(R.id.obfuscated_res_0x7f0915d1);
-            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f0915c1);
-            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f0915d2);
-            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f0915d6);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0915dd);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0915d6);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0915de);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0915da);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0915db);
+            this.h = findViewById(R.id.obfuscated_res_0x7f0915e2);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0915e5);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f0915e6);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0915e4);
+            this.l = findViewById(R.id.obfuscated_res_0x7f0915e7);
+            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f0915d7);
+            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f0915e8);
+            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f0915ec);
             this.r = getTbPageContext();
             this.m.setOnClickListener(this);
             this.b.setOnClickListener(this);
@@ -344,9 +344,9 @@ public class NovelInfoCardView extends LinearLayout implements View.OnClickListe
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            k75 k75Var = new k75(this.r);
-            this.q = k75Var;
-            k75Var.l(new b(this));
+            b85 b85Var = new b85(this.r);
+            this.q = b85Var;
+            b85Var.l(new b(this));
         }
     }
 
@@ -354,40 +354,40 @@ public class NovelInfoCardView extends LinearLayout implements View.OnClickListe
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            qz4 qz4Var = this.p;
-            if (qz4Var == null) {
+            e05 e05Var = this.p;
+            if (e05Var == null) {
                 return false;
             }
-            return "0".equals(qz4Var.d()) || "0L".equals(this.p.d());
+            return "0".equals(e05Var.d()) || "0L".equals(this.p.d());
         }
         return invokeV.booleanValue;
     }
 
-    public void k(qz4 qz4Var) {
+    public void k(e05 e05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, qz4Var) == null) {
-            if (!qz4Var.i() && !this.x) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, e05Var) == null) {
+            if (!e05Var.i() && !this.x) {
                 if (this.w) {
                     this.d.setVisibility(0);
-                    this.d.setText(R.string.obfuscated_res_0x7f0f0c99);
+                    this.d.setText(R.string.obfuscated_res_0x7f0f0cb2);
                 } else {
                     this.d.setVisibility(8);
                 }
                 this.h.setVisibility(0);
-                this.j.setText(R.string.obfuscated_res_0x7f0f0c92);
-                this.m.setText(R.string.obfuscated_res_0x7f0f0c91);
-                this.i.setText(String.valueOf(ec9.a(qz4Var.d(), -1.0d) / 100.0d));
-                this.k.setText(g(qz4Var.d()));
+                this.j.setText(R.string.obfuscated_res_0x7f0f0cab);
+                this.m.setText(R.string.obfuscated_res_0x7f0f0caa);
+                this.i.setText(String.valueOf(za9.a(e05Var.d(), -1.0d) / 100.0d));
+                this.k.setText(g(e05Var.d()));
                 return;
             }
-            qz4Var.m(true);
+            e05Var.m(true);
             this.d.setVisibility(0);
-            this.d.setText(R.string.obfuscated_res_0x7f0f0c97);
+            this.d.setText(R.string.obfuscated_res_0x7f0f0cb0);
             this.l.setVisibility(0);
-            this.n.setText(R.string.obfuscated_res_0x7f0f0c98);
+            this.n.setText(R.string.obfuscated_res_0x7f0f0cb1);
             TextView textView = this.o;
             textView.setText(this.t + "%");
-            this.m.setText(R.string.obfuscated_res_0x7f0f0c9a);
+            this.m.setText(R.string.obfuscated_res_0x7f0f0cb3);
             this.h.setVisibility(8);
             View view2 = this.v;
             if (view2 != null) {
@@ -401,68 +401,68 @@ public class NovelInfoCardView extends LinearLayout implements View.OnClickListe
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.a = TbadkCoreApplication.getInst().getSkinType();
-            vr4 d = vr4.d(this.c);
+            gs4 d = gs4.d(this.c);
             d.A(R.string.F_X01);
             d.v(R.color.CAM_X0105);
-            vr4 d2 = vr4.d(this.e);
+            gs4 d2 = gs4.d(this.e);
             d2.A(R.string.F_X01);
             d2.v(R.color.CAM_X0108);
-            vr4 d3 = vr4.d(this.d);
+            gs4 d3 = gs4.d(this.d);
             d3.n(R.string.J_X04);
             d3.l(R.dimen.L_X02);
             d3.k(R.color.CAM_X0302);
-            vr4 d4 = vr4.d(this.g);
+            gs4 d4 = gs4.d(this.g);
             d4.A(R.string.F_X01);
             d4.v(R.color.CAM_X0110);
-            vr4 d5 = vr4.d(this.d);
+            gs4 d5 = gs4.d(this.d);
             d5.A(R.string.F_X01);
             d5.v(R.color.CAM_X0303);
-            vr4 d6 = vr4.d(this.i);
+            gs4 d6 = gs4.d(this.i);
             d6.A(R.string.F_X02);
             d6.v(R.color.CAM_X0305);
-            vr4 d7 = vr4.d(this.j);
+            gs4 d7 = gs4.d(this.j);
             d7.A(R.string.F_X01);
             d7.v(R.color.CAM_X0305);
             this.k.getPaint().setFlags(16);
             this.k.getPaint().setAntiAlias(true);
-            vr4 d8 = vr4.d(this.k);
+            gs4 d8 = gs4.d(this.k);
             d8.A(R.string.F_X01);
             d8.v(R.color.CAM_X0110);
-            vr4 d9 = vr4.d(this.m);
+            gs4 d9 = gs4.d(this.m);
             d9.A(R.string.F_X01);
             d9.v(R.color.CAM_X0101);
-            qz4 qz4Var = this.p;
-            if (qz4Var != null) {
-                if (qz4Var.i()) {
-                    vr4 d10 = vr4.d(this.n);
+            e05 e05Var = this.p;
+            if (e05Var != null) {
+                if (e05Var.i()) {
+                    gs4 d10 = gs4.d(this.n);
                     d10.A(R.string.F_X01);
                     d10.v(R.color.CAM_X0107);
-                    vr4 d11 = vr4.d(this.o);
+                    gs4 d11 = gs4.d(this.o);
                     d11.A(R.string.F_X02);
                     d11.v(R.color.CAM_X0107);
-                    SkinManager.setBackgroundShapeDrawable(this.m, oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds60), R.color.CAM_X0303, R.color.CAM_X0207);
+                    SkinManager.setBackgroundShapeDrawable(this.m, mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds60), R.color.CAM_X0303, R.color.CAM_X0207);
                 }
             } else {
-                SkinManager.setBackgroundShapeDrawable(this.m, oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds60), R.color.CAM_X0305, R.color.CAM_X0206);
+                SkinManager.setBackgroundShapeDrawable(this.m, mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds60), R.color.CAM_X0305, R.color.CAM_X0206);
             }
             SkinManager.setBackgroundResource(this, R.drawable.applets_cell_bg);
             this.b.setDrawBorder(true);
             this.b.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-            this.b.setBorderWidth(oi.f(this.r.getPageActivity(), R.dimen.L_X01));
+            this.b.setBorderWidth(mi.f(this.r.getPageActivity(), R.dimen.L_X01));
             this.b.setSkinType(this.a);
-            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080885, R.color.CAM_X0110, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080888, R.color.CAM_X0110, WebPManager.ResourceStateType.NORMAL);
         }
     }
 
     public void m() {
-        qz4 qz4Var;
+        e05 e05Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (qz4Var = this.p) == null || StringUtils.isNull(qz4Var.e())) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (e05Var = this.p) == null || StringUtils.isNull(e05Var.e())) {
             return;
         }
         if (this.p.i()) {
             r(s(this.p.e()));
-            m75.b(CommonStatisticKey.KEY_PB_NOVEL_INFO_JUMP_H5, String.valueOf(this.p.h()), this.y, this.z);
+            d85.b(CommonStatisticKey.KEY_PB_NOVEL_INFO_JUMP_H5, String.valueOf(this.p.h()), this.y, this.z);
             return;
         }
         this.q.s(this.y, this.z);
@@ -470,12 +470,12 @@ public class NovelInfoCardView extends LinearLayout implements View.OnClickListe
     }
 
     public void n() {
-        k75 k75Var;
+        b85 b85Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (k75Var = this.q) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (b85Var = this.q) == null) {
             return;
         }
-        k75Var.o();
+        b85Var.o();
     }
 
     public void o() {
@@ -494,25 +494,25 @@ public class NovelInfoCardView extends LinearLayout implements View.OnClickListe
         if (interceptable == null || interceptable.invokeL(1048587, this, view2) == null) {
             m();
             if (this.p != null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f0915ca) {
-                    m75.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_CLICK, 3, String.valueOf(this.p.h()), this.y, this.z);
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f0915d6) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f0915e0) {
+                    d85.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_CLICK, 3, String.valueOf(this.p.h()), this.y, this.z);
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f0915ec) {
                     if (this.p.i()) {
-                        m75.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_CLICK, 2, String.valueOf(this.p.h()), this.y, this.z);
+                        d85.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_CLICK, 2, String.valueOf(this.p.h()), this.y, this.z);
                     } else {
-                        m75.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_CLICK, 1, String.valueOf(this.p.h()), this.y, this.z);
+                        d85.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_CLICK, 1, String.valueOf(this.p.h()), this.y, this.z);
                     }
                 } else {
-                    m75.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_CLICK, 4, String.valueOf(this.p.h()), this.y, this.z);
+                    d85.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_CLICK, 4, String.valueOf(this.p.h()), this.y, this.z);
                 }
             }
         }
     }
 
-    public void p(boolean z) {
+    public void q(boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048588, this, z) == null) && TbadkCoreApplication.isLogin()) {
-            vt4.k().u("key_pb_free_novel_paid_data", z);
+            iu4.k().u("key_pb_free_novel_paid_data", z);
         }
     }
 
@@ -532,7 +532,7 @@ public class NovelInfoCardView extends LinearLayout implements View.OnClickListe
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            return CommonUrlParamManager.getInstance().processUrl(l75.d(str, "data", this.u)) + "&ctv=2&cen=ua_ut_uid";
+            return CommonUrlParamManager.getInstance().processUrl(c85.d(str, "data", this.u)) + "&ctv=2&cen=ua_ut_uid";
         }
         return (String) invokeL.objValue;
     }
@@ -548,16 +548,16 @@ public class NovelInfoCardView extends LinearLayout implements View.OnClickListe
         }
     }
 
-    public void setData(qz4 qz4Var, String str, String str2) {
+    public void setData(e05 e05Var, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048592, this, qz4Var, str, str2) == null) {
-            if (qz4Var != null && !qz4Var.k()) {
+        if (interceptable == null || interceptable.invokeLLL(1048592, this, e05Var, str, str2) == null) {
+            if (e05Var != null && !e05Var.k()) {
                 setVisibility(0);
-                this.p = qz4Var;
+                this.p = e05Var;
                 this.y = str;
                 this.z = str2;
-                if (StringUtils.isNull(qz4Var.f(), true)) {
-                    this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f46);
+                if (StringUtils.isNull(e05Var.f(), true)) {
+                    this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f5c);
                 } else {
                     this.b.setEvent(new a(this));
                     this.b.K(this.p.f(), 10, false);

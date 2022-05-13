@@ -1,81 +1,77 @@
 package com.repackage;
 
+import android.app.Activity;
 import android.content.Context;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.kwad.sdk.api.KsDrawAd;
+import com.repackage.ti9;
 /* loaded from: classes7.dex */
-public class wi9 {
+public class wi9 implements FunNativeAd2Bridger<KsDrawAd, View> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public final ti9.b b;
+    public final /* synthetic */ Context c;
+    public final /* synthetic */ ti9 d;
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static yi9 a(Context context, Ssp.Pid pid) {
-        InterceptResult invokeLL;
-        char c;
+    public wi9(ti9 ti9Var, KsDrawAd ksDrawAd, String str, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, pid)) == null) {
-            String str = pid.type;
-            str.hashCode();
-            switch (str.hashCode()) {
-                case -1900686778:
-                    if (str.equals(FunAdType.JY_NATIVE)) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1743934314:
-                    if (str.equals(FunAdType.JY_SPLASH)) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1659486968:
-                    if (str.equals(FunAdType.JY_DRAW_VIDEO)) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -39027267:
-                    if (str.equals(FunAdType.JY_REWARD_VIDEO)) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1872382491:
-                    if (str.equals(FunAdType.JY_INTERSTITIAL)) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ti9Var, ksDrawAd, str, context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        if (c != 3) {
-                            if (c != 4) {
-                                return null;
-                            }
-                            return new fj9(context.getApplicationContext(), pid.pid);
-                        }
-                        return new hj9(context.getApplicationContext(), pid.pid);
-                    }
-                    return new ej9(context.getApplicationContext(), pid.pid);
-                }
-                return new ij9(context.getApplicationContext(), pid.pid);
-            }
-            return new gj9(context.getApplicationContext(), pid.pid);
         }
-        return (yi9) invokeLL.objValue;
+        this.d = ti9Var;
+        this.c = context;
+        this.b = new ti9.b(ti9Var, ksDrawAd, str);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public View createExpressView(KsDrawAd ksDrawAd) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ksDrawAd)) == null) ? ksDrawAd.getDrawView(this.c) : (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, KsDrawAd ksDrawAd, BaseNativeAd2<KsDrawAd, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, ksDrawAd, baseNativeAd2, funAdInteractionListener}) == null) {
+        }
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, KsDrawAd ksDrawAd, BaseNativeAd2<KsDrawAd, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, ksDrawAd, baseNativeAd2, funAdInteractionListener}) == null) {
+            this.d.onShowStart(this.a);
+            this.a = true;
+            ti9.b bVar = this.b;
+            bVar.e = funAdInteractionListener;
+            ksDrawAd.setAdInteractionListener(bVar);
+            expressInflater.inflate();
+        }
     }
 }

@@ -1,128 +1,74 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class jq2 implements Cloneable {
+public class jq2 extends hq2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
 
-    public jq2() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755580090, "Lcom/repackage/jq2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755580090, "Lcom/repackage/jq2;");
+                return;
+            }
+        }
+        boolean z = eh1.a;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jq2(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    public static String b(jq2 jq2Var) {
-        InterceptResult invokeL;
+    private void update(cq2 cq2Var, eq2 eq2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jq2Var)) == null) {
-            if (jq2Var == null || TextUtils.isEmpty(jq2Var.a)) {
-                return null;
-            }
-            if (TextUtils.isEmpty(jq2Var.b)) {
-                return jq2Var.a;
-            }
-            return jq2Var.a + "?" + jq2Var.b;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(jq2 jq2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jq2Var)) == null) {
-            if (jq2Var == null || TextUtils.isEmpty(jq2Var.d)) {
-                return null;
-            }
-            if (TextUtils.isEmpty(jq2Var.b)) {
-                return jq2Var.d;
-            }
-            return jq2Var.d + "?" + jq2Var.b;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static jq2 d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            jq2 jq2Var = new jq2();
-            jq2Var.a = be3.f(str);
-            jq2Var.b = be3.o(str);
-            jq2Var.c = str2;
-            jq2Var.d = b43.b(jq2Var.a);
-            return jq2Var;
-        }
-        return (jq2) invokeLL.objValue;
-    }
-
-    @Nullable
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b(this) : (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public Object clone() throws CloneNotSupportedException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? super.clone() : invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || interceptable.invokeLLLL(65538, this, cq2Var, eq2Var, unitedSchemeEntity, callbackHandler) == null) {
+            cq2Var.h(eq2Var);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    @Override // com.repackage.hq2
+    public boolean a(cq2 cq2Var, eq2 eq2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u03 u03Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "SwanAppPageParam{mPage='" + this.a + "', mParams='" + this.b + "', mBaseUrl='" + this.c + "', mRoutePage='" + this.d + "', mRoutType='" + this.e + "', mRouteId='" + this.f + "'}";
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{cq2Var, eq2Var, context, unitedSchemeEntity, callbackHandler, u03Var})) == null) {
+            ux1.b("vrvideo", "update, video id:" + eq2Var.j + " slave id: " + eq2Var.c);
+            update(cq2Var, eq2Var, unitedSchemeEntity, callbackHandler);
+            return true;
         }
-        return (String) invokeV.objValue;
+        return invokeCommon.booleanValue;
     }
 }

@@ -1,45 +1,81 @@
 package com.repackage;
 
-import android.database.ContentObserver;
-import android.os.Handler;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class lg1 extends ContentObserver {
+public class lg1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ng1 a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lg1(ng1 ng1Var) {
-        super(null);
+    public static byte[] a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ng1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Handler) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
+            byte[] bArr2 = new byte[256];
+            for (int i = 0; i < 256; i++) {
+                bArr2[i] = (byte) i;
             }
+            if (bArr == null || bArr.length == 0) {
+                return null;
+            }
+            int i2 = 0;
+            int i3 = 0;
+            for (int i4 = 0; i4 < 256; i4++) {
+                i3 = ((bArr[i2] & 255) + (bArr2[i4] & 255) + i3) & 255;
+                byte b = bArr2[i4];
+                bArr2[i4] = bArr2[i3];
+                bArr2[i3] = b;
+                i2 = (i2 + 1) % bArr.length;
+            }
+            return bArr2;
         }
-        this.a = ng1Var;
+        return (byte[]) invokeL.objValue;
     }
 
-    @Override // android.database.ContentObserver
-    public void onChange(boolean z) {
-        ng1 ng1Var;
+    public static byte[] b(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (ng1Var = this.a) == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, bArr2)) == null) {
+            if (bArr == null || bArr2 == null) {
+                return null;
+            }
+            return d(bArr, bArr2);
         }
-        ng1Var.b = ng1Var.a.a(0, null);
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static byte[] c(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, bArr2)) == null) {
+            if (bArr == null || bArr2 == null) {
+                return null;
+            }
+            return d(bArr, bArr2);
+        }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static byte[] d(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bArr, bArr2)) == null) {
+            byte[] a = a(bArr2);
+            byte[] bArr3 = new byte[bArr.length];
+            int i = 0;
+            int i2 = 0;
+            for (int i3 = 0; i3 < bArr.length; i3++) {
+                i = (i + 1) & 255;
+                i2 = ((a[i] & 255) + i2) & 255;
+                byte b = a[i];
+                a[i] = a[i2];
+                a[i2] = b;
+                bArr3[i3] = (byte) (a[((a[i] & 255) + (a[i2] & 255)) & 255] ^ bArr[i3]);
+                bArr3[i3] = (byte) (bArr3[i3] ^ 42);
+            }
+            return bArr3;
+        }
+        return (byte[]) invokeLL.objValue;
     }
 }

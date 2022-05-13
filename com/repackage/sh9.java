@@ -5,75 +5,94 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.internal.api.PidLoader;
+import com.fun.ad.sdk.internal.api.PidLoaderCreator;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.qq.e.ads.nativ.NativeUnifiedADDataAdapter;
-import java.lang.reflect.Field;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class sh9 extends BaseAdRipper {
+public class sh9 implements PidLoaderCreator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sh9(Ssp.Pid pid) {
-        super(pid);
+    public sh9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
-    public RippedAd getRippedAdInternal(Object obj) {
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    @Override // com.fun.ad.sdk.internal.api.PidLoaderCreator
+    public PidLoader create(Ssp.Pid pid) {
         InterceptResult invokeL;
-        Field declaredField;
+        char c;
+        PidLoader mi9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
+            String str = pid.type;
+            str.hashCode();
+            switch (str.hashCode()) {
+                case -1900686778:
+                    if (str.equals(FunAdType.JY_NATIVE)) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -1743934314:
+                    if (str.equals(FunAdType.JY_SPLASH)) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -1659486968:
+                    if (str.equals(FunAdType.JY_DRAW_VIDEO)) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -39027267:
+                    if (str.equals(FunAdType.JY_REWARD_VIDEO)) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1872382491:
+                    if (str.equals(FunAdType.JY_INTERSTITIAL)) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
             }
-            try {
-                if (obj instanceof NativeUnifiedADDataAdapter) {
-                    NativeUnifiedADDataAdapter nativeUnifiedADDataAdapter = (NativeUnifiedADDataAdapter) obj;
-                    Field declaredField2 = nativeUnifiedADDataAdapter.getClass().getDeclaredField("a");
-                    declaredField2.setAccessible(true);
-                    Object obj2 = declaredField2.get(nativeUnifiedADDataAdapter);
-                    if (obj2 == null) {
-                        return null;
-                    }
-                    Field declaredField3 = obj2.getClass().getDeclaredField("d");
-                    declaredField3.setAccessible(true);
-                    Object obj3 = declaredField3.get(obj2);
-                    if (obj3 == null || (declaredField = obj3.getClass().getSuperclass().getDeclaredField("L")) == null) {
-                        return null;
-                    }
-                    declaredField.setAccessible(true);
-                    Object obj4 = declaredField.get(obj3);
-                    if (obj4 instanceof JSONObject) {
-                        return xh9.a((JSONObject) obj4);
-                    }
-                    return null;
-                }
+            if (c == 0) {
+                mi9Var = new mi9(pid);
+            } else if (c == 1) {
+                mi9Var = new pi9(pid);
+            } else if (c == 2) {
+                mi9Var = new ji9(pid);
+            } else if (c == 3) {
+                mi9Var = new oi9(pid);
+            } else if (c != 4) {
                 return null;
-            } catch (Exception e) {
-                LogPrinter.e(e);
-                return null;
+            } else {
+                mi9Var = new li9(pid);
             }
+            return mi9Var;
         }
-        return (RippedAd) invokeL.objValue;
+        return (PidLoader) invokeL.objValue;
     }
 }

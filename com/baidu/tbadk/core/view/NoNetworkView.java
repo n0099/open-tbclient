@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.mi;
+import com.repackage.ki;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
@@ -137,7 +137,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
     public static void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            if (mi.z()) {
+            if (ki.z()) {
                 setIsHasNetwork(true);
             } else {
                 setIsHasNetwork(false);
@@ -176,15 +176,15 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet) == null) {
             this.b = context;
             LayoutInflater.from(context).inflate(getLayout(), this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091592);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0915a6);
             setOnClickListener(this);
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040313});
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040317});
                 this.c = obtainStyledAttributes.getBoolean(0, false);
                 obtainStyledAttributes.recycle();
             }
             try {
-                if (mi.z()) {
+                if (ki.z()) {
                     update(false);
                     setIsHasNetwork(true);
                     return;
@@ -219,7 +219,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
     public int getLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.layout.obfuscated_res_0x7f0d061d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.layout.obfuscated_res_0x7f0d0611 : invokeV.intValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -268,7 +268,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                     return;
                 }
                 this.d = 1;
-                this.a.setText(R.string.obfuscated_res_0x7f0f0c4e);
+                this.a.setText(R.string.obfuscated_res_0x7f0f0c65);
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation.setFillAfter(true);
                 alphaAnimation.setDuration(500L);
@@ -282,7 +282,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                     return;
                 }
                 this.d = 2;
-                this.a.setText(R.string.obfuscated_res_0x7f0f0cb3);
+                this.a.setText(R.string.obfuscated_res_0x7f0f0cce);
                 AlphaAnimation alphaAnimation2 = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation2.setFillAfter(true);
                 alphaAnimation2.setDuration(500L);

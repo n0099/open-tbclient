@@ -1,21 +1,24 @@
 package com.repackage;
 
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.qq.e.comm.constants.Constants;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class wt9 implements Runnable {
+public class wt9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ au9 a;
+    public int a;
+    public String b;
+    public JSONObject c;
 
-    public wt9(au9 au9Var) {
+    public wt9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {au9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -25,16 +28,25 @@ public class wt9 implements Runnable {
                 return;
             }
         }
-        this.a = au9Var;
+        this.a = 101;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        eu9 eu9Var;
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (eu9Var = this.a.g) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            JSONObject jSONObject = new JSONObject(str);
+            this.a = jSONObject.optInt(Constants.KEYS.RET);
+            this.b = jSONObject.optString("msg");
+            String optString = jSONObject.optString("data");
+            try {
+                optString = ro9.x(optString);
+            } catch (Exception unused) {
+            }
+            if (TextUtils.isEmpty(optString)) {
+                this.c = new JSONObject();
+            } else {
+                this.c = new JSONObject(optString);
+            }
         }
-        eu9Var.a();
     }
 }

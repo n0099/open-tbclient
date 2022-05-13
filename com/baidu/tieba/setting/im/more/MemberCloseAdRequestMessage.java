@@ -8,10 +8,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rc5;
+import com.repackage.jd5;
 import tbclient.CloseAd.CloseAdReqIdl;
 import tbclient.CloseAd.DataReq;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class MemberCloseAdRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +46,7 @@ public class MemberCloseAdRequestMessage extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.vip_close = Integer.valueOf(this.mVipClose);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                rc5.a(builder, true);
+                jd5.a(builder, true);
             }
             CloseAdReqIdl.Builder builder2 = new CloseAdReqIdl.Builder();
             builder2.data = builder.build(false);

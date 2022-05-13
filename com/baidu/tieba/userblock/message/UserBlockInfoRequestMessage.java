@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rc5;
+import com.repackage.jd5;
 import tbclient.GetUserBlackInfo.DataReq;
 import tbclient.GetUserBlackInfo.GetUserBlackInfoReqIdl;
 /* loaded from: classes4.dex */
@@ -45,7 +45,7 @@ public class UserBlockInfoRequestMessage extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.black_uid = Long.valueOf(this.mBlockUserId);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                rc5.a(builder, true);
+                jd5.a(builder, true);
             }
             GetUserBlackInfoReqIdl.Builder builder2 = new GetUserBlackInfoReqIdl.Builder();
             builder2.data = builder.build(false);

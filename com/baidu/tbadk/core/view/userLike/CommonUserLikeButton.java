@@ -14,10 +14,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mv4;
-import com.repackage.oi;
+import com.repackage.mi;
+import com.repackage.zv4;
 /* loaded from: classes3.dex */
-public class CommonUserLikeButton extends TextView implements mv4 {
+public class CommonUserLikeButton extends TextView implements zv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
@@ -50,14 +50,14 @@ public class CommonUserLikeButton extends TextView implements mv4 {
                 return;
             }
         }
-        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f6c);
-        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f029c);
+        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f87);
+        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a2);
         this.c = false;
         this.f = false;
         f();
     }
 
-    @Override // com.repackage.mv4
+    @Override // com.repackage.zv4
     public void a(View view2) {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
@@ -67,7 +67,7 @@ public class CommonUserLikeButton extends TextView implements mv4 {
         onClickListener.onClick(view2);
     }
 
-    @Override // com.repackage.mv4
+    @Override // com.repackage.zv4
     public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
@@ -75,7 +75,7 @@ public class CommonUserLikeButton extends TextView implements mv4 {
         }
     }
 
-    @Override // com.repackage.mv4
+    @Override // com.repackage.zv4
     public void c(boolean z, int i, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
@@ -83,7 +83,7 @@ public class CommonUserLikeButton extends TextView implements mv4 {
         }
     }
 
-    @Override // com.repackage.mv4
+    @Override // com.repackage.zv4
     public void d(int i) {
         a aVar;
         Interceptable interceptable = $ic;
@@ -105,7 +105,7 @@ public class CommonUserLikeButton extends TextView implements mv4 {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             setSingleLine();
             setIncludeFontPadding(false);
-            setTextSize(0, oi.f(getContext(), R.dimen.obfuscated_res_0x7f0701f9));
+            setTextSize(0, mi.f(getContext(), R.dimen.obfuscated_res_0x7f0701f9));
             setGravity(17);
         }
     }
@@ -186,8 +186,8 @@ public class CommonUserLikeButton extends TextView implements mv4 {
                 return;
             }
         }
-        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f6c);
-        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f029c);
+        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f87);
+        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a2);
         this.c = false;
         this.f = false;
         f();
@@ -212,8 +212,8 @@ public class CommonUserLikeButton extends TextView implements mv4 {
                 return;
             }
         }
-        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f6c);
-        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f029c);
+        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f87);
+        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a2);
         this.c = false;
         this.f = false;
         f();

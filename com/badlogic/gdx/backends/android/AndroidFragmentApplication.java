@@ -97,31 +97,31 @@ public class AndroidFragmentApplication extends Fragment implements d2 {
         this.m = 2;
     }
 
-    public a1 B0() {
+    public a1 C0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (a1) invokeV.objValue;
     }
 
-    public Files C0() {
+    public Files D0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (Files) invokeV.objValue;
     }
 
-    public Net D0() {
+    public Net E0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (Net) invokeV.objValue;
     }
 
-    public int E0() {
+    public int F0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Build.VERSION.SDK_INT : invokeV.intValue;
     }
 
-    public final boolean F0() {
+    public final boolean G0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -296,7 +296,7 @@ public class AndroidFragmentApplication extends Fragment implements d2 {
             this.a.u(true);
             this.a.r();
             this.b.onPause();
-            if (isRemoving() || F0() || getActivity().isFinishing()) {
+            if (isRemoving() || G0() || getActivity().isFinishing()) {
                 this.a.h();
                 this.a.j();
             }
@@ -313,10 +313,10 @@ public class AndroidFragmentApplication extends Fragment implements d2 {
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
             b1.a = this;
             getInput();
-            b1.c = B0();
-            b1.d = C0();
+            b1.c = C0();
+            b1.d = D0();
             b1.b = getGraphics();
-            D0();
+            E0();
             this.b.onResume();
             n2 n2Var = this.a;
             if (n2Var != null) {
@@ -346,7 +346,7 @@ public class AndroidFragmentApplication extends Fragment implements d2 {
     @TargetApi(19)
     public void useImmersiveMode(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048604, this, z) == null) && z && E0() >= 19) {
+        if ((interceptable == null || interceptable.invokeZ(1048604, this, z) == null) && z && F0() >= 19) {
             this.a.m().setSystemUiVisibility(5894);
         }
     }

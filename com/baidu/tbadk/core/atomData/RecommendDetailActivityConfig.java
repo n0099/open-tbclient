@@ -11,6 +11,7 @@ public class RecommendDetailActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String USER_ID = "user_id";
     public static final String USER_NAME = "user_name";
+    public static final String USER_PORTRAIT = "user_portrait";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -33,5 +34,28 @@ public class RecommendDetailActivityConfig extends IntentConfig {
         }
         getIntent().putExtra("user_name", str);
         getIntent().putExtra("user_id", j);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public RecommendDetailActivityConfig(Context context, String str, long j, String str2) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, Long.valueOf(j), str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        getIntent().putExtra("user_name", str);
+        getIntent().putExtra("user_id", j);
+        getIntent().putExtra(USER_PORTRAIT, str2);
     }
 }

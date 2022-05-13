@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
+import com.repackage.so;
 import com.repackage.vo;
-import com.repackage.xo;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class PreLoadVideoHelper {
@@ -30,12 +30,12 @@ public class PreLoadVideoHelper {
         }
     }
 
-    public static void load(xo xoVar, BdUniqueId bdUniqueId, IVideoNeedPreload iVideoNeedPreload) {
-        vo adapter;
+    public static void load(vo voVar, BdUniqueId bdUniqueId, IVideoNeedPreload iVideoNeedPreload) {
+        so adapter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, xoVar, bdUniqueId, iVideoNeedPreload) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65537, null, voVar, bdUniqueId, iVideoNeedPreload) == null) {
             VideoPreLoadLog.log("video preload start ");
-            if (xoVar == null) {
+            if (voVar == null) {
                 return;
             }
             if (iVideoNeedPreload != null && !iVideoNeedPreload.videoNeedPreload()) {
@@ -43,9 +43,9 @@ public class PreLoadVideoHelper {
                 return;
             }
             VideoPreLoadLog.log("video preload switch  " + PreLoadVideoSwitchManager.getInstance().isOpen() + " num " + PreLoadVideoSwitchManager.getInstance().getMaxPreLoadNum() + " size " + PreLoadVideoSwitchManager.getInstance().getSize());
-            if (PreLoadVideoSwitchManager.getInstance().isOpen() && (adapter = xoVar.getAdapter()) != null) {
-                boolean z = xoVar.getFirstVisiblePosition() == 0;
-                int lastVisiblePosition = xoVar.getLastVisiblePosition();
+            if (PreLoadVideoSwitchManager.getInstance().isOpen() && (adapter = voVar.getAdapter()) != null) {
+                boolean z = voVar.getFirstVisiblePosition() == 0;
+                int lastVisiblePosition = voVar.getLastVisiblePosition();
                 ArrayList arrayList = new ArrayList();
                 VideoPreLoadLog.log("video preload  end=  " + lastVisiblePosition + GlideException.IndentedAppendable.INDENT + adapter.getCount());
                 if (lastVisiblePosition < 0 || adapter.getCount() <= 0) {

@@ -1,27 +1,51 @@
 package com.repackage;
 
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class t44 {
+public class t44 extends s44 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile s44 a;
     public transient /* synthetic */ FieldHolder $fh;
+    @V8JavascriptField
+    public String errCode;
+    @V8JavascriptField
+    public String errMsg;
 
-    public static synchronized s44 a() {
-        InterceptResult invokeV;
-        s44 s44Var;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t44(String str, String str2, String str3) {
+        super(str);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (t44.class) {
-                if (a == null) {
-                    a = new s44();
-                }
-                s44Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return s44Var;
         }
-        return (s44) invokeV.objValue;
+        this.errCode = str2;
+        this.errMsg = str3;
+    }
+
+    @Override // com.repackage.s44
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "GameWebViewErrorResult{url=" + this.url + ", errMsg='" + this.errMsg + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

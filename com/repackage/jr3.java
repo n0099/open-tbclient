@@ -1,76 +1,51 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class jr3 extends os3 {
+public class jr3 implements mr3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public gr3 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755579098, "Lcom/repackage/jr3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755579098, "Lcom/repackage/jr3;");
-                return;
-            }
-        }
-        boolean z = tg1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jr3() {
-        super("getDownloadConfig");
+    public jr3(gr3 gr3Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {gr3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = gr3Var;
     }
 
-    @Override // com.repackage.os3
-    public js1 a(JSONObject jSONObject, nd2 nd2Var) {
-        InterceptResult invokeLL;
+    private void setResult(nr3 nr3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, nd2Var)) == null) {
-            if (jSONObject == null) {
-                nd2Var.onFail(202, "params may be error");
-                return null;
+        if (interceptable == null || interceptable.invokeL(65537, this, nr3Var) == null) {
+            this.a.d.clear();
+            if (nr3Var != null) {
+                this.a.d.putString("functionType", nr3Var.a());
+                this.a.d.putString("resultData", nr3Var.b());
+                this.a.d.putInt("resultStatus", nr3Var.c());
             }
-            if (jSONObject.has("wifiResumeDownloadFlag")) {
-                sr3.a().c(jSONObject.optBoolean("wifiResumeDownloadFlag", false));
-            }
-            if (jSONObject.has("install_guide_switch")) {
-                xr3.r(jSONObject.optBoolean("install_guide_switch"));
-            }
-            if (jSONObject.has("install_guide_count")) {
-                xr3.q(jSONObject.optInt("install_guide_count"));
-            }
-            if (jSONObject.has("get_install_result")) {
-                xr3.s(jSONObject.optBoolean("get_install_result"));
-            }
-            nd2Var.a(null);
-            return null;
+            this.a.c();
         }
-        return (js1) invokeLL.objValue;
+    }
+
+    @Override // com.repackage.mr3
+    public void a(nr3 nr3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, nr3Var) == null) {
+            setResult(nr3Var);
+        }
     }
 }

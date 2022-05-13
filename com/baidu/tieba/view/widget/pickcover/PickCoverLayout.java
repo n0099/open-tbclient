@@ -26,9 +26,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
-import com.repackage.oi;
-import com.repackage.pg;
-import com.repackage.vr4;
+import com.repackage.gs4;
+import com.repackage.mi;
+import com.repackage.ng;
 /* loaded from: classes4.dex */
 public class PickCoverLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -424,7 +424,7 @@ public class PickCoverLayout extends FrameLayout {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            double k = oi.k(getContext()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2);
+            double k = mi.k(getContext()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2);
             this.k = UtilHelper.getDimenPixelSize(R.dimen.tbds112);
             this.l = UtilHelper.getDimenPixelSize(R.dimen.tbds144);
             int i2 = (int) (k / this.k);
@@ -436,20 +436,20 @@ public class PickCoverLayout extends FrameLayout {
             ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
             layoutParams.width = (this.k * this.j) - (UtilHelper.getDimenPixelSize(R.dimen.L_X04) * 2);
             this.a.setLayoutParams(layoutParams);
-            pg.a().postDelayed(new f(this), 50L);
+            ng.a().postDelayed(new f(this), 50L);
         }
     }
 
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0850, (ViewGroup) null);
-            this.a = (RecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f092248);
-            this.e = (SlideBarView) inflate.findViewById(R.id.obfuscated_res_0x7f092246);
-            this.g = inflate.findViewById(R.id.obfuscated_res_0x7f092245);
-            EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f0905eb);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0847, (ViewGroup) null);
+            this.a = (RecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f0922a0);
+            this.e = (SlideBarView) inflate.findViewById(R.id.obfuscated_res_0x7f09229e);
+            this.g = inflate.findViewById(R.id.obfuscated_res_0x7f09229d);
+            EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f0905e5);
             this.h = eMTextView;
-            vr4.d(eMTextView).y(R.array.S_O_X001);
+            gs4.d(eMTextView).y(R.array.S_O_X001);
             addView(inflate);
             CustomLinearLayoutManager customLinearLayoutManager = new CustomLinearLayoutManager(getContext(), 0, false);
             this.c = customLinearLayoutManager;
@@ -601,7 +601,7 @@ public class PickCoverLayout extends FrameLayout {
     public void setSlideBarMask(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
-            this.e.setPickDrawable(z ? R.drawable.obfuscated_res_0x7f080f7f : R.drawable.obfuscated_res_0x7f080f7e);
+            this.e.setPickDrawable(z ? R.drawable.obfuscated_res_0x7f080f95 : R.drawable.obfuscated_res_0x7f080f94);
         }
     }
 

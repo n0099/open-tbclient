@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ds;
-import com.repackage.ws;
+import com.repackage.fs;
+import com.repackage.mr;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
@@ -20,7 +20,7 @@ import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 2}, d1 = {"\u0000(\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001aH\u00122\u00120\u0012\u0013\u0012\u00110\u0002¢\u0006\f\b\u0003\u0012\b\b\u0004\u0012\u0004\b\b(\u0005\u0012\u0004\u0012\u00020\u00060\u0001j\u0011`\u0007¢\u0006\f\b\u0003\u0012\b\b\u0004\u0012\u0004\b\b(\b\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u00060\u00010\u000124\u0010\t\u001a0\u0012\u0013\u0012\u00110\u0002¢\u0006\f\b\u0003\u0012\b\b\u0004\u0012\u0004\b\b(\u0005\u0012\u0004\u0012\u00020\u00060\u0001j\u0011`\u0007¢\u0006\f\b\u0003\u0012\b\b\u0004\u0012\u0004\b\b(\b2\u000e\u0010\n\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\f0\u000bH\n¢\u0006\u0002\b\r"}, d2 = {"<anonymous>", "Lkotlin/Function1;", "Lcom/baidu/bdtask/framework/redux/Action;", "Lkotlin/ParameterName;", "name", "action", "", "Lcom/baidu/bdtask/framework/redux/DispatchFunction;", "dispatch", "<anonymous parameter 0>", "getState", "Lkotlin/Function0;", "Lcom/baidu/bdtask/ctrl/BDPTaskState;", "invoke"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
 /* loaded from: classes.dex */
-public final class TaskDuplicatedMiddleware$taskDuplicatedMiddleWare$1 extends Lambda implements Function2<Function1<? super ws, ? extends Unit>, Function0<? extends com.baidu.bdtask.ctrl.b>, Function1<? super Function1<? super ws, ? extends Unit>, ? extends Function1<? super ws, ? extends Unit>>> {
+public final class TaskDuplicatedMiddleware$taskDuplicatedMiddleWare$1 extends Lambda implements Function2<Function1<? super fs, ? extends Unit>, Function0<? extends com.baidu.bdtask.ctrl.b>, Function1<? super Function1<? super fs, ? extends Unit>, ? extends Function1<? super fs, ? extends Unit>>> {
     public static /* synthetic */ Interceptable $ic;
     public static final TaskDuplicatedMiddleware$taskDuplicatedMiddleWare$1 INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public final class TaskDuplicatedMiddleware$taskDuplicatedMiddleWare$1 extends L
     @Metadata(bv = {1, 0, 2}, d1 = {"\u0000 \n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u000e\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u00030\u000124\u0010\u0004\u001a0\u0012\u0013\u0012\u00110\u0002¢\u0006\f\b\u0005\u0012\b\b\u0006\u0012\u0004\b\b(\u0007\u0012\u0004\u0012\u00020\u00030\u0001j\u0011`\b¢\u0006\f\b\u0005\u0012\b\b\u0006\u0012\u0004\b\b(\tH\n¢\u0006\u0002\b\n"}, d2 = {"<anonymous>", "Lkotlin/Function1;", "Lcom/baidu/bdtask/framework/redux/Action;", "", "next", "Lkotlin/ParameterName;", "name", "action", "Lcom/baidu/bdtask/framework/redux/DispatchFunction;", "dispatch", "invoke"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
     /* renamed from: com.baidu.bdtask.ctrl.actions.duplicate.duplicate.TaskDuplicatedMiddleware$taskDuplicatedMiddleWare$1$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static final class AnonymousClass1 extends Lambda implements Function1<Function1<? super ws, ? extends Unit>, Function1<? super ws, ? extends Unit>> {
+    public static final class AnonymousClass1 extends Lambda implements Function1<Function1<? super fs, ? extends Unit>, Function1<? super fs, ? extends Unit>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Function0 $getState;
@@ -36,7 +36,7 @@ public final class TaskDuplicatedMiddleware$taskDuplicatedMiddleWare$1 extends L
         @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0003H\n¢\u0006\u0002\b\u0004"}, d2 = {"<anonymous>", "", "action", "Lcom/baidu/bdtask/framework/redux/Action;", "invoke"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
         /* renamed from: com.baidu.bdtask.ctrl.actions.duplicate.duplicate.TaskDuplicatedMiddleware$taskDuplicatedMiddleWare$1$1$1  reason: invalid class name and collision with other inner class name */
         /* loaded from: classes.dex */
-        public static final class C00651 extends Lambda implements Function1<ws, Unit> {
+        public static final class C00651 extends Lambda implements Function1<fs, Unit> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Function1 $next;
@@ -67,37 +67,37 @@ public final class TaskDuplicatedMiddleware$taskDuplicatedMiddleWare$1 extends L
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
             /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
             @Override // kotlin.jvm.functions.Function1
-            public /* bridge */ /* synthetic */ Unit invoke(ws wsVar) {
-                invoke2(wsVar);
+            public /* bridge */ /* synthetic */ Unit invoke(fs fsVar) {
+                invoke2(fsVar);
                 return Unit.INSTANCE;
             }
 
             /* renamed from: invoke  reason: avoid collision after fix types in other method */
-            public final void invoke2(ws wsVar) {
+            public final void invoke2(fs fsVar) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wsVar) == null) {
-                    if (((ds) (!(wsVar instanceof ds) ? null : wsVar)) != null) {
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fsVar) == null) {
+                    if (((mr) (!(fsVar instanceof mr) ? null : fsVar)) != null) {
                         com.baidu.bdtask.ctrl.b bVar = (com.baidu.bdtask.ctrl.b) this.this$0.$getState.invoke();
                         if (bVar != null) {
-                            ds dsVar = (ds) wsVar;
-                            SubTaskState k = bVar.k(dsVar.f());
+                            mr mrVar = (mr) fsVar;
+                            SubTaskState k = bVar.k(mrVar.f());
                             if (k != null) {
                                 if (!k.getTaskStatus().isEnable()) {
                                     DebugTrace.d(DebugTrace.a, "will be in silence but task is not enable", "state", null, 4, null);
                                     Function1 function1 = this.$next;
-                                    dsVar.b(305);
-                                    dsVar.c("task is not enable , because of unregistered or keep in silence");
-                                    function1.invoke(wsVar);
+                                    mrVar.b(305);
+                                    mrVar.c("task is not enable , because of unregistered or keep in silence");
+                                    function1.invoke(fsVar);
                                     return;
                                 }
-                                this.$next.invoke(wsVar);
+                                this.$next.invoke(fsVar);
                                 return;
                             }
                             return;
                         }
                         return;
                     }
-                    Unit unit = (Unit) this.$next.invoke(wsVar);
+                    Unit unit = (Unit) this.$next.invoke(fsVar);
                 }
             }
         }
@@ -126,12 +126,12 @@ public final class TaskDuplicatedMiddleware$taskDuplicatedMiddleWare$1 extends L
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
         @Override // kotlin.jvm.functions.Function1
-        public /* bridge */ /* synthetic */ Function1<? super ws, ? extends Unit> invoke(Function1<? super ws, ? extends Unit> function1) {
-            return invoke2((Function1<? super ws, Unit>) function1);
+        public /* bridge */ /* synthetic */ Function1<? super fs, ? extends Unit> invoke(Function1<? super fs, ? extends Unit> function1) {
+            return invoke2((Function1<? super fs, Unit>) function1);
         }
 
         /* renamed from: invoke  reason: avoid collision after fix types in other method */
-        public final Function1<ws, Unit> invoke2(Function1<? super ws, Unit> function1) {
+        public final Function1<fs, Unit> invoke2(Function1<? super fs, Unit> function1) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, function1)) == null) ? new C00651(this, function1) : (Function1) invokeL.objValue;
@@ -175,12 +175,12 @@ public final class TaskDuplicatedMiddleware$taskDuplicatedMiddleWare$1 extends L
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function2
-    public /* bridge */ /* synthetic */ Function1<? super Function1<? super ws, ? extends Unit>, ? extends Function1<? super ws, ? extends Unit>> invoke(Function1<? super ws, ? extends Unit> function1, Function0<? extends com.baidu.bdtask.ctrl.b> function0) {
-        return invoke2((Function1<? super ws, Unit>) function1, (Function0<com.baidu.bdtask.ctrl.b>) function0);
+    public /* bridge */ /* synthetic */ Function1<? super Function1<? super fs, ? extends Unit>, ? extends Function1<? super fs, ? extends Unit>> invoke(Function1<? super fs, ? extends Unit> function1, Function0<? extends com.baidu.bdtask.ctrl.b> function0) {
+        return invoke2((Function1<? super fs, Unit>) function1, (Function0<com.baidu.bdtask.ctrl.b>) function0);
     }
 
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
-    public final Function1<Function1<? super ws, Unit>, Function1<ws, Unit>> invoke2(Function1<? super ws, Unit> function1, Function0<com.baidu.bdtask.ctrl.b> function0) {
+    public final Function1<Function1<? super fs, Unit>, Function1<fs, Unit>> invoke2(Function1<? super fs, Unit> function1, Function0<com.baidu.bdtask.ctrl.b> function0) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, function1, function0)) == null) ? new AnonymousClass1(function0) : (Function1) invokeLL.objValue;

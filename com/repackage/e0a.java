@@ -1,86 +1,103 @@
 package com.repackage;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bz9;
-import com.repackage.ez9;
-import java.util.concurrent.TimeUnit;
+import java.security.AccessController;
+import java.security.PrivilegedAction;
 /* loaded from: classes5.dex */
-public final class e0a implements bz9.a<Long> {
+public final class e0a {
     public static /* synthetic */ Interceptable $ic;
+    public static final int a;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
-    public final TimeUnit b;
-    public final ez9 c;
 
     /* loaded from: classes5.dex */
-    public class a implements oz9 {
+    public static class a implements PrivilegedAction<ClassLoader> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hz9 a;
 
-        public a(e0a e0aVar, hz9 hz9Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e0aVar, hz9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = hz9Var;
         }
 
-        @Override // com.repackage.oz9
-        public void call() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.security.PrivilegedAction
+        /* renamed from: a */
+        public ClassLoader run() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.a.onNext(0L);
-                    this.a.onCompleted();
-                } catch (Throwable th) {
-                    nz9.f(th, this.a);
-                }
-            }
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ClassLoader.getSystemClassLoader() : (ClassLoader) invokeV.objValue;
         }
     }
 
-    public e0a(long j, TimeUnit timeUnit, ez9 ez9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), timeUnit, ez9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755790053, "Lcom/repackage/e0a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755790053, "Lcom/repackage/e0a;");
                 return;
             }
         }
-        this.a = j;
-        this.b = timeUnit;
-        this.c = ez9Var;
+        int d = d();
+        a = d;
+        b = d != 0;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.bz9.a, com.repackage.pz9
-    public void call(hz9<? super Long> hz9Var) {
+    public static int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hz9Var) == null) {
-            ez9.a createWorker = this.c.createWorker();
-            hz9Var.b(createWorker);
-            createWorker.c(new a(this, hz9Var), this.a, this.b);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a : invokeV.intValue;
+    }
+
+    public static ClassLoader b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (System.getSecurityManager() == null) {
+                return ClassLoader.getSystemClassLoader();
+            }
+            return (ClassLoader) AccessController.doPrivileged(new a());
         }
+        return (ClassLoader) invokeV.objValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b : invokeV.booleanValue;
+    }
+
+    public static int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            try {
+                return ((Integer) Class.forName("android.os.Build$VERSION", true, b()).getField("SDK_INT").get(null)).intValue();
+            } catch (Exception unused) {
+                return 0;
+            }
+        }
+        return invokeV.intValue;
     }
 }

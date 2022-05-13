@@ -1,18 +1,16 @@
 package com.repackage;
 
+import android.os.Bundle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.ShortUserInfo;
 /* loaded from: classes6.dex */
 public class h76 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ShortUserInfo> a;
-    public String b;
-    public String c;
+    public int a;
+    public Bundle b;
 
     public h76() {
         Interceptable interceptable = $ic;

@@ -216,28 +216,28 @@ public class d38 extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048586, this, i, view2, viewGroup)) == null) {
             try {
                 if (view2 == null) {
-                    view2 = LayoutInflater.from(this.a.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d024c, (ViewGroup) null);
+                    view2 = LayoutInflater.from(this.a.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d0245, (ViewGroup) null);
                     bVar = new b(this, null);
-                    BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a26);
+                    BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a1b);
                     bVar.a = barImageView;
                     barImageView.setGifIconSupport(false);
-                    bVar.a.setRadius(oi.f(this.a, R.dimen.tbds10));
+                    bVar.a.setRadius(mi.f(this.a, R.dimen.tbds10));
                     bVar.a.setConrers(15);
                     bVar.a.setPlaceHolder(2);
-                    bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0914e5);
+                    bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091504);
                     bVar.c = new StringBuffer(10);
-                    bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090771);
-                    bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090772);
-                    bVar.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090945);
-                    bVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090948);
-                    bVar.j = (Button) view2.findViewById(R.id.obfuscated_res_0x7f090f62);
-                    bVar.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090773);
-                    bVar.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f46);
-                    bVar.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fa3);
-                    ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0907df);
+                    bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09076e);
+                    bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09076f);
+                    bVar.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09093b);
+                    bVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090940);
+                    bVar.j = (Button) view2.findViewById(R.id.obfuscated_res_0x7f090f6e);
+                    bVar.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090770);
+                    bVar.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f53);
+                    bVar.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fb1);
+                    ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0907d6);
                     bVar.l = imageView;
                     imageView.setVisibility(0);
-                    bVar.m = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f9a);
+                    bVar.m = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fa8);
                     view2.setTag(bVar);
                 } else {
                     bVar = (b) view2.getTag();
@@ -282,11 +282,11 @@ public class d38 extends BaseAdapter {
                     bVar.a.K(image_url, 10, false);
                     bVar.c.delete(0, bVar.c.length());
                     bVar.c.append(forumData.getName());
-                    bVar.c.append(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0643));
+                    bVar.c.append(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f064b));
                     bVar.b.setText(bVar.c);
                     if (this.g) {
                         SkinManager.setImageResource(bVar.f, BitmapHelper.getSmallGradeResourceIdNew(forumData.getUser_level()));
-                        bVar.i.setText(String.format(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1165), Integer.valueOf(forumData.getCurScore()), Integer.valueOf(forumData.getLevelupScore())));
+                        bVar.i.setText(String.format(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1182), Integer.valueOf(forumData.getCurScore()), Integer.valueOf(forumData.getLevelupScore())));
                         bVar.j.setOnClickListener(this.e);
                         bVar.j.setTag(Integer.valueOf(i));
                         if (i < this.b.k()) {

@@ -27,7 +27,7 @@ public class e58 extends BaseCardInfo {
     public String d;
     public String e;
     public int f;
-    public List<uo> g;
+    public List<ro> g;
 
     static {
         InterceptResult invokeClinit;
@@ -93,7 +93,7 @@ public class e58 extends BaseCardInfo {
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.uo
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.ro
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -1,33 +1,86 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collection;
+import java.util.Set;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes7.dex */
-public abstract class w06 extends x06 {
+public final class w06 extends c16<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Function1<Long, Boolean> e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w06(int i) {
-        super(i);
+    public w06(Function1<? super Long, Boolean> selfPredicate) {
+        super(2048, false, 2, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {selfPredicate};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue(), ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        Intrinsics.checkNotNullParameter(selfPredicate, "selfPredicate");
+        this.e = selfPredicate;
     }
 
-    public abstract boolean b(f06 f06Var, i26 i26Var, zz5 zz5Var);
+    @Override // com.repackage.c16, com.repackage.x06
+    public boolean b(g06 item, j26 timer, a06 config) {
+        InterceptResult invokeLLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(timer, "timer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            h06 e = item.e();
+            if (!this.e.invoke(e.o()).booleanValue()) {
+                Set<String> d = d();
+                if (!(d instanceof Collection) || !d.isEmpty()) {
+                    for (String str : d) {
+                        if (StringsKt__StringsKt.contains$default((CharSequence) e.c(), (CharSequence) str, false, 2, (Object) null)) {
+                            z = true;
+                            break;
+                        }
+                    }
+                }
+                z = false;
+                if (z) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.c16
+    /* renamed from: e */
+    public String c(h06 data) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, data)) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            return data.c();
+        }
+        return (String) invokeL.objValue;
+    }
 }

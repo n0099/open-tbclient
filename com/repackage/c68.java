@@ -22,14 +22,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class c68 extends tw5<a58> {
+public class c68 extends uw5<a58> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> i;
     public int j;
     public a58 k;
     public b l;
-    public dg<PersonCommonForumItemView> m;
+    public bg<PersonCommonForumItemView> m;
     public TextView n;
     public ListViewPager o;
 
@@ -139,8 +139,8 @@ public class c68 extends tw5<a58> {
         this.l = new b(this, null);
         this.i = tbPageContext;
         View k = k();
-        this.n = (TextView) k.findViewById(R.id.obfuscated_res_0x7f0906a9);
-        this.o = (ListViewPager) k.findViewById(R.id.obfuscated_res_0x7f0906aa);
+        this.n = (TextView) k.findViewById(R.id.obfuscated_res_0x7f0906a4);
+        this.o = (ListViewPager) k.findViewById(R.id.obfuscated_res_0x7f0906a5);
         if ("NX40X".equals(Build.MODEL)) {
             k.setLayerType(2, null);
             if (k instanceof ViewGroup) {
@@ -150,14 +150,14 @@ public class c68 extends tw5<a58> {
         this.o.setOffscreenPageLimit(1);
     }
 
-    @Override // com.repackage.tw5
+    @Override // com.repackage.uw5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d06c0 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d06b8 : invokeV.intValue;
     }
 
-    @Override // com.repackage.tw5
+    @Override // com.repackage.uw5
     public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
@@ -231,7 +231,7 @@ public class c68 extends tw5<a58> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.tw5
+    @Override // com.repackage.uw5
     /* renamed from: y */
     public void l(a58 a58Var) {
         Interceptable interceptable = $ic;
@@ -239,7 +239,7 @@ public class c68 extends tw5<a58> {
             if (x(a58Var)) {
                 this.k = a58Var;
                 if (ListUtils.getCount(a58Var.a) <= 2) {
-                    this.o.getLayoutParams().height = oi.f(this.i.getPageActivity(), R.dimen.obfuscated_res_0x7f07024a);
+                    this.o.getLayoutParams().height = mi.f(this.i.getPageActivity(), R.dimen.obfuscated_res_0x7f07024a);
                 }
                 this.o.setAdapter(this.l);
             }
@@ -247,10 +247,10 @@ public class c68 extends tw5<a58> {
         }
     }
 
-    public void z(dg<PersonCommonForumItemView> dgVar) {
+    public void z(bg<PersonCommonForumItemView> bgVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, dgVar) == null) {
-            this.m = dgVar;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bgVar) == null) {
+            this.m = bgVar;
         }
     }
 }

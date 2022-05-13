@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.mi;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickListener {
@@ -88,9 +88,9 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             setOrientation(1);
             this.a = context;
-            this.c = oi.f(context, R.dimen.obfuscated_res_0x7f070305);
-            this.d = oi.k(this.a);
-            this.b = oi.k(this.a) / 2;
+            this.c = mi.f(context, R.dimen.obfuscated_res_0x7f070305);
+            this.d = mi.k(this.a);
+            this.b = mi.k(this.a) / 2;
         }
     }
 

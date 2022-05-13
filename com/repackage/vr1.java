@@ -1,38 +1,39 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.util.Log;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.text.TextUtils;
+import android.util.Pair;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeUnit;
+import com.heytap.mcssdk.PushManager;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class vr1 {
+public class vr1 extends tr1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public ds1 a;
-    public boolean b;
-    public iz9 c;
 
     /* loaded from: classes7.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vr1 a;
+        public final /* synthetic */ JSONArray a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ vr1 c;
 
-        public a(vr1 vr1Var) {
+        public a(vr1 vr1Var, JSONArray jSONArray, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vr1Var};
+                Object[] objArr = {vr1Var, jSONArray, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,17 +43,16 @@ public class vr1 {
                     return;
                 }
             }
-            this.a = vr1Var;
+            this.c = vr1Var;
+            this.a = jSONArray;
+            this.b = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (vr1.d) {
-                    Log.d("PendingOperationManager", "=============== FMP end, begin loop pending operation ==============");
-                }
-                this.a.j();
+                this.c.d(this.b, this.c.D(this.a));
             }
         }
     }
@@ -61,14 +61,16 @@ public class vr1 {
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vr1 a;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ vr1 c;
 
-        public b(vr1 vr1Var) {
+        public b(vr1 vr1Var, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vr1Var};
+                Object[] objArr = {vr1Var, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -78,162 +80,159 @@ public class vr1 {
                     return;
                 }
             }
-            this.a = vr1Var;
+            this.c = vr1Var;
+            this.a = str;
+            this.b = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (vr1.d) {
-                    Log.d("PendingOperationManager", "=============== FCP end, begin loop pending operation ==============");
-                }
-                this.a.j();
+                this.c.d(this.b, this.c.B(this.a));
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public static final vr1 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(81431101, "Lcom/repackage/vr1$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(81431101, "Lcom/repackage/vr1$c;");
-                    return;
-                }
-            }
-            a = new vr1(null);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755221668, "Lcom/repackage/vr1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755221668, "Lcom/repackage/vr1;");
-                return;
-            }
-        }
-        d = tg1.a;
-    }
-
-    public /* synthetic */ vr1(a aVar) {
-        this();
-    }
-
-    public static vr1 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? c.a : (vr1) invokeV.objValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public void c(BasePendingOperation basePendingOperation) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, basePendingOperation) == null) {
-            if (basePendingOperation == null) {
-                if (d) {
-                    throw new IllegalStateException("The operation can't be null!");
-                }
-            } else if (!e() && basePendingOperation.a()) {
-                this.a.a(basePendingOperation);
-            } else {
-                if (d) {
-                    Log.d("PendingOperationManager", "=============== Execute module:" + e() + " " + basePendingOperation.b() + " params:" + basePendingOperation.c());
-                }
-                basePendingOperation.run();
-            }
-        }
-    }
-
-    public final boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (d) {
-                Log.d("PendingOperationManager", String.format("=============== FCP end, delay  %d ms to loop ==============", 6000));
-            }
-            this.c = dd3.c(new b(this), "pending_operation", 6000L, TimeUnit.MILLISECONDS);
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.c != null) {
-                if (d) {
-                    Log.d("PendingOperationManager", "=============== FMP end, cancel fcp loop operation ==============");
-                }
-                this.c.unsubscribe();
-                this.c = null;
-            }
-            if (e()) {
-                return;
-            }
-            dd3.j(new a(this), "pending_operation");
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (d) {
-                Log.d("PendingOperationManager", "=============== release PendingQueue & reset fmp flag ==============");
-            }
-            i();
-            this.a.b();
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.b = false;
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.b = true;
-            this.a.d();
-        }
-    }
-
-    public vr1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vr1(@NonNull vo1 vo1Var) {
+        super(vo1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vo1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((vo1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = false;
-        this.a = new ds1();
+    }
+
+    public us1 A(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            q("#checkAppInstalled", false);
+            Pair<us1, JSONObject> s = s(str);
+            us1 us1Var = (us1) s.first;
+            if (us1Var.isSuccess()) {
+                JSONObject jSONObject = (JSONObject) s.second;
+                String optString = jSONObject.optString("name");
+                JSONArray optJSONArray = jSONObject.optJSONArray("name");
+                String optString2 = jSONObject.optString("cb");
+                if (TextUtils.isEmpty(optString) && optJSONArray == null) {
+                    ux1.c("CheckAppInstallApi", "parameter error");
+                    return new us1(201, "parameter error");
+                }
+                boolean z = optJSONArray == null;
+                if (TextUtils.isEmpty(optString2)) {
+                    if (z) {
+                        return B(optString);
+                    }
+                    return D(optJSONArray);
+                }
+                if (z) {
+                    z(optString, optString2);
+                } else {
+                    C(optJSONArray, optString2);
+                }
+                return us1.f();
+            }
+            return us1Var;
+        }
+        return (us1) invokeL.objValue;
+    }
+
+    public final us1 B(String str) {
+        InterceptResult invokeL;
+        PackageInfo packageInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            try {
+                packageInfo = getContext().getPackageManager().getPackageInfo(str, 0);
+            } catch (PackageManager.NameNotFoundException unused) {
+                ux1.o("CheckAppInstallApi", str + " cannot be found");
+                packageInfo = null;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject();
+                if (packageInfo != null) {
+                    jSONObject.put("hasApp", true);
+                    jSONObject.put(PushManager.APP_VERSION_NAME, packageInfo.versionName);
+                    jSONObject.put(PushManager.APP_VERSION_CODE, packageInfo.versionCode);
+                } else {
+                    jSONObject.put("hasApp", false);
+                }
+                return new us1(0, "success", jSONObject);
+            } catch (JSONException e) {
+                ux1.d("CheckAppInstallApi", "internal error: " + e.getMessage(), e);
+                return new us1(1001, "internal error: " + e.getMessage());
+            }
+        }
+        return (us1) invokeL.objValue;
+    }
+
+    public final void C(JSONArray jSONArray, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONArray, str) == null) {
+            od3.f().execute(new a(this, jSONArray, str));
+        }
+    }
+
+    public final us1 D(JSONArray jSONArray) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONArray)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            int length = jSONArray.length();
+            for (int i = 0; i < length; i++) {
+                try {
+                    String string = jSONArray.getString(i);
+                    if (!TextUtils.isEmpty(string)) {
+                        jSONObject.put(string, E(string));
+                    }
+                } catch (JSONException e) {
+                    ux1.d("CheckAppInstallApi", "internal error: " + e.getMessage(), e);
+                }
+            }
+            return new us1(0, "success", jSONObject);
+        }
+        return (us1) invokeL.objValue;
+    }
+
+    public final boolean E(String str) {
+        InterceptResult invokeL;
+        PackageInfo packageInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            try {
+                packageInfo = getContext().getPackageManager().getPackageInfo(str, 0);
+            } catch (PackageManager.NameNotFoundException unused) {
+                ux1.o("CheckAppInstallApi", str + " cannot be found");
+                packageInfo = null;
+            }
+            return packageInfo != null;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.xo1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "CheckAppInstallApi" : (String) invokeV.objValue;
+    }
+
+    public final void z(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
+            od3.f().execute(new b(this, str, str2));
+        }
     }
 }

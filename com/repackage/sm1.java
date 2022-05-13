@@ -1,9 +1,11 @@
 package com.repackage;
-
-import androidx.annotation.Nullable;
-import com.repackage.qm1;
 /* loaded from: classes7.dex */
-public interface sm1<T extends qm1> extends pm1<T> {
-    @Nullable
-    h43 getParams();
+public interface sm1 {
+    rd4 a();
+
+    void b(y62 y62Var, w62 w62Var);
+
+    boolean c();
+
+    boolean d();
 }

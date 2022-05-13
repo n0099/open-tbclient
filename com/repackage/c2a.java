@@ -1,22 +1,60 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class c2a {
+public abstract class c2a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(int i) {
-        InterceptResult invokeI;
+    public c2a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? (i & (i + (-1))) == 0 : invokeI.booleanValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    public static int b(int i) {
-        InterceptResult invokeI;
+    @Deprecated
+    public void a(Throwable th) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? 1 << (32 - Integer.numberOfLeadingZeros(i - 1)) : invokeI.intValue;
+        if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
+        }
+    }
+
+    public final String b(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            try {
+                return c(obj);
+            } catch (InterruptedException unused) {
+                Thread.currentThread().interrupt();
+                return obj.getClass().getName() + ".errorRendering";
+            } catch (Throwable th) {
+                iy9.e(th);
+                return obj.getClass().getName() + ".errorRendering";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String c(Object obj) throws InterruptedException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
     }
 }

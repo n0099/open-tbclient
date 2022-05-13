@@ -36,13 +36,13 @@ public class by extends ContentObserver {
 
     @Override // android.database.ContentObserver
     public void onChange(boolean z) {
-        boolean m594f;
+        boolean m595f;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             super.onChange(z);
-            m594f = this.a.m594f();
-            com.xiaomi.channel.commonutils.logger.b.m108a("ExtremePowerMode:" + m594f);
-            if (!m594f) {
+            m595f = this.a.m595f();
+            com.xiaomi.channel.commonutils.logger.b.m109a("ExtremePowerMode:" + m595f);
+            if (!m595f) {
                 this.a.a(true);
                 return;
             }

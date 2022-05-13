@@ -57,17 +57,22 @@ public class dj0 {
     }
 
     public void b(rj0 rj0Var) {
+        uj0 uj0Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, rj0Var) == null) || TextUtils.isEmpty(rj0Var.p.a)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, rj0Var) == null) || rj0Var == null || (uj0Var = rj0Var.p) == null || rj0Var.q == null || TextUtils.isEmpty(uj0Var.a)) {
+            return;
+        }
+        sj0 sj0Var = rj0Var.q;
+        long j = sj0Var.o;
+        if (j < 0) {
             return;
         }
         String str = rj0Var.d;
-        sj0 sj0Var = rj0Var.q;
-        sj0Var.n = b11.b(sj0Var.o, System.currentTimeMillis());
-        ClogBuilder l = new ClogBuilder().s(ClogBuilder.LogType.DOWNLOAD_KEEP).n(rj0Var.p.a).i(str).l(String.valueOf(rj0Var.q.n));
+        sj0Var.n = l11.b(j, System.currentTimeMillis());
+        ClogBuilder l = new ClogBuilder().w(ClogBuilder.LogType.DOWNLOAD_KEEP).n(rj0Var.p.a).i(str).l(String.valueOf(rj0Var.q.n));
         JSONObject jSONObject = new JSONObject();
         try {
-            PackageInfo packageInfo = hi0.b().getPackageManager().getPackageInfo(str, 0);
+            PackageInfo packageInfo = ki0.b().getPackageManager().getPackageInfo(str, 0);
             l.j(packageInfo.versionName).k(String.valueOf(packageInfo.versionCode));
             uy0.d(jSONObject, "installed", 1);
         } catch (PackageManager.NameNotFoundException unused) {
@@ -77,7 +82,7 @@ public class dj0 {
             return;
         }
         l.m(jSONObject.toString());
-        ez0.b(l);
+        ez0.c(l);
         hj0.a().c(rj0Var);
     }
 

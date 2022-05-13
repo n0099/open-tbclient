@@ -295,7 +295,7 @@ public class cx0 extends yw0 {
                 String u = u(bdVideoSeries);
                 if (Intrinsics.areEqual(selectedVideo.getCurrentLength(), "0")) {
                     ay0.a("savePlayProgress(series@" + System.identityHashCode(bdVideoSeries) + "), del when currentLength is 0,  history" + bdVideoSeries + ".[" + this + ']');
-                    z11.b().b(u, bdVideoSeries.getVid());
+                    j21.b().b(u, bdVideoSeries.getVid());
                     e.removeCache(u, bdVideoSeries.getVid());
                 } else if (s(bdVideoSeries, u)) {
                 } else {
@@ -309,7 +309,7 @@ public class cx0 extends yw0 {
                             e.add(info);
                         }
                         ay0.a("savePlayProgress(series@" + System.identityHashCode(bdVideoSeries) + "), info is {" + info + "}.[" + this + ']');
-                        z11.b().a(hi0.b(), info, false);
+                        j21.b().a(ki0.b(), info, false);
                     }
                 }
             }

@@ -30,9 +30,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.g97;
-import com.repackage.mg;
-import com.repackage.oi;
+import com.repackage.j97;
+import com.repackage.kg;
+import com.repackage.mi;
 import com.repackage.ya;
 /* loaded from: classes3.dex */
 public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
@@ -88,19 +88,19 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
                 int error = responseAddFriendMessage.getError();
                 String errorString = responseAddFriendMessage.getErrorString();
                 if (error == 0) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001193, new g97(this.a.userId, this.a.name)));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001193, new j97(this.a.userId, this.a.name)));
                     if (this.a.isLower) {
                         AddFriendActivity addFriendActivity = this.a;
-                        addFriendActivity.showToast(addFriendActivity.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f07d5), false);
+                        addFriendActivity.showToast(addFriendActivity.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f07de), false);
                     } else {
                         AddFriendActivity addFriendActivity2 = this.a;
-                        addFriendActivity2.showToast(addFriendActivity2.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f07d5), false);
+                        addFriendActivity2.showToast(addFriendActivity2.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f07de), false);
                     }
                     this.a.finish();
                 } else if (AntiHelper.m(error, errorString)) {
                     AntiHelper.u(this.a.getPageContext().getPageActivity(), errorString);
                 } else {
-                    oi.N(this.a.getPageContext().getPageActivity(), errorString);
+                    mi.N(this.a.getPageContext().getPageActivity(), errorString);
                 }
             }
         }
@@ -208,7 +208,7 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
                     this.a.requestFriendData(this.a.mSayInput.getText().toString());
                     return;
                 }
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0e73);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0e91);
             }
         }
     }
@@ -321,10 +321,10 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
                             String stringExtra2 = intent.getStringExtra("from");
                             if (StringUtils.isNull(stringExtra2)) {
                                 EditText editText = this.mSayInput;
-                                editText.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0b33) + TbadkCoreApplication.getCurrentAccountName());
+                                editText.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0b47) + TbadkCoreApplication.getCurrentAccountName());
                             } else {
                                 EditText editText2 = this.mSayInput;
-                                editText2.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0892) + stringExtra2 + getPageContext().getString(R.string.obfuscated_res_0x7f0f0276) + TbadkCoreApplication.getCurrentAccountName());
+                                editText2.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f089a) + stringExtra2 + getPageContext().getString(R.string.obfuscated_res_0x7f0f0278) + TbadkCoreApplication.getCurrentAccountName());
                             }
                         }
                         this.mSayInput.requestFocus();
@@ -367,26 +367,26 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
     private void initViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            View findViewById = getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f091c1d);
+            View findViewById = getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f091c6a);
             this.mParentView = findViewById;
             findViewById.setOnClickListener(new b(this));
-            ImageView imageView = (ImageView) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f0904a1);
+            ImageView imageView = (ImageView) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f09049d);
             this.mCancel = imageView;
             imageView.setOnClickListener(new c(this));
-            NavigationBar navigationBar = (NavigationBar) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f091c1c);
+            NavigationBar navigationBar = (NavigationBar) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f091c69);
             this.mNavigationBar = navigationBar;
-            navigationBar.setTitleText(getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0295));
+            navigationBar.setTitleText(getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0297));
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            TextView addTextButton = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.obfuscated_res_0x7f0f10e7));
+            TextView addTextButton = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.obfuscated_res_0x7f0f1101));
             this.mSayBtn = addTextButton;
             if (addTextButton.getLayoutParams() instanceof LinearLayout.LayoutParams) {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mSayBtn.getLayoutParams();
-                layoutParams.rightMargin = oi.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701be);
+                layoutParams.rightMargin = mi.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701be);
                 this.mSayBtn.setLayoutParams(layoutParams);
             }
             this.mSayBtn.setOnClickListener(new d(this));
-            this.mSayTip = (TextView) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f091c1e);
-            EditText editText = (EditText) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f091c1b);
+            this.mSayTip = (TextView) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f091c6b);
+            EditText editText = (EditText) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f091c68);
             this.mSayInput = editText;
             editText.setOnFocusChangeListener(new e(this));
             this.mSayInput.setOnTouchListener(new f(this));
@@ -400,9 +400,9 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
             return;
         }
         if (TextUtils.isEmpty(str)) {
-            str = getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0b33) + TbadkCoreApplication.getCurrentAccountName();
+            str = getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0b47) + TbadkCoreApplication.getCurrentAccountName();
         }
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new RequestNewFriendActionLocalMessage(mg.g(this.userId, 0L), this.name, this.portrait, str, this.st_type));
+        MessageManager.getInstance().dispatchResponsedMessageToUI(new RequestNewFriendActionLocalMessage(kg.g(this.userId, 0L), this.name, this.portrait, str, this.st_type));
     }
 
     @Override // com.baidu.tbadk.BaseActivity

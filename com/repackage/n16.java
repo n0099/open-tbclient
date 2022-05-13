@@ -1,107 +1,83 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.Collection;
+import java.util.List;
+import kotlin.comparisons.ComparisonsKt__ComparisonsKt;
+import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
 public final class n16 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Bitmap a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755522306, "Lcom/repackage/n16;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: T, ? super T */
+    public static final <T, K extends Comparable<? super K>> int a(List<? extends T> list, K key, Function1<? super T, ? extends K> selector) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, list, key, selector)) == null) {
+            Intrinsics.checkNotNullParameter(list, "<this>");
+            Intrinsics.checkNotNullParameter(key, "key");
+            Intrinsics.checkNotNullParameter(selector, "selector");
+            int size = list.size() - 1;
+            if (list.isEmpty()) {
+                return -1;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755522306, "Lcom/repackage/n16;");
-                return;
+            int i = 0;
+            while (i < size) {
+                int i2 = (i + size) >>> 1;
+                int compareValues = ComparisonsKt__ComparisonsKt.compareValues(selector.invoke((T) list.get(i2)), key);
+                if (compareValues < 0) {
+                    i = i2 + 1;
+                } else if (compareValues <= 0) {
+                    return i2 - 1;
+                } else {
+                    size = i2;
+                }
             }
+            return i;
         }
-        Bitmap createBitmap = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
-        Intrinsics.checkNotNullExpressionValue(createBitmap, "createBitmap(1, 1, Bitmap.Config.ARGB_8888)");
-        a = createBitmap;
+        return invokeLLL.intValue;
     }
 
-    public static final boolean a(f06 f06Var, f06 f06Var2, f26 f26Var, long j, long j2) {
-        InterceptResult invokeCommon;
+    /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: T, ? super T */
+    public static final <T, K extends Comparable<? super K>> int b(List<? extends T> list, K key, Function1<? super T, ? extends K> selector) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{f06Var, f06Var2, f26Var, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            int width = f26Var.getWidth();
-            float q = f06Var.f().q();
-            float q2 = f06Var2.f().q();
-            long j3 = j - f06Var.j();
-            float f = width;
-            float f2 = (float) j2;
-            return f - ((q2 + f) * (((float) (j - f06Var2.j())) / f2)) < (f - ((f + q) * (((float) j3) / f2))) + q;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public static final Bitmap b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (Bitmap) invokeV.objValue;
-    }
-
-    public static final boolean c(f06 f06Var, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65539, null, f06Var, j)) == null) {
-            Intrinsics.checkNotNullParameter(f06Var, "<this>");
-            return j - f06Var.j() < 0;
-        }
-        return invokeLJ.booleanValue;
-    }
-
-    public static final boolean d(f06 f06Var, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, f06Var, j)) == null) {
-            Intrinsics.checkNotNullParameter(f06Var, "<this>");
-            return e(f06Var, j) || c(f06Var, j);
-        }
-        return invokeLJ.booleanValue;
-    }
-
-    public static final boolean e(f06 f06Var, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65541, null, f06Var, j)) == null) {
-            Intrinsics.checkNotNullParameter(f06Var, "<this>");
-            return j - f06Var.j() > f06Var.g();
-        }
-        return invokeLJ.booleanValue;
-    }
-
-    public static final boolean f(f06 f06Var, f06 danmaku, f26 displayer, long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{f06Var, danmaku, displayer, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            Intrinsics.checkNotNullParameter(f06Var, "<this>");
-            Intrinsics.checkNotNullParameter(danmaku, "danmaku");
-            Intrinsics.checkNotNullParameter(displayer, "displayer");
-            if (d(f06Var, j)) {
-                return false;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, list, key, selector)) == null) {
+            Intrinsics.checkNotNullParameter(list, "<this>");
+            Intrinsics.checkNotNullParameter(key, "key");
+            Intrinsics.checkNotNullParameter(selector, "selector");
+            int size = list.size() - 1;
+            if (list.isEmpty()) {
+                return -1;
             }
-            long j3 = danmaku.j() - f06Var.j();
-            if (j3 <= 0) {
-                return true;
+            int i = 0;
+            while (i < size) {
+                int i2 = (i + size) >>> 1;
+                int compareValues = ComparisonsKt__ComparisonsKt.compareValues(selector.invoke((T) list.get(i2)), key);
+                if (compareValues < 0) {
+                    i = i2 + 1;
+                } else if (compareValues <= 0) {
+                    return i2 - 1;
+                } else {
+                    size = i2;
+                }
             }
-            if (Math.abs(j3) >= j2 || e(f06Var, j) || e(danmaku, j)) {
-                return false;
-            }
-            return f06Var.e().j() == 5 || f06Var.e().j() == 4 || a(f06Var, danmaku, displayer, j, j2) || a(f06Var, danmaku, displayer, j + j2, j2);
+            return size;
         }
-        return invokeCommon.booleanValue;
+        return invokeLLL.intValue;
+    }
+
+    public static final <T extends Comparable<? super T>> f06<T> c(Collection<? extends T> collection) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, collection)) == null) {
+            Intrinsics.checkNotNullParameter(collection, "<this>");
+            return new f06<>(collection);
+        }
+        return (f06) invokeL.objValue;
     }
 }

@@ -1,34 +1,20 @@
 package com.repackage;
 
-import com.baidu.swan.webcompat.impl.WebCompatImpl;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.view.MotionEvent;
+import com.baidu.swan.videoplayer.media.video.view.MediaGestureMode;
 /* loaded from: classes6.dex */
-public class hi4 implements pb1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface hi4 {
+    boolean a(MotionEvent motionEvent);
 
-    public hi4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    boolean b(MotionEvent motionEvent, MediaGestureMode mediaGestureMode);
 
-    @Override // com.repackage.pb1
-    public Object get() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new WebCompatImpl() : invokeV.objValue;
-    }
+    boolean c(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2);
+
+    boolean d(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2);
+
+    boolean e(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2);
+
+    boolean onDoubleTap(MotionEvent motionEvent);
+
+    boolean onDown(MotionEvent motionEvent);
 }

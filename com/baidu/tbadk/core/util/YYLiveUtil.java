@@ -133,7 +133,7 @@ public class YYLiveUtil {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0213).equals(str) || TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0214).equals(str);
+            return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0215).equals(str) || TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0216).equals(str);
         }
         return invokeL.booleanValue;
     }

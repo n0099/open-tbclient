@@ -11,12 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vt4;
+import com.repackage.iu4;
+import com.repackage.xs4;
 @ModifyClass
 /* loaded from: classes3.dex */
 public class MainTabDataSwitch extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String LAUNCH_UP_MAIN_TAB_DATA_ENABLE = "launch_up_main_tab_data_23";
+    public static final String LAUNCH_UP_MAIN_TAB_DATA_ENABLE = "launch_up_main_tab_data_24";
     public static final int TYPE_CACHE = 2;
     public static final int TYPE_OFF = 0;
     public static final int TYPE_PREFETCH = 1;
@@ -60,7 +61,7 @@ public class MainTabDataSwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
             if (type > 2) {
-                type = vt4.k().l("key_launch_up_main_tab_data", 1);
+                type = iu4.k().l("key_launch_up_main_tab_data", 1);
             }
             if (UbsABTestHelper.isMainTabDataCache()) {
                 type = 2;
@@ -77,7 +78,7 @@ public class MainTabDataSwitch extends BaseNormalSwitch {
     public static boolean isCacheOpen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? type == 2 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? type == 2 && xs4.a().b : invokeV.booleanValue;
     }
 
     public static boolean isOff() {

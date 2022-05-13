@@ -111,7 +111,7 @@ public class fa {
             try {
                 i = Integer.parseInt(gcVar.k());
             } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.m108a("Blob parse chid err " + e.getMessage());
+                com.xiaomi.channel.commonutils.logger.b.m109a("Blob parse chid err " + e.getMessage());
                 i = 1;
             }
             faVar.a(i);
@@ -120,7 +120,7 @@ public class fa {
             faVar.b(gcVar.n());
             faVar.a("XMLMSG", (String) null);
             try {
-                faVar.a(gcVar.m383a().getBytes("utf8"), str);
+                faVar.a(gcVar.m384a().getBytes("utf8"), str);
                 if (TextUtils.isEmpty(str)) {
                     faVar.a((short) 3);
                 } else {
@@ -128,7 +128,7 @@ public class fa {
                     faVar.a("SECMSG", (String) null);
                 }
             } catch (UnsupportedEncodingException e2) {
-                com.xiaomi.channel.commonutils.logger.b.m108a("Blob setPayload err： " + e2.getMessage());
+                com.xiaomi.channel.commonutils.logger.b.m109a("Blob setPayload err： " + e2.getMessage());
             }
             return faVar;
         }
@@ -151,7 +151,7 @@ public class fa {
                 slice.get(bArr, 0, i);
                 return new fa(aVar, s, bArr);
             } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.m108a("read Blob err :" + e.getMessage());
+                com.xiaomi.channel.commonutils.logger.b.m109a("read Blob err :" + e.getMessage());
                 throw new IOException("Malformed Input");
             }
         }
@@ -183,14 +183,14 @@ public class fa {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m340a() {
+    public String m341a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f342a.m292c() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f342a.m293c() : (String) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public ByteBuffer mo341a(ByteBuffer byteBuffer) {
+    public ByteBuffer mo342a(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteBuffer)) == null) {
@@ -201,7 +201,7 @@ public class fa {
             byteBuffer.putShort((short) this.f342a.a());
             byteBuffer.putInt(this.f345b.length);
             int position = byteBuffer.position();
-            this.f342a.m318a(byteBuffer.array(), byteBuffer.arrayOffset() + position, this.f342a.a());
+            this.f342a.m319a(byteBuffer.array(), byteBuffer.arrayOffset() + position, this.f342a.a());
             byteBuffer.position(position + this.f342a.a());
             byteBuffer.put(this.f345b);
             return byteBuffer;
@@ -210,7 +210,7 @@ public class fa {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public short m342a() {
+    public short m343a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f344a : invokeV.shortValue;
@@ -282,21 +282,21 @@ public class fa {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m343a() {
+    public boolean m344a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f342a.j() : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m344a() {
+    public byte[] m345a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? fb.a(this, this.f345b) : (byte[]) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m345a(String str) {
+    public byte[] m346a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
@@ -306,7 +306,7 @@ public class fa {
             if (this.f342a.e() == 0) {
                 return fb.a(this, this.f345b);
             }
-            com.xiaomi.channel.commonutils.logger.b.m108a("unknow cipher = " + this.f342a.e());
+            com.xiaomi.channel.commonutils.logger.b.m109a("unknow cipher = " + this.f342a.e());
             return fb.a(this, this.f345b);
         }
         return (byte[]) invokeL.objValue;
@@ -319,10 +319,10 @@ public class fa {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public String m346b() {
+    public String m347b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f342a.m294d() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f342a.m295d() : (String) invokeV.objValue;
     }
 
     public void b(String str) {
@@ -339,10 +339,10 @@ public class fa {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public String m347c() {
+    public String m348c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f342a.m298f() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f342a.m299f() : (String) invokeV.objValue;
     }
 
     public void c(String str) {
@@ -360,7 +360,7 @@ public class fa {
             this.f342a.a(substring);
             this.f342a.b(substring2);
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m108a("Blob parse user err " + e.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m109a("Blob parse user err " + e.getMessage());
         }
     }
 
@@ -368,12 +368,12 @@ public class fa {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            String m296e = this.f342a.m296e();
-            if ("ID_NOT_AVAILABLE".equals(m296e)) {
+            String m297e = this.f342a.m297e();
+            if ("ID_NOT_AVAILABLE".equals(m297e)) {
                 return null;
             }
             if (this.f342a.g()) {
-                return m296e;
+                return m297e;
             }
             String d = d();
             this.f342a.e(d);
@@ -404,7 +404,7 @@ public class fa {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return "Blob [chid=" + a() + "; Id=" + e() + "; cmd=" + m340a() + "; type=" + ((int) m342a()) + "; from=" + g() + " ]";
+            return "Blob [chid=" + a() + "; Id=" + e() + "; cmd=" + m341a() + "; type=" + ((int) m343a()) + "; from=" + g() + " ]";
         }
         return (String) invokeV.objValue;
     }

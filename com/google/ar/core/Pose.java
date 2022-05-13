@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.dm9;
+import com.repackage.yk9;
 import java.util.Locale;
 /* loaded from: classes5.dex */
 public class Pose {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final dm9 a;
+    public final yk9 a;
     public final float[] b;
 
     static {
@@ -27,7 +27,7 @@ public class Pose {
                 return;
             }
         }
-        dm9 dm9Var = dm9.e;
+        yk9 yk9Var = yk9.e;
     }
 
     public String toString() {

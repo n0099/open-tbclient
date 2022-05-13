@@ -13,8 +13,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c85;
-import com.repackage.g85;
+import com.repackage.t85;
+import com.repackage.x85;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class CurrencyJumpHelper {
@@ -126,20 +126,20 @@ public class CurrencyJumpHelper {
         }
     }
 
-    public static void goYYPay(Context context, @Nullable c85 c85Var) {
+    public static void goYYPay(Context context, @Nullable t85 t85Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, context, c85Var) == null) {
-            MessageManager.getInstance().runTask(2921546, String.class, new g85(context, 0, null, null, c85Var));
+        if (interceptable == null || interceptable.invokeLL(65541, null, context, t85Var) == null) {
+            MessageManager.getInstance().runTask(2921546, String.class, new x85(context, 0, null, null, t85Var));
         }
     }
 
-    public static void goYYPay(Context context, @Nullable c85 c85Var, String str, Long l, boolean z, int i) {
+    public static void goYYPay(Context context, @Nullable t85 t85Var, String str, Long l, boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, c85Var, str, l, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            g85 g85Var = new g85(context, 0, str, l, c85Var);
-            g85Var.g = z;
-            g85Var.f = i;
-            MessageManager.getInstance().runTask(2921546, String.class, g85Var);
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, t85Var, str, l, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            x85 x85Var = new x85(context, 0, str, l, t85Var);
+            x85Var.g = z;
+            x85Var.f = i;
+            MessageManager.getInstance().runTask(2921546, String.class, x85Var);
         }
     }
 
@@ -163,11 +163,11 @@ public class CurrencyJumpHelper {
         }
     }
 
-    public static void gotoBuyTBeanPage(Context context, float f, String str, String str2, @Nullable c85 c85Var) {
+    public static void gotoBuyTBeanPage(Context context, float f, String str, String str2, @Nullable t85 t85Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, Float.valueOf(f), str, str2, c85Var}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, Float.valueOf(f), str, str2, t85Var}) == null) {
             if (CurrencySwitchUtil.isYyIsConvert()) {
-                goYYPay(context, c85Var);
+                goYYPay(context, t85Var);
                 return;
             }
             BuyTBeanActivityConfig buyTBeanActivityConfig = new BuyTBeanActivityConfig(TbadkCoreApplication.getInst().getContext(), f);
@@ -176,11 +176,11 @@ public class CurrencyJumpHelper {
         }
     }
 
-    public static void buyGiftGotoBuyTBeanPage(Context context, c85 c85Var, String str, Long l, boolean z, int i) {
+    public static void buyGiftGotoBuyTBeanPage(Context context, t85 t85Var, String str, Long l, boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, c85Var, str, l, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, t85Var, str, l, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             if (CurrencySwitchUtil.isYyIsConvert()) {
-                goYYPay(context, c85Var, str, l, z, i);
+                goYYPay(context, t85Var, str, l, z, i);
                 return;
             }
             BuyTBeanActivityConfig buyTBeanActivityConfig = new BuyTBeanActivityConfig(TbadkCoreApplication.getInst().getContext(), 0.0f);

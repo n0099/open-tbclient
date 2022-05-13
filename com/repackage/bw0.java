@@ -8,6 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
+import com.baidu.searchbox.launch.LaunchStatsUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -140,7 +141,7 @@ public class bw0 extends zp0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             BdVideoSeries bdVideoSeries = this.I;
-            return (bdVideoSeries == null || TextUtils.isEmpty(bdVideoSeries.getVid()) || !this.I.getVid().contains("ad")) ? false : true;
+            return (bdVideoSeries == null || TextUtils.isEmpty(bdVideoSeries.getVid()) || !this.I.getVid().contains(LaunchStatsUtils.AD)) ? false : true;
         }
         return invokeV.booleanValue;
     }

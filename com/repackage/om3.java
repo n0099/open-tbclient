@@ -1,70 +1,128 @@
 package com.repackage;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.net.Uri;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.imagepipeline.listener.RequestListener;
+import com.facebook.imagepipeline.request.ImageRequest;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class om3 {
+public final class om3 implements RequestListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public h52 a;
 
-    public om3() {
+    public om3(h52 h52Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {h52Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = h52Var;
     }
 
-    public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        InterceptResult invokeLLL;
+    @Override // com.facebook.imagepipeline.producers.ProducerListener
+    public void onProducerEvent(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, uri, str, strArr)) == null) {
-            return 0;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
         }
-        return invokeLLL.intValue;
     }
 
-    @Nullable
-    public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-        InterceptResult invokeLL;
+    @Override // com.facebook.imagepipeline.producers.ProducerListener
+    public void onProducerFinishWithCancellation(String str, String str2, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, contentValues)) == null) {
-            return null;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, map) == null) {
         }
-        return (Uri) invokeLL.objValue;
     }
 
-    @Nullable
-    public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        InterceptResult invokeLLLLL;
+    @Override // com.facebook.imagepipeline.producers.ProducerListener
+    public void onProducerFinishWithFailure(String str, String str2, Throwable th, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, uri, strArr, str, strArr2, str2)) == null) {
-            return null;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, th, map) == null) {
         }
-        return (Cursor) invokeLLLLL.objValue;
     }
 
-    public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        InterceptResult invokeLLLL;
+    @Override // com.facebook.imagepipeline.producers.ProducerListener
+    public void onProducerFinishWithSuccess(String str, String str2, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, uri, contentValues, str, strArr)) == null) {
-            return 0;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, map) == null) {
         }
-        return invokeLLLL.intValue;
+    }
+
+    @Override // com.facebook.imagepipeline.producers.ProducerListener
+    public void onProducerStart(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
+        }
+    }
+
+    @Override // com.facebook.imagepipeline.listener.RequestListener
+    public void onRequestCancellation(String str) {
+        h52 h52Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (h52Var = this.a) == null) {
+            return;
+        }
+        h52Var.onCancel(str);
+    }
+
+    @Override // com.facebook.imagepipeline.listener.RequestListener
+    public void onRequestFailure(ImageRequest imageRequest, String str, Throwable th, boolean z) {
+        h52 h52Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{imageRequest, str, th, Boolean.valueOf(z)}) == null) || (h52Var = this.a) == null) {
+            return;
+        }
+        h52Var.c(imageRequest, th);
+    }
+
+    @Override // com.facebook.imagepipeline.listener.RequestListener
+    public void onRequestStart(ImageRequest imageRequest, Object obj, String str, boolean z) {
+        h52 h52Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{imageRequest, obj, str, Boolean.valueOf(z)}) == null) || (h52Var = this.a) == null) {
+            return;
+        }
+        h52Var.a(imageRequest);
+    }
+
+    @Override // com.facebook.imagepipeline.listener.RequestListener
+    public void onRequestSuccess(ImageRequest imageRequest, String str, boolean z) {
+        h52 h52Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, imageRequest, str, z) == null) || (h52Var = this.a) == null) {
+            return;
+        }
+        h52Var.b(imageRequest);
+    }
+
+    @Override // com.facebook.imagepipeline.producers.ProducerListener
+    public void onUltimateProducerReached(String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048585, this, str, str2, z) == null) {
+        }
+    }
+
+    @Override // com.facebook.imagepipeline.producers.ProducerListener
+    public boolean requiresExtraMap(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

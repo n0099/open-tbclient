@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.ShapeAppearancePathProvider;
 import com.google.android.material.transition.MaterialContainerTransform;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class MaskEvaluator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -1,24 +1,30 @@
 package com.repackage;
 
-import android.os.Looper;
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.RemoteException;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
+import java.util.Collections;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
-public class ol9 {
+public final class ol9 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LinkedHashMap<Long, StackTraceElement[]> a;
-    public int b;
+    public final /* synthetic */ Activity a;
+    public final /* synthetic */ kl9 b;
+    public final /* synthetic */ jl9 c;
 
-    public ol9() {
+    public ol9(jl9 jl9Var, Activity activity, kl9 kl9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jl9Var, activity, kl9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,26 +34,30 @@ public class ol9 {
                 return;
             }
         }
-        this.a = new LinkedHashMap<>();
-        this.b = 100;
+        this.c = jl9Var;
+        this.a = activity;
+        this.b = kl9Var;
     }
 
-    public void a() {
+    @Override // java.lang.Runnable
+    public final void run() {
+        com.google.a.b.a.a.a.a aVar;
+        Bundle l;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int size = this.a.size();
-            int i = this.b;
-            if (size == i && i > 0) {
-                LinkedHashMap<Long, StackTraceElement[]> linkedHashMap = this.a;
-                linkedHashMap.remove(linkedHashMap.keySet().iterator().next());
+            try {
+                AtomicBoolean atomicBoolean = new AtomicBoolean(false);
+                aVar = this.c.d;
+                String str = this.a.getApplicationInfo().packageName;
+                jl9 jl9Var = this.c;
+                l = jl9.l();
+                aVar.a(str, Collections.singletonList(l), new Bundle(), new com.google.ar.core.x(this, atomicBoolean));
+                new Handler().postDelayed(new pl9(this, atomicBoolean), 3000L);
+            } catch (RemoteException e) {
+                Log.w("ARCore-InstallService", "requestInstall threw, launching fullscreen.", e);
+                jl9 jl9Var2 = this.c;
+                jl9.n(this.a, this.b);
             }
-            this.a.put(Long.valueOf(System.currentTimeMillis()), Looper.getMainLooper().getThread().getStackTrace());
         }
-    }
-
-    public LinkedHashMap<Long, StackTraceElement[]> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (LinkedHashMap) invokeV.objValue;
     }
 }

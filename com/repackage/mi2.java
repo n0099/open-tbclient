@@ -1,9 +1,7 @@
 package com.repackage;
 
 import androidx.annotation.NonNull;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes6.dex */
-public class mi2 extends de2<ui2> {
+public class mi2 extends oe2<fj2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,23 +27,33 @@ public class mi2 extends de2<ui2> {
         }
     }
 
-    @Override // com.repackage.de2
+    @Override // com.repackage.oe2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "updateVideoRect" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setRate" : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.de2
+    @Override // com.repackage.oe2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull ui2 ui2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull fj2 fj2Var) {
+        Object obj;
+        float floatValue;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ui2Var) == null) {
-            ui2Var.L(command.arg1, command.arg2, command.arg3, command.arg4);
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, fj2Var) == null) || (obj = command.obj) == null) {
+            return;
+        }
+        if (obj instanceof Float) {
+            floatValue = ((Float) obj).floatValue();
+        } else {
+            floatValue = obj instanceof Double ? ((Double) obj).floatValue() : Float.MIN_VALUE;
+        }
+        if (floatValue != Float.MIN_VALUE) {
+            fj2Var.setSpeed(floatValue);
             String str = command.what;
-            d(ui2Var, str, "Rect: (" + command.arg1 + StringUtil.ARRAY_ELEMENT_SEPARATOR + command.arg2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + command.arg3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + command.arg4 + SmallTailInfo.EMOTION_SUFFIX, false);
+            d(fj2Var, str, "playbackRate: " + command.obj, false);
         }
     }
 }

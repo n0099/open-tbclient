@@ -117,11 +117,11 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             MessageManager.getInstance().runTask(2921332, (Class) null);
-            setContentView(R.layout.obfuscated_res_0x7f0d04e1);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091b24);
+            setContentView(R.layout.obfuscated_res_0x7f0d04d6);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091b72);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.mNavigationBar.setTitleText(getResources().getString(R.string.obfuscated_res_0x7f0f0a4d));
+            this.mNavigationBar.setTitleText(getResources().getString(R.string.obfuscated_res_0x7f0f0a53));
             try {
                 this.mWxAPI = WXAPIFactory.createWXAPI(getActivity(), TbConfig.WEIXIN_SHARE_APP_ID, false);
             } catch (Exception e) {

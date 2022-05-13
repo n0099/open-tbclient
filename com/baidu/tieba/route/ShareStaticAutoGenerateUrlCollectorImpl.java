@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class ShareStaticAutoGenerateUrlCollectorImpl implements ICmdRouter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public final class ShareStaticAutoGenerateUrlCollectorImpl implements ICmdRouter
             HashMap hashMap = new HashMap();
             new ArrayList();
             hashMap.put("2001445", "com.baidu.tieba.sharesdk.ShareStatic");
-            hashMap.put("2001276", "com.baidu.tieba.sharesdk.ShareStatic");
+            hashMap.put("2921666", "com.baidu.tieba.sharesdk.ShareStatic");
             hashMap.put("1003473", "com.baidu.tieba.sharesdk.ShareStatic");
             hashMap.put("2016567", "com.baidu.tieba.sharesdk.ShareStatic");
             return hashMap;

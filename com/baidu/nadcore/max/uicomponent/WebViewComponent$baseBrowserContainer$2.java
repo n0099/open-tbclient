@@ -7,8 +7,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.i21;
 import com.repackage.pl0;
+import com.repackage.s21;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
@@ -47,7 +47,7 @@ public final class WebViewComponent$baseBrowserContainer$2 extends Lambda implem
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            i21.a aVar = i21.a;
+            s21.a aVar = s21.a;
             WebViewComponent webViewComponent = this.this$0;
             return aVar.a(webViewComponent, webViewComponent, pl0.b().a().a(AdWebActivity.KEY_WEBVIEW_CORE_TYPE, 0));
         }

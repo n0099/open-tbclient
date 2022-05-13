@@ -1,13 +1,15 @@
 package com.repackage;
 
-import android.view.View;
-import android.widget.RelativeLayout;
+import android.graphics.Bitmap;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.cloudcontrol.request.CloudControlRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class i45 implements d45 {
+public class i45 extends j45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,21 +27,24 @@ public class i45 implements d45 {
         }
     }
 
-    @Override // com.repackage.d45
-    public void a(View view2, View view3, boolean z) {
+    @Override // com.repackage.j45
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048576, this, view2, view3, z) == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) view2;
-            if (z) {
-                relativeLayout.addView(view3, 0);
-            } else {
-                relativeLayout.addView(view3);
-            }
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view3.getLayoutParams();
-            layoutParams.width = -1;
-            layoutParams.height = -1;
-            layoutParams.addRule(14);
-            view3.setLayoutParams(layoutParams);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? CloudControlRequest.REQUEST_KEY_FILTER : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.j45
+    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) ? bitmap : (Bitmap) invokeLZ.objValue;
+    }
+
+    @Override // com.repackage.j45
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || str == null) {
         }
     }
 }

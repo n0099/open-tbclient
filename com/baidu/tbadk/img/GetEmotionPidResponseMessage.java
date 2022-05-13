@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.l35;
+import com.repackage.c45;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class GetEmotionPidResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public l35 mPid;
+    public c45 mPid;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetEmotionPidResponseMessage(int i) {
@@ -42,14 +42,14 @@ public class GetEmotionPidResponseMessage extends JsonHttpResponsedMessage {
             int statusCode = getStatusCode();
             int error = getError();
             if (statusCode == 200 && error == 0 && jSONObject != null) {
-                this.mPid = l35.a(jSONObject);
+                this.mPid = c45.a(jSONObject);
             }
         }
     }
 
-    public l35 getImageInfo() {
+    public c45 getImageInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mPid : (l35) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mPid : (c45) invokeV.objValue;
     }
 }

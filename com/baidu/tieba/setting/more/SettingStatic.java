@@ -2,10 +2,12 @@ package com.baidu.tieba.setting.more;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.app.NotificationManagerCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
@@ -28,11 +30,14 @@ import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
 import com.baidu.tbadk.core.message.RequestUpdateMaskMessage;
 import com.baidu.tbadk.core.message.ResponseUpdateForumMask;
 import com.baidu.tbadk.core.message.ResponseUpdateMaskMessage;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.R;
 import com.baidu.tieba.setting.AppsActivityConfig;
 import com.baidu.tieba.setting.ForbiddenForumActivityConfig;
-import com.baidu.tieba.setting.MsgReceiveActivityConfig;
 import com.baidu.tieba.setting.PrivacyPermissionActivityConfig;
 import com.baidu.tieba.setting.SecretSettingActivityConfig;
 import com.baidu.tieba.setting.SystemHelpSettingActivityConfig;
@@ -51,6 +56,10 @@ import com.baidu.tieba.setting.more.youngster.YoungsterVerifyActivity;
 import com.baidu.tieba.setting.more.youngster.message.YoungsterVerifyHttpResponsedMessage;
 import com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushActivity;
 import com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushActivityConfig;
+import com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushHttpResponseMessage;
+import com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushInfo;
+import com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushRequestMessage;
+import com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushSocketResponseMessage;
 import com.baidu.tieba.setting.privacy.PrivacyMarkActivity;
 import com.baidu.tieba.setting.privacy.PrivacyPermissionActivity;
 import com.baidu.tieba.setting.usermutelist.UserMuteListActivity;
@@ -61,17 +70,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a87;
-import com.repackage.c87;
-import com.repackage.cw4;
-import com.repackage.d87;
-import com.repackage.fe8;
-import com.repackage.kk8;
-import com.repackage.kt4;
-import com.repackage.sg;
-import com.repackage.vt4;
+import com.repackage.hj8;
+import com.repackage.iu4;
+import com.repackage.my4;
+import com.repackage.pw4;
+import com.repackage.q77;
+import com.repackage.qg;
+import com.repackage.s77;
+import com.repackage.t77;
+import com.repackage.vc8;
+import com.repackage.wa;
+import com.repackage.xt4;
 import com.repackage.ya;
-import com.repackage.yx4;
+import java.util.ArrayList;
+import java.util.Iterator;
 import protobuf.MaskInfo;
 /* loaded from: classes4.dex */
 public class SettingStatic {
@@ -82,15 +94,49 @@ public class SettingStatic {
     public static final ya d;
     public static final CustomMessageListener e;
     public static final CustomMessageListener f;
+    public static final wa g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public static class a extends ya {
+    public static class a implements CustomMessageTask.CustomRunnable<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+        public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+                if (customMessage != null && customMessage.getData() != null) {
+                    MessageManager.getInstance().sendMessage(new OfficialAccountPushRequestMessage());
+                }
+                return null;
+            }
+            return (CustomResponsedMessage) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b extends ya {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i) {
+        public b(int i) {
             super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -118,44 +164,7 @@ public class SettingStatic {
                 return;
             }
             MaskInfo unused = SettingStatic.a = maskInfo;
-            SettingStatic.k();
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                boolean unused = SettingStatic.c = false;
-                MaskInfo unused2 = SettingStatic.a = null;
-                boolean unused3 = SettingStatic.b = false;
-            }
+            SettingStatic.o();
         }
     }
 
@@ -189,18 +198,122 @@ public class SettingStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                boolean unused = SettingStatic.b = true;
-                SettingStatic.k();
+                boolean unused = SettingStatic.c = false;
+                MaskInfo unused2 = SettingStatic.a = null;
+                boolean unused3 = SettingStatic.b = false;
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class d implements Runnable {
+    public static class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public d() {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public d(int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                boolean unused = SettingStatic.b = true;
+                SettingStatic.o();
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class e extends wa {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public e(int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // com.repackage.wa
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                ArrayList<OfficialAccountPushInfo> arrayList = new ArrayList<>();
+                if (responsedMessage instanceof OfficialAccountPushSocketResponseMessage) {
+                    OfficialAccountPushSocketResponseMessage officialAccountPushSocketResponseMessage = (OfficialAccountPushSocketResponseMessage) responsedMessage;
+                    if (officialAccountPushSocketResponseMessage == null || officialAccountPushSocketResponseMessage.getList() == null) {
+                        return;
+                    }
+                    arrayList = officialAccountPushSocketResponseMessage.getList();
+                }
+                if (responsedMessage instanceof OfficialAccountPushHttpResponseMessage) {
+                    OfficialAccountPushHttpResponseMessage officialAccountPushHttpResponseMessage = (OfficialAccountPushHttpResponseMessage) responsedMessage;
+                    if (officialAccountPushHttpResponseMessage == null) {
+                        return;
+                    }
+                    arrayList = officialAccountPushHttpResponseMessage.getList();
+                }
+                if (ListUtils.isEmpty(arrayList)) {
+                    return;
+                }
+                Iterator<OfficialAccountPushInfo> it = arrayList.iterator();
+                while (true) {
+                    z = false;
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    OfficialAccountPushInfo next = it.next();
+                    if (next.uid == 1501754229) {
+                        if (next.is_on == 1) {
+                            z = true;
+                        }
+                    }
+                }
+                my4.d().T(z);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class f implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public f() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -218,17 +331,17 @@ public class SettingStatic {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                yx4.d().D();
+                my4.d().F();
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class e implements CustomMessageTask.CustomRunnable<Context> {
+    public static class g implements CustomMessageTask.CustomRunnable<Context> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public e() {
+        public g() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -252,8 +365,8 @@ public class SettingStatic {
                     String currentAccount = TbadkCoreApplication.getCurrentAccount();
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008015, currentAccount));
                     TbadkCoreApplication.getInst().deleteAccountAllInfo(currentAccount);
-                    cw4.b().a();
-                    kt4.a(DI.ACCOUNT, -1L, 0, "logout_delete_account", 0, "", new Object[0]);
+                    pw4.b().a();
+                    xt4.a(DI.ACCOUNT, -1L, 0, "logout_delete_account", 0, "", new Object[0]);
                     TbadkCoreApplication.setCurrentAccount(null, data);
                     TbadkCoreApplication.getInst().onUserChanged();
                     LoginActivityConfig loginActivityConfig = new LoginActivityConfig(data, true);
@@ -267,11 +380,11 @@ public class SettingStatic {
     }
 
     /* loaded from: classes4.dex */
-    public static class f implements CustomMessageTask.CustomRunnable<IntentConfig> {
+    public static class h implements CustomMessageTask.CustomRunnable<IntentConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public f() {
+        public h() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -300,11 +413,11 @@ public class SettingStatic {
     }
 
     /* loaded from: classes4.dex */
-    public static class g implements CustomMessageTask.CustomRunnable<IntentConfig> {
+    public static class i implements CustomMessageTask.CustomRunnable<IntentConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public g() {
+        public i() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -333,11 +446,11 @@ public class SettingStatic {
     }
 
     /* loaded from: classes4.dex */
-    public static class h implements CustomMessageTask.CustomRunnable<UserMuteListActivityConfig> {
+    public static class j implements CustomMessageTask.CustomRunnable<UserMuteListActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public h() {
+        public j() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -378,9 +491,10 @@ public class SettingStatic {
                 return;
             }
         }
-        d = new a(1001);
-        e = new b(2005016);
-        f = new c(2001311);
+        d = new b(1001);
+        e = new c(2005016);
+        f = new d(2001311);
+        g = new e(CmdConfigHttp.CMD_OFFICIAL_ACCOUNT_PUSH, 309620);
         TbadkCoreApplication.getInst().RegisterIntent(AppsActivityConfig.class, AppsActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(BrowseSettingActivityConfig.class, BrowseSettingActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(YoungsterIntroduceActivityConfig.class, YoungsterIntroduceActivity.class);
@@ -388,7 +502,6 @@ public class SettingStatic {
         TbadkCoreApplication.getInst().RegisterIntent(YoungsterVerifyActivityConfig.class, YoungsterVerifyActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AdSettingActivityConfig.class, AdSettingActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(MsgRemindActivityConfig.class, MsgRemindActivity.class);
-        TbadkCoreApplication.getInst().RegisterIntent(MsgReceiveActivityConfig.class, MsgReceiveActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(SystemHelpSettingActivityConfig.class, SystemHelpSettingActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(SecretSettingActivityConfig.class, SecretSettingActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AboutActivityConfig.class, AboutActivity.class);
@@ -396,31 +509,36 @@ public class SettingStatic {
         TbadkCoreApplication.getInst().RegisterIntent(OfficialAccountPushActivityConfig.class, OfficialAccountPushActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(PrivacyMarkActivityConfig.class, PrivacyMarkActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(ForbiddenForumActivityConfig.class, ForbiddenForumActivity.class);
-        CustomMessageTask customMessageTask = new CustomMessageTask(2015004, new f());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2015004, new h());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        CustomMessageTask customMessageTask2 = new CustomMessageTask(2015007, new g());
+        CustomMessageTask customMessageTask2 = new CustomMessageTask(2015007, new i());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask2);
-        kk8.f(303016, ResponsedPrivacySocketMessage.class, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.GET_PRIVATE_INFO_CMD, kk8.a(TbConfig.GET_PRIVATE_INFO, 303016));
+        hj8.f(303016, ResponsedPrivacySocketMessage.class, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.GET_PRIVATE_INFO_CMD, hj8.a(TbConfig.GET_PRIVATE_INFO, 303016));
         tbHttpMessageTask.setResponsedClass(ResponsedPrivacyHttpMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
         MessageManager.getInstance().registerListener(e);
+        MessageManager.getInstance().registerListener(g);
         MessageManager.getInstance().registerListener(d);
         MessageManager.getInstance().registerListener(f);
-        kk8.f(104101, ResponseUpdateMaskMessage.class, false);
-        kk8.f(104106, ResponseUpdateForumMask.class, false);
-        e();
-        f();
-        i();
-        g();
+        hj8.f(104101, ResponseUpdateMaskMessage.class, false);
+        hj8.f(104106, ResponseUpdateForumMask.class, false);
         h();
-        SwitchManager.getInstance().registerSwitch(fe8.class);
-        CustomMessageTask customMessageTask3 = new CustomMessageTask(2016302, new h());
+        i();
+        l();
+        m();
+        j();
+        k();
+        SwitchManager.getInstance().registerSwitch(vc8.class);
+        CustomMessageTask customMessageTask3 = new CustomMessageTask(2016302, new j());
         customMessageTask3.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask3);
-        j();
+        CustomMessageTask customMessageTask4 = new CustomMessageTask(2921695, new a());
+        customMessageTask4.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(customMessageTask4);
+        n();
     }
 
     public SettingStatic() {
@@ -428,9 +546,9 @@ public class SettingStatic {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -438,46 +556,69 @@ public class SettingStatic {
     }
 
     public static void e() {
+        String str;
+        String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            boolean areNotificationsEnabled = NotificationManagerCompat.from(TbadkCoreApplication.getInst()).areNotificationsEnabled();
+            int j2 = my4.d().j();
+            int k = my4.d().k();
+            if (j2 > 9) {
+                str = String.valueOf(j2);
+            } else {
+                str = "0" + j2;
+            }
+            if (k > 9) {
+                str2 = String.valueOf(k);
+            } else {
+                str2 = "0" + k;
+            }
+            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1184, new Object[]{str, str2});
+            StatisticItem param = new StatisticItem("c13889").param("obj_locate", 1).param("obj_type", areNotificationsEnabled ? 1 : 2);
+            if (!my4.d().C()) {
+                string = "";
+            }
+            TiebaStatic.log(param.param("obj_param1", string).param("obj_source", g()));
+        }
+    }
+
+    public static String f(int i2, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(i2);
+            sb.append("_");
+            sb.append(z ? 1 : 2);
+            sb.append(z2 ? "-" : "");
+            return sb.toString();
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public static String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return f(1, my4.d().x(), true) + f(2, my4.d().f, true) + f(3, my4.d().g, true) + f(4, my4.d().s(), true) + f(5, my4.d().q(), true) + f(6, my4.d().D(), true) + f(7, my4.d().n(), true) + f(8, my4.d().m(), true) + f(9, my4.d().C(), true) + f(10, my4.d().B(), true) + f(11, my4.d().p(), false);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65545, null) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FRIEND_AND_STRANGER_MSG_SWITCH, TbConfig.SERVER_ADDRESS + TbConfig.FRIEND_AND_STRANGER_MSG_SWITCH);
             tbHttpMessageTask.setResponsedClass(FriendAndStrangerSwitchResMsg.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
     }
 
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FRIEND_AND_STRANGER_MSG_SWITCH, TbConfig.SERVER_ADDRESS + TbConfig.GET_FRIEND_AND_STRANGER_MSG_SWITCH);
-            tbHttpMessageTask.setResponsedClass(GetFriendAndStrangerSwitchResMsg.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public static void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_IMAGE_WATERMARK_TYPE, TbConfig.SERVER_ADDRESS + TbConfig.GET_IMAGE_WATERMARK_TYPE);
-            tbHttpMessageTask.setResponsedClass(GetImageWatermarkTypeResMsg.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public static void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65545, null) == null) {
-            CustomMessageTask customMessageTask = new CustomMessageTask(2921330, new e());
-            customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-            MessageManager.getInstance().registerTask(customMessageTask);
-        }
-    }
-
     public static void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, null) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SET_IMAGE_WATERMARK_TYPE, TbConfig.SERVER_ADDRESS + TbConfig.SET_IMAGE_WATERMARK_TYPE);
-            tbHttpMessageTask.setResponsedClass(SetImageWatermarkTypeResMsg.class);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FRIEND_AND_STRANGER_MSG_SWITCH, TbConfig.SERVER_ADDRESS + TbConfig.GET_FRIEND_AND_STRANGER_MSG_SWITCH);
+            tbHttpMessageTask.setResponsedClass(GetFriendAndStrangerSwitchResMsg.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
     }
@@ -485,6 +626,41 @@ public class SettingStatic {
     public static void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, null) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_IMAGE_WATERMARK_TYPE, TbConfig.SERVER_ADDRESS + TbConfig.GET_IMAGE_WATERMARK_TYPE);
+            tbHttpMessageTask.setResponsedClass(GetImageWatermarkTypeResMsg.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
+    }
+
+    public static void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65548, null) == null) {
+            CustomMessageTask customMessageTask = new CustomMessageTask(2921330, new g());
+            customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+            MessageManager.getInstance().registerTask(customMessageTask);
+        }
+    }
+
+    public static void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65549, null) == null) {
+            hj8.f(309620, OfficialAccountPushSocketResponseMessage.class, false);
+            hj8.c(309620, CmdConfigHttp.CMD_OFFICIAL_ACCOUNT_PUSH, TbConfig.CHECK_OFFICIAL_SWITCH_URL, OfficialAccountPushHttpResponseMessage.class, true, false, true, false);
+        }
+    }
+
+    public static void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65550, null) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SET_IMAGE_WATERMARK_TYPE, TbConfig.SERVER_ADDRESS + TbConfig.SET_IMAGE_WATERMARK_TYPE);
+            tbHttpMessageTask.setResponsedClass(SetImageWatermarkTypeResMsg.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
+    }
+
+    public static void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65551, null) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_YOUNGSTER_VERIFY_AUTHID, TbConfig.SERVER_ADDRESS + TbConfig.URL_YOUNGSTER_VERIFY_AUTHID);
             tbHttpMessageTask.setResponsedClass(YoungsterVerifyHttpResponsedMessage.class);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_YOUNGSTER_VERIFY_AUTHID);
@@ -492,16 +668,16 @@ public class SettingStatic {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:104:0x01a8 A[LOOP:0: B:103:0x01a6->B:104:0x01a8, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:113:0x01cf A[LOOP:1: B:112:0x01cd->B:113:0x01cf, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:122:0x01f6 A[LOOP:2: B:121:0x01f4->B:122:0x01f6, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:111:0x01c5 A[LOOP:0: B:110:0x01c3->B:111:0x01c5, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:120:0x01ec A[LOOP:1: B:119:0x01ea->B:120:0x01ec, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:129:0x0213 A[LOOP:2: B:128:0x0211->B:129:0x0213, LOOP_END] */
     /* JADX WARN: Removed duplicated region for block: B:27:0x0059  */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x00d6  */
-    /* JADX WARN: Removed duplicated region for block: B:59:0x0104  */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x00e5  */
+    /* JADX WARN: Removed duplicated region for block: B:62:0x0113  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final void k() {
+    public static final void o() {
         boolean z;
         boolean z2;
         Integer num;
@@ -509,7 +685,7 @@ public class SettingStatic {
         String[] split2;
         String[] split3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65548, null) == null) || !b || a == null || c) {
+        if (!(interceptable == null || interceptable.invokeV(65552, null) == null) || !b || a == null || c) {
             return;
         }
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
@@ -519,84 +695,89 @@ public class SettingStatic {
         MaskInfo maskInfo = a;
         Integer num2 = maskInfo.remindMask;
         if (num2 != null && maskInfo.shieldStatus != null && num2.intValue() == 0 && a.shieldStatus.intValue() == 0) {
-            if (!vt4.k().h("had_sync_setting_switch" + currentAccount, false)) {
+            if (!iu4.k().h("had_sync_setting_switch" + currentAccount, false)) {
                 z = true;
                 if (!z) {
-                    vt4.k().u("had_sync_setting_switch" + currentAccount, true);
-                    if (!yx4.d().u()) {
-                        l(14, false);
+                    iu4.k().u("had_sync_setting_switch" + currentAccount, true);
+                    if (!my4.d().w()) {
+                        p(14, false);
                     } else {
-                        if (!yx4.d().q()) {
-                            l(2, false);
+                        if (!my4.d().s()) {
+                            p(2, false);
                         }
-                        if (!yx4.d().t()) {
-                            l(3, false);
+                        if (!my4.d().v()) {
+                            p(3, false);
                         }
-                        if (!yx4.d().p()) {
-                            l(4, false);
+                        if (!my4.d().r()) {
+                            p(4, false);
                         }
-                        if (!yx4.d().r()) {
-                            l(5, false);
+                        if (!my4.d().t()) {
+                            p(5, false);
                         }
-                        if (!yx4.d().v()) {
-                            l(1, false);
+                        if (!my4.d().x()) {
+                            p(1, false);
                         }
-                        if (!yx4.d().y()) {
-                            l(20, false);
+                        if (!my4.d().A()) {
+                            p(20, false);
+                        }
+                        if (!my4.d().B()) {
+                            p(30, false);
                         }
                     }
                 } else {
                     Integer num3 = a.remindMask;
                     if (num3 != null) {
                         if (num3.intValue() == 0) {
-                            yx4.d().E(true);
+                            my4.d().G(true);
                         } else if (a.remindMask.intValue() == 1) {
-                            yx4.d().E(false);
+                            my4.d().G(false);
                             z2 = false;
                             num = a.shieldStatus;
                             if (num != null) {
                                 int intValue = num.intValue();
                                 boolean z3 = (intValue & 16) == 0;
-                                yx4.d().G(z3);
+                                my4.d().I(z3);
                                 boolean z4 = (intValue & 1) == 0;
-                                yx4.d().K(z4);
+                                my4.d().M(z4);
                                 boolean z5 = (intValue & 2) == 0;
-                                yx4.d().F(z5);
+                                my4.d().H(z5);
                                 boolean z6 = (intValue & 4) == 0;
-                                yx4.d().J(z6);
-                                yx4.d().S((intValue & 2048) == 0);
+                                my4.d().L(z6);
+                                my4.d().U((intValue & 2048) == 0);
                                 boolean z7 = (intValue & 4096) == 0;
-                                yx4.d().N(z7);
+                                my4.d().P(z7);
+                                my4.d().R((intValue & 8192) != 0);
                                 if (z4 || z5 || z6 || z3 || z2 || z7) {
-                                    yx4.d().H(300);
+                                    my4.d().J(300);
                                 } else {
-                                    yx4.d().H(0);
+                                    my4.d().J(0);
                                 }
                             }
-                            sg.a().b(new d());
+                            qg.a().b(new f());
                         }
                     }
                     z2 = true;
                     num = a.shieldStatus;
                     if (num != null) {
                     }
-                    sg.a().b(new d());
+                    qg.a().b(new f());
                 }
                 if (!TextUtils.isEmpty(a.maskFids) && (split3 = a.maskFids.split(",")) != null && split3.length > 0) {
                     for (String str : split3) {
-                        c87.j().g(currentAccount, str, false, null);
+                        s77.j().g(currentAccount, str, false, null);
                     }
                 }
                 if (!TextUtils.isEmpty(a.maskGids) && (split2 = a.maskGids.split(",")) != null && split2.length > 0) {
                     for (String str2 : split2) {
-                        a87.k().g(currentAccount, str2, false, null);
+                        q77.k().g(currentAccount, str2, false, null);
                     }
                 }
                 if (!TextUtils.isEmpty(a.maskUids) && (split = a.maskUids.split(",")) != null && split.length > 0) {
                     for (String str3 : split) {
-                        d87.j().g(currentAccount, str3, false, null);
+                        t77.j().g(currentAccount, str3, false, null);
                     }
                 }
+                e();
                 c = true;
             }
         }
@@ -615,20 +796,21 @@ public class SettingStatic {
             while (r6 < r3) {
             }
         }
+        e();
         c = true;
     }
 
-    public static final void l(int i, boolean z) {
+    public static final void p(int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            if (i == 4) {
+        if (interceptable == null || interceptable.invokeCommon(65553, null, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+            if (i2 == 4) {
                 RequestUpdateMaskMessage requestUpdateMaskMessage = new RequestUpdateMaskMessage();
                 requestUpdateMaskMessage.setSettingMask(z);
                 MessageManager.getInstance().sendMessage(requestUpdateMaskMessage);
                 return;
             }
             RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = new RequestUpdateMaskInfoMessage();
-            requestUpdateMaskInfoMessage.setMaskType(i);
+            requestUpdateMaskInfoMessage.setMaskType(i2);
             requestUpdateMaskInfoMessage.setSettingMask(z);
             MessageManager.getInstance().sendMessage(requestUpdateMaskInfoMessage);
         }

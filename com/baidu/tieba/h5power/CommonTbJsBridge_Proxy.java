@@ -14,11 +14,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
-import com.repackage.ni;
-import com.repackage.tl8;
-import com.repackage.ul8;
-import com.repackage.vl8;
-import com.repackage.xl8;
+import com.repackage.li;
+import com.repackage.qk8;
+import com.repackage.rk8;
+import com.repackage.sk8;
+import com.repackage.uk8;
 import com.tencent.connect.share.QzonePublish;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,7 +28,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class CommonTbJsBridge_Proxy extends tl8 {
+public class CommonTbJsBridge_Proxy extends qk8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CommonTbJsBridge mJsBridge;
@@ -69,584 +69,584 @@ public class CommonTbJsBridge_Proxy extends tl8 {
         this.mNotificationNameList.add(CommonTbJsBridge.GO_BACK_FROM_NATIVE);
     }
 
-    @Override // com.repackage.tl8
-    public vl8 dispatch(xl8 xl8Var, vl8 vl8Var) {
+    @Override // com.repackage.qk8
+    public sk8 dispatch(uk8 uk8Var, sk8 sk8Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, xl8Var, vl8Var)) == null) {
-            vl8 vl8Var2 = vl8Var == null ? new vl8() : vl8Var;
-            String b = xl8Var.b();
-            JSONObject e = xl8Var.e();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, uk8Var, sk8Var)) == null) {
+            sk8 sk8Var2 = sk8Var == null ? new sk8() : sk8Var;
+            String b = uk8Var.b();
+            JSONObject e = uk8Var.e();
             if (b.equals("account/startLoginModule")) {
-                vl8Var2.r(true);
-                vl8 startLoginModule = this.mJsBridge.startLoginModule(e.optString("cssUrl"));
+                sk8Var2.r(true);
+                sk8 startLoginModule = this.mJsBridge.startLoginModule(e.optString("cssUrl"));
                 if (startLoginModule != null) {
-                    vl8Var2.x(startLoginModule.f());
-                    vl8Var2.t(startLoginModule.b());
-                    vl8Var2.o(startLoginModule.a());
-                    vl8Var2.w(startLoginModule.e());
+                    sk8Var2.x(startLoginModule.f());
+                    sk8Var2.t(startLoginModule.b());
+                    sk8Var2.o(startLoginModule.a());
+                    sk8Var2.w(startLoginModule.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("router/finishThisPage")) {
-                vl8Var2.r(true);
-                vl8 finishPage = this.mJsBridge.finishPage();
+                sk8Var2.r(true);
+                sk8 finishPage = this.mJsBridge.finishPage();
                 if (finishPage != null) {
-                    vl8Var2.x(finishPage.f());
-                    vl8Var2.t(finishPage.b());
-                    vl8Var2.o(finishPage.a());
-                    vl8Var2.w(finishPage.e());
+                    sk8Var2.x(finishPage.f());
+                    sk8Var2.t(finishPage.b());
+                    sk8Var2.o(finishPage.a());
+                    sk8Var2.w(finishPage.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("toast/toastPopupView")) {
-                vl8Var2.r(true);
-                vl8 showLowerHairHint = this.mJsBridge.showLowerHairHint(e.optInt("showType"), e.optInt("aheadType"), e.optString("message"), e.optString("btnText"), e.optInt("toastDuration"), e.optString("schema"), e.optString("token"), e.optDouble(NativeConstants.OPACITY), e.optString("imgUrl"), e.optString("url"), e.optInt("missionId"), e.optString("btnColor"), e.optString("messageColor"), e.optString("btnTextColor"), e.optInt("status"), e.optInt(CommonTbJsBridge.FINISH_THIS_PAGE));
+                sk8Var2.r(true);
+                sk8 showLowerHairHint = this.mJsBridge.showLowerHairHint(e.optInt("showType"), e.optInt("aheadType"), e.optString("message"), e.optString("btnText"), e.optInt("toastDuration"), e.optString("schema"), e.optString("token"), e.optDouble(NativeConstants.OPACITY), e.optString("imgUrl"), e.optString("url"), e.optInt("missionId"), e.optString("btnColor"), e.optString("messageColor"), e.optString("btnTextColor"), e.optInt("status"), e.optInt(CommonTbJsBridge.FINISH_THIS_PAGE));
                 if (showLowerHairHint != null) {
-                    vl8Var2.x(showLowerHairHint.f());
-                    vl8Var2.t(showLowerHairHint.b());
-                    vl8Var2.o(showLowerHairHint.a());
-                    vl8Var2.w(showLowerHairHint.e());
+                    sk8Var2.x(showLowerHairHint.f());
+                    sk8Var2.t(showLowerHairHint.b());
+                    sk8Var2.o(showLowerHairHint.a());
+                    sk8Var2.w(showLowerHairHint.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("subscription/gamePush")) {
-                vl8Var2.r(true);
-                vl8 gamePush = this.mJsBridge.gamePush(e.optString("gameId"), e.optString("gameName"), e.optString("gameTime"), e.optString("gameType"));
+                sk8Var2.r(true);
+                sk8 gamePush = this.mJsBridge.gamePush(e.optString("gameId"), e.optString("gameName"), e.optString("gameTime"), e.optString("gameType"));
                 if (gamePush != null) {
-                    vl8Var2.x(gamePush.f());
-                    vl8Var2.t(gamePush.b());
-                    vl8Var2.o(gamePush.a());
-                    vl8Var2.w(gamePush.e());
+                    sk8Var2.x(gamePush.f());
+                    sk8Var2.t(gamePush.b());
+                    sk8Var2.o(gamePush.a());
+                    sk8Var2.w(gamePush.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("subscription/gamePushStatus")) {
-                vl8Var2.r(true);
-                vl8 handleGamePushStatus = this.mJsBridge.handleGamePushStatus();
+                sk8Var2.r(true);
+                sk8 handleGamePushStatus = this.mJsBridge.handleGamePushStatus();
                 if (handleGamePushStatus != null) {
-                    vl8Var2.x(handleGamePushStatus.f());
-                    vl8Var2.t(handleGamePushStatus.b());
-                    vl8Var2.o(handleGamePushStatus.a());
-                    vl8Var2.w(handleGamePushStatus.e());
+                    sk8Var2.x(handleGamePushStatus.f());
+                    sk8Var2.t(handleGamePushStatus.b());
+                    sk8Var2.o(handleGamePushStatus.a());
+                    sk8Var2.w(handleGamePushStatus.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("router/goToBarDetail")) {
-                vl8Var2.r(true);
-                vl8 handleGoToBarDetail = this.mJsBridge.handleGoToBarDetail(e.optString(TbTitleActivityConfig.FORUM_ID));
+                sk8Var2.r(true);
+                sk8 handleGoToBarDetail = this.mJsBridge.handleGoToBarDetail(e.optString(TbTitleActivityConfig.FORUM_ID));
                 if (handleGoToBarDetail != null) {
-                    vl8Var2.x(handleGoToBarDetail.f());
-                    vl8Var2.t(handleGoToBarDetail.b());
-                    vl8Var2.o(handleGoToBarDetail.a());
-                    vl8Var2.w(handleGoToBarDetail.e());
+                    sk8Var2.x(handleGoToBarDetail.f());
+                    sk8Var2.t(handleGoToBarDetail.b());
+                    sk8Var2.o(handleGoToBarDetail.a());
+                    sk8Var2.w(handleGoToBarDetail.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("system/saveImage")) {
-                vl8Var2.r(true);
-                vl8 handleSaveImage = this.mJsBridge.handleSaveImage(e.optString("imgUrl"));
+                sk8Var2.r(true);
+                sk8 handleSaveImage = this.mJsBridge.handleSaveImage(e.optString("imgUrl"));
                 this.mNotificationNameList.add("saveImageSuccess");
                 if (handleSaveImage != null) {
-                    vl8Var2.x(handleSaveImage.f());
-                    vl8Var2.t(handleSaveImage.b());
-                    vl8Var2.o(handleSaveImage.a());
-                    vl8Var2.w(handleSaveImage.e());
-                    if (!vl8Var2.h()) {
-                        vl8Var2.n(false);
-                        addObserver("saveImageSuccess", vl8Var2, false);
+                    sk8Var2.x(handleSaveImage.f());
+                    sk8Var2.t(handleSaveImage.b());
+                    sk8Var2.o(handleSaveImage.a());
+                    sk8Var2.w(handleSaveImage.e());
+                    if (!sk8Var2.h()) {
+                        sk8Var2.n(false);
+                        addObserver("saveImageSuccess", sk8Var2, false);
                     }
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("system/goToPhotoAlbum")) {
-                vl8Var2.r(true);
-                vl8 handleGetPhotoAlbum = this.mJsBridge.handleGetPhotoAlbum();
+                sk8Var2.r(true);
+                sk8 handleGetPhotoAlbum = this.mJsBridge.handleGetPhotoAlbum();
                 this.mNotificationNameList.add("GetPhotoAlbum");
                 if (handleGetPhotoAlbum != null) {
-                    vl8Var2.x(handleGetPhotoAlbum.f());
-                    vl8Var2.t(handleGetPhotoAlbum.b());
-                    vl8Var2.o(handleGetPhotoAlbum.a());
-                    vl8Var2.w(handleGetPhotoAlbum.e());
-                    if (!vl8Var2.h()) {
-                        vl8Var2.n(false);
-                        addObserver("GetPhotoAlbum", vl8Var2, false);
+                    sk8Var2.x(handleGetPhotoAlbum.f());
+                    sk8Var2.t(handleGetPhotoAlbum.b());
+                    sk8Var2.o(handleGetPhotoAlbum.a());
+                    sk8Var2.w(handleGetPhotoAlbum.e());
+                    if (!sk8Var2.h()) {
+                        sk8Var2.n(false);
+                        addObserver("GetPhotoAlbum", sk8Var2, false);
                     }
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("system/selectPhotoAlbum")) {
-                vl8Var2.r(true);
+                sk8Var2.r(true);
                 int optInt = e.optInt("maxPhotoNum");
                 ArrayList<JSONObject> arrayList = new ArrayList<>();
                 ListUtils.convertJSONArrayToList(arrayList, e.optJSONArray("imageArray"));
-                vl8 selectPhotoAlbum = this.mJsBridge.selectPhotoAlbum(optInt, arrayList);
+                sk8 selectPhotoAlbum = this.mJsBridge.selectPhotoAlbum(optInt, arrayList);
                 this.mNotificationNameList.add(CommonTbJsBridge.SELECT_PHOTO_ALBUM);
                 if (selectPhotoAlbum != null) {
-                    vl8Var2.x(selectPhotoAlbum.f());
-                    vl8Var2.t(selectPhotoAlbum.b());
-                    vl8Var2.o(selectPhotoAlbum.a());
-                    vl8Var2.w(selectPhotoAlbum.e());
-                    if (!vl8Var2.h()) {
-                        vl8Var2.n(false);
-                        addObserver(CommonTbJsBridge.SELECT_PHOTO_ALBUM, vl8Var2, false);
+                    sk8Var2.x(selectPhotoAlbum.f());
+                    sk8Var2.t(selectPhotoAlbum.b());
+                    sk8Var2.o(selectPhotoAlbum.a());
+                    sk8Var2.w(selectPhotoAlbum.e());
+                    if (!sk8Var2.h()) {
+                        sk8Var2.n(false);
+                        addObserver(CommonTbJsBridge.SELECT_PHOTO_ALBUM, sk8Var2, false);
                     }
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("router/goToSelectPrivateMsgPage")) {
-                vl8Var2.r(true);
+                sk8Var2.r(true);
                 String optString = e.optString("portrait");
                 ArrayList<JSONObject> arrayList2 = new ArrayList<>();
                 ListUtils.convertJSONArrayToList(arrayList2, e.optJSONArray("msgArray"));
-                vl8 selectPrivateMsg = this.mJsBridge.selectPrivateMsg(optString, arrayList2);
+                sk8 selectPrivateMsg = this.mJsBridge.selectPrivateMsg(optString, arrayList2);
                 this.mNotificationNameList.add("goToSelectPrivateMsgPage");
                 if (selectPrivateMsg != null) {
-                    vl8Var2.x(selectPrivateMsg.f());
-                    vl8Var2.t(selectPrivateMsg.b());
-                    vl8Var2.o(selectPrivateMsg.a());
-                    vl8Var2.w(selectPrivateMsg.e());
-                    if (!vl8Var2.h()) {
-                        vl8Var2.n(false);
-                        addObserver("goToSelectPrivateMsgPage", vl8Var2, false);
+                    sk8Var2.x(selectPrivateMsg.f());
+                    sk8Var2.t(selectPrivateMsg.b());
+                    sk8Var2.o(selectPrivateMsg.a());
+                    sk8Var2.w(selectPrivateMsg.e());
+                    if (!sk8Var2.h()) {
+                        sk8Var2.n(false);
+                        addObserver("goToSelectPrivateMsgPage", sk8Var2, false);
                     }
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("router/goToReportThreadPage")) {
-                vl8Var2.r(true);
+                sk8Var2.r(true);
                 String optString2 = e.optString("portrait");
                 ArrayList<String> arrayList3 = new ArrayList<>();
                 ListUtils.convertJSONArrayToList(arrayList3, e.optJSONArray("threadArray"));
-                vl8 reportUserTheme = this.mJsBridge.reportUserTheme(optString2, arrayList3);
+                sk8 reportUserTheme = this.mJsBridge.reportUserTheme(optString2, arrayList3);
                 this.mNotificationNameList.add("goToReportThreadPage");
                 if (reportUserTheme != null) {
-                    vl8Var2.x(reportUserTheme.f());
-                    vl8Var2.t(reportUserTheme.b());
-                    vl8Var2.o(reportUserTheme.a());
-                    vl8Var2.w(reportUserTheme.e());
-                    if (!vl8Var2.h()) {
-                        vl8Var2.n(false);
-                        addObserver("goToReportThreadPage", vl8Var2, false);
+                    sk8Var2.x(reportUserTheme.f());
+                    sk8Var2.t(reportUserTheme.b());
+                    sk8Var2.o(reportUserTheme.a());
+                    sk8Var2.w(reportUserTheme.e());
+                    if (!sk8Var2.h()) {
+                        sk8Var2.n(false);
+                        addObserver("goToReportThreadPage", sk8Var2, false);
                     }
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("system/playSound")) {
-                vl8Var2.r(true);
-                vl8 playSound = this.mJsBridge.playSound(e.optString("soundUrl"));
+                sk8Var2.r(true);
+                sk8 playSound = this.mJsBridge.playSound(e.optString("soundUrl"));
                 if (playSound != null) {
-                    vl8Var2.x(playSound.f());
-                    vl8Var2.t(playSound.b());
-                    vl8Var2.o(playSound.a());
-                    vl8Var2.w(playSound.e());
+                    sk8Var2.x(playSound.f());
+                    sk8Var2.t(playSound.b());
+                    sk8Var2.o(playSound.a());
+                    sk8Var2.w(playSound.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("system/playVibrate")) {
-                vl8Var2.r(true);
-                vl8 playVibrate = this.mJsBridge.playVibrate();
+                sk8Var2.r(true);
+                sk8 playVibrate = this.mJsBridge.playVibrate();
                 if (playVibrate != null) {
-                    vl8Var2.x(playVibrate.f());
-                    vl8Var2.t(playVibrate.b());
-                    vl8Var2.o(playVibrate.a());
-                    vl8Var2.w(playVibrate.e());
+                    sk8Var2.x(playVibrate.f());
+                    sk8Var2.t(playVibrate.b());
+                    sk8Var2.o(playVibrate.a());
+                    sk8Var2.w(playVibrate.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("account/loadThirdPartyLogin")) {
-                vl8Var2.r(true);
-                vl8 jumpLoginActivity = this.mJsBridge.jumpLoginActivity(e.optInt("socialType"), e.optString("activityId"));
+                sk8Var2.r(true);
+                sk8 jumpLoginActivity = this.mJsBridge.jumpLoginActivity(e.optInt("socialType"), e.optString("activityId"));
                 if (jumpLoginActivity != null) {
-                    vl8Var2.x(jumpLoginActivity.f());
-                    vl8Var2.t(jumpLoginActivity.b());
-                    vl8Var2.o(jumpLoginActivity.a());
-                    vl8Var2.w(jumpLoginActivity.e());
+                    sk8Var2.x(jumpLoginActivity.f());
+                    sk8Var2.t(jumpLoginActivity.b());
+                    sk8Var2.o(jumpLoginActivity.a());
+                    sk8Var2.w(jumpLoginActivity.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("system/startLoadTimeInterval")) {
-                vl8Var2.r(true);
-                vl8 startLoadTimeInterval = this.mJsBridge.getStartLoadTimeInterval();
+                sk8Var2.r(true);
+                sk8 startLoadTimeInterval = this.mJsBridge.getStartLoadTimeInterval();
                 if (startLoadTimeInterval != null) {
-                    vl8Var2.x(startLoadTimeInterval.f());
-                    vl8Var2.t(startLoadTimeInterval.b());
-                    vl8Var2.o(startLoadTimeInterval.a());
-                    vl8Var2.w(startLoadTimeInterval.e());
+                    sk8Var2.x(startLoadTimeInterval.f());
+                    sk8Var2.t(startLoadTimeInterval.b());
+                    sk8Var2.o(startLoadTimeInterval.a());
+                    sk8Var2.w(startLoadTimeInterval.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("device/getZid")) {
-                vl8Var2.r(true);
-                vl8 zid = this.mJsBridge.getZid();
+                sk8Var2.r(true);
+                sk8 zid = this.mJsBridge.getZid();
                 if (zid != null) {
-                    vl8Var2.x(zid.f());
-                    vl8Var2.t(zid.b());
-                    vl8Var2.o(zid.a());
-                    vl8Var2.w(zid.e());
+                    sk8Var2.x(zid.f());
+                    sk8Var2.t(zid.b());
+                    sk8Var2.o(zid.a());
+                    sk8Var2.w(zid.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("device/getHdid")) {
-                vl8Var2.r(true);
-                vl8 hdid = this.mJsBridge.getHdid();
+                sk8Var2.r(true);
+                sk8 hdid = this.mJsBridge.getHdid();
                 if (hdid != null) {
-                    vl8Var2.x(hdid.f());
-                    vl8Var2.t(hdid.b());
-                    vl8Var2.o(hdid.a());
-                    vl8Var2.w(hdid.e());
+                    sk8Var2.x(hdid.f());
+                    sk8Var2.t(hdid.b());
+                    sk8Var2.o(hdid.a());
+                    sk8Var2.w(hdid.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("share/registerShareDataNew")) {
-                vl8Var2.r(true);
-                vl8 shareInfo = this.mJsBridge.setShareInfo(e.optString("title"), e.optString("desc"), e.optString("img"), e.optString("url"), e.optString("topic"), e.optString("wbtitle"), e.optString("wbcontent"), e.optString("isShowMoreForum"), e.optInt("shareimg"), e.optString("extdata"));
+                sk8Var2.r(true);
+                sk8 shareInfo = this.mJsBridge.setShareInfo(e.optString("title"), e.optString("desc"), e.optString("img"), e.optString("url"), e.optString("topic"), e.optString("wbtitle"), e.optString("wbcontent"), e.optString("isShowMoreForum"), e.optInt("shareimg"), e.optString("extdata"));
                 if (shareInfo != null) {
-                    vl8Var2.x(shareInfo.f());
-                    vl8Var2.t(shareInfo.b());
-                    vl8Var2.o(shareInfo.a());
-                    vl8Var2.w(shareInfo.e());
+                    sk8Var2.x(shareInfo.f());
+                    sk8Var2.t(shareInfo.b());
+                    sk8Var2.o(shareInfo.a());
+                    sk8Var2.w(shareInfo.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("share/share")) {
-                vl8Var2.r(true);
-                vl8 share = this.mJsBridge.share(e.optInt("channel"), e.optInt("shareImg"), e.optString("img"), e.optString("isShowMoreForum"), e.optString("url"), e.optString("title"), e.optString("desc"), e.optString("topic"), e.optString("wbtitle"), e.optString("wbcontent"), e.optInt("weixinDisable"), e.optString("extData"));
+                sk8Var2.r(true);
+                sk8 share = this.mJsBridge.share(e.optInt("channel"), e.optInt("shareImg"), e.optString("img"), e.optString("isShowMoreForum"), e.optString("url"), e.optString("title"), e.optString("desc"), e.optString("topic"), e.optString("wbtitle"), e.optString("wbcontent"), e.optInt("weixinDisable"), e.optString("extData"));
                 if (share != null) {
-                    vl8Var2.x(share.f());
-                    vl8Var2.t(share.b());
-                    vl8Var2.o(share.a());
-                    vl8Var2.w(share.e());
+                    sk8Var2.x(share.f());
+                    sk8Var2.t(share.b());
+                    sk8Var2.o(share.a());
+                    sk8Var2.w(share.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("clipper/getClipperInformation")) {
-                vl8Var2.r(true);
-                vl8 clipperInformation = this.mJsBridge.getClipperInformation();
+                sk8Var2.r(true);
+                sk8 clipperInformation = this.mJsBridge.getClipperInformation();
                 if (clipperInformation != null) {
-                    vl8Var2.x(clipperInformation.f());
-                    vl8Var2.t(clipperInformation.b());
-                    vl8Var2.o(clipperInformation.a());
-                    vl8Var2.w(clipperInformation.e());
+                    sk8Var2.x(clipperInformation.f());
+                    sk8Var2.t(clipperInformation.b());
+                    sk8Var2.o(clipperInformation.a());
+                    sk8Var2.w(clipperInformation.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("clipper/setClipperInformation")) {
-                vl8Var2.r(true);
-                vl8 clipperInformation2 = this.mJsBridge.setClipperInformation(e.optString("txt"));
+                sk8Var2.r(true);
+                sk8 clipperInformation2 = this.mJsBridge.setClipperInformation(e.optString("txt"));
                 if (clipperInformation2 != null) {
-                    vl8Var2.x(clipperInformation2.f());
-                    vl8Var2.t(clipperInformation2.b());
-                    vl8Var2.o(clipperInformation2.a());
-                    vl8Var2.w(clipperInformation2.e());
+                    sk8Var2.x(clipperInformation2.f());
+                    sk8Var2.t(clipperInformation2.b());
+                    sk8Var2.o(clipperInformation2.a());
+                    sk8Var2.w(clipperInformation2.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("router/goToEditPost")) {
-                vl8Var2.r(true);
-                vl8 goToEditPost = this.mJsBridge.goToEditPost(e.optString("pos"), e.optString("tid"), e.optString("floorId"), e.optString("postId"), e.optString("content"), e.optString("fid"), e.optString("fname"));
+                sk8Var2.r(true);
+                sk8 goToEditPost = this.mJsBridge.goToEditPost(e.optString("pos"), e.optString("tid"), e.optString("floorId"), e.optString("postId"), e.optString("content"), e.optString("fid"), e.optString("fname"));
                 if (goToEditPost != null) {
-                    vl8Var2.x(goToEditPost.f());
-                    vl8Var2.t(goToEditPost.b());
-                    vl8Var2.o(goToEditPost.a());
-                    vl8Var2.w(goToEditPost.e());
+                    sk8Var2.x(goToEditPost.f());
+                    sk8Var2.t(goToEditPost.b());
+                    sk8Var2.o(goToEditPost.a());
+                    sk8Var2.w(goToEditPost.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("activity/updateSearchForumInfo")) {
-                vl8Var2.r(true);
-                vl8 updateSearchForumInfo = this.mJsBridge.updateSearchForumInfo(e.optString("forumParams"));
+                sk8Var2.r(true);
+                sk8 updateSearchForumInfo = this.mJsBridge.updateSearchForumInfo(e.optString("forumParams"));
                 if (updateSearchForumInfo != null) {
-                    vl8Var2.x(updateSearchForumInfo.f());
-                    vl8Var2.t(updateSearchForumInfo.b());
-                    vl8Var2.o(updateSearchForumInfo.a());
-                    vl8Var2.w(updateSearchForumInfo.e());
+                    sk8Var2.x(updateSearchForumInfo.f());
+                    sk8Var2.t(updateSearchForumInfo.b());
+                    sk8Var2.o(updateSearchForumInfo.a());
+                    sk8Var2.w(updateSearchForumInfo.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("activity/personlizedSwitchChange")) {
-                vl8Var2.r(true);
-                vl8 personlizedSwitchChange = this.mJsBridge.personlizedSwitchChange(e.optString("personlizedSwitchStatus"));
+                sk8Var2.r(true);
+                sk8 personlizedSwitchChange = this.mJsBridge.personlizedSwitchChange(e.optString("personlizedSwitchStatus"));
                 if (personlizedSwitchChange != null) {
-                    vl8Var2.x(personlizedSwitchChange.f());
-                    vl8Var2.t(personlizedSwitchChange.b());
-                    vl8Var2.o(personlizedSwitchChange.a());
-                    vl8Var2.w(personlizedSwitchChange.e());
+                    sk8Var2.x(personlizedSwitchChange.f());
+                    sk8Var2.t(personlizedSwitchChange.b());
+                    sk8Var2.o(personlizedSwitchChange.a());
+                    sk8Var2.w(personlizedSwitchChange.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("router/videoImmersivePage")) {
-                vl8Var2.r(true);
-                vl8 goToVideoImmersivePage = this.mJsBridge.goToVideoImmersivePage(e.optString("threadId"), e.optString("postId"), e.optString("title"), e.optString(TbEnum.SystemMessage.KEY_USER_NAME), e.optString("nickName"), e.optString("portrait"), e.optString("thumbnailUrl"), e.optString("videoUrl"), e.optString("videoWidth"), e.optString("videoHeight"), e.optString(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION), e.optString("postNum"), e.optString("agreeNum"), e.optString("shareNum"), e.optString(TbTitleActivityConfig.FORUM_ID), e.optString("forumName"), e.optString("showComment"));
+                sk8Var2.r(true);
+                sk8 goToVideoImmersivePage = this.mJsBridge.goToVideoImmersivePage(e.optString("threadId"), e.optString("postId"), e.optString("title"), e.optString(TbEnum.SystemMessage.KEY_USER_NAME), e.optString("nickName"), e.optString("portrait"), e.optString("thumbnailUrl"), e.optString("videoUrl"), e.optString("videoWidth"), e.optString("videoHeight"), e.optString(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION), e.optString("postNum"), e.optString("agreeNum"), e.optString("shareNum"), e.optString(TbTitleActivityConfig.FORUM_ID), e.optString("forumName"), e.optString("showComment"));
                 if (goToVideoImmersivePage != null) {
-                    vl8Var2.x(goToVideoImmersivePage.f());
-                    vl8Var2.t(goToVideoImmersivePage.b());
-                    vl8Var2.o(goToVideoImmersivePage.a());
-                    vl8Var2.w(goToVideoImmersivePage.e());
+                    sk8Var2.x(goToVideoImmersivePage.f());
+                    sk8Var2.t(goToVideoImmersivePage.b());
+                    sk8Var2.o(goToVideoImmersivePage.a());
+                    sk8Var2.w(goToVideoImmersivePage.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("router/jumpToVideo")) {
-                vl8Var2.r(true);
-                vl8 jumpToVideo = this.mJsBridge.jumpToVideo(e.optString("videoTopic"), e.optString("videoTopicID"), e.optString("isVideo"));
+                sk8Var2.r(true);
+                sk8 jumpToVideo = this.mJsBridge.jumpToVideo(e.optString("videoTopic"), e.optString("videoTopicID"), e.optString("isVideo"));
                 if (jumpToVideo != null) {
-                    vl8Var2.x(jumpToVideo.f());
-                    vl8Var2.t(jumpToVideo.b());
-                    vl8Var2.o(jumpToVideo.a());
-                    vl8Var2.w(jumpToVideo.e());
+                    sk8Var2.x(jumpToVideo.f());
+                    sk8Var2.t(jumpToVideo.b());
+                    sk8Var2.o(jumpToVideo.a());
+                    sk8Var2.w(jumpToVideo.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("system/closeNativeMask")) {
-                vl8Var2.r(true);
-                vl8 closeNativeMask = this.mJsBridge.closeNativeMask(e.optInt("result"));
+                sk8Var2.r(true);
+                sk8 closeNativeMask = this.mJsBridge.closeNativeMask(e.optInt("result"));
                 if (closeNativeMask != null) {
-                    vl8Var2.x(closeNativeMask.f());
-                    vl8Var2.t(closeNativeMask.b());
-                    vl8Var2.o(closeNativeMask.a());
-                    vl8Var2.w(closeNativeMask.e());
+                    sk8Var2.x(closeNativeMask.f());
+                    sk8Var2.t(closeNativeMask.b());
+                    sk8Var2.o(closeNativeMask.a());
+                    sk8Var2.w(closeNativeMask.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("system/checkAppInstall")) {
-                vl8Var2.r(true);
-                vl8 checkAppInstall = this.mJsBridge.checkAppInstall(e.optString("pkgName"));
+                sk8Var2.r(true);
+                sk8 checkAppInstall = this.mJsBridge.checkAppInstall(e.optString("pkgName"));
                 if (checkAppInstall != null) {
-                    vl8Var2.x(checkAppInstall.f());
-                    vl8Var2.t(checkAppInstall.b());
-                    vl8Var2.o(checkAppInstall.a());
-                    vl8Var2.w(checkAppInstall.e());
+                    sk8Var2.x(checkAppInstall.f());
+                    sk8Var2.t(checkAppInstall.b());
+                    sk8Var2.o(checkAppInstall.a());
+                    sk8Var2.w(checkAppInstall.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("system/disableSlideBack")) {
-                vl8Var2.r(true);
-                vl8 disableBack = this.mJsBridge.disableBack(e.optInt(PackageTable.DISABLE));
+                sk8Var2.r(true);
+                sk8 disableBack = this.mJsBridge.disableBack(e.optInt(PackageTable.DISABLE));
                 if (disableBack != null) {
-                    vl8Var2.x(disableBack.f());
-                    vl8Var2.t(disableBack.b());
-                    vl8Var2.o(disableBack.a());
-                    vl8Var2.w(disableBack.e());
+                    sk8Var2.x(disableBack.f());
+                    sk8Var2.t(disableBack.b());
+                    sk8Var2.o(disableBack.a());
+                    sk8Var2.w(disableBack.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("system/startApp")) {
-                vl8Var2.r(true);
-                vl8 startApp = this.mJsBridge.startApp(e.optString("pkgName"), e.optString("schema"));
+                sk8Var2.r(true);
+                sk8 startApp = this.mJsBridge.startApp(e.optString("pkgName"), e.optString("schema"));
                 if (startApp != null) {
-                    vl8Var2.x(startApp.f());
-                    vl8Var2.t(startApp.b());
-                    vl8Var2.o(startApp.a());
-                    vl8Var2.w(startApp.e());
+                    sk8Var2.x(startApp.f());
+                    sk8Var2.t(startApp.b());
+                    sk8Var2.o(startApp.a());
+                    sk8Var2.w(startApp.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("system/hasNotificationPermission")) {
-                vl8Var2.r(true);
-                vl8 hasNotificationPermission = this.mJsBridge.hasNotificationPermission();
+                sk8Var2.r(true);
+                sk8 hasNotificationPermission = this.mJsBridge.hasNotificationPermission();
                 if (hasNotificationPermission != null) {
-                    vl8Var2.x(hasNotificationPermission.f());
-                    vl8Var2.t(hasNotificationPermission.b());
-                    vl8Var2.o(hasNotificationPermission.a());
-                    vl8Var2.w(hasNotificationPermission.e());
+                    sk8Var2.x(hasNotificationPermission.f());
+                    sk8Var2.t(hasNotificationPermission.b());
+                    sk8Var2.o(hasNotificationPermission.a());
+                    sk8Var2.w(hasNotificationPermission.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("system/goToNotificationSetting")) {
-                vl8Var2.r(true);
-                vl8 goToNotificationSetting = this.mJsBridge.goToNotificationSetting();
+                sk8Var2.r(true);
+                sk8 goToNotificationSetting = this.mJsBridge.goToNotificationSetting();
                 if (goToNotificationSetting != null) {
-                    vl8Var2.x(goToNotificationSetting.f());
-                    vl8Var2.t(goToNotificationSetting.b());
-                    vl8Var2.o(goToNotificationSetting.a());
-                    vl8Var2.w(goToNotificationSetting.e());
+                    sk8Var2.x(goToNotificationSetting.f());
+                    sk8Var2.t(goToNotificationSetting.b());
+                    sk8Var2.o(goToNotificationSetting.a());
+                    sk8Var2.w(goToNotificationSetting.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("account/startDownloadCss")) {
-                vl8Var2.r(true);
-                vl8 startDownloadCss = this.mJsBridge.startDownloadCss(e.optString(TTDownloadField.TT_DOWNLOAD_URL));
+                sk8Var2.r(true);
+                sk8 startDownloadCss = this.mJsBridge.startDownloadCss(e.optString(TTDownloadField.TT_DOWNLOAD_URL));
                 if (startDownloadCss != null) {
-                    vl8Var2.x(startDownloadCss.f());
-                    vl8Var2.t(startDownloadCss.b());
-                    vl8Var2.o(startDownloadCss.a());
-                    vl8Var2.w(startDownloadCss.e());
+                    sk8Var2.x(startDownloadCss.f());
+                    sk8Var2.t(startDownloadCss.b());
+                    sk8Var2.o(startDownloadCss.a());
+                    sk8Var2.w(startDownloadCss.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("navigationBar/isDisableGoBack")) {
-                vl8Var2.r(true);
-                vl8 disableGoBack = this.mJsBridge.setDisableGoBack();
+                sk8Var2.r(true);
+                sk8 disableGoBack = this.mJsBridge.setDisableGoBack();
                 if (disableGoBack != null) {
-                    vl8Var2.x(disableGoBack.f());
-                    vl8Var2.t(disableGoBack.b());
-                    vl8Var2.o(disableGoBack.a());
-                    vl8Var2.w(disableGoBack.e());
+                    sk8Var2.x(disableGoBack.f());
+                    sk8Var2.t(disableGoBack.b());
+                    sk8Var2.o(disableGoBack.a());
+                    sk8Var2.w(disableGoBack.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("device/getSupplementInfo")) {
-                vl8Var2.r(true);
-                vl8 supplementInfo = this.mJsBridge.getSupplementInfo();
+                sk8Var2.r(true);
+                sk8 supplementInfo = this.mJsBridge.getSupplementInfo();
                 if (supplementInfo != null) {
-                    vl8Var2.x(supplementInfo.f());
-                    vl8Var2.t(supplementInfo.b());
-                    vl8Var2.o(supplementInfo.a());
-                    vl8Var2.w(supplementInfo.e());
+                    sk8Var2.x(supplementInfo.f());
+                    sk8Var2.t(supplementInfo.b());
+                    sk8Var2.o(supplementInfo.a());
+                    sk8Var2.w(supplementInfo.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("device/getDeviceInfo")) {
-                vl8Var2.r(true);
-                vl8 deviceInfo = this.mJsBridge.getDeviceInfo();
+                sk8Var2.r(true);
+                sk8 deviceInfo = this.mJsBridge.getDeviceInfo();
                 if (deviceInfo != null) {
-                    vl8Var2.x(deviceInfo.f());
-                    vl8Var2.t(deviceInfo.b());
-                    vl8Var2.o(deviceInfo.a());
-                    vl8Var2.w(deviceInfo.e());
+                    sk8Var2.x(deviceInfo.f());
+                    sk8Var2.t(deviceInfo.b());
+                    sk8Var2.o(deviceInfo.a());
+                    sk8Var2.w(deviceInfo.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("activity/completeTask")) {
-                vl8Var2.r(true);
-                vl8 sendCompleteTaskReqMsg = this.mJsBridge.sendCompleteTaskReqMsg(e.optString("activityId"), e.optString("missionId"));
+                sk8Var2.r(true);
+                sk8 sendCompleteTaskReqMsg = this.mJsBridge.sendCompleteTaskReqMsg(e.optString("activityId"), e.optString("missionId"));
                 if (sendCompleteTaskReqMsg != null) {
-                    vl8Var2.x(sendCompleteTaskReqMsg.f());
-                    vl8Var2.t(sendCompleteTaskReqMsg.b());
-                    vl8Var2.o(sendCompleteTaskReqMsg.a());
-                    vl8Var2.w(sendCompleteTaskReqMsg.e());
+                    sk8Var2.x(sendCompleteTaskReqMsg.f());
+                    sk8Var2.t(sendCompleteTaskReqMsg.b());
+                    sk8Var2.o(sendCompleteTaskReqMsg.a());
+                    sk8Var2.w(sendCompleteTaskReqMsg.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("toast/showTipToast")) {
-                vl8Var2.r(true);
-                vl8 showTipToast = this.mJsBridge.showTipToast(e.optString("content"), e.optString("linkUrl"), e.optString("key"), e.optInt("maxTimes"), e.optInt(CommonTbJsBridge.FINISH_THIS_PAGE));
+                sk8Var2.r(true);
+                sk8 showTipToast = this.mJsBridge.showTipToast(e.optString("content"), e.optString("linkUrl"), e.optString("key"), e.optInt("maxTimes"), e.optInt(CommonTbJsBridge.FINISH_THIS_PAGE));
                 if (showTipToast != null) {
-                    vl8Var2.x(showTipToast.f());
-                    vl8Var2.t(showTipToast.b());
-                    vl8Var2.o(showTipToast.a());
-                    vl8Var2.w(showTipToast.e());
+                    sk8Var2.x(showTipToast.f());
+                    sk8Var2.t(showTipToast.b());
+                    sk8Var2.o(showTipToast.a());
+                    sk8Var2.w(showTipToast.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("toast/getModalData")) {
-                vl8Var2.r(true);
-                vl8 getModalData = this.mJsBridge.getGetModalData();
+                sk8Var2.r(true);
+                sk8 getModalData = this.mJsBridge.getGetModalData();
                 if (getModalData != null) {
-                    vl8Var2.x(getModalData.f());
-                    vl8Var2.t(getModalData.b());
-                    vl8Var2.o(getModalData.a());
-                    vl8Var2.w(getModalData.e());
+                    sk8Var2.x(getModalData.f());
+                    sk8Var2.t(getModalData.b());
+                    sk8Var2.o(getModalData.a());
+                    sk8Var2.w(getModalData.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("router/jumpToHTMLPage")) {
-                vl8Var2.r(true);
-                vl8 jumpToHtmlPage = this.mJsBridge.jumpToHtmlPage(e.optString("url"), e.optInt(CommonTbJsBridge.FINISH_THIS_PAGE));
+                sk8Var2.r(true);
+                sk8 jumpToHtmlPage = this.mJsBridge.jumpToHtmlPage(e.optString("url"), e.optInt(CommonTbJsBridge.FINISH_THIS_PAGE));
                 if (jumpToHtmlPage != null) {
-                    vl8Var2.x(jumpToHtmlPage.f());
-                    vl8Var2.t(jumpToHtmlPage.b());
-                    vl8Var2.o(jumpToHtmlPage.a());
-                    vl8Var2.w(jumpToHtmlPage.e());
+                    sk8Var2.x(jumpToHtmlPage.f());
+                    sk8Var2.t(jumpToHtmlPage.b());
+                    sk8Var2.o(jumpToHtmlPage.a());
+                    sk8Var2.w(jumpToHtmlPage.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("hybridDebug/getOfflineUserInfo")) {
-                vl8Var2.r(true);
-                vl8 offlineUserInfo = this.mJsBridge.getOfflineUserInfo();
+                sk8Var2.r(true);
+                sk8 offlineUserInfo = this.mJsBridge.getOfflineUserInfo();
                 if (offlineUserInfo != null) {
-                    vl8Var2.x(offlineUserInfo.f());
-                    vl8Var2.t(offlineUserInfo.b());
-                    vl8Var2.o(offlineUserInfo.a());
-                    vl8Var2.w(offlineUserInfo.e());
+                    sk8Var2.x(offlineUserInfo.f());
+                    sk8Var2.t(offlineUserInfo.b());
+                    sk8Var2.o(offlineUserInfo.a());
+                    sk8Var2.w(offlineUserInfo.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("hybridDebug/deleteOfflineBundle")) {
-                vl8Var2.r(true);
-                vl8 deleteOfflineBundle = this.mJsBridge.deleteOfflineBundle();
+                sk8Var2.r(true);
+                sk8 deleteOfflineBundle = this.mJsBridge.deleteOfflineBundle();
                 if (deleteOfflineBundle != null) {
-                    vl8Var2.x(deleteOfflineBundle.f());
-                    vl8Var2.t(deleteOfflineBundle.b());
-                    vl8Var2.o(deleteOfflineBundle.a());
-                    vl8Var2.w(deleteOfflineBundle.e());
+                    sk8Var2.x(deleteOfflineBundle.f());
+                    sk8Var2.t(deleteOfflineBundle.b());
+                    sk8Var2.o(deleteOfflineBundle.a());
+                    sk8Var2.w(deleteOfflineBundle.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("hybridDebug/updateOfflineBundle")) {
-                vl8Var2.r(true);
-                vl8 updateOfflineBundle = this.mJsBridge.updateOfflineBundle();
+                sk8Var2.r(true);
+                sk8 updateOfflineBundle = this.mJsBridge.updateOfflineBundle();
                 if (updateOfflineBundle != null) {
-                    vl8Var2.x(updateOfflineBundle.f());
-                    vl8Var2.t(updateOfflineBundle.b());
-                    vl8Var2.o(updateOfflineBundle.a());
-                    vl8Var2.w(updateOfflineBundle.e());
+                    sk8Var2.x(updateOfflineBundle.f());
+                    sk8Var2.t(updateOfflineBundle.b());
+                    sk8Var2.o(updateOfflineBundle.a());
+                    sk8Var2.w(updateOfflineBundle.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("hybridDebug/switchOfflineInterface")) {
-                vl8Var2.r(true);
-                vl8 switchOfflineInterface = this.mJsBridge.switchOfflineInterface(e.optString("host"));
+                sk8Var2.r(true);
+                sk8 switchOfflineInterface = this.mJsBridge.switchOfflineInterface(e.optString("host"));
                 if (switchOfflineInterface != null) {
-                    vl8Var2.x(switchOfflineInterface.f());
-                    vl8Var2.t(switchOfflineInterface.b());
-                    vl8Var2.o(switchOfflineInterface.a());
-                    vl8Var2.w(switchOfflineInterface.e());
+                    sk8Var2.x(switchOfflineInterface.f());
+                    sk8Var2.t(switchOfflineInterface.b());
+                    sk8Var2.o(switchOfflineInterface.a());
+                    sk8Var2.w(switchOfflineInterface.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("hybridDebug/switchOfflineBundleStatus")) {
-                vl8Var2.r(true);
-                vl8 switchOfflineBundleStatus = this.mJsBridge.switchOfflineBundleStatus(e.optInt("isOn"));
+                sk8Var2.r(true);
+                sk8 switchOfflineBundleStatus = this.mJsBridge.switchOfflineBundleStatus(e.optInt("isOn"));
                 if (switchOfflineBundleStatus != null) {
-                    vl8Var2.x(switchOfflineBundleStatus.f());
-                    vl8Var2.t(switchOfflineBundleStatus.b());
-                    vl8Var2.o(switchOfflineBundleStatus.a());
-                    vl8Var2.w(switchOfflineBundleStatus.e());
+                    sk8Var2.x(switchOfflineBundleStatus.f());
+                    sk8Var2.t(switchOfflineBundleStatus.b());
+                    sk8Var2.o(switchOfflineBundleStatus.a());
+                    sk8Var2.w(switchOfflineBundleStatus.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("activity/finishTestAnswer")) {
-                vl8Var2.r(true);
-                vl8 finishTestAnswer = this.mJsBridge.finishTestAnswer(e.optLong("testId"));
+                sk8Var2.r(true);
+                sk8 finishTestAnswer = this.mJsBridge.finishTestAnswer(e.optLong("testId"));
                 if (finishTestAnswer != null) {
-                    vl8Var2.x(finishTestAnswer.f());
-                    vl8Var2.t(finishTestAnswer.b());
-                    vl8Var2.o(finishTestAnswer.a());
-                    vl8Var2.w(finishTestAnswer.e());
+                    sk8Var2.x(finishTestAnswer.f());
+                    sk8Var2.t(finishTestAnswer.b());
+                    sk8Var2.o(finishTestAnswer.a());
+                    sk8Var2.w(finishTestAnswer.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             } else if (b.equals("hybridDebug/switchUrlHost")) {
-                vl8Var2.r(true);
+                sk8Var2.r(true);
                 ArrayList<JSONObject> arrayList4 = new ArrayList<>();
                 ListUtils.convertJSONArrayToList(arrayList4, e.optJSONArray("hostArr"));
-                vl8 switchUrlHost = this.mJsBridge.switchUrlHost(arrayList4);
+                sk8 switchUrlHost = this.mJsBridge.switchUrlHost(arrayList4);
                 if (switchUrlHost != null) {
-                    vl8Var2.x(switchUrlHost.f());
-                    vl8Var2.t(switchUrlHost.b());
-                    vl8Var2.o(switchUrlHost.a());
-                    vl8Var2.w(switchUrlHost.e());
+                    sk8Var2.x(switchUrlHost.f());
+                    sk8Var2.t(switchUrlHost.b());
+                    sk8Var2.o(switchUrlHost.a());
+                    sk8Var2.w(switchUrlHost.e());
                 }
-                vl8Var2.y(0);
+                sk8Var2.y(0);
             }
-            return vl8Var2;
+            return sk8Var2;
         }
-        return (vl8) invokeLL.objValue;
+        return (sk8) invokeLL.objValue;
     }
 
-    @Override // com.repackage.tl8
-    public List<vl8> processNotification(String str, HashMap hashMap) {
+    @Override // com.repackage.qk8
+    public List<sk8> processNotification(String str, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, hashMap)) == null) {
-            vl8 vl8Var = null;
-            if (ni.isEmpty(str) || !this.mNotificationNameList.contains(str)) {
+            sk8 sk8Var = null;
+            if (li.isEmpty(str) || !this.mNotificationNameList.contains(str)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             if (str.equals("saveImageSuccess")) {
-                vl8Var = this.mJsBridge.saveImageSuccess(hashMap);
+                sk8Var = this.mJsBridge.saveImageSuccess(hashMap);
             } else if (str.equals("GetPhotoAlbum")) {
-                vl8Var = this.mJsBridge.getPhotoAlbumResult(hashMap);
+                sk8Var = this.mJsBridge.getPhotoAlbumResult(hashMap);
             } else if (str.equals(CommonTbJsBridge.SELECT_PHOTO_ALBUM)) {
-                vl8Var = this.mJsBridge.getSelectPhotoAlbumResult(hashMap);
+                sk8Var = this.mJsBridge.getSelectPhotoAlbumResult(hashMap);
             } else if (str.equals("goToSelectPrivateMsgPage")) {
-                vl8Var = this.mJsBridge.getSelectPrivateImResult(hashMap);
+                sk8Var = this.mJsBridge.getSelectPrivateImResult(hashMap);
             } else if (str.equals("goToReportThreadPage")) {
-                vl8Var = this.mJsBridge.getToReportThemePage(hashMap);
+                sk8Var = this.mJsBridge.getToReportThemePage(hashMap);
             } else if (str.equals("getPageLeaveTime")) {
-                vl8Var = this.mJsBridge.springFestivalTimeToH5(hashMap);
+                sk8Var = this.mJsBridge.springFestivalTimeToH5(hashMap);
             } else if (str.equals(CommonTbJsBridge.CHANGE_SKIN_TYPE)) {
-                vl8Var = this.mJsBridge.changeSkinTypeInH5(hashMap);
+                sk8Var = this.mJsBridge.changeSkinTypeInH5(hashMap);
             } else if (str.equals(CommonTbJsBridge.SHARE_SUCCCESS_NOTIFICATION)) {
-                vl8Var = this.mJsBridge.shareSuccessNotification(hashMap);
+                sk8Var = this.mJsBridge.shareSuccessNotification(hashMap);
             } else if (str.equals(CommonTbJsBridge.RESULT_THIRD_PARTY_LOGIN)) {
-                vl8Var = this.mJsBridge.thirdPartyLoginResultToH5(hashMap);
+                sk8Var = this.mJsBridge.thirdPartyLoginResultToH5(hashMap);
             } else if (str.equals(CommonTbJsBridge.LOGIN_RESULT_TO_H5)) {
-                vl8Var = this.mJsBridge.onUserLoginChanged(hashMap);
+                sk8Var = this.mJsBridge.onUserLoginChanged(hashMap);
             } else if (str.equals(SearchJsBridge.METHOD_SET_SEARCH_HISTORY)) {
-                vl8Var = this.mJsBridge.setSearchHistory(hashMap);
+                sk8Var = this.mJsBridge.setSearchHistory(hashMap);
             } else if (str.equals(CommonTbJsBridge.RE_SHOW)) {
-                vl8Var = this.mJsBridge.reShow(hashMap);
+                sk8Var = this.mJsBridge.reShow(hashMap);
             } else if (str.equals(CommonTbJsBridge.RE_HIDE)) {
-                vl8Var = this.mJsBridge.reHide(hashMap);
+                sk8Var = this.mJsBridge.reHide(hashMap);
             } else if (str.equals(CommonTbJsBridge.CLICK_GO_BACK_TO_H5)) {
-                vl8Var = this.mJsBridge.dealClickGoBackToH5(hashMap);
+                sk8Var = this.mJsBridge.dealClickGoBackToH5(hashMap);
             } else if (str.equals(CommonTbJsBridge.GO_BACK_FROM_NATIVE)) {
-                vl8Var = this.mJsBridge.dealGoBackFromNative(hashMap);
+                sk8Var = this.mJsBridge.dealGoBackFromNative(hashMap);
             }
-            if (vl8Var != null) {
-                vl8Var.y(0);
+            if (sk8Var != null) {
+                sk8Var.y(0);
             }
-            List<ul8> list = this.mAsyncCallBackMethodList.get(str);
-            if (vl8Var != null && list != null) {
-                Iterator<ul8> it = list.iterator();
-                if (!ni.isEmpty(vl8Var.e())) {
+            List<rk8> list = this.mAsyncCallBackMethodList.get(str);
+            if (sk8Var != null && list != null) {
+                Iterator<rk8> it = list.iterator();
+                if (!li.isEmpty(sk8Var.e())) {
                     while (it.hasNext()) {
-                        ul8 next = it.next();
-                        if (next.b().equals(vl8Var.e())) {
-                            vl8 vl8Var2 = new vl8();
-                            vl8Var2.v(next.a());
-                            vl8Var2.x(vl8Var.f());
-                            vl8Var2.t(vl8Var.b());
-                            vl8Var2.o(vl8Var.a());
-                            vl8Var2.z(vl8Var.l());
-                            arrayList.add(vl8Var2);
+                        rk8 next = it.next();
+                        if (next.b().equals(sk8Var.e())) {
+                            sk8 sk8Var2 = new sk8();
+                            sk8Var2.v(next.a());
+                            sk8Var2.x(sk8Var.f());
+                            sk8Var2.t(sk8Var.b());
+                            sk8Var2.o(sk8Var.a());
+                            sk8Var2.z(sk8Var.l());
+                            arrayList.add(sk8Var2);
                             if (!next.c()) {
                                 it.remove();
                             }
@@ -654,14 +654,14 @@ public class CommonTbJsBridge_Proxy extends tl8 {
                     }
                 } else {
                     while (it.hasNext()) {
-                        ul8 next2 = it.next();
-                        vl8 vl8Var3 = new vl8();
-                        vl8Var3.v(next2.a());
-                        vl8Var3.x(vl8Var.f());
-                        vl8Var3.t(vl8Var.b());
-                        vl8Var3.o(vl8Var.a());
-                        vl8Var3.z(vl8Var.l());
-                        arrayList.add(vl8Var3);
+                        rk8 next2 = it.next();
+                        sk8 sk8Var3 = new sk8();
+                        sk8Var3.v(next2.a());
+                        sk8Var3.x(sk8Var.f());
+                        sk8Var3.t(sk8Var.b());
+                        sk8Var3.o(sk8Var.a());
+                        sk8Var3.z(sk8Var.l());
+                        arrayList.add(sk8Var3);
                         if (!next2.c()) {
                             it.remove();
                         }

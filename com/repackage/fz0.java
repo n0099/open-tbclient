@@ -41,7 +41,7 @@ public class fz0 {
         public void a(Exception exc, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
-                ez0.b(this.a.a(i, exc.getMessage()));
+                ez0.c(this.a.a(i, exc.getMessage()));
             }
         }
 
@@ -57,7 +57,7 @@ public class fz0 {
         public void b(Headers headers, String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048579, this, headers, str, i) == null) {
-                ez0.b(this.a.a(i, "success"));
+                ez0.c(this.a.a(i, "success"));
             }
         }
 
@@ -80,7 +80,7 @@ public class fz0 {
         qp0 qp0Var = new qp0();
         qp0Var.k(gz0Var.d());
         qp0Var.g(3000);
-        qp0Var.d("User-Agent", hi0.e());
+        qp0Var.d("User-Agent", ki0.e());
         qp0Var.c();
         yo0.b().a().a(qp0Var, new a(gz0Var));
     }
@@ -93,7 +93,7 @@ public class fz0 {
         qp0 qp0Var = new qp0();
         qp0Var.k(str);
         qp0Var.g(3000);
-        qp0Var.d("User-Agent", hi0.e());
+        qp0Var.d("User-Agent", ki0.e());
         qp0Var.c();
         yo0.b().a().a(qp0Var, null);
     }
